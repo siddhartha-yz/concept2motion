@@ -1,0 +1,41 @@
+{
+  "scope": "speed checks on a rejected candidate; no quality improvement",
+  "model_calls": 0,
+  "preview_status": "preview_ready",
+  "preview_wall_s": 13.198,
+  "preview_dimensions": [
+    960,
+    540
+  ],
+  "preview_fps": "12/1",
+  "preview_frames": "384",
+  "full_decode_passed": true,
+  "full_render_acceptance": false,
+  "source_hashes": [
+    {
+      "path": "index.html",
+      "sha256": "d4a3d7aa749fa7f396047bf06f5036c8747f05794e6167e43b222ec87cf88a76"
+    },
+    {
+      "path": "scene.js",
+      "sha256": "c8160594c3fba8d33a1dede88cc26cdf75b7b2096fbe91545f1b5af169f48399"
+    }
+  ],
+  "tooling_hashes": [
+    {
+      "path": "render_scene.mjs",
+      "sha256": "8abc20e5e1c953299cf8b0bf9b6d26116fa8794a88893afa1f7bfbab36084dea"
+    },
+    {
+      "path": "contracts.mjs",
+      "sha256": "63fabd5c35d7c1d9da44959c3a7337e6d4e300017e6ad3d77799bb3f4a95145f"
+    }
+  ],
+  "reference_full_render_wall_s": 46.79,
+  "edit_test": {
+    "wall_s": 0.0006,
+    "patch_bytes": 186,
+    "source_bytes": 12708,
+    "change": "one background-color literal; not an artistic candidate"
+  }
+}

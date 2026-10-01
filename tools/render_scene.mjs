@@ -11,10 +11,11 @@ import { once } from 'node:events';
 import { checkFrame, checkVideo, checkCoverage } from './contracts.mjs';
 
 const { values }=parseArgs({options:{
-  scene:{type:'string'},out:{type:'string'},'checks-only':{type:'boolean',default:false},
+  scene:{type:'string'},out:{type:'string'},'checks-only':{type:'boolean',default:false},preview:{type:'boolean',default:false},
   brief:{type:'string'},author:{type:'string',default:'unspecified'},samples:{type:'string',default:'0.5,2,4.5,6.5,7.8,9.3,10.7,11.8'}
 }});
 if(!values.scene||!values.out)throw Error('--scene and --out are required');
+if(values.preview&&values['checks-only'])throw Error('--preview and --checks-only are separate modes');
 const scene=await realpath(resolve(values.scene)),root=dirname(scene),out=resolve(values.out);
 if(out===root||out.startsWith(root+sep))throw Error('Output must be outside the source directory');
 const repo=resolve(dirname(fileURLToPath(import.meta.url)),'..');
@@ -96,8 +97,13 @@ try{
   if(!brief||brief.id!==meta.caseId)throw Error('Brief must match scene caseId');
   if(meta.duration!==brief.duration_s)throw Error('Scene duration must match the frozen brief');
   await writeFile(join(out,'brief.json'),JSON.stringify(brief,null,2)+'\n');
-  Object.assign(manifest,{meta,brief_sha256:sourceHash(JSON.stringify(brief)),mode:values['checks-only']?'checks':'video'});
-  const capture=async(t,withImage=true)=>page.evaluate(({t,withImage})=>{
+  const exportMeta=values.preview?{...meta,width:960,height:Math.round(960*meta.height/meta.width/2)*2,fps:12}:meta;
+  if(values.preview){
+    exportMeta.duration=Math.round(meta.duration*exportMeta.fps)/exportMeta.fps;
+    manifest.preview={...exportMeta,scope:'draft preview; sparse source-time checks; not full verification'};
+  }
+  Object.assign(manifest,{meta,brief_sha256:sourceHash(JSON.stringify(brief)),mode:values.preview?'preview':values['checks-only']?'checks':'video'});
+  const capture=async(t,withImage=true)=>page.evaluate(({t,withImage,previewSize})=>{
     const state=window.C2M.render(t),canvas=document.getElementById('scene');
     if(canvas.width!==window.C2M.meta.width||canvas.height!==window.C2M.meta.height)throw Error('Canvas dimensions differ from metadata');
     const pixels=[];
@@ -109,8 +115,13 @@ try{
       const color=canvas.getContext('2d').getImageData(Math.floor((vector.start.x+vector.end.x)/2),Math.round(vector.start.y),1,1).data;
       pixels.push({id:vector.id,color:Array.from(color),expected:vector.color});
     }
-    return {state:{...state,requestedTime:t},pixels,data:withImage?canvas.toDataURL('image/jpeg',0.95):null};
-  },{t,withImage});
+    let output=canvas;
+    if(withImage&&previewSize){
+      output=document.createElement('canvas');output.width=previewSize.width;output.height=previewSize.height;
+      output.getContext('2d').drawImage(canvas,0,0,output.width,output.height);
+    }
+    return {state:{...state,requestedTime:t},pixels,data:withImage?output.toDataURL('image/jpeg',0.95):null};
+  },{t,withImage,previewSize:values.preview?exportMeta:null});
   const inspect=result=>{
     const checked=checkFrame(result.state,brief,meta);
     for(const pixel of result.pixels){
@@ -145,13 +156,13 @@ try{
     const ffmpeg=process.env.C2M_FFMPEG||'ffmpeg';
     manifest.ffmpegVersion=(await processResult(ffmpeg,['-version'])).split('\n')[0];
     encoder=spawn(ffmpeg,['-hide_banner','-loglevel','error','-y','-f','image2pipe','-vcodec','mjpeg',
-      '-framerate',String(meta.fps),'-i','pipe:0','-c:v','libx264','-threads','2','-preset','medium',
+      '-framerate',String(exportMeta.fps),'-i','pipe:0','-c:v','libx264','-threads','2','-preset',values.preview?'ultrafast':'medium',
       '-crf','19','-pix_fmt','yuv420p','-an','-movflags','+faststart',join(out,'video.mp4')],{stdio:['pipe','ignore','pipe']});
     let encoderError='';encoder.stderr.on('data',b=>encoderError+=b);
     const done=once(encoder,'close');encoder.stdin.on('error',()=>{});
-    const frames=meta.duration*meta.fps,fullFindings=[];
+    const frames=Math.round(exportMeta.duration*exportMeta.fps),fullFindings=[];
     for(let i=0;i<frames;i++){
-      const result=await capture(i/meta.fps),checked=inspect(result);fullFindings.push(...checked.findings);
+      const result=await capture(i/exportMeta.fps),checked=inspect(result);fullFindings.push(...checked.findings);
       if(encoder.exitCode!==null)throw Error(`FFmpeg stopped during capture: ${encoderError}`);
       if(!encoder.stdin.write(Buffer.from(result.data.split(',')[1],'base64'))){
         const drained=await Promise.race([once(encoder.stdin,'drain').then(()=>true),done.then(()=>false)]);
@@ -161,19 +172,19 @@ try{
     }
     encoder.stdin.end();const [code]=await done;encoder=undefined;
     if(code!==0)throw Error(`FFmpeg exited ${code}: ${encoderError}`);
-    checks.full_video_frame_checks={frames,passed:fullFindings.length===0,findings:fullFindings};
+    checks[values.preview?'preview_frame_checks':'full_video_frame_checks']={frames,passed:fullFindings.length===0,findings:fullFindings};
     const probe=JSON.parse(await processResult(process.env.C2M_FFPROBE||'ffprobe',[
       '-v','error','-select_streams','v:0','-show_streams','-of','json',join(out,'video.mp4')]));
-    const stream=probe.streams[0];manifest.video=checkVideo(stream,meta);manifest.video.stream=stream;
+    const stream=probe.streams[0];manifest.video=checkVideo(stream,exportMeta);manifest.video.stream=stream;
     await processResult(ffmpeg,['-v','error','-i',join(out,'video.mp4'),'-f','null','-']);
     manifest.video.full_decode_passed=true;
     if(manifest.errors.length||manifest.externalRequests.length){
       checks.findings.push({code:'late_page_error_or_request',detail:'See manifest errors and externalRequests'});
       checks.passed=false;
     }
-    checks.passed=checks.passed&&checks.full_video_frame_checks.passed&&manifest.video.passed;
+    checks.passed=checks.passed&&fullFindings.length===0&&manifest.video.passed;
     await writeFile(join(out,'checks.json'),JSON.stringify(checks,null,2)+'\n');
-    manifest.status=checks.passed?'render_passed':'checks_failed';if(!checks.passed)process.exitCode=1;
+    manifest.status=checks.passed?(values.preview?'preview_ready':'render_passed'):'checks_failed';if(!checks.passed)process.exitCode=1;
     manifest.video.sha256=sourceHash(await readFile(join(out,'video.mp4')));
   }
 }catch(error){manifest.status='execution_failed';manifest.errors.push(String(error));process.exitCode=1;console.error(error);}

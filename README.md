@@ -76,7 +76,9 @@ python3 tools/batch.py report --out runs/my-six
 
 用户审看指出这些片段未讲清楚要表达什么，旧的通过率不能解释为观众理解率。目前增加中文解释模式：先保存受众与教学分镜，再生成代码、按阶段取帧，并让不看 brief 的审看者复述。[参考分析与运行方式](docs/communication.md)。
 
-一条 32 秒中文 Softmax 解释实验已真实生成、渲染并完成复述审看；记录包含超时与配置失败后的恢复。模型重建出目标因果链，用户理解仍待判断。[分镜、结果与限制](evaluation/2026-10-01/explanation-softmax/REPORT.md)。
+一条 32 秒中文 Softmax 解释实验完成机器检查与模型复述审看，随后被用户明确拒绝，并指出迭代太慢。它是失败样本。[分镜、结果与反馈](evaluation/2026-10-01/explanation-softmax/REPORT.md)。
+
+局部迭代改用带源码哈希的小补丁和 960×540 / 12 fps 草稿预览。草稿不能获得完整渲染通过状态；它只用于快速否决方向。[操作与实测](docs/fast-iteration.md)。
 
 
 ## 下一步

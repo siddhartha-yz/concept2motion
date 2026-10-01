@@ -27,6 +27,11 @@ class ReviewPolicyTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "verified full render"):
             module.validate_review(review, {"status": "checks_passed"}, Path("."))
 
+    def test_draft_video_cannot_be_accepted_as_a_full_render(self):
+        review = {"decision": "pass", "kind": "visual", "reviewer": "AI", "observations": [{}]}
+        with self.assertRaisesRegex(ValueError, "verified full render"):
+            module.validate_review(review, {"status": "preview_ready", "checks": {"passed": True}}, Path("."))
+
     def test_modified_validator_evidence_blocks_a_passing_review(self):
         with tempfile.TemporaryDirectory() as temporary:
             run = Path(temporary)

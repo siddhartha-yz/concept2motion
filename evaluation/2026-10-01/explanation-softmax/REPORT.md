@@ -1,5 +1,7 @@
 # Softmax 中文解释实验
 
+**后续用户结论：拒绝。**用户评价“纯纯的垃圾”，并指出实验迭代太慢。下文保留当时的机器检查与模型判定作为失败证据，不能据此把本片列为成功作品。速度改进记录见 [fast-iteration.md](../../../docs/fast-iteration.md)。
+
 起点是用户对六轮基线样片的反馈：看不懂视频要表达什么。旧模型审看者先读目标 brief，会知道画面应该表示什么；这与第一次接触概念的观众不同。本实验优先改善表达目标，而不是把数值与布局检查的通过当作讲清楚。
 
 参考分析见 [communication.md](../../../docs/communication.md)，上游固定提交及实际采样范围见 [inspection.json](../algebra-reference/inspection.json)。本实验未复制参考作品源码或配乐。
