@@ -1,0 +1,54 @@
+{
+  "trials": [
+    {
+      "case": "softmax",
+      "trial": 1,
+      "status": "passed",
+      "generated_attempts": 1,
+      "first_render_passed": true,
+      "first_review_passed": true,
+      "revision_requests": {
+        "technical": 0,
+        "visual": 0
+      },
+      "error": null
+    }
+  ],
+  "planned_trials": 1,
+  "completed_trials": 1,
+  "passed_trials": 1,
+  "model_calls": 5,
+  "usage": [
+    {
+      "input_tokens": 20978,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 11274,
+      "reasoning_output_tokens": 6405
+    },
+    {
+      "input_tokens": 53316,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1399,
+      "reasoning_output_tokens": 516
+    },
+    {
+      "input_tokens": 18396,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1908,
+      "reasoning_output_tokens": 796
+    }
+  ],
+  "human_scene_interventions": 0,
+  "cost_measured": false,
+  "artistic_acceptance": "pending_user_review",
+  "limits": [
+    "exploratory small sample",
+    "same configured model, fresh contexts",
+    "sampled-frame visual review",
+    "context isolation is not a filesystem security boundary",
+    "no human artistic acceptance"
+  ]
+}

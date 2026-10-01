@@ -1,0 +1,54 @@
+{
+  "decision": "pass",
+  "revision_instruction": "",
+  "observations": [
+    {
+      "time_s": 0.35,
+      "evidence": "frame-0.35.jpg",
+      "description": "标题明确提问：猫、狗、鸟的分数怎样变成总和为1的概率？文字定义蓝色为猫、橙色为狗、绿色为鸟，并说明分数可以为负。"
+    },
+    {
+      "time_s": 3,
+      "evidence": "frame-3.00.jpg",
+      "description": "三类分数分别为−1.0、0.6、1.8；共用零点和刻度，猫条向左，狗和鸟条向右，鸟条最长。"
+    },
+    {
+      "time_s": 6.35,
+      "evidence": "frame-6.35.jpg",
+      "description": "文字已切换到指数规则和三个计算结果，但猫条仍在零点左侧；这一张过渡帧尚未完成“权重都为正”的示范。"
+    },
+    {
+      "time_s": 9,
+      "evidence": "frame-9.00.jpg",
+      "description": "三个条形均从零点向右，分别对应正权重0.368、1.822、6.050。原分数与计算结果并列，猫最小、鸟最大的顺序保留。"
+    },
+    {
+      "time_s": 17.65,
+      "evidence": "frame-17.65.jpg",
+      "description": "三个颜色段首尾相接，标注各自权重；括号涵盖整条，算式给出共同总和约8.240，直观呈现加法。"
+    },
+    {
+      "time_s": 18.35,
+      "evidence": "frame-18.35.jpg",
+      "description": "各类标签都改为自己的正权重除以总权重；下方出现标为“整体=1”的空框，给出归一化的目标。"
+    },
+    {
+      "time_s": 24.65,
+      "evidence": "frame-24.65.jpg",
+      "description": "三色整条缩放后恰好填满单位框，颜色段的相对比例保留，支持“每份成为整体占比”的解释。"
+    },
+    {
+      "time_s": 28.5,
+      "evidence": "frame-28.50.jpg",
+      "description": "最终标出猫约0.045、狗约0.221、鸟约0.734，并展示相加约为1的算式和完整文字答案。"
+    }
+  ],
+  "reconstructed_message": "影片问：猫、狗、鸟的分数怎样变成总和为1的概率？它回答：分数可能为负，先按画面给定的指数规则变成正权重，再把三份权重相加，让每份除以同一个总和。这样得到各类占整体的比例，最终猫约0.045、狗约0.221、鸟约0.734，总和为1。",
+  "causal_explanation": "画面先用共同零点显示分数的正负和大小。随后把每个原分数与指数计算结果对应起来；完成转换后的三个条形都向右，说明权重为正，大小顺序保留。接着将三份权重保持长度、首尾相接，整条就是三份相加的共同总和。最后把整条按相同比例缩放到“整体=1”的框内，各颜色段成为整体中的一份，因此三份合起来填满1。最终数值和加法算式给出可读答案。以上是对所提供静帧的重建，不代表完整视频的运动评审或人类理解测试。",
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "review_mode": "blind_reconstruction",
+  "artistic_acceptance": "pending_user_review"
+}

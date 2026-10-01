@@ -1,0 +1,281 @@
+{
+  "summary": {
+    "trials": [
+      {
+        "case": "softmax",
+        "trial": 1,
+        "status": "passed",
+        "generated_attempts": 1,
+        "first_render_passed": true,
+        "first_review_passed": true,
+        "revision_requests": {
+          "technical": 0,
+          "visual": 0
+        },
+        "error": null
+      }
+    ],
+    "planned_trials": 1,
+    "completed_trials": 1,
+    "passed_trials": 1,
+    "model_calls": 5,
+    "usage": [
+      {
+        "input_tokens": 20978,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 11274,
+        "reasoning_output_tokens": 6405
+      },
+      {
+        "input_tokens": 53316,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1399,
+        "reasoning_output_tokens": 516
+      },
+      {
+        "input_tokens": 18396,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1908,
+        "reasoning_output_tokens": 796
+      }
+    ],
+    "human_scene_interventions": 0,
+    "cost_measured": false,
+    "artistic_acceptance": "pending_user_review",
+    "limits": [
+      "exploratory small sample",
+      "same configured model, fresh contexts",
+      "sampled-frame visual review",
+      "context isolation is not a filesystem security boundary",
+      "no human artistic acceptance"
+    ]
+  },
+  "calls": [
+    {
+      "role": "author",
+      "path": "softmax-01/attempt-01/calls/author-01/process.json",
+      "exit_code": -9,
+      "timed_out": true,
+      "wall_s": 600.012,
+      "usage": [],
+      "thread_ids": [
+        "01a0f6ac-f95a-76e3-9508-848826fc9d32"
+      ],
+      "tool_types": []
+    },
+    {
+      "role": "author",
+      "path": "softmax-01/attempt-01/calls/author-02/process.json",
+      "exit_code": 1,
+      "timed_out": false,
+      "wall_s": 0.032,
+      "usage": [],
+      "thread_ids": [],
+      "tool_types": []
+    },
+    {
+      "role": "author",
+      "path": "softmax-01/attempt-01/calls/author-03/process.json",
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 477.019,
+      "usage": [
+        {
+          "input_tokens": 20978,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 11274,
+          "reasoning_output_tokens": 6405
+        }
+      ],
+      "thread_ids": [
+        "01a0f6b8-a894-7ea1-a853-493381f8c4b7"
+      ],
+      "tool_types": []
+    },
+    {
+      "role": "reviewer",
+      "path": "softmax-01/attempt-01/calls/reviewer-01/process.json",
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 78.888,
+      "usage": [
+        {
+          "input_tokens": 53316,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1399,
+          "reasoning_output_tokens": 516
+        }
+      ],
+      "thread_ids": [
+        "01a0f6c0-a864-7593-b157-38d5d0a976b5"
+      ],
+      "tool_types": []
+    },
+    {
+      "role": "planner",
+      "path": "softmax-01/planning/calls/planner-01/process.json",
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 83.684,
+      "usage": [
+        {
+          "input_tokens": 18396,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1908,
+          "reasoning_output_tokens": 796
+        }
+      ],
+      "thread_ids": [
+        "01a0f6ab-b276-7343-b027-2ba140d4e218"
+      ],
+      "tool_types": []
+    }
+  ],
+  "renders": [
+    {
+      "attempt": 1,
+      "status": "render_passed",
+      "video": {
+        "passed": true,
+        "findings": [],
+        "expectedFrames": 1920,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 1920,
+          "height": 1080,
+          "coded_width": 1920,
+          "coded_height": 1080,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "16:9",
+          "pix_fmt": "yuv420p",
+          "level": 42,
+          "chroma_location": "center",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "60/1",
+          "avg_frame_rate": "60/1",
+          "time_base": "1/15360",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 491520,
+          "duration": "32.000000",
+          "bit_rate": "203603",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "1920",
+          "extradata_size": 48,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0,
+            "multilayer": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.3.100 libx264"
+          }
+        },
+        "full_decode_passed": true,
+        "sha256": "7b2317243530e5fc64967e64650a68d24ad0eb7712bee265165471ebb70985d8"
+      },
+      "render_wall_s": 46.79,
+      "review": {
+        "decision": "pass",
+        "revision_instruction": "",
+        "observations": [
+          {
+            "time_s": 0.35,
+            "evidence": "frame-0.35.jpg",
+            "description": "标题明确提问：猫、狗、鸟的分数怎样变成总和为1的概率？文字定义蓝色为猫、橙色为狗、绿色为鸟，并说明分数可以为负。"
+          },
+          {
+            "time_s": 3,
+            "evidence": "frame-3.00.jpg",
+            "description": "三类分数分别为−1.0、0.6、1.8；共用零点和刻度，猫条向左，狗和鸟条向右，鸟条最长。"
+          },
+          {
+            "time_s": 6.35,
+            "evidence": "frame-6.35.jpg",
+            "description": "文字已切换到指数规则和三个计算结果，但猫条仍在零点左侧；这一张过渡帧尚未完成“权重都为正”的示范。"
+          },
+          {
+            "time_s": 9,
+            "evidence": "frame-9.00.jpg",
+            "description": "三个条形均从零点向右，分别对应正权重0.368、1.822、6.050。原分数与计算结果并列，猫最小、鸟最大的顺序保留。"
+          },
+          {
+            "time_s": 17.65,
+            "evidence": "frame-17.65.jpg",
+            "description": "三个颜色段首尾相接，标注各自权重；括号涵盖整条，算式给出共同总和约8.240，直观呈现加法。"
+          },
+          {
+            "time_s": 18.35,
+            "evidence": "frame-18.35.jpg",
+            "description": "各类标签都改为自己的正权重除以总权重；下方出现标为“整体=1”的空框，给出归一化的目标。"
+          },
+          {
+            "time_s": 24.65,
+            "evidence": "frame-24.65.jpg",
+            "description": "三色整条缩放后恰好填满单位框，颜色段的相对比例保留，支持“每份成为整体占比”的解释。"
+          },
+          {
+            "time_s": 28.5,
+            "evidence": "frame-28.50.jpg",
+            "description": "最终标出猫约0.045、狗约0.221、鸟约0.734，并展示相加约为1的算式和完整文字答案。"
+          }
+        ],
+        "reconstructed_message": "影片问：猫、狗、鸟的分数怎样变成总和为1的概率？它回答：分数可能为负，先按画面给定的指数规则变成正权重，再把三份权重相加，让每份除以同一个总和。这样得到各类占整体的比例，最终猫约0.045、狗约0.221、鸟约0.734，总和为1。",
+        "causal_explanation": "画面先用共同零点显示分数的正负和大小。随后把每个原分数与指数计算结果对应起来；完成转换后的三个条形都向右，说明权重为正，大小顺序保留。接着将三份权重保持长度、首尾相接，整条就是三份相加的共同总和。最后把整条按相同比例缩放到“整体=1”的框内，各颜色段成为整体中的一份，因此三份合起来填满1。最终数值和加法算式给出可读答案。以上是对所提供静帧的重建，不代表完整视频的运动评审或人类理解测试。",
+        "kind": "visual",
+        "reviewer": "official Codex CLI; separate fresh context",
+        "independent_of_author": true,
+        "review_scope": "sampled_frames",
+        "review_mode": "blind_reconstruction",
+        "artistic_acceptance": "pending_user_review"
+      }
+    }
+  ],
+  "coordinator_commit": "f02d87c8d1e5426dc8fc6e8cb7d3630536b52889",
+  "client_wrapper_sha256": "79f77f11a12a003e9a74072f34cc1804f13b308c93d9480331da3298749b6291",
+  "retry_client_overrides": {
+    "mcp_servers.cua_repl.enabled": false,
+    "mcp_servers.node_repl.enabled": false
+  },
+  "human_scene_edits": 0,
+  "execution_interventions": "initial timeout; invalid first override; corrected per-call MCP configuration; resumed with 900s model timeout",
+  "artistic_acceptance": "pending_user_review",
+  "comprehension_acceptance": "pending_user_review",
+  "usage_limitation": "Completed CLI calls only. Timed-out calls may have unreported usage."
+}
