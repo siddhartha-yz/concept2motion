@@ -5,6 +5,7 @@ import hashlib
 import html
 import importlib.util
 import json
+import math
 import os
 from pathlib import Path
 import shutil
@@ -24,6 +25,18 @@ REVIEW_SCHEMA = {"type": "object", "additionalProperties": False, "properties": 
         "properties": {"time_s": {"type": "number"}, "evidence": {"type": "string"}, "description": {"type": "string"}},
         "required": ["time_s", "evidence", "description"]}}},
     "required": ["decision", "revision_instruction", "observations"]}
+PLAN_SCHEMA = {"type": "object", "additionalProperties": False, "properties": {
+    "question": {"type": "string"}, "takeaway": {"type": "string"},
+    "beats": {"type": "array", "items": {"type": "object", "additionalProperties": False,
+        "properties": {**{k: {"type": "string"} for k in
+                         ("stage", "caption", "visual_action", "viewer_inference")},
+                       "start_s": {"type": "number"}, "end_s": {"type": "number"}},
+        "required": ["stage", "caption", "visual_action", "viewer_inference", "start_s", "end_s"]}}},
+    "required": ["question", "takeaway", "beats"]}
+BLIND_REVIEW_SCHEMA = {**REVIEW_SCHEMA,
+    "properties": {**REVIEW_SCHEMA["properties"], "reconstructed_message": {"type": "string"},
+                   "causal_explanation": {"type": "string"}},
+    "required": [*REVIEW_SCHEMA["required"], "reconstructed_message", "causal_explanation"]}
 
 
 def load(path):
@@ -111,7 +124,7 @@ def model_call(args, directory, prompt, schema, images=()):
 
 def next_call(attempt, role):
     calls = attempt / "calls"
-    calls.mkdir(exist_ok=True)
+    calls.mkdir(parents=True, exist_ok=True)
     index = 1
     while (calls / f"{role}-{index:02d}").exists():
         index += 1
@@ -136,12 +149,72 @@ Mechanism and geometry fields must exist as specified at every applicable stage.
 Use the exact stage names and order in the protocol. Do not claim trained weights.
 The residual output vectors must use six-digit solid colors at their sampled midpoints.
 The normalized Softmax segments must have six-digit solid colors at their centers.
+{('This is a Chinese explanation for a newcomer. Follow the saved teaching plan. Each visual action must support its caption and a viewer inference. Establish what the objects mean and the problem before introducing notation. Keep the concluding answer readable. Decorative motion cannot stand in for an explanation.' if case.get('communication') else '')}
 
 Frozen brief:
 {json.dumps(case, indent=2)}
 
 Frozen scene protocol:
 {protocol}
+"""
+
+
+def validate_plan(plan, brief):
+    """Validate timing/coverage only; this does not prove pedagogical quality."""
+    if not plan.get("question", "").strip() or not plan.get("takeaway", "").strip():
+        raise ValueError("Teaching plan needs a question and takeaway")
+    expected = {"softmax": ["logits", "exponential", "shared-total", "normalizing", "normalized"],
+                "residual": ["input", "branches", "merging", "output"]}[brief["id"]]
+    beats = plan.get("beats", [])
+    if [b.get("stage") for b in beats] != expected:
+        raise ValueError("Teaching plan must preserve mechanism stages")
+    cursor = 0
+    for beat in beats:
+        start, end = beat.get("start_s"), beat.get("end_s")
+        if (not isinstance(start, (int, float)) or not isinstance(end, (int, float)) or
+                not math.isfinite(start) or not math.isfinite(end) or
+                abs(start-cursor) > 1e-6 or end-start < 3):
+            raise ValueError("Teaching plan needs contiguous beats with reading time")
+        if any(not beat.get(k, "").strip() for k in ("caption", "visual_action", "viewer_inference")):
+            raise ValueError("Each beat needs a caption, action and inference")
+        cursor = end
+    if abs(cursor-brief["duration_s"]) > 1e-6:
+        raise ValueError("Teaching plan must cover the complete duration")
+
+
+def plan_samples(plan):
+    return sorted({round(t, 2) for b in plan["beats"] for t in
+                   (b["start_s"]+.35, (b["start_s"]+b["end_s"])/2, b["end_s"]-.35)})
+
+
+def reviewer_prompt(brief, images):
+    evidence = json.dumps([p.name for p in images])
+    if brief.get("communication"):
+        # Intentionally exclude the intended message, mechanism, plan and check verdict.
+        return f"""You are viewing keyframes of an unfamiliar silent Chinese explainer.
+Audience: {brief['communication']['audience']}
+Use only visible images. Do not call tools, browse, read source or use an author's account.
+Reconstruct in plain Chinese what this film asks and answers (reconstructed_message).
+Explain the cause-and-effect steps communicated by the pictures (causal_explanation).
+Do not fill missing exposition from your prior mathematical knowledge. Naming a known
+formula is insufficient. If a newcomer cannot identify the objects, purpose, causal steps
+or conclusion from the supplied stills, request a concrete revision. Captions must have
+visible demonstrations; attractive motion alone does not communicate a mechanism.
+Return pass or revise, timestamped observations and an actionable revision instruction
+(empty for pass). A pass requires a visible question, defined objects, a supported causal
+chain and a readable answer. This is a model's reconstruction of sampled stills, not a
+human comprehension study or a judgement of full-video motion. Never grant user acceptance.
+Evidence filenames: {evidence}
+"""
+    return f"""Review the attached mathematical animation keyframes independently of its author.
+Use only the supplied brief and images. Do not call tools, browse, read source, spawn agents or models.
+The deterministic mathematical, pixel, timing and layout checks passed; visually inspect readability,
+mechanism correspondence, identities, signed direction, continuity and pacing visible in these stills.
+This is sampled-frame review, not a claim to have watched the entire video. No numeric quality score.
+Return pass or revise, concrete timestamped observations, and an actionable local revision instruction
+(empty string for pass). Never grant the user's artistic acceptance. Evidence filenames must match:
+{evidence}
+Frozen brief: {json.dumps(brief)}
 """
 
 
@@ -152,7 +225,8 @@ def initialize(out, args):
         target = runtime / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT / relative, target)
-    cases = load(ROOT / "benchmarks/cases.json")
+    cases = load(getattr(args, "briefs", ROOT / "benchmarks/cases.json"))
+    save(runtime / "benchmarks/cases.json", cases)
     protocol = (ROOT / "docs/scene-protocol.md").read_text()
     # Supply only protocol contracts, not existing scene examples or historical review narratives.
     protocol = protocol.split("## Run a candidate")[0]
@@ -205,6 +279,8 @@ def trial(out, case_id, number, args, policy):
     state_file = directory / "state.json"
     state = load(state_file) if state_file.exists() else {"case": case_id, "trial": number, "status": "running", "attempts": []}
     if state["status"] in TERMINAL:
+        if state.get("plan_response") and digest(out / state["plan_response"]) != state["plan_sha256"]:
+            raise ValueError("Teaching plan changed after checkpoint")
         for completed in state.get("attempts", []):
             response = out / completed["generation"]
             if digest(response) != completed["generation_sha256"]:
@@ -224,6 +300,29 @@ def trial(out, case_id, number, args, policy):
     brief = load(out / f"brief-{case_id}.json")
     base_prompt = (out / f"prompt-{case_id}.md").read_text()
     try:
+        plan = None
+        if brief.get("communication"):
+            if "plan_response" not in state:
+                prompt = ("Plan a Chinese mathematical explainer before any rendering code. Return only JSON; "
+                          "do not call tools, read files, browse or invoke models. State a question and the answer "
+                          "a newcomer should remember. Each beat needs a short on-screen Chinese caption, "
+                          "one visible demonstration and its viewer inference. Preserve the required stages "
+                          "in order, with contiguous beats of at least 3 seconds covering the full duration. "
+                          "Opening: concrete question and object meanings. Ending: explicit answer. "
+                          "No decorative action without meaning. Frozen brief: " + json.dumps(brief) +
+                          "\nStage contract: " + (out / "protocol.md").read_text())
+                call = next_call(directory / "planning", "planner")
+                plan = model_call(args, call, prompt, PLAN_SCHEMA)
+                validate_plan(plan, brief)
+                state.update(plan_response=str((call / "response.json").relative_to(out)),
+                             plan_sha256=digest(call / "response.json"))
+                save(state_file, state)
+            plan_file = out / state["plan_response"]
+            if digest(plan_file) != state["plan_sha256"]:
+                raise ValueError("Teaching plan changed after checkpoint")
+            plan = load(plan_file)
+            validate_plan(plan, brief)
+            base_prompt += "\nSaved teaching plan (write code to realize this):\n" + json.dumps(plan)
         while True:
             if not state["attempts"] or state["attempts"][-1].get("review"):
                 if state["attempts"]:
@@ -273,6 +372,8 @@ def trial(out, case_id, number, args, policy):
                     command = [args.node, str(out / "runtime/tools/render_scene.mjs"), "--scene", str(source / "index.html"),
                                "--out", str(rendered), "--brief", str(out / f"brief-{case_id}.json"),
                                "--author", "official Codex CLI; fresh context"]
+                    if plan:
+                        command.extend(["--samples", ",".join(map(str, plan_samples(plan)))])
                     result = run_process(command, directory, attempt / f"render-process-{index:02d}", args.render_timeout)
                     if result["timed_out"]:
                         raise RuntimeError("Renderer timed out; process tree stopped, incomplete evidence retained")
@@ -295,21 +396,17 @@ def trial(out, case_id, number, args, policy):
                               "revision_instruction": "Repair these concrete checks without changing the brief or weakening evidence: " +
                               json.dumps({"errors": manifest.get("errors"), "findings": findings[:20]})}
                 else:
-                    images = sorted(rendered.glob("frame-*.jpg"))
-                    prompt = f"""Review the attached mathematical animation keyframes independently of its author.
-Use only the supplied brief and images. Do not call tools, browse, read source, spawn agents or models.
-The deterministic mathematical, pixel, timing and layout checks passed; visually inspect readability,
-mechanism correspondence, identities, signed direction, continuity and pacing visible in these stills.
-This is sampled-frame review, not a claim to have watched the entire video. No numeric quality score.
-Return pass or revise, concrete timestamped observations, and an actionable local revision instruction
-(empty string for pass). Never grant the user's artistic acceptance. Evidence filenames must match:
-{json.dumps([p.name for p in images])}
-Frozen brief: {json.dumps(brief)}
-"""
+                    images = sorted(rendered.glob("frame-*.jpg"), key=lambda p: float(p.stem[6:]))
+                    prompt = reviewer_prompt(brief, images)
                     call = next_call(attempt, "reviewer")
-                    review = model_call(args, call, prompt, REVIEW_SCHEMA, images)
+                    review = model_call(args, call, prompt,
+                                        BLIND_REVIEW_SCHEMA if plan else REVIEW_SCHEMA, images)
+                    if plan and any(not review.get(k, "").strip() for k in
+                                    ("reconstructed_message", "causal_explanation")):
+                        raise ValueError("Blind review needs a reconstruction and causal explanation")
                     review.update(kind="visual", reviewer="official Codex CLI; separate fresh context",
-                                  independent_of_author=True, review_scope="sampled_frames")
+                                  independent_of_author=True, review_scope="sampled_frames",
+                                  review_mode="blind_reconstruction" if plan else "brief_informed")
                 review["artistic_acceptance"] = "pending_user_review"
                 policy.validate_review(review, manifest, rendered)
                 save(attempt / "review-response.json", review)
@@ -342,7 +439,8 @@ def summarize(out):
                            "first_render_passed": first_manifest.get("status") == "render_passed" if first_manifest else None,
                            "first_review_passed": first.get("review", {}).get("decision") == "pass" if first.get("review") else None,
                            "revision_requests": repair_counts(state["attempts"]), "error": state.get("error")})
-    usage = [load(p) for p in out.glob("*-*/attempt-*/calls/*/process.json")]
+    usage = [load(p) for pattern in ("*-*/attempt-*/calls/*/process.json", "*-*/planning/calls/*/process.json")
+             for p in out.glob(pattern)]
     result = {"trials": trials, "planned_trials": len(trials), "completed_trials": sum(t["status"] in TERMINAL for t in trials),
               "passed_trials": sum(t["status"] == "passed" for t in trials), "model_calls": len(usage),
               "usage": [u for call in usage for u in call.get("usage", [])],
@@ -377,7 +475,7 @@ def summarize(out):
                             f'<a href="{a["render"]}/{check_file}">检查</a> · {review_link}</section>')
         cards.append(f'<article><h2>{t["case"]} {t["trial"]} · {t["status"]}</h2>{"".join(attempts) or "尚未渲染"}</article>')
     (out / "index.html").write_text('''<!doctype html><html lang="zh-CN"><meta charset="utf-8">
-<title>Concept2Motion · 六次生成评测</title><style>
+<title>Concept2Motion · 生成评测</title><style>
 body{background:#0e1521;color:#dce6f6;font:16px system-ui;margin:0;padding:32px}header,main{max-width:1500px;margin:auto}
 main{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:24px}article{background:#172235;padding:22px;border-radius:12px}
 h1{font-size:30px}h2{font-size:21px}h3{font-size:16px;color:#aabbd4}p{line-height:1.7}video{width:100%;background:#080d15}a{color:#83dcd2}
@@ -395,6 +493,7 @@ def main():
     parser.add_argument("action", choices=["run", "report"])
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--cases", nargs="+", choices=["softmax", "residual"], default=["softmax", "residual"])
+    parser.add_argument("--briefs", type=Path, default=ROOT / "benchmarks/cases.json")
     parser.add_argument("--trials", type=int, default=3)
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--codex", default="codex")

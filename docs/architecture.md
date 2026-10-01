@@ -1,6 +1,6 @@
 # Architecture direction
 
-The control loop is: brief → mechanism contract → storyboard / candidate → local render → numerical and visual evidence → targeted revision → retained version.
+The control loop is: audience / question / takeaway → mechanism contract → teaching plan → candidate → local render → numerical evidence and viewer reconstruction → targeted revision → retained version. The experimental explanation profile saves the plan before generating code. Older baseline runs generated source and a short storyboard together.
 
 The author can be the current Codex desktop session or the official CLI. The renderer and validator are ordinary local programs. This makes the loop usable with subscription authentication and gives a stable boundary for later API providers.
 
@@ -26,3 +26,5 @@ Neither reference is selected as the foundation yet. Offline tests are useful fo
 Use the same case and constraints for each capable candidate; record an unsupported case explicitly. Start with Softmax before testing residual and GRU. Use three independent model runs per case for exploratory comparison, with a fixed renderer version, bounded repair budget (two technical, two visual revisions) and frozen prompt. Small samples are exploratory.
 
 Record separately: first render success, final render success, invariant failures, clipping/overlap, mechanism readability, continuity and pacing, revision count, human interventions, wall time, model usage and local rendering time. Preserve failed attempts. Visual verdicts should describe evidence at timestamps; a rubric score alone is insufficient.
+
+Human feedback on the first six videos exposed missing exposition despite model review passes. Add a viewer-facing question, object definitions and causal captions before treating a scene as an explainer. See [communication.md](communication.md) for the pinned visual reference and blind reconstruction profile. Mathematical validity and model reconstruction are separate from human understanding and artistic acceptance.

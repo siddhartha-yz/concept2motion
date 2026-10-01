@@ -11,6 +11,8 @@ python3 tools/batch.py report --out runs/my-six
 
 The default is three Softmax and three residual trials. `--cases softmax --trials 1` selects a smaller exploratory batch. `--codex` and `--node` choose installed executable paths. Rendering uses the same `C2M_NODE_MODULES`, `C2M_CHROMIUM`, `C2M_FFMPEG` and `C2M_FFPROBE` settings as the local scene tool. No background scheduler is created.
 
+`--briefs benchmarks/explanation-cases.json --cases softmax --trials 1` selects the experimental Chinese explanation brief. It makes a separate, checkpointed teaching-plan call before code generation, samples each planned beat, and uses a reviewer that reconstructs the message without receiving the target brief. Planning calls are included in usage. This profile is described in [communication.md](communication.md); the original 12-second baseline and existing results stay intact. This brief set currently contains only Softmax.
+
 During execution, read the checkpointed `summary.json` or existing `index.html`. The report command takes the same exclusive write lock and should be run after the active runner stops. The runner currently targets POSIX systems (Linux/macOS) and uses process groups to stop timed-out or interrupted children.
 
 Fresh authoring produces structured HTML, JavaScript and a storyboard. The runner writes only these named candidate files. Generated text is never interpolated into shell commands. The CLI is read-only and is explicitly instructed not to call tools. Recorded CLI tool use invalidates the model call, because it may have accessed source outside the supplied prompt. Fresh contexts and a no-tools instruction do not constitute filesystem isolation or adversarial enforcement.
