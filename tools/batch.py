@@ -185,6 +185,15 @@ def can_revise(attempts, budgets):
     return last.get("decision") == "revise" and repair_counts(attempts)[last["kind"]] <= budgets[last["kind"]]
 
 
+def deterministic_findings(manifest):
+    checks = manifest.get("checks", {})
+    findings = list(checks.get("findings", []))
+    findings.extend(checks.get("full_video_frame_checks", {}).get("findings", []))
+    findings.extend({"code": "video_"+code, "detail": "Encoded video contract failed"}
+                    for code in manifest.get("video", {}).get("findings", []))
+    return findings
+
+
 def validate_candidate(candidate):
     if set(candidate) != {"html", "javascript", "storyboard"} or not all(isinstance(v, str) and v.strip() for v in candidate.values()):
         raise ValueError("Author response must contain nonempty html, javascript and storyboard strings")
@@ -266,7 +275,7 @@ def trial(out, case_id, number, args, policy):
             manifest = load(rendered / "manifest.json")
             if "review_response" not in entry:
                 if manifest["status"] != "render_passed":
-                    findings = manifest.get("checks", {}).get("findings", [])
+                    findings = deterministic_findings(manifest)
                     layout = {"text_overlap", "text_shape_overlap", "clipped"}
                     kind = "visual" if findings and all(f["code"] in layout for f in findings) else "technical"
                     review = {"kind": kind, "decision": "revise", "reviewer": "independent deterministic checker",
@@ -348,11 +357,12 @@ def summarize(out):
             render = out / a["render"]
             manifest = load(render / "manifest.json")
             video = f'<video controls preload="metadata" src="{a["render"]}/video.mp4"></video>' if (render / "video.mp4").exists() else '<p>没有完整视频</p>'
-            codes = sorted(set(f["code"] for f in manifest.get("checks", {}).get("findings", [])))
+            codes = sorted(set(f["code"] for f in deterministic_findings(manifest)))
+            outcome = ", ".join(codes) or ("确定性检查通过" if manifest["status"] == "render_passed" else "检查或执行未通过，见详细记录")
             check_file = "checks.json" if (render / "checks.json").exists() else "manifest.json"
             review_link = f'<a href="{a["render"]}/review.json">审看记录</a>' if (render / "review.json").exists() else "等待审看"
             attempts.append(f'<section><h3>候选 {a["index"]} · {html.escape(manifest["status"])}</h3>{video}'
-                            f'<p>{html.escape(", ".join(codes) or "未发现确定性检查错误")}</p>'
+                            f'<p>{html.escape(outcome)}</p>'
                             f'<a href="{a["render"]}/{check_file}">检查</a> · {review_link}</section>')
         cards.append(f'<article><h2>{t["case"]} {t["trial"]} · {t["status"]}</h2>{"".join(attempts) or "尚未渲染"}</article>')
     (out / "index.html").write_text('''<!doctype html><html lang="zh-CN"><meta charset="utf-8">

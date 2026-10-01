@@ -17,6 +17,13 @@ spec.loader.exec_module(policy)
 
 
 class BatchTests(unittest.TestCase):
+    def test_full_frame_failure_is_preserved_for_repair_when_samples_pass(self):
+        manifest = {"checks": {"findings": [], "full_video_frame_checks": {"findings": [
+            {"code": "text_shape_overlap", "time_s": 7.0167, "detail": "label / moving bar"}]}}}
+        findings = batch.deterministic_findings(manifest)
+        self.assertEqual(findings[0]["time_s"], 7.0167)
+        self.assertIn("label / moving bar", json.dumps(findings))
+
     def test_budget_counts_kinds_separately_and_stops_after_two_repairs(self):
         attempts = [{"review": {"kind": "technical", "decision": "revise"}}] * 2
         attempts += [{"review": {"kind": "visual", "decision": "revise"}}] * 2
