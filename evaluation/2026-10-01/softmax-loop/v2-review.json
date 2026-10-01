@@ -1,0 +1,45 @@
+{
+  "kind": "visual",
+  "decision": "pass",
+  "reviewer": "current Codex desktop session",
+  "independent_reviewer": false,
+  "observations": [
+    {
+      "time_s": 2,
+      "evidence": "frame-2.00.jpg",
+      "description": "The cyan -1.00 logit extends below the shared baseline; positive 0.60 and 1.80 logits extend above it."
+    },
+    {
+      "time_s": 4.5,
+      "evidence": "frame-4.50.jpg",
+      "description": "All exponential masses are positive and retain the original three class colors, with values 0.37, 1.82 and 6.05."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "Source labels have disappeared before the footer enters; no visible text overlap at the prior failing timestamp."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "All three masses form one contiguous stack with one total bracket and denominator 8.24."
+    },
+    {
+      "time_s": 9.3,
+      "evidence": "frame-9.30.jpg",
+      "description": "The shared divisor stays visible above the geometric transformation; old total and probability labels no longer overlap."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "Three class fractions fill one outlined capacity and show 4.5%, 22.1%, 73.4% with total one."
+    }
+  ],
+  "unresolved": [
+    "Review is by the authoring Codex session, not a blind independent judge.",
+    "Mathematical captions still carry part of the explanation; pure-geometry comprehension is not established.",
+    "This is one hand-directed benchmark with no statistical stability or unattended-agent claim."
+  ],
+  "revision_instruction": "",
+  "artistic_acceptance": "pending_user_review"
+}

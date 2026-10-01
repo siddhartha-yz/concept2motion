@@ -11,6 +11,8 @@
 - **机制契约**：动画对象的运动必须对应数学过程；先验证 Softmax、残差连接、GRU 的数值约束。
 - **证据保存**：保留 brief、候选源码、错误、关键帧、版本和审看结论。渲染成功不等于质量通过。
 
+首条实际闭环已跑通：Softmax 初稿发现两类文字重叠，局部修订后 720 帧检查通过；12 秒 1080p60 视频在两个独立浏览器进程中得到相同 SHA-256。[结果与限制](evaluation/2026-10-01/softmax-loop/REPORT.md)。这是一次当前 Codex 会话驱动的试验，还不能证明模型生成稳定性或完全无人值守能力。
+
 具体作品仍在 [neural-choreography](https://github.com/siddhartha-yz/neural-choreography)。这里开发通用能力，暂不迁移作品。
 
 ## 快速开始
@@ -32,6 +34,17 @@ codex exec --sandbox workspace-write - < runs/softmax/prompt.md
 
 订阅登录走官方 Codex 客户端。上游 Paper2Manim / OpenMotion 的 LangChain 或模型 HTTP 接口需要独立适配，不能直接填入 Codex 登录信息。[认证文档](https://learn.chatgpt.com/docs/auth)，[非交互运行文档](https://learn.chatgpt.com/docs/non-interactive-mode)。
 
+## 已可运行的渲染与审看工具
+
+```bash
+npm ci
+npx playwright install chromium
+node tools/render_scene.mjs --scene benchmarks/scenes/softmax/index.html \
+  --out runs/softmax/attempt-01 --author 'Codex desktop session'
+```
+
+需要 FFmpeg / ffprobe。工具保存源码快照、数值与几何检查、关键帧、确定性检查和完整视频验证。用 `--checks-only` 可先检查画面。[场景协议与审看记录](docs/scene-protocol.md)说明了接口、工具路径配置、修订预算和证据要求。
+
 ## 参考项目复现
 
 记录见 [首次评测](evaluation/2026-10-01/REPORT.md)，固定版本见 [upstreams.json](evaluation/upstreams.json)。
@@ -48,6 +61,6 @@ OpenMotion 工具在已安装依赖的隔离副本中加载原始 TypeScript 模
 
 ## 下一步
 
-先对三个小案例跑真实模型生成，再决定采用哪些组件。比较首次渲染成功率、机制错误、视觉问题、修正轮次、人工介入和用量。当前样本数不支持成功率或成本结论。
+接下来给残差连接与 GRU 补齐渲染验证器，并对冻结 brief 做多次独立生成和独立审看。比较首次渲染成功率、机制错误、视觉问题、修正轮次、人工介入和用量。当前样本数不支持成功率或成本结论。
 
 架构方向见 [architecture.md](docs/architecture.md)。目前没有多代理调度器、自动学习记忆库或跨渲染器通用场景语言；这些能力应由评测结果推动。

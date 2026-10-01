@@ -8,6 +8,36 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
       - run: python tools/bench.py check
       - run: python tools/bench.py prepare softmax --out /tmp/softmax-brief
-      - run: python -m py_compile tools/bench.py tools/evaluate_paper2manim.py
+      - run: python -m py_compile tools/bench.py tools/evaluate_paper2manim.py tools/review_run.py
+      - run: npm test
+      - run: python -m unittest discover -s tests -p 'test_*.py'
+  scene-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node tools/render_scene.mjs --scene benchmarks/scenes/softmax/index.html --out /tmp/softmax-scene-smoke --checks-only --author CI
+      - name: Known overlapping candidate must be rejected
+        continue-on-error: true
+        run: node tools/render_scene.mjs --scene evaluation/2026-10-01/softmax-loop/v1-source/index.html --out /tmp/softmax-regression --checks-only --author CI
+      - name: Verify the rejection evidence
+        run: node -e "const c=require('/tmp/softmax-regression/checks.json'); if(c.passed || !c.findings.some(f=>f.code==='text_overlap')) process.exit(1)"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: softmax-scene-evidence
+          path: |
+            /tmp/softmax-scene-smoke
+            /tmp/softmax-regression

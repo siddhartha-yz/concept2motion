@@ -49,12 +49,17 @@ Use stable object identities, minimal text, a dark background and intentional co
 Choose an available renderer and record the choice and versions. If unavailable, report the
 dependency limitation; do not report a skipped render as success. Use deterministic frame time.
 Begin with a short storyboard. Save source, attempt metadata, numerical outputs and rendered video.
+For a Canvas candidate, use docs/scene-protocol.md and tools/render_scene.mjs. Keep candidate source
+in {out.resolve()}/candidate and create a new attempt output directory for each revision.
 Check the actual implemented numerical outputs against math-reference.json. The reference check
 alone does not validate an animation. Sample at least four frames spanning the mechanism and inspect
 them visually. Keep render errors separate from visual errors. Allow at most two technical repairs
 and two visual revisions, retaining prior attempts. Write review.json with evidence and timestamps,
 revision count, human interventions, renderer checks and unresolved issues. Do not equate render
 success with artistic acceptance. Leave artistic_acceptance as pending_user_review.
+For the Canvas workflow, attach each review with tools/review_run.py and respect its ledger stop
+state. Record whether the reviewer is the authoring session. Unsupported rendered-evidence validators
+must be reported as unsupported, never as a pass. The current validator supports Softmax only.
 """
     (out / "prompt.md").write_text(prompt)
     return {"case": case["id"], "directory": str(out), "model_called": False}
