@@ -1,0 +1,41 @@
+{
+  "decision": "pass",
+  "revision_instruction": "",
+  "observations": [
+    {
+      "time_s": 0.5,
+      "evidence": "frame-0.50.jpg",
+      "description": "Input values are readable; right, left, right arrow directions correctly represent the three component signs."
+    },
+    {
+      "time_s": 4.5,
+      "evidence": "frame-4.50.jpg",
+      "description": "Identity and correction paths are clearly separated. Identity arrow lengths and signs remain unchanged; corrections retain matching component colors and correct signed directions."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "Corrections travel toward the identity components while the original arrows remain intact. Color preserves component correspondence during the sampled transition."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "Endpoint circles mark the joins. Opposing orange and purple corrections overlap their identity arrows, but their directions remain discernible."
+    },
+    {
+      "time_s": 9.3,
+      "evidence": "frame-9.30.jpg",
+      "description": "Componentwise equations and separate output arrows show addition rather than concatenation. Output signs and relative lengths correspond to 1.20, −0.10 and 0.15."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "The output remains readable across the late samples, providing time to inspect the result. This is a sampled-frame assessment; full-video continuity and artistic acceptance are not established."
+    }
+  ],
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "artistic_acceptance": "pending_user_review"
+}

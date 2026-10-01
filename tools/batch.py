@@ -205,6 +205,17 @@ def trial(out, case_id, number, args, policy):
     state_file = directory / "state.json"
     state = load(state_file) if state_file.exists() else {"case": case_id, "trial": number, "status": "running", "attempts": []}
     if state["status"] in TERMINAL:
+        for completed in state.get("attempts", []):
+            response = out / completed["generation"]
+            if digest(response) != completed["generation_sha256"]:
+                raise ValueError("Completed generation changed after checkpoint")
+            candidate = load(response)
+            source = directory / f"attempt-{completed['index']:02d}/candidate"
+            for name, field in (("index.html", "html"), ("scene.js", "javascript"), ("STORYBOARD.md", "storyboard")):
+                if (source / name).read_text() != candidate[field]:
+                    raise ValueError("Completed candidate source changed after checkpoint")
+            rendered = out / completed["render"]
+            policy.validate_review(completed["review"], load(rendered / "manifest.json"), rendered)
         print(f"{directory.name}: already {state['status']}", flush=True)
         return
     state["status"] = "running"

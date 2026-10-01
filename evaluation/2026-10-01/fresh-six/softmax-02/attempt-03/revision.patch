@@ -1,0 +1,88 @@
+--- before/scene.js
++++ after/scene.js
+@@ -89,6 +89,13 @@
+     line('capacity-left', x, y, x, y + h, LINE, 2, opacity);
+     line('capacity-right', x + w, y, x + w, y + h, LINE, 2, opacity);
+   }
++  function probabilitySumIndicator() {
++    const right = capacity.x + capacity.width;
++    line('sum-trace', capacity.x, 646, right, 646, MUTED, 2, 0.75);
++    line('sum-trace-start', capacity.x, 636, capacity.x, 656, MUTED, 2, 0.75);
++    line('sum-trace-end', right, 636, right, 656, MUTED, 2, 0.75);
++    text('sum-trace-label', 'FIXED WHOLE  1.000', capacity.x, 621, 18, MUTED, 1, 500);
++  }
+ 
+   function render(requestedTime) {
+     const n = Number(requestedTime);
+@@ -103,22 +110,27 @@
+     ctx.globalAlpha = 1;
+     ctx.globalCompositeOperation = 'source-over';
+     ctx.clearRect(0, 0, 1920, 1080);
+-    // The full-frame backdrop is not an active foreground component.
+     ctx.fillStyle = BG;
+     ctx.fillRect(0, 0, 1920, 1080);
++    bounds.push({id: 'backdrop', kind: 'background', x: 0, y: 0, width: 1920, height: 1080, opacity: 1});
+ 
+     text('title', 'Shared denominator', 120, 111, 56, WHITE, 1, 600);
+     text('eyebrow', 'SOFTMAX · THREE CLASSES', 1465, 105, 18, MUTED, 1, 500);
+-    const subtitles = ['Signed evidence', 'Positive exponential mass', 'Every class contributes', 'Divide by the same total', 'Three shares. One whole.'];
++    const subtitles = ['Signed evidence', 'Positive exponential mass', 'Every class contributes', 'Divide by the same total · rescale the lengths', 'Three shares. One whole.'];
+     text('subtitle', subtitles[index], 122, 177, 26, MUTED);
+-    const formulas = ['z = (−1.0, +0.6, +1.8)', 'mᵢ = exp(zᵢ)', 'S = m₀ + m₁ + m₂', 'pᵢ = mᵢ / S', 'p₀ + p₁ + p₂ = 1'];
++    const formulas = ['z = (−1.0, +0.6, +1.8)', 'mᵢ = exp(zᵢ)', 'S = m₀ + m₁ + m₂', 'pᵢ = mᵢ / S     S = 8.240', 'p₀ + p₁ + p₂ = 1'];
+     text('formula', formulas[index], 480, 252, 38, WHITE, 1, 500);
+-    // Keep raw mass labels until the geometry completely fills the unit capacity.
+-    text('column-heading', index === 0 ? 'LOGIT' : index < 4 ? 'MASS' : 'PROBABILITY', 140, 294, 18, MUTED, 1, 500);
++    const headings = ['LOGIT', 'MASS', 'MASS', 'MASS / S → PROBABILITY', 'PROBABILITY'];
++    text('column-heading', headings[index], 140, 294, 18, MUTED, 1, 500);
+     const displayed = index === 0 ? ['−1.0', '+0.6', '+1.8'] : index < 4 ? masses.map(v => v.toFixed(3)) : probabilities.map(v => v.toFixed(3));
+     rows.forEach((y, i) => {
+       text(`class-label-${i}`, ['A', 'B', 'C'][i], 140, y + 11, 32, COLORS[i], 1, 600);
+-      text(`class-value-${i}`, displayed[i], 205, y + 11, 32, COLORS[i], 1, 500);
++      if (index === 3) {
++        text(`class-division-${i}`, `${masses[i].toFixed(3)} / ${denominator.toFixed(3)}`, 205, y - 8, 24, COLORS[i], 1, 500);
++        text(`class-value-${i}`, `= ${probabilities[i].toFixed(3)}`, 205, y + 27, 28, COLORS[i], 1, 600);
++      } else {
++        text(`class-value-${i}`, displayed[i], 205, y + 11, 32, COLORS[i], 1, 500);
++      }
+     });
+ 
+     let geometry = {};
+@@ -149,6 +161,9 @@
+       const totalWidth = index === 3 ? mix(rawWidth, capacity.width, q) : capacity.width;
+       capacityFrame(index === 3 ? ease(local / 0.3) : 1);
+       text('capacity-label', index === 3 ? 'TARGET CAPACITY  1' : 'TOTAL CAPACITY  1', 480, 440, 21, MUTED, 1, 500);
++      if (index === 3) {
++        text('rescaling-units', '8.240 MASS UNITS → 1.000 PROBABILITY · LENGTH SCALE CHANGES', 480, 478, 18, MUTED, 1, 500);
++      }
+       const segments = [];
+       let x = capacity.x;
+       probabilities.forEach((p, i) => {
+@@ -157,14 +172,9 @@
+         segments.push({id: `class-${i}`, x, y: capacity.y, width, height: capacity.height, color: COLORS[i]});
+         x += width;
+       });
+-      sumExpression(index === 4, 1);
+-      if (index === 4) {
+-        geometry = {capacity: {...capacity}, segments};
+-        const scanX = capacity.x + capacity.width * q;
+-        line('sum-trace', capacity.x, 646, scanX, 646, MUTED, 2, 0.75);
+-        line('sum-trace-start', capacity.x, 636, capacity.x, 656, MUTED, 2, 0.75);
+-        circle('sum-trace-head', scanX, 646, 5, WHITE);
+-      }
++      sumExpression(true, 1);
++      probabilitySumIndicator();
++      if (index === 4) geometry = {capacity: {...capacity}, segments};
+     }
+ 
+     const nodes = [140, 530, 920, 1310, 1700];
+@@ -175,7 +185,8 @@
+       text(`stage-name-${i}`, navLabels[i], x, 986, 21, i === index ? WHITE : MUTED, 1, i === index ? 600 : 400, true);
+     });
+     const cursor = index === 4 ? nodes[4] : mix(nodes[index], nodes[index + 1], q);
+-    circle('stage-cursor', cursor, 932, 8, WHITE);
++    const cursorRadius = index === 4 ? 8 + 2 * Math.sin(Math.PI * local) : 8;
++    circle('stage-cursor', cursor, 932, cursorRadius, WHITE);
+     ctx.globalAlpha = 1;
+     return {
+       time, stage,

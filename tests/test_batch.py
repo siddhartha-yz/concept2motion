@@ -71,6 +71,20 @@ class BatchTests(unittest.TestCase):
                 batch.trial(out, "softmax", 1, SimpleNamespace(), policy)
                 model.assert_not_called()
 
+    def test_completed_trial_is_not_skipped_when_generation_was_modified(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            out = Path(temporary)
+            response = out / "generation.json"
+            batch.save(response, {"html": "old", "javascript": "js", "storyboard": "story"})
+            old_hash = batch.digest(response)
+            batch.save(out / "softmax-01/state.json", {"status": "passed", "attempts": [
+                {"generation": response.name, "generation_sha256": old_hash}]})
+            response.write_text("changed")
+            with patch.object(batch, "model_call") as model:
+                with self.assertRaisesRegex(ValueError, "Completed generation changed"):
+                    batch.trial(out, "softmax", 1, SimpleNamespace(), policy)
+                model.assert_not_called()
+
     def test_interrupted_model_calls_preserve_previous_artifacts(self):
         with tempfile.TemporaryDirectory() as temporary:
             attempt = Path(temporary)

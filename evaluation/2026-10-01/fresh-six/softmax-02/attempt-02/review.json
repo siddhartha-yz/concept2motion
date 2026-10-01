@@ -1,0 +1,41 @@
+{
+  "decision": "revise",
+  "revision_instruction": "During normalization, explicitly show each class dividing by S = 8.240 and changing from mass to probability. Label the geometry’s change of units so expansion into the fixed capacity reads as rescaling. Once the probabilities and sum 1.000 appear, keep the probability-sum indicator fixed at its full extent; remove the subsequent unlabeled line growth.",
+  "observations": [
+    {
+      "time_s": 2,
+      "evidence": "frame-2.00.jpg",
+      "description": "The negative A logit extends left of zero; positive B and C extend right. Signed direction, labels and class colors are clear."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "All three colored masses visibly contribute to one stacked total. The bracket and colored addition identify the shared denominator as 8.240."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "The mass stack expands toward a capacity labeled 1 while the displayed values remain masses. The division formula is readable, but the change of geometric units is implicit, weakening correspondence between division and the expanding bar."
+    },
+    {
+      "time_s": 9.3,
+      "evidence": "frame-9.30.jpg",
+      "description": "The capacity is fully occupied, but the sidebar still reads MASS and the numeric equation still totals 8.240. This sampled state needs a clearer connection between the retained source masses and their normalized shares."
+    },
+    {
+      "time_s": 10.7,
+      "evidence": "frame-10.70.jpg",
+      "description": "Class colors survive into the probability partition, and the displayed probabilities sum to 1.000. However, the line beneath the partition reaches only about halfway, creating an ambiguous competing cue for the probability sum."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "The same probabilities and full partition remain while the lower line has grown to nearly full width. This suggests continuing accumulation after normalization is complete. These observations concern supplied stills only, not full-video continuity or user artistic acceptance."
+    }
+  ],
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "artistic_acceptance": "pending_user_review"
+}

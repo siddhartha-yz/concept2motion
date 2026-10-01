@@ -1,0 +1,23 @@
+--- before/scene.js
++++ after/scene.js
+@@ -113,8 +113,9 @@
+     text('subtitle', subtitles[index], 122, 177, 26, MUTED);
+     const formulas = ['z = (−1.0, +0.6, +1.8)', 'mᵢ = exp(zᵢ)', 'S = m₀ + m₁ + m₂', 'pᵢ = mᵢ / S', 'p₀ + p₁ + p₂ = 1'];
+     text('formula', formulas[index], 480, 252, 38, WHITE, 1, 500);
+-    text('column-heading', index === 0 ? 'LOGIT' : index < 3 ? 'MASS' : 'PROBABILITY', 140, 294, 18, MUTED, 1, 500);
+-    const displayed = index === 0 ? ['−1.0', '+0.6', '+1.8'] : index < 3 ? masses.map(v => v.toFixed(3)) : probabilities.map(v => v.toFixed(3));
++    // Keep raw mass labels until the geometry completely fills the unit capacity.
++    text('column-heading', index === 0 ? 'LOGIT' : index < 4 ? 'MASS' : 'PROBABILITY', 140, 294, 18, MUTED, 1, 500);
++    const displayed = index === 0 ? ['−1.0', '+0.6', '+1.8'] : index < 4 ? masses.map(v => v.toFixed(3)) : probabilities.map(v => v.toFixed(3));
+     rows.forEach((y, i) => {
+       text(`class-label-${i}`, ['A', 'B', 'C'][i], 140, y + 11, 32, COLORS[i], 1, 600);
+       text(`class-value-${i}`, displayed[i], 205, y + 11, 32, COLORS[i], 1, 500);
+@@ -147,7 +148,7 @@
+     } else {
+       const totalWidth = index === 3 ? mix(rawWidth, capacity.width, q) : capacity.width;
+       capacityFrame(index === 3 ? ease(local / 0.3) : 1);
+-      text('capacity-label', 'TOTAL CAPACITY  1', 480, 440, 21, MUTED, 1, 500);
++      text('capacity-label', index === 3 ? 'TARGET CAPACITY  1' : 'TOTAL CAPACITY  1', 480, 440, 21, MUTED, 1, 500);
+       const segments = [];
+       let x = capacity.x;
+       probabilities.forEach((p, i) => {

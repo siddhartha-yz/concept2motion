@@ -1,0 +1,41 @@
+{
+  "decision": "pass",
+  "revision_instruction": "",
+  "observations": [
+    {
+      "time_s": 0.5,
+      "evidence": "frame-0.50.jpg",
+      "description": "Input values are readable. Identity arrows preserve component colors, relative magnitudes and signed directions: positive rightward, negative leftward."
+    },
+    {
+      "time_s": 4.5,
+      "evidence": "frame-4.50.jpg",
+      "description": "The identity and F(x) branches are distinguishable. Dashed corrections show +0.20 and +0.40 rightward, and −0.10 leftward; the illustrative correction is explicitly identified."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "The merge introduces a visible plus sign while identity arrows remain unchanged. Corrections approach their corresponding component rows."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "Corrections align head-to-tail with identity arrows. The orange and purple corrections overlap their identity spans, but opposing arrowheads and dashed marks still communicate cancellation."
+    },
+    {
+      "time_s": 9.3,
+      "evidence": "frame-9.30.jpg",
+      "description": "Output arrows and readable equations agree: 1.20, −0.10 and 0.15. Three corresponding components remain three outputs, clearly presenting addition rather than concatenation."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "The completed result remains consistent with the 9.30-second sample, providing a readable closing hold. These stills support the staged pacing; continuous motion between samples was not reviewed."
+    }
+  ],
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "artistic_acceptance": "pending_user_review"
+}

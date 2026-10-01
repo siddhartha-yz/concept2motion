@@ -1,0 +1,36 @@
+{
+  "decision": "revise",
+  "revision_instruction": "Synchronize the normalization labels and geometry: when probabilities 0.045, 0.221 and 0.734 appear, make their segments fill the capacity marked 1. Animate emphasis afterward, or delay the probability labels until the bar fills.",
+  "observations": [
+    {
+      "time_s": 2.0,
+      "evidence": "frame-2.00.jpg",
+      "description": "The negative orange logit extends left of zero; both positive logits extend right. Signs, class identities and labels are clear."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "All three colored masses form one contiguous total. The bracket and addition equation clearly identify their shared denominator."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "Final probability labels are already visible, but the segments leave substantial empty space inside the capacity marked 1. This transitional state visually conflicts with the displayed probabilities totaling one."
+    },
+    {
+      "time_s": 9.3,
+      "evidence": "frame-9.30.jpg",
+      "description": "The segments now fill the shared capacity, resolving the earlier mismatch while preserving class colors and relative shares."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "The final sampled frame clearly communicates three shares totaling one, with readable typography and stable identities. This review covers supplied stills only."
+    }
+  ],
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "artistic_acceptance": "pending_user_review"
+}

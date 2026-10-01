@@ -1,0 +1,24 @@
+{
+  "id": "residual",
+  "title": "Identity survives",
+  "duration_s": 12,
+  "inputs": {
+    "x": [
+      1.0,
+      -0.5,
+      0.25
+    ],
+    "residual": [
+      0.2,
+      0.4,
+      -0.1
+    ]
+  },
+  "mechanism": "One identity path transports x unchanged while another computes F(x); only at the merge do the corresponding components add to y = x + F(x).",
+  "visual_checks": [
+    "Two paths are distinguishable",
+    "Identity path does not transform x",
+    "Addition happens at the merge",
+    "The result is not presented as concatenation"
+  ]
+}

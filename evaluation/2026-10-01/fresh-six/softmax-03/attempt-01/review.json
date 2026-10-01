@@ -1,0 +1,41 @@
+{
+  "decision": "revise",
+  "revision_instruction": "In the final caption visible at 10.70–11.80s, replace “0.0446 + 0.2211 + 0.7342 = 1” with “0.0446 + 0.2211 + 0.7342 ≈ 1”. Keep “Total capacity = 1” to express the exact normalization constraint.",
+  "observations": [
+    {
+      "time_s": 2,
+      "evidence": "frame-2.00.jpg",
+      "description": "The negative cyan logit clearly extends left of zero; positive logits extend right. Labels and class colors are readable."
+    },
+    {
+      "time_s": 4.5,
+      "evidence": "frame-4.50.jpg",
+      "description": "All exponential masses extend rightward and retain their class colors, making the signed-to-positive transformation identifiable."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "All three colors contribute to the shared total, although the partially overlapping bars make this sampled assembly state less immediately readable."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "Each class explicitly uses denominator 8.240. The contiguous colored segments preserve identities during normalization."
+    },
+    {
+      "time_s": 10.7,
+      "evidence": "frame-10.70.jpg",
+      "description": "The outlined shared capacity clearly communicates total one. However, the displayed rounded probabilities sum to 0.9999, so the caption should use approximate equality."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "The final composition remains stable across the two ending samples, supporting a readable closing hold. This is sampled-frame review only; full motion and pacing were not observed."
+    }
+  ],
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "artistic_acceptance": "pending_user_review"
+}

@@ -1,0 +1,51 @@
+{
+  "decision": "pass",
+  "revision_instruction": "",
+  "observations": [
+    {
+      "time_s": 0.5,
+      "evidence": "frame-0.50.jpg",
+      "description": "Class A extends left of zero; B and C extend right. Signed direction, labels and class colors are clear."
+    },
+    {
+      "time_s": 2,
+      "evidence": "frame-2.00.jpg",
+      "description": "The expanded logit bars preserve signed direction and relative magnitudes. Text remains readable."
+    },
+    {
+      "time_s": 4.5,
+      "evidence": "frame-4.50.jpg",
+      "description": "All masses are positive, and the denominator explicitly includes all three contributions. The exponential transition itself is not captured in the supplied samples."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "The three colored masses assemble into a shared total marked D = 8.240. Slight vertical offsets read as an ongoing merge."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "Every class displays the same divisor, 8.240. The joined bar preserves class order, colors and proportions."
+    },
+    {
+      "time_s": 9.3,
+      "evidence": "frame-9.30.jpg",
+      "description": "One segmented bar spans the fixed 0–1 capacity, with Σ pᵢ = 1 visible beneath it. Class identities remain traceable by color."
+    },
+    {
+      "time_s": 10.7,
+      "evidence": "frame-10.70.jpg",
+      "description": "The final geometry and probability labels remain stable while the pointer advances, giving the result time to be read."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "The final state remains legible near the end. This pass covers supplied stills only; it does not establish full-video continuity or pacing, or grant artistic acceptance."
+    }
+  ],
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "artistic_acceptance": "pending_user_review"
+}

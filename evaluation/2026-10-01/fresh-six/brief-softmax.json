@@ -1,0 +1,19 @@
+{
+  "id": "softmax",
+  "title": "Shared denominator",
+  "duration_s": 12,
+  "inputs": {
+    "logits": [
+      -1.0,
+      0.6,
+      1.8
+    ]
+  },
+  "mechanism": "Signed logits become positive exponential mass; all classes use one shared total; the final probabilities occupy one fixed capacity with total 1.",
+  "visual_checks": [
+    "Negative logit remains distinguishable before exp",
+    "All three masses contribute to the denominator",
+    "Total-one constraint is visible through shared geometry",
+    "Class colors and identities survive each transformation"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "decision": "pass",
+  "revision_instruction": "",
+  "observations": [
+    {
+      "time_s": 0.5,
+      "evidence": "frame-0.50.jpg",
+      "description": "Readable input labels and distinct component colors. Positive components point right; the negative component points left."
+    },
+    {
+      "time_s": 2,
+      "evidence": "frame-2.00.jpg",
+      "description": "Identity arrows retain their lengths, colors and signed directions while advancing from the earlier sample."
+    },
+    {
+      "time_s": 4.5,
+      "evidence": "frame-4.50.jpg",
+      "description": "Identity and correction paths are distinguishable through headings and separate lanes. Correction directions match their displayed signs."
+    },
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "Corrections remain separate as merging begins; identity arrows remain unchanged."
+    },
+    {
+      "time_s": 7.8,
+      "evidence": "frame-7.80.jpg",
+      "description": "Matching colors preserve component correspondence as corrections approach identity endpoints. Overlapping orange arrows slightly reduce local clarity."
+    },
+    {
+      "time_s": 9.3,
+      "evidence": "frame-9.30.jpg",
+      "description": "Outputs depict componentwise addition, not concatenation: 1.20 rightward, −0.10 leftward and 0.15 rightward."
+    },
+    {
+      "time_s": 10.7,
+      "evidence": "frame-10.70.jpg",
+      "description": "Bold output values and separate result lanes make the sums readable while retaining the contributing components."
+    },
+    {
+      "time_s": 11.8,
+      "evidence": "frame-11.80.jpg",
+      "description": "The result remains visible across the late samples, providing reading time. This sampled-frame pass does not establish full-video smoothness or user artistic acceptance."
+    }
+  ],
+  "kind": "visual",
+  "reviewer": "official Codex CLI; separate fresh context",
+  "independent_of_author": true,
+  "review_scope": "sampled_frames",
+  "artistic_acceptance": "pending_user_review"
+}

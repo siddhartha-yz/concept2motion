@@ -1,0 +1,146 @@
+{
+  "status": "render_passed",
+  "author": "official Codex CLI; fresh context",
+  "sources": [
+    {
+      "path": "index.html",
+      "sha256": "3eeb1943f0d2f9ad032b3e684c69c664747efadfa01428bd5375a187ab66f0be"
+    },
+    {
+      "path": "scene.js",
+      "sha256": "278349902b018a436c343620830275c18f8eb13c68e0ba0103d02d9fb80d55b7"
+    }
+  ],
+  "tooling": [
+    {
+      "path": "render_scene.mjs",
+      "sha256": "4ea7ee166bfe724821a9c52d6c228380ea0a58b11a78da7f3545df63c75e41da"
+    },
+    {
+      "path": "contracts.mjs",
+      "sha256": "63fabd5c35d7c1d9da44959c3a7337e6d4e300017e6ad3d77799bb3f4a95145f"
+    }
+  ],
+  "playwrightVersion": "1.62.1",
+  "artistic_acceptance": "pending_user_review",
+  "errors": [],
+  "externalRequests": [],
+  "chromiumVersion": "151.0.7922.34",
+  "meta": {
+    "version": 1,
+    "caseId": "softmax",
+    "renderer": "canvas2d",
+    "width": 1920,
+    "height": 1080,
+    "duration": 12,
+    "fps": 60
+  },
+  "brief_sha256": "d4047cf2a17c8356dc85345a3b0cbcf741f48caa22695c2f1c96c7603131e4dd",
+  "mode": "video",
+  "determinism": {
+    "time_s": 11,
+    "intervening_time_s": 1,
+    "first_sha256": "0f0b8288e672880c59c43c2b5de5b67f3059831c1485378f989c4112c01b933e",
+    "second_sha256": "0f0b8288e672880c59c43c2b5de5b67f3059831c1485378f989c4112c01b933e",
+    "passed": true
+  },
+  "checks": {
+    "sampled_frames": 53,
+    "coverage": {
+      "passed": true,
+      "expected": [
+        "logits",
+        "exponential",
+        "shared-total",
+        "normalizing",
+        "normalized"
+      ],
+      "observed": [
+        "logits",
+        "exponential",
+        "shared-total",
+        "normalizing",
+        "normalized"
+      ],
+      "findings": []
+    },
+    "passed": true,
+    "findings": [],
+    "full_video_frame_checks": {
+      "frames": 720,
+      "passed": true,
+      "findings": []
+    }
+  },
+  "ffmpegVersion": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers",
+  "video": {
+    "passed": true,
+    "findings": [],
+    "expectedFrames": 720,
+    "stream": {
+      "index": 0,
+      "codec_name": "h264",
+      "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+      "profile": "High",
+      "codec_type": "video",
+      "codec_tag_string": "avc1",
+      "codec_tag": "0x31637661",
+      "width": 1920,
+      "height": 1080,
+      "coded_width": 1920,
+      "coded_height": 1080,
+      "has_b_frames": 2,
+      "sample_aspect_ratio": "1:1",
+      "display_aspect_ratio": "16:9",
+      "pix_fmt": "yuv420p",
+      "level": 42,
+      "chroma_location": "center",
+      "field_order": "progressive",
+      "refs": 1,
+      "is_avc": "true",
+      "nal_length_size": "4",
+      "id": "0x1",
+      "r_frame_rate": "60/1",
+      "avg_frame_rate": "60/1",
+      "time_base": "1/15360",
+      "start_pts": 0,
+      "start_time": "0.000000",
+      "duration_ts": 184320,
+      "duration": "12.000000",
+      "bit_rate": "207441",
+      "bits_per_raw_sample": "8",
+      "nb_frames": "720",
+      "extradata_size": 48,
+      "disposition": {
+        "default": 1,
+        "dub": 0,
+        "original": 0,
+        "comment": 0,
+        "lyrics": 0,
+        "karaoke": 0,
+        "forced": 0,
+        "hearing_impaired": 0,
+        "visual_impaired": 0,
+        "clean_effects": 0,
+        "attached_pic": 0,
+        "timed_thumbnails": 0,
+        "non_diegetic": 0,
+        "captions": 0,
+        "descriptions": 0,
+        "metadata": 0,
+        "dependent": 0,
+        "still_image": 0,
+        "multilayer": 0
+      },
+      "tags": {
+        "language": "und",
+        "handler_name": "VideoHandler",
+        "vendor_id": "[0][0][0][0]",
+        "encoder": "Lavc61.3.100 libx264"
+      }
+    },
+    "full_decode_passed": true,
+    "sha256": "4fe828bbce813279595d428d969a164d30e96eec4f5d464c83de378ec5a09f87"
+  },
+  "wall_seconds": 35.257
+}

@@ -1,0 +1,11 @@
+--- before/scene.js
++++ after/scene.js
+@@ -160,7 +160,7 @@
+   'exp(z) > 0 for every class',
+   `${masses.map(v=>v.toFixed(3)).join(' + ')} = ${denominator.toFixed(3)}`,
+   `Every mass shares the denominator ${denominator.toFixed(3)}`,
+-  `${probabilities.map(v=>v.toFixed(4)).join(' + ')} = 1`
++  `${probabilities.map(v=>v.toFixed(4)).join(' + ')} ≈ 1`
+  ];
+  text('mechanism-caption',captions[index],960,958,30,'#B6C3D6',1,true);
+  // A deterministic time ruler continues through the final held partition.
