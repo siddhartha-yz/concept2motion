@@ -1,0 +1,66 @@
+{
+  "case": "residual",
+  "author": "current Codex desktop session",
+  "reviewer": "same authoring session",
+  "independent_review": false,
+  "generation_trials": 1,
+  "technical_repairs": 0,
+  "visual_revisions": 1,
+  "human_scene_interventions": 0,
+  "output": [
+    1.2,
+    -0.1,
+    0.15
+  ],
+  "first_full_render": {
+    "status": "render_passed",
+    "visual_passed": false,
+    "issue": "shape obscures merge caption at 6.5 s; early validator missed shape/text collisions"
+  },
+  "final": {
+    "status": "render_passed",
+    "sampled_frames": 53,
+    "full_video_frames": 720,
+    "video_sha256": "929ccdfaf908c6d3f3ed4e8bce18df14374baa61ff8b4a1f674548a0e51026f8",
+    "width": 1920,
+    "height": 1080,
+    "fps": 60,
+    "duration_s": 12,
+    "render_wall_s": 30.929,
+    "source_hashes": [
+      {
+        "path": "index.html",
+        "sha256": "1929367658f13abab8a32ca73b01907143f7b770f036aaf8c93d76aa09195892"
+      },
+      {
+        "path": "scene.js",
+        "sha256": "96a39facd3e7e9ffd2f9135fcc04e15e571b2705a97c2df1ef5a3e40243c9236"
+      }
+    ]
+  },
+  "repeat": {
+    "status": "render_passed",
+    "video_sha256": "929ccdfaf908c6d3f3ed4e8bce18df14374baa61ff8b4a1f674548a0e51026f8",
+    "same_video": true,
+    "render_wall_s": 41.485,
+    "scope": "render determinism only; not another AI generation"
+  },
+  "intentional_pixel_fault": {
+    "status": "checks_failed",
+    "codes": [
+      "pixel_mismatch"
+    ],
+    "is_generation_trial": false
+  },
+  "softmax_followup": {
+    "status": "render_passed",
+    "visual_revisions": 1,
+    "issue": "new collision check found denominator label over moving amber mass",
+    "change": "delay label fade-in to 9.15–9.45 s",
+    "video_sha256": "d7ccf342647b88ef2ab442aa5ef4008709ee534ad857e054f168c5e5d73063ce"
+  },
+  "artistic_acceptance": "pending_user_review",
+  "api_model_calls": 0,
+  "usage_cost_measured": false,
+  "autonomous_cli_pipeline_tested": false
+}

@@ -8,7 +8,7 @@ import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
-import { checkFrame, checkVideo } from './contracts.mjs';
+import { checkFrame, checkVideo, checkCoverage } from './contracts.mjs';
 
 const { values }=parseArgs({options:{
   scene:{type:'string'},out:{type:'string'},'checks-only':{type:'boolean',default:false},
@@ -40,8 +40,17 @@ async function snapshot(dir){
 }
 await snapshot(root);
 const frozenRoot=join(out,'source');
+// Preserve the actual validator implementation so future stricter checks do not
+// silently rewrite the meaning of a historical pass.
+await mkdir(join(out,'tooling'));
+const tooling=[];
+for(const name of ['render_scene.mjs','contracts.mjs']){
+  const data=await readFile(join(repo,'tools',name));
+  await writeFile(join(out,'tooling',name),data);
+  tooling.push({path:name,sha256:sourceHash(data)});
+}
 const started=Date.now(),manifest={status:'started',author:values.author,sources,
-  playwrightVersion,artistic_acceptance:'pending_user_review',errors:[],externalRequests:[]};
+  tooling,playwrightVersion,artistic_acceptance:'pending_user_review',errors:[],externalRequests:[]};
 const saveManifest=()=>writeFile(join(out,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
 await saveManifest();
 const server=createServer(async(req,res)=>{
@@ -85,6 +94,7 @@ try{
   await page.setViewportSize({width:meta.width,height:meta.height});
   const brief=values.brief?JSON.parse(await readFile(values.brief,'utf8')):cases.find(c=>c.id===meta.caseId);
   if(!brief||brief.id!==meta.caseId)throw Error('Brief must match scene caseId');
+  if(meta.duration!==brief.duration_s)throw Error('Scene duration must match the frozen brief');
   await writeFile(join(out,'brief.json'),JSON.stringify(brief,null,2)+'\n');
   Object.assign(manifest,{meta,brief_sha256:sourceHash(JSON.stringify(brief)),mode:values['checks-only']?'checks':'video'});
   const capture=async(t,withImage=true)=>page.evaluate(({t,withImage})=>{
@@ -94,6 +104,10 @@ try{
     if(state.stage==='normalized')for(const segment of state.geometry.segments){
       const color=canvas.getContext('2d').getImageData(Math.floor(segment.x+segment.width/2),Math.floor(segment.y+segment.height/2),1,1).data;
       pixels.push({id:segment.id,color:Array.from(color),expected:segment.color});
+    }
+    if(window.C2M.meta.caseId==='residual'&&state.stage==='output')for(const vector of state.geometry.output){
+      const color=canvas.getContext('2d').getImageData(Math.floor((vector.start.x+vector.end.x)/2),Math.round(vector.start.y),1,1).data;
+      pixels.push({id:vector.id,color:Array.from(color),expected:vector.color});
     }
     return {state:{...state,requestedTime:t},pixels,data:withImage?canvas.toDataURL('image/jpeg',0.95):null};
   },{t,withImage});
@@ -111,6 +125,7 @@ try{
   const times=[...new Set([...Array.from({length:49},(_,i)=>meta.duration*i/48),
     ...values.samples.split(',').map(Number)])].sort((a,b)=>a-b);
   for(const t of times){const result=await capture(t,false),checked=inspect(result);findings.push(...checked.findings);evidence.push({...result.state,pixelSamples:result.pixels});}
+  const coverage=checkCoverage(evidence,brief);findings.push(...coverage.findings);
   for(const t of values.samples.split(',').map(Number)){
     const result=await capture(t);await writeFile(join(out,`frame-${t.toFixed(2)}.jpg`),Buffer.from(result.data.split(',')[1],'base64'));
   }
@@ -120,7 +135,7 @@ try{
   if(!manifest.determinism.passed)findings.push({code:'nondeterministic_frame',time_s:repeatedTime});
   if(manifest.errors.length)findings.push({code:'pageerror',detail:manifest.errors.join('; ')});
   if(manifest.externalRequests.length)findings.push({code:'external_request',detail:'Scene requested external assets'});
-  const checks={sampled_frames:times.length,passed:findings.length===0,findings};
+  const checks={sampled_frames:times.length,coverage,passed:findings.length===0,findings};
   await writeFile(join(out,'checks.json'),JSON.stringify(checks,null,2)+'\n');
   await writeFile(join(out,'frame-evidence.json'),JSON.stringify(evidence,null,2)+'\n');
   manifest.checks=checks;

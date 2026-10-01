@@ -55,7 +55,7 @@
     text('total-value',denominator.toFixed(2),1130,580,64,'#e8eef8',totalOpacity);
     const capacity={x:400,y:580,width:1120,height:140};
     ctx.save();ctx.globalAlpha=smooth(t,9.8,10.2);ctx.strokeStyle='#f0f5ff';ctx.lineWidth=2;ctx.strokeRect(capacity.x,capacity.y,capacity.width,capacity.height);ctx.restore();
-    text('division',`÷ (${masses.map(v=>v.toFixed(2)).join(' + ')})`,960,340,32,'#b6c6de',smooth(t,9.15,9.45));
+    text('division',`÷ (${masses.map(v=>v.toFixed(2)).join(' + ')})`,960,340,32,'#b6c6de',smooth(t,8.25,8.55));
     text('sum-one','Σ pᵢ = 1',960,825,46,'#e8eef8',probabilityAlpha);
     text('footer','ONE SHARED DENOMINATOR',960,1005,22,'#748ba9',smooth(t,6.9,7.3));
     lastState={time:t,stage,mechanism:{logits,masses,denominator,probabilities},

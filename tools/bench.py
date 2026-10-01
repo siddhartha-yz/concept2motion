@@ -59,7 +59,8 @@ revision count, human interventions, renderer checks and unresolved issues. Do n
 success with artistic acceptance. Leave artistic_acceptance as pending_user_review.
 For the Canvas workflow, attach each review with tools/review_run.py and respect its ledger stop
 state. Record whether the reviewer is the authoring session. Unsupported rendered-evidence validators
-must be reported as unsupported, never as a pass. The current validator supports Softmax only.
+must be reported as unsupported, never as a pass. The current validator supports Softmax and residual
+addition. GRU rendered evidence is still unsupported.
 """
     (out / "prompt.md").write_text(prompt)
     return {"case": case["id"], "directory": str(out), "model_called": False}

@@ -29,12 +29,13 @@ def validate_review(review, manifest, run):
         path = (run / observation["evidence"]).resolve()
         if not path.is_relative_to(run.resolve()) or not path.is_file():
             raise ValueError("Evidence must be an existing file inside the attempt")
-    for source in manifest["sources"]:
-        path = (run / "source" / source["path"]).resolve()
-        if not path.is_relative_to((run / "source").resolve()):
-            raise ValueError("Invalid source path")
-        if hashlib.sha256(path.read_bytes()).hexdigest() != source["sha256"]:
-            raise ValueError("Frozen source changed after rendering")
+    for folder, records in (("source", manifest["sources"]), ("tooling", manifest.get("tooling", []))):
+        for source in records:
+            path = (run / folder / source["path"]).resolve()
+            if not path.is_relative_to((run / folder).resolve()):
+                raise ValueError("Invalid frozen artifact path")
+            if hashlib.sha256(path.read_bytes()).hexdigest() != source["sha256"]:
+                raise ValueError(f"Frozen {folder} changed after rendering")
 
 
 def revision_state(records, budgets):
@@ -69,7 +70,8 @@ def main():
         raise ValueError("Ledger is stopped; start a new explicitly authorized evaluation")
     review["artistic_acceptance"] = "pending_user_review"
     record = {"run": str(run), "kind": review["kind"], "decision": review["decision"],
-              "render_status": manifest["status"], "sources": manifest["sources"]}
+              "render_status": manifest["status"], "sources": manifest["sources"],
+              "tooling": manifest.get("tooling", [])}
     ledger["records"].append(record)
     ledger["state"] = revision_state(ledger["records"], ledger["budgets"])
     ledger_path.parent.mkdir(parents=True, exist_ok=True)

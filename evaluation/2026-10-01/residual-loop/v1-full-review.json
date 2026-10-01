@@ -1,0 +1,15 @@
+{
+  "kind": "visual",
+  "decision": "revise",
+  "reviewer": "Codex desktop authoring session",
+  "independent_of_author": false,
+  "observations": [
+    {
+      "time_s": 6.5,
+      "evidence": "frame-6.50.jpg",
+      "description": "The first identity bar crosses the merge caption during the transition. Numeric and text/text checks passed, but visual inspection found a shape/text collision."
+    }
+  ],
+  "revision_instruction": "Move only the merge caption from baseline y=365 to y=315, above the complete identity trajectory. Keep numerical values, vector motions, timings and signs unchanged. Extend the validator to detect active shape/text collisions.",
+  "artistic_acceptance": "pending_user_review"
+}

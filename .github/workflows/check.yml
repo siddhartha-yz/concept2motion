@@ -29,15 +29,42 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: node tools/render_scene.mjs --scene benchmarks/scenes/softmax/index.html --out /tmp/softmax-scene-smoke --checks-only --author CI
+      - run: node tools/render_scene.mjs --scene benchmarks/scenes/residual/index.html --out /tmp/residual-scene-smoke --checks-only --author CI
       - name: Known overlapping candidate must be rejected
         continue-on-error: true
         run: node tools/render_scene.mjs --scene evaluation/2026-10-01/softmax-loop/v1-source/index.html --out /tmp/softmax-regression --checks-only --author CI
       - name: Verify the rejection evidence
         run: node -e "const c=require('/tmp/softmax-regression/checks.json'); if(c.passed || !c.findings.some(f=>f.code==='text_overlap')) process.exit(1)"
+      - name: Known shape-caption collision must be rejected
+        continue-on-error: true
+        run: node tools/render_scene.mjs --scene evaluation/2026-10-01/residual-loop/v1-source/index.html --out /tmp/residual-caption-regression --checks-only --author CI
+      - name: Verify shape-caption rejection
+        run: node -e "const c=require('/tmp/residual-caption-regression/checks.json'); if(c.passed || !c.findings.some(f=>f.code==='text_shape_overlap')) process.exit(1)"
+      - name: Previous Softmax caption collision must be rejected
+        continue-on-error: true
+        run: node tools/render_scene.mjs --scene evaluation/2026-10-01/residual-loop/softmax-before/index.html --out /tmp/softmax-caption-regression --checks-only --author CI
+      - name: Verify Softmax caption rejection
+        run: node -e "const c=require('/tmp/softmax-caption-regression/checks.json'); if(c.passed || !c.findings.some(f=>f.code==='text_shape_overlap' && f.detail==='division / class-2')) process.exit(1)"
+      - name: Prepare intentional pixel corruption
+        run: |
+          node --input-type=module <<'JS'
+          import fs from 'node:fs';
+          fs.cpSync('benchmarks/scenes/residual','/tmp/residual-corrupted-source',{recursive:true});
+          fs.appendFileSync('/tmp/residual-corrupted-source/scene.js', '\n'+fs.readFileSync('tests/fixtures/residual-pixel-overwrite.js','utf8'));
+          JS
+      - name: Correct evidence with corrupted pixels must be rejected
+        continue-on-error: true
+        run: node tools/render_scene.mjs --scene /tmp/residual-corrupted-source/index.html --out /tmp/residual-pixel-regression --checks-only --author CI-injected-fault
+      - name: Verify actual pixel rejection
+        run: node -e "const c=require('/tmp/residual-pixel-regression/checks.json'); if(c.passed || !c.findings.some(f=>f.code==='pixel_mismatch') || c.findings.some(f=>f.code!=='pixel_mismatch')) process.exit(1)"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: softmax-scene-evidence
+          name: mechanism-scene-evidence
           path: |
             /tmp/softmax-scene-smoke
             /tmp/softmax-regression
+            /tmp/residual-scene-smoke
+            /tmp/residual-pixel-regression
+            /tmp/residual-caption-regression
+            /tmp/softmax-caption-regression

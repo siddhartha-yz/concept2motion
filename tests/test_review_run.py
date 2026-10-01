@@ -1,5 +1,7 @@
 import importlib.util
 import unittest
+import tempfile
+import hashlib
 from pathlib import Path
 
 spec = importlib.util.spec_from_file_location("review_run", Path(__file__).resolve().parents[1] / "tools/review_run.py")
@@ -24,6 +26,23 @@ class ReviewPolicyTests(unittest.TestCase):
         review = {"decision": "pass", "kind": "visual", "reviewer": "AI", "observations": [{}]}
         with self.assertRaisesRegex(ValueError, "verified full render"):
             module.validate_review(review, {"status": "checks_passed"}, Path("."))
+
+    def test_modified_validator_evidence_blocks_a_passing_review(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            run = Path(temporary)
+            (run / "tooling").mkdir()
+            tool = run / "tooling" / "contracts.mjs"
+            tool.write_text("original validator")
+            original_hash = hashlib.sha256(tool.read_bytes()).hexdigest()
+            (run / "frame.jpg").write_bytes(b"evidence")
+            manifest = {"status": "render_passed", "checks": {"passed": True}, "meta": {"duration": 12},
+                        "sources": [], "tooling": [{"path": tool.name, "sha256": original_hash}]}
+            review = {"decision": "pass", "kind": "visual", "reviewer": "AI",
+                      "observations": [{"time_s": 11, "evidence": "frame.jpg", "description": "Reviewed frame"}]}
+            module.validate_review(review, manifest, run)
+            tool.write_text("altered validator")
+            with self.assertRaisesRegex(ValueError, "Frozen tooling changed"):
+                module.validate_review(review, manifest, run)
 
 
 if __name__ == "__main__":
