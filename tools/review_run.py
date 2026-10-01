@@ -20,9 +20,12 @@ def validate_review(review, manifest, run):
         raise ValueError("A passing review requires a verified full render")
     if review["decision"] == "revise" and not review.get("revision_instruction"):
         raise ValueError("A revision needs a concrete instruction")
+    duration = manifest.get("meta", {}).get("duration")
+    if duration is None and (run / "brief.json").exists():
+        duration = json.loads((run / "brief.json").read_text())["duration_s"]
     for observation in review["observations"]:
         t = observation.get("time_s")
-        if not isinstance(t, (float, int)) or not 0 <= t <= manifest["meta"]["duration"]:
+        if duration is None or not isinstance(t, (float, int)) or not 0 <= t <= duration:
             raise ValueError("Observation timestamp is outside this scene")
         if not observation.get("description") or not observation.get("evidence"):
             raise ValueError("Every observation needs a description and artifact")

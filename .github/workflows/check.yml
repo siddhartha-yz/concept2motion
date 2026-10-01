@@ -14,7 +14,7 @@ jobs:
           cache: npm
       - run: python tools/bench.py check
       - run: python tools/bench.py prepare softmax --out /tmp/softmax-brief
-      - run: python -m py_compile tools/bench.py tools/evaluate_paper2manim.py tools/review_run.py
+      - run: python -m py_compile tools/bench.py tools/evaluate_paper2manim.py tools/review_run.py tools/batch.py
       - run: npm test
       - run: python -m unittest discover -s tests -p 'test_*.py'
   scene-smoke:

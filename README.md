@@ -62,6 +62,16 @@ node tools/evaluate_openmotion.mjs --upstream /path/to/open-motion --out runs/op
 Paper2Manim 工具要使用其虚拟环境 Python，且 `manim`、`ffmpeg`、`ffprobe` 应在 PATH。详细环境要求和本机遇到的问题均记录在报告中。
 OpenMotion 工具在已安装依赖的隔离副本中加载原始 TypeScript 模块，评测组件、HTML 生成、变体与结构性评分；不代表完整服务能够启动。
 
+## 可续跑的真实生成评测
+
+```bash
+python3 tools/batch.py run --out runs/my-six
+python3 tools/batch.py run --out runs/my-six --resume
+python3 tools/batch.py report --out runs/my-six
+```
+
+默认分别生成三次 Softmax 与残差候选。输入和检查工具冻结，作者与视觉审看使用官方 CLI 的分开上下文；每轮保存源码、渲染、检查、审看和用量，修订有上限。服务故障会停止并保留进度，完成的试验不会重跑。[运行说明与限制](docs/batch-workflow.md)。需要已登录的 Codex CLI 及渲染工具；这些命令会实际消耗订阅用量。
+
 
 ## 下一步
 
