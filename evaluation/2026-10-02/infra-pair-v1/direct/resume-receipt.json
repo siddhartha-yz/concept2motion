@@ -1,0 +1,257 @@
+{
+  "arm": "direct",
+  "artistic_acceptance": "pending_user",
+  "calls": [
+    {
+      "id": "author",
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 69.767,
+      "usage": [
+        {
+          "input_tokens": 17279,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1956,
+          "reasoning_output_tokens": 133
+        }
+      ],
+      "thread_ids": [
+        "01a0f9eb-deb2-7fc3-985a-0cc9fe814c8d"
+      ],
+      "tool_types": []
+    },
+    {
+      "id": "revision",
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 19.493,
+      "usage": [
+        {
+          "input_tokens": 17038,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 141,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "thread_ids": [
+        "01a0f9ec-fb5a-74a3-94da-9844f37feb42"
+      ],
+      "tool_types": []
+    }
+  ],
+  "revisions": [
+    {
+      "kind": "feedback_local_edit",
+      "feedback": "只把第二次 60° 旋转整体提前 0.35 秒：起止从 5.2–7.2 秒改为 4.85–6.85 秒，旋转时长保持 2 秒；直接依附此动作的箭头或动作标记同步提前。其余物体、配色、几何、第一段动作、字幕内容、运镜与总时长保持原样。终点留到 10 秒，因此第二次旋转后的观看停顿多 0.35 秒。",
+      "record": {
+        "patch": {
+          "files": [
+            {
+              "path": "scene.mjs",
+              "sha256": "2a2e1f4c06e60b8756a94acc9986e4d15bb9a832b3faaebb2c0a185938d29d01",
+              "edits": [
+                {
+                  "old": "const C = { firstStart:0.8, firstEnd:2.8, secondStart:5.2, secondEnd:7.2 };",
+                  "new": "const C = { firstStart:0.8, firstEnd:2.8, secondStart:4.85, secondEnd:6.85 };"
+                }
+              ]
+            }
+          ]
+        },
+        "source_hashes": {
+          "scene.mjs": "2a2e1f4c06e60b8756a94acc9986e4d15bb9a832b3faaebb2c0a185938d29d01",
+          "intent.md": "264e834556ae9afa33d7a279e8ab9047cb7443b7760b23c20f16f678859c3814",
+          "brief.json": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08"
+        },
+        "changed_hashes": {
+          "scene.mjs": "174d37b0230b251034158493e56ac2df2ecdad5b096660b74029dd1a1018f5cb"
+        },
+        "verification": "not rendered; no quality acceptance"
+      }
+    }
+  ],
+  "initial_source_bytes": 4518,
+  "initial_source_sha256": "2a2e1f4c06e60b8756a94acc9986e4d15bb9a832b3faaebb2c0a185938d29d01",
+  "initial_preview": {
+    "status": "preview_ready",
+    "jobId": "1af3b6c6-ef80-4f42-9b86-f7768de80179",
+    "request": {
+      "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/initial",
+      "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/preview-initial",
+      "arm": "direct",
+      "from": 0,
+      "to": 10,
+      "fps": 24,
+      "width": 960,
+      "height": 540,
+      "frames": 240,
+      "times": [
+        0,
+        0.8,
+        1.8,
+        2.8,
+        4.8,
+        5.2,
+        6.2,
+        7.2,
+        9.8
+      ]
+    },
+    "artistic_acceptance": "pending_user_review",
+    "errors": [],
+    "externalRequests": [],
+    "timing": {
+      "queue_excluded": true,
+      "snapshot_s": 0.004171124000000418,
+      "load_s": 0.052432419999997364,
+      "capture_s": 2.533946606999991,
+      "encode_s": 0.19851666100000148,
+      "total_s": 3.106270156000013,
+      "queue_s": 0.0006493069999851109
+    },
+    "browserVersion": "151.0.7922.34",
+    "sources": [
+      {
+        "path": "brief.json",
+        "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+        "bytes": 5378
+      },
+      {
+        "path": "scene.mjs",
+        "sha256": "2a2e1f4c06e60b8756a94acc9986e4d15bb9a832b3faaebb2c0a185938d29d01",
+        "bytes": 4518
+      },
+      {
+        "path": "runtime/concept-runtime.mjs",
+        "sha256": "ce9f680c552a4c23e6af3bd83c9015cf375b9ec34d026cdba200bc9694990d6f",
+        "bytes": 14922
+      }
+    ],
+    "meta": {
+      "width": 1920,
+      "height": 1080,
+      "duration": 10
+    },
+    "determinism": {
+      "time_s": 7.5,
+      "intervening_time_s": 2.5,
+      "first_sha256": "ed8ba3410708ba9d50453d1bb9f21ee4bc0d9dfb6c410c353db332a6873b8f5c",
+      "second_sha256": "ed8ba3410708ba9d50453d1bb9f21ee4bc0d9dfb6c410c353db332a6873b8f5c",
+      "passed": true
+    },
+    "video": {
+      "path": "preview.mp4",
+      "width": 960,
+      "height": 540,
+      "fps": 24,
+      "frames": 240,
+      "duration_s": 10,
+      "from_s": 0,
+      "to_s": 10
+    }
+  },
+  "initial_math": {
+    "scope": "independent algebra on reported actual poses and normalized tip coordinates; not pixel correspondence or artistic review",
+    "passed": true,
+    "findings": []
+  },
+  "patch_bytes": 299,
+  "revised_preview": {
+    "status": "preview_ready",
+    "jobId": "369825b9-2eac-4415-b559-bec6b3c2f8da",
+    "request": {
+      "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/revised",
+      "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/preview-revised",
+      "arm": "direct",
+      "from": 4,
+      "to": 8,
+      "fps": 24,
+      "width": 960,
+      "height": 540,
+      "frames": 96,
+      "times": [
+        0,
+        0.8,
+        1.8,
+        2.8,
+        4.8,
+        5.2,
+        6.2,
+        7.2,
+        9.8
+      ]
+    },
+    "artistic_acceptance": "pending_user_review",
+    "errors": [],
+    "externalRequests": [],
+    "timing": {
+      "queue_excluded": true,
+      "snapshot_s": 0.0021082190000015545,
+      "load_s": 0.034934938000005786,
+      "capture_s": 0.8451901699999871,
+      "encode_s": 0.07490085299999918,
+      "total_s": 1.1740768129999923,
+      "queue_s": 0.0002911840000014987
+    },
+    "browserVersion": "151.0.7922.34",
+    "sources": [
+      {
+        "path": "brief.json",
+        "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+        "bytes": 5378
+      },
+      {
+        "path": "revision.json",
+        "sha256": "740223871f08d64ae42aad1b55bee328a5089fcb17a0012505a182e4a72ed03c",
+        "bytes": 872
+      },
+      {
+        "path": "scene.mjs",
+        "sha256": "174d37b0230b251034158493e56ac2df2ecdad5b096660b74029dd1a1018f5cb",
+        "bytes": 4520
+      },
+      {
+        "path": "runtime/concept-runtime.mjs",
+        "sha256": "ce9f680c552a4c23e6af3bd83c9015cf375b9ec34d026cdba200bc9694990d6f",
+        "bytes": 14922
+      }
+    ],
+    "meta": {
+      "width": 1920,
+      "height": 1080,
+      "duration": 10
+    },
+    "determinism": {
+      "time_s": 7,
+      "intervening_time_s": 5,
+      "first_sha256": "7796416a22da461743ea34123e413036112f9245df30ebe5d2e175a5628cafe9",
+      "second_sha256": "7796416a22da461743ea34123e413036112f9245df30ebe5d2e175a5628cafe9",
+      "passed": true
+    },
+    "video": {
+      "path": "preview.mp4",
+      "width": 960,
+      "height": 540,
+      "fps": 24,
+      "frames": 96,
+      "duration_s": 4,
+      "from_s": 4,
+      "to_s": 8
+    }
+  },
+  "revision_locality": {
+    "passed": true,
+    "findings": [],
+    "scope": "motion shift plus unchanged sample pixels outside [4,8]; no artistic verdict"
+  },
+  "revised_math": {
+    "scope": "independent algebra on reported actual poses and normalized tip coordinates; not pixel correspondence or artistic review",
+    "passed": true,
+    "findings": []
+  },
+  "status": "ready_for_user_review",
+  "model_wall_s": 89.26,
+  "arm_wall_s": 0.009
+}

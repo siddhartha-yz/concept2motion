@@ -14,7 +14,7 @@ jobs:
           cache: npm
       - run: python tools/bench.py check
       - run: python tools/bench.py prepare softmax --out /tmp/softmax-brief
-      - run: python -m py_compile tools/bench.py tools/evaluate_paper2manim.py tools/review_run.py tools/batch.py
+      - run: python -m compileall -q tools
       - run: npm test
       - run: python -m unittest discover -s tests -p 'test_*.py'
   scene-smoke:
@@ -28,6 +28,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - run: node tools/studio_smoke.mjs /tmp/timing-studio-smoke
       - run: node tools/render_scene.mjs --scene benchmarks/scenes/softmax/index.html --out /tmp/softmax-scene-smoke --checks-only --author CI
       - run: node tools/render_scene.mjs --scene benchmarks/scenes/residual/index.html --out /tmp/residual-scene-smoke --checks-only --author CI
       - name: Known overlapping candidate must be rejected
@@ -68,3 +69,4 @@ jobs:
             /tmp/residual-pixel-regression
             /tmp/residual-caption-regression
             /tmp/softmax-caption-regression
+            /tmp/timing-studio-smoke

@@ -1,0 +1,10 @@
+{
+  "kind": "explicit_manual_source_adapter",
+  "from_sha256": "85f1f759507e40147b1b559c759f99e9efab4d182a503d40d84374dec7d63e50",
+  "to_sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+  "removed": "const C = { firstStart: 0.8, firstEnd: 2.8, secondStart: 5.2, secondEnd: 7.2 };",
+  "replaced_entry": "export function createScene(rt) {",
+  "replacement": "export function createScene(rt) {\n  const T = rt.timings({\n    'turn-one': { start: 0.8, end: 2.8 },\n    'turn-two': { start: 5.2, end: 7.2 }\n  });\n  const C = { firstStart: T['turn-one'].start, firstEnd: T['turn-one'].end,\n    secondStart: T['turn-two'].start, secondEnd: T['turn-two'].end };",
+  "new_model_generation": false,
+  "setup_time_measured": false
+}

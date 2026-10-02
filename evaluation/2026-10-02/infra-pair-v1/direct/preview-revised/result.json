@@ -1,0 +1,83 @@
+{
+  "status": "preview_ready",
+  "jobId": "369825b9-2eac-4415-b559-bec6b3c2f8da",
+  "request": {
+    "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/revised",
+    "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/preview-revised",
+    "arm": "direct",
+    "from": 4,
+    "to": 8,
+    "fps": 24,
+    "width": 960,
+    "height": 540,
+    "frames": 96,
+    "times": [
+      0,
+      0.8,
+      1.8,
+      2.8,
+      4.8,
+      5.2,
+      6.2,
+      7.2,
+      9.8
+    ]
+  },
+  "artistic_acceptance": "pending_user_review",
+  "errors": [],
+  "externalRequests": [],
+  "timing": {
+    "queue_excluded": true,
+    "snapshot_s": 0.0021082190000015545,
+    "load_s": 0.034934938000005786,
+    "capture_s": 0.8451901699999871,
+    "encode_s": 0.07490085299999918,
+    "total_s": 1.1740768129999923,
+    "queue_s": 0.0002911840000014987
+  },
+  "browserVersion": "151.0.7922.34",
+  "sources": [
+    {
+      "path": "brief.json",
+      "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+      "bytes": 5378
+    },
+    {
+      "path": "revision.json",
+      "sha256": "740223871f08d64ae42aad1b55bee328a5089fcb17a0012505a182e4a72ed03c",
+      "bytes": 872
+    },
+    {
+      "path": "scene.mjs",
+      "sha256": "174d37b0230b251034158493e56ac2df2ecdad5b096660b74029dd1a1018f5cb",
+      "bytes": 4520
+    },
+    {
+      "path": "runtime/concept-runtime.mjs",
+      "sha256": "ce9f680c552a4c23e6af3bd83c9015cf375b9ec34d026cdba200bc9694990d6f",
+      "bytes": 14922
+    }
+  ],
+  "meta": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 10
+  },
+  "determinism": {
+    "time_s": 7,
+    "intervening_time_s": 5,
+    "first_sha256": "7796416a22da461743ea34123e413036112f9245df30ebe5d2e175a5628cafe9",
+    "second_sha256": "7796416a22da461743ea34123e413036112f9245df30ebe5d2e175a5628cafe9",
+    "passed": true
+  },
+  "video": {
+    "path": "preview.mp4",
+    "width": 960,
+    "height": 540,
+    "fps": 24,
+    "frames": 96,
+    "duration_s": 4,
+    "from_s": 4,
+    "to_s": 8
+  }
+}

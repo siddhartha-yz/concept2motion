@@ -4,6 +4,12 @@ The control loop is: audience / question / takeaway → mechanism contract → t
 
 The author can be the current Codex desktop session or the official CLI. The renderer and validator are ordinary local programs. This makes the loop usable with subscription authentication and gives a stable boundary for later API providers.
 
+## Current executable boundary
+
+The current narrow runtime is `runtime/concept-runtime.mjs`: reusable objects, deterministic poses, camera/layers and registered action intervals. The warm `studio.mjs` host freezes each job and supports continuous local video or sampled frames. `retime.py` edits registered intervals in a new `timing.json` while leaving drawing source intact. `iterate.py` currently coordinates the ten-second symmetry benchmark, exact source patches, one measured-defect recovery and cached successful stages. It is not a general mathematical or aesthetic validator.
+
+The [first paired test](../evaluation/2026-10-02/infra-pair-v1/REPORT.md) did not show a model-generation or end-to-end speed advantage over direct prompting. [Parameter-only retiming](../evaluation/2026-10-02/timing-bindings-v1/REPORT.md) was then tested after an explicit source adaptation. It established fast local retiming and injected-invalid-configuration rollback, not better artwork or autonomous visual judgement. Stable action boundaries are useful to an AI author because changes can become data operations; visual design still needs evidence before expanding the runtime.
+
 ## Four boundaries
 
 1. **Mechanism**: numerical state and invariants, separate from visual styling. Softmax shares a denominator; residual paths preserve identity; GRU gating combines old and candidate state according to an explicitly named convention.
@@ -23,7 +29,7 @@ Neither reference is selected as the foundation yet. Offline tests are useful fo
 
 ## Evaluation protocol
 
-Use the same case and constraints for each capable candidate; record an unsupported case explicitly. Start with Softmax before testing residual and GRU. Use three independent model runs per case for exploratory comparison, with a fixed renderer version, bounded repair budget (two technical, two visual revisions) and frozen prompt. Small samples are exploratory.
+Use the same case and constraints for each capable candidate; record an unsupported case explicitly. Older baseline runs used Softmax/residual with two technical and two visual revisions. The current short symmetry comparison uses the narrower budgets in [infra-benchmark.md](infra-benchmark.md). Do not mix their different contracts, model overrides or acceptance criteria into one success rate. Small samples are exploratory.
 
 Record separately: first render success, final render success, invariant failures, clipping/overlap, mechanism readability, continuity and pacing, revision count, human interventions, wall time, model usage and local rendering time. Preserve failed attempts. Visual verdicts should describe evidence at timestamps; a rubric score alone is insufficient.
 

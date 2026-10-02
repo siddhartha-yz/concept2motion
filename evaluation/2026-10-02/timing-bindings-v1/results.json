@@ -1,0 +1,453 @@
+{
+  "baseline": {
+    "status": "preview_ready",
+    "mode": "video",
+    "jobId": "48978d97-f339-4553-bc0e-d8f2c3f067da",
+    "request": {
+      "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/baseline",
+      "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/preview-baseline",
+      "arm": "infra",
+      "from": 0,
+      "to": 10,
+      "fps": 24,
+      "width": 960,
+      "height": 540,
+      "frames": 240,
+      "checksOnly": false,
+      "timeoutS": 20,
+      "times": [
+        0,
+        0.8,
+        1.8,
+        2.8,
+        4.8,
+        5.2,
+        6.2,
+        7.2,
+        9.8
+      ]
+    },
+    "artistic_acceptance": "pending_user_review",
+    "errors": [],
+    "externalRequests": [],
+    "timing": {
+      "queue_excluded": true,
+      "snapshot_s": 0.005864733999999998,
+      "load_s": 0.04033162300000004,
+      "capture_s": 1.762711773,
+      "samples_s": 0.06193681000000015,
+      "encode_s": 0.13459855199999993,
+      "total_s": 2.097324774,
+      "queue_s": 0.0008635209999998672
+    },
+    "browserVersion": "151.0.7922.34",
+    "sources": [
+      {
+        "path": "brief.json",
+        "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+        "bytes": 5378
+      },
+      {
+        "path": "scene.mjs",
+        "sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+        "bytes": 4194
+      },
+      {
+        "path": "timing.json",
+        "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+        "bytes": 3
+      },
+      {
+        "path": "runtime/concept-runtime.mjs",
+        "sha256": "808496c0ea8d3660bb004aed801c3edc9c479171791abe9e82c17cbf66c2877c",
+        "bytes": 17178
+      }
+    ],
+    "timing_source": {
+      "path": "timing.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3
+    },
+    "meta": {
+      "version": 2,
+      "renderer": "canvas2d",
+      "runtime": "concept-runtime-v1",
+      "caseId": "symmetry-compose-10s",
+      "width": 1920,
+      "height": 1080,
+      "duration": 10,
+      "fps": 24,
+      "timings": {
+        "turn-one": {
+          "start": 0.8,
+          "end": 2.8
+        },
+        "turn-two": {
+          "start": 5.2,
+          "end": 7.2
+        }
+      },
+      "shots": [
+        {
+          "id": "two-turns-one-outline",
+          "start": 0,
+          "end": 10
+        }
+      ]
+    },
+    "sample_count": 9,
+    "determinism": {
+      "time_s": 7.5,
+      "intervening_time_s": 2.5,
+      "first_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+      "second_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+      "passed": true
+    },
+    "video": {
+      "path": "preview.mp4",
+      "width": 960,
+      "height": 540,
+      "fps": 24,
+      "frames": 240,
+      "duration_s": 10,
+      "from_s": 0,
+      "to_s": 10
+    }
+  },
+  "parameter_edit_s": 0.0007848519999242853,
+  "edit": {
+    "kind": "registered_action_retime",
+    "action": "turn-two",
+    "shift_s": -0.35,
+    "before": {
+      "start": 5.2,
+      "end": 7.2
+    },
+    "after": {
+      "start": 4.85,
+      "end": 6.85
+    },
+    "source_hashes": {
+      "brief.json": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+      "scene.mjs": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+      "timing.json": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    "scene_source_unchanged": true,
+    "timing_sha256": "23965429313576e42d411926a35314d88f88bf5f7a182d21fb56ba730d9f2084",
+    "model_calls": 0,
+    "verification": "not rendered; no artistic verdict"
+  },
+  "earlier": {
+    "status": "preview_ready",
+    "mode": "video",
+    "jobId": "c9b086ce-c719-4e50-9792-96e8407f7b23",
+    "request": {
+      "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/earlier",
+      "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/preview-earlier",
+      "arm": "infra",
+      "from": 4,
+      "to": 8,
+      "fps": 24,
+      "width": 960,
+      "height": 540,
+      "frames": 96,
+      "checksOnly": false,
+      "timeoutS": 20,
+      "times": [
+        0,
+        0.8,
+        1.8,
+        2.8,
+        4.8,
+        5.2,
+        6.2,
+        7.2,
+        9.8
+      ]
+    },
+    "artistic_acceptance": "pending_user_review",
+    "errors": [],
+    "externalRequests": [],
+    "timing": {
+      "queue_excluded": true,
+      "snapshot_s": 0.0022321580000002543,
+      "load_s": 0.030755375000000185,
+      "capture_s": 0.644348074,
+      "samples_s": 0.059018895000000154,
+      "encode_s": 0.06159502799999973,
+      "total_s": 0.8614524270000001,
+      "queue_s": 0.00039914899999993203
+    },
+    "browserVersion": "151.0.7922.34",
+    "sources": [
+      {
+        "path": "brief.json",
+        "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+        "bytes": 5378
+      },
+      {
+        "path": "revision.json",
+        "sha256": "9f9c1491a900f23ea5874bee89b443f9cb2ca219796346cbc8e7ac7c2fae8dc0",
+        "bytes": 669
+      },
+      {
+        "path": "scene.mjs",
+        "sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+        "bytes": 4194
+      },
+      {
+        "path": "timing.json",
+        "sha256": "23965429313576e42d411926a35314d88f88bf5f7a182d21fb56ba730d9f2084",
+        "bytes": 59
+      },
+      {
+        "path": "runtime/concept-runtime.mjs",
+        "sha256": "808496c0ea8d3660bb004aed801c3edc9c479171791abe9e82c17cbf66c2877c",
+        "bytes": 17178
+      }
+    ],
+    "timing_source": {
+      "path": "timing.json",
+      "sha256": "23965429313576e42d411926a35314d88f88bf5f7a182d21fb56ba730d9f2084",
+      "bytes": 59
+    },
+    "meta": {
+      "version": 2,
+      "renderer": "canvas2d",
+      "runtime": "concept-runtime-v1",
+      "caseId": "symmetry-compose-10s",
+      "width": 1920,
+      "height": 1080,
+      "duration": 10,
+      "fps": 24,
+      "timings": {
+        "turn-one": {
+          "start": 0.8,
+          "end": 2.8
+        },
+        "turn-two": {
+          "start": 4.85,
+          "end": 6.85
+        }
+      },
+      "shots": [
+        {
+          "id": "two-turns-one-outline",
+          "start": 0,
+          "end": 10
+        }
+      ]
+    },
+    "sample_count": 9,
+    "determinism": {
+      "time_s": 7,
+      "intervening_time_s": 5,
+      "first_sha256": "c80dc0dcac5a625f9cb378fbeff0336c41236a765c87d64c989a10b2073b8980",
+      "second_sha256": "c80dc0dcac5a625f9cb378fbeff0336c41236a765c87d64c989a10b2073b8980",
+      "passed": true
+    },
+    "video": {
+      "path": "preview.mp4",
+      "width": 960,
+      "height": 540,
+      "fps": 24,
+      "frames": 96,
+      "duration_s": 4,
+      "from_s": 4,
+      "to_s": 8
+    }
+  },
+  "parameter_to_local_video_s": 0.8645676420001109,
+  "locality": {
+    "passed": true,
+    "findings": [],
+    "scope": "motion shift plus unchanged sample pixels outside [4,8]; no artistic verdict"
+  },
+  "math_revised": {
+    "scope": "independent algebra on reported actual poses and normalized tip coordinates; not pixel correspondence or artistic review",
+    "passed": true,
+    "findings": []
+  },
+  "baseline_pixels_preserved": true,
+  "injected_failure": {
+    "status": "failed",
+    "mode": "samples",
+    "jobId": "046d362f-3ed6-4b55-b3fa-7d7eb82db78d",
+    "request": {
+      "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/injected-invalid",
+      "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/preview-injected-invalid",
+      "arm": "infra",
+      "from": 0,
+      "to": 10,
+      "fps": 24,
+      "width": 960,
+      "height": 540,
+      "frames": 240,
+      "checksOnly": true,
+      "timeoutS": 20,
+      "times": [
+        0,
+        0.8,
+        1.8,
+        2.8,
+        4.8,
+        5.2,
+        6.2,
+        7.2,
+        9.8
+      ]
+    },
+    "artistic_acceptance": "pending_user_review",
+    "errors": [],
+    "externalRequests": [],
+    "timing": {
+      "queue_excluded": true,
+      "snapshot_s": 0.0019311330000000453,
+      "total_s": 0.09846025700000019,
+      "queue_s": 0.00036945299999978365
+    },
+    "browserVersion": "151.0.7922.34",
+    "sources": [
+      {
+        "path": "brief.json",
+        "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+        "bytes": 5378
+      },
+      {
+        "path": "scene.mjs",
+        "sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+        "bytes": 4194
+      },
+      {
+        "path": "timing.json",
+        "sha256": "eb12fc24f17e293f227078e12f3f0e46a81002ee1526168dd0d82e7bda1ab6ef",
+        "bytes": 56
+      },
+      {
+        "path": "runtime/concept-runtime.mjs",
+        "sha256": "808496c0ea8d3660bb004aed801c3edc9c479171791abe9e82c17cbf66c2877c",
+        "bytes": 17178
+      }
+    ],
+    "timing_source": {
+      "path": "timing.json",
+      "sha256": "eb12fc24f17e293f227078e12f3f0e46a81002ee1526168dd0d82e7bda1ab6ef",
+      "bytes": 56
+    },
+    "error": {
+      "name": "Error",
+      "message": "Timing turn-two requires end > start"
+    }
+  },
+  "rollback": {
+    "status": "samples_ready",
+    "mode": "samples",
+    "jobId": "d348c82e-2a57-436b-91df-1c58075e50ef",
+    "request": {
+      "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/restored",
+      "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/preview-restored",
+      "arm": "infra",
+      "from": 0,
+      "to": 10,
+      "fps": 24,
+      "width": 960,
+      "height": 540,
+      "frames": 240,
+      "checksOnly": true,
+      "timeoutS": 20,
+      "times": [
+        0,
+        0.8,
+        1.8,
+        2.8,
+        4.8,
+        5.2,
+        6.2,
+        7.2,
+        9.8
+      ]
+    },
+    "artistic_acceptance": "pending_user_review",
+    "errors": [],
+    "externalRequests": [],
+    "timing": {
+      "queue_excluded": true,
+      "snapshot_s": 0.0018521749999999885,
+      "load_s": 0.04419048299999986,
+      "capture_s": 3.4999999979845596e-07,
+      "samples_s": 0.10640422200000012,
+      "total_s": 0.2341278550000002,
+      "queue_s": 0.00028568499999981345
+    },
+    "browserVersion": "151.0.7922.34",
+    "sources": [
+      {
+        "path": "brief.json",
+        "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+        "bytes": 5378
+      },
+      {
+        "path": "scene.mjs",
+        "sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+        "bytes": 4194
+      },
+      {
+        "path": "timing.json",
+        "sha256": "23965429313576e42d411926a35314d88f88bf5f7a182d21fb56ba730d9f2084",
+        "bytes": 59
+      },
+      {
+        "path": "runtime/concept-runtime.mjs",
+        "sha256": "808496c0ea8d3660bb004aed801c3edc9c479171791abe9e82c17cbf66c2877c",
+        "bytes": 17178
+      }
+    ],
+    "timing_source": {
+      "path": "timing.json",
+      "sha256": "23965429313576e42d411926a35314d88f88bf5f7a182d21fb56ba730d9f2084",
+      "bytes": 59
+    },
+    "meta": {
+      "version": 2,
+      "renderer": "canvas2d",
+      "runtime": "concept-runtime-v1",
+      "caseId": "symmetry-compose-10s",
+      "width": 1920,
+      "height": 1080,
+      "duration": 10,
+      "fps": 24,
+      "timings": {
+        "turn-one": {
+          "start": 0.8,
+          "end": 2.8
+        },
+        "turn-two": {
+          "start": 4.85,
+          "end": 6.85
+        }
+      },
+      "shots": [
+        {
+          "id": "two-turns-one-outline",
+          "start": 0,
+          "end": 10
+        }
+      ]
+    },
+    "sample_count": 9,
+    "determinism": {
+      "time_s": 7.5,
+      "intervening_time_s": 2.5,
+      "first_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+      "second_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+      "passed": true
+    },
+    "scope": "Sampled stills and PNG history check only; no encoded motion or artistic acceptance"
+  },
+  "failure_to_restored_samples_s": 0.3376499480000348,
+  "rollback_pixels_preserved": true,
+  "drawing_source_identical": true,
+  "model_calls": 0,
+  "scope": "parameter-only retiming and deliberately injected invalid-interval rollback after one explicit source adaptation; no artistic improvement claim",
+  "passed": true
+}

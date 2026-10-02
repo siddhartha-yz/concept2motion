@@ -1,0 +1,78 @@
+{
+  "status": "preview_ready",
+  "jobId": "1af3b6c6-ef80-4f42-9b86-f7768de80179",
+  "request": {
+    "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/initial",
+    "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/infra-pair-v1/direct/preview-initial",
+    "arm": "direct",
+    "from": 0,
+    "to": 10,
+    "fps": 24,
+    "width": 960,
+    "height": 540,
+    "frames": 240,
+    "times": [
+      0,
+      0.8,
+      1.8,
+      2.8,
+      4.8,
+      5.2,
+      6.2,
+      7.2,
+      9.8
+    ]
+  },
+  "artistic_acceptance": "pending_user_review",
+  "errors": [],
+  "externalRequests": [],
+  "timing": {
+    "queue_excluded": true,
+    "snapshot_s": 0.004171124000000418,
+    "load_s": 0.052432419999997364,
+    "capture_s": 2.533946606999991,
+    "encode_s": 0.19851666100000148,
+    "total_s": 3.106270156000013,
+    "queue_s": 0.0006493069999851109
+  },
+  "browserVersion": "151.0.7922.34",
+  "sources": [
+    {
+      "path": "brief.json",
+      "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+      "bytes": 5378
+    },
+    {
+      "path": "scene.mjs",
+      "sha256": "2a2e1f4c06e60b8756a94acc9986e4d15bb9a832b3faaebb2c0a185938d29d01",
+      "bytes": 4518
+    },
+    {
+      "path": "runtime/concept-runtime.mjs",
+      "sha256": "ce9f680c552a4c23e6af3bd83c9015cf375b9ec34d026cdba200bc9694990d6f",
+      "bytes": 14922
+    }
+  ],
+  "meta": {
+    "width": 1920,
+    "height": 1080,
+    "duration": 10
+  },
+  "determinism": {
+    "time_s": 7.5,
+    "intervening_time_s": 2.5,
+    "first_sha256": "ed8ba3410708ba9d50453d1bb9f21ee4bc0d9dfb6c410c353db332a6873b8f5c",
+    "second_sha256": "ed8ba3410708ba9d50453d1bb9f21ee4bc0d9dfb6c410c353db332a6873b8f5c",
+    "passed": true
+  },
+  "video": {
+    "path": "preview.mp4",
+    "width": 960,
+    "height": 540,
+    "fps": 24,
+    "frames": 240,
+    "duration_s": 10,
+    "from_s": 0,
+    "to_s": 10
+  }
+}

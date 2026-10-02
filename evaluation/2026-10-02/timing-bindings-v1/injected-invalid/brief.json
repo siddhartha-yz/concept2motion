@@ -1,0 +1,109 @@
+{
+  "id": "symmetry-compose-10s",
+  "version": 1,
+  "title": "两个动作，还是一个对称",
+  "language": "zh-CN",
+  "duration_s": 10,
+  "width": 1920,
+  "height": 1080,
+  "preview": {
+    "width": 960,
+    "fps": 24
+  },
+  "audience": "知道旋转是什么、没学过抽象代数的观众",
+  "question": "为什么连续做两次对称动作，仍然是这片雪花的对称？",
+  "takeaway": "六瓣雪花转 60° 后轮廓重合；再转 60° 等同于一次转 120°，轮廓仍重合。",
+  "mechanism": {
+    "kind": "cyclic_rotation_composition",
+    "order": 6,
+    "first_rotation_degrees": 60,
+    "second_rotation_degrees": 60,
+    "composed_rotation_degrees": 120,
+    "angle_convention": "画面顺时针为正；角度为累计角度，不在第二次操作时归零",
+    "claim_scope": "演示六阶旋转对称的一个组合实例，不把实例当成封闭性的完整证明，不引入反射或四条群公理"
+  },
+  "visual_direction": {
+    "reference": "https://github.com/AnctyEnly453/abstract-algebra-promo",
+    "reference_commit": "5d01a758af8b4b3b7bb5a2a5b7f0efb4cf1667eb",
+    "principle": "一个有细节的具体物体，在有停顿的动作中显出抽象关系；运动本身承担解释。参考对象连续、运动节奏与轮廓重合，不复制源代码或资产。",
+    "hero": "六瓣、六阶旋转对称的雪花。必须能跟踪正在转动的分支；静止的细线残影给出原轮廓。",
+    "composition": "雪花是主体；允许层叠、光效与少量景深感，但它们不能遮掉轮廓重合的证据。第二次动作须让人看出同一物体接续旋转。",
+    "text": "最多两行短字幕和必要的角度/动作标记。字幕辅助解释，不成为读文字的幻灯片。无需标题页。",
+    "style_freedom": "构图、配色、分支细节、光效、运镜、插值和字幕位置由作者选择；不得用固定仪表板替代主要运动。"
+  },
+  "beats": [
+    {
+      "id": "establish",
+      "start_s": 0,
+      "end_s": 0.8,
+      "purpose": "看清原轮廓与主体；不先抛抽象术语"
+    },
+    {
+      "id": "turn-one",
+      "start_s": 0.8,
+      "end_s": 2.8,
+      "purpose": "累计旋转 0° → 60°；运动中能跟踪分支，终点轮廓重新重合"
+    },
+    {
+      "id": "recognize",
+      "start_s": 2.8,
+      "end_s": 5.2,
+      "purpose": "停顿让观众识别轮廓未变，并准备第二个同类动作"
+    },
+    {
+      "id": "turn-two",
+      "start_s": 5.2,
+      "end_s": 7.2,
+      "purpose": "同一物体累计旋转 60° → 120°；让两次操作与合成的 120° 对应"
+    },
+    {
+      "id": "resolve",
+      "start_s": 7.2,
+      "end_s": 10,
+      "purpose": "稳定呈现重合轮廓与两个 60° 合成 120° 的关系，观众有时间看清结论"
+    }
+  ],
+  "hard_constraints": [
+    "离线、自包含或使用随候选冻结的本地资源；不依赖外网、墙钟和未固定随机数。",
+    "显式时间渲染；相同 t 必须可重绘，duration 固定为 10 秒。",
+    "主体轮廓满足六阶旋转对称；两个端点操作为累计 60°、120°；不存在瞬间归零、第三次操作或反射。",
+    "移动轮廓和静止参照轮廓在旋转期间可区分，在操作终点可看出重合。",
+    "候选必须保存 brief、可编辑源码或场景规格、预览、来源和修改记录；预览不标记为最终艺术通过。"
+  ],
+  "shared_revision": {
+    "id": "second-turn-earlier",
+    "instruction": "只把第二次 60° 旋转整体提前 0.35 秒：起止从 5.2–7.2 秒改为 4.85–6.85 秒，旋转时长保持 2 秒；直接依附此动作的箭头或动作标记同步提前。其余物体、配色、几何、第一段动作、字幕内容、运镜与总时长保持原样。终点留到 10 秒，因此第二次旋转后的观看停顿多 0.35 秒。",
+    "allowed_scope": [
+      "turn-two 的起止时间",
+      "直接依附 turn-two 的动作标记时间",
+      "因第二次动作提前而增加的终点停顿"
+    ],
+    "preserve": [
+      "第一段 0° → 60° 动作",
+      "六瓣雪花几何",
+      "全部字幕文字",
+      "配色",
+      "构图",
+      "摄像机轨迹",
+      "10 秒总时长"
+    ],
+    "purpose": "测量同一具体局部修订的生成耗时、补丁大小和局部性；这条人为指定改动不代表艺术质量提高"
+  },
+  "review_questions": [
+    "不看作者说明，复述物体、发生的动作和最终关系。",
+    "在连续运动中，是否能跟踪一次动作结束、第二次接续，以及两次操作合成 120°？给出时间点。",
+    "主体与残影是否在终点真实重合，还是仅由字幕声称？",
+    "如果去掉字幕，主要关系还剩下多少可见证据？",
+    "第二版除了被要求的时间变化，是否发生了无关视觉漂移？"
+  ],
+  "delivery_contract": {
+    "source_file": "scene.mjs",
+    "module_type": "ES module",
+    "entrypoint": "createScene",
+    "direct_argument": "canvas",
+    "infra_argument": "rt",
+    "interface_document": "runtime/API.md",
+    "output": "候选通过 loader 获取显式时间 render(t)；遵循冻结 API 的返回值契约，不沿用 Softmax/residual evidence。",
+    "asset_policy": "除已冻结本地 runtime 以外不得使用外网资产；两臂共享同一 brief 中的视觉方向。"
+  }
+}

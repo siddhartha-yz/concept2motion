@@ -4,6 +4,22 @@
 
 目标是减少每次重新提示和人工盯画面的成本。当前是实验基础设施的起点，尚未宣称解决自动艺术审美。
 
+现在的主要入口是小型 Canvas 运行时、常驻局部预览和带哈希的版本修改。对象、镜头、时间和绘图代码分别处理；已注册的动作可以只改 `timing.json`，保留原绘图源码。
+
+首轮同模型对照没有证明运行时提速：Direct 整臂 93.6 秒，Infra 100.7 秒。[保留的负结果](evaluation/2026-10-02/infra-pair-v1/REPORT.md)。随后将同一生成候选明确适配到命名动作，参数修改到局部视频实测 0.865 秒、零模型调用；这是时序调整的结果，不是新场景生成或艺术质量的收益。[参数实验](evaluation/2026-10-02/timing-bindings-v1/REPORT.md)。
+
+```bash
+# 真实模型生成和一次小补丁修改；使用已登录官方 Codex CLI
+python3 tools/iterate.py --run runs/my-pair
+python3 tools/iterate.py --run runs/my-pair --resume
+python3 tools/audit_preview.py --run runs/my-pair
+
+# 常驻浏览器；输出本地 origin，接受 POST /preview
+node tools/studio.mjs
+```
+
+需要 Python 3、Node 22、Playwright/Chromium、FFmpeg/ffprobe。环境变量与参数修改命令见 [短循环使用说明](docs/runtime-loop.md)。当前 studio 和独立数学检查限定在 10 秒雪花 benchmark；运行时保留通用对象与 Canvas 扩展。
+
 ## 初始范围
 
 - **Codex 优先**：在已登录 ChatGPT 的 Codex 桌面端或 CLI 中完成代码生成与画面审看；本地准备和验证不要求模型 API 密钥。
@@ -83,6 +99,6 @@ python3 tools/batch.py report --out runs/my-six
 
 ## 下一步
 
-接下来优先补齐标注时序与数值格式规则、按阶段采样、可验证的小补丁修订，再给 GRU 补齐渲染验证器。增加样本并复核视觉裁判的一致性。当前样本数不支持生产成功率或成本结论。
+先由用户审看匿名 A/B，决定画面方向是否值得继续。时序修改已能避开代码重写；新场景生成仍需减少绘图代码并验证跨概念复用。下一轮只针对具体画面缺陷改一个能力，再做对照，不靠增加长提示词或扩大 agent 平台判断进展。
 
 架构方向见 [architecture.md](docs/architecture.md)。目前没有多代理调度器、自动学习记忆库或跨渲染器通用场景语言；这些能力应由评测结果推动。

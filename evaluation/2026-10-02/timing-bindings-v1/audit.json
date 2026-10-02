@@ -1,0 +1,137 @@
+{
+  "version": 1,
+  "scope": "Independent media decode, metadata and saved source-time schedule; no artistic judgement",
+  "run": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1",
+  "tools": {
+    "ffmpeg": "/home/yang-zhi/.local/bin/ffmpeg",
+    "ffprobe": "/home/yang-zhi/Documents/Codex/2026-09-21/la/work/ffmpeg-runtime/usr/bin/ffprobe"
+  },
+  "previews": [
+    {
+      "video": "preview-baseline/preview.mp4",
+      "passed": true,
+      "findings": [],
+      "expected": {
+        "width": 960,
+        "height": 540,
+        "fps": 24,
+        "frames": 240,
+        "duration_s": 10.0,
+        "from_s": 0.0,
+        "to_s": 10.0
+      },
+      "video_sha256": "0320ed94080c7311cad61984a6b700039e688ba5a5d58e8a574c002212991bf2",
+      "result_sha256": "8d644eba1aad311d2400076b06bdf1f87b200feff3ce6facd0e6ea584a748c64",
+      "probe": {
+        "exit_code": 0,
+        "wall_s": 0.10037094200015417,
+        "stderr": ""
+      },
+      "observed": {
+        "width": 960,
+        "height": 540,
+        "fps": 24.0,
+        "nominal_fps": 24.0,
+        "frames": 240,
+        "duration_s": 10.0,
+        "codec": "h264"
+      },
+      "probe_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 540,
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "duration": "10.000000",
+            "nb_read_frames": "240"
+          }
+        ],
+        "format": {
+          "duration": "10.000000"
+        }
+      },
+      "decode": {
+        "exit_code": 0,
+        "wall_s": 0.0507596690003993,
+        "stderr": "",
+        "passed": true
+      },
+      "source_times": {
+        "passed": true,
+        "frames": 240,
+        "first_source_time_s": 0,
+        "last_source_time_s": 9.958333333333334,
+        "scope": "Saved source-time schedule, not proof of visible scene content"
+      },
+      "wall_s": 0.16555037500074832
+    },
+    {
+      "video": "preview-earlier/preview.mp4",
+      "passed": true,
+      "findings": [],
+      "expected": {
+        "width": 960,
+        "height": 540,
+        "fps": 24,
+        "frames": 96,
+        "duration_s": 4.0,
+        "from_s": 4.0,
+        "to_s": 8.0
+      },
+      "video_sha256": "0362627aa7bd94ba37d87c86004e571705c7aa659fbd48052e8881a56c30871c",
+      "result_sha256": "7ed0c26631d9db99873fe9e356e3ef00b3aabdacdbedfb2e429ae2455a058795",
+      "probe": {
+        "exit_code": 0,
+        "wall_s": 0.0689276860011887,
+        "stderr": ""
+      },
+      "observed": {
+        "width": 960,
+        "height": 540,
+        "fps": 24.0,
+        "nominal_fps": 24.0,
+        "frames": 96,
+        "duration_s": 4.0,
+        "codec": "h264"
+      },
+      "probe_metadata": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "width": 960,
+            "height": 540,
+            "r_frame_rate": "24/1",
+            "avg_frame_rate": "24/1",
+            "duration": "4.000000",
+            "nb_read_frames": "96"
+          }
+        ],
+        "format": {
+          "duration": "4.000000"
+        }
+      },
+      "decode": {
+        "exit_code": 0,
+        "wall_s": 0.04314493099991523,
+        "stderr": "",
+        "passed": true
+      },
+      "source_times": {
+        "passed": true,
+        "frames": 96,
+        "first_source_time_s": 4,
+        "last_source_time_s": 7.958333333333334,
+        "scope": "Saved source-time schedule, not proof of visible scene content"
+      },
+      "wall_s": 0.11669565100055479
+    }
+  ],
+  "passed": true,
+  "wall_s": 0.28315441100130556
+}

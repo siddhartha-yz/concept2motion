@@ -1,0 +1,210 @@
+/** Warm, deterministic local motion preview service. No model calls. */
+import { createServer } from 'node:http';
+import { createRequire } from 'node:module';
+import { mkdir, readFile, writeFile, readdir, realpath } from 'node:fs/promises';
+import { resolve, dirname, join, extname, relative, sep } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { createHash, randomUUID } from 'node:crypto';
+import { spawn } from 'node:child_process';
+import { once } from 'node:events';
+import { performance } from 'node:perf_hooks';
+
+const repo = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const hash = bytes => createHash('sha256').update(bytes).digest('hex');
+const extensions = new Set(['.mjs','.js','.html','.css','.json','.png','.jpg','.jpeg','.svg','.woff','.woff2']);
+const types = {'.html':'text/html; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.css':'text/css','.svg':'image/svg+xml','.woff':'font/woff','.woff2':'font/woff2'};
+const json = value => JSON.stringify(value, null, 2) + '\n';
+
+export function validateRequest(body) {
+  if (!body || typeof body !== 'object' || Array.isArray(body)) throw Error('Request must be an object');
+  if (typeof body.sceneRoot !== 'string' || !body.sceneRoot || typeof body.out !== 'string' || !body.out) throw Error('sceneRoot and out are required');
+  if (!['direct','infra'].includes(body.arm)) throw Error('arm must be direct or infra');
+  const from = body.from ?? 0, to = body.to ?? 10, fps = body.fps ?? 24, width = body.width ?? 960;
+  if (![from,to,fps,width].every(Number.isFinite) || from < 0 || to > 10 || from >= to) throw Error('Require 0 <= from < to <= 10');
+  if (!Number.isInteger(fps) || fps < 1 || fps > 60) throw Error('fps must be an integer from 1 to 60');
+  if (!Number.isInteger(width) || width < 160 || width > 1920 || width % 32 !== 0) throw Error('width must be divisible by 32, from 160 to 1920');
+  const frames = Math.round((to-from)*fps);
+  if (Math.abs(frames-(to-from)*fps) > 1e-7 || frames < 1) throw Error('Interval must contain an integral number of frames');
+  const times = body.times ?? [from, (from+to)/2, to];
+  if (!Array.isArray(times) || times.length > 100 || times.some(t => !Number.isFinite(t) || t < 0 || t > 10)) throw Error('times must contain at most 100 finite times in [0,10]');
+  const sceneRoot = resolve(body.sceneRoot), out = resolve(body.out);
+  if (out === sceneRoot || out.startsWith(sceneRoot+sep)) throw Error('Output must be outside sceneRoot');
+  return {sceneRoot,out,arm:body.arm,from,to,fps,width,height:width*9/16,frames,times:[...new Set(times)]};
+}
+
+export function safeAssetPath(root, requestPath) {
+  const path = resolve(root, '.' + '/' + requestPath);
+  if (path === root || !path.startsWith(root+sep) || !extensions.has(extname(path))) throw Error('Unavailable asset');
+  return path;
+}
+
+export async function freezeSource(root, out, runtimeRoot = join(repo,'runtime'), onCreated=()=>{}) {
+  root = await realpath(root);
+  await mkdir(dirname(out), {recursive:true});
+  await mkdir(out); // Exclusive: never erase or reuse any prior candidate.
+  onCreated();
+  const frozen = join(out,'source'), sources = [];
+  await mkdir(frozen);
+  const copy = async (base, target, prefix='') => {
+    for (const entry of await readdir(base,{withFileTypes:true})) {
+      if (entry.name.startsWith('.') || entry.name === 'node_modules') continue;
+      if (entry.isSymbolicLink()) throw Error('Symlink sources are unsupported');
+      const source = join(base,entry.name), name = join(prefix,entry.name), dest = join(target,entry.name);
+      if (entry.isDirectory()) { await mkdir(dest); await copy(source,dest,name); }
+      else if (extensions.has(extname(source))) { const data = await readFile(source); await writeFile(dest,data); sources.push({path:name.split(sep).join('/'),sha256:hash(data),bytes:data.length}); }
+    }
+  };
+  await copy(root,frozen);
+  // Runtime files always come from the infrastructure snapshot, never candidate overrides.
+  if (sources.some(s=>s.path.startsWith('runtime/'))) throw Error('Candidate runtime/ directory is reserved');
+  await mkdir(join(frozen,'runtime'));
+  await copy(runtimeRoot,join(frozen,'runtime'),'runtime');
+  await readFile(join(frozen,'scene.mjs')); // Entry point is mandatory.
+  return {frozen,sources};
+}
+
+function loader(arm) {
+  return `<!doctype html><meta charset="utf-8"><style>html,body{margin:0;background:#000}canvas{display:block}</style><canvas id="scene" width="1920" height="1080"></canvas><script type="module">
+import {createScene} from './scene.mjs';
+${arm === 'infra' ? "import {createRuntime} from './runtime/concept-runtime.mjs';" : ''}
+const canvas=document.getElementById('scene');
+const candidate=await createScene(${arm === 'infra' ? 'createRuntime(canvas,{width:1920,height:1080,fps:24})' : 'canvas'});
+const render=candidate?.render;
+if(typeof render!=='function'||!candidate?.meta)throw Error('createScene must return {render(t),meta}');
+window.C2M={meta:candidate.meta,render:t=>render.call(candidate,t)};
+window.C2M_READY=true;
+</script>`;
+}
+
+async function encode(job, out) {
+  const cmd = process.env.C2M_FFMPEG || 'ffmpeg';
+  const child = spawn(cmd,['-hide_banner','-loglevel','error','-nostdin','-framerate',String(job.fps),'-start_number','0','-i',join(out,'frames','%06d.jpg'),'-frames:v',String(job.frames),'-c:v','libx264','-threads','2','-preset','ultrafast','-crf','20','-pix_fmt','yuv420p','-an','-movflags','+faststart',join(out,'preview.mp4')],{stdio:['ignore','ignore','pipe']});
+  let stderr=''; child.stderr.on('data',data=>{stderr=(stderr+data).slice(-4000);});
+  const deadline=setTimeout(()=>child.kill('SIGKILL'),60000);
+  try { const [code] = await once(child,'close'); if(code!==0) throw Error(`FFmpeg exited ${code}: ${stderr}`); }
+  finally {clearTimeout(deadline);}
+}
+
+export async function startStudio({port=0, chromium:providedChromium, runtimeRoot=join(repo,'runtime')}={}) {
+  const boot=performance.now();
+  if (!providedChromium) {
+    const require=createRequire(import.meta.url);
+    ({chromium:providedChromium}=require(process.env.C2M_NODE_MODULES ? join(process.env.C2M_NODE_MODULES,'playwright') : 'playwright'));
+  }
+  const browser=await providedChromium.launch({headless:true,executablePath:process.env.C2M_CHROMIUM,args:['--no-sandbox','--disable-dev-shm-usage','--ozone-platform=headless','--use-gl=angle','--use-angle=gl']});
+  const jobs = new Map();
+  let origin, queue=Promise.resolve(), closing=false;
+  const send = (res,status,value) => {res.writeHead(status,{'Content-Type':'application/json; charset=utf-8'});res.end(json(value));};
+  const preview = async body => {
+    const started=performance.now(), job=validateRequest(body);
+    let outCreated=false, page, renderDeadline;
+    const result={status:'started',jobId:randomUUID(),request:job,artistic_acceptance:'pending_user_review',errors:[],externalRequests:[],timing:{queue_excluded:true},browserVersion:browser.version()};
+    try {
+      const snapStart=performance.now();
+      // realpath closes the source-directory alias hole in output ancestry checks.
+      job.sceneRoot=await realpath(job.sceneRoot);
+      const outParent=await realpath(dirname(job.out)).catch(()=>null);
+      const physicalOut=outParent?join(outParent,job.out.slice(dirname(job.out).length+1)):job.out;
+      if(physicalOut===job.sceneRoot || physicalOut.startsWith(job.sceneRoot+sep)) throw Error('Output must be outside sceneRoot');
+      const {frozen,sources}=await freezeSource(job.sceneRoot,job.out,runtimeRoot,()=>{outCreated=true;});
+      result.sources=sources;
+      await writeFile(join(job.out,'result.json'),json(result)); result.timing.snapshot_s=(performance.now()-snapStart)/1000;
+      const id=result.jobId; jobs.set(id,{root:frozen,arm:job.arm});
+      await mkdir(join(job.out,'frames')); await mkdir(join(job.out,'samples'));
+      await writeFile(join(job.out,'source','loader.html'),loader(job.arm));
+      page=await browser.newPage({viewport:{width:1920,height:1080},deviceScaleFactor:1});
+      page.setDefaultTimeout(15000);
+      renderDeadline=setTimeout(()=>page.close().catch(()=>{}),60000);
+      page.on('pageerror',e=>result.errors.push(e.message));
+      await page.route('**/*',route=> {
+        const url=route.request().url();
+        if(new URL(url).origin===origin) return route.continue();
+        result.externalRequests.push(url); return route.abort();
+      });
+      const loadStart=performance.now();
+      await page.goto(`${origin}/jobs/${id}/loader.html`,{waitUntil:'load'});
+      await page.waitForFunction(()=>window.C2M_READY || false);
+      await page.evaluate(()=>document.fonts.ready);
+      const meta=await page.evaluate(()=>window.C2M.meta);
+      if(!meta || meta.width!==1920 || meta.height!==1080 || meta.duration!==10) throw Error('Metadata must be 1920x1080 and duration 10');
+      result.meta=meta; result.timing.load_s=(performance.now()-loadStart)/1000;
+      const capture=async (t,format='jpeg')=> page.evaluate(({t,format,width,height})=>{
+        const state=window.C2M.render(t) ?? null;
+        const source=document.getElementById('scene');
+        if(source.width!==1920 || source.height!==1080) throw Error('Canvas changed dimensions');
+        const output=document.createElement('canvas'); output.width=width;output.height=height;
+        output.getContext('2d').drawImage(source,0,0,width,height);
+        return {state,data:output.toDataURL('image/'+format,format==='jpeg'?.92:undefined)};
+      },{t,format,width:job.width,height:job.height});
+      const bytes = data=>Buffer.from(data.slice(data.indexOf(',')+1),'base64');
+      const captureStart=performance.now(), states=[];
+      for(let i=0;i<job.frames;i++) {
+        const time=job.from+i/job.fps, captured=await capture(time);
+        await writeFile(join(job.out,'frames',`${String(i).padStart(6,'0')}.jpg`),bytes(captured.data));
+        states.push({frame:i,time_s:time,state:captured.state});
+      }
+      result.timing.capture_s=(performance.now()-captureStart)/1000;
+      const samples=[];
+      for(let i=0;i<job.times.length;i++) {
+        const t=job.times[i], captured=await capture(t,'png'), name=`sample-${String(i).padStart(3,'0')}-${t.toFixed(3)}.png`;
+        await writeFile(join(job.out,'samples',name),bytes(captured.data));
+        samples.push({time_s:t,file:`samples/${name}`,sha256:hash(bytes(captured.data)),state:captured.state});
+      }
+      const repeated=job.from+(job.to-job.from)*.75, between=job.from+(job.to-job.from)*.25;
+      const first=await capture(repeated,'png'); await capture(between,'png'); const second=await capture(repeated,'png');
+      result.determinism={time_s:repeated,intervening_time_s:between,first_sha256:hash(bytes(first.data)),second_sha256:hash(bytes(second.data)),passed:first.data===second.data};
+      await writeFile(join(job.out,'states.json'),json({frames:states,samples}));
+      if(!result.determinism.passed) throw Error('History independence PNG check failed');
+      if(result.errors.length) throw Error('Page errors: '+result.errors.join('; '));
+      if(result.externalRequests.length) throw Error('External requests blocked');
+      const encodingStart=performance.now(); await encode(job,job.out); result.timing.encode_s=(performance.now()-encodingStart)/1000;
+      result.status='preview_ready';result.video={path:'preview.mp4',width:job.width,height:job.height,fps:job.fps,frames:job.frames,duration_s:job.frames/job.fps,from_s:job.from,to_s:job.to};
+    } catch(error) {result.status='failed'; result.error={name:error.name,message:error.message};}
+    finally {
+      if(renderDeadline)clearTimeout(renderDeadline);
+      if(page)await page.close().catch(()=>{});
+      result.timing.total_s=(performance.now()-started)/1000;
+      if(outCreated) await writeFile(join(job.out,'result.json'),json(result)).catch(e=>{result.errors.push('Could not save result: '+e.message);});
+    }
+    return result;
+  };
+  const server=createServer(async(req,res)=> {
+    try {
+      const url=new URL(req.url,origin||'http://127.0.0.1');
+      if(req.method==='GET' && url.pathname==='/health')return send(res,200,{status:'ready',browserVersion:browser.version()});
+      if(req.method==='POST' && url.pathname==='/preview') {
+        if(closing)return send(res,503,{error:'Studio closing'});
+        let data='',received=0;
+        for await (const part of req) {received+=part.length;if(received>1024*1024)throw Error('Request too large');data+=part;}
+        const body=JSON.parse(data); validateRequest(body);
+        const queuedAt=performance.now();
+        const pending=queue.then(()=>preview(body)); queue=pending.then(()=>{},()=>{});
+        const value=await pending; value.timing.queue_s=(performance.now()-queuedAt)/1000-value.timing.total_s;
+        // Persist queue timing too, without touching any preexisting failed output.
+        if(value.sources)await writeFile(join(value.request.out,'result.json'),json(value));
+        return send(res,value.status==='preview_ready'?200:422,value);
+      }
+      const match=url.pathname.match(/^\/jobs\/([a-f0-9-]+)\/(.*)$/);
+      if(req.method==='GET' && match) {
+        const job=jobs.get(match[1]);if(!job)return send(res,404,{error:'Unknown job'});
+        const path=safeAssetPath(job.root,decodeURIComponent(match[2]));
+        const bytes=await readFile(path);res.writeHead(200,{'Content-Type':types[extname(path)]||'application/octet-stream','Cache-Control':'no-store'});res.end(bytes);return;
+      }
+      send(res,404,{error:'Not found'});
+    }catch(error){if(!res.headersSent)send(res,400,{status:'failed',error:{name:error.name,message:error.message}});else res.end();}
+  });
+  await new Promise((ok,fail)=>{server.once('error',fail);server.listen(port,'127.0.0.1',ok);});
+  origin=`http://127.0.0.1:${server.address().port}`;
+  return {origin,ready:{status:'ready',origin,port:server.address().port,browserVersion:browser.version(),startup_s:(performance.now()-boot)/1000},async close(){closing=true;await queue;await new Promise(ok=>server.close(ok));await browser.close();}};
+}
+
+if(process.argv[1] && import.meta.url===pathToFileURL(resolve(process.argv[1])).href) {
+  const index=process.argv.indexOf('--port');const port=index===-1?0:Number(process.argv[index+1]);
+  if(!Number.isInteger(port)||port<0||port>65535)throw Error('Invalid --port');
+  const runtimeIndex=process.argv.indexOf('--runtime');
+  const runtimeRoot=runtimeIndex===-1?join(repo,'runtime'):resolve(process.argv[runtimeIndex+1] || '');
+  const studio=await startStudio({port,runtimeRoot}); process.stdout.write(JSON.stringify(studio.ready)+'\n');
+  let stopping=false;
+  const stop=async()=>{if(stopping)return;stopping=true;await studio.close();process.exit(0);};
+  process.on('SIGINT',stop);process.on('SIGTERM',stop);
+}

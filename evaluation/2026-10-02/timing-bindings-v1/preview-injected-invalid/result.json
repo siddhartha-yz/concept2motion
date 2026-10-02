@@ -1,0 +1,70 @@
+{
+  "status": "failed",
+  "mode": "samples",
+  "jobId": "046d362f-3ed6-4b55-b3fa-7d7eb82db78d",
+  "request": {
+    "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/injected-invalid",
+    "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/preview-injected-invalid",
+    "arm": "infra",
+    "from": 0,
+    "to": 10,
+    "fps": 24,
+    "width": 960,
+    "height": 540,
+    "frames": 240,
+    "checksOnly": true,
+    "timeoutS": 20,
+    "times": [
+      0,
+      0.8,
+      1.8,
+      2.8,
+      4.8,
+      5.2,
+      6.2,
+      7.2,
+      9.8
+    ]
+  },
+  "artistic_acceptance": "pending_user_review",
+  "errors": [],
+  "externalRequests": [],
+  "timing": {
+    "queue_excluded": true,
+    "snapshot_s": 0.0019311330000000453,
+    "total_s": 0.09846025700000019,
+    "queue_s": 0.00036945299999978365
+  },
+  "browserVersion": "151.0.7922.34",
+  "sources": [
+    {
+      "path": "brief.json",
+      "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+      "bytes": 5378
+    },
+    {
+      "path": "scene.mjs",
+      "sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+      "bytes": 4194
+    },
+    {
+      "path": "timing.json",
+      "sha256": "eb12fc24f17e293f227078e12f3f0e46a81002ee1526168dd0d82e7bda1ab6ef",
+      "bytes": 56
+    },
+    {
+      "path": "runtime/concept-runtime.mjs",
+      "sha256": "808496c0ea8d3660bb004aed801c3edc9c479171791abe9e82c17cbf66c2877c",
+      "bytes": 17178
+    }
+  ],
+  "timing_source": {
+    "path": "timing.json",
+    "sha256": "eb12fc24f17e293f227078e12f3f0e46a81002ee1526168dd0d82e7bda1ab6ef",
+    "bytes": 56
+  },
+  "error": {
+    "name": "Error",
+    "message": "Timing turn-two requires end > start"
+  }
+}

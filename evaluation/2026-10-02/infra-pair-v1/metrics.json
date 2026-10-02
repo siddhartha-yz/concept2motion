@@ -1,0 +1,91 @@
+{
+  "arms": [
+    {
+      "arm": "direct",
+      "label": "A",
+      "status": "ready_for_user_review",
+      "source_bytes": 4518,
+      "required_playable_code_bytes": 5074,
+      "author_s": 69.767,
+      "revision_s": 19.493,
+      "model_s": 89.26,
+      "arm_s": 93.601,
+      "patch_bytes": 299,
+      "previews": {
+        "initial": 3.106270156000013,
+        "revised": 1.1740768129999923
+      },
+      "response_bytes": {
+        "revision": 290,
+        "author": 4972
+      },
+      "usage": {
+        "author": [
+          {
+            "input_tokens": 17279,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1956,
+            "reasoning_output_tokens": 133
+          }
+        ],
+        "revision": [
+          {
+            "input_tokens": 17038,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 141,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "artistic_acceptance": "pending_user"
+    },
+    {
+      "arm": "infra",
+      "label": "B",
+      "status": "ready_for_user_review",
+      "source_bytes": 4013,
+      "required_playable_code_bytes": 19598,
+      "author_s": 69.828,
+      "revision_s": 27.064,
+      "model_s": 96.892,
+      "arm_s": 100.729,
+      "patch_bytes": 307,
+      "previews": {
+        "initial": 2.4514447780000044,
+        "revised": 1.306585236999992
+      },
+      "response_bytes": {
+        "revision": 298,
+        "author": 4398
+      },
+      "usage": {
+        "author": [
+          {
+            "input_tokens": 18593,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1686,
+            "reasoning_output_tokens": 118
+          }
+        ],
+        "revision": [
+          {
+            "input_tokens": 18417,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 145,
+            "reasoning_output_tokens": 0
+          }
+        ]
+      },
+      "artistic_acceptance": "pending_user"
+    }
+  ],
+  "pair_wall_s": 194.332,
+  "runtime_bytes": 14922,
+  "setup_cost": "runtime/studio/coordinator implementation time was not measured and is excluded from trial wall time",
+  "human_intervention": "shared timing feedback specified before generation; no manual edits to either generated candidate",
+  "artistic_acceptance": "pending_user; no model score counts as acceptance"
+}

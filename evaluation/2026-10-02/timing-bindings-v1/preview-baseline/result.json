@@ -1,0 +1,115 @@
+{
+  "status": "preview_ready",
+  "mode": "video",
+  "jobId": "48978d97-f339-4553-bc0e-d8f2c3f067da",
+  "request": {
+    "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/baseline",
+    "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/preview-baseline",
+    "arm": "infra",
+    "from": 0,
+    "to": 10,
+    "fps": 24,
+    "width": 960,
+    "height": 540,
+    "frames": 240,
+    "checksOnly": false,
+    "timeoutS": 20,
+    "times": [
+      0,
+      0.8,
+      1.8,
+      2.8,
+      4.8,
+      5.2,
+      6.2,
+      7.2,
+      9.8
+    ]
+  },
+  "artistic_acceptance": "pending_user_review",
+  "errors": [],
+  "externalRequests": [],
+  "timing": {
+    "queue_excluded": true,
+    "snapshot_s": 0.005864733999999998,
+    "load_s": 0.04033162300000004,
+    "capture_s": 1.762711773,
+    "samples_s": 0.06193681000000015,
+    "encode_s": 0.13459855199999993,
+    "total_s": 2.097324774,
+    "queue_s": 0.0008635209999998672
+  },
+  "browserVersion": "151.0.7922.34",
+  "sources": [
+    {
+      "path": "brief.json",
+      "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+      "bytes": 5378
+    },
+    {
+      "path": "scene.mjs",
+      "sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+      "bytes": 4194
+    },
+    {
+      "path": "timing.json",
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "bytes": 3
+    },
+    {
+      "path": "runtime/concept-runtime.mjs",
+      "sha256": "808496c0ea8d3660bb004aed801c3edc9c479171791abe9e82c17cbf66c2877c",
+      "bytes": 17178
+    }
+  ],
+  "timing_source": {
+    "path": "timing.json",
+    "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+    "bytes": 3
+  },
+  "meta": {
+    "version": 2,
+    "renderer": "canvas2d",
+    "runtime": "concept-runtime-v1",
+    "caseId": "symmetry-compose-10s",
+    "width": 1920,
+    "height": 1080,
+    "duration": 10,
+    "fps": 24,
+    "timings": {
+      "turn-one": {
+        "start": 0.8,
+        "end": 2.8
+      },
+      "turn-two": {
+        "start": 5.2,
+        "end": 7.2
+      }
+    },
+    "shots": [
+      {
+        "id": "two-turns-one-outline",
+        "start": 0,
+        "end": 10
+      }
+    ]
+  },
+  "sample_count": 9,
+  "determinism": {
+    "time_s": 7.5,
+    "intervening_time_s": 2.5,
+    "first_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+    "second_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+    "passed": true
+  },
+  "video": {
+    "path": "preview.mp4",
+    "width": 960,
+    "height": 540,
+    "fps": 24,
+    "frames": 240,
+    "duration_s": 10,
+    "from_s": 0,
+    "to_s": 10
+  }
+}

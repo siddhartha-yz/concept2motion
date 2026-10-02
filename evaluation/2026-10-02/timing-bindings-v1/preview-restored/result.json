@@ -1,0 +1,105 @@
+{
+  "status": "samples_ready",
+  "mode": "samples",
+  "jobId": "d348c82e-2a57-436b-91df-1c58075e50ef",
+  "request": {
+    "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/restored",
+    "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/runs/timing-bindings-v1/preview-restored",
+    "arm": "infra",
+    "from": 0,
+    "to": 10,
+    "fps": 24,
+    "width": 960,
+    "height": 540,
+    "frames": 240,
+    "checksOnly": true,
+    "timeoutS": 20,
+    "times": [
+      0,
+      0.8,
+      1.8,
+      2.8,
+      4.8,
+      5.2,
+      6.2,
+      7.2,
+      9.8
+    ]
+  },
+  "artistic_acceptance": "pending_user_review",
+  "errors": [],
+  "externalRequests": [],
+  "timing": {
+    "queue_excluded": true,
+    "snapshot_s": 0.0018521749999999885,
+    "load_s": 0.04419048299999986,
+    "capture_s": 3.4999999979845596e-7,
+    "samples_s": 0.10640422200000012,
+    "total_s": 0.2341278550000002,
+    "queue_s": 0.00028568499999981345
+  },
+  "browserVersion": "151.0.7922.34",
+  "sources": [
+    {
+      "path": "brief.json",
+      "sha256": "556fb4f83d98cbdf4617ccaf2da5e759c8c38372344c1a0e168886c025738e08",
+      "bytes": 5378
+    },
+    {
+      "path": "scene.mjs",
+      "sha256": "37141fae3aef48e33afb7b8070bf9594beabff6e095d510af0a46866a985461a",
+      "bytes": 4194
+    },
+    {
+      "path": "timing.json",
+      "sha256": "23965429313576e42d411926a35314d88f88bf5f7a182d21fb56ba730d9f2084",
+      "bytes": 59
+    },
+    {
+      "path": "runtime/concept-runtime.mjs",
+      "sha256": "808496c0ea8d3660bb004aed801c3edc9c479171791abe9e82c17cbf66c2877c",
+      "bytes": 17178
+    }
+  ],
+  "timing_source": {
+    "path": "timing.json",
+    "sha256": "23965429313576e42d411926a35314d88f88bf5f7a182d21fb56ba730d9f2084",
+    "bytes": 59
+  },
+  "meta": {
+    "version": 2,
+    "renderer": "canvas2d",
+    "runtime": "concept-runtime-v1",
+    "caseId": "symmetry-compose-10s",
+    "width": 1920,
+    "height": 1080,
+    "duration": 10,
+    "fps": 24,
+    "timings": {
+      "turn-one": {
+        "start": 0.8,
+        "end": 2.8
+      },
+      "turn-two": {
+        "start": 4.85,
+        "end": 6.85
+      }
+    },
+    "shots": [
+      {
+        "id": "two-turns-one-outline",
+        "start": 0,
+        "end": 10
+      }
+    ]
+  },
+  "sample_count": 9,
+  "determinism": {
+    "time_s": 7.5,
+    "intervening_time_s": 2.5,
+    "first_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+    "second_sha256": "b75b753542211190797940f5d95c6685ae9d23e345256832c60494a2066af191",
+    "passed": true
+  },
+  "scope": "Sampled stills and PNG history check only; no encoded motion or artistic acceptance"
+}
