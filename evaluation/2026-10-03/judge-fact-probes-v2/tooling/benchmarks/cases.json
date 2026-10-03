@@ -1,0 +1,26 @@
+[
+  {
+    "id": "softmax",
+    "title": "Shared denominator",
+    "duration_s": 12,
+    "inputs": {"logits": [-1.0, 0.6, 1.8]},
+    "mechanism": "Signed logits become positive exponential mass; all classes use one shared total; the final probabilities occupy one fixed capacity with total 1.",
+    "visual_checks": ["Negative logit remains distinguishable before exp", "All three masses contribute to the denominator", "Total-one constraint is visible through shared geometry", "Class colors and identities survive each transformation"]
+  },
+  {
+    "id": "residual",
+    "title": "Identity survives",
+    "duration_s": 12,
+    "inputs": {"x": [1.0, -0.5, 0.25], "residual": [0.2, 0.4, -0.1]},
+    "mechanism": "One identity path transports x unchanged while another computes F(x); only at the merge do the corresponding components add to y = x + F(x).",
+    "visual_checks": ["Two paths are distinguishable", "Identity path does not transform x", "Addition happens at the merge", "The result is not presented as concatenation"]
+  },
+  {
+    "id": "gru",
+    "title": "Gate the memory",
+    "duration_s": 12,
+    "inputs": {"previous": [-0.5, 0.3, 0.8], "candidate": [0.6, -0.7, 0.1], "update_gate": [0.1, 0.5, 0.9]},
+    "mechanism": "Use the convention h = (1-z)*previous + z*candidate; preserve two weighted flows and merge them componentwise. A large z admits more candidate state.",
+    "visual_checks": ["Update-gate convention is explicit", "Old and candidate flows are separately visible", "Gate weights are complementary", "No claim of training or a full GRU computation; this case isolates update mixing"]
+  }
+]

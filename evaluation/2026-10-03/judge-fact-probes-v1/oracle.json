@@ -1,0 +1,315 @@
+{
+  "facts": [
+    {
+      "id": "Q7",
+      "fact": "join",
+      "expected_fact": "supported",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {},
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "T2",
+      "fact": "join",
+      "expected_fact": "supported",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {
+        "scale": 210
+      },
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "H9",
+      "fact": "join",
+      "expected_fact": "contradicted",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {
+        "joinOffset": 55
+      },
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "L4",
+      "fact": "join",
+      "expected_fact": "unverifiable",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {
+        "hide": true
+      },
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "B8",
+      "fact": "ratio",
+      "expected_fact": "supported",
+      "inputs": {
+        "logits": [
+          -1,
+          0.7,
+          1.3
+        ]
+      },
+      "intervention": {},
+      "independent_truth": {
+        "exp_masses": [
+          0.36787944117144233,
+          2.0137527074704766,
+          3.6692966676192444
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "D3",
+      "fact": "ratio",
+      "expected_fact": "supported",
+      "inputs": {
+        "logits": [
+          -1,
+          0.7,
+          1.3
+        ]
+      },
+      "intervention": {
+        "massScale": 40
+      },
+      "independent_truth": {
+        "exp_masses": [
+          0.36787944117144233,
+          2.0137527074704766,
+          3.6692966676192444
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "K6",
+      "fact": "ratio",
+      "expected_fact": "contradicted",
+      "inputs": {
+        "logits": [
+          -1,
+          0.7,
+          1.3
+        ]
+      },
+      "intervention": {
+        "massOffset": 80
+      },
+      "independent_truth": {
+        "exp_masses": [
+          0.36787944117144233,
+          2.0137527074704766,
+          3.6692966676192444
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "M1",
+      "fact": "ratio",
+      "expected_fact": "unverifiable",
+      "inputs": {
+        "logits": [
+          -1,
+          0.7,
+          1.3
+        ]
+      },
+      "intervention": {
+        "hide": true
+      },
+      "independent_truth": {
+        "exp_masses": [
+          0.36787944117144233,
+          2.0137527074704766,
+          3.6692966676192444
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "P5",
+      "fact": "sum",
+      "expected_fact": "supported",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {},
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "R8",
+      "fact": "sum",
+      "expected_fact": "supported",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {
+        "scale": 210
+      },
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "S3",
+      "fact": "sum",
+      "expected_fact": "contradicted",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {
+        "outputOffset": 0.35
+      },
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    },
+    {
+      "id": "V6",
+      "fact": "sum",
+      "expected_fact": "contradicted",
+      "inputs": {
+        "x": [
+          0.7,
+          -0.4,
+          0.2
+        ],
+        "residual": [
+          -0.2,
+          0.15,
+          -0.3
+        ]
+      },
+      "intervention": {
+        "outputReveal": 0.4
+      },
+      "independent_truth": {
+        "component_sums": [
+          0.49999999999999994,
+          -0.25,
+          -0.09999999999999998
+        ]
+      },
+      "artistic_truth": "not_assigned"
+    }
+  ],
+  "limits": "fact consistency/support only; no global artistic or teaching labels; synthetic two-family controls, not broad judge validation"
+}
