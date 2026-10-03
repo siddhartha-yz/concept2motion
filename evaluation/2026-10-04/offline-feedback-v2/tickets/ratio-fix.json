@@ -1,0 +1,62 @@
+{
+  "id": "ratio-fix",
+  "kind": "technical",
+  "fixture": "K6",
+  "source_pack": "evaluation/2026-10-03/judge-fact-probes-v3",
+  "source": "evaluation/2026-10-03/judge-fact-probes-v3/sources/K6",
+  "evidence_run": "work/judge-fact-probes-v3/K6/render",
+  "source_hashes": {
+    "brief.json": "a60f7edc6bdb92a7f6a983e044295a32cbb9c200717d05272a7201fb293f242e",
+    "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+    "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+    "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+    "scene.js": "e8f8d86b02b09fc2e138fdfa4d1a871dfb8f9fe541702c3b3c9131dc44c6a5c1"
+  },
+  "base_manifest_sha256": "c10ee80ad90f3018969679e2d1643fca225a229059314ec8be5d0c0e16447169",
+  "base_checks_sha256": "ef4511eba128e62397013d67c6ec771c73a8e692529d413b5696eaaef9f64451",
+  "observation": {
+    "time_s": 6.5,
+    "object": "massBar[0..2]",
+    "description": "指数条额外增加同样 80 像素，三个条形份额不再匹配指数质量。",
+    "frame": "frame-6.50.jpg",
+    "sha256": "3ab04b17b91b0bd6434143ff1aab088a23cd4f90e0183c6ce400991345364184"
+  },
+  "hypothesis": "去掉共同像素加项，可以恢复共同尺度下的指数比例。",
+  "expected_change": "wrong_mass_geometry 消失",
+  "target_code": "wrong_mass_geometry",
+  "allowed_files": [
+    "scene.js"
+  ],
+  "scope_limits": "Only exact edits and sampled whole frames enforced; object/time semantics not enforced",
+  "samples_s": [
+    1,
+    4,
+    6.5,
+    8,
+    11,
+    17.5
+  ],
+  "protected_times_s": [
+    1,
+    8,
+    11,
+    17.5
+  ],
+  "max_patch_attempts": 1,
+  "render_timeout_s": 90,
+  "stop_condition": "one patch, no retry; failure or regression selects baseline",
+  "patch": {
+    "files": [
+      {
+        "path": "scene.js",
+        "sha256": "e8f8d86b02b09fc2e138fdfa4d1a871dfb8f9fe541702c3b3c9131dc44c6a5c1",
+        "edits": [
+          {
+            "old": "\"massOffset\": 80",
+            "new": "\"massOffset\": 0"
+          }
+        ]
+      }
+    ]
+  }
+}

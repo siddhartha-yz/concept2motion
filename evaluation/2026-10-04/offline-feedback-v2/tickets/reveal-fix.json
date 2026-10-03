@@ -1,0 +1,63 @@
+{
+  "id": "reveal-fix",
+  "kind": "technical",
+  "fixture": "V6",
+  "source_pack": "evaluation/2026-10-03/judge-fact-probes-v3",
+  "source": "evaluation/2026-10-03/judge-fact-probes-v3/sources/V6",
+  "evidence_run": "work/judge-fact-probes-v3/V6/render",
+  "source_hashes": {
+    "brief.json": "4469e40193813c50536df3bfae0411c814b814494a0b78a735df3525e5da346d",
+    "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+    "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+    "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+    "scene.js": "c1bc30e584cbd2c68270990bfa592d802800b6a5daa062fb5b26447c1407d086"
+  },
+  "base_manifest_sha256": "7d3b3990792c70fcf37afd273911a376c1366f6ccc2c3d69dc6c69a684f2a69a",
+  "base_checks_sha256": "c583a8ab6eee5d422b7cba9d918f888eb5437fc066406f33ef4eed70223023a7",
+  "observation": {
+    "time_s": 17.5,
+    "object": "output[0..2]",
+    "description": "稳定输出阶段只显示目标长度的 40%。",
+    "frame": "frame-17.50.jpg",
+    "sha256": "e4541c6286c2e4558cd6e1ed9f88fa476bb3ba4681d1985a1a2845df1b2a67e4"
+  },
+  "hypothesis": "把控制用固定 reveal 改为 1，可在稳定阶段显示完整目标。",
+  "expected_change": "incomplete_vector_reveal 消失",
+  "target_code": "incomplete_vector_reveal",
+  "allowed_files": [
+    "scene.js"
+  ],
+  "scope_limits": "Only exact edits and sampled whole frames enforced; object/time semantics not enforced",
+  "samples_s": [
+    1,
+    4,
+    6.5,
+    8,
+    11,
+    17.5
+  ],
+  "protected_times_s": [
+    1,
+    4,
+    6.5,
+    8,
+    11
+  ],
+  "max_patch_attempts": 1,
+  "render_timeout_s": 90,
+  "stop_condition": "one patch, no retry; failure or regression selects baseline",
+  "patch": {
+    "files": [
+      {
+        "path": "scene.js",
+        "sha256": "c1bc30e584cbd2c68270990bfa592d802800b6a5daa062fb5b26447c1407d086",
+        "edits": [
+          {
+            "old": "\"outputReveal\": 0.4",
+            "new": "\"outputReveal\": 1"
+          }
+        ]
+      }
+    ]
+  }
+}

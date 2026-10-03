@@ -1,0 +1,84 @@
+{
+  "id": "ratio-fix",
+  "decision": "rollback",
+  "reasons": [
+    "execution_or_evidence_failure"
+  ],
+  "dispatched_model_calls": 0,
+  "artistic_acceptance": "not_evaluated",
+  "revision_history": [
+    "frozen baseline",
+    "one hand-authored patch"
+  ],
+  "error": "Baseline rerender failed; no patch applied",
+  "active_source": "/home/yang-zhi/文档/ChatGPT/concept2motion/evaluation/2026-10-03/judge-fact-probes-v3/sources/K6",
+  "failed_candidate_preserved": false,
+  "wall_s": 0.2240694249921944,
+  "expected": "keep",
+  "expectation_met": false,
+  "render_evidence": {
+    "before": {
+      "process": {
+        "exit_code": 1,
+        "timed_out": false
+      },
+      "status": "started",
+      "video": null,
+      "sources": [
+        {
+          "path": "brief.json",
+          "sha256": "a60f7edc6bdb92a7f6a983e044295a32cbb9c200717d05272a7201fb293f242e"
+        },
+        {
+          "path": "index.html",
+          "sha256": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a"
+        },
+        {
+          "path": "math-frame.mjs",
+          "sha256": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7"
+        },
+        {
+          "path": "math-timeline.mjs",
+          "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920"
+        },
+        {
+          "path": "scene.js",
+          "sha256": "e8f8d86b02b09fc2e138fdfa4d1a871dfb8f9fe541702c3b3c9131dc44c6a5c1"
+        }
+      ],
+      "tooling": [
+        {
+          "path": "render_scene.mjs",
+          "sha256": "ed95c4239270facfdb2d07d50d5262b2c063ed0be5e0d127c0588018ce4a29ed"
+        },
+        {
+          "path": "contracts.mjs",
+          "sha256": "edfc5546b3b54862dbea27a95d2341e21ee6843e13af2db8cf4fcd27202bfaa8"
+        },
+        {
+          "path": "capture_frame.mjs",
+          "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+        }
+      ],
+      "environment": {
+        "playwrightVersion": "1.62.1",
+        "chromiumVersion": null,
+        "ffmpegVersion": null
+      },
+      "determinism": null,
+      "wall_s": null,
+      "finding_counts": {},
+      "checks_summary": {
+        "sampled_frames": null,
+        "coverage": null,
+        "mass_geometry": null,
+        "pixel_coverage": null,
+        "passed": null
+      },
+      "full_video_frame_count": null,
+      "error_count": 0,
+      "manifest_sha256": "02bc9959d0cc62426f0476b705fde70cb7854011c3a4f804f3e602c7f6c41c2f",
+      "frames": []
+    }
+  }
+}

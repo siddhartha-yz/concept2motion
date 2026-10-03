@@ -1,0 +1,98 @@
+{
+  "kind": "hand-authored technical feedback controls; not model or artistic evaluation",
+  "base_commit": "d97b65509e6d50b8928b6c0df985a84d0fae8085",
+  "model_call_budget": 0,
+  "source_pack": "evaluation/2026-10-03/judge-fact-probes-v3",
+  "samples_s": [
+    1,
+    4,
+    6.5,
+    8,
+    11,
+    17.5
+  ],
+  "max_patch_attempts_per_ticket": 1,
+  "render_timeout_s": 90,
+  "cases": [
+    {
+      "id": "join-fix",
+      "fixture": "H9",
+      "expected": "keep",
+      "target_code": "wrong_merge",
+      "protected_times_s": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "ratio-fix",
+      "fixture": "K6",
+      "expected": "keep",
+      "target_code": "wrong_mass_geometry",
+      "protected_times_s": [
+        1,
+        8,
+        11,
+        17.5
+      ]
+    },
+    {
+      "id": "sum-fix",
+      "fixture": "S3",
+      "expected": "keep",
+      "target_code": "wrong_vector_target",
+      "protected_times_s": [
+        1,
+        4,
+        6.5,
+        8,
+        11
+      ]
+    },
+    {
+      "id": "reveal-fix",
+      "fixture": "V6",
+      "expected": "keep",
+      "target_code": "incomplete_vector_reveal",
+      "protected_times_s": [
+        1,
+        4,
+        6.5,
+        8,
+        11
+      ]
+    },
+    {
+      "id": "join-partial",
+      "fixture": "H9",
+      "expected": "rollback",
+      "target_code": "wrong_merge",
+      "protected_times_s": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "join-regression",
+      "fixture": "H9",
+      "expected": "rollback",
+      "target_code": "wrong_merge",
+      "protected_times_s": [
+        1,
+        4
+      ]
+    },
+    {
+      "id": "join-render-error",
+      "fixture": "H9",
+      "expected": "rollback",
+      "target_code": "wrong_merge",
+      "protected_times_s": [
+        1,
+        4
+      ]
+    }
+  ],
+  "rerun_of": "evaluation/2026-10-04/offline-feedback-v1",
+  "rerun_reason": "allow local renderer port; fix aggregate handling of absent video; prior failure retained"
+}

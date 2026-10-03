@@ -1,0 +1,60 @@
+{
+  "id": "join-fix",
+  "kind": "technical",
+  "fixture": "H9",
+  "source_pack": "evaluation/2026-10-03/judge-fact-probes-v3",
+  "source": "evaluation/2026-10-03/judge-fact-probes-v3/sources/H9",
+  "evidence_run": "work/judge-fact-probes-v3/H9/render",
+  "source_hashes": {
+    "brief.json": "4469e40193813c50536df3bfae0411c814b814494a0b78a735df3525e5da346d",
+    "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+    "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+    "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+    "scene.js": "76eadb8ab846d525c5da11c19e5aed4329873f795e1bf2ca059380a2eb0c1484"
+  },
+  "base_manifest_sha256": "e814d48599ecd73041dd874df5de15e50cf3fc494cb1ddf0a53f32565db56228",
+  "base_checks_sha256": "7b1ff5af0da0e617c7ba45f4a2847df33993af0dbce2e03244dcd6198f57a67f",
+  "observation": {
+    "time_s": 17.5,
+    "object": "correction[0..2]",
+    "description": "橙色尾端相对蓝色头端偏移 55 像素；正确文字不能代替相接几何。",
+    "frame": "frame-17.50.jpg",
+    "sha256": "9de59d68a5b7954027328705e5e5658f3b7db75084eb6b0be2eda3003afd3f63"
+  },
+  "hypothesis": "去掉独立加到修正起点上的偏移，可以恢复首尾连接。",
+  "expected_change": "wrong_merge 消失",
+  "target_code": "wrong_merge",
+  "allowed_files": [
+    "scene.js"
+  ],
+  "scope_limits": "Only exact edits and sampled whole frames enforced; object/time semantics not enforced",
+  "samples_s": [
+    1,
+    4,
+    6.5,
+    8,
+    11,
+    17.5
+  ],
+  "protected_times_s": [
+    1,
+    4
+  ],
+  "max_patch_attempts": 1,
+  "render_timeout_s": 90,
+  "stop_condition": "one patch, no retry; failure or regression selects baseline",
+  "patch": {
+    "files": [
+      {
+        "path": "scene.js",
+        "sha256": "76eadb8ab846d525c5da11c19e5aed4329873f795e1bf2ca059380a2eb0c1484",
+        "edits": [
+          {
+            "old": "\"joinOffset\": 55",
+            "new": "\"joinOffset\": 0"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "sum-fix",
+  "kind": "technical",
+  "fixture": "S3",
+  "source_pack": "evaluation/2026-10-03/judge-fact-probes-v3",
+  "source": "evaluation/2026-10-03/judge-fact-probes-v3/sources/S3",
+  "evidence_run": "work/judge-fact-probes-v3/S3/render",
+  "source_hashes": {
+    "brief.json": "4469e40193813c50536df3bfae0411c814b814494a0b78a735df3525e5da346d",
+    "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+    "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+    "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+    "scene.js": "7ba3383709c3fd73d117f79cc3b034caa347e7a3dd3bec8f245a80c5949b9035"
+  },
+  "base_manifest_sha256": "43a2eea4e4ba58b11e5818c609ea6950331d79e3174abb7e6ed7d570c7ba398f",
+  "base_checks_sha256": "0965ad53eab54db1f88423aeead94a80c9964fdfea6e690874644b751b8e6a43",
+  "observation": {
+    "time_s": 17.5,
+    "object": "output[0..2]",
+    "description": "紫色箭头目标额外加 0.35，与标出的逐项分量和矛盾。",
+    "frame": "frame-17.50.jpg",
+    "sha256": "4b9ecc84e48d7c262cf210a30b0fc28ea5b5e3885ad7a3fcbc9d1fa12998b1f2"
+  },
+  "hypothesis": "去掉输出偏移，可以恢复完整的带符号分量和。",
+  "expected_change": "wrong_vector_target 消失",
+  "target_code": "wrong_vector_target",
+  "allowed_files": [
+    "scene.js"
+  ],
+  "scope_limits": "Only exact edits and sampled whole frames enforced; object/time semantics not enforced",
+  "samples_s": [
+    1,
+    4,
+    6.5,
+    8,
+    11,
+    17.5
+  ],
+  "protected_times_s": [
+    1,
+    4,
+    6.5,
+    8,
+    11
+  ],
+  "max_patch_attempts": 1,
+  "render_timeout_s": 90,
+  "stop_condition": "one patch, no retry; failure or regression selects baseline",
+  "patch": {
+    "files": [
+      {
+        "path": "scene.js",
+        "sha256": "7ba3383709c3fd73d117f79cc3b034caa347e7a3dd3bec8f245a80c5949b9035",
+        "edits": [
+          {
+            "old": "\"outputOffset\": 0.35",
+            "new": "\"outputOffset\": 0"
+          }
+        ]
+      }
+    ]
+  }
+}
