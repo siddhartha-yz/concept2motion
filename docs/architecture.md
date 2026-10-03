@@ -1,6 +1,8 @@
 # Architecture direction
 
-The control loop is: audience / question / takeaway → mechanism contract → teaching plan → candidate → local render → numerical evidence and viewer reconstruction → targeted revision → retained version. The experimental explanation profile saves the plan before generating code. Older baseline runs generated source and a short storyboard together.
+The product definition, constraints, testable hypotheses and evidence limits are in [positioning.md](positioning.md).
+
+The intended control loop is: audience / question / takeaway → mechanism contract → teaching plan → candidate → local render → numerical evidence and viewer reconstruction → targeted revision → retained version. This complete visual evaluation-to-revision loop is not yet implemented as a general executable workflow. The latest pilot uses one fixed self-check or deterministic-feedback revision followed by an independent final comparison; that final comparison does not drive another edit. The experimental explanation profile saves the plan before generating code. Older baseline runs generated source and a short storyboard together.
 
 The author can be the current Codex desktop session or the official CLI. The renderer and validator are ordinary local programs. This makes the loop usable with subscription authentication and gives a stable boundary for later API providers.
 

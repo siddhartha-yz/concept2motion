@@ -1,0 +1,13 @@
+{
+  "python": {
+    "command": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "tests": 63,
+    "passed": true
+  },
+  "node": {
+    "command": "bundled node --test tests/*.test.mjs",
+    "files": 5,
+    "passed": true
+  },
+  "scope": "unit and mock workflow checks; actual renders and model reviews recorded separately"
+}
