@@ -1,0 +1,1331 @@
+{
+  "kind": "actual browser native previews, diagnostic mathematical checks and encoded clips; no new model generation or artistic verdict",
+  "model_calls": 0,
+  "scenarios": [
+    {
+      "id": "softmax-generated-samples",
+      "expected": "pass",
+      "http_status": 200,
+      "result": {
+        "status": "samples_ready",
+        "mode": "samples",
+        "jobId": "b8677da1-c1b4-49f0-b2fd-0ff889d2a8c2",
+        "request": {
+          "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/model-infra-pilot-v3/candidates/softmax-2-C/v2/source",
+          "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/softmax-generated-samples",
+          "arm": "math",
+          "from": 13,
+          "to": 15,
+          "fps": 12,
+          "width": 960,
+          "height": 540,
+          "frames": 24,
+          "checksOnly": true,
+          "timeoutS": 15,
+          "times": [
+            4,
+            8,
+            14,
+            17
+          ],
+          "brief": {
+            "id": "softmax",
+            "duration_s": 18,
+            "inputs": {
+              "logits": [
+                -1,
+                0.7,
+                1.3
+              ]
+            }
+          }
+        },
+        "artistic_acceptance": "pending_user_review",
+        "errors": [],
+        "externalRequests": [],
+        "timing": {
+          "queue_excluded": true,
+          "snapshot_s": 0.002110338000000013,
+          "load_s": 0.050607001000000026,
+          "capture_s": 6.710000000111904e-7,
+          "samples_s": 0.19487702099999996,
+          "total_s": 0.346334151,
+          "queue_s": 0.0005952470000000765
+        },
+        "browserVersion": "151.0.7922.34",
+        "sources": [
+          {
+            "path": "index.html",
+            "sha256": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "bytes": 475
+          },
+          {
+            "path": "math-frame.mjs",
+            "sha256": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "bytes": 7483
+          },
+          {
+            "path": "math-timeline.mjs",
+            "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "bytes": 2424
+          },
+          {
+            "path": "scene.js",
+            "sha256": "afeb998d144d5207ffe8ffe21ec14fd6ccd8e9e17cbc0e3e4f6a13fc18bb4a31",
+            "bytes": 4291
+          }
+        ],
+        "timing_source": null,
+        "tooling": [
+          {
+            "path": "studio.mjs",
+            "sha256": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f"
+          },
+          {
+            "path": "contracts.mjs",
+            "sha256": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f"
+          },
+          {
+            "path": "capture_frame.mjs",
+            "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+          }
+        ],
+        "meta": {
+          "version": 1,
+          "caseId": "softmax",
+          "renderer": "canvas2d",
+          "width": 854,
+          "height": 480,
+          "duration": 18,
+          "fps": 15,
+          "stageTimeline": {
+            "version": 1,
+            "caseId": "softmax",
+            "duration": 18,
+            "entries": [
+              {
+                "stage": "logits",
+                "start": 0,
+                "end": 3,
+                "settledAt": 2.2
+              },
+              {
+                "stage": "exponential",
+                "start": 3,
+                "end": 6.3,
+                "settledAt": 5.45
+              },
+              {
+                "stage": "shared-total",
+                "start": 6.3,
+                "end": 9.6,
+                "settledAt": 8.75
+              },
+              {
+                "stage": "normalizing",
+                "start": 9.6,
+                "end": 13,
+                "settledAt": 12.15
+              },
+              {
+                "stage": "normalized",
+                "start": 13,
+                "end": 18,
+                "settledAt": 14.2
+              }
+            ]
+          }
+        },
+        "sample_count": 4,
+        "determinism": {
+          "time_s": 14.5,
+          "intervening_time_s": 13.5,
+          "first_sha256": "cddac03b5b200d6f335444675846ab91fe96ddeccc694ea389997f6f999901fc",
+          "second_sha256": "cddac03b5b200d6f335444675846ab91fe96ddeccc694ea389997f6f999901fc",
+          "passed": true,
+          "format": "jpeg"
+        },
+        "math_checks": {
+          "scope": "requested clip frames, samples and seek probes only; no whole-scene coverage or artistic approval",
+          "captures": 7,
+          "passed": true,
+          "findings": [],
+          "pixel_coverage": {
+            "potential": 18,
+            "sampled": 18,
+            "unavailable": 0
+          }
+        },
+        "scope": "Sampled stills and JPEG history check only; no encoded motion or artistic acceptance"
+      }
+    },
+    {
+      "id": "softmax-generated-clip",
+      "expected": "pass",
+      "http_status": 200,
+      "result": {
+        "status": "preview_ready",
+        "mode": "video",
+        "jobId": "61db79b9-17f4-4d81-9435-10eeebb18d4f",
+        "request": {
+          "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/model-infra-pilot-v3/candidates/softmax-2-C/v2/source",
+          "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/softmax-generated-clip",
+          "arm": "math",
+          "from": 13,
+          "to": 15,
+          "fps": 12,
+          "width": 960,
+          "height": 540,
+          "frames": 24,
+          "checksOnly": false,
+          "timeoutS": 15,
+          "times": [
+            14,
+            17
+          ],
+          "brief": {
+            "id": "softmax",
+            "duration_s": 18,
+            "inputs": {
+              "logits": [
+                -1,
+                0.7,
+                1.3
+              ]
+            }
+          }
+        },
+        "artistic_acceptance": "pending_user_review",
+        "errors": [],
+        "externalRequests": [],
+        "timing": {
+          "queue_excluded": true,
+          "snapshot_s": 0.0013522060000000237,
+          "load_s": 0.04281612899999993,
+          "capture_s": 0.2547763890000001,
+          "samples_s": 0.025262398000000075,
+          "encode_s": 0.033766005999999835,
+          "total_s": 0.4438160539999999,
+          "queue_s": 0.00037224800000001945
+        },
+        "browserVersion": "151.0.7922.34",
+        "sources": [
+          {
+            "path": "index.html",
+            "sha256": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "bytes": 475
+          },
+          {
+            "path": "math-frame.mjs",
+            "sha256": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "bytes": 7483
+          },
+          {
+            "path": "math-timeline.mjs",
+            "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "bytes": 2424
+          },
+          {
+            "path": "scene.js",
+            "sha256": "afeb998d144d5207ffe8ffe21ec14fd6ccd8e9e17cbc0e3e4f6a13fc18bb4a31",
+            "bytes": 4291
+          }
+        ],
+        "timing_source": null,
+        "tooling": [
+          {
+            "path": "studio.mjs",
+            "sha256": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f"
+          },
+          {
+            "path": "contracts.mjs",
+            "sha256": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f"
+          },
+          {
+            "path": "capture_frame.mjs",
+            "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+          }
+        ],
+        "meta": {
+          "version": 1,
+          "caseId": "softmax",
+          "renderer": "canvas2d",
+          "width": 854,
+          "height": 480,
+          "duration": 18,
+          "fps": 15,
+          "stageTimeline": {
+            "version": 1,
+            "caseId": "softmax",
+            "duration": 18,
+            "entries": [
+              {
+                "stage": "logits",
+                "start": 0,
+                "end": 3,
+                "settledAt": 2.2
+              },
+              {
+                "stage": "exponential",
+                "start": 3,
+                "end": 6.3,
+                "settledAt": 5.45
+              },
+              {
+                "stage": "shared-total",
+                "start": 6.3,
+                "end": 9.6,
+                "settledAt": 8.75
+              },
+              {
+                "stage": "normalizing",
+                "start": 9.6,
+                "end": 13,
+                "settledAt": 12.15
+              },
+              {
+                "stage": "normalized",
+                "start": 13,
+                "end": 18,
+                "settledAt": 14.2
+              }
+            ]
+          }
+        },
+        "sample_count": 2,
+        "determinism": {
+          "time_s": 14.5,
+          "intervening_time_s": 13.5,
+          "first_sha256": "cddac03b5b200d6f335444675846ab91fe96ddeccc694ea389997f6f999901fc",
+          "second_sha256": "cddac03b5b200d6f335444675846ab91fe96ddeccc694ea389997f6f999901fc",
+          "passed": true,
+          "format": "jpeg"
+        },
+        "math_checks": {
+          "scope": "requested clip frames, samples and seek probes only; no whole-scene coverage or artistic approval",
+          "captures": 29,
+          "passed": true,
+          "findings": [],
+          "pixel_coverage": {
+            "potential": 87,
+            "sampled": 78,
+            "unavailable": 9
+          }
+        },
+        "scope": "Draft local interval, no complete scene technical pass or artistic acceptance",
+        "video": {
+          "path": "preview.mp4",
+          "width": 960,
+          "height": 540,
+          "fps": 12,
+          "frames": 24,
+          "duration_s": 2,
+          "from_s": 13,
+          "to_s": 15
+        }
+      },
+      "full_decode_passed": true
+    },
+    {
+      "id": "residual-generated-clip",
+      "expected": "pass",
+      "http_status": 200,
+      "result": {
+        "status": "preview_ready",
+        "mode": "video",
+        "jobId": "25303825-304d-4e5f-8836-a8f1aa862be3",
+        "request": {
+          "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/model-infra-pilot-v3/candidates/residual-1-C/v2/source",
+          "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/residual-generated-clip",
+          "arm": "math",
+          "from": 9,
+          "to": 12,
+          "fps": 12,
+          "width": 960,
+          "height": 540,
+          "frames": 36,
+          "checksOnly": false,
+          "timeoutS": 15,
+          "times": [
+            9,
+            11,
+            17
+          ],
+          "brief": {
+            "id": "residual",
+            "duration_s": 18,
+            "inputs": {
+              "x": [
+                0.7,
+                -0.4,
+                0.2
+              ],
+              "residual": [
+                -0.2,
+                0.15,
+                -0.3
+              ]
+            }
+          }
+        },
+        "artistic_acceptance": "pending_user_review",
+        "errors": [],
+        "externalRequests": [],
+        "timing": {
+          "queue_excluded": true,
+          "snapshot_s": 0.0013510740000001534,
+          "load_s": 0.0417204650000001,
+          "capture_s": 0.31048620000000005,
+          "samples_s": 0.029047667000000048,
+          "encode_s": 0.04017038699999989,
+          "total_s": 0.50547453,
+          "queue_s": 0.0003291080000000779
+        },
+        "browserVersion": "151.0.7922.34",
+        "sources": [
+          {
+            "path": "index.html",
+            "sha256": "21abe9be5515f3bf118efe612eaaf72e82317d6f9c6bd537b2b5929ff8d04d69",
+            "bytes": 492
+          },
+          {
+            "path": "math-frame.mjs",
+            "sha256": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "bytes": 7483
+          },
+          {
+            "path": "math-timeline.mjs",
+            "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "bytes": 2424
+          },
+          {
+            "path": "scene.js",
+            "sha256": "515fe79e956034e036b66f34f08dab3b88b970edf39c779894e6fc6e9ee9c319",
+            "bytes": 3691
+          }
+        ],
+        "timing_source": null,
+        "tooling": [
+          {
+            "path": "studio.mjs",
+            "sha256": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f"
+          },
+          {
+            "path": "contracts.mjs",
+            "sha256": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f"
+          },
+          {
+            "path": "capture_frame.mjs",
+            "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+          }
+        ],
+        "meta": {
+          "version": 1,
+          "caseId": "residual",
+          "renderer": "canvas2d",
+          "width": 854,
+          "height": 480,
+          "duration": 18,
+          "fps": 15,
+          "stageTimeline": {
+            "version": 1,
+            "caseId": "residual",
+            "duration": 18,
+            "entries": [
+              {
+                "stage": "input",
+                "start": 0,
+                "end": 3.2,
+                "settledAt": 2.25
+              },
+              {
+                "stage": "branches",
+                "start": 3.2,
+                "end": 7.5,
+                "settledAt": 6.5
+              },
+              {
+                "stage": "merging",
+                "start": 7.5,
+                "end": 12.1,
+                "settledAt": 11.1
+              },
+              {
+                "stage": "output",
+                "start": 12.1,
+                "end": 18,
+                "settledAt": 16.9
+              }
+            ]
+          }
+        },
+        "sample_count": 3,
+        "determinism": {
+          "time_s": 11.25,
+          "intervening_time_s": 9.75,
+          "first_sha256": "eac40d835ed3e0487997addb9f713e3c0dc8fe9d3a633c8368904ece7acbe55e",
+          "second_sha256": "eac40d835ed3e0487997addb9f713e3c0dc8fe9d3a633c8368904ece7acbe55e",
+          "passed": true,
+          "format": "jpeg"
+        },
+        "math_checks": {
+          "scope": "requested clip frames, samples and seek probes only; no whole-scene coverage or artistic approval",
+          "captures": 42,
+          "passed": true,
+          "findings": [],
+          "pixel_coverage": {
+            "potential": 3,
+            "sampled": 3,
+            "unavailable": 0
+          }
+        },
+        "scope": "Draft local interval, no complete scene technical pass or artistic acceptance",
+        "video": {
+          "path": "preview.mp4",
+          "width": 960,
+          "height": 540,
+          "fps": 12,
+          "frames": 36,
+          "duration_s": 3,
+          "from_s": 9,
+          "to_s": 12
+        }
+      },
+      "full_decode_passed": true
+    },
+    {
+      "id": "incomplete-reveal",
+      "expected": "incomplete_vector_reveal",
+      "http_status": 200,
+      "result": {
+        "status": "preview_ready",
+        "mode": "video",
+        "jobId": "fdedb420-1cdc-4fc5-950b-5607da379825",
+        "request": {
+          "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/evaluation/2026-10-03/progress-controls-v2/sources/residual-never-finished",
+          "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/incomplete-reveal",
+          "arm": "math",
+          "from": 13.5,
+          "to": 18,
+          "fps": 12,
+          "width": 960,
+          "height": 540,
+          "frames": 54,
+          "checksOnly": false,
+          "timeoutS": 15,
+          "times": [
+            14,
+            17.5
+          ],
+          "brief": {
+            "id": "residual",
+            "inputs": {
+              "x": [
+                0.8,
+                -0.6,
+                0.3
+              ],
+              "residual": [
+                -0.2,
+                0.4,
+                -0.1
+              ]
+            },
+            "duration_s": 18
+          }
+        },
+        "artistic_acceptance": "pending_user_review",
+        "errors": [],
+        "externalRequests": [],
+        "timing": {
+          "queue_excluded": true,
+          "snapshot_s": 0.0014222369999999955,
+          "load_s": 0.04217311300000006,
+          "capture_s": 0.49735240799999975,
+          "samples_s": 0.01752310299999999,
+          "encode_s": 0.054036682999999815,
+          "total_s": 0.694089087,
+          "queue_s": 0.0005035540000001282
+        },
+        "browserVersion": "151.0.7922.34",
+        "sources": [
+          {
+            "path": "brief.json",
+            "sha256": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e",
+            "bytes": 171
+          },
+          {
+            "path": "index.html",
+            "sha256": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+            "bytes": 136
+          },
+          {
+            "path": "math-frame.mjs",
+            "sha256": "01a5b8eddab73b6fe0c0fc35044521de658c310866fc5e3ef96c7838ee5c8365",
+            "bytes": 7297
+          },
+          {
+            "path": "math-timeline.mjs",
+            "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "bytes": 2424
+          },
+          {
+            "path": "scene.js",
+            "sha256": "31136e54d4f3f2ee31f97d400feebd3eae251ee1d18e68e6819c3cc679e28914",
+            "bytes": 3978
+          }
+        ],
+        "timing_source": null,
+        "tooling": [
+          {
+            "path": "studio.mjs",
+            "sha256": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f"
+          },
+          {
+            "path": "contracts.mjs",
+            "sha256": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f"
+          },
+          {
+            "path": "capture_frame.mjs",
+            "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+          }
+        ],
+        "meta": {
+          "version": 1,
+          "caseId": "residual",
+          "renderer": "canvas2d",
+          "width": 854,
+          "height": 480,
+          "duration": 18,
+          "fps": 15,
+          "stageTimeline": {
+            "version": 1,
+            "caseId": "residual",
+            "duration": 18,
+            "entries": [
+              {
+                "stage": "input",
+                "start": 0,
+                "end": 4.5,
+                "settledAt": 3.6
+              },
+              {
+                "stage": "branches",
+                "start": 4.5,
+                "end": 9,
+                "settledAt": 8.1
+              },
+              {
+                "stage": "merging",
+                "start": 9,
+                "end": 13.5,
+                "settledAt": 12.6
+              },
+              {
+                "stage": "output",
+                "start": 13.5,
+                "end": 18,
+                "settledAt": 17.1
+              }
+            ]
+          }
+        },
+        "sample_count": 2,
+        "determinism": {
+          "time_s": 16.875,
+          "intervening_time_s": 14.625,
+          "first_sha256": "66bc5ebb091af944b1c3ff3df1935775d034377c84648ca372dd03fe48c6ee57",
+          "second_sha256": "66bc5ebb091af944b1c3ff3df1935775d034377c84648ca372dd03fe48c6ee57",
+          "passed": true,
+          "format": "jpeg"
+        },
+        "math_checks": {
+          "scope": "requested clip frames, samples and seek probes only; no whole-scene coverage or artistic approval",
+          "captures": 59,
+          "passed": false,
+          "findings": [
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.166666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.166666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.166666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.25
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.25
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.25
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.333333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.333333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.333333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.416666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.416666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.416666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.5
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.5
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.5
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.583333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.583333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.583333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.666666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.666666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.666666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.75
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.75
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.75
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.833333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.833333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.833333333333332
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.916666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.916666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.916666666666668
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 0: reveal must finish by output settled time",
+              "time_s": 17.5
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 1: reveal must finish by output settled time",
+              "time_s": 17.5
+            },
+            {
+              "code": "incomplete_vector_reveal",
+              "detail": "output 2: reveal must finish by output settled time",
+              "time_s": 17.5
+            }
+          ],
+          "pixel_coverage": {
+            "potential": 177,
+            "sampled": 177,
+            "unavailable": 0
+          }
+        },
+        "scope": "Draft local interval, no complete scene technical pass or artistic acceptance",
+        "video": {
+          "path": "preview.mp4",
+          "width": 960,
+          "height": 540,
+          "fps": 12,
+          "frames": 54,
+          "duration_s": 4.5,
+          "from_s": 13.5,
+          "to_s": 18
+        }
+      },
+      "full_decode_passed": true
+    },
+    {
+      "id": "overpaint",
+      "expected": "pixel_mismatch",
+      "http_status": 200,
+      "result": {
+        "status": "samples_ready",
+        "mode": "samples",
+        "jobId": "04e49bdc-ed35-433d-a03d-d40b2da0c542",
+        "request": {
+          "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/evaluation/2026-10-03/progress-controls-v2/sources/softmax-overpaint",
+          "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/overpaint",
+          "arm": "math",
+          "from": 15,
+          "to": 17,
+          "fps": 12,
+          "width": 960,
+          "height": 540,
+          "frames": 24,
+          "checksOnly": true,
+          "timeoutS": 15,
+          "times": [
+            17
+          ],
+          "brief": {
+            "id": "softmax",
+            "inputs": {
+              "logits": [
+                -0.8,
+                0.4,
+                1.2
+              ]
+            },
+            "duration_s": 18
+          }
+        },
+        "artistic_acceptance": "pending_user_review",
+        "errors": [],
+        "externalRequests": [],
+        "timing": {
+          "queue_excluded": true,
+          "snapshot_s": 0.0012750919999998586,
+          "load_s": 0.04022685299999967,
+          "capture_s": 3.3100000018748686e-7,
+          "samples_s": 0.019896154000000024,
+          "total_s": 0.13503720499999963,
+          "queue_s": 0.00031717500000014165
+        },
+        "browserVersion": "151.0.7922.34",
+        "sources": [
+          {
+            "path": "brief.json",
+            "sha256": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4",
+            "bytes": 116
+          },
+          {
+            "path": "index.html",
+            "sha256": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+            "bytes": 136
+          },
+          {
+            "path": "math-frame.mjs",
+            "sha256": "01a5b8eddab73b6fe0c0fc35044521de658c310866fc5e3ef96c7838ee5c8365",
+            "bytes": 7297
+          },
+          {
+            "path": "math-timeline.mjs",
+            "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "bytes": 2424
+          },
+          {
+            "path": "scene.js",
+            "sha256": "7b10f4598c43bd313543d7dda6b2cb04144e694ebeab33176cb1f0d4b439ecf7",
+            "bytes": 3945
+          }
+        ],
+        "timing_source": null,
+        "tooling": [
+          {
+            "path": "studio.mjs",
+            "sha256": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f"
+          },
+          {
+            "path": "contracts.mjs",
+            "sha256": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f"
+          },
+          {
+            "path": "capture_frame.mjs",
+            "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+          }
+        ],
+        "meta": {
+          "version": 1,
+          "caseId": "softmax",
+          "renderer": "canvas2d",
+          "width": 854,
+          "height": 480,
+          "duration": 18,
+          "fps": 15,
+          "stageTimeline": {
+            "version": 1,
+            "caseId": "softmax",
+            "duration": 18,
+            "entries": [
+              {
+                "stage": "logits",
+                "start": 0,
+                "end": 3.6,
+                "settledAt": 2.7
+              },
+              {
+                "stage": "exponential",
+                "start": 3.6,
+                "end": 7.2,
+                "settledAt": 6.3
+              },
+              {
+                "stage": "shared-total",
+                "start": 7.2,
+                "end": 10.8,
+                "settledAt": 9.9
+              },
+              {
+                "stage": "normalizing",
+                "start": 10.8,
+                "end": 14.4,
+                "settledAt": 13.5
+              },
+              {
+                "stage": "normalized",
+                "start": 14.4,
+                "end": 18,
+                "settledAt": 17.1
+              }
+            ]
+          }
+        },
+        "sample_count": 1,
+        "determinism": {
+          "time_s": 16.5,
+          "intervening_time_s": 15.5,
+          "first_sha256": "e3b012344d0993a787f58a99ad2e661dcec40577d7b46dac64dd08122f04d3cd",
+          "second_sha256": "e3b012344d0993a787f58a99ad2e661dcec40577d7b46dac64dd08122f04d3cd",
+          "passed": true,
+          "format": "jpeg"
+        },
+        "math_checks": {
+          "scope": "requested clip frames, samples and seek probes only; no whole-scene coverage or artistic approval",
+          "captures": 4,
+          "passed": false,
+          "findings": [
+            {
+              "code": "pixel_mismatch",
+              "detail": "class-0",
+              "time_s": 17
+            },
+            {
+              "code": "pixel_mismatch",
+              "detail": "class-0",
+              "time_s": 16.5
+            },
+            {
+              "code": "pixel_mismatch",
+              "detail": "class-0",
+              "time_s": 15.5
+            },
+            {
+              "code": "pixel_mismatch",
+              "detail": "class-0",
+              "time_s": 16.5
+            }
+          ],
+          "pixel_coverage": {
+            "potential": 12,
+            "sampled": 12,
+            "unavailable": 0
+          }
+        },
+        "scope": "Sampled stills and JPEG history check only; no encoded motion or artistic acceptance"
+      }
+    },
+    {
+      "id": "draw-exception",
+      "expected": "failed",
+      "http_status": 422,
+      "result": {
+        "status": "failed",
+        "mode": "samples",
+        "jobId": "fa715c56-8299-46fe-aac4-acc30825d02b",
+        "request": {
+          "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/draw-exception-source",
+          "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/draw-exception",
+          "arm": "math",
+          "from": 13,
+          "to": 15,
+          "fps": 12,
+          "width": 960,
+          "height": 540,
+          "frames": 24,
+          "checksOnly": true,
+          "timeoutS": 15,
+          "times": [
+            4,
+            8,
+            14,
+            17
+          ],
+          "brief": {
+            "id": "softmax",
+            "duration_s": 18,
+            "inputs": {
+              "logits": [
+                -1,
+                0.7,
+                1.3
+              ]
+            }
+          }
+        },
+        "artistic_acceptance": "pending_user_review",
+        "errors": [],
+        "externalRequests": [],
+        "timing": {
+          "queue_excluded": true,
+          "snapshot_s": 0.001098269000000073,
+          "load_s": 0.04170946400000002,
+          "capture_s": 5.009999999856518e-7,
+          "total_s": 0.09255704600000035,
+          "queue_s": 0.0003501769999998128
+        },
+        "browserVersion": "151.0.7922.34",
+        "sources": [
+          {
+            "path": "index.html",
+            "sha256": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "bytes": 475
+          },
+          {
+            "path": "math-frame.mjs",
+            "sha256": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "bytes": 7483
+          },
+          {
+            "path": "math-timeline.mjs",
+            "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "bytes": 2424
+          },
+          {
+            "path": "scene.js",
+            "sha256": "24abf15c1aefc73ae66b7f2e383d7cce244693314dc56241b63def927001f55e",
+            "bytes": 4334
+          }
+        ],
+        "timing_source": null,
+        "tooling": [
+          {
+            "path": "studio.mjs",
+            "sha256": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f"
+          },
+          {
+            "path": "contracts.mjs",
+            "sha256": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f"
+          },
+          {
+            "path": "capture_frame.mjs",
+            "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+          }
+        ],
+        "meta": {
+          "version": 1,
+          "caseId": "softmax",
+          "renderer": "canvas2d",
+          "width": 854,
+          "height": 480,
+          "duration": 18,
+          "fps": 15,
+          "stageTimeline": {
+            "version": 1,
+            "caseId": "softmax",
+            "duration": 18,
+            "entries": [
+              {
+                "stage": "logits",
+                "start": 0,
+                "end": 3,
+                "settledAt": 2.2
+              },
+              {
+                "stage": "exponential",
+                "start": 3,
+                "end": 6.3,
+                "settledAt": 5.45
+              },
+              {
+                "stage": "shared-total",
+                "start": 6.3,
+                "end": 9.6,
+                "settledAt": 8.75
+              },
+              {
+                "stage": "normalizing",
+                "start": 9.6,
+                "end": 13,
+                "settledAt": 12.15
+              },
+              {
+                "stage": "normalized",
+                "start": 13,
+                "end": 18,
+                "settledAt": 14.2
+              }
+            ]
+          }
+        },
+        "error": {
+          "name": "Error",
+          "message": "page.evaluate: Error: controlled drawing failure\n    at Object.draw [as render] (http://127.0.0.1:39447/jobs/fa715c56-8299-46fe-aac4-acc30825d02b/scene.js:14:25)\n    at captureFrame (eval at evaluate (:311:30), <anonymous>:2:24)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        }
+      }
+    },
+    {
+      "id": "after-exception",
+      "expected": "pass",
+      "http_status": 200,
+      "result": {
+        "status": "samples_ready",
+        "mode": "samples",
+        "jobId": "5a0a8a63-58e4-49a7-be84-063259c24ec3",
+        "request": {
+          "sceneRoot": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/model-infra-pilot-v3/candidates/softmax-2-C/v2/source",
+          "out": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/math-preview-smoke-v3/after-exception",
+          "arm": "math",
+          "from": 13,
+          "to": 15,
+          "fps": 12,
+          "width": 960,
+          "height": 540,
+          "frames": 24,
+          "checksOnly": true,
+          "timeoutS": 15,
+          "times": [
+            4,
+            8,
+            14,
+            17
+          ],
+          "brief": {
+            "id": "softmax",
+            "duration_s": 18,
+            "inputs": {
+              "logits": [
+                -1,
+                0.7,
+                1.3
+              ]
+            }
+          }
+        },
+        "artistic_acceptance": "pending_user_review",
+        "errors": [],
+        "externalRequests": [],
+        "timing": {
+          "queue_excluded": true,
+          "snapshot_s": 0.0014025499999997919,
+          "load_s": 0.04098673800000006,
+          "capture_s": 2.899999999499414e-7,
+          "samples_s": 0.05664639799999986,
+          "total_s": 0.1771537619999999,
+          "queue_s": 0.0002943020000002461
+        },
+        "browserVersion": "151.0.7922.34",
+        "sources": [
+          {
+            "path": "index.html",
+            "sha256": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "bytes": 475
+          },
+          {
+            "path": "math-frame.mjs",
+            "sha256": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "bytes": 7483
+          },
+          {
+            "path": "math-timeline.mjs",
+            "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "bytes": 2424
+          },
+          {
+            "path": "scene.js",
+            "sha256": "afeb998d144d5207ffe8ffe21ec14fd6ccd8e9e17cbc0e3e4f6a13fc18bb4a31",
+            "bytes": 4291
+          }
+        ],
+        "timing_source": null,
+        "tooling": [
+          {
+            "path": "studio.mjs",
+            "sha256": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f"
+          },
+          {
+            "path": "contracts.mjs",
+            "sha256": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f"
+          },
+          {
+            "path": "capture_frame.mjs",
+            "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+          }
+        ],
+        "meta": {
+          "version": 1,
+          "caseId": "softmax",
+          "renderer": "canvas2d",
+          "width": 854,
+          "height": 480,
+          "duration": 18,
+          "fps": 15,
+          "stageTimeline": {
+            "version": 1,
+            "caseId": "softmax",
+            "duration": 18,
+            "entries": [
+              {
+                "stage": "logits",
+                "start": 0,
+                "end": 3,
+                "settledAt": 2.2
+              },
+              {
+                "stage": "exponential",
+                "start": 3,
+                "end": 6.3,
+                "settledAt": 5.45
+              },
+              {
+                "stage": "shared-total",
+                "start": 6.3,
+                "end": 9.6,
+                "settledAt": 8.75
+              },
+              {
+                "stage": "normalizing",
+                "start": 9.6,
+                "end": 13,
+                "settledAt": 12.15
+              },
+              {
+                "stage": "normalized",
+                "start": 13,
+                "end": 18,
+                "settledAt": 14.2
+              }
+            ]
+          }
+        },
+        "sample_count": 4,
+        "determinism": {
+          "time_s": 14.5,
+          "intervening_time_s": 13.5,
+          "first_sha256": "cddac03b5b200d6f335444675846ab91fe96ddeccc694ea389997f6f999901fc",
+          "second_sha256": "cddac03b5b200d6f335444675846ab91fe96ddeccc694ea389997f6f999901fc",
+          "passed": true,
+          "format": "jpeg"
+        },
+        "math_checks": {
+          "scope": "requested clip frames, samples and seek probes only; no whole-scene coverage or artistic approval",
+          "captures": 7,
+          "passed": true,
+          "findings": [],
+          "pixel_coverage": {
+            "potential": 18,
+            "sampled": 18,
+            "unavailable": 0
+          }
+        },
+        "scope": "Sampled stills and JPEG history check only; no encoded motion or artistic acceptance"
+      }
+    }
+  ],
+  "tooling": {
+    "studio.mjs": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f",
+    "contracts.mjs": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f",
+    "capture_frame.mjs": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60",
+    "math_preview_smoke.mjs": "39605b7f55fd91eabbdae517734a76b05aeb7c81687b3ab002e1a8e39027826e"
+  },
+  "startup": {
+    "status": "ready",
+    "origin": "http://127.0.0.1:39447",
+    "port": 39447,
+    "capabilities": {
+      "timingFile": "timing.json",
+      "timingBinding": "infra-only",
+      "checksOnly": true,
+      "nativeMath": true
+    },
+    "checksOnlyDefault": false,
+    "browserVersion": "151.0.7922.34",
+    "startup_s": 0.340114556
+  },
+  "passed": true
+}

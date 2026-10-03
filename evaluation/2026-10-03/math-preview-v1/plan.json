@@ -1,0 +1,107 @@
+{
+  "scenarios": [
+    {
+      "id": "softmax-generated-samples",
+      "source": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/source",
+      "brief": {
+        "id": "softmax",
+        "duration_s": 18,
+        "inputs": {
+          "logits": [
+            -1,
+            0.7,
+            1.3
+          ]
+        }
+      },
+      "from": 13,
+      "to": 15,
+      "times": [
+        4,
+        8,
+        14,
+        17
+      ],
+      "checksOnly": true,
+      "expected": "pass"
+    },
+    {
+      "id": "softmax-generated-clip",
+      "source": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/source",
+      "brief": {
+        "id": "softmax",
+        "duration_s": 18,
+        "inputs": {
+          "logits": [
+            -1,
+            0.7,
+            1.3
+          ]
+        }
+      },
+      "from": 13,
+      "to": 15,
+      "times": [
+        14,
+        17
+      ],
+      "expected": "pass"
+    },
+    {
+      "id": "residual-generated-clip",
+      "source": "work/model-infra-pilot-v3/candidates/residual-1-C/v2/source",
+      "brief": {
+        "id": "residual",
+        "duration_s": 18,
+        "inputs": {
+          "x": [
+            0.7,
+            -0.4,
+            0.2
+          ],
+          "residual": [
+            -0.2,
+            0.15,
+            -0.3
+          ]
+        }
+      },
+      "from": 9,
+      "to": 12,
+      "times": [
+        9,
+        11,
+        17
+      ],
+      "expected": "pass"
+    },
+    {
+      "id": "incomplete-reveal",
+      "source": "evaluation/2026-10-03/progress-controls-v2/sources/residual-never-finished",
+      "from": 13.5,
+      "to": 18,
+      "times": [
+        14,
+        17.5
+      ],
+      "expected": "incomplete_vector_reveal"
+    },
+    {
+      "id": "overpaint",
+      "source": "evaluation/2026-10-03/progress-controls-v2/sources/softmax-overpaint",
+      "from": 15,
+      "to": 17,
+      "times": [
+        17
+      ],
+      "checksOnly": true,
+      "expected": "pixel_mismatch"
+    }
+  ],
+  "tooling": {
+    "studio.mjs": "1dcbb8884d5dae8e0166aa123bb750fddfdea4cf610d5bcca95f0b004747bb1f",
+    "contracts.mjs": "d2892e5b7f7ac2796685c8ce6df7efde5aec7242a72bf27fea403ca93d385a9f",
+    "capture_frame.mjs": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60",
+    "math_preview_smoke.mjs": "39605b7f55fd91eabbdae517734a76b05aeb7c81687b3ab002e1a8e39027826e"
+  }
+}

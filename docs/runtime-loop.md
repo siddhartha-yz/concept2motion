@@ -72,3 +72,40 @@ stdout 返回 `origin`。POST `<origin>/preview`：
 当前 host 固定 1920×1080、10 秒、离线资源和显式时间。它服务于已测的一个短 benchmark；运行时允许其他尺寸、时长和概念，扩 host 和机制检查应随新的案例验证。候选浏览器禁止外网，但此开发工具不是处理敌意源码的完备安全隔离层。
 
 实际耗时与边界：[首轮同模型负结果](../evaluation/2026-10-02/infra-pair-v1/REPORT.md)、[参数修改与故障回滚](../evaluation/2026-10-02/timing-bindings-v1/REPORT.md)。首次人工适配、零模型参数操作、真实模型生成、真实视频及样本审看分开记账。
+
+## 原生 Softmax / 残差的局部预览
+
+已有 `index.html + window.C2M(version:1)` 候选可直接使用常驻 studio，
+不必改成旧雪花的 `createScene(rt)` 入口。`arm: "math"` 需提供完整冻结 brief；
+当前支持三分量 Softmax 与残差相加，时长不超过 60 秒。
+
+```json
+{
+  "sceneRoot": "/absolute/path/to/candidate/source",
+  "out": "/absolute/path/to/new-preview",
+  "arm": "math",
+  "brief": {"id": "softmax", "duration_s": 18,
+            "inputs": {"logits": [-1, 0.7, 1.3]}},
+  "from": 13, "to": 15, "fps": 12, "width": 960,
+  "times": [4, 8, 14, 17], "timeoutS": 15
+}
+```
+
+把 JSON 保存后 POST 到当前 studio 输出的 `/preview`，内容类型为
+`application/json`。`sceneRoot/out` 必须是绝对路径；输出目录必须全新。
+只需抽帧时加 `checksOnly: true`。抽帧可以位于片段之外，但须在 brief 时长内。
+原生候选的 SDK 从候选源码快照保留，不偷偷换成仓库最新依赖。
+数学检查器与捕获工具的实际版本另外保存。
+
+`math_checks` 覆盖请求片段、指定样本和 seek 探针，包含数值、声明几何、
+布局和可用像素。它不检查全片阶段覆盖。存在数学错误时仍可输出诊断草稿，
+`math_checks.passed` 保持 false；绘图异常保留失败并允许下一次请求继续。
+不存在整片 `render_passed` 或艺术接受。原生数学候选的确定性检查为 JPEG 字节，
+和旧泛型候选的 PNG 检查分别标注。
+
+[实际预览与异常恢复](../evaluation/2026-10-03/math-preview-v1/REPORT.md)：
+2 秒 Softmax 草稿 0.444 秒，3 秒残差草稿 0.505 秒；均完整解码。
+[8 对冷/热测速](../evaluation/2026-10-03/math-preview-latency-v1/REPORT.md)：
+常驻中位数 0.533 秒，每次新启浏览器 0.858 秒（包括启动）；热启动成本另列。
+16 条相同参数视频字节一致。这是本机单个源码的局部工程收益，未包含
+模型生成、创作修订或艺术审看，也不代表全片质量或普遍延迟。

@@ -91,3 +91,26 @@ test('timing.json is snapshotted without rewriting scene source',async()=>{
     assert.equal(await readFile(join(out,'source','timing.json'),'utf8'),'{"turn-two":[4.85,6.85]}');
   }finally{await rm(temp,{recursive:true,force:true});}
 });
+
+test('native math previews use the saved brief duration and finite triplets',()=>{
+ const brief={id:'softmax',duration_s:18,inputs:{logits:[-1,.7,1.3]}};
+ const base={sceneRoot:'/tmp/math',out:'/tmp/math-preview',arm:'math',brief,from:13,to:15,fps:12,width:960,times:[4,14,17]};
+ const job=validateRequest(base);assert.equal(job.frames,24);assert.equal(job.to,15);
+ brief.inputs.logits[0]=99;assert.equal(job.brief.inputs.logits[0],-1);
+ for(const change of [{brief:null},{brief:{id:'gru',duration_s:18}},{to:19},{times:[19]},
+   {brief:{id:'softmax',duration_s:18,inputs:{logits:[0,NaN,1]}}}])assert.throws(()=>validateRequest({...base,...change}));
+});
+
+test('native entry snapshots its existing adapter without injecting a new runtime',async()=>{
+ const temp=await mkdtemp(join(tmpdir(),'c2m-native-freeze-'));
+ try{
+  const source=join(temp,'source'),out=join(temp,'preview');await mkdir(source);
+  await writeFile(join(source,'index.html'),'<script type="module" src="scene.js"></script>');
+  await writeFile(join(source,'scene.js'),'export const immutable=true;');
+  await writeFile(join(source,'math-frame.mjs'),'export const frozenAdapter=7;');
+  const snapshot=await freezeSource(source,out,'/unavailable-runtime',()=>{},{native:true});
+  assert.equal(snapshot.sources.length,3);assert(!snapshot.sources.some(s=>s.path.startsWith('runtime/')));
+  await writeFile(join(source,'math-frame.mjs'),'changed later');
+  assert.equal(await readFile(join(out,'source/math-frame.mjs'),'utf8'),'export const frozenAdapter=7;');
+ }finally{await rm(temp,{recursive:true,force:true});}
+});
