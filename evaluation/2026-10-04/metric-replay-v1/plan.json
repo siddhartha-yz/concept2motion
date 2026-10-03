@@ -1,0 +1,25 @@
+{
+  "kind": "isolated pinned upstream metric replay with deterministic mock responses",
+  "upstream_commit": "1142d8e14cdc2806df85aedb0fbb5dca474caa0f",
+  "upstream_manifest": "evaluation/2026-10-02/code2video-pilot/upstream-source-manifest.json",
+  "model_call_budget": 0,
+  "actual_video_evaluations": 0,
+  "selected_native_logic": ["Question", "EvaluationResult", "load_questions_from_json", "SelectiveKnowledgeUnlearning", "VideoEvaluator", "extract_json_from_markdown", "extract_answer_from_response", "get_unlearning_prompt", "get_unlearning_and_video_learning_prompt", "get_prompt_aes"],
+  "cases": [
+    {"id": "tq-correct", "correct_answer": "B", "response": "B", "expected_native_accuracy": 1, "expected_guarded_status": "correct"},
+    {"id": "tq-wrong", "correct_answer": "B", "response": "A", "expected_native_accuracy": 0, "expected_guarded_status": "wrong"},
+    {"id": "tq-first-letter", "correct_answer": "B", "response": "EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nA is the distractor, B is justified.", "expected_native_accuracy": 1, "expected_guarded_status": "correct"},
+    {"id": "tq-explanation-prefix", "correct_answer": "B", "response": "A is a distractor.\nEVIDENCE_STATUS = SUFFICIENT\nANSWER = B", "expected_native_accuracy": 0, "expected_guarded_status": "correct"},
+    {"id": "tq-insufficient-letter", "correct_answer": "B", "response": "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nThe video does not justify option B.", "expected_native_accuracy": 1, "expected_guarded_status": "unverifiable"},
+    {"id": "tq-truncated-list", "expected_native_accuracy": 0.3333333333333333, "expected_guarded_missing": 2},
+    {"id": "tq-stage-failure", "questions": 5, "expected_native_gain": 1, "expected_guarded_gain": null},
+    {"id": "tq-incomplete-options", "expected_native_correct_text": "third", "expected_guarded_rejected": true},
+    {"id": "aes-json", "dimension_score": 16, "expected_native_total": 80, "expected_guarded_total": 80},
+    {"id": "aes-text", "dimension_score": 16, "expected_native_total": 16, "expected_guarded_total": 80},
+    {"id": "aes-malformed", "response": "{", "expected_native_total": 0, "expected_guarded_status": "invalid"},
+    {"id": "aes-missing-dimensions", "expected_native_total": 16, "expected_guarded_status": "invalid"},
+    {"id": "aes-out-of-range", "dimension_score": 100, "expected_native_total": 500, "expected_guarded_status": "invalid"},
+    {"id": "aes-service-failure", "expected_native_total": 0, "expected_guarded_status": "call_failed"}
+  ],
+  "limits": ["AST-selected definitions, not full native import/CLI", "mock responses, not evaluator reliability", "no generated candidates or rendered media", "no new API or Codex calls"]
+}
