@@ -8,6 +8,8 @@
 
 已记录三个待解决问题：[评价分数](docs/issues/evaluation-score.md)、[评价后怎样改进](docs/issues/evaluation-to-revision.md)、[定位落实与效果验证](docs/issues/repository-positioning.md)。
 
+[研究图谱](docs/research-map.md)把问题、实验结果和对应 commit 连起来，保留失败与未决结论。[模型策略](docs/decisions/2026-10-04-model-strategy.md)记录为何先验证反馈循环，再考虑小规模后训练。
+
 现在的主要入口是小型 Canvas 运行时、常驻局部预览和带哈希的版本修改。对象、镜头、时间和绘图代码分别处理；已注册的动作可以只改 `timing.json`，保留原绘图源码。
 
 首轮同模型对照没有证明运行时提速：Direct 整臂 93.6 秒，Infra 100.7 秒。[保留的负结果](evaluation/2026-10-02/infra-pair-v1/REPORT.md)。随后将同一生成候选明确适配到命名动作，参数修改到局部视频实测 0.865 秒、零模型调用；这是时序调整的结果，不是新场景生成或艺术质量的收益。[参数实验](evaluation/2026-10-02/timing-bindings-v1/REPORT.md)。

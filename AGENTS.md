@@ -11,3 +11,5 @@ Build reproducible animation infrastructure. Keep specific finished artworks in 
 - Mechanism must remain identifiable. Keep mathematical checks separate from artistic judgement. No claim of trained weights when weights are hand-selected.
 - Keep new infrastructure narrow until a benchmark demonstrates its value. No large agent platform by default.
 - Keep credentials, provider logs with secrets and video intermediates out of Git.
+- Commit at meaningful research milestones: a frozen design, an implementation with checks, an experiment result (including failure), or a revised hypothesis. Use focused commits and maintain the research map; do not manufacture empty commits or rewrite recorded negative results.
+- Before public publication, scan the intended files and publishable branch/tag history for secrets, and inspect GitHub issues, release assets and other public surfaces. Internal application checkpoint refs are not publication targets. Report the actual audit scope and limitations.

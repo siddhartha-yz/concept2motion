@@ -1,2 +1,10 @@
 # Preserve the exact model input, including terminal blank lines, in evidence.
 evaluation/**/calls/*/prompt.md whitespace=-blank-at-eof
+# Archived model output and frozen tooling retain their original bytes/hashes.
+evaluation/**/candidate-sources/** whitespace=-trailing-space,-blank-at-eof
+evaluation/**/tooling/** whitespace=-trailing-space,-blank-at-eof
+evaluation/**/sources/** whitespace=-trailing-space,-blank-at-eof
+evaluation/**/prompts/** whitespace=-trailing-space,-blank-at-eof
+evaluation/**/protocol.md whitespace=-blank-at-eof
+evaluation/**/adapter-api.md whitespace=-blank-at-eof
+evaluation/**/DIAGNOSIS.md whitespace=-blank-at-eof

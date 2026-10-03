@@ -15,3 +15,17 @@ media/
 *.db-wal
 evaluation/**/raw/
 evaluation/**/artifacts/
+
+# Local account/configuration files and intermediate media never belong in Git.
+.codex/
+.agents/
+.aws/
+auth.json
+credentials.json
+.netrc
+*.pem
+*.p12
+*.key
+*.webm
+*.mov
+*.mkv

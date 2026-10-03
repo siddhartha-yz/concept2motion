@@ -1,0 +1,57 @@
+{
+  "kind": "public-publication preflight; not a model or animation quality experiment",
+  "date": "2026-10-04",
+  "repository": "https://github.com/siddhartha-yz/concept2motion",
+  "preflight_head": "585b5828cd54299c1bc9ea4ccc675b69707fd02c",
+  "preflight_history_commits": 19,
+  "preflight_intended_files": 1700,
+  "scanner": {
+    "name": "Gitleaks",
+    "version": "8.30.1",
+    "official_archive_sha256": "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb",
+    "release_checksum_verified": true,
+    "redacted": true,
+    "configuration": "default; no environment overrides or custom allowlist"
+  },
+  "findings": {
+    "history": 0,
+    "intended_files": 0,
+    "remote_artifacts_and_logs": 0,
+    "supplementary_credentials_patterns": 0
+  },
+  "remote": {
+    "branches": [
+      "main"
+    ],
+    "tags": 0,
+    "issues_and_pull_requests": 0,
+    "issue_comments": 0,
+    "pull_review_comments": 0,
+    "releases": 0,
+    "wiki_enabled": false,
+    "discussions_enabled": false,
+    "actions_artifacts_downloaded": 9,
+    "actions_logs_downloaded": 10,
+    "extracted_artifact_files": 835,
+    "extracted_log_files": 38
+  },
+  "frozen_evidence": {
+    "files": 734,
+    "hash_failures": [],
+    "absent_from_git": []
+  },
+  "verification": {
+    "python_tests": 63,
+    "python_result": "passed",
+    "node_test_files": 5,
+    "node_result": "passed",
+    "new_model_calls": 0,
+    "training_runs": 0
+  },
+  "publication_scope": "main history and final intended Git files; no internal Codex checkpoint refs, ignored local runs/dependencies/auth configuration or raw provider logs",
+  "limitations": [
+    "Pattern-based secret detection is not a proof of absence.",
+    "Some historical local paths and session identifiers remain in frozen evidence; they are not credentials.",
+    "This preflight precedes the audit documentation commit; the final committed branch is scanned again before pushing."
+  ]
+}
