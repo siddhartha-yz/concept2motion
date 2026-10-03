@@ -1,0 +1,45 @@
+{
+  "id": "residual-1-A",
+  "case": "residual",
+  "repeat": 1,
+  "arm": "A",
+  "original_status": "render_failed",
+  "original_technical_pass": false,
+  "original_source": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/source",
+  "authored_sources_unchanged": true,
+  "original_adapter_sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+  "new_adapter_sha256": "66be025d9d7e6334d845e8d946f5f9d7e9b22f3a12f329c369e3c94f4d60d89f",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/adapter-id-replay-v1/residual-1-A/source",
+  "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/adapter-id-replay-v1/residual-1-A/render",
+  "status": "execution_failed",
+  "exit_code": 1,
+  "video_exported": false,
+  "full_decode": false,
+  "wall_s": 1.3734072680090321,
+  "finding_codes": [],
+  "execution_errors": [
+    "Error: page.evaluate: Error: vector(role, index, options) requires residual, role identity/correction/output and integer index 0..2; received caseId=residual, role=correction-merge-proxy, index=0. Use identity for the unchanged input path\n    at Object.vector (http://127.0.0.1:46641/math-frame.mjs:56:132)\n    at Object.render (http://127.0.0.1:46641/scene.js:35:10)\n    at captureFrame (eval at evaluate (:311:30), <anonymous>:2:24)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  ],
+  "source_hashes": {
+    "math-frame.mjs": "66be025d9d7e6334d845e8d946f5f9d7e9b22f3a12f329c369e3c94f4d60d89f",
+    "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+    "scene.js": "5e76fa109bbec0fe9a17a2d375d0f822b970386ee3a002550a272c9055c8bea6",
+    "storyboard.md": "0c2167761a4bb4a75706864e3f488faa43c304b1834ec8955297b1858006fd85"
+  },
+  "review": {
+    "kind": "technical dependency regression",
+    "independent_artistic_review": false,
+    "artistic_acceptance": "not_assigned"
+  },
+  "revision_history": [
+    {
+      "kind": "model-authored original",
+      "version": 1
+    },
+    {
+      "kind": "explicit infrastructure dependency revision",
+      "changed_file": "math-frame.mjs",
+      "model_calls": 0
+    }
+  ]
+}

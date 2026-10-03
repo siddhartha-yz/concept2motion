@@ -1,0 +1,176 @@
+{
+  "model_calls": 0,
+  "fixtures": 4,
+  "expectations_met": 4,
+  "batch_wall_s": 4.367485588998534,
+  "results": [
+    {
+      "id": "softmax-correct",
+      "expected": "pass",
+      "expectation_met": true,
+      "status": "render_passed",
+      "exit_code": 0,
+      "finding_codes": [],
+      "full_decode": true,
+      "video_exported": true,
+      "wall_s": 4.338082003989257,
+      "render_directory": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/render-evidence-v2/adapter-replay-02/softmax-correct/render",
+      "sources": [
+        {
+          "path": "brief.json",
+          "sha256": "bdb3fb426cb752f85f94bac2e64400ac4a60ba4eb91aaae5845245554d9dd9a6"
+        },
+        {
+          "path": "index.html",
+          "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+        },
+        {
+          "path": "math-frame.mjs",
+          "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+        },
+        {
+          "path": "scene.js",
+          "sha256": "323da7ab59851ac632151a05b2541ccae2253bc9f9656e08c1b4181f3af447b1"
+        }
+      ],
+      "mass_geometry_coverage": {
+        "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+        "states": {
+          "checked": 11,
+          "unavailable": 0,
+          "invalid": 0,
+          "transient": 0
+        }
+      },
+      "review": "technical controlled fixture; not artistic approval",
+      "revision": "unchanged frozen hand-authored fixture; reproducibility repeat"
+    },
+    {
+      "id": "softmax-affine",
+      "expected": "wrong_mass_geometry",
+      "expectation_met": true,
+      "status": "checks_failed",
+      "exit_code": 1,
+      "finding_codes": [
+        "wrong_mass_geometry"
+      ],
+      "full_decode": true,
+      "video_exported": true,
+      "wall_s": 4.26815945400449,
+      "render_directory": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/render-evidence-v2/adapter-replay-02/softmax-affine/render",
+      "sources": [
+        {
+          "path": "brief.json",
+          "sha256": "bdb3fb426cb752f85f94bac2e64400ac4a60ba4eb91aaae5845245554d9dd9a6"
+        },
+        {
+          "path": "index.html",
+          "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+        },
+        {
+          "path": "math-frame.mjs",
+          "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+        },
+        {
+          "path": "scene.js",
+          "sha256": "a329b5d006fb5d4ede8380507659a659424d45cae386aed59d446aa945e34242"
+        }
+      ],
+      "mass_geometry_coverage": {
+        "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+        "states": {
+          "checked": 11,
+          "unavailable": 0,
+          "invalid": 0,
+          "transient": 0
+        }
+      },
+      "review": "technical controlled fixture; not artistic approval",
+      "revision": "unchanged frozen hand-authored fixture; reproducibility repeat"
+    },
+    {
+      "id": "softmax-overpaint",
+      "expected": "pixel_mismatch",
+      "expectation_met": true,
+      "status": "checks_failed",
+      "exit_code": 1,
+      "finding_codes": [
+        "pixel_mismatch"
+      ],
+      "full_decode": true,
+      "video_exported": true,
+      "wall_s": 4.293760671003838,
+      "render_directory": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/render-evidence-v2/adapter-replay-02/softmax-overpaint/render",
+      "sources": [
+        {
+          "path": "brief.json",
+          "sha256": "bdb3fb426cb752f85f94bac2e64400ac4a60ba4eb91aaae5845245554d9dd9a6"
+        },
+        {
+          "path": "index.html",
+          "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+        },
+        {
+          "path": "math-frame.mjs",
+          "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+        },
+        {
+          "path": "scene.js",
+          "sha256": "14803262c847c53caf1ac7b5e85dca43807de762a565f9971e27dbb0239b9bec"
+        }
+      ],
+      "mass_geometry_coverage": {
+        "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+        "states": {
+          "checked": 11,
+          "unavailable": 0,
+          "invalid": 0,
+          "transient": 0
+        }
+      },
+      "review": "technical controlled fixture; not artistic approval",
+      "revision": "unchanged frozen hand-authored fixture; reproducibility repeat"
+    },
+    {
+      "id": "residual-correct",
+      "expected": "pass",
+      "expectation_met": true,
+      "status": "render_passed",
+      "exit_code": 0,
+      "finding_codes": [],
+      "full_decode": true,
+      "video_exported": true,
+      "wall_s": 4.364248730998952,
+      "render_directory": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/render-evidence-v2/adapter-replay-02/residual-correct/render",
+      "sources": [
+        {
+          "path": "brief.json",
+          "sha256": "61770198d2e075dfb8041274bde2d5a38790ba476e4fcd8691993f3842be937c"
+        },
+        {
+          "path": "index.html",
+          "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+        },
+        {
+          "path": "math-frame.mjs",
+          "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+        },
+        {
+          "path": "scene.js",
+          "sha256": "124ddf525b2e1c8457730a0bea71c5b902910fbeb179252b2ef708ea85cbee2e"
+        }
+      ],
+      "mass_geometry_coverage": {
+        "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+        "states": {
+          "checked": 0,
+          "unavailable": 0,
+          "invalid": 0,
+          "transient": 0
+        }
+      },
+      "review": "technical controlled fixture; not artistic approval",
+      "revision": "unchanged frozen hand-authored fixture; reproducibility repeat"
+    }
+  ]
+}

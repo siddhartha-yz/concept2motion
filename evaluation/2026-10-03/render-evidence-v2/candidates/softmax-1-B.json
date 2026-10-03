@@ -1,0 +1,765 @@
+{
+  "id": "softmax-1-B",
+  "case": "softmax",
+  "repeat": 1,
+  "arm": "B",
+  "original_source": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/source",
+  "original_source_sha256": {
+    "index.html": "26b60317485075dc55ce1c16c73e2d32c38844533f9c68826eceee40050a3a91",
+    "scene.js": "9a5280d21118546976d67d795ee292433251b793f3693e9bcc3bb65558cad47c",
+    "storyboard.md": "751da99110b7509dbafaf41a8e608d3ea5a833c0d4eda322ca5c5ee4f182e785"
+  },
+  "original_render_status": "rendered",
+  "render_directory": "work/render-evidence-v2/softmax-1-B",
+  "render_status": "checks_failed",
+  "wall_s": 4.501656388994888,
+  "exit_code": 1,
+  "video_exported": true,
+  "full_decode": true,
+  "video_sha256": "4d405cf261af20a704ccfe979f5dc6b33265aa3bcb88b5fc34e3f58f4ef420bf",
+  "actual_frames": "270",
+  "findings": [
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 6
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 6
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 6
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 6.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 6.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 6.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "sumlabel / join-0",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "divide-0 / join-2",
+      "time_s": 18
+    }
+  ],
+  "mass_geometry_coverage": {
+    "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+    "states": {
+      "checked": 0,
+      "unavailable": 0,
+      "invalid": 0,
+      "transient": 9
+    }
+  },
+  "frames": [
+    {
+      "time_s": 1,
+      "path": "work/render-evidence-v2/softmax-1-B/frame-1.00.jpg",
+      "sha256": "398b128a4db03260e5181b41bddfdd921ad2b55c3a1dc3405112383f82a62412"
+    },
+    {
+      "time_s": 4,
+      "path": "work/render-evidence-v2/softmax-1-B/frame-4.00.jpg",
+      "sha256": "b55afe5f1b0a92cffb0609d75051c05099a5f2bc994b6a54baab4e50f0a3f376"
+    },
+    {
+      "time_s": 8,
+      "path": "work/render-evidence-v2/softmax-1-B/frame-8.00.jpg",
+      "sha256": "5eec0b6e266d18b8c725c6b6fefc62f09cca3e00557818339c976fe64fd0b83b"
+    },
+    {
+      "time_s": 11,
+      "path": "work/render-evidence-v2/softmax-1-B/frame-11.00.jpg",
+      "sha256": "468cbbb2f7d7d38bb656df62b124450fcf8286cfab9db378a994e1ff27756c52"
+    },
+    {
+      "time_s": 14,
+      "path": "work/render-evidence-v2/softmax-1-B/frame-14.00.jpg",
+      "sha256": "6a22800cc27eec0432199727edb6a1017cabd21ea6c38dcc2b2f546140603ec4"
+    },
+    {
+      "time_s": 17,
+      "path": "work/render-evidence-v2/softmax-1-B/frame-17.00.jpg",
+      "sha256": "6a22800cc27eec0432199727edb6a1017cabd21ea6c38dcc2b2f546140603ec4"
+    }
+  ],
+  "review": {
+    "kind": "technical regression",
+    "artistic_acceptance": "not_assigned",
+    "new_model_review": false
+  },
+  "revision_history": "Source unchanged; new capture/check tooling only"
+}

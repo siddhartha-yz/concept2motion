@@ -1,0 +1,2060 @@
+{
+  "id": "softmax-2-C",
+  "case": "softmax",
+  "repeat": 2,
+  "arm": "C",
+  "original_source": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/source",
+  "original_source_sha256": {
+    "index.html": "76ee088eb31ebaabda52c5b88d914855c2f52e6e25830f089325bb76db53617d",
+    "scene.js": "b78575a1b3a2580cdd0c5ab639e32362f777c890a5f61f8005a57e0a4e6b0f4f",
+    "storyboard.md": "f21cdb687014a40ec8da26cf51949a65f39bc04c48016808aaa02df4e2aaba6e"
+  },
+  "original_render_status": "rendered",
+  "render_directory": "work/render-evidence-v2/softmax-2-C",
+  "render_status": "checks_failed",
+  "wall_s": 3.961804046004545,
+  "exit_code": 1,
+  "video_exported": true,
+  "full_decode": true,
+  "video_sha256": "befe26f4aaff4350baec18a49483df850b0761db05ecf43abda1eeeccdd63ec7",
+  "actual_frames": "270",
+  "findings": [
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 4.5,
+      "detail": "class 0: bar share 0.175436568660196 differs from exp-mass share 0.08540312779985004"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 4.5,
+      "detail": "class 1: bar share 0.30162729475511785 differs from exp-mass share 0.2835483698629142"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 4.5,
+      "detail": "class 2: bar share 0.522936136584686 differs from exp-mass share 0.6310485023372358"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 4.875,
+      "detail": "class 0: bar share 0.175436568660196 differs from exp-mass share 0.08540312779985004"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 4.875,
+      "detail": "class 1: bar share 0.30162729475511785 differs from exp-mass share 0.2835483698629142"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 4.875,
+      "detail": "class 2: bar share 0.522936136584686 differs from exp-mass share 0.6310485023372358"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 5.25,
+      "detail": "class 0: bar share 0.175436568660196 differs from exp-mass share 0.08540312779985004"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 5.25,
+      "detail": "class 1: bar share 0.30162729475511785 differs from exp-mass share 0.2835483698629142"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 5.25,
+      "detail": "class 2: bar share 0.522936136584686 differs from exp-mass share 0.6310485023372358"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 5.625,
+      "detail": "class 0: bar share 0.175436568660196 differs from exp-mass share 0.08540312779985004"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 5.625,
+      "detail": "class 1: bar share 0.30162729475511785 differs from exp-mass share 0.2835483698629142"
+    },
+    {
+      "code": "wrong_mass_geometry",
+      "time_s": 5.625,
+      "detail": "class 2: bar share 0.522936136584686 differs from exp-mass share 0.6310485023372358"
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 12
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-0",
+      "time_s": 12
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-1",
+      "time_s": 12
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-2",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 12.375
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-0",
+      "time_s": 12.375
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-1",
+      "time_s": 12.375
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-2",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 12.75
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-0",
+      "time_s": 12.75
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-1",
+      "time_s": 12.75
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-2",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 13.125
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-0",
+      "time_s": 13.125
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-1",
+      "time_s": 13.125
+    },
+    {
+      "code": "pixel_mismatch",
+      "detail": "class-2",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-1 / to-total-0",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-0",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "mass-label-2 / to-total-1",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denominator / den-box",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / mass-0",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-0 / to-total-0",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / mass-1",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-0",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-1 / to-total-1",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / mass-2",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-0",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-1",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "division-2 / to-total-2",
+      "time_s": 18
+    }
+  ],
+  "mass_geometry_coverage": {
+    "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+    "states": {
+      "checked": 4,
+      "unavailable": 0,
+      "invalid": 0,
+      "transient": 5
+    }
+  },
+  "frames": [
+    {
+      "time_s": 1,
+      "path": "work/render-evidence-v2/softmax-2-C/frame-1.00.jpg",
+      "sha256": "18e84b40e0e221e125a426fc6f13e66b829424d61ac4a226f44ce3b50d0dfb35"
+    },
+    {
+      "time_s": 4,
+      "path": "work/render-evidence-v2/softmax-2-C/frame-4.00.jpg",
+      "sha256": "17b86cc4094f4e0f70002839bc79e635941b9d982713d46e83c7f512140917b1"
+    },
+    {
+      "time_s": 8,
+      "path": "work/render-evidence-v2/softmax-2-C/frame-8.00.jpg",
+      "sha256": "5e7765453db2c12040ff87f8123d72a523d57f52519c25c7f69ac0967fa1d65d"
+    },
+    {
+      "time_s": 11,
+      "path": "work/render-evidence-v2/softmax-2-C/frame-11.00.jpg",
+      "sha256": "9144e5a4e088c02f127b9a34fe8875bdf23319203a8bece19cea13ac4c265308"
+    },
+    {
+      "time_s": 14,
+      "path": "work/render-evidence-v2/softmax-2-C/frame-14.00.jpg",
+      "sha256": "e6571c89b5075c116ab90e66ca063264ea7b48bc0bb0d86da81ab8398a13abef"
+    },
+    {
+      "time_s": 17,
+      "path": "work/render-evidence-v2/softmax-2-C/frame-17.00.jpg",
+      "sha256": "e6571c89b5075c116ab90e66ca063264ea7b48bc0bb0d86da81ab8398a13abef"
+    }
+  ],
+  "review": {
+    "kind": "technical regression",
+    "artistic_acceptance": "not_assigned",
+    "new_model_review": false
+  },
+  "revision_history": "Source unchanged; new capture/check tooling only"
+}

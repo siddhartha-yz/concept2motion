@@ -1,0 +1,576 @@
+[
+  {
+    "id": "residual-reveal-correct",
+    "expected": "pass",
+    "actual_status": "render_passed",
+    "finding_codes": [],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-reveal-correct",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "87fb825f607550511b731ac7bac0234734922158102fc327aa19075755aea7ab",
+      "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-reveal-correct/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 5.078594451013487,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "residual-forged-geometry",
+    "expected": "wrong_vector_geometry",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "output_origin_alignment",
+      "wrong_vector_geometry"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-forged-geometry",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "eea51a65a332ad04d29441853fafb2bb6ce6d7cdbf41978f68ce21e34066aea6",
+      "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-forged-geometry/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 5.148975806994713,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "residual-wrong-target",
+    "expected": "wrong_vector_target",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "output_origin_alignment",
+      "wrong_vector_geometry",
+      "wrong_vector_target"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-wrong-target",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "2d9dfbdc29163a6800521f417a02f452563e6e0eee411cb2f29c416bb1c4e5b2",
+      "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-wrong-target/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 5.195037522993516,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "residual-no-timeline",
+    "expected": "reveal_timeline_required",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "invisible_required_vector",
+      "reveal_timeline_required"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-no-timeline",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "b33f609eb4b6143052ab34d1ab3e44bcd7e031bf28aa3123a3b8cffc9c04929f",
+      "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-no-timeline/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 5.236501435996615,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "residual-never-finished",
+    "expected": "incomplete_vector_reveal",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "incomplete_vector_reveal"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-never-finished",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "31136e54d4f3f2ee31f97d400feebd3eae251ee1d18e68e6819c3cc679e28914",
+      "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-never-finished/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.96461228300177,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "residual-wrong-merge",
+    "expected": "wrong_merge",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "output_origin_alignment",
+      "wrong_merge"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-wrong-merge",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "50e6e69362dbc88bb8689f3b562744f84821a43b6992cae4c36959b2e4070561",
+      "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-wrong-merge/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.897875782000483,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "residual-zero-output",
+    "expected": "pass",
+    "actual_status": "render_passed",
+    "finding_codes": [],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-zero-output",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "97597fbae05815849fdfeccb72b35a96270aab66d6f5d81be70097db02ac6917",
+      "brief.json": "10e3f5e9aa4d2a26bb2caadccecaaba3a0d236749910e1c96187065ad0013ddc"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-zero-output/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.935699157998897,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "residual-invisible-output",
+    "expected": "invisible_required_vector",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "invisible_required_vector"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/residual-invisible-output",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "777e25edc6116cc11e974b090f1c143e3bbe961316a774ea5fc4440f673a9ff8",
+      "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/residual-invisible-output/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 5.157330064001144,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-staggered-reveal",
+    "expected": "pass",
+    "actual_status": "render_passed",
+    "finding_codes": [],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-staggered-reveal",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "96b8c702e6c04b0557e8a122c0a8c48cbbdf7aafb162db792d21a4fecfd496cc",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-staggered-reveal/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 3,
+        "target_only": 8,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.528811582000344,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-affine-target",
+    "expected": "wrong_mass_geometry",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "wrong_mass_geometry"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-affine-target",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "bd8858ac2276229dc3d03382979e75f987c58f0d8d0398bfa2981f133773d428",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-affine-target/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 3,
+        "target_only": 8,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.513083956000628,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-forged-width",
+    "expected": "wrong_mass_reveal",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "pixel_mismatch",
+      "wrong_mass_reveal"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-forged-width",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "ca707c4adbf341c603dcc2aa4ae886298bb216f2a088b156bf20114c9076d388",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-forged-width/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 3,
+        "target_only": 8,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.534373272006633,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-never-finished",
+    "expected": "incomplete_mass_reveal",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "incomplete_mass_reveal"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-never-finished",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "c4d95a1b3a8f67b0e24f20da8ca4891aa9cd5ffa8c453d8c960a8ff6168ce258",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-never-finished/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 0,
+        "target_only": 11,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.487906226000632,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-hidden-partition",
+    "expected": "invisible_partition",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "invisible_partition"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-hidden-partition",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "a91a0be97686a767fd36f40554cb6350381294e6095c7fd91c840c4bcc7ab345",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-hidden-partition/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 3,
+        "target_only": 8,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.550817002003896,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-overpaint",
+    "expected": "pixel_mismatch",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "pixel_mismatch"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-overpaint",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "7b10f4598c43bd313543d7dda6b2cb04144e694ebeab33176cb1f0d4b439ecf7",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-overpaint/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 3,
+        "target_only": 8,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.620393849996617,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-opacity-groups",
+    "expected": "pass",
+    "actual_status": "render_passed",
+    "finding_codes": [],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-opacity-groups",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "c13ea356846bb214feca5b59b86de038a64301d9cc6a1f67ee9f8615117c69c0",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-opacity-groups/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 3,
+        "target_only": 8,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.630592045999947,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  },
+  {
+    "id": "softmax-phase-overlap",
+    "expected": "text_overlap",
+    "actual_status": "checks_failed",
+    "finding_codes": [
+      "text_overlap"
+    ],
+    "expectation_met": true,
+    "video_exported": true,
+    "full_decode": true,
+    "source": "evaluation/2026-10-03/progress-controls-v3/sources/softmax-phase-overlap",
+    "source_hashes": {
+      "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+      "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+      "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+      "scene.js": "93390fbf7bfc9cce7dc3fa0322dd188798613d7f7a00ac75b822e4b0e526b1dc",
+      "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+    },
+    "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v3/softmax-phase-overlap/render",
+    "mass_geometry": {
+      "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+      "states": {
+        "checked": 3,
+        "target_only": 8,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "wall_s": 4.5878321820055135,
+    "review": {
+      "kind": "technical oracle check",
+      "independent_artistic_approval": false
+    },
+    "revision_history": "initial frozen hand-authored fixture"
+  }
+]

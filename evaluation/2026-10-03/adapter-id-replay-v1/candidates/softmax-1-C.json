@@ -1,0 +1,46 @@
+{
+  "id": "softmax-1-C",
+  "case": "softmax",
+  "repeat": 1,
+  "arm": "C",
+  "original_status": "rendered",
+  "original_technical_pass": false,
+  "original_source": "work/model-infra-pilot-v2/candidates/softmax-1-C/v3/source",
+  "authored_sources_unchanged": true,
+  "original_adapter_sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+  "new_adapter_sha256": "66be025d9d7e6334d845e8d946f5f9d7e9b22f3a12f329c369e3c94f4d60d89f",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/adapter-id-replay-v1/softmax-1-C/source",
+  "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/adapter-id-replay-v1/softmax-1-C/render",
+  "status": "checks_failed",
+  "exit_code": 1,
+  "video_exported": true,
+  "full_decode": true,
+  "wall_s": 5.88150857599976,
+  "finding_codes": [
+    "text_overlap",
+    "text_shape_overlap"
+  ],
+  "execution_errors": [],
+  "source_hashes": {
+    "math-frame.mjs": "66be025d9d7e6334d845e8d946f5f9d7e9b22f3a12f329c369e3c94f4d60d89f",
+    "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+    "scene.js": "bf0291fab1634bd6e66c5ba65f3c80651b427f74b1563a71836f34d9d4285137",
+    "storyboard.md": "d14a19eff97cae68b00652094e31fc287ba01856bf761f1167f0e26cf8054ddc"
+  },
+  "review": {
+    "kind": "technical dependency regression",
+    "independent_artistic_review": false,
+    "artistic_acceptance": "not_assigned"
+  },
+  "revision_history": [
+    {
+      "kind": "model-authored original",
+      "version": 3
+    },
+    {
+      "kind": "explicit infrastructure dependency revision",
+      "changed_file": "math-frame.mjs",
+      "model_calls": 0
+    }
+  ]
+}

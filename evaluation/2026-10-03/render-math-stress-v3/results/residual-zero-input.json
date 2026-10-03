@@ -1,0 +1,34 @@
+{
+  "id": "residual-zero-input",
+  "expected": "pass",
+  "actual_status": "render_passed",
+  "finding_codes": [],
+  "expectation_met": true,
+  "video_exported": true,
+  "full_decode": true,
+  "source": "evaluation/2026-10-03/render-math-stress-v3/sources/residual-zero-input",
+  "source_hashes": {
+    "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+    "math-frame.mjs": "7a9c0339ae91e5c4d03d627c9cfd3441c34fb174b162ddfc178c0af3c99c545f",
+    "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+    "scene.js": "50b774aeca25fd6cca93aeb6c3a3ebf407c1ca9d5050fbd79172d316390476db",
+    "brief.json": "b26c669645f84cc40255766a0d177493b01d0c5d78be63268d6da81f553ce672"
+  },
+  "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/render-math-stress-v3/residual-zero-input/render",
+  "mass_geometry": {
+    "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+    "states": {
+      "checked": 0,
+      "target_only": 0,
+      "unavailable": 0,
+      "invalid": 0,
+      "transient": 0
+    }
+  },
+  "wall_s": 6.021617859994876,
+  "review": {
+    "kind": "technical oracle check",
+    "independent_artistic_approval": false
+  },
+  "revision_history": "initial frozen hand-authored fixture"
+}

@@ -1,0 +1,69 @@
+{
+  "id": "residual-2-D",
+  "case": "residual",
+  "repeat": 2,
+  "arm": "D",
+  "original_source": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/source",
+  "original_source_sha256": {
+    "index.html": "8c04641f12e78aa527123c19a39c41055c4f523a6be1781469b27cdf83679c85",
+    "scene.js": "ce72b69a2d9e9efa43d67644271ed51f92b038678c146884a0eea8c7562b0164",
+    "storyboard.md": "099bf728201c148a391454e8dd3f34ebd30edf0f4f891a3331e58dd8be11b453"
+  },
+  "original_render_status": "rendered",
+  "render_directory": "work/render-evidence-v2/residual-2-D",
+  "render_status": "render_passed",
+  "wall_s": 4.1323794570053,
+  "exit_code": 0,
+  "video_exported": true,
+  "full_decode": true,
+  "video_sha256": "588cdce912c0a0a5b31f6663b5d24b8a708f028428e65bf8445c887ee5f24005",
+  "actual_frames": "270",
+  "findings": [],
+  "mass_geometry_coverage": {
+    "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+    "states": {
+      "checked": 0,
+      "unavailable": 0,
+      "invalid": 0,
+      "transient": 0
+    }
+  },
+  "frames": [
+    {
+      "time_s": 1,
+      "path": "work/render-evidence-v2/residual-2-D/frame-1.00.jpg",
+      "sha256": "fdb4d814d0a2543386d372a526f301b0014a3cf13cf5a43bc06aa0c02de41608"
+    },
+    {
+      "time_s": 4,
+      "path": "work/render-evidence-v2/residual-2-D/frame-4.00.jpg",
+      "sha256": "dc39db487acf401ad256991722200ab265a9461c10804d99253adf4726711688"
+    },
+    {
+      "time_s": 8,
+      "path": "work/render-evidence-v2/residual-2-D/frame-8.00.jpg",
+      "sha256": "3978efd617681a5f7cd5fc879aed790633fb0e0047a6665673c94ddd521ff92e"
+    },
+    {
+      "time_s": 11,
+      "path": "work/render-evidence-v2/residual-2-D/frame-11.00.jpg",
+      "sha256": "88a73ee804f82900bed8caadbba70b1068eee1b9c7d72c6d17714a65eaf00619"
+    },
+    {
+      "time_s": 14,
+      "path": "work/render-evidence-v2/residual-2-D/frame-14.00.jpg",
+      "sha256": "08891e355dbc56930e7917883ba6feb7f86b161fbd1cb15f8d94d4a5eaf700e6"
+    },
+    {
+      "time_s": 17,
+      "path": "work/render-evidence-v2/residual-2-D/frame-17.00.jpg",
+      "sha256": "08891e355dbc56930e7917883ba6feb7f86b161fbd1cb15f8d94d4a5eaf700e6"
+    }
+  ],
+  "review": {
+    "kind": "technical regression",
+    "artistic_acceptance": "not_assigned",
+    "new_model_review": false
+  },
+  "revision_history": "Source unchanged; new capture/check tooling only"
+}

@@ -1,0 +1,440 @@
+{
+  "id": "softmax-1-C",
+  "case": "softmax",
+  "repeat": 1,
+  "arm": "C",
+  "original_source": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/source",
+  "original_source_sha256": {
+    "index.html": "dcd3f639c514acf36b1abb2f146dc499dd8732d81b090c1c2100e720553628d3",
+    "scene.js": "4049cbd3a5b500a71b9d3f713855ce5d855c1458d6b104bc2957195cd6d7fcf6",
+    "storyboard.md": "280ce1e5c3d4981395c10ef178c81f1991c24979fe9939729e35da5348d55b23"
+  },
+  "original_render_status": "rendered",
+  "render_directory": "work/render-evidence-v2/softmax-1-C",
+  "render_status": "checks_failed",
+  "wall_s": 4.780367169994861,
+  "exit_code": 1,
+  "video_exported": true,
+  "full_decode": true,
+  "video_sha256": "c9d185d80754bb727fdedd5c6352c47038a541dc88abf05266b58ec2abf91665",
+  "actual_frames": "270",
+  "findings": [
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 6
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 6
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 6.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 6.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 6.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 7.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 7.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 7.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 8
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 8.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 8.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 9
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 9.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 9.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 10.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 10.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 10.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 11
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 11.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 11.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 12
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 12.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 12.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 13.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 13.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 13.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 14
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 14.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 14.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 15
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 15.375
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 15.75
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 16.125
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 16.5
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 16.875
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 17
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 17.25
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 17.625
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "massval-2 / join-2",
+      "time_s": 18
+    },
+    {
+      "code": "text_shape_overlap",
+      "detail": "denom / totalbox",
+      "time_s": 18
+    }
+  ],
+  "mass_geometry_coverage": {
+    "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+    "states": {
+      "checked": 0,
+      "unavailable": 9,
+      "invalid": 0,
+      "transient": 0
+    }
+  },
+  "frames": [
+    {
+      "time_s": 1,
+      "path": "work/render-evidence-v2/softmax-1-C/frame-1.00.jpg",
+      "sha256": "d1a9c8395874d9f8f644ec3a9913d99f658938b39120dc6e00fe2c2e5ab2926f"
+    },
+    {
+      "time_s": 4,
+      "path": "work/render-evidence-v2/softmax-1-C/frame-4.00.jpg",
+      "sha256": "355a8c1a342a4a9a72f16bdb24ccc9fb0549a967e5d6753b9823411a7dab7bf0"
+    },
+    {
+      "time_s": 8,
+      "path": "work/render-evidence-v2/softmax-1-C/frame-8.00.jpg",
+      "sha256": "f5cad0f2b7a69f4fd32459ad888906c6ba07e1bd5644637237ea477e76d9b830"
+    },
+    {
+      "time_s": 11,
+      "path": "work/render-evidence-v2/softmax-1-C/frame-11.00.jpg",
+      "sha256": "4d7a55268a7ab430421f76b99ee00d97936f0f469cc70cb49a5d72288c9b596a"
+    },
+    {
+      "time_s": 14,
+      "path": "work/render-evidence-v2/softmax-1-C/frame-14.00.jpg",
+      "sha256": "8b4cef61a52586489a77c63782dea36d2abe561b563c613958e9251ace785cdd"
+    },
+    {
+      "time_s": 17,
+      "path": "work/render-evidence-v2/softmax-1-C/frame-17.00.jpg",
+      "sha256": "8b4cef61a52586489a77c63782dea36d2abe561b563c613958e9251ace785cdd"
+    }
+  ],
+  "review": {
+    "kind": "technical regression",
+    "artistic_acceptance": "not_assigned",
+    "new_model_review": false
+  },
+  "revision_history": "Source unchanged; new capture/check tooling only"
+}

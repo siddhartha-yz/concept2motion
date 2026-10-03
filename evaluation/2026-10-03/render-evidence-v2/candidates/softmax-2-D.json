@@ -1,0 +1,69 @@
+{
+  "id": "softmax-2-D",
+  "case": "softmax",
+  "repeat": 2,
+  "arm": "D",
+  "original_source": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/source",
+  "original_source_sha256": {
+    "index.html": "847f335902c53d6c27d41fb11933cf43247e4c2111b20fae7f0627141bded11b",
+    "scene.js": "d06d4e454f9dc813aad31fdaecabaeeb3e8b16087387b07f9d992deb420e722c",
+    "storyboard.md": "8d25c4692fe8fe86713d585f6e7529ef6a70043092bf8c166fdb974312525524"
+  },
+  "original_render_status": "rendered",
+  "render_directory": "work/render-evidence-v2/softmax-2-D",
+  "render_status": "render_passed",
+  "wall_s": 4.128147283001454,
+  "exit_code": 0,
+  "video_exported": true,
+  "full_decode": true,
+  "video_sha256": "e7ffd6cec9ad39450735ef481d1288e61873106709209a63889c1d3cb7fb1c27",
+  "actual_frames": "270",
+  "findings": [],
+  "mass_geometry_coverage": {
+    "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+    "states": {
+      "checked": 0,
+      "unavailable": 9,
+      "invalid": 0,
+      "transient": 0
+    }
+  },
+  "frames": [
+    {
+      "time_s": 1,
+      "path": "work/render-evidence-v2/softmax-2-D/frame-1.00.jpg",
+      "sha256": "9851e408a87eb8d067a368e364c3bb6a80b7cc670edd50e85d2d0cfdf0de80cf"
+    },
+    {
+      "time_s": 4,
+      "path": "work/render-evidence-v2/softmax-2-D/frame-4.00.jpg",
+      "sha256": "24ab3b7ae030b5d3d69b8ad178bed5d46be249cae122b17f8bebcd5067832d57"
+    },
+    {
+      "time_s": 8,
+      "path": "work/render-evidence-v2/softmax-2-D/frame-8.00.jpg",
+      "sha256": "39bd8573d2d6e2b6a5ad194d75dd64f187c95fd90a8108319f48b72fe6052863"
+    },
+    {
+      "time_s": 11,
+      "path": "work/render-evidence-v2/softmax-2-D/frame-11.00.jpg",
+      "sha256": "20c89ae46f485b37722dd904ab6f9d3d3188c835da7c71cddc411211001044cd"
+    },
+    {
+      "time_s": 14,
+      "path": "work/render-evidence-v2/softmax-2-D/frame-14.00.jpg",
+      "sha256": "d656ef6fd658689bed9b588ef3e0bbc168d76e135892498c429f36e29b380eaf"
+    },
+    {
+      "time_s": 17,
+      "path": "work/render-evidence-v2/softmax-2-D/frame-17.00.jpg",
+      "sha256": "d656ef6fd658689bed9b588ef3e0bbc168d76e135892498c429f36e29b380eaf"
+    }
+  ],
+  "review": {
+    "kind": "technical regression",
+    "artistic_acceptance": "not_assigned",
+    "new_model_review": false
+  },
+  "revision_history": "Source unchanged; new capture/check tooling only"
+}

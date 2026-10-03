@@ -1,0 +1,45 @@
+{
+  "id": "softmax-1-B",
+  "case": "softmax",
+  "repeat": 1,
+  "arm": "B",
+  "original_status": "render_failed",
+  "original_technical_pass": false,
+  "original_source": "work/model-infra-pilot-v2/candidates/softmax-1-B/v3/source",
+  "authored_sources_unchanged": true,
+  "original_adapter_sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+  "new_adapter_sha256": "66be025d9d7e6334d845e8d946f5f9d7e9b22f3a12f329c369e3c94f4d60d89f",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/adapter-id-replay-v1/softmax-1-B/source",
+  "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/adapter-id-replay-v1/softmax-1-B/render",
+  "status": "execution_failed",
+  "exit_code": 1,
+  "video_exported": false,
+  "full_decode": false,
+  "wall_s": 1.053949734006892,
+  "finding_codes": [],
+  "execution_errors": [
+    "Error: page.evaluate: Error: Duplicate shape drawing ID \"mass-0\" in one frame; draw each object once or give a separate instance a distinct ID\n    at register (http://127.0.0.1:41553/math-frame.mjs:23:28)\n    at Object.massBar (http://127.0.0.1:41553/math-frame.mjs:41:56)\n    at http://127.0.0.1:41553/scene.js:15:246\n    at Array.forEach (<anonymous>)\n    at Object.render (http://127.0.0.1:41553/scene.js:15:229)\n    at captureFrame (eval at evaluate (:311:30), <anonymous>:2:24)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+  ],
+  "source_hashes": {
+    "math-frame.mjs": "66be025d9d7e6334d845e8d946f5f9d7e9b22f3a12f329c369e3c94f4d60d89f",
+    "index.html": "0900f235a52293dd194c1ab5994a10c594a7651c72d022044db396155bda0789",
+    "scene.js": "5da762a979f09867e64b032f26e11aaf9990c6603dda77d76beb93f0750f24e7",
+    "storyboard.md": "6ecb44caa9328ba5648ec1466ff2a28e8093452214ee347456af246239a6d2cf"
+  },
+  "review": {
+    "kind": "technical dependency regression",
+    "independent_artistic_review": false,
+    "artistic_acceptance": "not_assigned"
+  },
+  "revision_history": [
+    {
+      "kind": "model-authored original",
+      "version": 3
+    },
+    {
+      "kind": "explicit infrastructure dependency revision",
+      "changed_file": "math-frame.mjs",
+      "model_calls": 0
+    }
+  ]
+}

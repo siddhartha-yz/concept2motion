@@ -1,0 +1,38 @@
+{
+  "id": "residual-no-timeline",
+  "expected": "reveal_timeline_required",
+  "actual_status": "checks_failed",
+  "finding_codes": [
+    "invisible_required_vector",
+    "pixel_mismatch",
+    "reveal_timeline_required"
+  ],
+  "expectation_met": true,
+  "video_exported": true,
+  "full_decode": true,
+  "source": "evaluation/2026-10-03/progress-controls-v1/sources/residual-no-timeline",
+  "source_hashes": {
+    "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+    "math-frame.mjs": "7697b0d1a4eea51a4c5ad43b1b9c4dfef329f8b973c1f0dbeeacf486dd87b56b",
+    "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+    "scene.js": "b33f609eb4b6143052ab34d1ab3e44bcd7e031bf28aa3123a3b8cffc9c04929f",
+    "brief.json": "79581f84dec52091109db6a2359fc40bb8f31af389f0a869fc0a41c488c9be3e"
+  },
+  "render_directory": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/progress-controls-v1/residual-no-timeline/render",
+  "mass_geometry": {
+    "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+    "states": {
+      "checked": 0,
+      "target_only": 0,
+      "unavailable": 0,
+      "invalid": 0,
+      "transient": 0
+    }
+  },
+  "wall_s": 4.685818924001069,
+  "review": {
+    "kind": "technical oracle check",
+    "independent_artistic_approval": false
+  },
+  "revision_history": "initial frozen hand-authored fixture"
+}

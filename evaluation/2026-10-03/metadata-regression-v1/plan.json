@@ -1,0 +1,38 @@
+{
+  "kind": "hand-authored malformed inspection fields, still render diagnostic video; no model or art",
+  "cases": [
+    {
+      "id": "numeric-color",
+      "expected": "missing_pixel_reference",
+      "source": "evaluation/2026-10-03/metadata-regression-v1/sources/numeric-color",
+      "sources": {
+        "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+        "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+        "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+        "scene.js": "e2f5c0d5ffe6d5fabb0e91a8f98b5fd848c385aac271edfbe3edf4e04bbb5b36",
+        "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+      }
+    },
+    {
+      "id": "malformed-bounds",
+      "expected": "invalid_frame_evidence",
+      "source": "evaluation/2026-10-03/metadata-regression-v1/sources/malformed-bounds",
+      "sources": {
+        "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+        "math-frame.mjs": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7",
+        "index.html": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a",
+        "scene.js": "bee1f318befc6457eb6cea6fbaecef5eeb7dd6d2efc194f9fa572655f04010c1",
+        "brief.json": "caaa95b1234d2ff4425a113e2eaa9bf29281e1ba867765da53439d4d3d0338a4"
+      }
+    }
+  ],
+  "model_calls": 0,
+  "samples_s": [
+    1,
+    4,
+    8,
+    11,
+    14,
+    17
+  ]
+}

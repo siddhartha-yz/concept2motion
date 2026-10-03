@@ -1,0 +1,142 @@
+[
+  {
+    "id": "softmax-correct",
+    "status": "render_passed",
+    "exit_code": 0,
+    "finding_codes": [],
+    "full_decode": true,
+    "wall_s": 4.522195104989805,
+    "render_directory": "work/render-evidence-v2/helper-fixtures/softmax-correct/render",
+    "sources": [
+      {
+        "path": "index.html",
+        "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+      },
+      {
+        "path": "math-frame.mjs",
+        "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+      },
+      {
+        "path": "scene.js",
+        "sha256": "323da7ab59851ac632151a05b2541ccae2253bc9f9656e08c1b4181f3af447b1"
+      }
+    ],
+    "mass_geometry_coverage": {
+      "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+      "states": {
+        "checked": 11,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "review": "technical controlled-fixture check, not artistic approval",
+    "revision": "initial hand-authored fixture"
+  },
+  {
+    "id": "residual-correct",
+    "status": "render_passed",
+    "exit_code": 0,
+    "finding_codes": [],
+    "full_decode": true,
+    "wall_s": 4.936589984004968,
+    "render_directory": "work/render-evidence-v2/helper-fixtures/residual-correct/render",
+    "sources": [
+      {
+        "path": "index.html",
+        "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+      },
+      {
+        "path": "math-frame.mjs",
+        "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+      },
+      {
+        "path": "scene.js",
+        "sha256": "124ddf525b2e1c8457730a0bea71c5b902910fbeb179252b2ef708ea85cbee2e"
+      }
+    ],
+    "mass_geometry_coverage": {
+      "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+      "states": {
+        "checked": 0,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "review": "technical controlled-fixture check, not artistic approval",
+    "revision": "initial hand-authored fixture"
+  },
+  {
+    "id": "softmax-affine",
+    "status": "checks_failed",
+    "exit_code": 1,
+    "finding_codes": [
+      "wrong_mass_geometry"
+    ],
+    "full_decode": true,
+    "wall_s": 4.720111183996778,
+    "render_directory": "work/render-evidence-v2/helper-fixtures/softmax-affine/render",
+    "sources": [
+      {
+        "path": "index.html",
+        "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+      },
+      {
+        "path": "math-frame.mjs",
+        "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+      },
+      {
+        "path": "scene.js",
+        "sha256": "a329b5d006fb5d4ede8380507659a659424d45cae386aed59d446aa945e34242"
+      }
+    ],
+    "mass_geometry_coverage": {
+      "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+      "states": {
+        "checked": 11,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "review": "technical controlled-fixture check, not artistic approval",
+    "revision": "initial hand-authored fixture"
+  },
+  {
+    "id": "softmax-overpaint",
+    "status": "checks_failed",
+    "exit_code": 1,
+    "finding_codes": [
+      "pixel_mismatch"
+    ],
+    "full_decode": true,
+    "wall_s": 4.638258629012853,
+    "render_directory": "work/render-evidence-v2/helper-fixtures/softmax-overpaint/render",
+    "sources": [
+      {
+        "path": "index.html",
+        "sha256": "822b33544a0bb00f1baa75a6d80c4bf5d451eb06f817f6bdcd7a26aca33571a5"
+      },
+      {
+        "path": "math-frame.mjs",
+        "sha256": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c"
+      },
+      {
+        "path": "scene.js",
+        "sha256": "14803262c847c53caf1ac7b5e85dca43807de762a565f9971e27dbb0239b9bec"
+      }
+    ],
+    "mass_geometry_coverage": {
+      "policy": "explicit massBars or exact legacy mass-i shape IDs; only opaque nonzero exponential bars; absence is unavailable, not verified",
+      "states": {
+        "checked": 11,
+        "unavailable": 0,
+        "invalid": 0,
+        "transient": 0
+      }
+    },
+    "review": "technical controlled-fixture check, not artistic approval",
+    "revision": "initial hand-authored fixture"
+  }
+]

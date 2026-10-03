@@ -1,0 +1,18 @@
+{
+  "kind": "hand-authored adapter regression fixtures, not AI output or validated teaching exemplars",
+  "fixtures": [
+    "softmax-correct",
+    "softmax-affine",
+    "softmax-overpaint",
+    "residual-correct"
+  ],
+  "expected": {
+    "softmax-correct": "pass",
+    "residual-correct": "pass",
+    "softmax-affine": "wrong_mass_geometry",
+    "softmax-overpaint": "pixel_mismatch"
+  },
+  "model_calls": 0,
+  "manual_registry_fields": 0,
+  "roles": "author still names case/stage and uses semantic drawing primitives"
+}
