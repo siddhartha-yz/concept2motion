@@ -1,0 +1,42 @@
+{
+  "topic": "Linear transformations and matrices",
+  "target_audience": "Advanced high school students or beginning university students familiar with basic algebra and coordinate graphs",
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "1. Visual hook: Moving a robot's map (30 seconds)",
+      "content": "Introduce the guiding question: How can one rule transform every point on a map? Animate a robot's square coordinate grid stretching horizontally into rectangles. Show arrows from the origin changing with the grid. Explain that linear transformations describe systematic changes to vectors, and matrices provide a compact way to calculate them. Total lesson duration: 300 seconds (5 minutes).",
+      "example": "A robot sees a landmark at (1, 2). Doubling all horizontal coordinates moves the landmark to (2, 2), while the origin stays fixed. Preview the rule T(x, y) = (2x, y)."
+    },
+    {
+      "id": "section_2",
+      "title": "2. Prerequisites: Vectors and coordinate building blocks (45 seconds)",
+      "content": "Represent a vector as an arrow from the origin, with coordinates recording horizontal and vertical displacement. Introduce vector addition using head-to-tail arrows and scalar multiplication by stretching, shrinking, or reversing an arrow. Highlight the standard basis vectors e₁ = (1, 0) and e₂ = (0, 1). Animate every vector as a combination x e₁ + y e₂; these building blocks will connect geometry to matrices.",
+      "example": "Build v = (2, 1) by showing two horizontal unit steps and one vertical unit step: v = 2e₁ + e₂. Then animate 2v = (4, 2) and v + e₂ = (2, 2)."
+    },
+    {
+      "id": "section_3",
+      "title": "3. The defining rules of a linear transformation (60 seconds)",
+      "content": "State the two essential conditions: T(u + v) = T(u) + T(v), and T(cv) = cT(v), for all vectors u, v and scalars c. Animate an addition parallelogram before and after transformation, then show that scaling before or after transformation gives the same arrow. Derive the necessary consequence T(0) = 0. Emphasize that fixing the origin alone does not establish linearity. Use transformed grids as visual intuition, with the two algebraic rules as the actual test.",
+      "example": "For T(x, y) = (2x, y), let u = (1, 0) and v = (0, 1). Both T(u + v) and T(u) + T(v) equal (2, 1). Contrast this with translation S(x, y) = (x + 1, y): S(0, 0) = (1, 0), so S is not linear."
+    },
+    {
+      "id": "section_4",
+      "title": "4. Construct a matrix from transformed basis vectors (60 seconds)",
+      "content": "Explain the central connection: a linear transformation is completely determined by where it sends the basis vectors. Color e₁ and its image blue, and e₂ and its image orange. Place T(e₁) in the first column and T(e₂) in the second column of a 2×2 matrix A. Reveal T(xe₁ + ye₂) = xT(e₁) + yT(e₂), showing why multiplying A by a coordinate vector produces the transformed vector. Emphasize that basis images are columns, not rows.",
+      "example": "If T(e₁) = (2, 0) and T(e₂) = (1, 1), then A = [[2, 1], [0, 1]]. Animate the unit square becoming a parallelogram. For any vector (x, y), T(x, y) = x(2, 0) + y(1, 1) = (2x + y, y)."
+    },
+    {
+      "id": "section_5",
+      "title": "5. Calculate a transformation and recognize its geometry (60 seconds)",
+      "content": "Work through matrix-vector multiplication using the colored column combination first, then connect it to row-by-column arithmetic. Keep the original vector, transformed vector, and transformed grid visible together. Briefly compare familiar transformations: scaling changes lengths, rotation changes direction, and shear slants a grid. Note that linear transformations can also collapse a plane onto a line; they need not be reversible or preserve lengths and angles.",
+      "example": "Using A = [[2, 1], [0, 1]], transform v = (1, 2): Av = 1(2, 0) + 2(1, 1) = (4, 2). Display the matching arithmetic (2·1 + 1·2, 0·1 + 1·2). Then animate R = [[0, -1], [1, 0]] sending (1, 2) to (-2, 1), a 90° counterclockwise rotation."
+    },
+    {
+      "id": "section_6",
+      "title": "6. Quick check and takeaway (45 seconds)",
+      "content": "Pause for a short prediction task, then reveal the answer through arrows and matrix columns. Finish with three connected takeaways: linear transformations preserve vector addition and scalar multiplication; matrix columns record transformed basis vectors; matrix-vector multiplication calculates the resulting coordinates. Return to the robot's map to connect the visual change with its numerical rule.",
+      "example": "Ask: If T(e₁) = (1, 0) and T(e₂) = (0, 3), what is the matrix, and where does (2, 1) go? After a brief pause, reveal A = [[1, 0], [0, 3]] and A(2, 1) = (2, 3). Animate the map stretching vertically by a factor of three."
+    }
+  ]
+}

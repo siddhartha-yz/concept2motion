@@ -1,0 +1,48 @@
+{
+  "kind": "primary_agent_contextual_frame_review_not_blind_not_human_learning",
+  "scope": "36 sampled frames in six contact sheets, inspected in current conversation; no full motion review",
+  "score": null,
+  "observations": [
+    {
+      "section": "section_1",
+      "time_s": 28.13,
+      "evidence": "Lecture text extends into the diagram, and P and T(P) labels overlap above the map.",
+      "implication": "Origin/image correspondence is harder to read."
+    },
+    {
+      "section": "section_2",
+      "time_s": 25.47,
+      "evidence": "Basis composition arrows and a matching formula appear; diagram and text occupy a small portion of a very wide frame.",
+      "implication": "Example is present; contact-sheet scaling limits reliable legibility judgement."
+    },
+    {
+      "section": "section_3",
+      "time_s": 56.47,
+      "evidence": "F(0,0), 2F(1,0), and F(2,0) annotations crowd one line; two endpoint arrows remain distinguishable.",
+      "implication": "Counterexample is visible but labels impede comparing routes."
+    },
+    {
+      "section": "section_4",
+      "time_s": 46.53,
+      "evidence": "New example, the output label, and Basis images are columns occupy an overlapping band above the arrows.",
+      "implication": "Numeric result and geometric correspondence become ambiguous."
+    },
+    {
+      "section": "section_5",
+      "time_s": 56.53333333333333,
+      "evidence": "Different inputs, same output runs beyond the right boundary; Not reversible overlaps the point label.",
+      "implication": "The projection explanation is clipped at a key moment."
+    },
+    {
+      "section": "section_6",
+      "time_s": 42.27,
+      "evidence": "Robot overlaps the transformed-point label; the orange basis arrow previously crosses the lecture-text region.",
+      "implication": "The recap combines assertions and geometry but has unresolved collisions."
+    }
+  ],
+  "limitations": [
+    "Reviewer knows the brief and generated code; no independent blinded judgement.",
+    "Stills do not establish full movement or transition quality.",
+    "Seventeen algebraic checks do not verify every pixel coordinate, correspondence, or human understanding."
+  ]
+}

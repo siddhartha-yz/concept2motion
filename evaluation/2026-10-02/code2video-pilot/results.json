@@ -1,0 +1,605 @@
+{
+  "upstream": {
+    "url": "https://github.com/showlab/Code2Video",
+    "commit": "1142d8e14cdc2806df85aedb0fbb5dca474caa0f"
+  },
+  "kind": "codex_transport_serial_render_no_assets_no_feedback_diagnostic_port",
+  "topic": "Linear transformations and matrices",
+  "topic_list_index": 9,
+  "differences": [
+    "Codex configured model replaces provider model/API",
+    "structured content envelope; upstream prompt preserved verbatim inside",
+    "requested max_tokens recorded but not enforced by Codex CLI",
+    "upstream supported no_assets/no_feedback ablation",
+    "serial parent methods avoid upstream worker state loss",
+    "bounded 2 regenerations, 3 bug-fix attempts; no paper timing comparison",
+    "Separate rescue phase accepts source-matched successfully rendered artifacts outside fixed 480p15 path; mixed-format clips kept separate"
+  ],
+  "codex_config": [
+    "model_reasoning_effort=\"low\"",
+    "mcp_servers.cua_repl={command=\"true\",enabled=false}",
+    "mcp_servers.node_repl={command=\"true\",enabled=false}"
+  ],
+  "calls": [
+    {
+      "id": 1,
+      "upstream_prompt_sha256": "3800343a63ecedfae886d16edec84ec93d3224caf11174e94004224b16b9e483",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 68.921,
+      "usage": [
+        {
+          "input_tokens": 15652,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1386,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 2,
+      "upstream_prompt_sha256": "c5329eb4b01284a0e65447e8e14626bdf229e45218303b375ccf5591ec67ad77",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 144.898,
+      "usage": [
+        {
+          "input_tokens": 17138,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3681,
+          "reasoning_output_tokens": 49
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 3,
+      "upstream_prompt_sha256": "4e420a9781a88adb2d52149bbd8ee5b05b3d36629555d73d00d464ea2b049e08",
+      "requested_max_tokens": 10000,
+      "status": "interrupted",
+      "wall_s": 125.644,
+      "reason": "resume upstream six-thread generation instead of initial serial adapter; discarded response"
+    },
+    {
+      "id": 4,
+      "upstream_prompt_sha256": "4e420a9781a88adb2d52149bbd8ee5b05b3d36629555d73d00d464ea2b049e08",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 134.555,
+      "usage": [
+        {
+          "input_tokens": 16850,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3319,
+          "reasoning_output_tokens": 790
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 5,
+      "upstream_prompt_sha256": "2ba08806a834744b65b5409e9c0fd6cd492fa371e5dcfd6c78da66fe0f46b96a",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 123.397,
+      "usage": [
+        {
+          "input_tokens": 16913,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3259,
+          "reasoning_output_tokens": 515
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 6,
+      "upstream_prompt_sha256": "2d990c28c1dc955bb06ace7d76c907bb32b202a5ffb5100bedfa1e34d12874bc",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 144.628,
+      "usage": [
+        {
+          "input_tokens": 17262,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4302,
+          "reasoning_output_tokens": 193
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 7,
+      "upstream_prompt_sha256": "f58fe8b0b4b78c547c3e8f1f7282786396994fd2cd971fb77c62d565ca36805a",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 166.167,
+      "usage": [
+        {
+          "input_tokens": 17181,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4590,
+          "reasoning_output_tokens": 1034
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 8,
+      "upstream_prompt_sha256": "03041aec14843044769fc241d47b4505b4f72bd78b6fbfc950d5bc3c78bfed81",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 174.63,
+      "usage": [
+        {
+          "input_tokens": 17221,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5168,
+          "reasoning_output_tokens": 490
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 9,
+      "upstream_prompt_sha256": "3d9084041f61b42db484a3e38dfe28726019dc03652a0b0741db821a6df9c1f9",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 147.783,
+      "usage": [
+        {
+          "input_tokens": 16956,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4003,
+          "reasoning_output_tokens": 516
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 10,
+      "upstream_prompt_sha256": "1740694fa3b6fafe6e094cb27c94549b873d48796aabb2ebbad66e4fdf13f2f2",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 101.424,
+      "usage": [
+        {
+          "input_tokens": 24272,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2802,
+          "reasoning_output_tokens": 59
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 11,
+      "upstream_prompt_sha256": "84b992185637d1d0800158c785418f2ee21a221553be23ccad99818a2dc7536c",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 40.778,
+      "usage": [
+        {
+          "input_tokens": 20190,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 219,
+          "reasoning_output_tokens": 141
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 12,
+      "upstream_prompt_sha256": "18310ed08a883fce316df028f3b3da1d3579260d4b9b1fe51096efca62530790",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 104.37,
+      "usage": [
+        {
+          "input_tokens": 20258,
+          "cached_input_tokens": 12288,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2681,
+          "reasoning_output_tokens": 75
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 13,
+      "upstream_prompt_sha256": "dbb0053a6bc76d012757fbd4ac141190f4f7c5463593655136c15b33714514ee",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 111.895,
+      "usage": [
+        {
+          "input_tokens": 17902,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2643,
+          "reasoning_output_tokens": 35
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 14,
+      "upstream_prompt_sha256": "4983719da4d9e5fb73fd51658e808bea4f35aceb47336d7b3023442a75084c37",
+      "requested_max_tokens": 10000,
+      "status": "interrupted",
+      "error": "",
+      "wall_s": 12.735,
+      "reason": "stop after demonstrated repeated successful-render misclassification"
+    },
+    {
+      "id": 15,
+      "upstream_prompt_sha256": "6247ff816f7bd733cfc43c477109be0ef1cc2dacbdfa42b7ff5170f129a18889",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 99.081,
+      "usage": [
+        {
+          "input_tokens": 18051,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2645,
+          "reasoning_output_tokens": 37
+        }
+      ],
+      "tool_types": []
+    },
+    {
+      "id": 16,
+      "upstream_prompt_sha256": "4966955c8c03035c3611f610c97c4ea2136cb8a1b46e0d5ff52d1cfbfa5ae351",
+      "requested_max_tokens": 10000,
+      "status": "completed",
+      "wall_s": 179.775,
+      "usage": [
+        {
+          "input_tokens": 24598,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4716,
+          "reasoning_output_tokens": 44
+        }
+      ],
+      "tool_types": []
+    }
+  ],
+  "renders": [
+    {
+      "attempt": 1,
+      "source": "section_1.py",
+      "source_sha256": "e5e2999c02d2bccdadea2550b7ac28e9991ef7b3efdfe1dbc8d71fe997399efb",
+      "exit_code": 0,
+      "wall_s": 18.719307525003387
+    },
+    {
+      "attempt": 2,
+      "source": "section_2.py",
+      "source_sha256": "d46ae3e4433ad1b55611b3d58b2f1bb3c1d8b0a30e3ae8aa101d583374bbe49d",
+      "exit_code": 0,
+      "wall_s": 57.75152922900452
+    },
+    {
+      "attempt": 3,
+      "source": "section_2.py",
+      "source_sha256": "5a6184f9cbf9b3f922823f59487abe392f32dcc7330e51ee48f289e555a15d6a",
+      "exit_code": 0,
+      "wall_s": 21.435234992000915
+    },
+    {
+      "attempt": 4,
+      "source": "section_2.py",
+      "source_sha256": "868dea2bbb09ecf9422019c94412b02fb93a236b5c1c171ec96f43c5f6b6be29",
+      "exit_code": 0,
+      "wall_s": 20.548575156004517
+    },
+    {
+      "attempt": 5,
+      "source": "section_2.py",
+      "source_sha256": "7b6cdaca8552a4c45b8f4c3ef895466358043b9f3ea9fdece4b6ab1a4ca54091",
+      "command": [
+        "manim",
+        "-ql",
+        "section_2.py",
+        "Section2Scene"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "video_sha256": "df6ffa5cd8fb2cd06686be432eeae40a3e1faa757efec96b052a40091e4630bd",
+      "wall_s": 25.490272445997107
+    },
+    {
+      "attempt": 6,
+      "source": "section_2.py",
+      "source_sha256": "7b6cdaca8552a4c45b8f4c3ef895466358043b9f3ea9fdece4b6ab1a4ca54091",
+      "command": [
+        "manim",
+        "-ql",
+        "section_2.py",
+        "Section2Scene"
+      ],
+      "wall_s": 2.00268657199922,
+      "exit_code": null,
+      "timed_out": false,
+      "interrupted": true,
+      "error": "KeyboardInterrupt during rescue adapter correction"
+    },
+    {
+      "attempt": 7,
+      "source": "section_3.py",
+      "source_sha256": "e99fc7b709c7eba12db94ba84c8926278870f0824cb39ffb1da235091dd27d21",
+      "command": [
+        "manim",
+        "-ql",
+        "section_3.py",
+        "Section3Scene"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "video_sha256": "ef4ff12e2894b877667c01fb5f9bf71fc6ee4f19df0e9e90f433d1909dcceef3",
+      "wall_s": 68.57017559399537
+    },
+    {
+      "attempt": 8,
+      "source": "section_4.py",
+      "source_sha256": "4783ea755ab715a678085bc03ee9ad4f1ff8517f2f9564ff42fb8670bc89661c",
+      "command": [
+        "manim",
+        "-ql",
+        "section_4.py",
+        "Section4Scene"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "video_sha256": "bace99ab19e95388fd35e98dc0b4ed4a0c69c8553c669919ef7c494523a8de24",
+      "wall_s": 76.0952127099954
+    },
+    {
+      "attempt": 9,
+      "source": "section_5.py",
+      "source_sha256": "0725a42171c14c9826a98f883dd7920525d4d47163c14f9b0420a720951b65d1",
+      "command": [
+        "manim",
+        "-ql",
+        "section_5.py",
+        "Section5Scene"
+      ],
+      "exit_code": 1,
+      "timed_out": false,
+      "wall_s": 58.4741343949936
+    },
+    {
+      "attempt": 10,
+      "source": "section_5.py",
+      "source_sha256": "439eb06db9d37610f9833ec3f5a158d5a36fe2b0b3c78a11927baacf98a2ba1e",
+      "command": [
+        "manim",
+        "-ql",
+        "section_5.py",
+        "Section5Scene"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "video_sha256": "6e76e93445068f71705e0046dcde96a8d6eaa70b477129e6761f56b7a40c172d",
+      "wall_s": 56.61168088600243
+    },
+    {
+      "attempt": 11,
+      "source": "section_6.py",
+      "source_sha256": "51c6cfcbf8a720b41b09dde523f28b8c82b1cf7f228b94b9483b4d0d79607820",
+      "command": [
+        "manim",
+        "-ql",
+        "section_6.py",
+        "Section6Scene"
+      ],
+      "exit_code": 0,
+      "timed_out": false,
+      "video_sha256": "427eef46a54eee280f995e1cf56fd9e292b642c3fd055a3763a006d6354b220f",
+      "wall_s": 39.31860980299825
+    }
+  ],
+  "phases": [
+    {
+      "phase": "generate",
+      "wall_s": 339.5411104079976,
+      "status": "failed",
+      "error": ""
+    },
+    {
+      "phase": "generate",
+      "wall_s": 174.67056630300067,
+      "status": "completed"
+    },
+    {
+      "phase": "render",
+      "wall_s": 491.5836786610016,
+      "status": "failed",
+      "error": ""
+    },
+    {
+      "phase": "render-discovered",
+      "wall_s": 127.22211296299793,
+      "status": "failed",
+      "error": ""
+    },
+    {
+      "phase": "render-discovered",
+      "wall_s": 0.0011389350038371049,
+      "status": "failed",
+      "error": "'exit_code'"
+    },
+    {
+      "phase": "render-discovered",
+      "wall_s": 479.5209969549978,
+      "status": "completed"
+    }
+  ],
+  "versions": {
+    "manim": "0.19.0",
+    "numpy": "2.2.6",
+    "openai": "1.90.0",
+    "ManimPango": "0.6.0",
+    "pycairo": "1.28.0"
+  },
+  "orchestration_revision": "Initial generation adapter stopped during call 3; calls 1/2 checkpointed; upstream generate_codes used on resume. Full elapsed accounting includes interrupted call.",
+  "generation_workers": 6,
+  "model_timeout_s": 300,
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Sec 1: Moving a Robot’s Map",
+      "lecture_lines": [
+        "How can one rule move every map point?",
+        "Double horizontal coordinates; keep vertical coordinates unchanged.",
+        "Linear transformations move vectors; matrices calculate their coordinates."
+      ],
+      "animations": [
+        "0–10 seconds: Establish a #000000 background, retained throughout the 300-second lesson. Use #F1F5F9 for text, #94A3B8 for grid lines, #60A5FA for horizontal basis arrows, #FDBA74 for vertical basis arrows, #A78BFA for original vectors, and #86EFAC for transformed vectors. Keep each section’s complete lecture list stationary and visible in the upper-left; initially color lines #F1F5F9. Only change the corresponding lecture line to #FDE047 during its animation, restoring it afterward; never move, fade, scale, or write lecture lines. Reserve the center-right for diagrams without panels. Construct a small robot icon from native circles and rectangles, labeled ‘Robot’ in #F1F5F9. Show a square map grid with a fixed dot labeled ‘O’ in #F1F5F9. The grid is needed to illustrate coordinate changes; omit full coordinate axes.",
+        "10–22 seconds: Place a #A78BFA landmark dot at (1,2), labeled ‘P = (1,2)’, and draw its arrow from O. Smoothly deform every map point by (x,y) → (2x,y), stretching square cells into rectangles. Keep O fixed. Move the landmark to (2,2) and show its resulting #86EFAC arrow labeled ‘T(P) = (2,2)’. Preserve the original arrow as a dim #A78BFA reference. Coordinate labels refer to the fixed screen coordinate scale, not the stretched cells.",
+        "22–30 seconds: Display the #86EFAC formula ‘T(x,y) = (2x,y)’ beside the map, labeled ‘Transformation rule’ in #F1F5F9. Below it, reveal the matrix [[2,0],[0,1]] in #F1F5F9, labeled ‘Matrix’. Briefly flash the unchanged origin dot in #FDE047. Fade diagram objects at the section boundary; lecture lines remain stationary until replaced by the next section’s text."
+      ]
+    },
+    {
+      "id": "section_2",
+      "title": "Sec 2: Vectors and Their Building Blocks",
+      "lecture_lines": [
+        "Vectors record horizontal and vertical displacement.",
+        "Basis vectors build every vector: v = xe₁ + ye₂.",
+        "Addition joins arrows; scalar multiplication changes their scale."
+      ],
+      "animations": [
+        "0–12 seconds: Highlight lecture line one. On a sparse #94A3B8 reference grid without coordinate axes, show a fixed #F1F5F9 dot labeled ‘O’. Grow a #A78BFA arrow from O to (2,1), labeled ‘v = (2,1)’. Show a #60A5FA horizontal displacement guide labeled ‘2’ and a #FDBA74 vertical guide labeled ‘1’. Keep the guides distinct from the vector arrow.",
+        "12–28 seconds: Highlight lecture line two. Reveal #60A5FA e₁ = (1,0) and #FDBA74 e₂ = (0,1) arrows from O with nearby matching labels. Move copies head-to-tail to form two horizontal unit steps followed by one vertical unit step. Retain the original basis arrows at O. Display ‘v = 2e₁ + e₂ = (2,1)’, coloring the e₁ term #60A5FA and the e₂ term #FDBA74. Extend the displayed identity to ‘(x,y) = xe₁ + ye₂’ in #F1F5F9.",
+        "28–45 seconds: Highlight lecture line three. Stretch a copy of v to (4,2), label it ‘2v = (4,2)’ in #86EFAC, then restore the working arrow to v. Briefly shrink another copy to ½v and reverse it to −v, with #86EFAC labels. Clear those copies. Move a #FDBA74 copy of e₂ to v’s tip and reveal the resulting #86EFAC arrow from O to (2,2), labeled ‘v + e₂ = (2,2)’. Flash the shared head-to-tail junction in #FDE047."
+      ]
+    },
+    {
+      "id": "section_3",
+      "title": "Sec 3: What Makes a Transformation Linear?",
+      "lecture_lines": [
+        "Linear transformations preserve vector addition.",
+        "They also preserve scalar multiplication.",
+        "Both rules hold for every vector and scalar.",
+        "Therefore, every linear transformation fixes the origin.",
+        "Fixing the origin alone does not prove linearity."
+      ],
+      "animations": [
+        "0–16 seconds: Highlight line one. Display ‘T(u+v) = T(u)+T(v)’ in #F1F5F9, labeled ‘Addition rule’. Draw #60A5FA u = (1,0), #FDBA74 v = (0,1), and a #A78BFA diagonal u+v = (1,1). Complete the addition parallelogram using faint matching arrow copies. Deform the diagram with T(x,y) = (2x,y), labeled in #86EFAC. The transformed diagonal ends at (2,1). Build T(u)+T(v) head-to-tail and show its endpoint coinciding with T(u+v); label the shared result ‘(2,1)’ in #86EFAC.",
+        "16–28 seconds: Highlight line two. Display ‘T(cw) = cT(w)’ in #F1F5F9, labeled ‘Scalar rule’. Use w = (1,1) and c = 2. Above and below the diagram, show short labeled calculation paths: ‘Scale, then transform’ and ‘Transform, then scale’. Animate 2w = (2,2) becoming T(2w) = (4,2), then w becoming T(w) = (2,1) before doubling to (4,2). Overlay the final #86EFAC arrows and flash their shared tip.",
+        "28–36 seconds: Highlight line three. Add ‘For all u, v and real c’ in #FDE047 beneath the two rules. Briefly change the sample vectors and scalar to show another matching construction, then return to the formulas. Display ‘Examples illustrate; algebra establishes’ in #F1F5F9. Emphasize the quantifier with a brief color pulse; do not imply that checking a few arrows proves linearity.",
+        "36–46 seconds: Highlight line four. Reveal the short derivation ‘T(0) = T(0·w) = 0·T(w) = 0’ in #F1F5F9. Collapse the working vector to the #F1F5F9 origin dot, then show its image remains there. Display translation ‘S(x,y) = (x+1,y)’ in #FCA5A5 and move a copy of O to (1,0), labeled ‘S(0,0) = (1,0)’. Mark this translation ‘Not linear’ in #FCA5A5.",
+        "46–60 seconds: Highlight line five. Clear the translation and display ‘F(x,y) = (x²,y)’ in #FCA5A5. Keep its origin fixed, labeled ‘F(0,0) = (0,0)’. Compare a #60A5FA arrow to (1,0) doubled after applying F, reaching (2,0), against a #FDBA74 arrow to (2,0) transformed by F, reaching (4,0). Label the endpoints ‘2F(1,0) = (2,0)’ and ‘F(2,0) = (4,0)’. Display ‘F(2w) ≠ 2F(w)’ in #FCA5A5 and flash the separated tips. Finish by emphasizing the two defining rules in #FDE047."
+      ]
+    },
+    {
+      "id": "section_4",
+      "title": "Sec 4: Building a Matrix From Basis Images",
+      "lecture_lines": [
+        "Track where the two basis vectors go.",
+        "Place their images in the matrix’s columns.",
+        "First column: T(e₁). Second column: T(e₂).",
+        "Linearity transforms combinations into combinations of images.",
+        "These two images determine the entire transformation."
+      ],
+      "animations": [
+        "0–12 seconds: Highlight line one. Introduce a new linear transformation, labeled ‘New example’ in #F1F5F9. Draw a unit square with #94A3B8 edges and a fixed #F1F5F9 origin O. Show #60A5FA e₁ = (1,0) and #FDBA74 e₂ = (0,1). Animate their arrows to T(e₁) = (2,0) and T(e₂) = (1,1), retaining the color and adding nearby image labels. Deform the unit square into a parallelogram through (0,0), (2,0), (3,1), and (1,1).",
+        "12–23 seconds: Highlight line two. Reveal empty matrix brackets labeled ‘A’ in #F1F5F9 beside the geometry. Move copies of the two image coordinate pairs into vertical arrangements: place the #60A5FA entries 2 and 0 in column one, then the #FDBA74 entries 1 and 1 in column two. Leave the arrow labels in place. The completed matrix is A = [[2,1],[0,1]].",
+        "23–32 seconds: Highlight line three. Add ‘T(e₁)’ in #60A5FA above column one and ‘T(e₂)’ in #FDBA74 above column two. Flash each column together with its corresponding image arrow. Display ‘Basis images are columns’ in #FDE047 below the matrix. Keep row entries stationary so the column association is unmistakable.",
+        "32–47 seconds: Highlight line four. Reveal ‘T(xe₁+ye₂) = xT(e₁)+yT(e₂)’ in #F1F5F9 with the first basis-image term #60A5FA and the second #FDBA74. Illustrate x = 1 and y = 2: draw one copy of T(e₁) and two copies of T(e₂) head-to-tail. Grow a #86EFAC resultant arrow from O to (4,2), labeled ‘T(1,2) = (4,2)’. Preserve the transformed unit parallelogram behind the arrows.",
+        "47–60 seconds: Highlight line five. Replace the numeric combination with ‘A[x;y] = x[2;0] + y[1;1] = [2x+y;y]’, using actual vertical column vectors when typeset. Color the two matrix columns and their matching terms #60A5FA and #FDBA74; color the resulting coordinates #86EFAC. Display ‘T(x,y) = (2x+y,y)’ in #86EFAC. Smoothly deform a sparse square grid by this rule while keeping O fixed, showing how the same basis images govern every grid point."
+      ]
+    },
+    {
+      "id": "section_5",
+      "title": "Sec 5: Calculating and Recognizing Transformations",
+      "lecture_lines": [
+        "Multiply by combining the matrix’s colored columns.",
+        "Row arithmetic gives the same resulting coordinates.",
+        "Scaling changes lengths; rotation turns vectors.",
+        "Shear slants grids while preserving linearity.",
+        "Linear maps can collapse dimensions and lose invertibility."
+      ],
+      "animations": [
+        "0–15 seconds: Highlight line one. Keep A = [[2,1],[0,1]] visible with column one #60A5FA and column two #FDBA74. Show the original #A78BFA arrow v = (1,2) alongside a dim #94A3B8 original grid and a #86EFAC transformed grid. Display ‘Av = 1[2;0] + 2[1;1]’ with matching column colors. Build those scaled arrows head-to-tail and reveal the #86EFAC arrow Av = (4,2). Keep both original and image arrows labeled and visible.",
+        "15–29 seconds: Highlight line two. Beneath the column combination, display ‘Av = [2·1 + 1·2; 0·1 + 1·2] = [4;2]’ using vertical column-vector typesetting. Briefly highlight the first matrix row and matching products in #FDE047, revealing the horizontal coordinate 4; then highlight the second row, revealing the vertical coordinate 2. Restore the matrix’s column colors afterward. Flash the calculated endpoint and the existing Av arrow tip together.",
+        "29–42 seconds: Highlight line three. Clear the arithmetic and label the next diagrams ‘Independent examples’ in #F1F5F9. Reset the working grid and vector before each map. First apply D = [[2,0],[0,1]], labeled ‘Horizontal scaling’ in #86EFAC, sending (1,2) to (2,2). Reset, then smoothly rotate the grid and working arrow 90° counterclockwise about O. Display R = [[0,−1],[1,0]] and ‘R(1,2) = (−2,1)’ in #86EFAC. Add a #FDE047 quarter-circle direction arc labeled ‘90° CCW’.",
+        "42–51 seconds: Highlight line four. Reset to the original grid. Display H = [[1,1],[0,1]] in #F1F5F9, labeled ‘Horizontal shear’. Animate (x,y) → (x+y,y), making vertical grid lines slant while horizontal lines remain horizontal. Move the #A78BFA original vector (1,2) to a #86EFAC image labeled ‘H(1,2) = (3,2)’. Briefly highlight the basis images (1,0) and (1,1) with #60A5FA and #FDBA74 labels.",
+        "51–60 seconds: Highlight line five. Reset again and display C = [[1,0],[0,0]], labeled ‘Projection onto a line’ in #F1F5F9. Compress every vertical coordinate toward zero until the grid collapses onto a horizontal #94A3B8 line. Show labeled points (1,1) and (1,2) merging at (1,0), colored #86EFAC. Display ‘Different inputs, same output’ and ‘Not reversible’ in #FDE047. End with ‘Lengths and angles need not be preserved’ in #F1F5F9."
+      ]
+    },
+    {
+      "id": "section_6",
+      "title": "Sec 6: Predict, Check, and Revisit the Map",
+      "lecture_lines": [
+        "Predict the matrix and the image of (2,1).",
+        "Columns give basis images; multiplication gives coordinates.",
+        "Linear transformations preserve addition and scalar multiplication."
+      ],
+      "animations": [
+        "0–17 seconds: Highlight line one. Show #60A5FA T(e₁) = (1,0) and #FDBA74 T(e₂) = (0,3), each beside its image arrow from O. Display the #A78BFA input v = (2,1), empty matrix brackets labeled ‘A’, and an empty result labeled ‘Av’. Hold the diagram completely still for six seconds so students can predict both answers. Then flash the two labeled basis images to cue the reveal.",
+        "17–32 seconds: Highlight line two. Place #60A5FA [1;0] in the first column and #FDBA74 [0;3] in the second, revealing A = [[1,0],[0,3]]. Animate two horizontal unit image arrows and one vertical image arrow head-to-tail. Reveal ‘A[2;1] = 2[1;0] + [0;3] = [2;3]’ with matching term colors and a #86EFAC result. Grow the resultant arrow labeled ‘T(2,1) = (2,3)’.",
+        "32–45 seconds: Highlight line three. Return the native-shape robot labeled ‘Robot’ to the map. Animate the map stretching vertically by a factor of three, keeping O fixed and moving the landmark from (2,1) to (2,3). Show ‘T(x,y) = (x,3y)’ in #86EFAC. Keep three compact, stationary takeaway formulas beside the map: ‘T(u+v) = T(u)+T(v)’, ‘T(cv) = cT(v)’, and ‘A = [T(e₁) T(e₂)]’, each labeled in #F1F5F9. Briefly highlight the two preservation rules, then the colored matrix columns, then the #86EFAC endpoint. Hold the completed map and calculation for the final three seconds."
+      ]
+    }
+  ],
+  "output_dir": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices",
+  "discovered_artifact_acceptances": [
+    {
+      "section": "section_1",
+      "source_sha256": "e5e2999c02d2bccdadea2550b7ac28e9991ef7b3efdfe1dbc8d71fe997399efb",
+      "previous_attempt": 1,
+      "video": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_1/480p15/Section1Scene.mp4"
+    },
+    {
+      "section": "section_1",
+      "source_sha256": "e5e2999c02d2bccdadea2550b7ac28e9991ef7b3efdfe1dbc8d71fe997399efb",
+      "previous_attempt": 1,
+      "video": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_1/480p15/Section1Scene.mp4"
+    },
+    {
+      "section": "section_1",
+      "source_sha256": "e5e2999c02d2bccdadea2550b7ac28e9991ef7b3efdfe1dbc8d71fe997399efb",
+      "previous_attempt": 1,
+      "video": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_1/480p15/Section1Scene.mp4"
+    },
+    {
+      "section": "section_2",
+      "source_sha256": "7b6cdaca8552a4c45b8f4c3ef895466358043b9f3ea9fdece4b6ab1a4ca54091",
+      "previous_attempt": 5,
+      "video": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_2/900p15/Section2Scene.mp4"
+    }
+  ],
+  "rescue_adapter_corrections": [
+    "First rescue missed a source changed by preceding repair; fourth successful section 2 render still triggered fixed-path failure.",
+    "Stop arrived during render attempt 6 after model call 15 completed; interrupted render record lacked exit_code, causing one restart KeyError. Fixed artifact handling and resume of successful source-matched artifacts; all costs retained."
+  ],
+  "section_videos": {
+    "section_1": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_1/480p15/Section1Scene.mp4",
+    "section_2": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_2/900p15/Section2Scene.mp4",
+    "section_3": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_3/480p15/Section3Scene.mp4",
+    "section_4": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_4/480p15/Section4Scene.mp4",
+    "section_5": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_5/480p15/Section5Scene.mp4",
+    "section_6": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/code2video-reproduction/runs/pilot-01/CASES/9-Linear_transformations_and_matrices/media/videos/section_6/480p15/Section6Scene.mp4"
+  },
+  "complete_topic_render": true,
+  "merged_video": null,
+  "merge_status": "not_run_in_rescue_phase; verify stream compatibility before merging",
+  "configured_model": "gpt-6.1-sol",
+  "original_cli_render_diagnostic_complete": false,
+  "rescued_sections_rendered": 6,
+  "final_wrapper_sha256": "0e71c0aa90602e373c924a829376eb5f1412811856b124fd869c69adac6a30dc"
+}

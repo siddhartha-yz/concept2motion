@@ -1,0 +1,100 @@
+{
+  "sections": [
+    {
+      "id": "section_1",
+      "title": "Sec 1: Moving a Robot’s Map",
+      "lecture_lines": [
+        "How can one rule move every map point?",
+        "Double horizontal coordinates; keep vertical coordinates unchanged.",
+        "Linear transformations move vectors; matrices calculate their coordinates."
+      ],
+      "animations": [
+        "0–10 seconds: Establish a #000000 background, retained throughout the 300-second lesson. Use #F1F5F9 for text, #94A3B8 for grid lines, #60A5FA for horizontal basis arrows, #FDBA74 for vertical basis arrows, #A78BFA for original vectors, and #86EFAC for transformed vectors. Keep each section’s complete lecture list stationary and visible in the upper-left; initially color lines #F1F5F9. Only change the corresponding lecture line to #FDE047 during its animation, restoring it afterward; never move, fade, scale, or write lecture lines. Reserve the center-right for diagrams without panels. Construct a small robot icon from native circles and rectangles, labeled ‘Robot’ in #F1F5F9. Show a square map grid with a fixed dot labeled ‘O’ in #F1F5F9. The grid is needed to illustrate coordinate changes; omit full coordinate axes.",
+        "10–22 seconds: Place a #A78BFA landmark dot at (1,2), labeled ‘P = (1,2)’, and draw its arrow from O. Smoothly deform every map point by (x,y) → (2x,y), stretching square cells into rectangles. Keep O fixed. Move the landmark to (2,2) and show its resulting #86EFAC arrow labeled ‘T(P) = (2,2)’. Preserve the original arrow as a dim #A78BFA reference. Coordinate labels refer to the fixed screen coordinate scale, not the stretched cells.",
+        "22–30 seconds: Display the #86EFAC formula ‘T(x,y) = (2x,y)’ beside the map, labeled ‘Transformation rule’ in #F1F5F9. Below it, reveal the matrix [[2,0],[0,1]] in #F1F5F9, labeled ‘Matrix’. Briefly flash the unchanged origin dot in #FDE047. Fade diagram objects at the section boundary; lecture lines remain stationary until replaced by the next section’s text."
+      ]
+    },
+    {
+      "id": "section_2",
+      "title": "Sec 2: Vectors and Their Building Blocks",
+      "lecture_lines": [
+        "Vectors record horizontal and vertical displacement.",
+        "Basis vectors build every vector: v = xe₁ + ye₂.",
+        "Addition joins arrows; scalar multiplication changes their scale."
+      ],
+      "animations": [
+        "0–12 seconds: Highlight lecture line one. On a sparse #94A3B8 reference grid without coordinate axes, show a fixed #F1F5F9 dot labeled ‘O’. Grow a #A78BFA arrow from O to (2,1), labeled ‘v = (2,1)’. Show a #60A5FA horizontal displacement guide labeled ‘2’ and a #FDBA74 vertical guide labeled ‘1’. Keep the guides distinct from the vector arrow.",
+        "12–28 seconds: Highlight lecture line two. Reveal #60A5FA e₁ = (1,0) and #FDBA74 e₂ = (0,1) arrows from O with nearby matching labels. Move copies head-to-tail to form two horizontal unit steps followed by one vertical unit step. Retain the original basis arrows at O. Display ‘v = 2e₁ + e₂ = (2,1)’, coloring the e₁ term #60A5FA and the e₂ term #FDBA74. Extend the displayed identity to ‘(x,y) = xe₁ + ye₂’ in #F1F5F9.",
+        "28–45 seconds: Highlight lecture line three. Stretch a copy of v to (4,2), label it ‘2v = (4,2)’ in #86EFAC, then restore the working arrow to v. Briefly shrink another copy to ½v and reverse it to −v, with #86EFAC labels. Clear those copies. Move a #FDBA74 copy of e₂ to v’s tip and reveal the resulting #86EFAC arrow from O to (2,2), labeled ‘v + e₂ = (2,2)’. Flash the shared head-to-tail junction in #FDE047."
+      ]
+    },
+    {
+      "id": "section_3",
+      "title": "Sec 3: What Makes a Transformation Linear?",
+      "lecture_lines": [
+        "Linear transformations preserve vector addition.",
+        "They also preserve scalar multiplication.",
+        "Both rules hold for every vector and scalar.",
+        "Therefore, every linear transformation fixes the origin.",
+        "Fixing the origin alone does not prove linearity."
+      ],
+      "animations": [
+        "0–16 seconds: Highlight line one. Display ‘T(u+v) = T(u)+T(v)’ in #F1F5F9, labeled ‘Addition rule’. Draw #60A5FA u = (1,0), #FDBA74 v = (0,1), and a #A78BFA diagonal u+v = (1,1). Complete the addition parallelogram using faint matching arrow copies. Deform the diagram with T(x,y) = (2x,y), labeled in #86EFAC. The transformed diagonal ends at (2,1). Build T(u)+T(v) head-to-tail and show its endpoint coinciding with T(u+v); label the shared result ‘(2,1)’ in #86EFAC.",
+        "16–28 seconds: Highlight line two. Display ‘T(cw) = cT(w)’ in #F1F5F9, labeled ‘Scalar rule’. Use w = (1,1) and c = 2. Above and below the diagram, show short labeled calculation paths: ‘Scale, then transform’ and ‘Transform, then scale’. Animate 2w = (2,2) becoming T(2w) = (4,2), then w becoming T(w) = (2,1) before doubling to (4,2). Overlay the final #86EFAC arrows and flash their shared tip.",
+        "28–36 seconds: Highlight line three. Add ‘For all u, v and real c’ in #FDE047 beneath the two rules. Briefly change the sample vectors and scalar to show another matching construction, then return to the formulas. Display ‘Examples illustrate; algebra establishes’ in #F1F5F9. Emphasize the quantifier with a brief color pulse; do not imply that checking a few arrows proves linearity.",
+        "36–46 seconds: Highlight line four. Reveal the short derivation ‘T(0) = T(0·w) = 0·T(w) = 0’ in #F1F5F9. Collapse the working vector to the #F1F5F9 origin dot, then show its image remains there. Display translation ‘S(x,y) = (x+1,y)’ in #FCA5A5 and move a copy of O to (1,0), labeled ‘S(0,0) = (1,0)’. Mark this translation ‘Not linear’ in #FCA5A5.",
+        "46–60 seconds: Highlight line five. Clear the translation and display ‘F(x,y) = (x²,y)’ in #FCA5A5. Keep its origin fixed, labeled ‘F(0,0) = (0,0)’. Compare a #60A5FA arrow to (1,0) doubled after applying F, reaching (2,0), against a #FDBA74 arrow to (2,0) transformed by F, reaching (4,0). Label the endpoints ‘2F(1,0) = (2,0)’ and ‘F(2,0) = (4,0)’. Display ‘F(2w) ≠ 2F(w)’ in #FCA5A5 and flash the separated tips. Finish by emphasizing the two defining rules in #FDE047."
+      ]
+    },
+    {
+      "id": "section_4",
+      "title": "Sec 4: Building a Matrix From Basis Images",
+      "lecture_lines": [
+        "Track where the two basis vectors go.",
+        "Place their images in the matrix’s columns.",
+        "First column: T(e₁). Second column: T(e₂).",
+        "Linearity transforms combinations into combinations of images.",
+        "These two images determine the entire transformation."
+      ],
+      "animations": [
+        "0–12 seconds: Highlight line one. Introduce a new linear transformation, labeled ‘New example’ in #F1F5F9. Draw a unit square with #94A3B8 edges and a fixed #F1F5F9 origin O. Show #60A5FA e₁ = (1,0) and #FDBA74 e₂ = (0,1). Animate their arrows to T(e₁) = (2,0) and T(e₂) = (1,1), retaining the color and adding nearby image labels. Deform the unit square into a parallelogram through (0,0), (2,0), (3,1), and (1,1).",
+        "12–23 seconds: Highlight line two. Reveal empty matrix brackets labeled ‘A’ in #F1F5F9 beside the geometry. Move copies of the two image coordinate pairs into vertical arrangements: place the #60A5FA entries 2 and 0 in column one, then the #FDBA74 entries 1 and 1 in column two. Leave the arrow labels in place. The completed matrix is A = [[2,1],[0,1]].",
+        "23–32 seconds: Highlight line three. Add ‘T(e₁)’ in #60A5FA above column one and ‘T(e₂)’ in #FDBA74 above column two. Flash each column together with its corresponding image arrow. Display ‘Basis images are columns’ in #FDE047 below the matrix. Keep row entries stationary so the column association is unmistakable.",
+        "32–47 seconds: Highlight line four. Reveal ‘T(xe₁+ye₂) = xT(e₁)+yT(e₂)’ in #F1F5F9 with the first basis-image term #60A5FA and the second #FDBA74. Illustrate x = 1 and y = 2: draw one copy of T(e₁) and two copies of T(e₂) head-to-tail. Grow a #86EFAC resultant arrow from O to (4,2), labeled ‘T(1,2) = (4,2)’. Preserve the transformed unit parallelogram behind the arrows.",
+        "47–60 seconds: Highlight line five. Replace the numeric combination with ‘A[x;y] = x[2;0] + y[1;1] = [2x+y;y]’, using actual vertical column vectors when typeset. Color the two matrix columns and their matching terms #60A5FA and #FDBA74; color the resulting coordinates #86EFAC. Display ‘T(x,y) = (2x+y,y)’ in #86EFAC. Smoothly deform a sparse square grid by this rule while keeping O fixed, showing how the same basis images govern every grid point."
+      ]
+    },
+    {
+      "id": "section_5",
+      "title": "Sec 5: Calculating and Recognizing Transformations",
+      "lecture_lines": [
+        "Multiply by combining the matrix’s colored columns.",
+        "Row arithmetic gives the same resulting coordinates.",
+        "Scaling changes lengths; rotation turns vectors.",
+        "Shear slants grids while preserving linearity.",
+        "Linear maps can collapse dimensions and lose invertibility."
+      ],
+      "animations": [
+        "0–15 seconds: Highlight line one. Keep A = [[2,1],[0,1]] visible with column one #60A5FA and column two #FDBA74. Show the original #A78BFA arrow v = (1,2) alongside a dim #94A3B8 original grid and a #86EFAC transformed grid. Display ‘Av = 1[2;0] + 2[1;1]’ with matching column colors. Build those scaled arrows head-to-tail and reveal the #86EFAC arrow Av = (4,2). Keep both original and image arrows labeled and visible.",
+        "15–29 seconds: Highlight line two. Beneath the column combination, display ‘Av = [2·1 + 1·2; 0·1 + 1·2] = [4;2]’ using vertical column-vector typesetting. Briefly highlight the first matrix row and matching products in #FDE047, revealing the horizontal coordinate 4; then highlight the second row, revealing the vertical coordinate 2. Restore the matrix’s column colors afterward. Flash the calculated endpoint and the existing Av arrow tip together.",
+        "29–42 seconds: Highlight line three. Clear the arithmetic and label the next diagrams ‘Independent examples’ in #F1F5F9. Reset the working grid and vector before each map. First apply D = [[2,0],[0,1]], labeled ‘Horizontal scaling’ in #86EFAC, sending (1,2) to (2,2). Reset, then smoothly rotate the grid and working arrow 90° counterclockwise about O. Display R = [[0,−1],[1,0]] and ‘R(1,2) = (−2,1)’ in #86EFAC. Add a #FDE047 quarter-circle direction arc labeled ‘90° CCW’.",
+        "42–51 seconds: Highlight line four. Reset to the original grid. Display H = [[1,1],[0,1]] in #F1F5F9, labeled ‘Horizontal shear’. Animate (x,y) → (x+y,y), making vertical grid lines slant while horizontal lines remain horizontal. Move the #A78BFA original vector (1,2) to a #86EFAC image labeled ‘H(1,2) = (3,2)’. Briefly highlight the basis images (1,0) and (1,1) with #60A5FA and #FDBA74 labels.",
+        "51–60 seconds: Highlight line five. Reset again and display C = [[1,0],[0,0]], labeled ‘Projection onto a line’ in #F1F5F9. Compress every vertical coordinate toward zero until the grid collapses onto a horizontal #94A3B8 line. Show labeled points (1,1) and (1,2) merging at (1,0), colored #86EFAC. Display ‘Different inputs, same output’ and ‘Not reversible’ in #FDE047. End with ‘Lengths and angles need not be preserved’ in #F1F5F9."
+      ]
+    },
+    {
+      "id": "section_6",
+      "title": "Sec 6: Predict, Check, and Revisit the Map",
+      "lecture_lines": [
+        "Predict the matrix and the image of (2,1).",
+        "Columns give basis images; multiplication gives coordinates.",
+        "Linear transformations preserve addition and scalar multiplication."
+      ],
+      "animations": [
+        "0–17 seconds: Highlight line one. Show #60A5FA T(e₁) = (1,0) and #FDBA74 T(e₂) = (0,3), each beside its image arrow from O. Display the #A78BFA input v = (2,1), empty matrix brackets labeled ‘A’, and an empty result labeled ‘Av’. Hold the diagram completely still for six seconds so students can predict both answers. Then flash the two labeled basis images to cue the reveal.",
+        "17–32 seconds: Highlight line two. Place #60A5FA [1;0] in the first column and #FDBA74 [0;3] in the second, revealing A = [[1,0],[0,3]]. Animate two horizontal unit image arrows and one vertical image arrow head-to-tail. Reveal ‘A[2;1] = 2[1;0] + [0;3] = [2;3]’ with matching term colors and a #86EFAC result. Grow the resultant arrow labeled ‘T(2,1) = (2,3)’.",
+        "32–45 seconds: Highlight line three. Return the native-shape robot labeled ‘Robot’ to the map. Animate the map stretching vertically by a factor of three, keeping O fixed and moving the landmark from (2,1) to (2,3). Show ‘T(x,y) = (x,3y)’ in #86EFAC. Keep three compact, stationary takeaway formulas beside the map: ‘T(u+v) = T(u)+T(v)’, ‘T(cv) = cT(v)’, and ‘A = [T(e₁) T(e₂)]’, each labeled in #F1F5F9. Briefly highlight the two preservation rules, then the colored matrix columns, then the #86EFAC endpoint. Hold the completed map and calculation for the final three seconds."
+      ]
+    }
+  ]
+}

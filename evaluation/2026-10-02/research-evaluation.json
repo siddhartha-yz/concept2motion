@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-02",
+  "scope": "只读检索官方论文、数据说明和实际 evaluator/provider/renderer 源码；不把 README 宣称当复现结果。",
+  "work_performed": {
+    "source_inspection": true,
+    "installation_check": false,
+    "mock_test": false,
+    "actual_render": false,
+    "real_model_generation": false,
+    "artistic_review": false,
+    "remote_media_download": false,
+    "upstream_modified": false
+  },
+  "recommendation": {
+    "primary": [
+      "InternSVG / SArena",
+      "manim-bench",
+      "ShowLab Code2Video / MMMC / TeachQuiz"
+    ],
+    "borrow_edit_metric": "EditBoard",
+    "inference": "在本次查到的项目中，没有核实到一套同时覆盖同模型配置、短概念动画、局部时间修订、未改区域保真、真实观众理解和严格迭代预算的现成全流程 benchmark。这是有限检索的判断，不是断言不存在。",
+    "next_small_experiment": "固定 1–3 个现成代码动画 task/数据 ID + 原始 brief/参考；同一官方 Codex CLI 配置分别用直出和候选 infra。生成、错误修复、同一具体局部修订分别记录模型耗时、首次可预览时间、总预算、source diff、未改时段画面变化；人工盲看和机制正确性单列。先不引入多 agent 平台或重型 GPU judge。",
+    "human_questions": [
+      "播放后能说出主要对象和操作是什么吗？",
+      "能预测两个操作组合后发生什么吗？",
+      "给定具体修改是否完成，并且其他片段是否保持？",
+      "在隐藏工具和 arm 名称时更愿意采用哪条，为什么？"
+    ],
+    "quality_rule": "自动 renderer/maths/metric pass 不代表艺术通过；没有独立观众或用户的判断，不宣称画面价值提高。",
+    "subscription_route": "需要适配的 repo 使用官方 Codex CLI 生成外部源码/SVG 文件，再接 saved-output/file-provider evaluator；保持模型、reasoning、预算一致。未发现原生 API helper 可直接使用 Codex 登录；不要提取订阅登录 token 做 API key。"
+  },
+  "projects": [
+    {
+      "name": "InternSVG / SArena",
+      "priority": 1,
+      "kind": "公开 SVG 代码动画生成与静态 SVG 编辑 benchmark",
+      "repo": "hmwang2002/InternSVG",
+      "commit": "80516f45d3f044f5bcaacb091701d8ef45071081",
+      "paper": "https://arxiv.org/html/2510.11341v2",
+      "dataset": "https://huggingface.co/datasets/InternSVG/SArena",
+      "ground_truth": {
+        "animation": "论文 Table 18：Text-to-SANI 504、Video-to-SANI 504；配对 caption、参考动画视频和 SVG 源码。",
+        "editing": "Icon editing 2000 样本、10 类编辑，源 SVG + 指令 + 目标 SVG/PNG。编辑是静态图标，不是动画局部修改轨迹。",
+        "caveat": "参考动画支持重建或语义对齐，不应把所有非像素一致但正确的新设计判失败。数据经过人工筛选；caption 含模型辅助标注。"
+      },
+      "read_code": [
+        "evaluate_animation.py",
+        "evaluate_edit.py",
+        "metrics/video/video_metrics.py",
+        "utils/svg_animate.py",
+        "metrics/inference/inference_animation.py",
+        "metrics/inference/video_api.py",
+        "scripts/inference/animation/demo.sh",
+        "requirements.txt"
+      ],
+      "actual_entrypoints": {
+        "animation": "evaluate_animation.py 读取数据 JSONL 与保存的预测 SVG/MP4；Text-to-SANI 使用 FVD、ViCLIP-T2V/V2V、token 长度，Video-to-SANI 使用 DINO/SSIM/LPIPS/PSNR。缺失预测替换黑色视频/空 SVG，需另报产出率。",
+        "edit": "evaluate_edit.py 比较预测与目标 PNG，DINO/LPIPS/SSIM/PSNR + token 长度。",
+        "renderer": "utils/svg_animate.py 用 Pyppeteer 在每帧暂停 SVG SMIL 动画并 setCurrentTime(i/FPS)，5 秒、30 fps；不是壁钟录屏。"
+      },
+      "human_validation": "论文描述人工筛选以排除腐坏和歧义样本；未在所读论文和代码中发现这些自动指标对数学动画可理解性的人类偏好校准实验。人工筛选不能代替指标校准。",
+      "dependencies": "PyTorch/torchmetrics/transformers、DINO/ViCLIP/I3D/LPIPS 等模型权重；Pyppeteer/Chromium、MoviePy、FFmpeg、CairoSVG；requirements.txt 的 torch 等部分未锁版本。",
+      "provider": "metrics/inference/video_api.py 实际创建 OpenAI(base_url, api_key, timeout)，调用 chat.completions.create。没有官方 Codex CLI 适配器。可用官方 Codex CLI 在外部生成并保存 SVG，再复用评测入口；必须标注适配过的生成 transport。",
+      "iteration_fit": "最接近代码动画数据与确定性渲染，但不提供同模型局部动画修改、未改区域保真与迭代预算的完整 agent benchmark。",
+      "reuse": "先选少量明确的 SArena text/video 动画任务，固定数据文件和样本 ID，用原始 SVG+视频 ground truth；保留上游指标为分项诊断，再加明确的局部时间修改要求和盲审。",
+      "data_loading_limit": "2026-10-02 的 HF viewer 报 DatasetGenerationCastError：动画 text/video JSONL 的 video 字段不一致。viewer 所见 69 rows 不是完整样本数。错误引用版本 743c4637209b454ff67efb2e35d86e1618b023f3；这不是本次下载校验过的数据 pin。应显式加载指定文件并另记录数据 hash。",
+      "code_verified": true,
+      "executed": false,
+      "pin_url": "https://github.com/hmwang2002/InternSVG/commit/80516f45d3f044f5bcaacb091701d8ef45071081",
+      "code_urls": [
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/evaluate_animation.py",
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/evaluate_edit.py",
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/metrics/video/video_metrics.py",
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/utils/svg_animate.py",
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/metrics/inference/inference_animation.py",
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/metrics/inference/video_api.py",
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/scripts/inference/animation/demo.sh",
+        "https://github.com/hmwang2002/InternSVG/blob/80516f45d3f044f5bcaacb091701d8ef45071081/requirements.txt"
+      ]
+    },
+    {
+      "name": "manim-bench",
+      "priority": 2,
+      "kind": "社区 Manim 代码生成 benchmark；未核实配套学术论文",
+      "repo": "NtrpyDev/manim-bench",
+      "commit": "b871e674fe9b0eea0619587824c23a665e108453",
+      "paper": null,
+      "dataset": "仓库内 6 个公开 YAML 任务",
+      "ground_truth": {
+        "tasks": "坐标、导数、傅里叶、面积证明、矩阵变换、概率分布；包含要求与 rubric，不是参考视频配对。",
+        "human": "manual review 模板包含数学清晰度、节奏、prompt coverage、fake visual、shareability；pending/completed 状态应明确。"
+      },
+      "read_code": [
+        "src/manimbench/scoring.py",
+        "src/manimbench/visual_review.py",
+        "src/manimbench/providers/openai.py",
+        "src/manimbench/providers/file_provider.py",
+        "docs/scoring.md"
+      ],
+      "actual_entrypoints": {
+        "scoring": "scoring.py 的 AST/源模式、MainScene、导入、文字、章节、fps/时长、6 帧视觉 sanity 和局部 Manim construct probe。阈值/分数是工程 rubric。",
+        "review": "visual_review.py 管理外部人工 review 的创建、填写与汇总，不是自动理解数学视频的裁判。",
+        "file_provider": "file_provider.py 读取预先生成的源码文件和 usage.json，可把官方 Codex CLI 的产物交给 evaluator。"
+      },
+      "human_validation": "有人工审看流程模板；未发现整体自动分数已在人类理解或艺术偏好上校准的证据。",
+      "dependencies": "Python Manim 及 Cairo/LaTeX/FFmpeg 环境；NumPy/Pillow 支持图像检查；部分不可用视觉检查返回 inconclusive 且 passed=True，必须保留详细状态，不可只看总 pass。",
+      "provider": "openai.py 使用 API key/OpenAI-compatible 调用；另有 Cursor CLI 特例，不是 Codex 订阅适配。file provider 是最直接的非凭据转换接入路线，但生成步骤由外部完成。",
+      "iteration_fit": "没有连续局部修改轨迹或未改区域保护判据；最长 120 秒解释任务比当前 10 秒反馈实验更重。",
+      "reuse": "用 1–2 个现成任务与 file provider 验证 infra 是否改善实际 Manim 产出率和人工清晰度；保留 runtime、render、自动 rubric、manual review 四层结果。",
+      "code_verified": true,
+      "executed": false,
+      "pin_url": "https://github.com/NtrpyDev/manim-bench/commit/b871e674fe9b0eea0619587824c23a665e108453",
+      "code_urls": [
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/src/manimbench/scoring.py",
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/src/manimbench/visual_review.py",
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/src/manimbench/providers/openai.py",
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/src/manimbench/providers/file_provider.py",
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/docs/scoring.md"
+      ]
+    },
+    {
+      "name": "ShowLab Code2Video / MMMC / TeachQuiz",
+      "priority": 3,
+      "kind": "Manim 教学视频生成系统及可复用数据和评测；与 HeyGen 同名项目不同",
+      "repo": "showlab/Code2Video",
+      "commit": "1142d8e14cdc2806df85aedb0fbb5dca474caa0f",
+      "paper": "https://arxiv.org/abs/2510.01174",
+      "dataset": "https://huggingface.co/datasets/YanzheChen/MMMC",
+      "ground_truth": {
+        "tasks": "MMMC 有 117 个学习主题，13 类；人工参考教学视频、topics、reference images。",
+        "quiz": "TeachQuiz 每主题 10 道选择题、有正确答案；测试对象是看视频前后的 VLM。"
+      },
+      "read_code": [
+        "src/eval_TQ.py",
+        "src/eval_AES.py",
+        "src/scope_refine.py",
+        "src/gpt_request.py"
+      ],
+      "actual_entrypoints": {
+        "teachquiz": "eval_TQ.py 的 baseline / prompt-only unlearning / unlearning+video 对照，以后两者正确率差作为 learning gain。SelectiveKnowledgeUnlearning 只是提示词模拟，不更新模型权重，也不等于真实学生学习收益。",
+        "aesthetic": "eval_AES.py 让 Gemini 对视频布局、吸引力、逻辑、深度准确性、一致性打分。不能将单个模型自评分作为人类质量事实。",
+        "repair": "scope_refine.py 从错误类型选择单行、函数、section 的代码片段，修复后合并；未知情况退回完整代码修复。可借鉴局部 repair，但不保证艺术修改局部性。"
+      },
+      "human_validation": "论文/数据说明有人类教学视频评价与匿名问卷，单个志愿者限制视频数量；这支持该论文自己的实验，不能直接推广为所有概念动画的自动裁判可靠。",
+      "dependencies": "ManimCE 0.19 生成/渲染；原评分需 Gemini 视频/API 环境，部分脚本默认作者机器绝对路径。按实际脚本改路径再复现，不视 README 命令为已经可运行。",
+      "provider": "gpt_request.py 是 OpenAI-compatible/Claude 与 Gemini/Azure API helper，需 provider key；没有直接使用 Codex 登录的官方 CLI transport。",
+      "iteration_fit": "与教学清晰度高度相关，含多轮生成与 scoped error repair，但没有现成的同配置模型、同时间预算、局部视觉修订保护未改片段的公平对照套件。",
+      "reuse": "优先借现成题目和人工 reference；TeachQuiz 的题目可转成独立观众理解问题，避免让同一个作者模型充当唯一学习裁判。借 scoped repair，不先引入整个 multiagent 系统。",
+      "code_verified": true,
+      "executed": false,
+      "pin_url": "https://github.com/showlab/Code2Video/commit/1142d8e14cdc2806df85aedb0fbb5dca474caa0f",
+      "code_urls": [
+        "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/eval_TQ.py",
+        "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/eval_AES.py",
+        "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/scope_refine.py",
+        "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/gpt_request.py"
+      ]
+    },
+    {
+      "name": "EditBoard",
+      "priority": 4,
+      "kind": "AAAI 2025 文本视频编辑评测，主要针对 diffusion 视频编辑",
+      "repo": "Samchen2003/EditBoard",
+      "commit": "089075afe9abeabb781286455d8281b4d7eadf75",
+      "paper": "https://arxiv.org/html/2409.09668v1",
+      "dataset": "DAVIS、LOVEU-TGVE2023 source videos + 编辑 prompts/masks；非代码 ground truth",
+      "ground_truth": {
+        "task": "源视频、目标编辑 prompt、语义 mask；评价编辑是否生效以及原视频内容是否保留。",
+        "paired_target": "不提供等价 Manim/Canvas 目标源码或局部时间 patch。"
+      },
+      "read_code": [
+        "evaluate.py",
+        "editboard/__init__.py"
+      ],
+      "actual_entrypoints": {
+        "metrics": "九项 metric 动态入口：ff_alpha、ff_beta、semantic_score、success_rate、clip_similarity、subject_consistency、background_consistency、aesthetic_quality、imaging_quality。使用 CLIP/DINO 等视觉特征；frame preprocessing 512px。"
+      },
+      "human_validation": "论文 Sec3.4：30 名标注者，3 个编辑模型、5 个源视频、各 2 个 prompt 的配对比较，报告自动指标与人类偏好的 match rates。小样本自然视频编辑校准不能替代代码数学动画可理解性评测。",
+      "dependencies": "PyTorch、视觉模型权重、视频工具；作者 experiments 的 diffusion 模型/GPU 环境比 Canvas 比较明显更重。它本身是 evaluator，不是 Codex author transport。",
+      "provider": "评分无需直接调用 Codex；没有代码生成或 Codex CLI agent 入口。",
+      "iteration_fit": "可借编辑合规与保留无关内容的分离原则，但输入域是视频编辑，且不是 iterative coding agent benchmark。",
+      "reuse": "把指定时间段外的画面/运动变化率和指定段内修改合规分开报告；避免照搬自然视频 feature 分数作为数学视觉质量 acceptance。",
+      "code_verified": true,
+      "executed": false,
+      "pin_url": "https://github.com/Samchen2003/EditBoard/commit/089075afe9abeabb781286455d8281b4d7eadf75",
+      "code_urls": [
+        "https://github.com/Samchen2003/EditBoard/blob/089075afe9abeabb781286455d8281b4d7eadf75/evaluate.py",
+        "https://github.com/Samchen2003/EditBoard/blob/089075afe9abeabb781286455d8281b4d7eadf75/editboard/__init__.py"
+      ]
+    },
+    {
+      "name": "VideoScore v1/v1.1",
+      "priority": 5,
+      "kind": "人类反馈训练的视频评分模型，不是生成/编辑 agent benchmark",
+      "repo": "TIGER-AI-Lab/VideoScore",
+      "commit": "f87faf4647e637066bcb74721670cd579e0f4349",
+      "paper": "https://aclanthology.org/2024.emnlp-main.127/",
+      "dataset": "VideoFeedback / VideoScoreBench",
+      "ground_truth": {
+        "annotations": "VideoFeedback 37.6k 人类标注生成视频，11 个生成模型、5 个维度的 1–4 分；测试 benchmark 使用 Likert 与部分 pairwise 人类反馈。"
+      },
+      "read_code": [
+        "examples/run_videoscore.py",
+        "benchmark/get_spearman_corr.py"
+      ],
+      "actual_entrypoints": {
+        "inference": "run_videoscore.py 用 PyAV 采样、AutoProcessor 与 Mantis Idefics2 sequence classification，下载 TIGER-Lab/VideoScore-v1.1；bfloat16，CUDA 优先/CPU fallback。",
+        "correlation": "get_spearman_corr.py 比较预测分和 ref 人类分、计算 Spearman。"
+      },
+      "human_validation": "论文报告 held-out 人类相关性；只支持其自然生成视频域内的实验，不证明能判断群作用、旋转复合或教学机制表达。",
+      "dependencies": "独立视觉模型权重、PyTorch/transformers/Mantis/PyAV；不是让既有 Codex 模型零成本充当同一个 judge。",
+      "provider": "本地评价模型；没有生成 provider。不能把下载评分权重称为直接接入 Codex 订阅。",
+      "iteration_fit": "无代码 GT、无局部修改 trajectories；可借 human calibration 方法，暂不宜把总分作为 infra 的自动终止条件。",
+      "reuse": "若未来采集足够本领域人工 pairwise labels，可校准辅助 judge；当前先人工理解与盲选，不先引入大型评分模型。",
+      "newer_version_note": "另有 VideoScore2 repo 和 arXiv:2509.22799，本次没有核读其评分源，不把 v1 结论当 v2 的代码复现。",
+      "code_verified": true,
+      "executed": false,
+      "pin_url": "https://github.com/TIGER-AI-Lab/VideoScore/commit/f87faf4647e637066bcb74721670cd579e0f4349",
+      "code_urls": [
+        "https://github.com/TIGER-AI-Lab/VideoScore/blob/f87faf4647e637066bcb74721670cd579e0f4349/examples/run_videoscore.py",
+        "https://github.com/TIGER-AI-Lab/VideoScore/blob/f87faf4647e637066bcb74721670cd579e0f4349/benchmark/get_spearman_corr.py"
+      ]
+    },
+    {
+      "name": "VBench-2.0",
+      "priority": 6,
+      "kind": "文本视频生成的 intrinsic faithfulness 评价框架",
+      "repo": "Vchitect/VBench",
+      "commit": "fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+      "paper": "https://arxiv.org/html/2503.21755v2",
+      "dataset": "VBench-2.0 prompt suite / evaluation metadata",
+      "ground_truth": {
+        "dimensions": "18 项维度、5 个类别，包括物理、常识、可控性、创意、人类 fidelity；prompt/属性规则及人类偏好，不是源代码 paired target。"
+      },
+      "read_code": [
+        "VBench-2.0/evaluate.py"
+      ],
+      "actual_entrypoints": {
+        "evaluation": "VBench-2.0/evaluate.py 明确 torch.device('cuda')，创建 VBench2；--videos_path、--dimension、--mode=custom_input 支持自定义视频+prompt JSON。"
+      },
+      "human_validation": "论文 SecIV-C 对各维度自动分与模型级人类偏好 win ratio 的相关性；模型级相关不能说明某一具体数学视频已被理解。",
+      "dependencies": "CUDA/PyTorch；按维度涉及 LLaVA-Video、Qwen、YOLO、RAFT 等 checkpoint 或检测器；不是轻量毫秒级 preview。",
+      "provider": "仅视频 evaluator；没有 Canvas/Manim 生成或 Codex CLI 适配。",
+      "iteration_fit": "无 source/patch/iterative repair benchmark；可以借 motion order 与 complex plot 的分项思路，不能直接提供局部源码修订的质量证据。",
+      "reuse": "暂不放在快迭代 loop；如果扩到自然视频再按明确问题选择少数维度，记录耗时与人类校准。",
+      "code_verified": true,
+      "executed": false,
+      "pin_url": "https://github.com/Vchitect/VBench/commit/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490",
+      "code_urls": [
+        "https://github.com/Vchitect/VBench/blob/fd18b3d055cb0fc6f066ca90fe2c3c8cbb698490/VBench-2.0/evaluate.py"
+      ]
+    }
+  ],
+  "excluded_or_unresolved": [
+    {
+      "name": "EditBench",
+      "official": "https://imagen.research.google/editor/",
+      "paper": "https://openaccess.thecvf.com/content/CVPR2023/papers/Wang_Imagen_Editor_and_EditBench_Advancing_and_Evaluating_Text-Guided_Image_Inpainting_CVPR_2023_paper.pdf",
+      "finding": "Google CVPR 2023 image inpainting benchmark，240 图片（120 generated / 120 natural），mask+文本与对象/属性检查；不是视频、代码或迭代 agent。不能把 Imagen Editor 模型权重视为开放的现成 animation baseline。",
+      "source_code_checked": false
+    },
+    {
+      "name": "VideoEditBench（精确名称）",
+      "finding": "未在本次检索中核实该精确名字对应的官方完整 repo+paper+data+eval 组合；不要写成已经存在且可运行，也不要据此断言不存在。"
+    },
+    {
+      "name": "HKUDS VideoAgent / VideoEdit",
+      "repo": "https://github.com/HKUDS/VideoAgent",
+      "commit": "f207987e3cffb554aaa6ffdbe733efb30f4b51ed",
+      "paper": "https://arxiv.org/abs/2606.23327",
+      "source_urls": [
+        "https://github.com/HKUDS/VideoAgent/blob/f207987e3cffb554aaa6ffdbe733efb30f4b51ed/environment/config/llm.py",
+        "https://github.com/HKUDS/VideoAgent/blob/f207987e3cffb554aaa6ffdbe733efb30f4b51ed/VideoEdit/video_reqs.json"
+      ],
+      "finding": "多工具视频剪辑/检索/配音/工作流 agent；repository 的 VideoEdit 下有 audio_reqs.json/video_reqs.json，video_reqs.json 在本次 fetch 为空文本。没有核实完整 benchmark labels、固定 scoring 入口与实验所需视频都已发布。实际 llm.py 是 OpenAI(api_key,base_url)+chat.completions，包含 Claude/GPT/DeepSeek/Gemini 路由，非 Codex CLI。",
+      "why_not_primary": "蒙太奇与外部工具编排偏离 Canvas/Manim 机制解释；需大模型/媒体工具和 provider 配置，不能以 workflow composition success 当观众理解提高。",
+      "executed": false
+    },
+    {
+      "name": "SVGEditBench V2",
+      "finding": "尚未核读官方实际 evaluator，因此本次不列入可复现候选。"
+    },
+    {
+      "name": "Animation2Code / HeyGen Code2Video / Manim agent papers",
+      "finding": "主代理正在独立核查，本报告不重复，也不把 HeyGen 的 Code2Video 与 ShowLab 合并。"
+    }
+  ]
+}

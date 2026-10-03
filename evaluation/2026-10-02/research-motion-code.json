@@ -1,0 +1,95 @@
+{
+  "checked_on": "2026-10-02",
+  "scope": "Primary-paper and source inspection only; no new installation, generation, render, benchmark execution, or artistic review.",
+  "projects": [
+    {
+      "name": "Animation2Code",
+      "paper": "https://arxiv.org/abs/2606.28593",
+      "project": "https://anya-ji.github.io/animation2code-website/",
+      "task": "Reference animation video to HTML/CSS/JS; not concept explanation",
+      "paper_dataset_pairs": 1069,
+      "release_status": "Project page explicitly says Code soon and Hugging Face Dataset soon on inspection; dashboard available. Do not call runnable baseline.",
+      "metrics": "DreamSim appearance with DTW; CoTracker3 direction/speed trajectory correlation.",
+      "human_validation": "Project reports 600 pairwise comparisons from 65 Prolific annotators; appearance and temporal metrics validated for reconstruction preferences, not concept understanding.",
+      "priority": "Watch for release; use distinction between appearance and temporal alignment."
+    },
+    {
+      "name": "HeyGen Code2Video Benchmark (distinct from ShowLab)",
+      "announcement": "https://www.heygen.com/research/introducing-code2video-benchmark",
+      "leaderboard": "https://www.kaggle.com/benchmarks/heygen/code2video",
+      "dataset": "https://www.kaggle.com/datasets/heygen/code2video-public",
+      "dataset_version_observed": 5,
+      "release_status": "Kaggle public split v5 inspected through browser: 50 tasks, 409 files including 50 MP4 and 55 Python files. server/server.py actual source preview read. No dataset downloaded or script executed.",
+      "baseline_files_documented": [
+        "agent/c2v_single_shot.py",
+        "tasks/<case>/instruction.md",
+        "tasks/<case>/task.toml",
+        "tasks/<case>/tests/grade.py",
+        "server/server.py",
+        "scripts/generate_elo.py"
+      ],
+      "format": "Harbor tasks; single index.html HTML/GSAP, HyperFrames render, golden reference video.",
+      "metrics": "Five axes: engagement, prompt intent, composition, temporal consistency, craft; Bradley-Terry Elo and task-clustered bootstrap intervals.",
+      "caveat": "Public server/server.py is a batching proxy, not local Judge weights. Requires HEYGEN_API_KEY, SERVER_SECRET, GCS_BUCKET and Google Cloud storage credentials; sends comparisons to HeyGen /v3/video-quality/comparisons/batches. API eligibility, price, and reproducibility of company-reported Judge results are unverified. Data card calls it VLM judging; server code does not reveal Judge internals. Polling/batching adds wall-clock latency beyond reported model inference time.",
+      "license_observed": "Kaggle dataset CC BY 4.0",
+      "priority": "High for craft/short-motion tasks, auxiliary to educational comprehension.",
+      "source_verified": [
+        "server/server.py (7.24 kB, public dataset v5 browser source preview)"
+      ]
+    },
+    {
+      "name": "ManimTrainer / ManimAgent",
+      "paper": "https://arxiv.org/abs/2604.18364v2",
+      "repository": "https://github.com/SuienS/manim-trainer",
+      "commit": "44eeb77438313411ab5b3cf5a4756102ead6d89a",
+      "dataset": "https://huggingface.co/datasets/SuienR/ManimBench-v1",
+      "dataset_scope": "417 description/code examples from Manim docs; 317 train, 100 test, independent from NtrpyDev/manim-bench and nabin2004/ManiBench.",
+      "source_inspection": [
+        "src/inference/inference_engine.py:485-589",
+        "src/evaluation/video_comparator.py",
+        "tools/evaluate.py",
+        "Git tree data/*.parquet and LICENSE"
+      ],
+      "baseline_modes": [
+        "base",
+        "base_fb (RITL)",
+        "base_rag_fb (RITL-DOC)"
+      ],
+      "feedback_verified": "generate_manim_code_with_feedback passes previous code and last error lines; stops on render success unless forced. No video/frame input in this feedback loop.",
+      "metrics": "Render success; CodeBLEU/CodeBERT similarity; reference-video SSIM/CLIP with DTW. These are not comprehension measurements.",
+      "runtime_requirement": "Local HF/Unsloth model inference and CUDA-oriented environment; signed-in Codex adaptation would be a declared protocol port, not an exact reproduction of paper models.",
+      "license_verified": "CC BY-NC-SA 4.0",
+      "priority": "Good existing narrow error-repair/documentation ablation protocol; no need to train weights for initial infra test."
+    },
+    {
+      "name": "LessonBench-V1",
+      "paper": "https://arxiv.org/abs/2607.13041",
+      "dataset": "https://www.kaggle.com/datasets/ravidussilva/lessonbench-v1",
+      "scope": "647 human-written lessons over 240 STEM topics with reviewed reverse-engineered plans and learning-objective metadata.",
+      "verification": "Primary abstract and linked Kaggle dataset existence observed; no code/data downloaded or evaluated.",
+      "priority": "Possible source of pedagogical briefs/learning objectives; not motion quality or learner-understanding gold standard."
+    },
+    {
+      "name": "VidCode",
+      "paper_observed": "https://openreview.net/pdf/af519bec3825aee9059f5580f85e682316617428.pdf",
+      "scope": "Search-indexed primary paper describes 450 dynamic visual coding tasks, text/video to executable browser simulations.",
+      "verification": "Direct paper access blocked by browser verification; no verified official code/data release.",
+      "priority": "Discovery only; exclude from runnable baseline recommendations."
+    },
+    {
+      "name": "realtime-manim-rs",
+      "repository": "https://github.com/adamholter/realtime-manim-rs",
+      "verification": "README inspected only, no pinned source evaluation or run.",
+      "scope": "Rust/Wasm/WebGPU retained animation runtime with explicit-time rendering and export claims.",
+      "priority": "Runtime alternative worth separate performance check; not generation/comprehension benchmark."
+    },
+    {
+      "name": "generative-manim",
+      "repository": "https://github.com/marcelo-earth/generative-manim",
+      "benchmark_readme": "https://github.com/marcelo-earth/generative-manim/blob/main/training/benchmarks/README.md",
+      "verification": "Benchmark README inspected only; no source pin or run.",
+      "scope": "Frozen core_v1 tasks; render success plus required-pattern coverage and animation-count compliance; pass@k reports.",
+      "priority": "Engineering reliability baseline, cannot validate viewer comprehension."
+    }
+  ]
+}

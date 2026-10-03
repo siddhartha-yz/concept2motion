@@ -1,0 +1,426 @@
+[
+  {
+    "id": "K7",
+    "repeat": 1,
+    "status": "reviewed",
+    "response": {
+      "support": "demonstrated",
+      "consistency": "consistent",
+      "order": "coherent",
+      "reconstructed_mapping": "可见 A=[[2,1],[0,1]]，输入 v=(1,2)。基向量 e1=(1,0)、e2=(0,1) 的像分别为 (2,0)、(1,1)；一支蓝色分量与两支橙色分量首尾相接到达 (4,2)，与绿色 Av 箭头端点重合。",
+      "uncertainty": "仅有六个采样帧，无法核实帧间转换；接触表缩放限制细节判断。结论限于可见坐标刻度、箭头及端点。结果公式提前出现，但采样中的几何构造仍按声明顺序展开。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "紫色输入箭头从原点指向刻度 (1,2)，与 v 标签一致。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "蓝色 e1 到 (1,0)，橙色 e2 到 (0,1)，呈现输入基向量。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "蓝色 T(e1) 到 (2,0)，橙色 T(e2) 到 (1,1)，对应矩阵两列。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "蓝箭头从 (0,0) 到 (2,0)，两支橙箭头依次到 (3,1)、(4,2)，可见加权组合。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "绿色结果箭头从原点到 (4,2)，与 Av=(4,2) 标签一致。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "分量链与绿色结果箭头同时显示，共同终点为 (4,2)，支持列向量和与结果一致。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 46.846,
+      "usage": [
+        {
+          "input_tokens": 18726,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 432,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  {
+    "id": "K7",
+    "repeat": 2,
+    "status": "reviewed",
+    "response": {
+      "support": "demonstrated",
+      "consistency": "consistent",
+      "order": "coherent",
+      "reconstructed_mapping": "可见矩阵 A=[[2,1],[0,1]]，输入 v=(1,2)。2.75s 展示 e1=(1,0)、e2=(0,1)；4.75s 展示对应像 T(e1)=(2,0)、T(e2)=(1,1)；6.75s 将一条蓝色分量和两条橙色分量首尾相接，经 (2,0)、(3,1) 到达 (4,2)；8.75s 显示原点到 (4,2) 的结果向量 Av；10.75s 将结果与分量链叠加核对。",
+      "uncertainty": "仅有六个采样时刻，无法确认未展示的过渡；接触表缩放限制细节判断。结果文字和公式从 0.75s 已出现，但采样中的几何构造仍按输入、基向量及其像、组合、结果推进。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "紫色输入箭头从原点指向刻度 (1,2)，与 v 标签一致。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "蓝色、橙色基向量分别指向 (1,0)、(0,1)。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "蓝色像指向 (2,0)，橙色像指向 (1,1)，与矩阵两列及标签一致。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "蓝色箭头到 (2,0)，两条橙色箭头依次到 (3,1)、(4,2)， visibly 构成所述分量和。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "绿色结果箭头从原点到 (4,2)，与 Av=(4,2) 一致。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "分量链与绿色结果向量共享终点 (4,2)，提供几何核对。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 58.113,
+      "usage": [
+        {
+          "input_tokens": 18726,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 556,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  {
+    "id": "M2",
+    "repeat": 1,
+    "status": "reviewed",
+    "response": {
+      "support": "assertion_only",
+      "consistency": "unverifiable",
+      "order": "unverifiable",
+      "reconstructed_mapping": "可见文字给出 A=[[2,1],[0,1]]、v=(1,2)、Av=(4,2)，并写出 1(2,0)+2(1,1)=(4,2)。这仅重建了文字所述映射，未见几何构造。",
+      "uncertainty": "仅有六个采样时刻，缩放可能影响细节辨认；不能推断未采样的过渡。所示画面未见坐标刻度、分量箭头或几何端点，因此无法核对几何一致性及构造顺序。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "标题声明 input -> basis images -> combine -> result；文字介绍输入 v=(1,2)，结果与求和公式已同时出现。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "文字称基向量构建输入，但未见基向量图示。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "文字称矩阵列为基向量的像，仅显示矩阵与公式。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "文字要求合并一个蓝色列与两个橙色列，未见对应彩色箭头或合并过程。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "文字称端点给出 Av=(4,2)，未见可核验的几何端点。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "文字要求核对列之和与结果，画面仍仅有文字、矩阵及求和公式。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 57.168,
+      "usage": [
+        {
+          "input_tokens": 18726,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 455,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  {
+    "id": "M2",
+    "repeat": 2,
+    "status": "reviewed",
+    "response": {
+      "support": "assertion_only",
+      "consistency": "unverifiable",
+      "order": "unverifiable",
+      "reconstructed_mapping": "可见文字给出 A=[[2,1],[0,1]]、v=(1,2)、Av=(4,2)，并列出 1(2,0)+2(1,1)=(4,2)。六个样本均未显示对应的几何构造。",
+      "uncertainty": "仅有六个采样画面，且接触表缩放可能遮蔽细节；不能推断未采样的过渡。可见范围内没有端点、坐标刻度或分量箭头，因此无法核对几何一致性或构造顺序。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "文字要求从输入 v=(1,2) 开始；矩阵、结果和组合公式已经同时出现，没有输入向量图。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "文字称基向量构成输入，但未见基向量或其组合。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "文字称矩阵列是基向量的像；未见对应的几何像。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "文字要求组合一个蓝色列和两个橙色列；未见蓝色、橙色箭头或列的几何组合。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "文字称所得端点给出 Av=(4,2)，但未见端点或坐标刻度。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "文字要求检查列之和与结果；仍仅显示相同矩阵、向量和公式，未见几何检查。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 58.908,
+      "usage": [
+        {
+          "input_tokens": 18726,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 387,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  {
+    "id": "P9",
+    "repeat": 1,
+    "status": "reviewed",
+    "response": {
+      "support": "demonstrated",
+      "consistency": "inconsistent",
+      "order": "coherent",
+      "reconstructed_mapping": "可见输入为 v=(1,2)，基向量像为 T(e1)=(2,0)、T(e2)=(1,1)。6.75s 的首尾相接箭头构造 (0,0)→(2,0)→(3,1)→(4,2)，支持所述列组合。但8.75s及10.75s标为 Av=(4,2) 的绿色箭头实际终点位于(3,2)。",
+      "uncertainty": "仅有六个采样帧，不能推断帧间过渡；图片缩放限制细节判断，但绿色终点与横轴3刻度的对齐及其与组合终点的差异清晰可见。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "紫色输入箭头从原点指向(1,2)，与输入标签一致。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "蓝色、橙色基向量分别指向(1,0)、(0,1)。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "基向量像分别指向(2,0)、(1,1)，与矩阵列及标签一致。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "一段蓝色箭头与两段橙色箭头首尾相接，终点为(4,2)。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "结果绿色箭头终点为(3,2)，却标注 Av=(4,2)。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "组合箭头终点为(4,2)，绿色结果终点为(3,2)，两者未重合；采样顺序仍遵循输入→基向量像→组合→结果。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 53.456,
+      "usage": [
+        {
+          "input_tokens": 18726,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 547,
+          "reasoning_output_tokens": 40
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  {
+    "id": "P9",
+    "repeat": 2,
+    "status": "reviewed",
+    "response": {
+      "support": "demonstrated",
+      "consistency": "inconsistent",
+      "order": "coherent",
+      "reconstructed_mapping": "可见映射为 e1=(1,0)→(2,0)，e2=(0,1)→(1,1)。输入标为 v=(1,2)；组合图用一段蓝箭头和两段橙箭头到达(4,2)。但绿色结果箭头实际到达(3,2)，与其标签 Av=(4,2) 矛盾。",
+      "uncertainty": "仅有六个采样画面，不能判断未展示的过渡；缩放限制细节辨认，但绿色端点与横轴刻度3对齐，且明显不同于组合端点4。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "紫色输入箭头从原点到(1,2)，与输入标签一致。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "展示原点出发的 e1=(1,0) 与 e2=(0,1)。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "蓝色 T(e1) 到(2,0)，橙色 T(e2) 到(1,1)，与所列矩阵的两列一致。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "蓝段从(0,0)到(2,0)，两段橙箭头依次到(3,1)、(4,2)， visibly构造列向量组合。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "绿色结果端点位于(3,2)，标签却写 Av=(4,2)。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "叠加检查中，绿色端点(3,2)与橙色组合端点(4,2)分离。采样几何顺序仍为输入、基向量及其像、组合、结果、检查。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 45.935,
+      "usage": [
+        {
+          "input_tokens": 18726,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 555,
+          "reasoning_output_tokens": 43
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  {
+    "id": "R4",
+    "repeat": 1,
+    "status": "reviewed",
+    "response": {
+      "support": "demonstrated",
+      "consistency": "consistent",
+      "order": "out_of_order",
+      "reconstructed_mapping": "可见 A=[[2,1],[0,1]]，v=(1,2)。基向量图像为 T(e1)=(2,0)、T(e2)=(1,1)；一支蓝箭头加两支橙箭头连接至 (4,2)，与 Av=(4,2) 一致。",
+      "uncertainty": "仅有六个采样时刻，无法判断未显示的过渡；接触表缩放限制细节辨认。可见样本足以核对端点与排列，但不能确定完整动画的连续过程。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "蓝箭头从 (0,0) 到 (2,0)，两支橙箭头续接至 (3,1)、(4,2)，绿色合向量到 (4,2)；构造与求和文字一致，但组合及结果已先出现。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "基图像箭头分别到 (2,0)、(1,1)，与 T(e1)、T(e2) 标签及矩阵列一致。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "绿色结果箭头从原点到 (4,2)，与 Av 标签和坐标刻度一致。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "此时才显示输入箭头 v=(1,2)，晚于基图像与结果样本。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "一支蓝箭头与两支橙箭头首尾连接至 (4,2)，直接展示列向量的加权组合。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "显示 e1=(1,0)、e2=(0,1) 的基向量箭头；未展示它们如何组合成输入，且该样本出现在组合之后。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 49.054,
+      "usage": [
+        {
+          "input_tokens": 18614,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 441,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  {
+    "id": "R4",
+    "repeat": 2,
+    "status": "reviewed",
+    "response": {
+      "support": "demonstrated",
+      "consistency": "consistent",
+      "order": "out_of_order",
+      "reconstructed_mapping": "可见 A=[[2,1],[0,1]]，v=(1,2)。基向量 e1=(1,0)、e2=(0,1) 的像分别为 (2,0)、(1,1)；一个蓝色分量加两个橙色分量，首尾连接至 (4,2)，对应 Av=(4,2)。",
+      "uncertainty": "仅有六个采样帧，不能推断未展示的过渡；接触表缩放限制细节辨认。顺序判断仅依据所给时刻的可见几何状态。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "已出现蓝色与两个橙色分量的首尾相接，以及指向 (4,2) 的绿色结果箭头。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "基向量像从原点分别指向 (2,0) 与 (1,1)，与文字标签及矩阵列一致。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "绿色结果箭头从原点指向刻度 (4,2)，与 Av 标签一致。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "此时才展示输入箭头，端点为 (1,2)，晚于已展示的基向量像与结果。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "蓝色箭头从 (0,0) 到 (2,0)，两个橙色箭头依次到 (3,1)、(4,2)，可见构造支持所述加权和。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "此时展示原始基向量至 (1,0)、(0,1)；采样序列未遵循标题所宣称的输入→基向量像→组合→结果顺序。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 56.418,
+      "usage": [
+        {
+          "input_tokens": 18726,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 512,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  }
+]

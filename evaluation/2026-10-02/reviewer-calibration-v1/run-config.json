@@ -1,0 +1,20 @@
+{
+  "model": "gpt-6.1-sol",
+  "config": [
+    "model=\"gpt-6.1-sol\"",
+    "model_reasoning_effort=\"low\"",
+    "mcp_servers.cua_repl={command=\"true\",enabled=false}",
+    "mcp_servers.node_repl={command=\"true\",enabled=false}"
+  ],
+  "repeats": 2,
+  "max_workers": 4,
+  "timeout_s": 300,
+  "harness_sha256": "2ce4bc69f6f2a2b0ab1fb820cc3dce4956c9f1bc8a2f223da0fae17736315b28",
+  "frozen": {
+    "prompt_sha256": "cfa7526d34ea0fb608cd73309972d5a0ebcbf6a96dee95fb58262eeeb41e384e",
+    "schema_sha256": "0bec364b9d1ca50ff11b05eb73a2ab4df4c8559501784132b601b336838cb6d8",
+    "source_sha256": "ab63b3bccecd290daad59fb0295e2e02495ec2b2965bc268283cedc08b7f327f",
+    "oracle_sha256": "62b620bfc837819dab7c54f17f20d28d31e12c014bd9bf42ee8abbe00d9d117e"
+  },
+  "input_scope": "one synthetic contact sheet per isolated call; no oracle or source attached"
+}

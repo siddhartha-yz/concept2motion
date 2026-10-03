@@ -1,0 +1,53 @@
+{
+  "id": "M2",
+  "repeat": 2,
+  "status": "reviewed",
+  "response": {
+    "support": "assertion_only",
+    "consistency": "unverifiable",
+    "order": "unverifiable",
+    "reconstructed_mapping": "可见文字给出 A=[[2,1],[0,1]]、v=(1,2)、Av=(4,2)，并列出 1(2,0)+2(1,1)=(4,2)。六个样本均未显示对应的几何构造。",
+    "uncertainty": "仅有六个采样画面，且接触表缩放可能遮蔽细节；不能推断未采样的过渡。可见范围内没有端点、坐标刻度或分量箭头，因此无法核对几何一致性或构造顺序。",
+    "observations": [
+      {
+        "time_s": 0.75,
+        "evidence": "文字要求从输入 v=(1,2) 开始；矩阵、结果和组合公式已经同时出现，没有输入向量图。"
+      },
+      {
+        "time_s": 2.75,
+        "evidence": "文字称基向量构成输入，但未见基向量或其组合。"
+      },
+      {
+        "time_s": 4.75,
+        "evidence": "文字称矩阵列是基向量的像；未见对应的几何像。"
+      },
+      {
+        "time_s": 6.75,
+        "evidence": "文字要求组合一个蓝色列和两个橙色列；未见蓝色、橙色箭头或列的几何组合。"
+      },
+      {
+        "time_s": 8.75,
+        "evidence": "文字称所得端点给出 Av=(4,2)，但未见端点或坐标刻度。"
+      },
+      {
+        "time_s": 10.75,
+        "evidence": "文字要求检查列之和与结果；仍仅显示相同矩阵、向量和公式，未见几何检查。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 58.908,
+    "usage": [
+      {
+        "input_tokens": 18726,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 387,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "tool_types": []
+  }
+}

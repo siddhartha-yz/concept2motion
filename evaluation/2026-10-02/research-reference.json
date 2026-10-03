@@ -1,0 +1,759 @@
+{
+  "date": "2026-10-02",
+  "scope": "Read-only primary-paper and pinned-source audit; no changes to infrastructure.",
+  "validation": {
+    "dependency_installation": "not attempted",
+    "mock_workflow": "not executed",
+    "actual_render": "not executed",
+    "real_model_generation": "not executed",
+    "artistic_review": "no video/artistic assessment performed in this research",
+    "method": "Read primary papers and selected text source files from pinned upstream commits; counted published JSON tasks; inspected complete repository trees. No videos downloaded."
+  },
+  "repositories": [
+    {
+      "name": "Code2Video",
+      "official_repo": "https://github.com/showlab/Code2Video",
+      "commit": "1142d8e14cdc2806df85aedb0fbb5dca474caa0f",
+      "paper": "https://arxiv.org/html/2510.01174v1",
+      "license": "MIT for code; upstream reference videos/assets have separate rights.",
+      "mechanism": "Planner generates outline/storyboard; Coder authors Manim sections; Critic examines rendered video and layout grid; runtime error repair uses ScopeRefine followed by whole-code fallback. Parallel section generation/rendering.",
+      "code_evidence": {
+        "orchestration": "src/agent.py",
+        "local_error_repair": "src/scope_refine.py",
+        "model_transport": "src/gpt_request.py",
+        "video_quality_evaluation": "src/eval_AES.py",
+        "quiz_evaluation": "src/eval_TQ.py",
+        "suppression_prompt": "prompts/stage5_unlearning.py",
+        "runtime_options": "src/run_agent.sh"
+      },
+      "public_tasks": {
+        "topics": 117,
+        "reference_mapping": 117,
+        "questions": 585,
+        "questions_per_topic": 5,
+        "files": [
+          "json_files/topics_list_safe.json",
+          "json_files/long_video_ref_mapping.json",
+          "json_files/questions_by_topic_10.json"
+        ],
+        "mismatch": "Paper specifies 10 quiz questions/topic; pinned public questions file contains 5/topic despite its filename."
+      },
+      "paper_evidence": "Paper reports planner/assets/anchor/critic and parallel/ScopeRefine ablations, plus a 40-person quiz study. Full pipeline consumes substantially more tokens/time than direct prompting; gains are not a same-budget guarantee.",
+      "available_baselines_and_ablations": {
+        "available_flags": [
+          "use_feedback/no_feedback",
+          "use_assets/no_assets",
+          "parallel/no_parallel",
+          "feedback_rounds",
+          "max_concepts"
+        ],
+        "missing_in_public_tree": [
+          "complete paper-ablation runner",
+          "dedicated direct-prompt baseline generator",
+          "CLI switches disabling Planner, Visual Anchor or ScopeRefine"
+        ]
+      },
+      "evaluation_limit": "TeachQuiz measures a VLM quiz-score change under prompt-based suppression and video conditioning. Closed-model weights are not unlearned. AES is model judgment, separate from the paper human study. Neither substitutes for testing our short clips with intended viewers.",
+      "dependencies": [
+        "manim==0.19.0",
+        "OpenAI/Azure API client",
+        "google-genai",
+        "moviepy 2",
+        "OpenCV",
+        "FFmpeg",
+        "LaTeX/Cairo/Pango for Manim"
+      ],
+      "codex_subscription": "No native official Codex CLI/SDK backend. Text authoring requires an adapter. Video critic uses API-specific video transport; substituting still-frame Codex review would change the original evaluation protocol.",
+      "portability_observations": [
+        "Main agent resolves JSON files under src/json_files, whereas published files are at repository root json_files; needs explicit bootstrap/path repair.",
+        "eval_TQ default question path is a developer absolute path.",
+        "Gemini video requests are proxied through AzureOpenAI chat/completions video payloads."
+      ],
+      "reproduction_level": "Partial paper reproduction possible from public source/tasks; not locally executed. Provider transport and data paths require setup, full reported baseline/ablation sweep is not turnkey.",
+      "reuse_priority": "Best research reference for targeted runtime repair and ablation design; use human/quiz validation independently of AES.",
+      "inspected_text_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "79035a25d23b01e511ae3ecb39db92c31b3dad2972e5b2637101c9708c05ae20",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "sha256": "6cc207249833d44ec2e991cdcd0fa752f7b211253bf4becbbf539a6024a23c46",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/README.md"
+        },
+        {
+          "path": "json_files/long_video_ref_mapping.json",
+          "sha256": "3b05ea17b261ecb1ce1e1f9338a8aa8293a899f7b02e52bf05595943703e9433",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/json_files/long_video_ref_mapping.json"
+        },
+        {
+          "path": "json_files/long_video_topics_list.json",
+          "sha256": "dfa94c27424fdcae5c9aa15e3d0c3e0f9e00fa3e61c436cd27b6e2635e2f07cf",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/json_files/long_video_topics_list.json"
+        },
+        {
+          "path": "json_files/questions_by_topic_10.json",
+          "sha256": "e1d9a8789b9216287979a7501841eea3157ee7237c3211fe6208f86968b33bb6",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/json_files/questions_by_topic_10.json"
+        },
+        {
+          "path": "json_files/topics_list_safe.json",
+          "sha256": "ea0a16de0ccf64c9578e71d6042541b879462b94f8fb6cbbe6738ed1845e122e",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/json_files/topics_list_safe.json"
+        },
+        {
+          "path": "prompts/stage1.py",
+          "sha256": "f58f8d57de8b1b83d6239b573d069981cc4a8eef1e750d09a20fbb8adf80d2e7",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/prompts/stage1.py"
+        },
+        {
+          "path": "prompts/stage2.py",
+          "sha256": "5653bb6f7000c11b737cb9ff48fd553c439ced9761cdbd5a587ff27f41407a1f",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/prompts/stage2.py"
+        },
+        {
+          "path": "prompts/stage3.py",
+          "sha256": "766ab63374a20b5a957fff6bcee02f2834fbc9a005c83700fc4a72d26939bc3b",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/prompts/stage3.py"
+        },
+        {
+          "path": "prompts/stage4.py",
+          "sha256": "9242fda1aa30070869e5a001fca28957e548b0194d8f9fefaad24e755a4efd49",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/prompts/stage4.py"
+        },
+        {
+          "path": "prompts/stage5_eva.py",
+          "sha256": "d213d3d337ef900ac3d4885062e09aee385ea3ac061378b3c97ef4692b1fa15a",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/prompts/stage5_eva.py"
+        },
+        {
+          "path": "prompts/stage5_unlearning.py",
+          "sha256": "3a94cc2fa2fbd1c1af92e244da48352f1bbc79d51eea29c1e0104812ebe40c48",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/prompts/stage5_unlearning.py"
+        },
+        {
+          "path": "src/agent.py",
+          "sha256": "9181ab52b2d97b5031ca217d9e9f532a38b6a5609d3f3fc315dd67bbe78f0e9f",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/agent.py"
+        },
+        {
+          "path": "src/eval_AES.py",
+          "sha256": "d2aca97549af0fc2938d2e09004f75c97ff93caf7a3e800f5200b0fcde7bf348",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/eval_AES.py"
+        },
+        {
+          "path": "src/eval_TQ.py",
+          "sha256": "97ee434ef5f311c9230040dcff87de319c3f521f57a2a2fa060804e478223085",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/eval_TQ.py"
+        },
+        {
+          "path": "src/external_assets.py",
+          "sha256": "2ca4a77df22c1e7b34ed037bcbed0b1d51b76b667fbc3df0f012053a4c3c5bd4",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/external_assets.py"
+        },
+        {
+          "path": "src/gpt_request.py",
+          "sha256": "fd9f3919717a313323737328e0b5bd270fbd5a169f23939a62c4e2bf6fb74bbc",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/gpt_request.py"
+        },
+        {
+          "path": "src/requirements.txt",
+          "sha256": "62c5f847a69aa5b6d34ddc333e5b1d778d1f30c70cfe1670e1bd25304126526c",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/requirements.txt"
+        },
+        {
+          "path": "src/run_agent.sh",
+          "sha256": "ab8271a7286b8c76c8a494ac90684d86b2ba1487ba49a2e2f9fd7ceb2004180c",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/run_agent.sh"
+        },
+        {
+          "path": "src/run_agent_single.sh",
+          "sha256": "b7b751c650cecb73eff2f9bd9808b5559b74245b13ba85c4a9dc348660c90b31",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/run_agent_single.sh"
+        },
+        {
+          "path": "src/scope_refine.py",
+          "sha256": "b83e3557e295a501b0f546e5303d1d198717223d393d26900d80548b758cb964",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/scope_refine.py"
+        },
+        {
+          "path": "src/utils.py",
+          "sha256": "1adc29c13ce86aed9b6fc6004cd8fe0b1d7b2fe44714ee7c7c16c065c0999e9c",
+          "source": "https://github.com/showlab/Code2Video/blob/1142d8e14cdc2806df85aedb0fbb5dca474caa0f/src/utils.py"
+        }
+      ]
+    },
+    {
+      "name": "TheoremExplainAgent",
+      "official_repo": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent",
+      "commit": "e9ece5db7756b6ded8a812eceeb936cfd02aae21",
+      "paper": "https://aclanthology.org/2025.acl-long.332/",
+      "paper_full": "https://aclanthology.org/2025.acl-long.332.pdf",
+      "earlier_paper": "https://arxiv.org/html/2502.19400v1",
+      "license": "MIT code; final paper reports MIT benchmark release.",
+      "mechanism": "Scene planner, narrated Manim code generation, bounded render-error correction, optional RAG/visual reflection, scene-level generation/rendering and assembly.",
+      "code_evidence": {
+        "entrypoint_and_flags": "generate_video.py",
+        "planner": "src/core/video_planner.py",
+        "code_and_visual_reflection": "src/core/code_generator.py",
+        "render": "src/core/video_renderer.py",
+        "evaluation": "evaluate.py",
+        "transcript_metric": "eval_suite/text_utils.py",
+        "selected_frame_metric": "eval_suite/image_utils.py",
+        "video_metric": "eval_suite/video_utils.py",
+        "model_transports": [
+          "mllm_tools/litellm.py",
+          "mllm_tools/gemini.py"
+        ]
+      },
+      "public_tasks": {
+        "total": 240,
+        "subjects": [
+          "math",
+          "physics",
+          "chemistry",
+          "comp_sci"
+        ],
+        "difficulty": [
+          "easy",
+          "medium",
+          "hard"
+        ],
+        "files": 12,
+        "tasks_per_file": 20,
+        "path": "data/thb_{easy,medium,hard}/{subject}.json",
+        "validation": "All 12 published JSON files parsed and counted."
+      },
+      "available_baselines_and_ablations": {
+        "flags": [
+          "max_retries",
+          "use_rag",
+          "use_visual_fix_code",
+          "only_plan",
+          "only_gen_vid",
+          "only_render",
+          "only_combine",
+          "scenes",
+          "max_scene_concurrency"
+        ],
+        "paper_final_additions": "Final ACL paper adds retries N=0..5/RAG ablations and 20-theorem LTX-Video/Veo2 comparison. Exact text-to-video baseline runner not found in public tree."
+      },
+      "paper_evidence": "93.8% o3-mini success is successful rendering, not human understanding. Human validation rates 40 videos with 12 STEM annotators. Judge/human rank correlations are weak for accuracy, flow and consistency. Added 15-person study tests detection of a subtle incorrect proof, not pre/post subject learning.",
+      "evaluation_limit": "GPT text/image ratings and Gemini video ratings feed a geometric mean. Image selection prefers maximum nonblack content in each chunk, potentially missing temporal failures. Human annotation validates quality ratings, not learning gain.",
+      "dependencies": [
+        "manim~=0.18.1",
+        "manim-voiceover",
+        "ManimML/Physics/Chemistry/DSA/Circuit",
+        "LiteLLM",
+        "google-generativeai",
+        "LangChain/Chroma for RAG",
+        "Kokoro ONNX model/voices",
+        "MoviePy/FFmpeg",
+        "LaTeX/Cairo/Pango"
+      ],
+      "codex_subscription": "No native official Codex backend. LiteLLM and Gemini model wrappers require provider APIs. A text/image author adapter is feasible; matching original video evaluation still needs its provider/protocol.",
+      "portability_observations": [
+        "Default config references data/easy_20.json absent from the published tree; pass a real benchmark JSON explicitly.",
+        "RAG/context-learning directories and indexes need separate setup; no claim of an out-of-box reproduced RAG experiment.",
+        "Default evaluator model versions can differ from paper versions; pin protocol explicitly."
+      ],
+      "reproduction_level": "Strongest immediately inspectable public task/evaluation pack of these four; full generation not verified locally. Heavy environment and closed-model dependencies remain.",
+      "reuse_priority": "Use fixed TEB topics as a shared external benchmark and selective existing-scene replay as a baseline; keep aesthetic/learning judgment separate.",
+      "inspected_text_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "7d15115a511d194240025223473a15775115bb14a8bfe00b63ee94c343c29942",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "sha256": "1d9de48f369fe10df6de391748779c4577d36dd12de0339ae6f8b6d8341a0db5",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/README.md"
+        },
+        {
+          "path": "data/thb_easy/chemistry.json",
+          "sha256": "3a6dc008ad6990b0749a7921c04dff24fe36ade94ca288fa8fd337fb1d7e7ebd",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_easy/chemistry.json"
+        },
+        {
+          "path": "data/thb_easy/comp_sci.json",
+          "sha256": "5efc9f9cde9cc37b68eb7d77b8b89837dbc635c59fbd4a5d001ad91b4fb28bec",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_easy/comp_sci.json"
+        },
+        {
+          "path": "data/thb_easy/math.json",
+          "sha256": "560bd50274cbfccc692488eb5ae56f8a2dc3a549dcb7fb0bd58ac68791085c33",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_easy/math.json"
+        },
+        {
+          "path": "data/thb_easy/physics.json",
+          "sha256": "d78adb2567f416c42b7e07afec02cfb8e2c17bf398942647d30ad93156fcc6ad",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_easy/physics.json"
+        },
+        {
+          "path": "data/thb_hard/chemistry.json",
+          "sha256": "be5889324658ba9a5ecf58a0e91731d7989fb4ab865ca199f3611af006ea2f64",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_hard/chemistry.json"
+        },
+        {
+          "path": "data/thb_hard/comp_sci.json",
+          "sha256": "4bdadc40e62f72d32d28c405dffeb8e8d483ede3a8f41bbe667473afaa57d7e4",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_hard/comp_sci.json"
+        },
+        {
+          "path": "data/thb_hard/math.json",
+          "sha256": "5335441bf2de6cac86d9bf1ede33440dd15db8da47a62ac27bf9bd22d8133cae",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_hard/math.json"
+        },
+        {
+          "path": "data/thb_hard/physics.json",
+          "sha256": "f97fb0252156b86c56b0358208f34586afe8a9fa279487f6585ebe0e8666335c",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_hard/physics.json"
+        },
+        {
+          "path": "data/thb_medium/chemistry.json",
+          "sha256": "3bbbbb0326b3a78a4de4db0ecbd68e74bbfda00d58ad1b893290264e52a4b83c",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_medium/chemistry.json"
+        },
+        {
+          "path": "data/thb_medium/comp_sci.json",
+          "sha256": "8113b864d80d427135b26a61888a9e8510bc1cc975aac3a22077531af4e1bba0",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_medium/comp_sci.json"
+        },
+        {
+          "path": "data/thb_medium/math.json",
+          "sha256": "29406f13fc7f50ed75478cce2865babe03282000f21c7cc6d2dc2e56d31a6b85",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_medium/math.json"
+        },
+        {
+          "path": "data/thb_medium/physics.json",
+          "sha256": "5eb654c8e093e898f5e4e3817af175c903be186068faedd0b569767cda58d01d",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/data/thb_medium/physics.json"
+        },
+        {
+          "path": "eval_suite/image_utils.py",
+          "sha256": "dc702196245c5b4ef6f71b32717cec74d496911cdd91538013113185039da0bb",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/eval_suite/image_utils.py"
+        },
+        {
+          "path": "eval_suite/prompts_raw/image_eval.txt",
+          "sha256": "9190d68231af47fdc3b925fec82fe81d22f536e4215d4a0bd72d858bc932522b",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/eval_suite/prompts_raw/image_eval.txt"
+        },
+        {
+          "path": "eval_suite/prompts_raw/text_eval_new.txt",
+          "sha256": "c047248c8dce52df750d7a9cfb3b818f0e10d2ad75ac6c85e1dff5d9239c366b",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/eval_suite/prompts_raw/text_eval_new.txt"
+        },
+        {
+          "path": "eval_suite/prompts_raw/video_eval_new.txt",
+          "sha256": "e1645da256c7bbe69e1db5e2c0176d1cf2e15f07ab8c260b8ab97cf4ca8f119e",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/eval_suite/prompts_raw/video_eval_new.txt"
+        },
+        {
+          "path": "eval_suite/text_utils.py",
+          "sha256": "651c94146cff4f568dd7ce4b04323936cacb5ac192b569e08d277875701f81c8",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/eval_suite/text_utils.py"
+        },
+        {
+          "path": "eval_suite/video_utils.py",
+          "sha256": "0bf7d5564417e0ab32e417125536e124dd1e5c8a527ddae40c31582c7da0ae8b",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/eval_suite/video_utils.py"
+        },
+        {
+          "path": "evaluate.py",
+          "sha256": "c80e9b363fce83cca082f07f3acbc3b55c37e52552a1f81b5ea12423cdfa3a54",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/evaluate.py"
+        },
+        {
+          "path": "generate_video.py",
+          "sha256": "d2017f7daaecf5d86d1862c047e8ad9928b2cd530ec3c6fc200ed32a901a6aca",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/generate_video.py"
+        },
+        {
+          "path": "mllm_tools/gemini.py",
+          "sha256": "045de918d66ba9e210bd83944fde1376238443b297b22ca2d4a187d51e6820f5",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/mllm_tools/gemini.py"
+        },
+        {
+          "path": "mllm_tools/litellm.py",
+          "sha256": "58ac040cba9acbbc4625211e72ab4094dea71d24b903bde5ea0cdfe8a1db13fd",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/mllm_tools/litellm.py"
+        },
+        {
+          "path": "requirements.txt",
+          "sha256": "47cff16a1c16d89eaf1de14c5b96b3236583a2de02118fbee121e9f396332f72",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/requirements.txt"
+        },
+        {
+          "path": "src/config/config.py",
+          "sha256": "7aca34f254b4fe8ac518f7ca168206c386bfc5caa75c9492567b8b92fb2f23cd",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/src/config/config.py"
+        },
+        {
+          "path": "src/core/code_generator.py",
+          "sha256": "468b92168c4502756194536c174a7bb3dd2baaf98a6854c8d1ccfe2cd3f4543c",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/src/core/code_generator.py"
+        },
+        {
+          "path": "src/core/video_planner.py",
+          "sha256": "c214753b287826dc2d7a7cee61b8f8e971284507aea8fbd4f07790c379c9d170",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/src/core/video_planner.py"
+        },
+        {
+          "path": "src/core/video_renderer.py",
+          "sha256": "cfe7a778d2b512866f67c68600cc23fa7975566a1ab7531344f64743c85ac46e",
+          "source": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent/blob/e9ece5db7756b6ded8a812eceeb936cfd02aae21/src/core/video_renderer.py"
+        }
+      ]
+    },
+    {
+      "name": "Manimator",
+      "official_repo": "https://github.com/HyperCluster-Tech/manimator",
+      "commit": "928b8b2331791bd46f1ad14676893be7528309d8",
+      "paper": "https://arxiv.org/html/2507.14306v1",
+      "identity_note": "This is the paper-linked HyperCluster-Tech project; unrelated same-name repositories are excluded.",
+      "license": "MIT",
+      "mechanism": "Few-shot scene-description prompt from text/PDF/arXiv, then a code-generation prompt, regex code extraction, local low-quality Manim render behind FastAPI/Gradio.",
+      "code_evidence": {
+        "scene_prompt": "manimator/api/scene_description.py",
+        "code_generation": "manimator/api/animation_generation.py",
+        "local_render": "manimator/utils/schema.py",
+        "api_endpoints": "manimator/main.py",
+        "prompts": "manimator/utils/system_prompts.py",
+        "environment": [
+          "pyproject.toml",
+          "Dockerfile",
+          "packages.txt"
+        ]
+      },
+      "public_tasks": {
+        "benchmark_dataset": "No TEB task bundle in repository.",
+        "evaluation_runner": "None found in complete public tree.",
+        "raw_human_ratings": "Not found.",
+        "tests_or_ablation_harness": "Not found."
+      },
+      "paper_evidence": "Paper reports TEB judge scores and human ratings; prior-model baseline values are imported from TEA rather than demonstrably rerun under matched backbones. Human layout ratings are much lower than automatic ratings. Sample size and raw records are not sufficiently exposed for independent replication.",
+      "available_baselines_and_ablations": {
+        "available": "Simple two-stage prompting pipeline can be a minimal generation baseline after provider adaptation.",
+        "absent": "No visual revision loop or controlled public ablation runner. API num_retries is request retry, not code/render-error self-repair."
+      },
+      "evaluation_limit": "Reported quality scores are not measured learning gain; benchmark claims cannot be reproduced from this repo alone.",
+      "dependencies": [
+        "Python >=3.11,<3.13",
+        "Poetry",
+        "Manim ^0.18.1",
+        "LiteLLM ^1.56.10",
+        "FastAPI/Gradio",
+        "PyPDF2",
+        "FFmpeg/LaTeX/Cairo/Pango"
+      ],
+      "codex_subscription": "No native official Codex backend. Simple text adapter is possible; PDF as base64 image_url depends on provider-specific document support.",
+      "reproduction_level": "Public app implementation, incomplete published evaluation artifacts. Static inspection only; no generation/render validated.",
+      "reuse_priority": "Low as an iteration infrastructure model; useful as the explicit two-prompts control the user wants to beat.",
+      "inspected_text_files": [
+        {
+          "path": "Dockerfile",
+          "sha256": "4e01324adebd5b7290f00cc7da5af5b20fcb578d9794c4c6b47a00c817d4ac0a",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/Dockerfile"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "b23602620c4131dfc7ff8e5094ed412b4b6ab04d75ec3526b5dd1d6caa5a2d8d",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/LICENSE"
+        },
+        {
+          "path": "README.md",
+          "sha256": "4b8bfd62d11fd8b1c6e97ef7ba9802665c4e338c270594fe734123b1e8974c26",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/README.md"
+        },
+        {
+          "path": "manimator/api/animation_generation.py",
+          "sha256": "baa88476016b5bcec9ead0ede09a0e98fb37f767d5f90bcd41ed7f7b47c0d82a",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/manimator/api/animation_generation.py"
+        },
+        {
+          "path": "manimator/api/scene_description.py",
+          "sha256": "dd6be57a6ef91447b3709a2ab8331d8960274a655e6e42ed982600d6c64357d3",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/manimator/api/scene_description.py"
+        },
+        {
+          "path": "manimator/main.py",
+          "sha256": "5c46a1714d0a38cb71edc43af2d75f83812be4a720733d7ce8f6d15d32a10839",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/manimator/main.py"
+        },
+        {
+          "path": "manimator/utils/schema.py",
+          "sha256": "8cfa841721f8e505b029ecb1d2636ac60b031139494a9adbb66e59cb8eb5bee0",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/manimator/utils/schema.py"
+        },
+        {
+          "path": "manimator/utils/system_prompts.py",
+          "sha256": "948073d6f2e919b9b940acf3fa1bf6c23adfee4c9039caffa05ed48e6eb2108f",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/manimator/utils/system_prompts.py"
+        },
+        {
+          "path": "packages.txt",
+          "sha256": "bb7af6dcc06a89ab3b2cc086a2cbcffa0c5eb694d1dae563d020d8a442a921b2",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/packages.txt"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "6a453beef9af1a29ee583692d5eeed9961e03c1f34cc7807a521362e2c6733fb",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/pyproject.toml"
+        },
+        {
+          "path": "requirements.txt",
+          "sha256": "880407240edca20274ff981e446da922b33bd858ebb467679639457fa8651f16",
+          "source": "https://github.com/HyperCluster-Tech/manimator/blob/928b8b2331791bd46f1ad14676893be7528309d8/requirements.txt"
+        }
+      ]
+    },
+    {
+      "name": "Math-To-Manim",
+      "official_repo": "https://github.com/HarleyCoops/Math-To-Manim",
+      "commit": "5e5f370e9f7d2f753463ba599bf6986ac9b2607d",
+      "paper": null,
+      "paper_search_result": "No own primary research paper found; cited DeepSeek/GRPO papers are inspiration, not evidence of this system training weights or improving learning.",
+      "license": "MIT",
+      "mechanism": "Current astra pipeline creates typed brief, mathematics, storyboard and scene artifacts; independent Astra evidence audits; advisory or gated Jev review; bounded downstream repair, evidence hashes and local Manim renders.",
+      "code_evidence": {
+        "current_entrypoint": "astra/cli.py",
+        "pipeline": "astra/pipeline.py",
+        "official_codex_bridge": "astra/bridge.mjs",
+        "codex_client": "astra/client.py",
+        "external_reviewer": "astra/jev.py",
+        "offline_tests": "tests/test_astra.py",
+        "archived_task_suite": "archive/codex-pipeline/evals/prompt_suite.yaml",
+        "archived_rl_proxy_reward": "archive/codex-pipeline/environments/math_to_manim/m2m2_visual_repair/scoring.py"
+      },
+      "public_tasks": {
+        "archived_starter_tasks": 8,
+        "path": "archive/codex-pipeline/evals/prompt_suite.yaml",
+        "current_comparative_benchmark": "No public matched baseline or human-learning experiment found.",
+        "version_caveat": "Current main is astra; legacy and archived documentation/paths describe earlier pipelines."
+      },
+      "available_baselines_and_ablations": {
+        "local_replay": "render-existing CLI bypasses generation/review API calls.",
+        "gating": "advisory/gated modes and bounded repair available.",
+        "offline_validation": "Fake SDK/Jev/render tests verify orchestration, not artistic or learning quality.",
+        "archived_rl": "Reward is largely static AST/import/text-layout heuristics; no measured trained-weight result or real video evaluator established."
+      },
+      "evaluation_limit": "Jev sees text from Astra observations, not pixels. Independent provider is not independent visual inspection. Default advisory records rejection/reviewer call failure and continues; initialization still requires reviewer credentials. Hand-picked gate thresholds are not calibrated proof of understanding.",
+      "dependencies": [
+        "Python >=3.10/Pydantic",
+        "@openai/codex-sdk 0.156.1 and @openai/codex 0.156.1",
+        "Node",
+        "typesafe-sdk 0.7.1/jev1.13.0 model",
+        "Manim >=0.19 for render",
+        "FFmpeg/LaTeX/Cairo/Pango"
+      ],
+      "codex_subscription": "Native official Codex SDK bridge uses forced_login_method=chatgpt and strips generic API keys. This is legitimate subscription integration, not token extraction. Full pipeline additionally constructs JevClient requiring TYPESAFE_API_KEY even in advisory mode; render-existing is zero-model replay.",
+      "reproduction_level": "Concrete official Codex/evidence/replay engineering source. No locally executed generation and no comparative proof of quality benefit. Full pipeline is not subscription-only without changing review integration.",
+      "reuse_priority": "Most relevant existing subscription adapter and evidence retention code; treat quality gates and RL docs as engineering hypotheses, not research validation.",
+      "inspected_text_files": [
+        {
+          "path": "LICENSE",
+          "sha256": "012582c4fc97fbf72a15b0e252fcf73f92e37e55df7730e96886867722b201f5",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/LICENSE"
+        },
+        {
+          "path": "archive/codex-pipeline/environments/math_to_manim/m2m2_visual_repair/scoring.py",
+          "sha256": "2e2b4cef47c9b9b499f00589dced9d6c695aa9d748c73316675e337e8d112378",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/archive/codex-pipeline/environments/math_to_manim/m2m2_visual_repair/scoring.py"
+        },
+        {
+          "path": "archive/codex-pipeline/evals/prompt_suite.yaml",
+          "sha256": "54014331566330714f8637c2eb3464145b0f258b2d8ace4a0c3902e909a905c0",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/archive/codex-pipeline/evals/prompt_suite.yaml"
+        },
+        {
+          "path": "astra/bridge.mjs",
+          "sha256": "c9ceb678b904ae0936cd965895389df3e936a63eb4814dea90381de9dca10797",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/astra/bridge.mjs"
+        },
+        {
+          "path": "astra/cli.py",
+          "sha256": "73916efc47c07273476a1011a2887f49beaa39b7c2dae634e5f4f0775e1820b0",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/astra/cli.py"
+        },
+        {
+          "path": "astra/client.py",
+          "sha256": "f02faaa24a07678d6798b4639a13486de88c8e3648b5e5878daaa3cdc24a1c82",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/astra/client.py"
+        },
+        {
+          "path": "astra/design.py",
+          "sha256": "f7accea6919737fd22ad29b92e72640bf4522a67c1c060a1299005943b49a0c8",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/astra/design.py"
+        },
+        {
+          "path": "astra/jev.py",
+          "sha256": "2737625f1a46a0ca8df52f59ac9994bb8423c7b456791be1d562f7869339e5bb",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/astra/jev.py"
+        },
+        {
+          "path": "astra/pipeline.py",
+          "sha256": "0d13730384a17b75ce32e5c301726a229adbb59f4dcf3ff855c97b317e29cc2f",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/astra/pipeline.py"
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "sha256": "69934d500222c1f5827bd8fe050a90958d75bee163203d5bf61c7d26cec82283",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/docs/ARCHITECTURE.md"
+        },
+        {
+          "path": "docs/EVAL_STRATEGY.md",
+          "sha256": "29299d3582a9f5868b28e74f60f667f7387265ae43587d2e0ded9b9aa4b31741",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/docs/EVAL_STRATEGY.md"
+        },
+        {
+          "path": "docs/JEV.md",
+          "sha256": "2817d7edbf3f8fad1037812ad3c206aa5dcff0d5877c786514287ef91de57375",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/docs/JEV.md"
+        },
+        {
+          "path": "docs/PRIME_INTELLECT_RL.md",
+          "sha256": "79ff9a69ca2e44799136403a1d44646719b6fd4a1505238ec83658daeb2c6ac6",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/docs/PRIME_INTELLECT_RL.md"
+        },
+        {
+          "path": "legacy/Math-To-Manim/README.md",
+          "sha256": "b0c10d7fafec2a55d58565d0fad43609143d7db0a2adc8304ea84e7f26096e39",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/legacy/Math-To-Manim/README.md"
+        },
+        {
+          "path": "legacy/Math-To-Manim/src/agents/llm_client.py",
+          "sha256": "fca059a601bae5006ebc4d6fa3614556a475d3a5535a99fc95cbbd4f81812ef3",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/legacy/Math-To-Manim/src/agents/llm_client.py"
+        },
+        {
+          "path": "mythos/render.py",
+          "sha256": "f14befeb56150935007c4a547f938381363d6f660365cfcee811e9538abcdbef",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/mythos/render.py"
+        },
+        {
+          "path": "package.json",
+          "sha256": "4bb62efea5d284ce0dfa700d5e3e22cca92e2da7d67775c02ad7f996acd02025",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/package.json"
+        },
+        {
+          "path": "pyproject.toml",
+          "sha256": "e1e162baf3916f4e5e0588de14928778688ab9689a39b936b996975ed2d8238d",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/pyproject.toml"
+        },
+        {
+          "path": "sol/astra_reviewer.py",
+          "sha256": "0cdef01d1129707529e9f1f4e0e38e2ad1514a36ca81a17401c27d9f2d40a75a",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/sol/astra_reviewer.py"
+        },
+        {
+          "path": "sol/client.py",
+          "sha256": "687753edd336884645ce93398611dbee16e3d401e35c6337329c3a75ede0ed01",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/sol/client.py"
+        },
+        {
+          "path": "sol/harness.py",
+          "sha256": "2105c2461f4d743f4c2e7b3e12d54649b9ef7dc29e0f082ca38ee704bd0d2b57",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/sol/harness.py"
+        },
+        {
+          "path": "sol/staged.py",
+          "sha256": "b2accb3427fcef93782690a6f3f04590709a19bc164c8b7dc409636b7dc4e757",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/sol/staged.py"
+        },
+        {
+          "path": "tests/test_astra.py",
+          "sha256": "d70e249ec04a21ca32087fd699c81a6031c1f38136ddc5e16eeb9d10d1a91ea7",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/tests/test_astra.py"
+        },
+        {
+          "path": "tests/test_typesafe_jev.py",
+          "sha256": "ce89b9b71fb27f042b2c93722fcddbda41f5a8b61c918e3c85dce87ddabb247c",
+          "source": "https://github.com/HarleyCoops/Math-To-Manim/blob/5e5f370e9f7d2f753463ba599bf6986ac9b2607d/tests/test_typesafe_jev.py"
+        }
+      ]
+    }
+  ],
+  "cross_route_conclusion": {
+    "recommended_external_task_pack": "TheoremExplainBench (240 public tasks) for a fixed first baseline, with separate viewer comprehension checks.",
+    "most_substantive_repair_research": "Code2Video ScopeRefine/runtime failure localization, with compute-matched controls required.",
+    "minimal_prompt_control": "Manimator two-stage scene/code generation.",
+    "native_codex_reference": "Math-To-Manim current official SDK bridge; Jev dependency must be reported.",
+    "evaluation_principle": "Successful render, judge preference, mathematical correctness, viewer comprehension and iteration wall time are separate outcomes; none can be inferred from another."
+  },
+  "additional_reference": {
+    "name": "Teaching Monster Challenge",
+    "paper": "https://arxiv.org/html/2608.08852v1",
+    "official_site": "https://teaching.monster/",
+    "official_baseline": "https://github.com/Teaching-Monster/TeachingMonster-released",
+    "commit": "d5a7cb2e63868ddd09f5f99d4245a5e617326880",
+    "paper_summary": "Learner-persona-conditioned complete lessons. Matched topic/persona pairs; Gemini screening, crowd pairwise preference and expert ranking. Preliminary study: 77 teams, 32 items; crowd: 59 raters, 246 comparisons; final: 3 systems, 16 items, 10 expert panelists. Automatic scores compress near the top and mis-rank strong systems; only the winner clearly exceeded mature organizer baselines in crowd comparisons.",
+    "learning_limit": "Paper explicitly uses teaching-quality proxies because direct student learning gains at benchmark scale are infeasible. Persona identification and preference are not comprehension/pre-post learning measurements.",
+    "actual_baseline": "scripts/T2V_pipeline.py produces outline, slide structures and narration; concurrently creates slides with rendered-image reviewer/refiner; local Qwen3-TTS and faster-whisper word timings drive a pointer overlay. Default config is PPT, not a Manim motion-scene engine.",
+    "implementation_caveat": "ReviewerAgent returns score 10/approved true on response parse failure or exceptions. This slide loop is not a reliable automatic quality certificate.",
+    "public_artifact_audit": "Complete pinned tree contains starter-kit generation source but no benchmark item bundle, judge implementation, released human judgment table or LICENSE. Paper promises releases; their accessible artifact location was not independently established here.",
+    "dependencies": [
+      "Gemini API",
+      "Python 3.10 per README",
+      "LibreOffice/Poppler",
+      "Torch 2.10 and transformers",
+      "Qwen3-TTS 1.7B on CUDA",
+      "faster-whisper medium on CUDA",
+      "UI-TARS cursor path",
+      "MoviePy/FFmpeg",
+      "README recommends GPU with 20GB VRAM"
+    ],
+    "license": "No LICENSE file found in pinned public tree; do not assume permissive reuse from public visibility.",
+    "codex_subscription": "No native official Codex integration found. Default Gemini client and local GPU models require independent adaptation/setup.",
+    "reproduction_level": "Pinned complete tree plus nine selected text files inspected; not installed, rendered or model-executed. Strong evaluation-protocol reference, incomplete publicly located evaluation assets.",
+    "inspected_text_files": [
+      {
+        "path": "README.md",
+        "sha256": "a9a8636b6005e726adc17e1424aabfedfc3d9d2187d58a25ba34d1abf2582fd8",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/README.md"
+      },
+      {
+        "path": "config/default.yaml",
+        "sha256": "c25e4e47008467739c2467ceb0d12bcf8b75e01076a9ef2a53f51077c398a855",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/config/default.yaml"
+      },
+      {
+        "path": "requirements.txt",
+        "sha256": "723d4ce93271650d3552163ad6e57e86c404a26e680f3e23cdf3d9260c9f0852",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/requirements.txt"
+      },
+      {
+        "path": "scripts/T2V_pipeline.py",
+        "sha256": "05e243a60ddea4653609190869323bdd9156b0add8c3149e95393dd2e62a4db1",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/scripts/T2V_pipeline.py"
+      },
+      {
+        "path": "src/cursor/cursor.py",
+        "sha256": "da364016acbb1fe278f664f65e3f8a1f6a2c3135f0499c83d74911ce24fc2863",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/src/cursor/cursor.py"
+      },
+      {
+        "path": "src/outline/t2v_outline.py",
+        "sha256": "b420198f293da2d77fbcebe84794eb75b99fdec4e44e9a48636a3fae71535768",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/src/outline/t2v_outline.py"
+      },
+      {
+        "path": "src/slides_ppt/orchestrator.py",
+        "sha256": "6b92b06f561ffecd872b4ceb98b2365e2ca878267f8f4e1b73cb7a1ee94bf15f",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/src/slides_ppt/orchestrator.py"
+      },
+      {
+        "path": "src/slides_ppt/reviewer_agent.py",
+        "sha256": "69b5b84387a991ab1bef0dbcac2f4a6c58cc318e599b217b5ce147d6ed69e13e",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/src/slides_ppt/reviewer_agent.py"
+      },
+      {
+        "path": "src/tts/tts.py",
+        "sha256": "dc85f62f53170d324c26ef31616c3308eee26966900070fa2fc20ff4acfe2fcc",
+        "source": "https://github.com/Teaching-Monster/TeachingMonster-released/blob/d5a7cb2e63868ddd09f5f99d4245a5e617326880/src/tts/tts.py"
+      }
+    ]
+  }
+}

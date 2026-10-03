@@ -1,0 +1,80 @@
+{
+  "per_axis": {
+    "support": {
+      "matched": 8,
+      "mismatched": 0,
+      "unknown": 0
+    },
+    "consistency": {
+      "matched": 8,
+      "mismatched": 0,
+      "unknown": 0
+    },
+    "order": {
+      "matched": 8,
+      "mismatched": 0,
+      "unknown": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "K7",
+      "role": "reference",
+      "expected": {
+        "support": "demonstrated",
+        "consistency": "consistent",
+        "order": "coherent"
+      },
+      "repeat_agreement": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    },
+    {
+      "id": "M2",
+      "role": "text_only",
+      "expected": {
+        "support": "assertion_only",
+        "consistency": "unverifiable",
+        "order": "unverifiable"
+      },
+      "repeat_agreement": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    },
+    {
+      "id": "P9",
+      "role": "wrong_endpoint",
+      "expected": {
+        "support": "demonstrated",
+        "consistency": "inconsistent",
+        "order": "coherent"
+      },
+      "repeat_agreement": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    },
+    {
+      "id": "R4",
+      "role": "shuffled",
+      "expected": {
+        "support": "demonstrated",
+        "consistency": "consistent",
+        "order": "out_of_order"
+      },
+      "repeat_agreement": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    }
+  ],
+  "false_all_axis_acceptances": 0,
+  "screening_only": true,
+  "limits": "4 synthetic stimuli, 2 repeats, one model and prompt. No human learning measure or robust variance estimate. No tuning on these outputs."
+}

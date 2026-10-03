@@ -1,0 +1,44 @@
+{
+  "cases": {
+    "K7": {
+      "scene": "ProbeK7",
+      "role": "reference",
+      "support": "demonstrated",
+      "consistency": "consistent",
+      "order": "coherent"
+    },
+    "M2": {
+      "scene": "ProbeM2",
+      "role": "text_only",
+      "support": "assertion_only",
+      "consistency": "unverifiable",
+      "order": "unverifiable"
+    },
+    "P9": {
+      "scene": "ProbeP9",
+      "role": "wrong_endpoint",
+      "support": "demonstrated",
+      "consistency": "inconsistent",
+      "order": "coherent"
+    },
+    "R4": {
+      "scene": "ProbeR4",
+      "role": "shuffled",
+      "support": "demonstrated",
+      "consistency": "consistent",
+      "order": "out_of_order"
+    }
+  },
+  "times_s": [
+    0.75,
+    2.75,
+    4.75,
+    6.75,
+    8.75,
+    10.75
+  ],
+  "repeats": 2,
+  "purpose": "synthetic factual-support challenge, not human learning or artistic benchmark",
+  "no_claim": "Reference is hand-authored mathematically controlled stimulus, not a validated exemplar of teaching quality",
+  "scoring": "exact per-axis labels; missing/failed review is unknown, never accepted; no quality average"
+}

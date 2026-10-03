@@ -1,0 +1,107 @@
+{
+  "scope": "specific claims in generated outline/storyboard; separate source review still required; does not verify rasterized motion or learning",
+  "checks": [
+    {
+      "claim": "A first column = T(e1)",
+      "actual": "Matrix([[2], [0]])",
+      "expected": "Matrix([[2], [0]])",
+      "passed": true
+    },
+    {
+      "claim": "A second column = T(e2)",
+      "actual": "Matrix([[1], [1]])",
+      "expected": "Matrix([[1], [1]])",
+      "passed": true
+    },
+    {
+      "claim": "A(1,2)",
+      "actual": "Matrix([[4], [2]])",
+      "expected": "Matrix([[4], [2]])",
+      "passed": true
+    },
+    {
+      "claim": "A(x,y)",
+      "actual": "Matrix([[2*x + y], [y]])",
+      "expected": "Matrix([[2*x + y], [y]])",
+      "passed": true
+    },
+    {
+      "claim": "D(1,2)",
+      "actual": "Matrix([[2], [2]])",
+      "expected": "Matrix([[2], [2]])",
+      "passed": true
+    },
+    {
+      "claim": "R(1,2)",
+      "actual": "Matrix([[-2], [1]])",
+      "expected": "Matrix([[-2], [1]])",
+      "passed": true
+    },
+    {
+      "claim": "H(1,2)",
+      "actual": "Matrix([[3], [2]])",
+      "expected": "Matrix([[3], [2]])",
+      "passed": true
+    },
+    {
+      "claim": "C(1,1)",
+      "actual": "Matrix([[1], [0]])",
+      "expected": "Matrix([[1], [0]])",
+      "passed": true
+    },
+    {
+      "claim": "C(1,2)",
+      "actual": "Matrix([[1], [0]])",
+      "expected": "Matrix([[1], [0]])",
+      "passed": true
+    },
+    {
+      "claim": "C rank",
+      "actual": "1",
+      "expected": "1",
+      "passed": true
+    },
+    {
+      "claim": "Q(2,1)",
+      "actual": "Matrix([[2], [3]])",
+      "expected": "Matrix([[2], [3]])",
+      "passed": true
+    },
+    {
+      "claim": "T addition rule",
+      "actual": "Matrix([[2*u + 2*x], [v + y]])",
+      "expected": "Matrix([[2*u + 2*x], [v + y]])",
+      "passed": true
+    },
+    {
+      "claim": "T scalar rule",
+      "actual": "Matrix([[2*c*x], [c*y]])",
+      "expected": "Matrix([[2*c*x], [c*y]])",
+      "passed": true
+    },
+    {
+      "claim": "T origin",
+      "actual": "Matrix([[0], [0]])",
+      "expected": "Matrix([[0], [0]])",
+      "passed": true
+    },
+    {
+      "claim": "F(2,0)",
+      "actual": "Matrix([[4], [0]])",
+      "expected": "Matrix([[4], [0]])",
+      "passed": true
+    },
+    {
+      "claim": "2F(1,0)",
+      "actual": "Matrix([[2], [0]])",
+      "expected": "Matrix([[2], [0]])",
+      "passed": true
+    },
+    {
+      "claim": "S origin",
+      "actual": "Matrix([[1], [0]])",
+      "expected": "Matrix([[1], [0]])",
+      "passed": true
+    }
+  ]
+}

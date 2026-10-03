@@ -1,0 +1,194 @@
+{
+  "audit_date": "2026-10-02",
+  "validation_level": "Pinned primary-source and static implementation audit only. No installation, generation, rendering, video download or artistic review performed.",
+  "projects": [
+    {
+      "name": "VisualEDU",
+      "paper": "https://aclanthology.org/2025.findings-emnlp.889/",
+      "repo": "https://github.com/UchihaIchigo/VisualEDU",
+      "commit": "9f130301d1477d0ed2c4f6f17c3cf8cd0296ddcb",
+      "checkout": "work/research-baselines/VisualEDU",
+      "data": {
+        "paper_tasks": 200,
+        "released_literal_prompt_count": 200,
+        "prompt_file": "timu.py",
+        "large_artifact": "data.zip is a 135-byte Git LFS pointer advertising 1345395825 bytes. Payload was not fetched or inspected."
+      },
+      "pipeline": "Solve, retrieve tool/meta prompt, generate Manim, execution repair, one-frame VLM visual feedback.",
+      "implementation_gaps": [
+        "main.py lines 15-16 have unfinished num = and math_problem = assignments; source cannot parse as published.",
+        "Imports library and load_img_to_github, whose Python modules are missing.",
+        "Machine-specific Windows paths; unbounded execution repair loops.",
+        "feedback_visual.py extracts a single frame at floor(total_frames * 3 / 5); main runs one feedback iteration.",
+        "requirements.txt is a UTF-16 environment freeze with clip @ file:///D:/DeepL_code/CLIP-main/CLIP-main."
+      ],
+      "metrics": {
+        "paper": [
+          "LPR = SER × IHR",
+          "FE critique/reflection",
+          "AS animation quality"
+        ],
+        "actual": "No complete LPR/FE/AS aggregation/table evaluator found in inspected Python. generate_judge.py judges problem similarity for retrieval. Feedback inspects one image, not temporal explanatory meaning.",
+        "human": "Paper describes human and VLM review, but clearly reported human sample/rater counts, agreement data and public rating rows were not found in inspected source. Larger LFS payload remains unverified."
+      },
+      "dependency_versions": {
+        "manim": "0.19.0",
+        "manimgl": "1.6.1",
+        "openai": "1.65.4"
+      },
+      "license": "No repository LICENSE found; public visibility does not establish a reuse license.",
+      "verdict": "Not a complete directly executable reproduction. Useful task corpus and retrieval/feedback design; repair entrypoint, missing modules, paths and evaluator explicitly. Do not assume the uninspected LFS payload lacks additional data.",
+      "evidence": [
+        "https://github.com/UchihaIchigo/VisualEDU/blob/9f130301d1477d0ed2c4f6f17c3cf8cd0296ddcb/main.py#L15",
+        "https://github.com/UchihaIchigo/VisualEDU/blob/9f130301d1477d0ed2c4f6f17c3cf8cd0296ddcb/feedback_visual.py#L46",
+        "https://github.com/UchihaIchigo/VisualEDU/blob/9f130301d1477d0ed2c4f6f17c3cf8cd0296ddcb/data.zip"
+      ]
+    },
+    {
+      "name": "ALGOGEN",
+      "paper": [
+        "https://arxiv.org/html/2605.12159v1",
+        "https://aclanthology.org/2026.findings-acl.156/"
+      ],
+      "project_page": "https://algenlab.github.io/algogen/",
+      "repo": "https://github.com/algenlab/algogen_anonymous",
+      "commit": "1bb093c76499135ecf54fc8030219a4e7ee4424c",
+      "snapshot": "work/research-baselines/ALGOGEN-source",
+      "snapshot_method": "24 selected code/text files fetched via pinned GitHub contents API; per-file SHA256 in SOURCE_MANIFEST.json. Full git tree inventory inspected. Sparse git checkout lazy fetch suffered TLS failures; media blobs not fetched.",
+      "disambiguation": "algenlab/algogen is the website/demo repo. Its anonymous.4open.science implementation link returns repository_expired; author GitHub algogen_anonymous contains actual pipeline source.",
+      "data": {
+        "paper_tasks": 200,
+        "paper_categories": 6,
+        "released_examples": 5,
+        "missing": "No full 200-task experiment manifest or matching baseline comparison results found in source tree."
+      },
+      "pipeline": "LLM tracker → typed VTA trace → RSL/controller → JSON-schema checked render configuration → deterministic Manim → whole-video VLM AES. Large operation renderer is real implementation.",
+      "implementation_gaps": [
+        "tool_maker_agent.run_and_validate_trace checks JSON object, svl_version 5.0, initial_frame and deltas presence after tracker execution; does not fully validate VTA references/operation parameters or reference algorithm correctness.",
+        "Current toolmaker uses DeepSeek-V3.2 and default max-retries 1, differing from paper model set/up-to-3 repair.",
+        "run_pipeline tracker subprocess executions lack timeout; reuse of existing trace/video lacks source-hash integrity.",
+        "No Manim_direct / Manim_direct_rag / Manim_direct_novta full benchmark drivers or TEA evaluation script found."
+      ],
+      "metrics": {
+        "AES": "eval/aes_eval_video.py sends full base64 MP4 in video_url to zai-org/GLM-4.6V, parses five 0–20 dimensions: ElementLayout, Attractiveness, LogicFlow, AccuracyDepth, VisualConsistency. Genuine video input, not keywords; comprehension validity not established.",
+        "algorithm_correctness": "Paper uses LLM code rubric, not executable reference tests.",
+        "table2_caveat": "599/600 (99.8%) is our trace-generation/JSON success; 165/200 (82.5%) ManimDirect is end-to-end video-render success. Different success events/denominators cannot establish matched video-quality improvement.",
+        "table3": "Several minutes per video and differing successful-video sample sizes across arms; does not establish rapid local self-iteration.",
+        "human": "No learner comprehension experiment or released human rating rows found; TEA is an automatic rubric."
+      },
+      "dependency_versions": {
+        "python": "3.10",
+        "manim": "0.18.1",
+        "numpy": "1.26.4",
+        "openai": "1.96.1",
+        "jsonschema": "4.20.0"
+      },
+      "provider": "SiliconFlow API; a signed-in Codex workflow requires an explicit adapter, not credential extraction.",
+      "license": "No LICENSE in source repo or recognized GitHub license metadata. Paper plans MIT release; that does not establish current code license.",
+      "verdict": "Strong structural engineering reference and partial implemented baseline. Not complete reproduction of the published 200-task comparisons; supply task manifest, missing comparative drivers/TEA, matched budgets, model pins and reference correctness oracle.",
+      "evidence": [
+        "https://github.com/algenlab/algogen_anonymous/blob/1bb093c76499135ecf54fc8030219a4e7ee4424c/run_pipeline.py",
+        "https://github.com/algenlab/algogen_anonymous/blob/1bb093c76499135ecf54fc8030219a4e7ee4424c/toolmaker/tool_maker_agent.py#L166",
+        "https://github.com/algenlab/algogen_anonymous/blob/1bb093c76499135ecf54fc8030219a4e7ee4424c/eval/aes_eval_video.py#L139"
+      ]
+    },
+    {
+      "name": "ManiBench (nabin2004)",
+      "repo": "https://github.com/nabin2004/ManiBench",
+      "dataset": "https://huggingface.co/datasets/nabin2004/ManiBench",
+      "commit": "6bcf37bc271e09c9322e59079dcdffede569c9f4",
+      "checkout": "work/research-baselines/ManiBench",
+      "data": {
+        "tasks": 12,
+        "file": "ManiBench_Pilot_Dataset.json",
+        "saved_results_files": 17,
+        "saved_results_rows": 1687,
+        "generated_python_files": 283,
+        "note": "Rows can overlap/repeat across trials; do not claim 1687 independent examples."
+      },
+      "pipeline": "Generation with zero-shot/few-shot/CoT/constraint/version-aware prompt strategies; executability, version conflict, alignment and coverage metrics; analysis.py produces current automatic metric LaTeX/CSV/Markdown tables.",
+      "metrics": {
+        "executability": "AST/import compatibility plus optional actual timed low-quality Manim render.",
+        "alignment": "_detect_event matches event/description words and animation keyword banks as source substrings, with play-context regex fallback. No frame/video inspection or temporal alignment; comments or unused source can satisfy some checks.",
+        "coverage": "Regex/API-presence proxies for math annotations, visual mapping, numeric evidence and structure; API appearance does not prove visible explanation.",
+        "human": "Specification proposes two reviewers/output, third tie-break and agreement metrics. Pilot table claims 72 GPT-4o/Claude-3.5-Sonnet trials; public automatic result files contain other models. Matching original human annotations/agreement rows were not found.",
+        "table_code": "Current automatic result aggregation genuinely exists. Its source proxies differ materially from temporal/human evaluation described in specification."
+      },
+      "dependency_versions": {
+        "manim": "0.19.2",
+        "numpy": "2.4.2",
+        "pandas": "3.0.1"
+      },
+      "dependencies": "FFmpeg/LaTeX/Pango/pycairo/ManimPango; OpenRouter/Inference.net model APIs require adapter for signed-in Codex.",
+      "license": "dataset_card.md labels MIT, but no repository LICENSE found. Bundled third-party code/dependencies retain own rights; dataset metadata is not a complete code license audit.",
+      "verdict": "Useful small task set, generation runner, saved source/results and automatic render/static checks, not a validated video expression oracle. Installation not attempted.",
+      "evidence": [
+        "https://github.com/nabin2004/ManiBench/blob/6bcf37bc271e09c9322e59079dcdffede569c9f4/evaluation/metrics/alignment.py#L116",
+        "https://github.com/nabin2004/ManiBench/blob/6bcf37bc271e09c9322e59079dcdffede569c9f4/evaluation/metrics/coverage.py",
+        "https://github.com/nabin2004/ManiBench/blob/6bcf37bc271e09c9322e59079dcdffede569c9f4/ManiBench_Specification.md",
+        "https://github.com/nabin2004/ManiBench/blob/6bcf37bc271e09c9322e59079dcdffede569c9f4/evaluation/analysis.py"
+      ]
+    },
+    {
+      "name": "ManimBench (NtrpyDev)",
+      "repo": "https://github.com/NtrpyDev/manim-bench",
+      "commit": "b871e674fe9b0eea0619587824c23a665e108453",
+      "checkout": "work/research-baselines/manim-bench",
+      "version": "0.6.0",
+      "data": {
+        "tasks": 6,
+        "names": [
+          "coordinate_system_animation",
+          "derivative_motion_story",
+          "matrix_transformation_grid",
+          "geometric_area_proof",
+          "probability_distribution_simulation",
+          "fourier_series_decomposition"
+        ]
+      },
+      "pipeline": "Operational runner with provider adapters including file_provider for external generated source; static requirements, render checks, sampled-frame sanity, layout probe and optional manual review.",
+      "metrics": {
+        "source": "Syntax/MainScene/imports/label literals/sections/suspicious code. Required source terms are advisory in v0.6.0; describing all checks as keyword-only would be inaccurate.",
+        "frame_sanity": "Six sampled frames analyze contrast, foreground/edge density, crowded grid cells and connected components. Can detect blank/clutter/clipping, not causal explanatory meaning.",
+        "layout_probe": "Runs only after successful local render; imports scene, stubs play/wait, calls construct and inspects final label bounds/overlap. Not full trajectory; official container path is inconclusive.",
+        "inconclusive": "Missing visual dependencies/extraction/probe errors may yield inconclusive with passed:true, so passing score can lack visual evidence.",
+        "manual": "Pending/pass/partial/fail gallery review and adjusted scores; rubric includes clarity/pacing/faithfulness, but no released validated viewer-comprehension dataset found.",
+        "study": "No controlled paper experiment/human-study evidence verified for this operational project."
+      },
+      "dependency_versions": {
+        "python": ">=3.11",
+        "manim_render_extra": ">=0.20,<0.21"
+      },
+      "dependencies": "PyYAML/Pillow/numpy/OpenCV/textual and system Manim dependencies.",
+      "license": "MIT repository LICENSE exists. Transitive dependency licenses not exhaustively audited.",
+      "verdict": "Most readily usable operational runner of this audited subset, based on static inspection only. Reuse task specs/file_provider/render checks; add full-video review instead of equating capability score with understandability.",
+      "evidence": [
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/src/manimbench/scoring.py#L420",
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/src/manimbench/scoring.py#L609",
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/src/manimbench/visual_review.py",
+        "https://github.com/NtrpyDev/manim-bench/blob/b871e674fe9b0eea0619587824c23a665e108453/LICENSE"
+      ]
+    }
+  ],
+  "recommendation": {
+    "ready_operational_tasks": "NtrpyDev 6 tasks/file_provider or nabin2004 12 tasks. Treat static/render metrics as guards and use separate full-video expression review.",
+    "structural_reference": "ALGOGEN typed state/operation boundary and deterministic renderer, with explicit reproduction gaps.",
+    "lower_priority": "Do not spend first iteration reconstructing VisualEDU until its large artifact and missing components are verified.",
+    "full_baseline": "No candidate here is both a complete released reproduction of its reported experiment and a validated benchmark of viewer understanding.",
+    "matched_experiment_requirements": [
+      "Pin task IDs, source and every repair attempt.",
+      "Match generation/repair budgets and success events.",
+      "Separate reference/math checks, render sanity and full-video expression/causal-mechanism review.",
+      "Record latency/tool cost and include failure cases.",
+      "Use human review or independently calibrated VLM; no static-keyword quality substitution."
+    ]
+  },
+  "name_warning": "SuienR/ManimBench-v1 / ManimTrainer is a third separate project audited by parent; its 417 tasks must not be confused with NtrpyDev 6 or nabin2004 12.",
+  "limitations": [
+    "Static inspection only, no runtime success claim.",
+    "No video downloaded or artistically reviewed.",
+    "VisualEDU LFS payload not inspected.",
+    "ALGOGEN selective source snapshot and full tree inventory, not full media checkout.",
+    "Declared versions/repo license presence checked, not an exhaustive transitive license audit."
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "support": {
+      "type": "string",
+      "enum": [
+        "demonstrated",
+        "assertion_only",
+        "uncertain"
+      ]
+    },
+    "consistency": {
+      "type": "string",
+      "enum": [
+        "consistent",
+        "inconsistent",
+        "unverifiable"
+      ]
+    },
+    "order": {
+      "type": "string",
+      "enum": [
+        "coherent",
+        "out_of_order",
+        "unverifiable"
+      ]
+    },
+    "reconstructed_mapping": {
+      "type": "string"
+    },
+    "uncertainty": {
+      "type": "string"
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "time_s": {
+            "type": "number"
+          },
+          "evidence": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "time_s",
+          "evidence"
+        ]
+      }
+    }
+  },
+  "required": [
+    "support",
+    "consistency",
+    "order",
+    "reconstructed_mapping",
+    "uncertainty",
+    "observations"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "M2",
+  "repeat": 1,
+  "status": "reviewed",
+  "response": {
+    "support": "assertion_only",
+    "consistency": "unverifiable",
+    "order": "unverifiable",
+    "reconstructed_mapping": "可见文字给出 A=[[2,1],[0,1]]、v=(1,2)、Av=(4,2)，并写出 1(2,0)+2(1,1)=(4,2)。这仅重建了文字所述映射，未见几何构造。",
+    "uncertainty": "仅有六个采样时刻，缩放可能影响细节辨认；不能推断未采样的过渡。所示画面未见坐标刻度、分量箭头或几何端点，因此无法核对几何一致性及构造顺序。",
+    "observations": [
+      {
+        "time_s": 0.75,
+        "evidence": "标题声明 input -> basis images -> combine -> result；文字介绍输入 v=(1,2)，结果与求和公式已同时出现。"
+      },
+      {
+        "time_s": 2.75,
+        "evidence": "文字称基向量构建输入，但未见基向量图示。"
+      },
+      {
+        "time_s": 4.75,
+        "evidence": "文字称矩阵列为基向量的像，仅显示矩阵与公式。"
+      },
+      {
+        "time_s": 6.75,
+        "evidence": "文字要求合并一个蓝色列与两个橙色列，未见对应彩色箭头或合并过程。"
+      },
+      {
+        "time_s": 8.75,
+        "evidence": "文字称端点给出 Av=(4,2)，未见可核验的几何端点。"
+      },
+      {
+        "time_s": 10.75,
+        "evidence": "文字要求核对列之和与结果，画面仍仅有文字、矩阵及求和公式。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 57.168,
+    "usage": [
+      {
+        "input_tokens": 18726,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 455,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "tool_types": []
+  }
+}
