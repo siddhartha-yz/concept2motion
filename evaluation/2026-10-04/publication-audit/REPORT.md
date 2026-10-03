@@ -2,7 +2,7 @@
 
 日期：2026-10-04。类型：发布检查；没有新模型调用、训练或艺术质量评测。
 
-**扫描未发现凭据，冻结证据未被改写。** 检查范围与机器可读结果见 [preflight.json](preflight.json)。公开后的状态另记在 [publication.json](publication.json)。
+**仓库已公开并独立核验；扫描未发现凭据，冻结证据未被改写。** 检查范围与机器可读结果见 [preflight.json](preflight.json)。公开后的状态记在 [publication.json](publication.json)。
 
 ## 检查范围
 
@@ -26,7 +26,7 @@
 
 本地 63 个 Python 测试、5 个 Node 测试文件通过。非证据文件的空白检查通过；归档源码和冻结输入保留原始字节，并通过 `.gitattributes` 区别处理空白。
 
-最终提交再次扫描通过后，先推送已审查的 `main`，再按用户授权将仓库设为公开，核对远端 SHA 和可见性。该步骤的实况写入 `publication.json`，不把计划当作已执行。
+公开前的最终提交包含 20 次历史提交、1,703 个文件，再次扫描均为零发现。随后已推送 `main`，按用户授权将仓库设为公开，并通过独立读取核对远端 SHA 与可见性。实况写入 `publication.json`。本条发布记录的文档修改也在推送前扫描。
 
 再次检查可使用官方 Gitleaks：
 

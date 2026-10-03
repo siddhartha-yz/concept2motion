@@ -1,7 +1,29 @@
 {
-  "status": "pending",
+  "status": "published",
+  "recorded_at_utc": "2026-10-03T16:20:31Z",
+  "recorded_local_date": "2026-10-04",
   "repository": "https://github.com/siddhartha-yz/concept2motion",
   "branch": "main",
   "authorization": "User explicitly requested making the repository public after a sensitive-file check.",
-  "verified_public": false
+  "verified_public": true,
+  "github_visibility": "PUBLIC",
+  "verified_main_at_publication": "521c500bb7dc9eb1a701843e4f27522910ed1dc5",
+  "publication_head_matched_local": true,
+  "final_prepublication_audit": {
+    "history_commits": 20,
+    "committed_files": 1703,
+    "gitleaks_history_findings": 0,
+    "gitleaks_file_findings": 0,
+    "prohibited_committed_paths": []
+  },
+  "existing_remote_surfaces_audit": {
+    "actions_artifacts": 9,
+    "ci_logs": 10,
+    "findings": 0
+  },
+  "publication_method": "Official GitHub API PATCH private=false, then separate repo view and main commit verification. Installed gh did not support the newer visibility confirmation flag.",
+  "new_model_calls": 0,
+  "training_runs": 0,
+  "research_commits_before_publication": 9,
+  "note": "This publication-record commit adds documentation; its staged changes are scanned before pushing. No internal application refs or ignored working files are published."
 }
