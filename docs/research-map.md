@@ -15,6 +15,8 @@
 | 有没有可信的现成评分？ | 已核查论文公式和验证范围，尚未在本项目独立复现；新的图形事实控制只做了本地渲染 | [已发表评价研究](../evaluation/2026-10-03/published-metrics/REPORT.md)、[未执行裁判的控制包](../evaluation/2026-10-03/judge-fact-probes-v3/REPORT.md) · [aa4ec74](https://github.com/siddhartha-yz/concept2motion/commit/aa4ec74) |
 | 仓库到底承诺什么？现在该训练吗？ | 明确可证伪假设、约束与三项缺口；先验证反馈循环，后训练仍是候选实验 | [定位](positioning.md)、[模型策略](decisions/2026-10-04-model-strategy.md)、[Harness 参考](decisions/2026-10-04-harness-reference.md) · [585b582](https://github.com/siddhartha-yz/concept2motion/commit/585b582) |
 
+本轮无新额度的执行边界见[离线反馈设计](decisions/2026-10-04-offline-feedback.md)：先准备事实响应校验，再用已知控制验证技术修改与回退；不把它算作新模型或表达质量结果。
+
 ## 下一段研究的顺序
 
 1. [评分](issues/evaluation-score.md)：固定一个现成评价方案，记录原样复现和改编的差异，先检验已知对错的控制样本。
