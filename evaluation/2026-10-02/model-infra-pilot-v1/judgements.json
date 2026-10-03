@@ -1,0 +1,1072 @@
+[
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "order": 1,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "105e2b54608ff32bdb2d60f67467e5e51632e09c4c1b3850e4d82339b8189cc2",
+      "image_sha256": [
+        "b83fbae86234812f0c473b0ad90de2e8a79fb19c13df07c70012ef0fee9c5a3a",
+        "d5e09b529c04120229952828ff1406b608ce05a7e7ca6ce156d3c1cabd40785f",
+        "20d0ba55bbeecc5c1a32603f704a105ee054224922f2e0bccfd0e61d7f485108",
+        "6a77125baba97d6f43d45a90b57f4ab7cf5d29ceca8171f13a017ca0ab998c37"
+      ],
+      "status": "completed",
+      "response": {
+        "videos": [
+          {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "uncertain",
+                "time_s": 1,
+                "evidence": "A/B/C have distinct colored bars and signed numerical labels, but all bars extend rightward without a zero reference. Geometry does not establish the negative sign of A."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "Each input row points toward a matching-color positive exp bar labeled 0.449, 1.492 or 3.320; their lengths reflect the mass ordering."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Three matching-color branches converge beside the single Z box. This visibly associates all three masses with one total, though it does not geometrically show their addition."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "Three contiguous colored segments fill one bounded bar labeled total capacity = 1, with class labels approximately 0.09, 0.28 and 0.63."
+              }
+            ],
+            "reconstructed_message": "Exponentiate each score into positive mass, combine the three masses into Z, divide every mass by Z, and represent the resulting probabilities as shares of one unit.",
+            "limits": "Input sign geometry is ambiguous. Converging lines establish a shared destination but provide limited evidence of additive construction or common scaling."
+          },
+          {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "A's blue negative bar extends left of the aligned zero position; B and C extend right. Colored class labels preserve identity."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Row arrows connect signed inputs to matching-color, rightward exp bars labeled 0.449, 1.492 and 3.320, with proportional lengths."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Three colored branches converge at one point next to the single Z total. All three inputs to that total remain identifiable."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "A blue, purple and orange partition completely fills a single bar labeled capacity = 1; class labels identify the three shares."
+              }
+            ],
+            "reconstructed_message": "Signed scores become positive exponential masses; the three masses feed one denominator, and dividing by that denominator produces three shares of one capacity.",
+            "limits": "The common total is represented by convergence rather than a visibly assembled sum. The sampled frames do not establish the continuous scaling process."
+          },
+          {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "Aligned zero ticks separate A's leftward negative bar from B's and C's rightward positive bars. Signed values and consistent class colors reinforce the geometry."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "Each signed input points to a matching-color positive bar explicitly labeled with its own exp expression and resulting mass. All mass bars extend rightward."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Blue, purple and orange branches converge beside one Z box, linking the three separately visible mass bars to the same total."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "Three adjacent class-colored segments fill one bounded total-capacity-1 bar, with shares labeled approximately 0.09, 0.28 and 0.63."
+              }
+            ],
+            "reconstructed_message": "Negative and positive scores both become positive exponential masses. These masses contribute to one common total, and normalization turns them into a partition of one unit.",
+            "limits": "Convergence supports shared participation more strongly than addition itself. The connector near the C mass label and first division row makes the later layout somewhat crowded."
+          },
+          {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "A extends left from the stated zero boundary, while B and C extend right; signed values and distinct class colors identify the inputs."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "The same class colors and row ordering now identify three rightward bars, each accompanied by its specific exponential input and positive value."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "The lower shared-total bar contains adjacent segments in all three class colors, while remaining mass is visible above. This supports collection into a common additive container; the sampled assembly is incomplete."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "One bar labeled total probability = 1 is fully partitioned into three class-colored segments, with corresponding mass-over-common-total expressions and percentages."
+              }
+            ],
+            "reconstructed_message": "Convert signed scores into positive masses, collect those masses into one segmented total, then scale that whole while retaining its class proportions. The probabilities are shares of that same whole.",
+            "limits": "The 8-second frame shows partial assembly, not a completed mass-conservation check. The 11- and 14-second bars support preserved proportions, but sampled stills cannot verify continuous transfer or scaling."
+          }
+        ],
+        "comparisons": [
+          {
+            "left": "W",
+            "right": "X",
+            "winner": "X",
+            "reason": "X geometrically distinguishes negative and positive inputs around an aligned zero position. Both show convergence and a unit partition, while X also separates mass labels from bars more cleanly."
+          },
+          {
+            "left": "W",
+            "right": "Y",
+            "winner": "Y",
+            "reason": "Y supplies clear signed-bar geometry at 1 second and individual exp labels at 4 seconds. W's rightward input bars leave sign encoding ambiguous."
+          },
+          {
+            "left": "W",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z shows signed input geometry and collects class-colored segments inside one total. W chiefly uses converging lines and formulas to explain the denominator."
+          },
+          {
+            "left": "X",
+            "right": "Y",
+            "winner": "Y",
+            "reason": "Y has a modest advantage in making each transformation identifiable: at 4 seconds each positive bar carries its own exp expression and value, following explicit zero-tick sign geometry at 1 second. Their shared-total and final-partition evidence is otherwise similar."
+          },
+          {
+            "left": "X",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z's segmented shared total makes additive participation more concrete than X's convergence diagram. Its similarly proportioned segmented bars at 11 and 14 seconds also support common scaling."
+          },
+          {
+            "left": "Y",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Y clearly explains individual exponentiation, but Z more directly supports the central denominator mechanism through collection into a segmented whole and a subsequent unit partition with preserved class proportions."
+          }
+        ],
+        "uncertainty": "Assessment uses only the supplied frames at 1, 4, 8, 11, 14 and 17 seconds. Demonstrated means the sampled geometry supports the criterion, not that unseen motion, exact conservation, rendering quality throughout, or actual newcomer learning has been verified. No source, model provenance, generation process or revision history was assessed."
+      },
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 88.192,
+        "usage": [
+          {
+            "input_tokens": 27701,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1932,
+            "reasoning_output_tokens": 197
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "status": "reviewed"
+  },
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "order": 2,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "5202c9d35850eada8c2c6e8db3eb4e1213b6d493cf2fe0af3e264a609269b1c9",
+      "image_sha256": [
+        "6a77125baba97d6f43d45a90b57f4ab7cf5d29ceca8171f13a017ca0ab998c37",
+        "20d0ba55bbeecc5c1a32603f704a105ee054224922f2e0bccfd0e61d7f485108",
+        "d5e09b529c04120229952828ff1406b608ce05a7e7ca6ce156d3c1cabd40785f",
+        "b83fbae86234812f0c473b0ad90de2e8a79fb19c13df07c70012ef0fee9c5a3a"
+      ],
+      "status": "completed",
+      "response": {
+        "videos": [
+          {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "contradicted",
+                "time_s": 1,
+                "evidence": "A/B/C have distinct colors and signed numerical labels, but −0.8 is drawn as a short rightward bar alongside rightward positive bars, without a zero reference. Bar lengths do not consistently represent the displayed score magnitudes."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Each input row points toward a matching-color bar in the positive exp-mass column. All mass bars extend rightward, with lengths ordered consistently with 0.449, 1.492 and 3.320."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Three class-colored branches beside the three mass rows converge next to one total box, Z = 5.261. This supports shared contribution, although the total is not geometrically assembled."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "Blue, purple and orange segments fill one contiguous bar with endpoint marks and a total-capacity-one label; their widths correspond approximately to 0.09, 0.28 and 0.63."
+              }
+            ],
+            "reconstructed_message": "Three class scores become positive masses, feed one shared denominator, and produce shares filling one probability capacity.",
+            "limits": "The input geometry conflicts with the signed-score explanation. The shared total is represented by converging lines and a formula rather than an additive construction; some values overlap bars."
+          },
+          {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "A's −0.8 bar extends left of the aligned baseline, while B's 0.4 and C's 1.2 bars extend right. Colored class labels preserve identity."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Retained signed input bars connect through row arrows to matching-color, rightward exp-mass bars labeled 0.449, 1.492 and 3.320, with proportional relative lengths."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Three colored branches from the mass-row region meet at one junction adjacent to the single Z total box, visibly connecting all classes to a common destination."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "Three matching-color segments partition an endpoint-marked bar labeled capacity = 1, with approximate shares 0.09, 0.28 and 0.63."
+              }
+            ],
+            "reconstructed_message": "Signed class scores map to positive exponential masses; all masses feed the same total, which is reused to obtain a three-part unit-capacity distribution.",
+            "limits": "Convergence identifies a shared destination but does not show mass lengths being added or uniformly rescaled. The 4-second sample lacks individual exponential expressions and mass values."
+          },
+          {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "Zero ticks separate A's leftward negative bar from B's and C's rightward positive bars. Colored A/B/C labels and explicit −0.8, +0.4 and +1.2 values identify the inputs."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "Input values and row arrows lead to matching-color positive bars, individually labeled exp(−0.8), exp(0.4) and exp(1.2), with corresponding values and proportional lengths."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Three class-colored branches converge beside the single Z = 5.261 box, connecting the three mass rows to one shared total."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "A blue/purple/orange stacked bar fills one marked capacity labeled 1. Class labels and approximate probabilities identify its three adjacent segments."
+              }
+            ],
+            "reconstructed_message": "Exponentiation turns each signed score into positive mass. The three masses share a summed denominator, and their normalized outputs occupy one common unit capacity.",
+            "limits": "The total is indicated by converging branches rather than assembled mass geometry. The right-side convergence and division expressions are crowded, and the signed input bars disappear."
+          },
+          {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "A's −0.8 bar extends left from the labeled zero boundary; B's +0.4 and C's +1.2 bars extend right. Cyan, amber and purple consistently identify the classes."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "The same colored class rows now contain entirely rightward bars, with lengths proportional to the individually displayed exponential masses 0.449, 1.492 and 3.320."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "The shared-total bar contains adjacent cyan, amber and purple portions while an upper purple remainder is still visible. The matching colors and stacked receiving bar support accumulation into one total."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "Three contiguous colored segments fill one bar labeled total probability = 1. Their widths match approximately 8.54%, 28.35% and 63.10%, and each class is shown divided by the same 5.261."
+              }
+            ],
+            "reconstructed_message": "Signed scores become positive masses, which are collected into one combined amount. Scaling that combined amount to one preserves the relative colored shares, explaining why each probability uses the same denominator.",
+            "limits": "The 8-second total is only partially assembled. Samples support the collection and final partition, but cannot establish continuous transfer or verify uniform scaling throughout the unseen intervals. Displayed percentages have rounding error."
+          }
+        ],
+        "comparisons": [
+          {
+            "left": "W",
+            "right": "X",
+            "winner": "X",
+            "reason": "X visibly distinguishes negative and positive inputs around a baseline and retains that geometry beside the mass mapping. W's initial rightward bars conflict with the signed values; their later shared-total and capacity diagrams are otherwise similar."
+          },
+          {
+            "left": "W",
+            "right": "Y",
+            "winner": "Y",
+            "reason": "Y supplies clear zero ticks and signed input geometry at 1 second, then individually labeled exponential bars at 4 seconds. W has misleading input geometry, with no stronger shared-total construction to compensate."
+          },
+          {
+            "left": "W",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z combines correct signed input geometry with a visibly accumulating, color-segmented total at 8 seconds. W uses a convergence junction and has conflicting initial score bars."
+          },
+          {
+            "left": "X",
+            "right": "Y",
+            "winner": "Y",
+            "reason": "The shared-total and final-capacity mechanisms are closely matched. Y has clearer zero markers at 1 second and explicitly links each exponential expression to its proportional positive bar at 4 seconds. X retains input geometry and has cleaner connector spacing, but its early exponential mapping is less explicit."
+          },
+          {
+            "left": "X",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z makes the common total a stacked collection of the actual class colors, followed by a similarly proportioned unit bar. X connects masses to a formula box but does not geometrically construct the sum, making the reason for the common denominator less directly visible."
+          },
+          {
+            "left": "Y",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Y clearly identifies exponentiation, but its shared total remains a convergence diagram and formula. Z's stacked accumulation and subsequent common whole more directly support the causal explanation that all outputs are shares of the same collected mass."
+          }
+        ],
+        "uncertainty": "Assessment uses only the six supplied frames per candidate at 1, 4, 8, 11, 14 and 17 seconds. Continuous motion, interpolation, audio, actual viewer learning, source correctness and rendering reliability were not assessed. Demonstrated relations are limited to visible geometry; the Y–X preference is narrow."
+      },
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 107.322,
+        "usage": [
+          {
+            "input_tokens": 27298,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2219,
+            "reasoning_output_tokens": 154
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "status": "reviewed"
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "order": 1,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "105e2b54608ff32bdb2d60f67467e5e51632e09c4c1b3850e4d82339b8189cc2",
+      "image_sha256": [
+        "0962bc3aee5d4530eb2209c28316450dcb9160f05167f34e3dda6f24625ce390",
+        "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+        "f024d35c8bd33c5c7ee92fcfd119e4fc18c9c2e79e07c6f56d35bebaef3bd691",
+        "b7c4989bad1a21e0e3bc642f33883c852859a951df8236f8047df9916d858982"
+      ],
+      "status": "completed",
+      "response": {
+        "videos": [
+          {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "甲、乙、丙有固定颜色及带符号数值；甲条向零线左侧延伸，乙、丙向右，长度对应输入大小。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "三类颜色延续至正质量，条长约为44、145、324，与0.449、1.492、3.320成比例；4秒另有逐类指数标签，支持输入与质量的对应。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "三条虽在不同高度，但前一条右端与后一条左端水平对齐，构成首尾累加；下方明确标出共同总量Z及三项相加。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "三色连续、无缝占满同一条形容量，标明总容量1＝100%；各段长度对应所列百分比。"
+              }
+            ],
+            "reconstructed_message": "带符号分数先变成正质量，三份质量首尾相加得到Z，再统一除以Z，成为同一整体中的三个份额。共用分母意味着使用同一个总量和缩放尺度。",
+            "limits": "4秒的质量条长尚不符合所标指数值的比例，8秒则符合；不能由采样判断中间如何变化。11秒到14秒整体条形长度改变，统一缩放过程本身未被连续观察。百分比因四舍五入合计99.99%。"
+          },
+          {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "仅显示NO FRAME AVAILABLE，无输入或类别。"
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "仅显示NO FRAME AVAILABLE，无指数质量图形。"
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "仅显示NO FRAME AVAILABLE，无共同总量。"
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "仅显示NO FRAME AVAILABLE，无概率容量分割。"
+              }
+            ],
+            "reconstructed_message": "无法重建解释：六个采样位置均无可用画面。",
+            "limits": "这是所提供证据缺失，不能据此推断原视频内容或失败原因。"
+          },
+          {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "甲、乙、丙以颜色和数值区分；负输入向中心标记左侧延伸，两个正输入向右延伸。"
+              },
+              {
+                "criterion": 1,
+                "status": "contradicted",
+                "time_s": 8,
+                "evidence": "同色指数标签建立了对应，但正质量条长约48、83、143，并不符合0.45、1.49、3.32的比例；甲相对丙明显过长。几何只支持正值及排序，不能正确表示指数质量大小。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "三条不同颜色的连线从各质量条附近汇入同一个Σe^z＝5.26框，明确表现三类共同贡献一个总和。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "底部三色段连续填满一根共同条形，长度约对应0.09、0.28、0.63，并标注概率之和为1。"
+              }
+            ],
+            "reconstructed_message": "三类输入各有正指数质量，所有质量汇入一个公共分母，每类用自己的质量除以它，最终分完一份总容量。",
+            "limits": "质量条的比例与数值不一致，削弱从质量到最终份额的数量连续性。11秒以后除法文字与条形重叠，且整体字号较小。"
+          },
+          {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "类别颜色、带符号数值、零点标记和左右延伸方向共同区分负输入与正输入。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "输入与正质量按类别同色、同行对应；指数质量条均向右，长度约7、25、55，与0.45、1.49、3.32的比例相符。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "三条同色连线分别从质量区域汇入唯一的Σe^z＝5.2613框，框下明确称其为共同分母。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "底部单一容量由三色连续分割，比例对应0.085、0.284、0.631；上方标明总量1，下方三项相加为1。"
+              }
+            ],
+            "reconstructed_message": "每个带符号输入对应一份正指数质量，三份共同形成唯一总和；各自除以这个总和，所得概率按原质量比例分割同一个总量1。",
+            "limits": "文字较小，甲的质量条很短；最终分段主要依靠颜色追踪类别。除法使用舍入后的显示值，等号表达的是近似数值关系。"
+          }
+        ],
+        "comparisons": [
+          {
+            "left": "W",
+            "right": "X",
+            "winner": "W",
+            "reason": "W在8秒展示质量首尾累加、14秒展示共同容量分割；X全部采样缺失。"
+          },
+          {
+            "left": "W",
+            "right": "Y",
+            "winner": "W",
+            "reason": "W在8秒的质量长度正确且直接构成总量，14秒份额清楚可读；Y虽有明确汇聚连线，但质量长度比例错误，11秒除法文字还与图形重叠。"
+          },
+          {
+            "left": "W",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z从4秒起以正确比例呈现质量，8至14秒持续保留输入、质量、唯一总和及最终容量，使类别和公共分母的关系更易追踪。W字号更大、累加几何更直接，但4秒质量比例不符，后续输入也不再同屏。"
+          },
+          {
+            "left": "X",
+            "right": "Y",
+            "winner": "Y",
+            "reason": "Y有可见的输入符号、三路汇入公共总和及最终容量分割；X无可用画面。"
+          },
+          {
+            "left": "X",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z四个步骤都有对应几何证据；X四项均缺少画面证据。"
+          },
+          {
+            "left": "Y",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "两者都有三路汇总和最终分割，但Z质量条比例正确，11秒逐类除法与条形分开，14秒的三位小数份额也更便于核对共同容量。"
+          }
+        ],
+        "uncertainty": "仅评估1、4、8、11、14、17秒的附图。不能确认采样间的运动、转化路径、旁白、真实学习效果或完整视频质量。条长判断为附图中的近似视觉测量，未读取源代码或进行独立数学测试；未推断任何候选的生成方法、模型或修订历史。"
+      },
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 110.127,
+        "usage": [
+          {
+            "input_tokens": 27603,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2227,
+            "reasoning_output_tokens": 170
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "status": "reviewed"
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "order": 2,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "5202c9d35850eada8c2c6e8db3eb4e1213b6d493cf2fe0af3e264a609269b1c9",
+      "image_sha256": [
+        "b7c4989bad1a21e0e3bc642f33883c852859a951df8236f8047df9916d858982",
+        "f024d35c8bd33c5c7ee92fcfd119e4fc18c9c2e79e07c6f56d35bebaef3bd691",
+        "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+        "0962bc3aee5d4530eb2209c28316450dcb9160f05167f34e3dda6f24625ce390"
+      ],
+      "status": "completed",
+      "response": {
+        "videos": [
+          {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "甲、乙、丙分别以蓝、黄、紫标识；−0.8条向零轴左侧延伸，+0.4和+1.2向右延伸。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "三个类别保留颜色和行位置，原有符号输入对应到标有指数值0.449、1.492、3.320的正长度条。此帧条长比例并不精确，不能据此确认定量映射。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "蓝、黄、紫三条沿水平方向首尾接续，虽在不同高度，但端点依次衔接，长度约对应三份质量；下方标明共同总量Z。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "同一横条由三个保留类别颜色的区段无缝分满，上方标明总容量1=100%，下方分别标出三类百分比。"
+              }
+            ],
+            "reconstructed_message": "带符号分数先变成正质量，三份质量接成共同总量Z；每份都除以Z，相当于把同一个整体统一缩放到1，各类别保留自身份额。",
+            "limits": "4秒的指数条比例不够准确；8秒的相加几何和14秒的分割几何更清楚。仅能判断采样状态，不能确认其间如何移动或缩放。"
+          },
+          {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "画面仅显示NO FRAME AVAILABLE，没有输入或类别。"
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "画面仅显示NO FRAME AVAILABLE，没有指数转换证据。"
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "画面仅显示NO FRAME AVAILABLE，没有共同总量几何。"
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "画面仅显示NO FRAME AVAILABLE，没有概率分割几何。"
+              }
+            ],
+            "reconstructed_message": "无法从所供图片重建解释。",
+            "limits": "六个时间点均无可用帧。这是证据缺失，不能据此断言原视频内容错误。"
+          },
+          {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "甲、乙、丙保留蓝、紫、橙身份；−0.8条在共同零点左侧，+0.4和+1.2条在右侧。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "每行输入右侧出现同色正长度条，并标注对应指数值；行和颜色支持逐类对应。不过三条长度不与0.45、1.49、3.32成比例。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "三份同色质量各有连线汇入唯一的Σe^z=5.26框，明确显示三类共同贡献一个总和。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "底部蓝、紫、橙区段无缝拼成一根完整横条，分别标为甲0.09、乙0.28、丙0.63，并标明概率之和为1。"
+              }
+            ],
+            "reconstructed_message": "三类分数变成正质量，各质量汇入同一个分母，再以各自质量除以共同总和，形成分满一个整体的概率。",
+            "limits": "指数质量条的相对长度失真，削弱质量与最终份额的几何联系。11至17秒除法文字与条形、连线重叠，降低可读性。"
+          },
+          {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "甲、乙、丙以蓝、紫、橙区分；−0.8条向零点左侧延伸，+0.4与+1.2条向右延伸，另有零点标识。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "每行带符号输入右侧都有同色指数质量条，标为0.45、1.49、3.32；三条均为正长度，长度比例大致匹配数值。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "三条质量分别以同色线汇入一个Σe^z=5.2613框，几何上明确指向唯一共享总量。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "底部蓝、紫、橙三段连续分满一根横条，标明总量1及0.085+0.284+0.631=1；颜色保持类别对应。"
+              }
+            ],
+            "reconstructed_message": "三个带符号输入经指数变成正质量，三份质量汇入共同总和；各自除以这一总和，就成为同一个总量1中的三份概率。",
+            "limits": "共同总和主要通过汇聚连线表达，未像首尾相接的长度那样直接展示加法。文字和质量条偏小；不能从静态采样确认连续转换。"
+          }
+        ],
+        "comparisons": [
+          {
+            "left": "W",
+            "right": "X",
+            "winner": "W",
+            "reason": "W有符号输入、质量相加及总量1分割的可见几何；X所有采样均无可用帧。"
+          },
+          {
+            "left": "W",
+            "right": "Y",
+            "winner": "W",
+            "reason": "W在8秒用首尾接续且比例较准确的质量条显示共同总量，14秒以清晰同色分段显示份额。Y的质量条比例失真，后段除法文字被几何遮挡。"
+          },
+          {
+            "left": "W",
+            "right": "Z",
+            "winner": "W",
+            "reason": "Z的4秒指数比例更准确，但W的8秒首尾接续更直接展示总量如何由三份组成，11至14秒的同色整体分割更清楚地支持统一缩放。W整体更易辨认共享分母的因果机制。"
+          },
+          {
+            "left": "X",
+            "right": "Y",
+            "winner": "Y",
+            "reason": "Y提供逐类质量对应、三线汇入共同总量及最终完整分割；X没有内容证据。"
+          },
+          {
+            "left": "X",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z四步均有可辨认的几何支持；X六个时间点都缺帧。"
+          },
+          {
+            "left": "Y",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "两者都有共同汇聚和最终分割，但Z的指数质量长度比例更可信，11秒各类除法也更少被遮挡，更容易追踪质量、共同分母和最终份额之间的联系。"
+          }
+        ],
+        "uncertainty": "仅评估1、4、8、11、14、17秒的接触表采样；未观看连续运动或音频，未读取源码或执行数学测试。判断区分可见几何与文字主张，不推断实际学习效果，也不把X缺帧解释为已知的生成或渲染失败原因。"
+      },
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 106.461,
+        "usage": [
+          {
+            "input_tokens": 27850,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2218,
+            "reasoning_output_tokens": 134
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "status": "reviewed"
+  },
+  {
+    "case": "residual",
+    "repeat": 1,
+    "order": 1,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "69b6175a3ab67865bb499187ca8f749e498bd95b7bf62648c26c945b93728568",
+      "image_sha256": [
+        "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09",
+        "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+        "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75",
+        "e50fab02605d4cee5722ccfd47c526e4653eb73e7ef8fc3fabb8a7bfe34735c1"
+      ],
+      "status": "completed",
+      "response": {
+        "videos": [
+          {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The panel says NO FRAME AVAILABLE; no signed components or identity path are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "The panel says NO FRAME AVAILABLE; no correction path is visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 11,
+                "evidence": "The panel says NO FRAME AVAILABLE; no merge geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "The panel says NO FRAME AVAILABLE; no output geometry is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times show unavailable frames. This establishes missing evidence, not incorrect underlying content."
+          },
+          {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The panel says NO FRAME AVAILABLE; no signed components or identity path are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "The panel says NO FRAME AVAILABLE; no correction path is visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 11,
+                "evidence": "The panel says NO FRAME AVAILABLE; no merge geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "The panel says NO FRAME AVAILABLE; no output geometry is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times show unavailable frames. Neither mechanism nor readability of an actual explanation can be assessed."
+          },
+          {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The panel says NO FRAME AVAILABLE; no signed components or identity path are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "The panel says NO FRAME AVAILABLE; no correction path is visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 11,
+                "evidence": "The panel says NO FRAME AVAILABLE; no merge geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "The panel says NO FRAME AVAILABLE; no output geometry is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times show unavailable frames. No claims about the unseen explanation are warranted."
+          },
+          {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "The cyan rows remain labeled x₁ +0.8, x₂ −0.6, x₃ +0.3. Their arrows retain the right/left/right directions and relative lengths visible at 1 s, while corrections and outputs appear separately."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "Orange arrows occupy a separate column labeled correction F(x), distinct from cyan x. The row-aligned corrections point left, right, left and carry −0.2, +0.4, −0.1 labels."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "In each row the orange tail meets the cyan tip: at the right endpoint for x₁ and x₃, and the left endpoint for x₂. The orange arrows then point back along part of the cyan span. At 11 s the arrows are still offset, so that sample alone does not establish the completed merge."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 17,
+                "evidence": "Green arrows below the merged rows start horizontally aligned with the cyan origins and end aligned with the orange tips. Their directions and approximate lengths show +0.6 rightward, −0.2 leftward, and +0.2 rightward, matching the displayed signed sums."
+              }
+            ],
+            "reconstructed_message": "The identity path preserves every original component's sign and magnitude. Separate orange corrections are placed tail-to-head with the corresponding cyan components. Green outputs run from the original origins to the combined endpoints, showing partial cancellation in all three examples. Chinese captions identify F(x) as a hand-given illustration.",
+            "limits": "Only sampled states are available; continuous movement and learning outcomes cannot be judged. Green outputs are vertically displaced for readability, so endpoint correspondence relies on horizontal alignment. All shown corrections oppose their inputs; same-direction extension is stated but not geometrically exemplified."
+          }
+        ],
+        "comparisons": [
+          {
+            "left": "W",
+            "right": "X",
+            "winner": "tie",
+            "reason": "Both contain only unavailable-frame placeholders at every supplied time; neither provides visible mechanism evidence."
+          },
+          {
+            "left": "W",
+            "right": "Y",
+            "winner": "tie",
+            "reason": "Both lack actual frames at all supplied times, leaving identical absence of assessable component or merge geometry."
+          },
+          {
+            "left": "W",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z visibly preserves signed cyan components, separates orange corrections at 4 s, and shows head-to-tail addition and aligned green results at 14–17 s. W supplies no frames."
+          },
+          {
+            "left": "X",
+            "right": "Y",
+            "winner": "tie",
+            "reason": "Both supply only placeholders, with no visual basis for preferring either explanation."
+          },
+          {
+            "left": "X",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z supports the mechanism with identifiable component rows and completed merge geometry at 14 s, plus signed output geometry at 17 s. X supplies no assessable frames."
+          },
+          {
+            "left": "Y",
+            "right": "Z",
+            "winner": "Z",
+            "reason": "Z provides visible evidence for preservation, separate correction, componentwise joining, and resulting signed lengths. Y provides no actual frames."
+          }
+        ],
+        "uncertainty": "These judgments concern only the supplied contact sheets at 1, 4, 8, 11, 14, and 17 seconds. Placeholder ties indicate equal missing evidence, not equal underlying quality. No unseen motion, source correctness, trained weights, or actual human learning is inferred."
+      },
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 79.032,
+        "usage": [
+          {
+            "input_tokens": 27702,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1505,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "status": "reviewed"
+  },
+  {
+    "case": "residual",
+    "repeat": 1,
+    "order": 2,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "787cc9b0502972b7c18c25e9f73a376fb6639cb0f697f2f5c444ea18411b509d",
+      "image_sha256": [
+        "e50fab02605d4cee5722ccfd47c526e4653eb73e7ef8fc3fabb8a7bfe34735c1",
+        "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75",
+        "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+        "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09"
+      ],
+      "status": "unknown",
+      "error": "Model call failed; inspect /home/yang-zhi/文档/ChatGPT/concept2motion/work/model-infra-pilot-v1/judges/residual-1-o2/process.json and private logs",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 12.683,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    "status": "unknown"
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "order": 1,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "69b6175a3ab67865bb499187ca8f749e498bd95b7bf62648c26c945b93728568",
+      "image_sha256": [
+        "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09",
+        "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+        "83d252735b9276a7556e803c99cd4727ef4b89d2ae4b84cb1ac80147d0027a2e",
+        "2732ddf7e20a59589b2cc948b4f56b931ab4d614a9751251a438dc9016c1a769"
+      ],
+      "status": "unknown",
+      "error": "Model call failed; inspect /home/yang-zhi/文档/ChatGPT/concept2motion/work/model-infra-pilot-v1/judges/residual-2-o1/process.json and private logs",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.523,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    "status": "unknown"
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "order": 2,
+    "call": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "787cc9b0502972b7c18c25e9f73a376fb6639cb0f697f2f5c444ea18411b509d",
+      "image_sha256": [
+        "2732ddf7e20a59589b2cc948b4f56b931ab4d614a9751251a438dc9016c1a769",
+        "83d252735b9276a7556e803c99cd4727ef4b89d2ae4b84cb1ac80147d0027a2e",
+        "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+        "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09"
+      ],
+      "status": "unknown",
+      "error": "Model call failed; inspect /home/yang-zhi/文档/ChatGPT/concept2motion/work/model-infra-pilot-v1/judges/residual-2-o2/process.json and private logs",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 11.481,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    "status": "unknown"
+  }
+]

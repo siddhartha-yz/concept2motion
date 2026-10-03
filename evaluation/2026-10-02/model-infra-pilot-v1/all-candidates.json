@@ -1,0 +1,1940 @@
+[
+  {
+    "case": "residual",
+    "repeat": 1,
+    "arm": "A",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-1-A/v1/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-1-A/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-1-A/v1/source",
+    "source_sha256": {
+      "index.html": "b301571f697441ba320c77eb9a8e5ae689051cd149d2ea7f9050a236d889f0ae",
+      "scene.js": "b30b3d945bce9399501795fb6ae9d202e5f66340b77217c5a33f9b17d9d6bae2",
+      "storyboard.md": "b3e09853df15d8678490b82c63d7ac9568ddb4dc4e37b7fa5137a542ff44b8eb"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 1.122202741993533,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "61d85e2cd05eeefdf5685d06eff31be6c4f30dad16fc64889115a4398548292e",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 72.568,
+        "usage": [
+          {
+            "input_tokens": 15768,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2115,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 1,
+    "arm": "B",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-1-B/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-1-B/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-1-B/v2/source",
+    "source_sha256": {
+      "index.html": "b301571f697441ba320c77eb9a8e5ae689051cd149d2ea7f9050a236d889f0ae",
+      "scene.js": "6143d5d170477ab11bc5c53ab8cf98bef33e0047c8d36922a0e11898e7dc0ccf",
+      "storyboard.md": "b6f0a06121e51f9bae141df7c1f0f7009fe5cccb8ce9a4ddb68f0f3751207a14"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.8903126879959018,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "8db492b7274bbb505a7394cbe2e6a109e338ca92d5977f2294c4aa8e8eba8458",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 52.198,
+        "usage": [
+          {
+            "input_tokens": 17992,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2177,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 1,
+    "arm": "B",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-1-B/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-1-B/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-1-B/v3/source",
+    "source_sha256": {
+      "index.html": "b301571f697441ba320c77eb9a8e5ae689051cd149d2ea7f9050a236d889f0ae",
+      "scene.js": "a92e4f52e652f1ebdc9150ff2768931fe4aeab2734a0975de749756c5827d3e3",
+      "storyboard.md": "261d5a3857a946412a878c0c352c4411d5e3fac410741d74eaa65fd51fcfcb31"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.8547888920002151,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "30692985263fe57171feaeb3f631d96daab82b0a6a5d912a473a261286c886db",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 63.961,
+        "usage": [
+          {
+            "input_tokens": 18054,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2042,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 1,
+    "arm": "C",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-1-C/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-1-C/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-1-C/v2/source",
+    "source_sha256": {
+      "index.html": "253e54d85976eb353603f6f7f6b23d00918185dc709b65a6c398873994475d51",
+      "scene.js": "76cba74ef22f9a3dd1548e8a33d21fb3318081bee61b30cd3dea60991aad072f",
+      "storyboard.md": "099b3cca337cd91d40f65163a23b9c2b180600f269e4baf2b260ad79b2f34bc1"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 1.0531053649974638,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "5d212583d44cd699f87611cc00c2034a2dbc567e8ae25ecf443b8d8a59bc7517",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 51.347,
+        "usage": [
+          {
+            "input_tokens": 18031,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2086,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 1,
+    "arm": "C",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-1-C/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-1-C/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-1-C/v3/source",
+    "source_sha256": {
+      "index.html": "253e54d85976eb353603f6f7f6b23d00918185dc709b65a6c398873994475d51",
+      "scene.js": "26b5d939cd7f38e9d6ce774a49bb1abc4d74a2d257c3b86cdd5980298115b6da",
+      "storyboard.md": "a37614c82590b1dabdc13b660640aa5e38d207ca16b91882b4af16d84664221e"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.869556024998019,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "07222d6d3ab12aa052ab2053c6d96b8eff5153e375cce86d00195623fedc9785",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 46.233,
+        "usage": [
+          {
+            "input_tokens": 18002,
+            "cached_input_tokens": 13056,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2016,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 1,
+    "arm": "D",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/call/safe.json",
+    "model": "gpt-6-astra",
+    "render": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/source",
+    "source_sha256": {
+      "index.html": "d56761bbbfd5278e210a688be1d7263fe04a48810abcebcf08ff95968ff8af2d",
+      "scene.js": "630be9b010615a08471972734355eb6b38a05e04cdce5f55b161f2ff11eab2c1",
+      "storyboard.md": "9f8560a2b8778ecefbff5712786f78d91d4b596d76fd5e11f5173ad7720ae950"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 0,
+    "render_wall_s": 2.7479973060035263,
+    "technical_pass": true,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "61d85e2cd05eeefdf5685d06eff31be6c4f30dad16fc64889115a4398548292e",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 120.406,
+        "usage": [
+          {
+            "input_tokens": 16271,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2745,
+            "reasoning_output_tokens": 770
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/render/frame-1.00.jpg",
+        "sha256": "9a7cc8ef99e95d8e22acd0fc977b63c86cbe236c0c8206cdc64dd629b732f216"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/render/frame-4.00.jpg",
+        "sha256": "5bb6a83b3350e2072f5aa0f53d2b530115485a2fbaa6076bf38f05316e35f35a"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/render/frame-8.00.jpg",
+        "sha256": "0eb4c35c5d8e7a78546d643a1b4586141654fb4cd90997b5290192ddc2239a7a"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/render/frame-11.00.jpg",
+        "sha256": "f365a6e5bd7f5a1e268f7274cf3caf87228d018649d48f89625adb9907723a38"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/render/frame-14.00.jpg",
+        "sha256": "3428566783110c7d0202d24d3e68355d83a06f310b53466a15dda7d2c422ee59"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/residual-1-D/v1/render/frame-17.00.jpg",
+        "sha256": "3428566783110c7d0202d24d3e68355d83a06f310b53466a15dda7d2c422ee59"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "render_passed",
+      "errors": [],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "ced7611c7e140ecb5351a6661149a889f9120791fc9d5aee2506f8f6930a9c5b",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "arm": "A",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-2-A/v1/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-2-A/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-2-A/v1/source",
+    "source_sha256": {
+      "index.html": "27c7a0700b2b40ad3f45b9085b094507d636ecdfc1d9508ed278c8a1c181b25c",
+      "scene.js": "90de4eedd5fae706ecba226f6dff9fa77fda452920166b66d4106c20cd5c9c69",
+      "storyboard.md": "9273f667346012c784d93184a7f517112c915fabfdc384e07497704ab258cf25"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.9970496270034346,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "61d85e2cd05eeefdf5685d06eff31be6c4f30dad16fc64889115a4398548292e",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 61.872,
+        "usage": [
+          {
+            "input_tokens": 15768,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2409,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "arm": "B",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-2-B/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-2-B/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-2-B/v2/source",
+    "source_sha256": {
+      "index.html": "27c7a0700b2b40ad3f45b9085b094507d636ecdfc1d9508ed278c8a1c181b25c",
+      "scene.js": "ea615ee917c2c826928dfad186cd9e29729c1b6383d4b0625d523a8297b487f9",
+      "storyboard.md": "3073ca2184d564e4ab43fca248025cfc28c3df0145442e81729999f35e2f36b6"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.9661273870005971,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "1cb4641be30e2811514b2b6587421c595935d3b36b6e31bc91db7c5f52956b1a",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 50.735,
+        "usage": [
+          {
+            "input_tokens": 18286,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2207,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "arm": "B",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-2-B/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-2-B/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-2-B/v3/source",
+    "source_sha256": {
+      "index.html": "27c7a0700b2b40ad3f45b9085b094507d636ecdfc1d9508ed278c8a1c181b25c",
+      "scene.js": "4675276fdf5b63ee5f9e63d71a56c4dcccfe5cd4cd7fe9618b0e8961cb201983",
+      "storyboard.md": "2b3446c94595564e893cdccab89fabc984e074191399c71509638dc841e30631"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.7634325160033768,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "0de38b53655b1e4975928f80c01ec7fc2c489a03abb653e9d566fab8115190e4",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 48.234,
+        "usage": [
+          {
+            "input_tokens": 18084,
+            "cached_input_tokens": 13056,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2202,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "arm": "C",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-2-C/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-2-C/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-2-C/v2/source",
+    "source_sha256": {
+      "index.html": "27c7a0700b2b40ad3f45b9085b094507d636ecdfc1d9508ed278c8a1c181b25c",
+      "scene.js": "9fedc8ce075d3ca1c163672908611a617b0d5f38c0d0c87a69535d984b7d6440",
+      "storyboard.md": "8d5760723f8372f537a187d9c8fb6060d6a011448a6f44b27b6a54cc5553d0f5"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 1.0434129450004548,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "9d8d3043004163a4c5b6fd5fbd0ad86570324774761a086017f31deae85c2274",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 61.766,
+        "usage": [
+          {
+            "input_tokens": 18352,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2226,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "arm": "C",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-2-C/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/residual-2-C/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/residual-2-C/v3/source",
+    "source_sha256": {
+      "index.html": "27c7a0700b2b40ad3f45b9085b094507d636ecdfc1d9508ed278c8a1c181b25c",
+      "scene.js": "6959a670fd9a6f8255e46416f1dcaa74d3b887aae6ecc0335a37240d8b157529",
+      "storyboard.md": "b4a9ebf423ee7b723db22eb81059883e4961a375e30e6450aae453df39dc3d28"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.7916322210003273,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "287afb4d708a7803084ba3a26d924c5abe177082276308b4125d3a024ec8da7f",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 50.243,
+        "usage": [
+          {
+            "input_tokens": 18169,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2063,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: state.geometry.output is not iterable\n    at eval (eval at evaluate (:311:30), <anonymous>:9:103)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "residual",
+    "repeat": 2,
+    "arm": "D",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-residual.json",
+    "call": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/call/safe.json",
+    "model": "gpt-6-astra",
+    "render": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/source",
+    "source_sha256": {
+      "index.html": "8c04641f12e78aa527123c19a39c41055c4f523a6be1781469b27cdf83679c85",
+      "scene.js": "ce72b69a2d9e9efa43d67644271ed51f92b038678c146884a0eea8c7562b0164",
+      "storyboard.md": "099bf728201c148a391454e8dd3f34ebd30edf0f4f891a3331e58dd8be11b453"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 0,
+    "render_wall_s": 2.617708465004398,
+    "technical_pass": true,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "61d85e2cd05eeefdf5685d06eff31be6c4f30dad16fc64889115a4398548292e",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 121.174,
+        "usage": [
+          {
+            "input_tokens": 16518,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2771,
+            "reasoning_output_tokens": 796
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/render/frame-1.00.jpg",
+        "sha256": "fdb4d814d0a2543386d372a526f301b0014a3cf13cf5a43bc06aa0c02de41608"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/render/frame-4.00.jpg",
+        "sha256": "dc39db487acf401ad256991722200ab265a9461c10804d99253adf4726711688"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/render/frame-8.00.jpg",
+        "sha256": "3978efd617681a5f7cd5fc879aed790633fb0e0047a6665673c94ddd521ff92e"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/render/frame-11.00.jpg",
+        "sha256": "88a73ee804f82900bed8caadbba70b1068eee1b9c7d72c6d17714a65eaf00619"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/render/frame-14.00.jpg",
+        "sha256": "08891e355dbc56930e7917883ba6feb7f86b161fbd1cb15f8d94d4a5eaf700e6"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/residual-2-D/v1/render/frame-17.00.jpg",
+        "sha256": "08891e355dbc56930e7917883ba6feb7f86b161fbd1cb15f8d94d4a5eaf700e6"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "render_passed",
+      "errors": [],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "588cdce912c0a0a5b31f6663b5d24b8a708f028428e65bf8445c887ee5f24005",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "arm": "A",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/source",
+    "source_sha256": {
+      "index.html": "6805dd7af54e592a597e19c6f30999dbd367202fb7c9fcaa95b1b0b4a89fb36f",
+      "scene.js": "301ad29916911e41c04d56258f5e11639c7427f1b0b46c4f2075d4764eb3a3fa",
+      "storyboard.md": "dfd4ba7e14dbcc9c71c3e338824f89744c1030417a640716ba361596b3f40e47"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 2.9900811210027314,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "c5763226c9490e2c0e04aed67f2e25ef2f31a5fe06303903aa84b692af92117b",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 60.704,
+        "usage": [
+          {
+            "input_tokens": 15867,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1929,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/render/frame-1.00.jpg",
+        "sha256": "e2bc72cf84b8963e92a7f3e805b8a9375ac35b0138b09c0718c493791f92cfa2"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/render/frame-4.00.jpg",
+        "sha256": "208db27b559f68defec408019651c5a56c4f64e2faca490beb2d141a0a8da802"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/render/frame-8.00.jpg",
+        "sha256": "bedd13e1537421a42fd5cf09b239bb769f43db47d7ad9e7c0298e25c6544c64b"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/render/frame-11.00.jpg",
+        "sha256": "8a38d479d835298e79e02939c35eaa01fc2219b04820efff20c6ff57fc6c1595"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/render/frame-14.00.jpg",
+        "sha256": "dc1e5cfd3e1c35b933ff49cafc1dcbe60c8910e82102108dfe8e9d28a70d0d3b"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-A/v1/render/frame-17.00.jpg",
+        "sha256": "dc1e5cfd3e1c35b933ff49cafc1dcbe60c8910e82102108dfe8e9d28a70d0d3b"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "8f4f7e9241d2b7add6a9255ffbe53f01925f7ece5bde7ed772aed91ada6ef2bc",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "arm": "B",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/source",
+    "source_sha256": {
+      "index.html": "2ef11f6e2e16926cdcf54c6c5c6c1416bf476da05832b9a729841d74fd8af6fb",
+      "scene.js": "dd1372c46f7c60ef1ed1aa9023d38b20154d46a120e70c1820cc71a3cac966a3",
+      "storyboard.md": "e89263dc356e6e53ff454847a60f7318abcea306f54b89e6f94c5ac3cf6e24ff"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 3.3526723599934485,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "eb0af4ba33fd27a029c60d029b57fc70627245cc3990bb1b3cc8ea25982a9435",
+      "image_sha256": [
+        "e2bc72cf84b8963e92a7f3e805b8a9375ac35b0138b09c0718c493791f92cfa2",
+        "208db27b559f68defec408019651c5a56c4f64e2faca490beb2d141a0a8da802",
+        "bedd13e1537421a42fd5cf09b239bb769f43db47d7ad9e7c0298e25c6544c64b",
+        "8a38d479d835298e79e02939c35eaa01fc2219b04820efff20c6ff57fc6c1595",
+        "dc1e5cfd3e1c35b933ff49cafc1dcbe60c8910e82102108dfe8e9d28a70d0d3b",
+        "dc1e5cfd3e1c35b933ff49cafc1dcbe60c8910e82102108dfe8e9d28a70d0d3b"
+      ],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 64.27,
+        "usage": [
+          {
+            "input_tokens": 20984,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2066,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/render/frame-1.00.jpg",
+        "sha256": "cbb5450a1c89850ee720687ddf0c62b71c759ce01aa76c15b00ca2f4d98787ea"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/render/frame-4.00.jpg",
+        "sha256": "0fd28d7acaf65ceecaebad7c427001b5aa630c444b993256223da0a93f50c2bc"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/render/frame-8.00.jpg",
+        "sha256": "6dce6f667098d5eb27be55296b7020635008e50f172756b3d80e5ffeeb6a4cdf"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/render/frame-11.00.jpg",
+        "sha256": "7404701ded997ebb4c2eecfb454aaf4f08e6ccb3dafa032e5fc7dc0a7a0f07d7"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/render/frame-14.00.jpg",
+        "sha256": "e088e2cce6595e2ea191dfc349356d9082f752070bca51940e71a521d9e02f01"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v2/render/frame-17.00.jpg",
+        "sha256": "e088e2cce6595e2ea191dfc349356d9082f752070bca51940e71a521d9e02f01"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "5fd95c607383cb54523522a71a6e0bd95f5bd625f0a4f83ab5f5e87fb84166fc",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "arm": "B",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/source",
+    "source_sha256": {
+      "index.html": "26b60317485075dc55ce1c16c73e2d32c38844533f9c68826eceee40050a3a91",
+      "scene.js": "9a5280d21118546976d67d795ee292433251b793f3693e9bcc3bb65558cad47c",
+      "storyboard.md": "751da99110b7509dbafaf41a8e608d3ea5a833c0d4eda322ca5c5ee4f182e785"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 3.3370954070051084,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "50120c7c35c85b6f3434298ba71cd744f0cb4c524cd064a1bf280e2639c38df6",
+      "image_sha256": [
+        "cbb5450a1c89850ee720687ddf0c62b71c759ce01aa76c15b00ca2f4d98787ea",
+        "0fd28d7acaf65ceecaebad7c427001b5aa630c444b993256223da0a93f50c2bc",
+        "6dce6f667098d5eb27be55296b7020635008e50f172756b3d80e5ffeeb6a4cdf",
+        "7404701ded997ebb4c2eecfb454aaf4f08e6ccb3dafa032e5fc7dc0a7a0f07d7",
+        "e088e2cce6595e2ea191dfc349356d9082f752070bca51940e71a521d9e02f01",
+        "e088e2cce6595e2ea191dfc349356d9082f752070bca51940e71a521d9e02f01"
+      ],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 45.451,
+        "usage": [
+          {
+            "input_tokens": 21148,
+            "cached_input_tokens": 13056,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1998,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/render/frame-1.00.jpg",
+        "sha256": "398b128a4db03260e5181b41bddfdd921ad2b55c3a1dc3405112383f82a62412"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/render/frame-4.00.jpg",
+        "sha256": "b55afe5f1b0a92cffb0609d75051c05099a5f2bc994b6a54baab4e50f0a3f376"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/render/frame-8.00.jpg",
+        "sha256": "5eec0b6e266d18b8c725c6b6fefc62f09cca3e00557818339c976fe64fd0b83b"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/render/frame-11.00.jpg",
+        "sha256": "468cbbb2f7d7d38bb656df62b124450fcf8286cfab9db378a994e1ff27756c52"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/render/frame-14.00.jpg",
+        "sha256": "6a22800cc27eec0432199727edb6a1017cabd21ea6c38dcc2b2f546140603ec4"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-B/v3/render/frame-17.00.jpg",
+        "sha256": "6a22800cc27eec0432199727edb6a1017cabd21ea6c38dcc2b2f546140603ec4"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "4d405cf261af20a704ccfe979f5dc6b33265aa3bcb88b5fc34e3f58f4ef420bf",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "arm": "C",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/source",
+    "source_sha256": {
+      "index.html": "dcd3f639c514acf36b1abb2f146dc499dd8732d81b090c1c2100e720553628d3",
+      "scene.js": "0f41403ca7b2b8ce71beac4d0e4c60d2e72e2b279f61538c1e81e0f1aa35b89d",
+      "storyboard.md": "afce87a604cc851fe1ae40166e2013ae2fa3374a696fe787fb20815b89cb894e"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 2.65208883699961,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "e1ddefd2a5e3ee55c0cbe85e914ff28b3580571f5abc4aceb10cbfa719f0dd76",
+      "image_sha256": [
+        "e2bc72cf84b8963e92a7f3e805b8a9375ac35b0138b09c0718c493791f92cfa2",
+        "208db27b559f68defec408019651c5a56c4f64e2faca490beb2d141a0a8da802",
+        "bedd13e1537421a42fd5cf09b239bb769f43db47d7ad9e7c0298e25c6544c64b",
+        "8a38d479d835298e79e02939c35eaa01fc2219b04820efff20c6ff57fc6c1595",
+        "dc1e5cfd3e1c35b933ff49cafc1dcbe60c8910e82102108dfe8e9d28a70d0d3b",
+        "dc1e5cfd3e1c35b933ff49cafc1dcbe60c8910e82102108dfe8e9d28a70d0d3b"
+      ],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 45.791,
+        "usage": [
+          {
+            "input_tokens": 21205,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1999,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/render/frame-1.00.jpg",
+        "sha256": "bb161ee5b7d507f35276210410027a25615c5f8661da4aceb6f0a64158a29ee3"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/render/frame-4.00.jpg",
+        "sha256": "ed98795a86f469b2a6a60e9f9ca9c8df70f7066b4d1cbd1215fe02f208a94344"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/render/frame-8.00.jpg",
+        "sha256": "867879217531cf378a652a03583def918ea2f8b8b99321af7ae728019ffe3c1d"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/render/frame-11.00.jpg",
+        "sha256": "ef1da8d9471cc68722b2877b9bbefe723e5fe3f35aed524ac53f20632f7261e2"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/render/frame-14.00.jpg",
+        "sha256": "034eb4b93b9956a838a29ae2d46ff10413d955791b040813b180b80985ce42b2"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v2/render/frame-17.00.jpg",
+        "sha256": "034eb4b93b9956a838a29ae2d46ff10413d955791b040813b180b80985ce42b2"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "9452c85818c28415348cc7d8b3af638f657fb6c482394c6f5870c99f9bda49cd",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "arm": "C",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/source",
+    "source_sha256": {
+      "index.html": "dcd3f639c514acf36b1abb2f146dc499dd8732d81b090c1c2100e720553628d3",
+      "scene.js": "4049cbd3a5b500a71b9d3f713855ce5d855c1458d6b104bc2957195cd6d7fcf6",
+      "storyboard.md": "280ce1e5c3d4981395c10ef178c81f1991c24979fe9939729e35da5348d55b23"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 5.307558221000363,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "d29285a296613c618f077b12154e15466ef9901c898a4f13abcfa9d48e339f1f",
+      "image_sha256": [
+        "bb161ee5b7d507f35276210410027a25615c5f8661da4aceb6f0a64158a29ee3",
+        "ed98795a86f469b2a6a60e9f9ca9c8df70f7066b4d1cbd1215fe02f208a94344",
+        "867879217531cf378a652a03583def918ea2f8b8b99321af7ae728019ffe3c1d",
+        "ef1da8d9471cc68722b2877b9bbefe723e5fe3f35aed524ac53f20632f7261e2",
+        "034eb4b93b9956a838a29ae2d46ff10413d955791b040813b180b80985ce42b2",
+        "034eb4b93b9956a838a29ae2d46ff10413d955791b040813b180b80985ce42b2"
+      ],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 55.153,
+        "usage": [
+          {
+            "input_tokens": 21197,
+            "cached_input_tokens": 13056,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2021,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/render/frame-1.00.jpg",
+        "sha256": "d1a9c8395874d9f8f644ec3a9913d99f658938b39120dc6e00fe2c2e5ab2926f"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/render/frame-4.00.jpg",
+        "sha256": "355a8c1a342a4a9a72f16bdb24ccc9fb0549a967e5d6753b9823411a7dab7bf0"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/render/frame-8.00.jpg",
+        "sha256": "f5cad0f2b7a69f4fd32459ad888906c6ba07e1bd5644637237ea477e76d9b830"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/render/frame-11.00.jpg",
+        "sha256": "4d7a55268a7ab430421f76b99ee00d97936f0f469cc70cb49a5d72288c9b596a"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/render/frame-14.00.jpg",
+        "sha256": "8b4cef61a52586489a77c63782dea36d2abe561b563c613958e9251ace785cdd"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-C/v3/render/frame-17.00.jpg",
+        "sha256": "8b4cef61a52586489a77c63782dea36d2abe561b563c613958e9251ace785cdd"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "c9d185d80754bb727fdedd5c6352c47038a541dc88abf05266b58ec2abf91665",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 1,
+    "arm": "D",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/call/safe.json",
+    "model": "gpt-6-astra",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/source",
+    "source_sha256": {
+      "index.html": "bd69c8edd534c61504b67c40ae35d584043f1a3edbd2e0630061fc69c54b79d1",
+      "scene.js": "cc82b4dc67e31d9afc5aa8a40b2142600bf47afbdea34d984afc938cf41002e1",
+      "storyboard.md": "78e626d86ded375597c210dc5c5dc02e2948adf681a0d44e221d2e2a9bc0554d"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 0,
+    "render_wall_s": 2.6397247290005907,
+    "technical_pass": true,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "c5763226c9490e2c0e04aed67f2e25ef2f31a5fe06303903aa84b692af92117b",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 161.664,
+        "usage": [
+          {
+            "input_tokens": 16346,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 3154,
+            "reasoning_output_tokens": 880
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/render/frame-1.00.jpg",
+        "sha256": "97667c1ff6550b3776bfeb9dd203901bd1d6df41ced7af65bc0df02d9185be51"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/render/frame-4.00.jpg",
+        "sha256": "5bc272e89cab4b52a8536441919c39903e21f019c70a0dba0c342f625c504484"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/render/frame-8.00.jpg",
+        "sha256": "2251ed475ad32fe54ef3429956ceb2ca1383fad92a41680d1e5fbc0b3c68854c"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/render/frame-11.00.jpg",
+        "sha256": "5b64a7ae841b1c11d3578cc692c31f9e922c95081f4885082d5d50b2b20c30c0"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/render/frame-14.00.jpg",
+        "sha256": "78778983d2df78501cf7830bf16c8e212edc90cfc56993c4bdb460be7673631b"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-1-D/v1/render/frame-17.00.jpg",
+        "sha256": "78778983d2df78501cf7830bf16c8e212edc90cfc56993c4bdb460be7673631b"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "render_passed",
+      "errors": [],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "f0d5ec51aff3b533fbe3f741deaf38a67deaf5fd1b41ddd3a23d3e43f78becfa",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "arm": "A",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-2-A/v1/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-2-A/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-2-A/v1/source",
+    "source_sha256": {
+      "index.html": "76ee088eb31ebaabda52c5b88d914855c2f52e6e25830f089325bb76db53617d",
+      "scene.js": "a36e6b2fef3e135dd2f63e7fc6a5d242738cbf64732d4c62f361f31b6ee56605",
+      "storyboard.md": "c219861ec3759ca797269ce1d18909dc7441a81e6469a9da0cf3267e72256353"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.9999958910048008,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "c5763226c9490e2c0e04aed67f2e25ef2f31a5fe06303903aa84b692af92117b",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 56.047,
+        "usage": [
+          {
+            "input_tokens": 15718,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2098,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: Cannot read properties of null (reading 'segments')\n    at eval (eval at evaluate (:311:30), <anonymous>:5:71)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "arm": "B",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/source",
+    "source_sha256": {
+      "index.html": "76ee088eb31ebaabda52c5b88d914855c2f52e6e25830f089325bb76db53617d",
+      "scene.js": "fec866f7da2eb797263d30a2f23ec4f3204587b618833b70493a975fbd2542a9",
+      "storyboard.md": "d6dc46fd77f427cc566d054bf526c162aa23f491459a0501e6fccab72a8bfd6e"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 2.5342375510008424,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "2a711af9bc299002772cd3faccee6d81fe9205acfbefc28a65b406e5703805bd",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 48.046,
+        "usage": [
+          {
+            "input_tokens": 17957,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2172,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/render/frame-1.00.jpg",
+        "sha256": "32e6f60318a56611b6d266eb4b04ab982b444b6fe7ca5a34aee98fe78924bb4a"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/render/frame-4.00.jpg",
+        "sha256": "23d4010b4e58dabecd6625f4d486b9c62c8611a53ddfa70cc144c125afc2f436"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/render/frame-8.00.jpg",
+        "sha256": "6406e707b2edb7da3f7ff1b4bd1c3b3f7d715dfd2809563b9c6255a1a5896069"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/render/frame-11.00.jpg",
+        "sha256": "6698eec3f98fe6f0b86eb94c5396744e2930d2e103355ab01f2bf955cee2cb6c"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/render/frame-14.00.jpg",
+        "sha256": "d97ac35e4dd563bf17f3b96a4b84d47ab15a7cf335b96d514c72620d91143611"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v2/render/frame-17.00.jpg",
+        "sha256": "d97ac35e4dd563bf17f3b96a4b84d47ab15a7cf335b96d514c72620d91143611"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "failed",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "pixel_mismatch",
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "6b2a275c11e0ba63cd20675571ec8f15786e40d03e4c202787a91b7c19226c96",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "arm": "B",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/source",
+    "source_sha256": {
+      "index.html": "76ee088eb31ebaabda52c5b88d914855c2f52e6e25830f089325bb76db53617d",
+      "scene.js": "4bc5919cb903fe07633f58f5ede0f9df8338a1ed01da174737a4fcb435960a97",
+      "storyboard.md": "45fe9f6965714b9188dafde8c9a60a9d2bdbbf19f8fe4ae07ff4a0dee4ab5b93"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 5.469291241999599,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "d4650c365e71ec8774d0c1ab801253eb00e06ba2943194f805ee0ab9ee897015",
+      "image_sha256": [
+        "32e6f60318a56611b6d266eb4b04ab982b444b6fe7ca5a34aee98fe78924bb4a",
+        "23d4010b4e58dabecd6625f4d486b9c62c8611a53ddfa70cc144c125afc2f436",
+        "6406e707b2edb7da3f7ff1b4bd1c3b3f7d715dfd2809563b9c6255a1a5896069",
+        "6698eec3f98fe6f0b86eb94c5396744e2930d2e103355ab01f2bf955cee2cb6c",
+        "d97ac35e4dd563bf17f3b96a4b84d47ab15a7cf335b96d514c72620d91143611",
+        "d97ac35e4dd563bf17f3b96a4b84d47ab15a7cf335b96d514c72620d91143611"
+      ],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 52.107,
+        "usage": [
+          {
+            "input_tokens": 21254,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2126,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/render/frame-1.00.jpg",
+        "sha256": "9e3df77fcd540799676bdffccae6cc78123852be7ffcce0140b52ee58e7ba2df"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/render/frame-4.00.jpg",
+        "sha256": "71a69ef07a54fd5bfb1f9a361c7e480db1ec327508d890915289dfc5197d822b"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/render/frame-8.00.jpg",
+        "sha256": "4b95c79aa24314d82930fd117d9c5ae8de1121a196df57f1363f3489b0de152d"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/render/frame-11.00.jpg",
+        "sha256": "c76b372d49d12187b47ab2052b6abe2869243ec5415dbd4f8c7deee1e1b5d26d"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/render/frame-14.00.jpg",
+        "sha256": "c869080280f52113304af106864d32c7e34cb1f3bac213b6a86899b5bc0e55df"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-B/v3/render/frame-17.00.jpg",
+        "sha256": "c869080280f52113304af106864d32c7e34cb1f3bac213b6a86899b5bc0e55df"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "failed",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "pixel_mismatch",
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "c3cf9bb7dce6ddb5883101df5748b890bca13b78770376c37556a852fa7995c8",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "arm": "C",
+    "version": 2,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-2-C/v2/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-2-C/v2/render",
+    "revision_history": "fixed version 2; no strong judge feedback",
+    "status": "render_failed",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-2-C/v2/source",
+    "source_sha256": {
+      "index.html": "76ee088eb31ebaabda52c5b88d914855c2f52e6e25830f089325bb76db53617d",
+      "scene.js": "665471662cca912f91c4ab1c219a5c6f7b0e2c0d5f0fe7afbe208bcb38803996",
+      "storyboard.md": "2587d9f4b4837e9f956c5036745497c6b36cd46e41c0177a1d8cf6aca1239305"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 0.9830507630031207,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "4ac44983899e4e38ad8b1114b5a4e939d1f43f3b1230fca509857d83761a6bc8",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 53.305,
+        "usage": [
+          {
+            "input_tokens": 17996,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2051,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "unknown",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "execution_failed",
+      "errors": [
+        "Error: page.evaluate: TypeError: Cannot read properties of null (reading 'segments')\n    at eval (eval at evaluate (:311:30), <anonymous>:5:71)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+      ],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": false,
+    "video_sha256": null,
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "arm": "C",
+    "version": 3,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/call/safe.json",
+    "model": "gpt-6-luna",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/render",
+    "revision_history": "fixed version 3; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/source",
+    "source_sha256": {
+      "index.html": "76ee088eb31ebaabda52c5b88d914855c2f52e6e25830f089325bb76db53617d",
+      "scene.js": "b78575a1b3a2580cdd0c5ab639e32362f777c890a5f61f8005a57e0a4e6b0f4f",
+      "storyboard.md": "f21cdb687014a40ec8da26cf51949a65f39bc04c48016808aaa02df4e2aaba6e"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 1,
+    "render_wall_s": 4.004824158000702,
+    "technical_pass": false,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-luna",
+      "prompt_sha256": "396e6d6c0c1e108c10b7692f05e8fb60b0562ee2a1fdba9242c87c791d75925e",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 46.596,
+        "usage": [
+          {
+            "input_tokens": 17949,
+            "cached_input_tokens": 13056,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2039,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/render/frame-1.00.jpg",
+        "sha256": "18e84b40e0e221e125a426fc6f13e66b829424d61ac4a226f44ce3b50d0dfb35"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/render/frame-4.00.jpg",
+        "sha256": "17b86cc4094f4e0f70002839bc79e635941b9d982713d46e83c7f512140917b1"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/render/frame-8.00.jpg",
+        "sha256": "5e7765453db2c12040ff87f8123d72a523d57f52519c25c7f69ac0967fa1d65d"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/render/frame-11.00.jpg",
+        "sha256": "9144e5a4e088c02f127b9a34fe8875bdf23319203a8bece19cea13ac4c265308"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/render/frame-14.00.jpg",
+        "sha256": "e6571c89b5075c116ab90e66ca063264ea7b48bc0bb0d86da81ab8398a13abef"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-C/v3/render/frame-17.00.jpg",
+        "sha256": "e6571c89b5075c116ab90e66ca063264ea7b48bc0bb0d86da81ab8398a13abef"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "failed",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "checks_failed",
+      "errors": [],
+      "finding_codes": [
+        "pixel_mismatch",
+        "text_shape_overlap"
+      ],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "befe26f4aaff4350baec18a49483df850b0761db05ecf43abda1eeeccdd63ec7",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  },
+  {
+    "case": "softmax",
+    "repeat": 2,
+    "arm": "D",
+    "version": 1,
+    "input_brief": "work/model-infra-pilot-v1/brief-softmax.json",
+    "call": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/call/safe.json",
+    "model": "gpt-6-astra",
+    "render": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/render",
+    "revision_history": "fixed version 1; no strong judge feedback",
+    "status": "rendered",
+    "source": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/source",
+    "source_sha256": {
+      "index.html": "847f335902c53d6c27d41fb11933cf43247e4c2111b20fae7f0627141bded11b",
+      "scene.js": "d06d4e454f9dc813aad31fdaecabaeeb3e8b16087387b07f9d992deb420e722c",
+      "storyboard.md": "8d25c4692fe8fe86713d585f6e7529ef6a70043092bf8c166fdb974312525524"
+    },
+    "requested_source_limits_met": true,
+    "render_exit_code": 0,
+    "render_wall_s": 2.6611587509978563,
+    "technical_pass": true,
+    "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof",
+    "call_record": {
+      "model": "gpt-6-astra",
+      "prompt_sha256": "c5763226c9490e2c0e04aed67f2e25ef2f31a5fe06303903aa84b692af92117b",
+      "image_sha256": [],
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 126.004,
+        "usage": [
+          {
+            "input_tokens": 16373,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 2738,
+            "reasoning_output_tokens": 516
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    "sampled_frames": [
+      {
+        "time_s": 1,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/render/frame-1.00.jpg",
+        "sha256": "9851e408a87eb8d067a368e364c3bb6a80b7cc670edd50e85d2d0cfdf0de80cf"
+      },
+      {
+        "time_s": 4,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/render/frame-4.00.jpg",
+        "sha256": "24ab3b7ae030b5d3d69b8ad178bed5d46be249cae122b17f8bebcd5067832d57"
+      },
+      {
+        "time_s": 8,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/render/frame-8.00.jpg",
+        "sha256": "39bd8573d2d6e2b6a5ad194d75dd64f187c95fd90a8108319f48b72fe6052863"
+      },
+      {
+        "time_s": 11,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/render/frame-11.00.jpg",
+        "sha256": "20c89ae46f485b37722dd904ab6f9d3d3188c835da7c71cddc411211001044cd"
+      },
+      {
+        "time_s": 14,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/render/frame-14.00.jpg",
+        "sha256": "d656ef6fd658689bed9b588ef3e0bbc168d76e135892498c429f36e29b380eaf"
+      },
+      {
+        "time_s": 17,
+        "path": "work/model-infra-pilot-v1/candidates/softmax-2-D/v1/render/frame-17.00.jpg",
+        "sha256": "d656ef6fd658689bed9b588ef3e0bbc168d76e135892498c429f36e29b380eaf"
+      }
+    ],
+    "math_check": {
+      "reference": "math-reference.json",
+      "status": "passed_in_scope",
+      "limits": "Numerical/declared geometry and selected pixels only. Runtime capture failure prevents independent checking; a correct value does not establish all drawing proportions."
+    },
+    "technical_review": {
+      "status": "render_passed",
+      "errors": [],
+      "finding_codes": [],
+      "scope": "deterministic checks, not artistic judgement"
+    },
+    "full_video_decode": true,
+    "video_sha256": "e7ffd6cec9ad39450735ef481d1288e61873106709209a63889c1d3cb7fb1c27",
+    "visual_review": {
+      "scope": "final versions only: paired strong-judge panels in judgements.json; intermediate versions have technical reviews only",
+      "revision_budget": "fixed 3 versions B/C; no final judge feedback or manual source edits"
+    }
+  }
+]

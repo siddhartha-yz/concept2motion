@@ -1,0 +1,199 @@
+{
+  "case": "residual",
+  "repeat": 1,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "69b6175a3ab67865bb499187ca8f749e498bd95b7bf62648c26c945b93728568",
+    "image_sha256": [
+      "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75",
+      "e50fab02605d4cee5722ccfd47c526e4653eb73e7ef8fc3fabb8a7bfe34735c1"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The panel says NO FRAME AVAILABLE; no signed components or identity path are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "The panel says NO FRAME AVAILABLE; no correction path is visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 11,
+              "evidence": "The panel says NO FRAME AVAILABLE; no merge geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "The panel says NO FRAME AVAILABLE; no output geometry is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times show unavailable frames. This establishes missing evidence, not incorrect underlying content."
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The panel says NO FRAME AVAILABLE; no signed components or identity path are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "The panel says NO FRAME AVAILABLE; no correction path is visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 11,
+              "evidence": "The panel says NO FRAME AVAILABLE; no merge geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "The panel says NO FRAME AVAILABLE; no output geometry is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times show unavailable frames. Neither mechanism nor readability of an actual explanation can be assessed."
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The panel says NO FRAME AVAILABLE; no signed components or identity path are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "The panel says NO FRAME AVAILABLE; no correction path is visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 11,
+              "evidence": "The panel says NO FRAME AVAILABLE; no merge geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "The panel says NO FRAME AVAILABLE; no output geometry is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times show unavailable frames. No claims about the unseen explanation are warranted."
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "The cyan rows remain labeled x₁ +0.8, x₂ −0.6, x₃ +0.3. Their arrows retain the right/left/right directions and relative lengths visible at 1 s, while corrections and outputs appear separately."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "Orange arrows occupy a separate column labeled correction F(x), distinct from cyan x. The row-aligned corrections point left, right, left and carry −0.2, +0.4, −0.1 labels."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "In each row the orange tail meets the cyan tip: at the right endpoint for x₁ and x₃, and the left endpoint for x₂. The orange arrows then point back along part of the cyan span. At 11 s the arrows are still offset, so that sample alone does not establish the completed merge."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "Green arrows below the merged rows start horizontally aligned with the cyan origins and end aligned with the orange tips. Their directions and approximate lengths show +0.6 rightward, −0.2 leftward, and +0.2 rightward, matching the displayed signed sums."
+            }
+          ],
+          "reconstructed_message": "The identity path preserves every original component's sign and magnitude. Separate orange corrections are placed tail-to-head with the corresponding cyan components. Green outputs run from the original origins to the combined endpoints, showing partial cancellation in all three examples. Chinese captions identify F(x) as a hand-given illustration.",
+          "limits": "Only sampled states are available; continuous movement and learning outcomes cannot be judged. Green outputs are vertically displaced for readability, so endpoint correspondence relies on horizontal alignment. All shown corrections oppose their inputs; same-direction extension is stated but not geometrically exemplified."
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "tie",
+          "reason": "Both contain only unavailable-frame placeholders at every supplied time; neither provides visible mechanism evidence."
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "tie",
+          "reason": "Both lack actual frames at all supplied times, leaving identical absence of assessable component or merge geometry."
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z visibly preserves signed cyan components, separates orange corrections at 4 s, and shows head-to-tail addition and aligned green results at 14–17 s. W supplies no frames."
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "tie",
+          "reason": "Both supply only placeholders, with no visual basis for preferring either explanation."
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z supports the mechanism with identifiable component rows and completed merge geometry at 14 s, plus signed output geometry at 17 s. X supplies no assessable frames."
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z provides visible evidence for preservation, separate correction, componentwise joining, and resulting signed lengths. Y provides no actual frames."
+        }
+      ],
+      "uncertainty": "These judgments concern only the supplied contact sheets at 1, 4, 8, 11, 14, and 17 seconds. Placeholder ties indicate equal missing evidence, not equal underlying quality. No unseen motion, source correctness, trained weights, or actual human learning is inferred."
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 79.032,
+      "usage": [
+        {
+          "input_tokens": 27702,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1505,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

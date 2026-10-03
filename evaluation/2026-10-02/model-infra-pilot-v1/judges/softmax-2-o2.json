@@ -1,0 +1,199 @@
+{
+  "case": "softmax",
+  "repeat": 2,
+  "order": 2,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "5202c9d35850eada8c2c6e8db3eb4e1213b6d493cf2fe0af3e264a609269b1c9",
+    "image_sha256": [
+      "b7c4989bad1a21e0e3bc642f33883c852859a951df8236f8047df9916d858982",
+      "f024d35c8bd33c5c7ee92fcfd119e4fc18c9c2e79e07c6f56d35bebaef3bd691",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "0962bc3aee5d4530eb2209c28316450dcb9160f05167f34e3dda6f24625ce390"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "甲、乙、丙分别以蓝、黄、紫标识；−0.8条向零轴左侧延伸，+0.4和+1.2向右延伸。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "三个类别保留颜色和行位置，原有符号输入对应到标有指数值0.449、1.492、3.320的正长度条。此帧条长比例并不精确，不能据此确认定量映射。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "蓝、黄、紫三条沿水平方向首尾接续，虽在不同高度，但端点依次衔接，长度约对应三份质量；下方标明共同总量Z。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "同一横条由三个保留类别颜色的区段无缝分满，上方标明总容量1=100%，下方分别标出三类百分比。"
+            }
+          ],
+          "reconstructed_message": "带符号分数先变成正质量，三份质量接成共同总量Z；每份都除以Z，相当于把同一个整体统一缩放到1，各类别保留自身份额。",
+          "limits": "4秒的指数条比例不够准确；8秒的相加几何和14秒的分割几何更清楚。仅能判断采样状态，不能确认其间如何移动或缩放。"
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "画面仅显示NO FRAME AVAILABLE，没有输入或类别。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "画面仅显示NO FRAME AVAILABLE，没有指数转换证据。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "画面仅显示NO FRAME AVAILABLE，没有共同总量几何。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "画面仅显示NO FRAME AVAILABLE，没有概率分割几何。"
+            }
+          ],
+          "reconstructed_message": "无法从所供图片重建解释。",
+          "limits": "六个时间点均无可用帧。这是证据缺失，不能据此断言原视频内容错误。"
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "甲、乙、丙保留蓝、紫、橙身份；−0.8条在共同零点左侧，+0.4和+1.2条在右侧。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "每行输入右侧出现同色正长度条，并标注对应指数值；行和颜色支持逐类对应。不过三条长度不与0.45、1.49、3.32成比例。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "三份同色质量各有连线汇入唯一的Σe^z=5.26框，明确显示三类共同贡献一个总和。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "底部蓝、紫、橙区段无缝拼成一根完整横条，分别标为甲0.09、乙0.28、丙0.63，并标明概率之和为1。"
+            }
+          ],
+          "reconstructed_message": "三类分数变成正质量，各质量汇入同一个分母，再以各自质量除以共同总和，形成分满一个整体的概率。",
+          "limits": "指数质量条的相对长度失真，削弱质量与最终份额的几何联系。11至17秒除法文字与条形、连线重叠，降低可读性。"
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "甲、乙、丙以蓝、紫、橙区分；−0.8条向零点左侧延伸，+0.4与+1.2条向右延伸，另有零点标识。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "每行带符号输入右侧都有同色指数质量条，标为0.45、1.49、3.32；三条均为正长度，长度比例大致匹配数值。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "三条质量分别以同色线汇入一个Σe^z=5.2613框，几何上明确指向唯一共享总量。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "底部蓝、紫、橙三段连续分满一根横条，标明总量1及0.085+0.284+0.631=1；颜色保持类别对应。"
+            }
+          ],
+          "reconstructed_message": "三个带符号输入经指数变成正质量，三份质量汇入共同总和；各自除以这一总和，就成为同一个总量1中的三份概率。",
+          "limits": "共同总和主要通过汇聚连线表达，未像首尾相接的长度那样直接展示加法。文字和质量条偏小；不能从静态采样确认连续转换。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "W",
+          "reason": "W有符号输入、质量相加及总量1分割的可见几何；X所有采样均无可用帧。"
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "W",
+          "reason": "W在8秒用首尾接续且比例较准确的质量条显示共同总量，14秒以清晰同色分段显示份额。Y的质量条比例失真，后段除法文字被几何遮挡。"
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "W",
+          "reason": "Z的4秒指数比例更准确，但W的8秒首尾接续更直接展示总量如何由三份组成，11至14秒的同色整体分割更清楚地支持统一缩放。W整体更易辨认共享分母的因果机制。"
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y提供逐类质量对应、三线汇入共同总量及最终完整分割；X没有内容证据。"
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z四步均有可辨认的几何支持；X六个时间点都缺帧。"
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "两者都有共同汇聚和最终分割，但Z的指数质量长度比例更可信，11秒各类除法也更少被遮挡，更容易追踪质量、共同分母和最终份额之间的联系。"
+        }
+      ],
+      "uncertainty": "仅评估1、4、8、11、14、17秒的接触表采样；未观看连续运动或音频，未读取源码或执行数学测试。判断区分可见几何与文字主张，不推断实际学习效果，也不把X缺帧解释为已知的生成或渲染失败原因。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 106.461,
+      "usage": [
+        {
+          "input_tokens": 27850,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2218,
+          "reasoning_output_tokens": 134
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

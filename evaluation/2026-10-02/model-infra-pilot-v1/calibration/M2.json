@@ -1,0 +1,65 @@
+{
+  "id": "M2",
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "cfa7526d34ea0fb608cd73309972d5a0ebcbf6a96dee95fb58262eeeb41e384e",
+    "image_sha256": [
+      "c551aa69237609779d10b4196865b6c48ccefa41a0aac0ed7c01fb590cb49a15"
+    ],
+    "status": "completed",
+    "response": {
+      "support": "assertion_only",
+      "consistency": "unverifiable",
+      "order": "unverifiable",
+      "reconstructed_mapping": "可见文字给出 A=[[2,1],[0,1]]、v=(1,2)、Av=(4,2)，并写出 1(2,0)+2(1,1)=(4,2)。这些是公式陈述，未见对应几何构造。",
+      "uncertainty": "仅有六个缩放采样画面，不能判断未采样时段的变化；当前画面未见可核对的几何端点、坐标刻度或分量箭头，无法验证图文一致性及几何构造顺序。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "标题声明 input -> basis images -> combine -> result；正文介绍输入 v=(1,2)，但结果及列组合公式已同时显示，未见向量图。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "文字称基向量构成输入；未见基向量或输入的几何分解。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "文字称矩阵列为基向量的像；未见对应的映射箭头或端点。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "文字要求组合一个蓝色列与两个橙色列；画面未见这些彩色分量或组合过程。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "文字称所得端点给出 Av=(4,2)；未见可定位的几何端点。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "文字要求核对列之和与结果；仍只见矩阵和公式，无法进行几何核对。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 42.077,
+      "usage": [
+        {
+          "input_tokens": 18645,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 468,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "matched",
+  "matches": {
+    "support": true,
+    "consistency": true,
+    "order": true
+  }
+}

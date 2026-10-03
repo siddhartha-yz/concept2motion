@@ -1,0 +1,199 @@
+{
+  "case": "softmax",
+  "repeat": 1,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "105e2b54608ff32bdb2d60f67467e5e51632e09c4c1b3850e4d82339b8189cc2",
+    "image_sha256": [
+      "b83fbae86234812f0c473b0ad90de2e8a79fb19c13df07c70012ef0fee9c5a3a",
+      "d5e09b529c04120229952828ff1406b608ce05a7e7ca6ce156d3c1cabd40785f",
+      "20d0ba55bbeecc5c1a32603f704a105ee054224922f2e0bccfd0e61d7f485108",
+      "6a77125baba97d6f43d45a90b57f4ab7cf5d29ceca8171f13a017ca0ab998c37"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "uncertain",
+              "time_s": 1,
+              "evidence": "A/B/C have distinct colored bars and signed numerical labels, but all bars extend rightward without a zero reference. Geometry does not establish the negative sign of A."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "Each input row points toward a matching-color positive exp bar labeled 0.449, 1.492 or 3.320; their lengths reflect the mass ordering."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Three matching-color branches converge beside the single Z box. This visibly associates all three masses with one total, though it does not geometrically show their addition."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "Three contiguous colored segments fill one bounded bar labeled total capacity = 1, with class labels approximately 0.09, 0.28 and 0.63."
+            }
+          ],
+          "reconstructed_message": "Exponentiate each score into positive mass, combine the three masses into Z, divide every mass by Z, and represent the resulting probabilities as shares of one unit.",
+          "limits": "Input sign geometry is ambiguous. Converging lines establish a shared destination but provide limited evidence of additive construction or common scaling."
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "A's blue negative bar extends left of the aligned zero position; B and C extend right. Colored class labels preserve identity."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Row arrows connect signed inputs to matching-color, rightward exp bars labeled 0.449, 1.492 and 3.320, with proportional lengths."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Three colored branches converge at one point next to the single Z total. All three inputs to that total remain identifiable."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "A blue, purple and orange partition completely fills a single bar labeled capacity = 1; class labels identify the three shares."
+            }
+          ],
+          "reconstructed_message": "Signed scores become positive exponential masses; the three masses feed one denominator, and dividing by that denominator produces three shares of one capacity.",
+          "limits": "The common total is represented by convergence rather than a visibly assembled sum. The sampled frames do not establish the continuous scaling process."
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "Aligned zero ticks separate A's leftward negative bar from B's and C's rightward positive bars. Signed values and consistent class colors reinforce the geometry."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "Each signed input points to a matching-color positive bar explicitly labeled with its own exp expression and resulting mass. All mass bars extend rightward."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Blue, purple and orange branches converge beside one Z box, linking the three separately visible mass bars to the same total."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "Three adjacent class-colored segments fill one bounded total-capacity-1 bar, with shares labeled approximately 0.09, 0.28 and 0.63."
+            }
+          ],
+          "reconstructed_message": "Negative and positive scores both become positive exponential masses. These masses contribute to one common total, and normalization turns them into a partition of one unit.",
+          "limits": "Convergence supports shared participation more strongly than addition itself. The connector near the C mass label and first division row makes the later layout somewhat crowded."
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "A extends left from the stated zero boundary, while B and C extend right; signed values and distinct class colors identify the inputs."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "The same class colors and row ordering now identify three rightward bars, each accompanied by its specific exponential input and positive value."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "The lower shared-total bar contains adjacent segments in all three class colors, while remaining mass is visible above. This supports collection into a common additive container; the sampled assembly is incomplete."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "One bar labeled total probability = 1 is fully partitioned into three class-colored segments, with corresponding mass-over-common-total expressions and percentages."
+            }
+          ],
+          "reconstructed_message": "Convert signed scores into positive masses, collect those masses into one segmented total, then scale that whole while retaining its class proportions. The probabilities are shares of that same whole.",
+          "limits": "The 8-second frame shows partial assembly, not a completed mass-conservation check. The 11- and 14-second bars support preserved proportions, but sampled stills cannot verify continuous transfer or scaling."
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "X",
+          "reason": "X geometrically distinguishes negative and positive inputs around an aligned zero position. Both show convergence and a unit partition, while X also separates mass labels from bars more cleanly."
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y supplies clear signed-bar geometry at 1 second and individual exp labels at 4 seconds. W's rightward input bars leave sign encoding ambiguous."
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z shows signed input geometry and collects class-colored segments inside one total. W chiefly uses converging lines and formulas to explain the denominator."
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y has a modest advantage in making each transformation identifiable: at 4 seconds each positive bar carries its own exp expression and value, following explicit zero-tick sign geometry at 1 second. Their shared-total and final-partition evidence is otherwise similar."
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z's segmented shared total makes additive participation more concrete than X's convergence diagram. Its similarly proportioned segmented bars at 11 and 14 seconds also support common scaling."
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Y clearly explains individual exponentiation, but Z more directly supports the central denominator mechanism through collection into a segmented whole and a subsequent unit partition with preserved class proportions."
+        }
+      ],
+      "uncertainty": "Assessment uses only the supplied frames at 1, 4, 8, 11, 14 and 17 seconds. Demonstrated means the sampled geometry supports the criterion, not that unseen motion, exact conservation, rendering quality throughout, or actual newcomer learning has been verified. No source, model provenance, generation process or revision history was assessed."
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 88.192,
+      "usage": [
+        {
+          "input_tokens": 27701,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1932,
+          "reasoning_output_tokens": 197
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

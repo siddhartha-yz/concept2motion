@@ -1,0 +1,36 @@
+{
+  "weak": "gpt-6-luna",
+  "strong": "gpt-6-astra",
+  "reasoning": "low for both; no agents",
+  "repeats": 2,
+  "arms": {
+    "A": "weak one-shot",
+    "B": "weak generic revision",
+    "C": "weak deterministic-feedback revision",
+    "D": "strong one-shot reference"
+  },
+  "primary_comparison": "C vs B",
+  "generation_calls": {
+    "A": 1,
+    "B": 3,
+    "C": 3,
+    "D": 1
+  },
+  "pairing": "A initial candidate shared exactly with B/C; two independently generated weak starts per task",
+  "final_selection": "fixed last revision, no best-of or fallback selection; every attempt retained",
+  "feedback": "B/C receive identical prior source, same sampled frames and execution errors. Only C receives deterministic findings.",
+  "budget_limits": "B/C same number of author calls, model, effort, requested source-size limit and render timeout; actual tokens differ and must be reported. Not a strict equal-token experiment.",
+  "judge": "final only after all candidates generated; two opposite panel orders; no feedback to author",
+  "samples_s": [
+    1,
+    4,
+    8,
+    11,
+    14,
+    17
+  ],
+  "model_timeout_s": 240,
+  "render_timeout_s": 120,
+  "max_workers": 4,
+  "inference": "exploratory paired pilot; two tasks are existing contract families, not representative held-out benchmark; no significance claim"
+}

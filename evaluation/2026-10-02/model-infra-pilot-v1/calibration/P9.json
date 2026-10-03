@@ -1,0 +1,65 @@
+{
+  "id": "P9",
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "cfa7526d34ea0fb608cd73309972d5a0ebcbf6a96dee95fb58262eeeb41e384e",
+    "image_sha256": [
+      "d201ccacf8c32478ffb9ff29ab960f07184a47ed1c4706ccab16c7c431a58d23"
+    ],
+    "status": "completed",
+    "response": {
+      "support": "demonstrated",
+      "consistency": "inconsistent",
+      "order": "coherent",
+      "reconstructed_mapping": "可见基向量映射为 e1=(1,0)→(2,0)、e2=(0,1)→(1,1)。输入 v=(1,2)，分量箭头首尾相接到达 (4,2)，但绿色结果箭头实际指向 (3,2)，与其 Av=(4,2) 标签矛盾。",
+      "uncertainty": "仅有六个采样画面，不能推断未展示的过渡；缩放限制细节辨认，但绿色终点与横坐标 3 对齐、分量终点与 4 对齐的差异清楚可见。",
+      "observations": [
+        {
+          "time_s": 0.75,
+          "evidence": "紫色输入箭头从原点指向 (1,2)，符合 v 标签。"
+        },
+        {
+          "time_s": 2.75,
+          "evidence": "蓝色 e1 指向 (1,0)，橙色 e2 指向 (0,1)。"
+        },
+        {
+          "time_s": 4.75,
+          "evidence": "蓝色 T(e1) 指向 (2,0)，橙色 T(e2) 指向 (1,1)，与矩阵列一致。"
+        },
+        {
+          "time_s": 6.75,
+          "evidence": "一段蓝箭头到 (2,0)，两段橙箭头依次到 (3,1)、(4,2)，可见加权组合构造。"
+        },
+        {
+          "time_s": 8.75,
+          "evidence": "绿色箭头标注 Av=(4,2)，实际终点位于 (3,2)。"
+        },
+        {
+          "time_s": 10.75,
+          "evidence": "叠加检查中，绿色终点 (3,2) 与橙色组合终点 (4,2) 分离；采样顺序仍遵循输入、基像、组合、结果。"
+        }
+      ]
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 46.795,
+      "usage": [
+        {
+          "input_tokens": 18645,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 425,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "matched",
+  "matches": {
+    "support": true,
+    "consistency": true,
+    "order": true
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "records": [
+    {
+      "id": "K7",
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "cfa7526d34ea0fb608cd73309972d5a0ebcbf6a96dee95fb58262eeeb41e384e",
+        "image_sha256": [
+          "0aa2e06429cf344168ea2e11faef7c3a99198e8f22c0009b9946572b558ef89c"
+        ],
+        "status": "completed",
+        "response": {
+          "support": "demonstrated",
+          "consistency": "consistent",
+          "order": "coherent",
+          "reconstructed_mapping": "可见 A=[[2,1],[0,1]]，输入 v=(1,2)。基向量 e1=(1,0)、e2=(0,1) 的像分别为 (2,0)、(1,1)；一个蓝色像向量与两个橙色像向量首尾相接，终点为 (4,2)，与 Av 重合。",
+          "uncertainty": "仅有六个采样帧，无法判断帧间过渡；接触表缩放限制端点精度判断。结论限于可见几何，不推断未展示过程。",
+          "observations": [
+            {
+              "time_s": 0.75,
+              "evidence": "紫色输入箭头从原点指向刻度 (1,2)，与 v 标签一致。"
+            },
+            {
+              "time_s": 2.75,
+              "evidence": "蓝、橙基向量分别从原点指向 (1,0)、(0,1)。"
+            },
+            {
+              "time_s": 4.75,
+              "evidence": "基向量像分别指向 (2,0)、(1,1)，与矩阵两列及标签一致。"
+            },
+            {
+              "time_s": 6.75,
+              "evidence": "蓝箭头由 (0,0) 到 (2,0)，两段橙箭头依次到 (3,1)、(4,2)， visibly 构成所述加权和。"
+            },
+            {
+              "time_s": 8.75,
+              "evidence": "绿色结果箭头从原点指向 (4,2)，出现在组合之后，符合标题顺序。"
+            },
+            {
+              "time_s": 10.75,
+              "evidence": "组合箭头与绿色结果同时显示，共享终点 (4,2)，支持最终核对。"
+            }
+          ]
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 46.434,
+          "usage": [
+            {
+              "input_tokens": 18672,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 474,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "matched",
+      "matches": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    },
+    {
+      "id": "M2",
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "cfa7526d34ea0fb608cd73309972d5a0ebcbf6a96dee95fb58262eeeb41e384e",
+        "image_sha256": [
+          "c551aa69237609779d10b4196865b6c48ccefa41a0aac0ed7c01fb590cb49a15"
+        ],
+        "status": "completed",
+        "response": {
+          "support": "assertion_only",
+          "consistency": "unverifiable",
+          "order": "unverifiable",
+          "reconstructed_mapping": "可见文字给出 A=[[2,1],[0,1]]、v=(1,2)、Av=(4,2)，并写出 1(2,0)+2(1,1)=(4,2)。这些是公式陈述，未见对应几何构造。",
+          "uncertainty": "仅有六个缩放采样画面，不能判断未采样时段的变化；当前画面未见可核对的几何端点、坐标刻度或分量箭头，无法验证图文一致性及几何构造顺序。",
+          "observations": [
+            {
+              "time_s": 0.75,
+              "evidence": "标题声明 input -> basis images -> combine -> result；正文介绍输入 v=(1,2)，但结果及列组合公式已同时显示，未见向量图。"
+            },
+            {
+              "time_s": 2.75,
+              "evidence": "文字称基向量构成输入；未见基向量或输入的几何分解。"
+            },
+            {
+              "time_s": 4.75,
+              "evidence": "文字称矩阵列为基向量的像；未见对应的映射箭头或端点。"
+            },
+            {
+              "time_s": 6.75,
+              "evidence": "文字要求组合一个蓝色列与两个橙色列；画面未见这些彩色分量或组合过程。"
+            },
+            {
+              "time_s": 8.75,
+              "evidence": "文字称所得端点给出 Av=(4,2)；未见可定位的几何端点。"
+            },
+            {
+              "time_s": 10.75,
+              "evidence": "文字要求核对列之和与结果；仍只见矩阵和公式，无法进行几何核对。"
+            }
+          ]
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 42.077,
+          "usage": [
+            {
+              "input_tokens": 18645,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 468,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "matched",
+      "matches": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    },
+    {
+      "id": "P9",
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "cfa7526d34ea0fb608cd73309972d5a0ebcbf6a96dee95fb58262eeeb41e384e",
+        "image_sha256": [
+          "d201ccacf8c32478ffb9ff29ab960f07184a47ed1c4706ccab16c7c431a58d23"
+        ],
+        "status": "completed",
+        "response": {
+          "support": "demonstrated",
+          "consistency": "inconsistent",
+          "order": "coherent",
+          "reconstructed_mapping": "可见基向量映射为 e1=(1,0)→(2,0)、e2=(0,1)→(1,1)。输入 v=(1,2)，分量箭头首尾相接到达 (4,2)，但绿色结果箭头实际指向 (3,2)，与其 Av=(4,2) 标签矛盾。",
+          "uncertainty": "仅有六个采样画面，不能推断未展示的过渡；缩放限制细节辨认，但绿色终点与横坐标 3 对齐、分量终点与 4 对齐的差异清楚可见。",
+          "observations": [
+            {
+              "time_s": 0.75,
+              "evidence": "紫色输入箭头从原点指向 (1,2)，符合 v 标签。"
+            },
+            {
+              "time_s": 2.75,
+              "evidence": "蓝色 e1 指向 (1,0)，橙色 e2 指向 (0,1)。"
+            },
+            {
+              "time_s": 4.75,
+              "evidence": "蓝色 T(e1) 指向 (2,0)，橙色 T(e2) 指向 (1,1)，与矩阵列一致。"
+            },
+            {
+              "time_s": 6.75,
+              "evidence": "一段蓝箭头到 (2,0)，两段橙箭头依次到 (3,1)、(4,2)，可见加权组合构造。"
+            },
+            {
+              "time_s": 8.75,
+              "evidence": "绿色箭头标注 Av=(4,2)，实际终点位于 (3,2)。"
+            },
+            {
+              "time_s": 10.75,
+              "evidence": "叠加检查中，绿色终点 (3,2) 与橙色组合终点 (4,2) 分离；采样顺序仍遵循输入、基像、组合、结果。"
+            }
+          ]
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 46.795,
+          "usage": [
+            {
+              "input_tokens": 18645,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 425,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "matched",
+      "matches": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    },
+    {
+      "id": "R4",
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "cfa7526d34ea0fb608cd73309972d5a0ebcbf6a96dee95fb58262eeeb41e384e",
+        "image_sha256": [
+          "76bad813a5eda360bc9d80166b29317b976001fa510465debc92b01fb0dbc08f"
+        ],
+        "status": "completed",
+        "response": {
+          "support": "demonstrated",
+          "consistency": "consistent",
+          "order": "out_of_order",
+          "reconstructed_mapping": "可见 A=[[2,1],[0,1]]，v=(1,2)。基向量 e1=(1,0)、e2=(0,1) 的像分别为 (2,0)、(1,1)；一个蓝色分量与两个橙色分量首尾相接，到达 Av=(4,2)。",
+          "uncertainty": "仅有六个采样画面，不能推断未展示的过渡。接触表缩放限制细节判断；可见端点、刻度及分量箭头相符，但不据此判断完整动画或学习效果。",
+          "observations": [
+            {
+              "time_s": 0.75,
+              "evidence": "已出现蓝色 (0,0)→(2,0)、两个橙色分量延伸至 (4,2)，并有绿色结果箭头；核对结果先于输入展示。"
+            },
+            {
+              "time_s": 2.75,
+              "evidence": "蓝色 T(e1) 到达 (2,0)，橙色 T(e2) 到达 (1,1)，与矩阵两列及标签一致。"
+            },
+            {
+              "time_s": 4.75,
+              "evidence": "绿色结果箭头从原点到 (4,2)，与 Av 标签和坐标刻度一致。"
+            },
+            {
+              "time_s": 6.75,
+              "evidence": "此时才展示紫色输入箭头 v=(1,2)，晚于基向量像和结果。"
+            },
+            {
+              "time_s": 8.75,
+              "evidence": "蓝色箭头到 (2,0)，橙色箭头依次到 (3,1)、(4,2)，可见构造支持 1(2,0)+2(1,1)=(4,2)。"
+            },
+            {
+              "time_s": 10.75,
+              "evidence": "最后展示原始基向量 e1=(1,0)、e2=(0,1)。采样顺序不符合标题声明的输入→基向量像→组合→结果。"
+            }
+          ]
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 47.095,
+          "usage": [
+            {
+              "input_tokens": 18821,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 534,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "matched",
+      "matches": {
+        "support": true,
+        "consistency": true,
+        "order": true
+      }
+    }
+  ],
+  "screening_pass": true,
+  "limits": "Same four previously seen controlled fixtures, one repetition per fixture; new model screening, not independent benchmark validation."
+}
