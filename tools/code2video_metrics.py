@@ -40,6 +40,11 @@ def grade_answer(response, correct_answer, mode):
         return invalid
     answer_fields = re.findall(r'^\s*ANSWER\s*=\s*(A|B|C|D|NULL)\s*$', response, re.MULTILINE)
     status_fields = re.findall(r'^\s*EVIDENCE_STATUS\s*=\s*(SUFFICIENT|INSUFFICIENT)\s*$', response, re.MULTILINE)
+    # Count malformed/unknown fields too; otherwise an extra invalid field is
+    # silently ignored alongside a valid one, making an ambiguous reply scoreable.
+    if (len(re.findall(r'^\s*ANSWER\s*=', response, re.MULTILINE)) != len(answer_fields)
+            or len(re.findall(r'^\s*EVIDENCE_STATUS\s*=', response, re.MULTILINE)) != len(status_fields)):
+        return invalid
     if mode == 'selective':
         if len(answer_fields) != 1 or len(status_fields) != 1:
             return invalid

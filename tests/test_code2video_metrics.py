@@ -28,6 +28,11 @@ class MetricTests(unittest.TestCase):
                   'EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nANSWER = A', 'B']:
             self.assertEqual(grade_answer(r, 'B', 'selective')['status'], 'invalid')
 
+    def test_unknown_extra_fields_are_not_ignored_beside_valid_fields(self):
+        good = 'EVIDENCE_STATUS = SUFFICIENT\nANSWER = B'
+        for extra in ('\nANSWER = Z', '\nANSWER = ', '\nEVIDENCE_STATUS = UNKNOWN'):
+            self.assertEqual(grade_answer(good + extra, 'B', 'selective')['status'], 'invalid')
+
     def test_missing_answers_remain_in_denominator_and_block_gain(self):
         qs = questions(3); stage = grade_stage(qs, [answer('0')], 'selective')
         self.assertEqual(stage['full_denominator_fraction']['denominator'], 3)

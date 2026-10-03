@@ -1,0 +1,23 @@
+{
+  "kind": "post-replay parser regression check; not one of the 14 preregistered native controls",
+  "frozen_parser_sha256": "865351a2f79368af5c4965ca773f8f0e158b4d9d7284c7c019e68a9928f86a4e",
+  "revised_parser_sha256": "133c6f92ef87bfe6740cd37637e493e83cd9281b3c5713d457c2ed2a73995234",
+  "rows": [
+    {
+      "mock_response": "EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nANSWER = Z",
+      "frozen_parser_status": "correct",
+      "revised_parser_status": "invalid"
+    },
+    {
+      "mock_response": "EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nANSWER = ",
+      "frozen_parser_status": "correct",
+      "revised_parser_status": "invalid"
+    },
+    {
+      "mock_response": "EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nEVIDENCE_STATUS = UNKNOWN",
+      "frozen_parser_status": "correct",
+      "revised_parser_status": "invalid"
+    }
+  ],
+  "model_calls": 0
+}
