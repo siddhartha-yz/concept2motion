@@ -1,0 +1,120 @@
+{
+  "kind": "unblinded root-agent still-frame technical inspection",
+  "artistic_evaluation": false,
+  "human_review": false,
+  "not_independent_judge_validation": true,
+  "observations": [
+    {
+      "id": "join-fix",
+      "time_s": 17.5,
+      "observation": "原第一行橙色尾端与蓝色头端有空隙；修改后橙色从蓝色终点向左，三行对应关系恢复。",
+      "frames": {
+        "before": {
+          "path": "work/offline-feedback-v2/join-fix/before/frame-17.50.jpg",
+          "sha256": "9de59d68a5b7954027328705e5e5658f3b7db75084eb6b0be2eda3003afd3f63"
+        },
+        "after": {
+          "path": "work/offline-feedback-v2/join-fix/after/frame-17.50.jpg",
+          "sha256": "ffd490b9ab30be849b6f56b6e63834689024e59fc8d9906c973ad097bed5bc03"
+        }
+      },
+      "decision_sha256": "4a1ea422e43f4d631abc493a712e60d5fe153fec9f5705e8410ca9fae37acc06"
+    },
+    {
+      "id": "ratio-fix",
+      "time_s": 6.5,
+      "observation": "文字未变；去掉共同 80 像素加项后，最小指数条明显缩短，三个长度与 exp 标签比例相符。",
+      "frames": {
+        "before": {
+          "path": "work/offline-feedback-v2/ratio-fix/before/frame-6.50.jpg",
+          "sha256": "3ab04b17b91b0bd6434143ff1aab088a23cd4f90e0183c6ce400991345364184"
+        },
+        "after": {
+          "path": "work/offline-feedback-v2/ratio-fix/after/frame-6.50.jpg",
+          "sha256": "30e33f54b648276517eaf441b3b9bd1c516ac78f45c7693856c07766222fba59"
+        }
+      },
+      "decision_sha256": "f610647d75c28bfebf7f0249fde42212be83089530d1f49dd53ed01209017cd0"
+    },
+    {
+      "id": "sum-fix",
+      "time_s": 17.5,
+      "observation": "紫色输出由错误的 0.85、0.10、0.25 改为 0.50、-0.25、-0.10；第二、三行方向恢复向左。",
+      "frames": {
+        "before": {
+          "path": "work/offline-feedback-v2/sum-fix/before/frame-17.50.jpg",
+          "sha256": "4b9ecc84e48d7c262cf210a30b0fc28ea5b5e3885ad7a3fcbc9d1fa12998b1f2"
+        },
+        "after": {
+          "path": "work/offline-feedback-v2/sum-fix/after/frame-17.50.jpg",
+          "sha256": "ffd490b9ab30be849b6f56b6e63834689024e59fc8d9906c973ad097bed5bc03"
+        }
+      },
+      "decision_sha256": "ba20f784470fecee2e0974aad70ea10dee616d2290cc85952073469c07e9c228"
+    },
+    {
+      "id": "reveal-fix",
+      "time_s": 17.5,
+      "observation": "修改后稳定输出箭头显示完整长度；此前只显示 40%。没有评价这种固定 reveal 的运动表现。",
+      "frames": {
+        "before": {
+          "path": "work/offline-feedback-v2/reveal-fix/before/frame-17.50.jpg",
+          "sha256": "e4541c6286c2e4558cd6e1ed9f88fa476bb3ba4681d1985a1a2845df1b2a67e4"
+        },
+        "after": {
+          "path": "work/offline-feedback-v2/reveal-fix/after/frame-17.50.jpg",
+          "sha256": "ffd490b9ab30be849b6f56b6e63834689024e59fc8d9906c973ad097bed5bc03"
+        }
+      },
+      "decision_sha256": "1f135ee393feb9bb9e44d8d20b3722330fb855f28ecbe37aacbbe5c546cd7794"
+    },
+    {
+      "id": "join-partial",
+      "time_s": 17.5,
+      "observation": "第一行空隙缩小但仍存在；独立 wrong_merge 检查仍失败，保留这次失败并回退。",
+      "frames": {
+        "before": {
+          "path": "work/offline-feedback-v2/join-partial/before/frame-17.50.jpg",
+          "sha256": "9de59d68a5b7954027328705e5e5658f3b7db75084eb6b0be2eda3003afd3f63"
+        },
+        "after": {
+          "path": "work/offline-feedback-v2/join-partial/after/frame-17.50.jpg",
+          "sha256": "c0c362b1d37f19b8a28d9c199ad872f965bc71ba59e8a22f827a443bbe1f6300"
+        }
+      },
+      "decision_sha256": "06d00be4f144bd5ed2e6a423520849328ade85acd3602d4d3a3346e113042883"
+    },
+    {
+      "id": "join-regression",
+      "time_s": 1,
+      "observation": "输入保护帧的单位标尺和说明从 160 变成 210；即使输出时刻连接修好且技术检查全过，也违反票据保护范围。",
+      "frames": {
+        "before": {
+          "path": "work/offline-feedback-v2/join-regression/before/frame-1.00.jpg",
+          "sha256": "ee6d21f5e993f7f5fb59c8305c269f694411480d0670ef7bde2565d6536737cd"
+        },
+        "after": {
+          "path": "work/offline-feedback-v2/join-regression/after/frame-1.00.jpg",
+          "sha256": "8ebcfd1c08af2d220702abfa97129841429f090cc6b0bec3f46fc2b17221f1a8"
+        }
+      },
+      "decision_sha256": "fe736a40a8f4226b51949805a2c61b903651578c20a2f44e968198f9c160d15f"
+    },
+    {
+      "id": "join-render-error",
+      "time_s": null,
+      "observation": "无 after 抽帧；读取失败 manifest/process，未将空 findings 当作修复。候选源码和错误记录保留。",
+      "decision_sha256": "de8575c90e591f29f4cbefd3796530e934651dd4bdee3640567683d3b1a5faa6"
+    }
+  ],
+  "contacts": [
+    {
+      "path": "work/offline-feedback-v2/repairs.png",
+      "sha256": "098c5e4f9dd0463626fa3f7df5a49b074362ae16e6b3b64f482ed0129dc1c54c"
+    },
+    {
+      "path": "work/offline-feedback-v2/rollbacks.png",
+      "sha256": "4c59736692dff7db135ed27acb7e25c19718809e7eea20ac7c97910ddcedffaa"
+    }
+  ]
+}

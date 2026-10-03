@@ -1,0 +1,464 @@
+{
+  "id": "ratio-fix",
+  "decision": "keep",
+  "reasons": [],
+  "dispatched_model_calls": 0,
+  "artistic_acceptance": "not_evaluated",
+  "revision_history": [
+    "frozen baseline",
+    "one hand-authored patch"
+  ],
+  "before_codes": [
+    "wrong_mass_geometry"
+  ],
+  "after_codes": [],
+  "new_codes": [],
+  "target_removed": true,
+  "protected_frames": [
+    {
+      "time_s": 1,
+      "before_sha256": "7e30fc9c5a05651e078edcefd8aef5e3f182fc514aeadd302c45ebe08e79d4ec",
+      "after_sha256": "7e30fc9c5a05651e078edcefd8aef5e3f182fc514aeadd302c45ebe08e79d4ec",
+      "unchanged": true
+    },
+    {
+      "time_s": 8,
+      "before_sha256": "903c1805d1e252ac0a8cdf63b98900e866addaf7e9ce5aef5c4fbccc1cc9f64c",
+      "after_sha256": "903c1805d1e252ac0a8cdf63b98900e866addaf7e9ce5aef5c4fbccc1cc9f64c",
+      "unchanged": true
+    },
+    {
+      "time_s": 11,
+      "before_sha256": "37b74aa932cb0b05d2979ded0f56925ad2501bb5a255a2810d4236914ad5137c",
+      "after_sha256": "37b74aa932cb0b05d2979ded0f56925ad2501bb5a255a2810d4236914ad5137c",
+      "unchanged": true
+    },
+    {
+      "time_s": 17.5,
+      "before_sha256": "1e8ba0618462f520791fa7faa49a1651ae2f3ad30da6f3d1268695d87158a8c2",
+      "after_sha256": "1e8ba0618462f520791fa7faa49a1651ae2f3ad30da6f3d1268695d87158a8c2",
+      "unchanged": true
+    }
+  ],
+  "acceptance_scope": "technical target + code-set regression + sampled whole-frame protection only",
+  "changed_hashes": {
+    "scene.js": "0fc5ded47f79f81c09e3ffb84a24c138d7d67b19a194b662d69f31e51d093d01"
+  },
+  "renders": {
+    "before": {
+      "status": "checks_failed",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false
+      }
+    },
+    "after": {
+      "status": "render_passed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false
+      }
+    }
+  },
+  "active_source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/offline-feedback-v2/ratio-fix/candidate",
+  "failed_candidate_preserved": false,
+  "wall_s": 5.8418180879962165,
+  "expected": "keep",
+  "expectation_met": true,
+  "render_evidence": {
+    "before": {
+      "process": {
+        "exit_code": 1,
+        "timed_out": false
+      },
+      "status": "checks_failed",
+      "video": {
+        "passed": true,
+        "findings": [],
+        "expectedFrames": 270,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 854,
+          "height": 480,
+          "coded_width": 854,
+          "coded_height": 480,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "427:240",
+          "pix_fmt": "yuv420p",
+          "level": 30,
+          "chroma_location": "center",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "15/1",
+          "avg_frame_rate": "15/1",
+          "time_base": "1/15360",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 276480,
+          "duration": "18.000000",
+          "bit_rate": "33206",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "270",
+          "extradata_size": 48,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0,
+            "multilayer": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.3.100 libx264"
+          }
+        },
+        "full_decode_passed": true,
+        "sha256": "15e002371f72f2403f366bebb3421251e54309c67c70a55c49fbd3ed23f73b48"
+      },
+      "sources": [
+        {
+          "path": "brief.json",
+          "sha256": "a60f7edc6bdb92a7f6a983e044295a32cbb9c200717d05272a7201fb293f242e"
+        },
+        {
+          "path": "index.html",
+          "sha256": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a"
+        },
+        {
+          "path": "math-frame.mjs",
+          "sha256": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7"
+        },
+        {
+          "path": "math-timeline.mjs",
+          "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920"
+        },
+        {
+          "path": "scene.js",
+          "sha256": "e8f8d86b02b09fc2e138fdfa4d1a871dfb8f9fe541702c3b3c9131dc44c6a5c1"
+        }
+      ],
+      "tooling": [
+        {
+          "path": "render_scene.mjs",
+          "sha256": "ed95c4239270facfdb2d07d50d5262b2c063ed0be5e0d127c0588018ce4a29ed"
+        },
+        {
+          "path": "contracts.mjs",
+          "sha256": "edfc5546b3b54862dbea27a95d2341e21ee6843e13af2db8cf4fcd27202bfaa8"
+        },
+        {
+          "path": "capture_frame.mjs",
+          "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+        }
+      ],
+      "environment": {
+        "playwrightVersion": "1.62.1",
+        "chromiumVersion": "151.0.7922.34",
+        "ffmpegVersion": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers"
+      },
+      "determinism": {
+        "time_s": 16.5,
+        "intervening_time_s": 1.5,
+        "first_sha256": "63ed0f20342c3842c8580d953cafdde173ecf52f34dfabcc92d9d0a10fc2bc4f",
+        "second_sha256": "63ed0f20342c3842c8580d953cafdde173ecf52f34dfabcc92d9d0a10fc2bc4f",
+        "passed": true
+      },
+      "wall_s": 2.86,
+      "finding_counts": {
+        "wrong_mass_geometry": 198
+      },
+      "checks_summary": {
+        "sampled_frames": 55,
+        "coverage": {
+          "passed": true,
+          "expected": [
+            "logits",
+            "exponential",
+            "shared-total",
+            "normalizing",
+            "normalized"
+          ],
+          "observed": [
+            "logits",
+            "exponential",
+            "shared-total",
+            "normalizing",
+            "normalized"
+          ],
+          "findings": []
+        },
+        "mass_geometry": {
+          "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+          "states": {
+            "checked": 4,
+            "target_only": 8,
+            "unavailable": 0,
+            "invalid": 0,
+            "transient": 0
+          }
+        },
+        "pixel_coverage": {
+          "policy": "Opaque centers with a full interior pixel; partial/subpixel/unrevealed probes are explicitly unavailable, not verified",
+          "potential": 69,
+          "sampled": 67,
+          "unavailable": 2
+        },
+        "passed": false
+      },
+      "full_video_frame_count": 270,
+      "error_count": 0,
+      "manifest_sha256": "1b89bf6a73980ab4275c289310c6efd6dd2c29352ff069d524d01da58e81bd93",
+      "frames": [
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/before/frame-1.00.jpg",
+          "sha256": "7e30fc9c5a05651e078edcefd8aef5e3f182fc514aeadd302c45ebe08e79d4ec"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/before/frame-11.00.jpg",
+          "sha256": "37b74aa932cb0b05d2979ded0f56925ad2501bb5a255a2810d4236914ad5137c"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/before/frame-17.50.jpg",
+          "sha256": "1e8ba0618462f520791fa7faa49a1651ae2f3ad30da6f3d1268695d87158a8c2"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/before/frame-4.00.jpg",
+          "sha256": "605eaefe5ec299a6998ec5a655ed70c9c60307d43c5b6775a5eab6b2282e29d1"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/before/frame-6.50.jpg",
+          "sha256": "3ab04b17b91b0bd6434143ff1aab088a23cd4f90e0183c6ce400991345364184"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/before/frame-8.00.jpg",
+          "sha256": "903c1805d1e252ac0a8cdf63b98900e866addaf7e9ce5aef5c4fbccc1cc9f64c"
+        }
+      ],
+      "checks_sha256": "ef4511eba128e62397013d67c6ec771c73a8e692529d413b5696eaaef9f64451"
+    },
+    "after": {
+      "process": {
+        "exit_code": 0,
+        "timed_out": false
+      },
+      "status": "render_passed",
+      "video": {
+        "passed": true,
+        "findings": [],
+        "expectedFrames": 270,
+        "stream": {
+          "index": 0,
+          "codec_name": "h264",
+          "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+          "profile": "High",
+          "codec_type": "video",
+          "codec_tag_string": "avc1",
+          "codec_tag": "0x31637661",
+          "width": 854,
+          "height": 480,
+          "coded_width": 854,
+          "coded_height": 480,
+          "has_b_frames": 2,
+          "sample_aspect_ratio": "1:1",
+          "display_aspect_ratio": "427:240",
+          "pix_fmt": "yuv420p",
+          "level": 30,
+          "chroma_location": "center",
+          "field_order": "progressive",
+          "refs": 1,
+          "is_avc": "true",
+          "nal_length_size": "4",
+          "id": "0x1",
+          "r_frame_rate": "15/1",
+          "avg_frame_rate": "15/1",
+          "time_base": "1/15360",
+          "start_pts": 0,
+          "start_time": "0.000000",
+          "duration_ts": 276480,
+          "duration": "18.000000",
+          "bit_rate": "33013",
+          "bits_per_raw_sample": "8",
+          "nb_frames": "270",
+          "extradata_size": 48,
+          "disposition": {
+            "default": 1,
+            "dub": 0,
+            "original": 0,
+            "comment": 0,
+            "lyrics": 0,
+            "karaoke": 0,
+            "forced": 0,
+            "hearing_impaired": 0,
+            "visual_impaired": 0,
+            "clean_effects": 0,
+            "attached_pic": 0,
+            "timed_thumbnails": 0,
+            "non_diegetic": 0,
+            "captions": 0,
+            "descriptions": 0,
+            "metadata": 0,
+            "dependent": 0,
+            "still_image": 0,
+            "multilayer": 0
+          },
+          "tags": {
+            "language": "und",
+            "handler_name": "VideoHandler",
+            "vendor_id": "[0][0][0][0]",
+            "encoder": "Lavc61.3.100 libx264"
+          }
+        },
+        "full_decode_passed": true,
+        "sha256": "ae27df36f60b2a0acbf5b88d65cf0cc70eeda6d858255993ae054b47bcf72105"
+      },
+      "sources": [
+        {
+          "path": "brief.json",
+          "sha256": "a60f7edc6bdb92a7f6a983e044295a32cbb9c200717d05272a7201fb293f242e"
+        },
+        {
+          "path": "index.html",
+          "sha256": "b63491ebc9d41351c6795b830efa4e1246b4e93c4e852d68c2bfac0527b2870a"
+        },
+        {
+          "path": "math-frame.mjs",
+          "sha256": "e4a46224e5f80f0667b0ed06daa588dc2902e3580f78c48c9b43a5bbc7e534a7"
+        },
+        {
+          "path": "math-timeline.mjs",
+          "sha256": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920"
+        },
+        {
+          "path": "revision.json",
+          "sha256": "e1b512a337d5c73e8d8e9298ec4e6088fcdd2667ba80e0715424e0297eaf0e40"
+        },
+        {
+          "path": "scene.js",
+          "sha256": "0fc5ded47f79f81c09e3ffb84a24c138d7d67b19a194b662d69f31e51d093d01"
+        }
+      ],
+      "tooling": [
+        {
+          "path": "render_scene.mjs",
+          "sha256": "ed95c4239270facfdb2d07d50d5262b2c063ed0be5e0d127c0588018ce4a29ed"
+        },
+        {
+          "path": "contracts.mjs",
+          "sha256": "edfc5546b3b54862dbea27a95d2341e21ee6843e13af2db8cf4fcd27202bfaa8"
+        },
+        {
+          "path": "capture_frame.mjs",
+          "sha256": "a87b54cf5ac74124291da94de341ddc6f9c14d671e4748b56062363ac54b9f60"
+        }
+      ],
+      "environment": {
+        "playwrightVersion": "1.62.1",
+        "chromiumVersion": "151.0.7922.34",
+        "ffmpegVersion": "ffmpeg version 7.0.2-static https://johnvansickle.com/ffmpeg/  Copyright (c) 2000-2024 the FFmpeg developers"
+      },
+      "determinism": {
+        "time_s": 16.5,
+        "intervening_time_s": 1.5,
+        "first_sha256": "63ed0f20342c3842c8580d953cafdde173ecf52f34dfabcc92d9d0a10fc2bc4f",
+        "second_sha256": "63ed0f20342c3842c8580d953cafdde173ecf52f34dfabcc92d9d0a10fc2bc4f",
+        "passed": true
+      },
+      "wall_s": 2.443,
+      "finding_counts": {},
+      "checks_summary": {
+        "sampled_frames": 55,
+        "coverage": {
+          "passed": true,
+          "expected": [
+            "logits",
+            "exponential",
+            "shared-total",
+            "normalizing",
+            "normalized"
+          ],
+          "observed": [
+            "logits",
+            "exponential",
+            "shared-total",
+            "normalizing",
+            "normalized"
+          ],
+          "findings": []
+        },
+        "mass_geometry": {
+          "policy": "explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable",
+          "states": {
+            "checked": 4,
+            "target_only": 8,
+            "unavailable": 0,
+            "invalid": 0,
+            "transient": 0
+          }
+        },
+        "pixel_coverage": {
+          "policy": "Opaque centers with a full interior pixel; partial/subpixel/unrevealed probes are explicitly unavailable, not verified",
+          "potential": 69,
+          "sampled": 66,
+          "unavailable": 3
+        },
+        "passed": true
+      },
+      "full_video_frame_count": 270,
+      "error_count": 0,
+      "manifest_sha256": "58ac3cc7b9d5b816bd457eaac6bf02b8ac4a89b32f055dbf7480090709f8086a",
+      "frames": [
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/after/frame-1.00.jpg",
+          "sha256": "7e30fc9c5a05651e078edcefd8aef5e3f182fc514aeadd302c45ebe08e79d4ec"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/after/frame-11.00.jpg",
+          "sha256": "37b74aa932cb0b05d2979ded0f56925ad2501bb5a255a2810d4236914ad5137c"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/after/frame-17.50.jpg",
+          "sha256": "1e8ba0618462f520791fa7faa49a1651ae2f3ad30da6f3d1268695d87158a8c2"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/after/frame-4.00.jpg",
+          "sha256": "9e8118455ba52a439267f6f8700396ae0fce676019e3ead08a3aca2e2708d850"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/after/frame-6.50.jpg",
+          "sha256": "30e33f54b648276517eaf441b3b9bd1c516ac78f45c7693856c07766222fba59"
+        },
+        {
+          "path": "work/offline-feedback-v2/ratio-fix/after/frame-8.00.jpg",
+          "sha256": "903c1805d1e252ac0a8cdf63b98900e866addaf7e9ce5aef5c4fbccc1cc9f64c"
+        }
+      ],
+      "checks_sha256": "01e4e441f12207ea9ea2bcf262a578bda7de6d0757b45359c60ad47efa57d7ef"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "status": "prepared only; no candidates, renders, model calls or quality results",
+  "model_call_budget": 0,
+  "definition": "New concept structures for this repository's local author/revision experiments; no claim about model pretraining",
+  "leakage_limit": "Public planning file, not a sealed test set. A future author must start in a new context with only its own brief and permitted runtime. Further debugging on these tasks retires their held-out status.",
+  "planned_task_count": 3,
+  "tasks": [
+    {
+      "id": "bayes-frequency-tree",
+      "concept": "用人数树展示贝叶斯条件概率",
+      "audience": "理解人数和百分比、未学过贝叶斯公式的高中生",
+      "brief": "1000 人中 100 人有某情况。检测发现其中 80 人；其余 900 人中有 90 人也检测为阳性。展示为什么阳性后的概率是 80/170，而不是 80/100。",
+      "inputs": {"population": 1000, "condition_count": 100, "true_positive": 80, "false_positive": 90},
+      "independent_math_oracle": {"positive_count": 170, "posterior_fraction": [80, 170]},
+      "mechanism_to_preserve": "先分人群，再分检测结果；最后分母仅包含全部阳性人群。",
+      "checker_status": "not implemented; cannot reuse softmax checker as a Bayes proof"
+    },
+    {
+      "id": "orthogonal-projection",
+      "concept": "向量的正交投影和剩余分量",
+      "audience": "知道二维坐标和向量加法的学生",
+      "brief": "把向量 (3,2) 分解成沿 (1,1) 方向的投影和与该方向垂直的剩余分量。画面同时保持原向量、投影、剩余分量可辨认。",
+      "inputs": {"v": [3, 2], "direction": [1, 1]},
+      "independent_math_oracle": {"projection": [2.5, 2.5], "remainder": [0.5, -0.5], "remainder_dot_direction": 0},
+      "mechanism_to_preserve": "投影系数为 dot(v,u)/dot(u,u)；投影加剩余等于原向量，剩余垂直于方向。",
+      "checker_status": "not implemented; existing horizontal residual protocol does not verify 2D orthogonality"
+    },
+    {
+      "id": "sliding-cross-correlation",
+      "concept": "离散滑窗逐项乘加",
+      "audience": "理解数组、乘法和加法的编程初学者",
+      "brief": "在 [1,2,0,3] 上滑动权重 [1,2]，逐项乘加得到 [5,2,6]。明确这是不翻转权重的 cross-correlation；不要悄悄混用数学卷积定义。",
+      "inputs": {"signal": [1, 2, 0, 3], "kernel": [1, 2], "stride": 1, "padding": "valid", "flip_kernel": false},
+      "independent_math_oracle": {"output": [5, 2, 6]},
+      "mechanism_to_preserve": "每次输出只对应当前两项窗口；显示乘积、求和和窗口移动的对应关系。",
+      "checker_status": "not implemented; no current sequence-window geometry checker"
+    }
+  ]
+}
