@@ -26,6 +26,17 @@ Return `geometry.unitScale`, a positive shared pixels-per-unit scale, and signed
 
 The required stage sequences are Softmax: `logits → exponential → shared-total → normalizing → normalized`; residual: `input → branches → merging → output`.
 
+The horizontal-origin rule is a narrow diagram convention. Translating a free
+output vector preserves its mathematical value; a separate output column is now
+reported as `output_origin_alignment`, rather than calling it an arithmetic or
+head-to-tail error. Actual identity-head/correction-tail mismatches still report
+`wrong_merge`. Historical frozen checks retain their original error categories.
+
+Raw exponential masses and the shared total require positive finite relative
+agreement (1e-9). An absolute threshold alone would accept tiny masses erased to
+zero. The adapter also rejects inputs whose raw exponential underflow distorts
+probability ratios; it does not change this protocol to shifted masses silently.
+
 The rendered-evidence validator supports **Softmax and residual addition**. Unsupported case IDs fail explicitly. GRU has a numerical brief but its scene protocol and render validator are still pending.
 
 ## Run a candidate
@@ -49,6 +60,61 @@ FFmpeg and ffprobe must be on PATH. Use `--checks-only` to capture evidence with
 Optional environment settings: `C2M_NODE_MODULES` selects an existing directory containing Playwright; `C2M_CHROMIUM` selects a browser executable; `C2M_FFMPEG` and `C2M_FFPROBE` select media tools. Use trusted locally installed tooling. The run records Playwright, Chromium, FFmpeg versions, source hashes, checks, keyframes, encoded video metadata and a decode check. New runs also preserve renderer/validator source and hashes under `tooling/`; historical passes remain tied to their original check scope.
 
 Every exported frame uses `t = frame_index / fps`. FFmpeg receives exactly `duration * fps` frames. ffprobe must confirm count, rate, dimensions and duration. A repeated-time capture after an intervening frame checks history independence on this runtime.
+
+For a controlled evaluation, `--render-invalid` permits a full diagnostic video when
+the scene executes but contract findings exist. The result still has exit code 1,
+`checks_failed`, and the original findings. This keeps visibly incorrect candidates
+available for blind comparison. Missing inspection fields or invalid pixel-probe
+coordinates become findings; they no longer abort image capture. A missing/null
+evidence return also remains a failed check. Actual JavaScript drawing exceptions
+and canvas/metadata mismatch still prevent export. The option cannot be combined
+with preview/checks-only.
+
+## Drawing and evidence together
+
+For these two contracts, [the math-frame adapter](math-evidence.md) records bounds,
+bar widths and signed vector endpoints from the same calls that draw them. It
+reduces manually maintained registry fields without supplying a storyboard.
+
+During Softmax's `exponential` stage, return three `geometry.massBars` with IDs
+`mass-0..2`, coordinates, widths, heights, colors and opacity. The validator checks
+that opaque, nonzero bar widths share the same proportions as exponential masses.
+It samples their actual center colors as well. For legacy scenes, only shape bounds
+with those exact IDs are accepted as ratio evidence; their colors are not probed.
+Absent identifiable bars are reported as **unavailable**, never as verified ratios.
+Fading or zero-total-width bars are **transient**. `checks.mass_geometry.states`
+records checked/unavailable/invalid/transient counts across inspection samples.
+These are partial checks, not a proof of every rendered frame or pixel.
+
+New candidates may register `meta.stageTimeline = {version:1,caseId,duration,entries}`.
+Each ordered entry contains `{stage,start,end,settledAt}`. Intervals cover the entire
+duration contiguously, and each phase holds settled geometry for at least .75 seconds.
+The validator derives the current phase from time independently; changing only a
+reported stage cannot authorize unfinished geometry. Explicit vector/bar reveals
+require this metadata. Timeline-free historical evidence remains supported.
+
+For an explicit vector reveal, additionally record `reveal`, `targetValue` and
+`targetEnd`; actual endpoints must encode `targetValue * unitScale * reveal`.
+For a bar reveal, record `reveal` and `targetWidth`; actual width must equal their
+product. Full targets are checked against the brief even during transitions.
+Required roles must finish and remain visible in the relevant settled hold; final
+residual joins and probability partitions remain independently checked.
+`mass_geometry.states.target_only` identifies target-checked partial geometry and
+does not count as a verified actual full ratio.
+
+Each captured frame also records `pixelCoverage` potential/sampled/unavailable
+counts and concrete skip reasons. Pure-color probes are unavailable for transparent
+or subpixel primitives; their target/geometry checks still run. Available opaque
+geometry continues to be probed. Sample and full-export coverage are reported
+separately. Sparse probes never establish image-wide fidelity or artistic clarity.
+The [API](math-evidence.md) explains measured text, separate ID namespaces,
+phase opacity layers and explicit reveal calls; the [16 real controls](../evaluation/2026-10-03/progress-controls-v2/REPORT.md)
+include both expected successes and expected failures.
+
+The [renderer regression report](../evaluation/2026-10-03/render-evidence-v2/REPORT.md)
+preserves all 16 old final candidates unchanged: exports increased from 9 to 16,
+with 4 technical passes unchanged. New exports do not replace historical failures
+or change the original blind comparison.
 
 ## Record a review
 

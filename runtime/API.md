@@ -1,5 +1,9 @@
 # Concept runtime (v1)
 
+For the separate Softmax/residual evidence protocol, see the small
+[math-frame adapter](../docs/math-evidence.md). Its drawing calls record mathematical
+geometry automatically; it does not add a storyboard to this generic runtime.
+
 This is a small Canvas 2D drawing library, not a storyboard generator. The scene author chooses the object, composition, camera, action and timing. All samples are explicit-time and can be drawn in any order. No external dependencies or assets.
 
 ```js

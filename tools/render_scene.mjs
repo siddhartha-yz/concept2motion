@@ -8,14 +8,16 @@ import { createHash } from 'node:crypto';
 import { parseArgs } from 'node:util';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
-import { checkFrame, checkVideo, checkCoverage } from './contracts.mjs';
+import { checkCaptured, checkVideo, checkCoverage } from './contracts.mjs';
+import { captureFrame } from './capture_frame.mjs';
 
 const { values }=parseArgs({options:{
   scene:{type:'string'},out:{type:'string'},'checks-only':{type:'boolean',default:false},preview:{type:'boolean',default:false},
-  brief:{type:'string'},author:{type:'string',default:'unspecified'},samples:{type:'string',default:'0.5,2,4.5,6.5,7.8,9.3,10.7,11.8'}
+  brief:{type:'string'},author:{type:'string',default:'unspecified'},'render-invalid':{type:'boolean',default:false},samples:{type:'string',default:'0.5,2,4.5,6.5,7.8,9.3,10.7,11.8'}
 }});
 if(!values.scene||!values.out)throw Error('--scene and --out are required');
 if(values.preview&&values['checks-only'])throw Error('--preview and --checks-only are separate modes');
+if(values['render-invalid']&&(values.preview||values['checks-only']))throw Error('--render-invalid requires a full diagnostic video');
 const scene=await realpath(resolve(values.scene)),root=dirname(scene),out=resolve(values.out);
 if(out===root||out.startsWith(root+sep))throw Error('Output must be outside the source directory');
 const repo=resolve(dirname(fileURLToPath(import.meta.url)),'..');
@@ -45,7 +47,7 @@ const frozenRoot=join(out,'source');
 // silently rewrite the meaning of a historical pass.
 await mkdir(join(out,'tooling'));
 const tooling=[];
-for(const name of ['render_scene.mjs','contracts.mjs']){
+for(const name of ['render_scene.mjs','contracts.mjs','capture_frame.mjs']){
   const data=await readFile(join(repo,'tools',name));
   await writeFile(join(out,'tooling',name),data);
   tooling.push({path:name,sha256:sourceHash(data)});
@@ -103,39 +105,14 @@ try{
     manifest.preview={...exportMeta,scope:'draft preview; sparse source-time checks; not full verification'};
   }
   Object.assign(manifest,{meta,brief_sha256:sourceHash(JSON.stringify(brief)),mode:values.preview?'preview':values['checks-only']?'checks':'video'});
-  const capture=async(t,withImage=true)=>page.evaluate(({t,withImage,previewSize})=>{
-    const state=window.C2M.render(t),canvas=document.getElementById('scene');
-    if(canvas.width!==window.C2M.meta.width||canvas.height!==window.C2M.meta.height)throw Error('Canvas dimensions differ from metadata');
-    const pixels=[];
-    if(state.stage==='normalized')for(const segment of state.geometry.segments){
-      const color=canvas.getContext('2d').getImageData(Math.floor(segment.x+segment.width/2),Math.floor(segment.y+segment.height/2),1,1).data;
-      pixels.push({id:segment.id,color:Array.from(color),expected:segment.color});
-    }
-    if(window.C2M.meta.caseId==='residual'&&state.stage==='output')for(const vector of state.geometry.output){
-      const color=canvas.getContext('2d').getImageData(Math.floor((vector.start.x+vector.end.x)/2),Math.round(vector.start.y),1,1).data;
-      pixels.push({id:vector.id,color:Array.from(color),expected:vector.color});
-    }
-    let output=canvas;
-    if(withImage&&previewSize){
-      output=document.createElement('canvas');output.width=previewSize.width;output.height=previewSize.height;
-      output.getContext('2d').drawImage(canvas,0,0,output.width,output.height);
-    }
-    return {state:{...state,requestedTime:t},pixels,data:withImage?output.toDataURL('image/jpeg',0.95):null};
-  },{t,withImage,previewSize:values.preview?exportMeta:null});
-  const inspect=result=>{
-    const checked=checkFrame(result.state,brief,meta);
-    for(const pixel of result.pixels){
-      const expected=pixel.expected?.match(/^#([0-9a-f]{6})$/i)?.[1];
-      if(!expected){checked.findings.push({code:'missing_pixel_reference',detail:pixel.id,time_s:result.state.time});continue;}
-      const rgb=[0,2,4].map(i=>parseInt(expected.slice(i,i+2),16));
-      if(rgb.some((c,i)=>Math.abs(c-pixel.color[i])>12))checked.findings.push({code:'pixel_mismatch',detail:pixel.id,time_s:result.state.time});
-    }
-    checked.passed=checked.findings.length===0;return checked;
-  };
-  const evidence=[],findings=[];
+  const capture=async(t,withImage=true)=>page.evaluate(captureFrame,{t,withImage,previewSize:values.preview?exportMeta:null});
+  const inspect=result=>checkCaptured(result,brief,meta);
+  const evidence=[],findings=[],massScopes=[],pixelScopes=[];
+  const summarizePixels=scopes=>({policy:'Opaque centers with a full interior pixel; partial/subpixel/unrevealed probes are explicitly unavailable, not verified',
+    ...Object.fromEntries(['potential','sampled','unavailable'].map(key=>[key,scopes.reduce((sum,s)=>sum+(s?.[key]??0),0)]))});
   const times=[...new Set([...Array.from({length:49},(_,i)=>meta.duration*i/48),
     ...values.samples.split(',').map(Number)])].sort((a,b)=>a-b);
-  for(const t of times){const result=await capture(t,false),checked=inspect(result);findings.push(...checked.findings);evidence.push({...result.state,pixelSamples:result.pixels});}
+  for(const t of times){const result=await capture(t,false),checked=inspect(result);findings.push(...checked.findings);evidence.push({...result.state,pixelSamples:result.pixels,pixelCoverage:result.pixelCoverage});pixelScopes.push(result.pixelCoverage);if(checked.massGeometry)massScopes.push(checked.massGeometry);}
   const coverage=checkCoverage(evidence,brief);findings.push(...coverage.findings);
   for(const t of values.samples.split(',').map(Number)){
     const result=await capture(t);await writeFile(join(out,`frame-${t.toFixed(2)}.jpg`),Buffer.from(result.data.split(',')[1],'base64'));
@@ -146,11 +123,13 @@ try{
   if(!manifest.determinism.passed)findings.push({code:'nondeterministic_frame',time_s:repeatedTime});
   if(manifest.errors.length)findings.push({code:'pageerror',detail:manifest.errors.join('; ')});
   if(manifest.externalRequests.length)findings.push({code:'external_request',detail:'Scene requested external assets'});
-  const checks={sampled_frames:times.length,coverage,passed:findings.length===0,findings};
+  const mass_geometry={policy:'explicit massBars or exact legacy mass-i IDs; reveals independently check targets and actual partial widths, with settled-time completion; target_only is not a stable actual-ratio pass; absence is unavailable',
+    states:Object.fromEntries(['checked','target_only','unavailable','invalid','transient'].map(s=>[s,massScopes.filter(x=>x.status===s).length]))};
+  const checks={sampled_frames:times.length,coverage,mass_geometry,pixel_coverage:summarizePixels(pixelScopes),passed:findings.length===0,findings};
   await writeFile(join(out,'checks.json'),JSON.stringify(checks,null,2)+'\n');
   await writeFile(join(out,'frame-evidence.json'),JSON.stringify(evidence,null,2)+'\n');
   manifest.checks=checks;
-  if(!checks.passed){manifest.status='checks_failed';process.exitCode=1;}
+  if(!checks.passed&&!values['render-invalid']){manifest.status='checks_failed';process.exitCode=1;}
   else if(values['checks-only'])manifest.status='checks_passed';
   else{
     const ffmpeg=process.env.C2M_FFMPEG||'ffmpeg';
@@ -160,9 +139,9 @@ try{
       '-crf','19','-pix_fmt','yuv420p','-an','-movflags','+faststart',join(out,'video.mp4')],{stdio:['pipe','ignore','pipe']});
     let encoderError='';encoder.stderr.on('data',b=>encoderError+=b);
     const done=once(encoder,'close');encoder.stdin.on('error',()=>{});
-    const frames=Math.round(exportMeta.duration*exportMeta.fps),fullFindings=[];
+    const frames=Math.round(exportMeta.duration*exportMeta.fps),fullFindings=[],fullPixelScopes=[];
     for(let i=0;i<frames;i++){
-      const result=await capture(i/exportMeta.fps),checked=inspect(result);fullFindings.push(...checked.findings);
+      const result=await capture(i/exportMeta.fps),checked=inspect(result);fullFindings.push(...checked.findings);fullPixelScopes.push(result.pixelCoverage);
       if(encoder.exitCode!==null)throw Error(`FFmpeg stopped during capture: ${encoderError}`);
       if(!encoder.stdin.write(Buffer.from(result.data.split(',')[1],'base64'))){
         const drained=await Promise.race([once(encoder.stdin,'drain').then(()=>true),done.then(()=>false)]);
@@ -172,7 +151,7 @@ try{
     }
     encoder.stdin.end();const [code]=await done;encoder=undefined;
     if(code!==0)throw Error(`FFmpeg exited ${code}: ${encoderError}`);
-    checks[values.preview?'preview_frame_checks':'full_video_frame_checks']={frames,passed:fullFindings.length===0,findings:fullFindings};
+    checks[values.preview?'preview_frame_checks':'full_video_frame_checks']={frames,pixel_coverage:summarizePixels(fullPixelScopes),passed:fullFindings.length===0,findings:fullFindings};
     const probe=JSON.parse(await processResult(process.env.C2M_FFPROBE||'ffprobe',[
       '-v','error','-select_streams','v:0','-show_streams','-of','json',join(out,'video.mp4')]));
     const stream=probe.streams[0];manifest.video=checkVideo(stream,exportMeta);manifest.video.stream=stream;
