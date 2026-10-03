@@ -1,0 +1,105 @@
+{
+  "case": "residual",
+  "repeat": 2,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "daff42e8c7f39aefd10b33bcf6d9eeb4fd04dc5760b1ca91097518d791cc3ef8",
+    "image_sha256": [
+      "ca3fc26b128d662270ad2c0c3361a046e15ded543cf319958617f1e813e69833",
+      "2fa82897d59a4d1b29999af786925803118f978d06e5f59e2afd60b5857f5b56"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "Three cyan components remain in separate numbered rows: 0.70 points right, −0.40 left, and 0.20 right. Their lengths and endpoints match the established cyan arrows at 4s while orange corrections are added."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Orange arrows are distinguishable from cyan by color and direction: rows 1 and 3 point left, and row 2 points right. They visibly represent separate correction segments, although they overlap the original segments spatially."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "Each orange tail sits at its corresponding cyan head: at the right endpoint in rows 1 and 3, and at the left endpoint in row 2. The third correction extends left past the cyan starting position, visibly demonstrating a sign reversal."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "Purple arrows show the net signed displacements: rightward 0.50, leftward −0.25, and leftward −0.10. Their lengths match the displacement from each cyan origin to its orange endpoint, including the third row’s overshoot past zero."
+            }
+          ],
+          "reconstructed_message": "The original signed components x = [0.70, −0.40, 0.20] survive unchanged along the cyan identity path. Addition happens separately within each row, where an orange correction starts at the corresponding cyan endpoint. The purple result is [0.50, −0.25, −0.10].",
+          "limits": "At 17s, output arrows are displaced into a separate column without explicit origin guides connecting them to the merged arrows. English explanations limit accessibility for a Chinese newcomer. Sampled frames establish geometric states, not continuous transport."
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "Three cyan arrows retain the directions and lengths established at 4s: a long rightward first component, a leftward second component, and a short rightward third component. Separate rows preserve correspondence, though the second row’s component label intersects its arrows."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Orange correction arrows are visibly distinct from cyan: leftward on rows 1 and 3 and rightward on row 2. Their separate colored segments remain identifiable despite overlap with the cyan geometry."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "Orange tails attach to cyan heads in all three rows. Row 2 reverses rightward from the cyan left endpoint; row 3 reverses leftward from the cyan right endpoint and passes the original starting position."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "Purple output arrows point right, left, and left with lengths corresponding to 0.50, 0.25, and 0.10. These match the net cyan-plus-orange displacements, visibly including the negative result produced by the third correction exceeding its positive original component."
+            }
+          ],
+          "reconstructed_message": "恒等路径保留原来的三个带符号分量及其对应关系。每个橙色修正量从对应青色分量的箭头末端出发，逐项首尾相接；紫色箭头表示相加后的净位移：[0.50, −0.25, −0.10]。",
+          "limits": "At 11s, the second component label overlaps the arrows, and the third row’s x and F labels run together. At 17s, outputs occupy a separate column without connecting origin guides. Chinese wording improves language access but does not establish actual comprehension."
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "tie",
+          "reason": "At 11s both show the same causal mechanism: unchanged cyan components with orange corrections attached head-to-tail. At 17s both show geometrically consistent signed outputs, with no visible arithmetic contradiction. W has cleaner numeric spacing; Z provides Chinese-accessible explanations but crowds component labels, especially rows 2 and 3 at 11s. Neither has a decisive geometric clarity advantage."
+        }
+      ],
+      "uncertainty": "Assessment uses only supplied frames at 1, 4, 8, 11, 14, and 17 seconds. Intermediate arrow lengths at 1s and 14s cannot establish completed values or unseen motion. No source, execution, model provenance, mathematical test results, or actual human learning was assessed."
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 59.659,
+      "usage": [
+        {
+          "input_tokens": 21675,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1249,
+          "reasoning_output_tokens": 88
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

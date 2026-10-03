@@ -1,0 +1,176 @@
+Authorized original mathematical animation benchmark. Return ONLY structured html/javascript/storyboard.
+Do not use tools, browse, read files, delegate or invoke models. All material is supplied here.
+Chinese-speaking newcomer, silent Canvas2D explanation, 854x480, 15fps, exactly 18 seconds.
+Use a dark background, concise readable captions, stable class/role identities and geometric actions.
+Make the question, objects and causal mechanism identifiable. Formulas alone are insufficient.
+Soft budgets: JavaScript <=9000 characters, HTML <=1000, storyboard <=1500.
+Expose canvas#scene, module scene.js, deterministic window.C2M version 1, caseId=residual.
+Redraw the complete frame at render(t); no accumulated state, no playback in ?export=1.
+Two immutable local modules math-frame.mjs and math-timeline.mjs are preinstalled for all methods.
+Import createMathFrame and createMathTimeline from them; do not redefine/edit/return their source.
+Author the timeline yourself. Put stageTimeline: timeline.meta in C2M.meta.
+Return f.finish() per frame. Draw required semantic shapes with the adapter, not raw Canvas.
+For reveal, pass FULL target width/value and a separate reveal in 0..1. Do not scale the target itself.
+Use f.values for mathematical targets. Use measured text rectangles to keep labels away from shapes.
+Use phase opacity layers to remove obsolete captions; never draw the same kind/ID twice in a frame.
+Residual roles are identity/correction/output. Identity and correction must stay identifiable at final merge.
+Do not claim learned weights. Choose composition, captions, colors and interval timing yourself.
+Brief:
+{"id": "residual", "duration_s": 18, "inputs": {"x": [0.7, -0.4, 0.2], "residual": [-0.2, 0.15, -0.3]}, "question": "What exactly survives along the identity path, and where does addition happen?", "mechanism": "Identity transports x unchanged; a separate illustrative correction F(x) merges componentwise into y=x+F(x); not trained weights.", "visual_checks": ["Original signed components and their identity path remain identifiable", "A separate correction path is visibly distinguishable", "Corresponding components visibly join head-to-tail at the merge", "The displayed result visibly agrees with signed componentwise addition"]}
+Common protocol:
+# Local scene protocol · version 1
+
+An HTML candidate exposes `window.C2M` with:
+
+```js
+{
+  meta: { version: 1, caseId: 'softmax', renderer: 'canvas2d',
+          width: 1920, height: 1080, duration: 12, fps: 60 },
+  render(timeInSeconds) { /* draw one complete frame, return evidence */ }
+}
+```
+
+The canvas has ID `scene`. Its intrinsic size matches metadata. With `?export=1`, automatic playback is paused. Frame rendering must use its explicit time; no wall clock, unseeded random numbers or accumulated animation state. Draw the entire frame on each call.
+
+`render(t)` returns time, stage, numerical mechanism data, and bounds measured while drawing. Every active text or shape has `{id, kind, x, y, width, height, opacity}`. Draw text using measured font bounds. In the normalized Softmax stage, also return `geometry.capacity` and three `geometry.segments` with stable IDs `class-0..2`, coordinates and six-digit hex colors. Mechanism fields are `logits`, positive raw `masses`, shared `denominator`, and `probabilities`.
+
+The independent validator recomputes reference probabilities from the saved brief. It checks numbers, partition widths, gaps, total capacity, text overlap, shape/text collisions and clipping. The renderer also samples actual canvas pixels at segment centers. Required stages must occur in order across sampled frames. Bounds checks use an opacity threshold of 0.2 and a two-pixel overlap tolerance. Intended text inside a shape is not supported by this narrow layout contract.
+
+The evidence registry is supplied by the candidate; this is useful instrumentation, not an adversarial proof of every pixel or of semantic understanding. Visual review remains necessary. A deliberate regression fixture overwrites the residual output pixels while keeping all numerical and geometric evidence correct; the renderer rejects it with `pixel_mismatch`.
+
+## Residual evidence
+
+For `caseId: 'residual'`, return `mechanism: {input, identity, correction, output}`. The independent reference uses the brief's `x` and `residual`, checks `identity = x`, and recomputes `output = x + residual` componentwise. The illustrative correction is not a learned network.
+
+Return `geometry.unitScale`, a positive shared pixels-per-unit scale, and signed horizontal vectors with `{id, start: {x, y}, end: {x, y}, color}`. `identity` exists throughout; `correction` is required after the input stage; `output` is required in the final stage. Stable IDs are `identity-i`, `correction-i`, `output-i`. Each signed displacement must equal its value times the shared scale. At the final merge, each correction starts at its identity endpoint, and the output's horizontal endpoints span their signed sum. The output may use a separate vertical lane for readability. Actual canvas colors are sampled at its vector midpoints in the output stage.
+
+The required stage sequences are Softmax: `logits → exponential → shared-total → normalizing → normalized`; residual: `input → branches → merging → output`.
+
+The rendered-evidence validator supports **Softmax and residual addition**. Unsupported case IDs fail explicitly. GRU has a numerical brief but its scene protocol and render validator are still pending.
+
+
+Common drawing/progress API:
+# Draw and record mathematical evidence
+
+`runtime/math-frame.mjs` is a small Canvas2D adapter for the existing three-component
+Softmax and residual contracts. It draws primitives and records their measured
+evidence together. The author still chooses composition, stage, timing, colors,
+explanation and the semantic role of each object. It does not generate a lesson.
+
+Copy the module into the candidate's local source directory, so the render snapshot
+includes the exact adapter version. Import it from that frozen local file:
+
+```js
+import { createMathFrame } from './math-frame.mjs';
+// Called afresh inside window.C2M.render(t).
+const f = createMathFrame(canvas, {
+  caseId: 'softmax', time: t, stage: 'exponential',
+  inputs: { logits: [-0.8, 0.4, 1.2] }
+});
+const colors = ['#57c7ef', '#af87ff', '#ffb65b'];
+[-0.8, 0.4, 1.2].forEach((z, i) => {
+  f.text(`label-${i}`, `exp(${z})`, 140, 110 + i * 80, { color: colors[i] });
+  f.massBar(i, { x: 140, y: 130 + i * 80,
+    width: 60 * Math.exp(z), height: 18, color: colors[i] });
+});
+return f.finish();
+```
+
+This is a frame/API example, not a complete candidate or a model-generated animation.
+`createMathFrame` clears the canvas and resets common drawing state on each call.
+It computes numerical evidence from the supplied inputs; the separate validator
+recomputes the reference from the saved brief, so passing the wrong inputs still fails.
+Raw exponentials must be in the supported finite range.
+
+| Method | Draws and records |
+|---|---|
+| `values` | Frozen target logits/masses/denominator/probabilities or input/identity/correction/output computed from inputs |
+| `text(id, text, x, y, {size, color, align, opacity, font})` | Text and measured font bounds; alphabetic baseline; returns a frozen measured rectangle |
+| `massBar(index, {x,y,width,height,color,opacity,reveal})` | Rectangle and `geometry.massBars`, fixed IDs `mass-0..2`; with reveal, width is the complete target width |
+| `partition({x,y,width,height,opacity}, [{probability,color}, …])` | Three contiguous probability rectangles and capacity/segments |
+| `vector(role,index,{start,value,unitScale,color,strokeWidth,opacity,reveal})` | Signed horizontal arrow and endpoint evidence; roles identity/correction/output; value is the complete target value |
+| `layer(opacity, draw)` | Multiplies effective opacity for primitive calls inside the callback and restores it afterward |
+| `finish()` | Detached snapshot of time, stage, mechanism, geometry and bounds |
+
+Use one positive `unitScale` for all residual components. The returned `vector`
+contains a detached `end` point; use an identity endpoint as the matching correction's
+start. Output vectors can occupy a separate vertical lane. The validator checks
+the supplied values, signed displacements and final sum independently. A zero
+target is drawn as a dot, so a correct zero component remains visible.
+
+Text and mathematical shapes have separate ID namespaces. A label `class-0`
+can coexist with the partition segment `class-0`; two text calls with the same
+ID in one frame still fail. Bounds record `id` as `text:class-0` or
+`shape:class-0`, and `sourceId` preserves the caller's ID. Geometry retains
+its required mathematical IDs. A failed render reports the offending kind/ID.
+
+Use measured text rectangles to place a following label or shape with an actual
+gap. Neither measurement nor `layer` performs layout. A layer callback runs even
+at opacity zero; draw each instance once per frame and use distinct text IDs.
+
+The adapter records what was actually requested through these primitives. It does
+not ensure that the author chose mathematically correct widths or semantic roles:
+the independent checker does that. Empty required arrays remain empty when objects
+were not drawn. Duplicate IDs fail. Drawing directly with `ctx` bypasses automatic
+registration; later overpainting can invalidate the evidence, so sampled pixel
+checks remain necessary. Sparse pixel probes do not prove all visible geometry,
+readable motion, clear explanation or artistic quality.
+
+## Partial geometry and settled phases
+
+Copy `runtime/math-timeline.mjs` alongside the frame adapter. The author chooses
+every interval and caption. `createMathTimeline({caseId,duration,entries})`
+requires contiguous intervals covering the duration, the required stage order,
+and at least 0.75 seconds between each `settledAt` and its `end`. Save
+`stageTimeline: timeline.meta` in `window.C2M.meta`.
+
+```js
+const phase = timeline.at(t);
+const f = createMathFrame(canvas, {
+  caseId: 'residual', time: t, stage: phase.stage,
+  inputs: {x: [.7, -.4, .2], residual: [-.2, .15, -.3]}
+});
+const a = f.vector('identity', 0, {
+  start: {x: 220, y: 150}, value: f.values.input[0],
+  unitScale: 180, color: '#57c7ef', reveal: timeline.reveal('input', t)
+});
+// Use the identity's complete endpoint for the correction's fixed origin.
+f.vector('correction', 0, {
+  start: a.targetEnd, value: f.values.correction[0], unitScale: 180,
+  color: '#ffb65b', reveal: timeline.reveal('branches', t)
+});
+return f.finish();
+```
+
+This excerpt demonstrates two primitive calls, not a complete valid lesson.
+The full candidate must draw all required components and outputs. Explicit
+`reveal` is in 0..1. Actual vector displacement equals target value × scale ×
+reveal; actual bar width equals target width × reveal. Keep the full target in
+`value`/`width`, rather than multiplying it before passing it to the helper.
+Without explicit reveal, the supplied value is treated as actual complete geometry.
+
+`timeline.reveal(stage,t)` smoothly reaches one by that stage's `settledAt`.
+`timeline.opacity(stage,t,{fade:.2,persist:false})` fades a stage layer, with a
+positive fade no longer than .25 seconds. Final-stage opacity remains one at
+the exact endpoint. Use `f.layer(...)` for captions that must disappear when
+their phase ends; keep the mechanism's component identities consistent.
+
+The validator independently checks timeline metadata, full target mathematics,
+actual partial geometry and completion/visibility in settled phases. It does not
+import the timeline utility. A correct target during a reveal is recorded as
+`target_only`, not a verified full exponential-width ratio. Wrong targets,
+unfinished final geometry and invisible required objects remain failures.
+
+Pixel probes on transparent or subpixel geometry cannot use an opaque pure-color
+reference. Each frame records `pixelCoverage` with potential/sampled/unavailable
+counts and skip reasons. Unavailable probes never count as verified. Stable,
+opaque geometry continues to receive pixel checks; all exported frame times
+receive numerical/geometry checks. These remain sparse probes, not image-wide proof.
+
+The [explicit reveal controls](../evaluation/2026-10-03/progress-controls-v2/REPORT.md)
+export and fully decode 16 hand-authored clips, including wrong targets, forged
+partial geometry, incomplete reveals, hidden objects, overpainting and caption
+overlap. Version 1's subpixel false positive is preserved separately. These
+controls validate engineering behavior, not AI generation or artistic quality.
+
+

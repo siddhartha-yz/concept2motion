@@ -1,0 +1,5 @@
+Silent 854×480 Canvas2D, 15fps, 18s. Dark slate background from the frame adapter; cyan identity, amber correction, violet output, with consistent component rows.
+0–4s input: pose the question “What survives the identity path?” Reveal three signed x arrows from a common origin, labeling the unchanged values.
+4–8.2s branches: show a distinct correction arrow beginning at each identity endpoint. Caption clarifies that F(x) is illustrative, not learned weights.
+8.2–13s merging: emphasize head-to-tail joins and ask where addition occurs; each amber displacement starts at its corresponding cyan endpoint.
+13–18s output: reveal violet result arrows in a separate lane. Show y=x+F(x) and [0.50, −0.25, −0.10]. Keep identity and correction lanes labeled at the final merge. Render is deterministic at explicit time; export query disables playback.

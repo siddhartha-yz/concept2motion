@@ -1,0 +1,200 @@
+{
+  "id": "residual-1-o2",
+  "case": "residual",
+  "repeat": 1,
+  "order": 2,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "787cc9b0502972b7c18c25e9f73a376fb6639cb0f697f2f5c444ea18411b509d",
+    "image_sha256": [
+      "52ac044df074fb2aedc766621e17593172a9b77ff56bfa36962249f24fee65f4",
+      "f26b753e6a7e34351081463e678a9d55963f73dfb40deb42de32d44e2a254147",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "ad963d73afc83b3a7151b5784e2a6ab64a2720230c4cc0e8b8def91369c79df8"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "三个带标签的输入箭头分别向右、向左、向右，长度对应 +0.8、−0.6、+0.3；与 1 秒相比，方向和长度保留。分量仍可辨认，但输入使用三种颜色，与“青色：输入与恒等路径”图例不一致。"
+            },
+            {
+              "criterion": 1,
+              "status": "uncertain",
+              "time_s": 8,
+              "evidence": "前两行能辨认橙色修正箭头及独立修正数值；第三行输入本身也是橙色，修正与输入重叠，无法清楚分辨完整的独立修正路径。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "第一行橙箭头从原箭头右端向左回走，第二行从原箭头左端向右回走，支持对应分量首尾相接；第三行接合也位于右端，但同色短箭头使它较难辨认。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "下移的紫色结果与各输入起点对齐，终点对应修正终点的横坐标；方向为右、左、右，长度约为原输入的 3/4、1/3、2/3，与 +0.6、−0.2、+0.2 一致。"
+            }
+          ],
+          "reconstructed_message": "恒等路径保留各输入分量的带符号位移；修正在每个输入箭头末端接入，输出是原起点到修正终点的净位移。",
+          "limits": "同色输入与修正削弱第三分量的可辨认性；11 秒结果长度与最终帧不同，不能凭采样判断其间如何变化。"
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "只有“NO FRAME AVAILABLE”，没有输入或恒等路径几何。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "只有“NO FRAME AVAILABLE”，没有修正路径。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 11,
+              "evidence": "只有“NO FRAME AVAILABLE”，没有合并或首尾接合。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 17,
+              "evidence": "只有“NO FRAME AVAILABLE”，没有结果几何。"
+            }
+          ],
+          "reconstructed_message": "无法从提供的画面重建解释。",
+          "limits": "六个采样时间均无可用帧；这表示证据缺失，不能据此推断实际视频内容或失败原因。"
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "三行标签对应 +0.8、−0.6、+0.3，箭头分别向右、向左、向右，长度比例相符；与 1 秒相比保持原样。但第二、第三输入分别为紫色、橙色，与图例的统一青色输入不一致。"
+            },
+            {
+              "criterion": 1,
+              "status": "uncertain",
+              "time_s": 8,
+              "evidence": "第一、第二行出现可与输入区分的橙色反向修正；第三行原输入与修正同为橙色，末端挤成短小形状。右侧修正标签不能单独证明独立路径。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "第一行橙色左向箭头接在正输入右端，第二行橙色右向箭头接在负输入左端，形成首尾相接；第三行接点可定位，但短小同色箭头难读。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "紫色结果从输入起点的同一横坐标出发，终点与各修正终点横向对应；右、左、右的方向和约 0.6、0.2、0.2 的长度支持带符号逐项相加。"
+            }
+          ],
+          "reconstructed_message": "三个带符号输入保持原位移，橙色修正在对应末端反向接入，紫色箭头表示相加后的净位移。",
+          "limits": "第三行输入与修正颜色混同；14 秒紫色结果仍短于 17 秒结果，不能把采样间的变化当作已观察到的连续过程。"
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "三支输入均为蓝色，方向分别右、左、右，标签为 +0.8、−0.6、+0.3；相对 1 秒位置改变，但各自方向和长度保留。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "三支橙色修正与蓝色输入空间分离，分别左向 −0.2、右向 +0.4、左向 −0.1，颜色、方向和长度均可独立辨认。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "三行橙色修正的起点分别位于蓝色箭头终点，再沿反方向回走；正输入在右端接合，负输入在左端接合。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "绿色结果下移展示，起点与蓝色起点横向对齐，终点与橙色终点横向对齐；三行方向及长度分别支持 +0.6、−0.2、+0.2，旁边算式与几何一致。"
+            }
+          ],
+          "reconstructed_message": "恒等路径搬运原输入的方向、长度和数值；另一条路径提供独立修正。将每个修正首端接到对应输入末端，原起点到修正终点就是输出。",
+          "limits": "11 秒部分橙箭头尚未贴合，接合完成的依据是 14、17 秒；右侧少量文字被裁切，1 秒负分量数值与箭头局部重叠。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "W",
+          "reason": "W 的 17 秒提供输入、首尾接合和结果的可见对应；X 六个时间均没有可用帧。"
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "tie",
+          "reason": "两者 17 秒的输入、反向修正和净结果几何基本等效，也都存在第三分量输入与修正同色的问题。W 的附加算式未提供决定性的几何优势。"
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z 在 4 秒将三项修正独立展示，14 秒再明确首尾接合，且统一蓝色输入、橙色修正、绿色结果；W 第三项输入与修正同色，路径区分较弱。"
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y 的 11 秒展示接合、17 秒展示与净位移一致的结果；X 没有可评估的解释画面。"
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z 的 4、14、17 秒分别提供独立修正、对应接合和结果几何；X 只有无帧占位文字。"
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z 的三项输入与修正始终以不同颜色区分，4 秒还有空间分离的修正证据；Y 第三项橙色输入与橙色修正混同。Z 的最终起点、接点和终点关系也更易读。"
+        }
+      ],
+      "uncertainty": "仅评估所附 1、4、8、11、14、17 秒采样画面。不能确认连续运动、完整节奏、音频、实际学习效果或未展示内容；长度判断是视觉比例判断。数学一致性与视觉可辨认性分别判断，未把公式正确当作几何证明。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 120.987,
+      "usage": [
+        {
+          "input_tokens": 27723,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2446,
+          "reasoning_output_tokens": 175
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

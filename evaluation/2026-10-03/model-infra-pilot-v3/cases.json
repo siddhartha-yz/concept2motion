@@ -1,0 +1,45 @@
+[
+  {
+    "id": "softmax",
+    "duration_s": 18,
+    "inputs": {
+      "logits": [
+        -1,
+        0.7,
+        1.3
+      ]
+    },
+    "question": "Why must all three softmax outputs share one denominator?",
+    "mechanism": "Signed inputs become positive exp masses; sum all three once; divide each by that same sum; partition one total-one capacity.",
+    "visual_checks": [
+      "Input signs and class identities are visible",
+      "Each input visibly becomes its positive exponential mass",
+      "All three masses visibly contribute to one shared total",
+      "Three final probabilities visibly partition one total-one capacity"
+    ]
+  },
+  {
+    "id": "residual",
+    "duration_s": 18,
+    "inputs": {
+      "x": [
+        0.7,
+        -0.4,
+        0.2
+      ],
+      "residual": [
+        -0.2,
+        0.15,
+        -0.3
+      ]
+    },
+    "question": "What exactly survives along the identity path, and where does addition happen?",
+    "mechanism": "Identity transports x unchanged; a separate illustrative correction F(x) merges componentwise into y=x+F(x); not trained weights.",
+    "visual_checks": [
+      "Original signed components and their identity path remain identifiable",
+      "A separate correction path is visibly distinguishable",
+      "Corresponding components visibly join head-to-tail at the merge",
+      "The displayed result visibly agrees with signed componentwise addition"
+    ]
+  }
+]

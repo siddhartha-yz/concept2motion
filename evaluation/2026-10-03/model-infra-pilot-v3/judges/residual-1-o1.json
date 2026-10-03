@@ -1,0 +1,105 @@
+{
+  "case": "residual",
+  "repeat": 1,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "b40b510b30344ff72df000846fadad3db2706335e0a6a14c20b522673f2c80bc",
+    "image_sha256": [
+      "c65096f66a3e0ba55769993142d1f4c348228aff6990d4dac2f568c4fb42f74c",
+      "6d7efdbf406e52fd7e3186adad681c6c17183146490d897b95d94b8a7ed4a1fc"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "三条原始分量仍分别为青色向右、紫色向左、绿色向右；与4秒相比，其起点、终点和长度保持不变，修正箭头叠加后仍可辨认。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "琥珀色修正箭头与原分量颜色不同，方向依次为左、右、左，且各自从对应原箭头的终点反向延伸。路径虽重叠，修正的箭头和端点仍可区分。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "第一行琥珀箭头尾部位于青色箭头右端；第二行尾部位于紫色箭头左端；第三行尾部位于绿色箭头右端。三行均在同一水平线上首尾相接，第三行修正还越过原始起点。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "结果箭头共用与输入对齐的水平起点，依次向右、向左、向左，长度约为原输入的5/7、5/8、1/2；其水平终点分别与三条琥珀修正箭头的终点对齐，支持结果+0.50、−0.25、−0.10。"
+            }
+          ],
+          "reconstructed_message": "恒等路径保留原来的有符号分量x：方向、大小和分量身份不变。每项修正F(x)从对应x的箭头终点接上；从原始起点到修正终点的位移就是输出。",
+          "limits": "仅评估所给静帧。英文讲解对中文新手有阅读负担；修正与输入共线重叠，需辨认较小的琥珀箭头。没有明确画出网络分支或统一的加法节点。"
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "青、紫、绿三条输入箭头保持4秒时的方向、长度和位置，分别向右、向左、向右；修正出现后，原分量仍完整可见。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "每条输入下方均有独立的琥珀色箭头，方向依次为左、右、左。颜色和垂直间隔使修正路径与输入清楚分开。"
+            },
+            {
+              "criterion": 2,
+              "status": "contradicted",
+              "time_s": 11,
+              "evidence": "文字称修正接在对应x末端，但三条琥珀箭头均位于对应输入下方，尾部只与输入终点的水平坐标对齐；两者之间存在可见垂直空隙，没有连接线，因此没有实际画出首尾相接。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "三条结果箭头从与输入对齐的水平起点出发，分别向右、向左、向左；长度约为原输入的5/7、5/8、1/2，水平终点与对应琥珀箭头终点对齐，几何上支持+0.50、−0.25、−0.10。"
+            }
+          ],
+          "reconstructed_message": "x的三个有符号分量原样保留，另有逐项修正F(x)，相加得到输出。图中用上下分开的箭头表示输入和修正，用水平坐标对应暗示相加，但没有真正连接它们。",
+          "limits": "中文说明便于目标受众阅读，分开的修正箭头也更易辨认；然而文字所称的末端连接与可见空隙不一致。仅凭这些帧不能确认其他时刻是否发生连接。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "W",
+          "reason": "W在11秒直接画出三组首尾相接，明确呈现加法发生在对应输入终点；Y同一时刻只有水平坐标对齐，垂直空隙削弱了合流机制，并与连接说明矛盾。两者在8秒都保留了分量身份，17秒结果的方向和比例均正确。Y的中文与分离箭头更易阅读，但W对核心加法机制提供了更直接的几何证据。"
+        }
+      ],
+      "uncertainty": "判断仅覆盖1、4、8、11、14、17秒的所给接触表，不推断帧间运动、完整视频、实现方法或真实学习效果。长度比例为视觉估计，没有坐标轴支持精确测量；数学几何判断与可读性判断分开。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 68.673,
+      "usage": [
+        {
+          "input_tokens": 21675,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1371,
+          "reasoning_output_tokens": 61
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

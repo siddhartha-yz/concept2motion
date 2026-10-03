@@ -1,0 +1,105 @@
+{
+  "case": "residual",
+  "repeat": 1,
+  "order": 2,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "b14be336c3b8d53ff11cdc97f0e191915190b0367ac49d816871d5e53e128c78",
+    "image_sha256": [
+      "6d7efdbf406e52fd7e3186adad681c6c17183146490d897b95d94b8a7ed4a1fc",
+      "c65096f66a3e0ba55769993142d1f4c348228aff6990d4dac2f568c4fb42f74c"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "At 4s and 8s, the cyan and green input arrows point right and the purple arrow points left, retaining their respective lengths and common horizontal origin. Their geometry remains identifiable while amber corrections appear."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Amber correction arrows occupy separate lines below the three colored inputs: leftward for F1, rightward for F2, and leftward for F3. Color and vertical separation distinguish them from the retained inputs."
+            },
+            {
+              "criterion": 2,
+              "status": "contradicted",
+              "time_s": 11,
+              "evidence": "Each amber tail shares the horizontal coordinate of its matching input head but sits visibly below it, with no connecting segment. The claimed endpoint attachment is therefore not an actual visible head-to-tail join."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "The result arrows share an origin and point right, left, left, with lengths approximately proportional to 0.50, 0.25, 0.10. Their endpoints match the horizontal endpoints reached by the corresponding amber corrections above, supporting the displayed signed sums."
+            }
+          ],
+          "reconstructed_message": "恒等路径保留 x 的三个带符号分量；独立的 F(x) 分量在合流处逐项相加，得到 (+0.50, −0.25, −0.10)。画面保留了输入箭头，但把修正箭头放在下方，端点连接需要观众自行补足。",
+          "limits": "Chinese text supports the intended audience. Only six sampled frames are available; the spatial gaps prevent a demonstrated physical join, regardless of what unseen motion might show."
+        },
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "The cyan rightward, purple leftward and green rightward arrows retain the lengths and common horizontal origin seen at 4s. They remain visible underneath the corrections, preserving component identity and sign."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Amber arrows are distinguishable from the cyan, purple and green inputs by color and opposing direction. Their arrowheads separately identify the three correction displacements, although overlapping shafts reduce separation."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Each amber correction starts exactly at its corresponding colored arrowhead on the same horizontal line: left from cyan's right endpoint, right from purple's left endpoint, and left from green's right endpoint. This directly shows head-to-tail addition."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "The bottom cyan, purple and green result arrows extend from a common origin to the same horizontal positions as the three amber correction heads above. Their right/left/left directions and approximately 0.50:0.25:0.10 lengths agree with the signed componentwise sums."
+            }
+          ],
+          "reconstructed_message": "恒等路径保留原始 x 分量的符号和大小；每个 F(x) 箭头从对应 x 箭头的末端出发，合成位移形成输出。第三分量的负修正越过原点，使正输入变成负输出。",
+          "limits": "English text adds a language barrier for a Chinese newcomer. Overlapping arrows make corrections less isolated, but their endpoint attachment is visible. No continuous motion or learner response is available."
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "Y",
+          "right": "W",
+          "winner": "W",
+          "reason": "At 8s and 11s, W visibly attaches every correction tail to its matching input head; Y leaves vertical gaps despite claiming attachment. Both retain component colors and signs and show geometrically consistent results at 17s. Y is more readable linguistically for the Chinese audience and separates corrections more clearly, but W more directly demonstrates where addition happens."
+        }
+      ],
+      "uncertainty": "Assessment covers only supplied frames at 1, 4, 8, 11, 14 and 17 seconds. Arrow proportions are visually estimated. These frames support componentwise displacement addition, but do not establish continuous transport along a network bypass, unseen transitions, implementation correctness or actual learning."
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 55.253,
+      "usage": [
+        {
+          "input_tokens": 21675,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1127,
+          "reasoning_output_tokens": 40
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

@@ -1,0 +1,2321 @@
+{
+  "generation_complete": true,
+  "primary_C_vs_B": {
+    "C": 0,
+    "B": 0,
+    "tie": 0,
+    "uncertain": 0,
+    "unresolved": 2,
+    "not_comparable": 2
+  },
+  "all_comparisons": [
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "B",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "reason": "Both provide only NO FRAME AVAILABLE placeholders at all supplied times; neither supplies assessable mechanism evidence."
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "reason": "两者六个采样点都没有可用帧，证据同样缺失，无法区分解释质量。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "C",
+          "reason": "Y visibly links signed inputs, positive exponential bars, a shared total, and a partitioned capacity-one bar. W supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "reason": "Y在4秒显示同色正质量条、8秒显示三路汇聚、14秒显示容量1的三色分割；W没有可评视觉证据。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "D",
+          "reason": "Z supplies identifiable colored masses, their contiguous combination, and a clearly bounded 0-to-1 partition. W supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "reason": "Z从4秒同尺度指数条，经11秒拼接，到14秒完整分割0至1，提供共同分母的几何解释；W无可用帧。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "C",
+          "reason": "Y provides geometric evidence for all four steps despite crowding and overlap. X supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "reason": "Y具有输入、正质量、共同汇聚节点和最终三色容量条的可见关系；X所有采样均缺失。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "D",
+          "reason": "Z visibly connects class-specific exponential masses to one combined bar and one unit-capacity partition. X supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "reason": "Z明确保留类别颜色，并展示三份质量拼成整体及最终覆盖单位容量；X没有对应证据。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "C",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "D",
+          "reason": "Z separates the stages more clearly: positive same-origin mass bars at 4 seconds, a contiguous combined bar at 11 seconds, and an unobstructed 0-to-1 partition at 14 seconds. Y's premature stacked bar and overlapping labels obscure the relationship between the masses, shared total, and final shares. Z makes the common scaling mechanism easier to identify from the geometry."
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "reason": "Z在4、11、14秒以清晰的同色条长度、拼接和单位区间连续建立部分与整体的关系，使同一总量成为共同分母更容易辨认。Y虽有8秒三路汇聚和14秒单位分割，但组合条提前出现，且4秒起遮挡指数标签、后期文字及图形重叠，削弱阶段和对象的对应。"
+        }
+      ],
+      "stable_winner": "D"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "B",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "reason": "两者全部六个采样时间均为无帧占位，无法依据可见内容偏好任何一方。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "reason": "Both provide only 'NO FRAME AVAILABLE' placeholders at all six times, leaving no visible mechanism or readability difference to assess."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "reason": "两者在 1、4、8、11、14、17 秒均只有 NO FRAME AVAILABLE，提供的机制证据同样缺失。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "reason": "Both provide identical absence of frame evidence at all six times; neither visibly supports any criterion. This is an evidence tie only."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "D",
+          "reason": "W 在 4 秒用同色正长度条对应指数质量，11 秒合为一条，14 秒分割 0 到 1 的容量；X 对应时间均无帧。W 的共同分母机制有可见支持。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "reason": "W visibly links colored exponential-mass bars at 4 seconds to a shared accumulation at 8 seconds and a unit partition at 14 seconds. X supplies only missing-frame placeholders."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "reason": "两者全部六个采样时间均缺少解释画面，在所提供证据层面并列。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "reason": "Neither supplies any actual sampled frame; their available visual evidence is equally missing."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "D",
+          "reason": "W 的 4、11、14 秒形成指数质量、共同总量、单位容量分割的可见链条，颜色维持成分身份；Z 无可评估图形。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "reason": "W supports the common-denominator mechanism with three components joined into one whole at 11 seconds and partitioning unit capacity at 14 seconds. Z has only missing-frame placeholders."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "C",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "D",
+          "reason": "W 在 1 秒保留类别和符号，11 秒展示三色共同总量，14 秒展示完整概率分割；Y 全部采样点无帧，无法识别机制。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "reason": "W preserves component identity across proportional mass bars, an assembled total, and the final 0–1 partition. Y has no visible explanation at any supplied time."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "B",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "C",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "B",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "C",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "C",
+      "right_arm": "D",
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "unknown"
+        },
+        {
+          "order": 2,
+          "winner": "unknown"
+        }
+      ],
+      "stable_winner": "unresolved"
+    }
+  ],
+  "cost": {
+    "attempted": 36,
+    "completed": 32,
+    "unknown": 4,
+    "input_tokens": 701631,
+    "output_tokens": 53390
+  },
+  "final_review_completed": 4,
+  "final_review_planned": 8,
+  "candidates": [
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "5e76fa109bbec0fe9a17a2d375d0f822b970386ee3a002550a272c9055c8bea6",
+            "storyboard.md": "0c2167761a4bb4a75706864e3f488faa43c304b1834ec8955297b1858006fd85"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.8394405439903494,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "5e76fa109bbec0fe9a17a2d375d0f822b970386ee3a002550a272c9055c8bea6",
+          "storyboard.md": "0c2167761a4bb4a75706864e3f488faa43c304b1834ec8955297b1858006fd85"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.8394405439903494,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+            "scene.js": "f7ab1ddbf4f33a62607da39d65d2684039d39387be80fc90797ed14e4a73c7e1",
+            "storyboard.md": "6c5c11aee0926f5dd36775c6a352519e881fa60fde2dfdf0fc5767277b21a49d"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.799151458995766,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+          "scene.js": "f7ab1ddbf4f33a62607da39d65d2684039d39387be80fc90797ed14e4a73c7e1",
+          "storyboard.md": "6c5c11aee0926f5dd36775c6a352519e881fa60fde2dfdf0fc5767277b21a49d"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.799151458995766,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无输入符号或类别。"
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无指数质量或对应几何。"
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 11,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无三份质量组成总量的图形。"
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无总量为一的概率分割。"
+              }
+            ],
+            "reconstructed_message": "无法重建解释；所有提供的时间点均为无帧占位。",
+            "limits": "缺少可评估内容，不能据此断言原视频的内容或质量。"
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+            "scene.js": "55627077c9e05e09d3f682042ab1beec871e92c99a6b0a8deef37730d979c658",
+            "storyboard.md": "e190593c21bff5171bb72a0fd180d0060e24b8931cccd6ab7d8f515c6dd9d74e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.0152105250017485,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+          "scene.js": "55627077c9e05e09d3f682042ab1beec871e92c99a6b0a8deef37730d979c658",
+          "storyboard.md": "e190593c21bff5171bb72a0fd180d0060e24b8931cccd6ab7d8f515c6dd9d74e"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 3.0152105250017485,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+            "scene.js": "18a0785aa982e04bd800709ffb391e364106d2ac00f4a9f3476b62f977740c38",
+            "storyboard.md": "8b662b6adf7e79bee0aeec4e35858cbd0ac6cb36a7b2b28b558e15158548735f"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.74485101600294,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+          "scene.js": "18a0785aa982e04bd800709ffb391e364106d2ac00f4a9f3476b62f977740c38",
+          "storyboard.md": "8b662b6adf7e79bee0aeec4e35858cbd0ac6cb36a7b2b28b558e15158548735f"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.74485101600294,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The panel says NO FRAME AVAILABLE; no inputs or class identities are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "NO FRAME AVAILABLE; no exponential masses are visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "NO FRAME AVAILABLE; no shared-total geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "NO FRAME AVAILABLE; no probability partition is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times lack frames. This establishes missing evidence, not incorrect mathematical content."
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "画面仅有“NO FRAME AVAILABLE”，无输入或类别。"
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "无可用帧，未见指数质量。"
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "无可用帧，未见三个质量汇总。"
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "无可用帧，未见概率分割总容量。"
+              }
+            ],
+            "reconstructed_message": "无法重建解释；六个时间点均无可用帧。",
+            "limits": "只能判定所附证据缺失，不能据此判断未展示的作品内容或失败原因。"
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "a5645a7605d6b004b57f5b8c8b4881a119d2b8c4cc187b60a5b2d29924663946",
+            "scene.js": "ed6fadc0837c61cece63a859ceda07a74466db120d5183fe82fb0582ae48a266",
+            "storyboard.md": "1e080eb668196c30cc149db9982d896e2f224baf2adcaa650e87e1f5cfe1cd87"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.9256426520005334,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "a5645a7605d6b004b57f5b8c8b4881a119d2b8c4cc187b60a5b2d29924663946",
+          "scene.js": "ed6fadc0837c61cece63a859ceda07a74466db120d5183fe82fb0582ae48a266",
+          "storyboard.md": "1e080eb668196c30cc149db9982d896e2f224baf2adcaa650e87e1f5cfe1cd87"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.9256426520005334,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-D/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "b1e942c15976966a925743bab8e92930b07088e47ce30881038f3eaaf8a3758f",
+            "scene.js": "853cff6deb6a5e176819e1374a417295dc11fa7827641dde758f487f7c75b6bc",
+            "storyboard.md": "18ff0a0aeea1e369eec19b4d9f07b31986ecad2bc1b562369c7661fad598356a"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 0,
+          "render_wall_s": 2.7233165289944736,
+          "technical_pass": true,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-1-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-1-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-1-D/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "b1e942c15976966a925743bab8e92930b07088e47ce30881038f3eaaf8a3758f",
+          "scene.js": "853cff6deb6a5e176819e1374a417295dc11fa7827641dde758f487f7c75b6bc",
+          "storyboard.md": "18ff0a0aeea1e369eec19b4d9f07b31986ecad2bc1b562369c7661fad598356a"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 0,
+        "render_wall_s": 2.7233165289944736,
+        "technical_pass": true,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 4,
+          "verdict": {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "Three separate, aligned class columns identify cyan A, purple B, and orange C, each directly paired with its signed input: −0.8, +0.4, and +1.2."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "Each class retains its color and signed input alongside its exponential value. Three same-origin, rightward bars have positive lengths proportional to 0.449, 1.492, and 3.320, visibly including a positive cyan mass for the negative input."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 11,
+                "evidence": "The three color-coded masses form one contiguous cyan-purple-orange bar, preserving their relative lengths. Together with the shared sum shown at 8 seconds, this visibly identifies all three components of the common total."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "One bar spans labeled endpoints 0 and 1 and is completely tiled by cyan, purple, and orange segments. Their lengths match the class probabilities 0.0854, 0.2835, and 0.6310 shown above; the whole bar is explicitly labeled capacity 1."
+              }
+            ],
+            "reconstructed_message": "Signed scores become positive, color-preserving exponential masses. All three masses combine into one total. Scaling every segment by that same total preserves relative shares and makes the entire combined bar one unit, so the three probabilities exhaust one capacity.",
+            "limits": "At 8 seconds the mass bars are still separated and staggered; that sample alone does not demonstrate completed end-to-end assembly. The contiguous combined bar is visible at 11 seconds. Motion continuity and actual newcomer learning cannot be assessed."
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 4,
+          "verdict": {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "A、B、C按三个分离的列排列，青、紫、橙类别标签分别紧邻−0.8、+0.4、+1.2，空间分组明确各输入及符号的归属。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "各类别下保留输入并列出同色exp(z)；下方三条从同一左端向右延伸，长度对应0.449、1.492、3.320，负输入A也对应非零正长度。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 11,
+                "evidence": "青、紫、橙三份质量已首尾相接构成一条完整横条，颜色顺序和相对长度对应先前指数质量，下面明确所有段共除以S=5.261。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "横条两端标0和1，整条标注容量1；三个同色份额无缝覆盖全长，分别对应上方0.0854、0.2835、0.6310。"
+              }
+            ],
+            "reconstructed_message": "先把三个分数变成同尺度的正质量，再把三段拼成共同总量；整体及各段按同一比例换算，使总量成为1，所以各输出必须使用这个共同总量作为分母，才能共同分完这一份。",
+            "limits": "8秒三条仍错位分行，单凭该帧不能确认已首尾相接；11秒才清楚显示拼合结果。只能评判采样中的几何对应，不能确认连续运动。"
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "6ddc1e01333af9a9cba06d89e9819876e8835c6f98cd8c74b9a055f55473f901",
+            "scene.js": "b6e624349b5a12ae8717fcc151460b0494915a84f11dbe19ff4af92bd0934389",
+            "storyboard.md": "9f0c504425d57d0a188970a82e3bb1be3a9e70e8a9c3804144c3b8e34ca6c246"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.9111327179998625,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "6ddc1e01333af9a9cba06d89e9819876e8835c6f98cd8c74b9a055f55473f901",
+          "scene.js": "b6e624349b5a12ae8717fcc151460b0494915a84f11dbe19ff4af92bd0934389",
+          "storyboard.md": "9f0c504425d57d0a188970a82e3bb1be3a9e70e8a9c3804144c3b8e34ca6c246"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.9111327179998625,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-D/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "c7cd5ad0628eebeaac8b859bf3f9a92d59f87795bcd225ac2aed32eea7c10e12",
+            "scene.js": "0772bb05f90a36aa798a23cad141b97233ec47f70ce9297ab4ce1cf662ad48c5",
+            "storyboard.md": "299c3249d8bc99faa439506c2d96f98ec3956b48ff2ca3ef8a6f174bfa84a3fd"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 0,
+          "render_wall_s": 2.9646296839928254,
+          "technical_pass": true,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-2-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-2-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-2-D/v1/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "c7cd5ad0628eebeaac8b859bf3f9a92d59f87795bcd225ac2aed32eea7c10e12",
+          "scene.js": "0772bb05f90a36aa798a23cad141b97233ec47f70ce9297ab4ce1cf662ad48c5",
+          "storyboard.md": "299c3249d8bc99faa439506c2d96f98ec3956b48ff2ca3ef8a6f174bfa84a3fd"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 0,
+        "render_wall_s": 2.9646296839928254,
+        "technical_pass": true,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 4,
+          "verdict": {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "三个分离且对齐的彩色行将 A、B、C 分别对应到 −0.8、+0.4、+1.2；类别身份与输入正负号清楚可见。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "A −0.8→0.449、B +0.4→1.492、C +1.2→3.320 各自对应同色正长度条；三条使用共同起点，长度比例支持指数质量的大小关系，负输入也对应正长度。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 11,
+                "evidence": "蓝、紫、橙三段无缝相接为同一整条，三类身份保持可辨；整条标注“把整条总量 S 换算成 1”，支持所有质量共同组成一个总量。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "标有 0 和 1 的单条容量由蓝、紫、橙三段完整分割，无空隙或重叠；对应的 8.54%、28.35%、63.10% 与各段相对长度一致。"
+              }
+            ],
+            "reconstructed_message": "三个类别的带符号分数先转为正的指数质量，再把三份质量合为共同总量 S。将整条统一换算为 1，每份都除以同一个 S，因而保持相对比例并共同分完一个概率容量。共用分母的原因由同一整条的三段分割得到视觉支持。",
+            "limits": "仅评估六张采样帧，不能确认连续变换或实际学习效果。8 秒的三条仍上下错开，主要通过横向端点衔接暗示求和；11 秒才明确显示连续整条。不同分母的后果只有文字陈述，没有反例几何。显示百分比因舍入合计为 99.99%。"
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 4,
+          "verdict": {
+            "id": "W",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "Three separate, color-coded rows associate A with −0.8, B with +0.4, and C with +1.2; class identities and input signs are clearly visible."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "Each colored input-to-mass mapping accompanies a positive-length bar: A −0.8 → 0.449, B +0.4 → 1.492, C +1.2 → 3.320. Bar lengths visibly follow these mass proportions on a stated common scale."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "The cyan, purple, and orange bars form a horizontal accumulation: each successive bar begins at the preceding bar's horizontal endpoint, although vertically staggered. All three appear in the shared-total expression S ≈ 5.261. At 11 seconds they also appear joined into one contiguous bar."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "A contiguous bar spans endpoints 0 and 1, partitioned without gaps into cyan, purple, and orange segments. Their widths correspond to the displayed 8.54%, 28.35%, and 63.10%; the whole bar is explicitly labeled as 1."
+              }
+            ],
+            "reconstructed_message": "Three signed class scores become positive exponential masses. Place those masses together to obtain one shared total S, then apply the same scale conversion to every component so the whole becomes 1. Each probability is its mass divided by S; the three components therefore exhaust the same unit capacity. The shared denominator is visually motivated by preserving the proportions of one assembled whole.",
+            "limits": "Only sampled states are visible; continuous transformations cannot be verified. The warning about separate denominators is textual, without a geometric counterexample. Displayed percentages sum to 99.99% because of rounding."
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+            "scene.js": "f7ab1ddbf4f33a62607da39d65d2684039d39387be80fc90797ed14e4a73c7e1",
+            "storyboard.md": "6c5c11aee0926f5dd36775c6a352519e881fa60fde2dfdf0fc5767277b21a49d"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.799151458995766,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-C/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+            "scene.js": "676a3401dc31d88e8e2a67d74f67e5176c38d65803dccf72b7d0160eba671428",
+            "storyboard.md": "beae12e5c6c5413985d8a774b4210912b7add90209d189320c85925ea411aa42"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.7108252979960525,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "C",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-C/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-C/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-C/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+            "scene.js": "c423b17debf4c6e3f00eca970b493f59ae5e07e916a3efd08168b124e2566ced",
+            "storyboard.md": "c477100fe100daf3acf7df8dff6ae61fbe1f17f0875eef36ce22d396d5ec06ba"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.8861692549980944,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "C",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-2-C/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-2-C/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-2-C/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+          "scene.js": "c423b17debf4c6e3f00eca970b493f59ae5e07e916a3efd08168b124e2566ced",
+          "storyboard.md": "c477100fe100daf3acf7df8dff6ae61fbe1f17f0875eef36ce22d396d5ec06ba"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.8861692549980944,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无输入符号或类别。"
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无指数质量或对应几何。"
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 11,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无三份质量组成总量的图形。"
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无总量为一的概率分割。"
+              }
+            ],
+            "reconstructed_message": "无法重建解释；所有提供的时间点均为无帧占位。",
+            "limits": "缺少可评估内容，不能据此断言原视频的内容或质量。"
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+            "scene.js": "f7ab1ddbf4f33a62607da39d65d2684039d39387be80fc90797ed14e4a73c7e1",
+            "storyboard.md": "6c5c11aee0926f5dd36775c6a352519e881fa60fde2dfdf0fc5767277b21a49d"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.799151458995766,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-B/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+            "scene.js": "c6cc2c8e5b0472548767bdfa42ccd6ce58d2265524f8a9c7ecaa5af4d9857a76",
+            "storyboard.md": "b371292be6530f3aadde6cd36e836fbcbaf470276823d4cbc596194115e88ab0"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.867632510009571,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "B",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-2-B/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-2-B/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-2-B/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+            "scene.js": "5cddf26a3cd87699d9e27c4f5dad829ef2867964116f85e1a0de0467981d45a5",
+            "storyboard.md": "c08dac9bd9461e83e8d66d8e79fad2d77c35e4b01b0c56d32f32543ed89ca1a3"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 1.0636223780020373,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "B",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-2-B/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-2-B/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-2-B/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "d10c5867856880b7b149b0476262a0fe86d2f97beae0a9983eea14c3d2ad5a3c",
+          "scene.js": "5cddf26a3cd87699d9e27c4f5dad829ef2867964116f85e1a0de0467981d45a5",
+          "storyboard.md": "c08dac9bd9461e83e8d66d8e79fad2d77c35e4b01b0c56d32f32543ed89ca1a3"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 1.0636223780020373,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无输入符号或类别。"
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无指数质量或对应几何。"
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 11,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无三份质量组成总量的图形。"
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "仅显示 NO FRAME AVAILABLE，无总量为一的概率分割。"
+              }
+            ],
+            "reconstructed_message": "无法重建解释；所有提供的时间点均为无帧占位。",
+            "limits": "缺少可评估内容，不能据此断言原视频的内容或质量。"
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "Z",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+            "scene.js": "18a0785aa982e04bd800709ffb391e364106d2ac00f4a9f3476b62f977740c38",
+            "storyboard.md": "8b662b6adf7e79bee0aeec4e35858cbd0ac6cb36a7b2b28b558e15158548735f"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.74485101600294,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-B/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+            "scene.js": "8cd6c18d9a4ccac1d214a5c9e203130eeface479e63fe221f70d3044fa072268",
+            "storyboard.md": "59124edb0686a4b2f8896cf8135b1f5be2198473fb82b80e691d8ac3b54b8c1a"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.6575941129995044,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "B",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-B/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-B/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-B/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0900f235a52293dd194c1ab5994a10c594a7651c72d022044db396155bda0789",
+            "scene.js": "5da762a979f09867e64b032f26e11aaf9990c6603dda77d76beb93f0750f24e7",
+            "storyboard.md": "6ecb44caa9328ba5648ec1466ff2a28e8093452214ee347456af246239a6d2cf"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.7215715060010552,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "B",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-1-B/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-1-B/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-1-B/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "0900f235a52293dd194c1ab5994a10c594a7651c72d022044db396155bda0789",
+          "scene.js": "5da762a979f09867e64b032f26e11aaf9990c6603dda77d76beb93f0750f24e7",
+          "storyboard.md": "6ecb44caa9328ba5648ec1466ff2a28e8093452214ee347456af246239a6d2cf"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.7215715060010552,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "The panel says NO FRAME AVAILABLE; no inputs or class identities are visible."
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "NO FRAME AVAILABLE; no exponential masses are visible."
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "NO FRAME AVAILABLE; no shared-total geometry is visible."
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "NO FRAME AVAILABLE; no probability partition is visible."
+              }
+            ],
+            "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+            "limits": "All six supplied times lack frames. This establishes missing evidence, not incorrect mathematical content."
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 0,
+          "verdict": {
+            "id": "X",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "missing",
+                "time_s": 1,
+                "evidence": "画面仅有“NO FRAME AVAILABLE”，无输入或类别。"
+              },
+              {
+                "criterion": 1,
+                "status": "missing",
+                "time_s": 4,
+                "evidence": "无可用帧，未见指数质量。"
+              },
+              {
+                "criterion": 2,
+                "status": "missing",
+                "time_s": 8,
+                "evidence": "无可用帧，未见三个质量汇总。"
+              },
+              {
+                "criterion": 3,
+                "status": "missing",
+                "time_s": 14,
+                "evidence": "无可用帧，未见概率分割总容量。"
+              }
+            ],
+            "reconstructed_message": "无法重建解释；六个时间点均无可用帧。",
+            "limits": "只能判定所附证据缺失，不能据此判断未展示的作品内容或失败原因。"
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+            "scene.js": "18a0785aa982e04bd800709ffb391e364106d2ac00f4a9f3476b62f977740c38",
+            "storyboard.md": "8b662b6adf7e79bee0aeec4e35858cbd0ac6cb36a7b2b28b558e15158548735f"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.74485101600294,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-C/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+            "scene.js": "3b7623f1472a60b09c03d558294cb0e36c99ee6ff7dfaf66e5162aca32e03252",
+            "storyboard.md": "edac92e60a8b2139728fe054900545730b42b4a4dbbe3f128f2cf4bbbd24eca3"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 4.5304736399994,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "C",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+          "call": "work/model-infra-pilot-v2/candidates/softmax-1-C/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/softmax-1-C/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/softmax-1-C/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+            "scene.js": "bf0291fab1634bd6e66c5ba65f3c80651b427f74b1563a71836f34d9d4285137",
+            "storyboard.md": "d14a19eff97cae68b00652094e31fc287ba01856bf761f1167f0e26cf8054ddc"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.6497839789954014,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "C",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-softmax.json",
+        "call": "work/model-infra-pilot-v2/candidates/softmax-1-C/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/softmax-1-C/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/softmax-1-C/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "e4eeb66f13561f8a24f60fea54f63ddc3c22d5ba60c6dc69540ab49fe997eb98",
+          "scene.js": "bf0291fab1634bd6e66c5ba65f3c80651b427f74b1563a71836f34d9d4285137",
+          "storyboard.md": "d14a19eff97cae68b00652094e31fc287ba01856bf761f1167f0e26cf8054ddc"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 3.6497839789954014,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [
+        {
+          "order": 1,
+          "demonstrated": 4,
+          "verdict": {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "Cyan 甲类 −0.8 extends left of the input reference, while purple 乙类 +0.4 and orange 丙类 +1.2 extend right; class labels and colors distinguish the three inputs."
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "The signed inputs remain visible beside color-matched exp(−0.8), exp(0.4), and exp(1.2) bars. All three exponential bars extend positively, with lengths corresponding to approximately 0.45, 1.49, and 3.32. The orange label is partly obstructed by the large stacked bar."
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "Three colored mass bars at the bottom have lines converging to one junction under the shared-total heading. A contiguous cyan-purple-orange bar also shows the three contributions combined, supported by Z = 0.45 + 1.49 + 3.32 = 5.26."
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "A single contiguous bar is partitioned into cyan, purple, and orange segments, labeled approximately 0.085, 0.284, and 0.631 beneath a total-capacity-one label. Segment lengths support those shares, although nearby input and exponential graphics crowd the partition."
+              }
+            ],
+            "reconstructed_message": "Three signed class scores become positive exponential masses. Those masses feed one total Z; dividing each by Z turns them into three colored shares of one capacity.",
+            "limits": "The partition bar already appears at 1 seconds before its meaning is labeled. Overlapping bars, labels, and lower explanatory text weaken the causal sequence and readability. Samples cannot establish how the objects move or transform between stages."
+          }
+        },
+        {
+          "order": 2,
+          "demonstrated": 4,
+          "verdict": {
+            "id": "Y",
+            "checks": [
+              {
+                "criterion": 0,
+                "status": "demonstrated",
+                "time_s": 1,
+                "evidence": "甲、乙、丙分别用青、紫、橙标识，数值为−0.8、+0.4、+1.2；短条相对共同对齐的起点分别向左或向右，支持输入正负。"
+              },
+              {
+                "criterion": 1,
+                "status": "demonstrated",
+                "time_s": 4,
+                "evidence": "右侧同色指数条从共同左端向右延伸，长度对应约0.45、1.49、3.32，与左侧三个输入按颜色及行位置对应；橙色指数标签受到横贯画面的组合条遮挡。"
+              },
+              {
+                "criterion": 2,
+                "status": "demonstrated",
+                "time_s": 8,
+                "evidence": "下方三种颜色的质量条各有同色连线汇向同一个节点，旁列共同总量Z；几何汇聚支持三个类别都进入同一总量。"
+              },
+              {
+                "criterion": 3,
+                "status": "demonstrated",
+                "time_s": 14,
+                "evidence": "标为“同一条总容量代表1”的横条被青、紫、橙连续无缝分割，下方标注对应概率约0.085、0.284、0.631；周围旧图形和文字重叠，降低辨读性。"
+              }
+            ],
+            "reconstructed_message": "三个有正负的分数分别指数化为正质量，三份质量汇入同一个Z，再各除以Z，成为同一容量1中的三个份额。",
+            "limits": "组合条在1秒就已出现但尚无明确解释；后期指数条、概率条和文字相互干扰。采样支持各阶段关系，但不能确认中间转换运动。"
+          }
+        }
+      ],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "5e76fa109bbec0fe9a17a2d375d0f822b970386ee3a002550a272c9055c8bea6",
+            "storyboard.md": "0c2167761a4bb4a75706864e3f488faa43c304b1834ec8955297b1858006fd85"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.8394405439903494,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-C/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "72bb7660165bd14e85ba5bac4ea19c98506aada527c92d009b2aa610be6b9109",
+            "storyboard.md": "ea0bd7b8622761d674726d0ea53d6465c4ddfbdff785133a40974b75f4a3db0d"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.7081377580034314,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "C",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "5a595a62489ab3abc70e649ebb0df786d2af00a3e5e93c8226cc2156e5b9e1bb",
+            "storyboard.md": "c7785dc70e5e2df99ec03a7ed16efab9e7a81025f04e794dae775d8e89bd546b"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 4.681381501999567,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "C",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "5a595a62489ab3abc70e649ebb0df786d2af00a3e5e93c8226cc2156e5b9e1bb",
+          "storyboard.md": "c7785dc70e5e2df99ec03a7ed16efab9e7a81025f04e794dae775d8e89bd546b"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 4.681381501999567,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "5e76fa109bbec0fe9a17a2d375d0f822b970386ee3a002550a272c9055c8bea6",
+            "storyboard.md": "0c2167761a4bb4a75706864e3f488faa43c304b1834ec8955297b1858006fd85"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.8394405439903494,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-B/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "716b126846f2ab2700d5a7c1bb61823068f71d8f927d02447d05ce304c061342",
+            "storyboard.md": "3ac573d0be70c7964ea102b730343295095ea3a42ea27ed9dc936040848bbc1c"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.6004559120046906,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "B",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "d0131ae21a95da570b1c12c4de2d76217daf960a04bed35c96d8c8ea42d0d768",
+            "storyboard.md": "9e550fb76a7fde1ff894385f1249dc42f91913926656c14f9082c5182b255812"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 4.58219002498663,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "B",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "d0131ae21a95da570b1c12c4de2d76217daf960a04bed35c96d8c8ea42d0d768",
+          "storyboard.md": "9e550fb76a7fde1ff894385f1249dc42f91913926656c14f9082c5182b255812"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 4.58219002498663,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+            "scene.js": "55627077c9e05e09d3f682042ab1beec871e92c99a6b0a8deef37730d979c658",
+            "storyboard.md": "e190593c21bff5171bb72a0fd180d0060e24b8931cccd6ab7d8f515c6dd9d74e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.0152105250017485,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-C/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+            "scene.js": "57dd0e8bdbc5e2915c9551801b55ac9a4a7c4a3a61f54e49e5bc3d6a9e76f3c7",
+            "storyboard.md": "06195cac1f3ffd233bf019f727843f4ad29c57ef3e7c7e07d64bed3471d1dc43"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.1086685649934225,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "C",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+            "scene.js": "032984efe18c11eda16575727ae879c8366ca3becbd865091017b746b33ab9fb",
+            "storyboard.md": "ef30e48871d9f1b3825af1be0edbb520b30611930c46c5d421500482e1fc5e19"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 4.144779561000178,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "C",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+          "scene.js": "032984efe18c11eda16575727ae879c8366ca3becbd865091017b746b33ab9fb",
+          "storyboard.md": "ef30e48871d9f1b3825af1be0edbb520b30611930c46c5d421500482e1fc5e19"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 4.144779561000178,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+            "scene.js": "55627077c9e05e09d3f682042ab1beec871e92c99a6b0a8deef37730d979c658",
+            "storyboard.md": "e190593c21bff5171bb72a0fd180d0060e24b8931cccd6ab7d8f515c6dd9d74e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.0152105250017485,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-B/v2/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+            "scene.js": "06862507d9c04604539c3ba63cafff6b522cf2c8b72c4675f8603eb354b37acb",
+            "storyboard.md": "b57156cbaeb9ae94390b04b8ac16dfd9228fb4e5be39b58ae10c62ff2dad0f0e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.3530716450040927,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "B",
+          "version": 3,
+          "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+          "call": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/render",
+          "revision_history": "fixed version 3; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/source",
+          "source_sha256": {
+            "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+            "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+            "scene.js": "f34f1595c7d3b1f85b3718bdf22b67c5d36e74dd4aec4b8c37c6a92648d01894",
+            "storyboard.md": "cfbb9192bc604e1e3514bb18840eb006d79614a9cebafc0cb3b4346c76a553b6"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 3.110905409004772,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "B",
+        "version": 3,
+        "input_brief": "work/model-infra-pilot-v2/brief-residual.json",
+        "call": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/render",
+        "revision_history": "fixed version 3; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/source",
+        "source_sha256": {
+          "math-frame.mjs": "6312c6a8dc525d891dc896bed9a37a723ec2005a46a00c684cafd59b34ea2b5c",
+          "index.html": "0d8aa4607501cd2f6c003a5174fa0d2cf83ad31ef6c7c8c0ef09546f1717acb9",
+          "scene.js": "f34f1595c7d3b1f85b3718bdf22b67c5d36e74dd4aec4b8c37c6a92648d01894",
+          "storyboard.md": "cfbb9192bc604e1e3514bb18840eb006d79614a9cebafc0cb3b4346c76a553b6"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 3.110905409004772,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      },
+      "reviews": [],
+      "artistic_acceptance": "not_assigned"
+    }
+  ],
+  "limits": "Exploratory 2 familiar tasks x 2 initial samples; model sampled-frame judgement, not human understanding or full-motion evaluation"
+}

@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "weak": "gpt-6-luna",
+  "strong": "gpt-6-astra",
+  "reasoning": "low for both; no agents",
+  "repeats": 2,
+  "cases": 2,
+  "arms": {
+    "A": "weak one-shot",
+    "B": "weak generic revision",
+    "C": "weak deterministic-feedback revision",
+    "D": "strong one-shot reference"
+  },
+  "primary_comparison": "C vs B",
+  "support_policy": "Identical frozen drawing/evidence adapter available to A/B/C/D, mandatory semantic primitives",
+  "pairing": "Exactly shared A initial source for B/C; two independently generated weak starts per task",
+  "generation_calls": {
+    "A": 1,
+    "B": 3,
+    "C": 3,
+    "D": 1
+  },
+  "unique_generation_calls": 24,
+  "final_selection": "Fixed last version; no best-of, fallback, manual repair or extra calls",
+  "feedback": "B/C same prior source, sampled frames, execution errors. Only C receives deterministic findings.",
+  "judge": "Astra final only; anonymous WXYZ, both attachment orders; never sent to author",
+  "planned_calls": {
+    "calibration": 4,
+    "generation": 24,
+    "final_review": 8
+  },
+  "samples_s": [
+    1,
+    4,
+    8,
+    11,
+    14,
+    17
+  ],
+  "model_timeout_s": 240,
+  "render_timeout_s": 120,
+  "max_workers": 4,
+  "budget_limits": "Equal author call counts, effort and requested soft source limits for B/C; not equal tokens",
+  "failure_policy": "Stop submitting new requests after a failed batch; retain failures, no hidden recovery calls",
+  "inference": "Two familiar contract task families, exploratory only. Does not isolate adapter benefit vs v1."
+}

@@ -1,0 +1,199 @@
+{
+  "case": "softmax",
+  "repeat": 1,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "105e2b54608ff32bdb2d60f67467e5e51632e09c4c1b3850e4d82339b8189cc2",
+    "image_sha256": [
+      "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "ed1775334c6df1ad462191277d4945e2b2a0ae7b49b3db8cc2b0e4e06c76733d",
+      "cbdc4e1b8f62e33707f2ada2db087aa1ee2de46975e2679865392b7e0d42088c"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The panel says NO FRAME AVAILABLE; no inputs or class identities are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "NO FRAME AVAILABLE; no exponential masses are visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "NO FRAME AVAILABLE; no shared-total geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "NO FRAME AVAILABLE; no probability partition is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times lack frames. This establishes missing evidence, not incorrect mathematical content."
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The panel says NO FRAME AVAILABLE; no inputs or class identities are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "NO FRAME AVAILABLE; no exponential masses are visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "NO FRAME AVAILABLE; no shared-total geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "NO FRAME AVAILABLE; no probability partition is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times lack frames. This establishes missing evidence, not incorrect mathematical content."
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "Cyan 甲类 −0.8 extends left of the input reference, while purple 乙类 +0.4 and orange 丙类 +1.2 extend right; class labels and colors distinguish the three inputs."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "The signed inputs remain visible beside color-matched exp(−0.8), exp(0.4), and exp(1.2) bars. All three exponential bars extend positively, with lengths corresponding to approximately 0.45, 1.49, and 3.32. The orange label is partly obstructed by the large stacked bar."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "Three colored mass bars at the bottom have lines converging to one junction under the shared-total heading. A contiguous cyan-purple-orange bar also shows the three contributions combined, supported by Z = 0.45 + 1.49 + 3.32 = 5.26."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "A single contiguous bar is partitioned into cyan, purple, and orange segments, labeled approximately 0.085, 0.284, and 0.631 beneath a total-capacity-one label. Segment lengths support those shares, although nearby input and exponential graphics crowd the partition."
+            }
+          ],
+          "reconstructed_message": "Three signed class scores become positive exponential masses. Those masses feed one total Z; dividing each by Z turns them into three colored shares of one capacity.",
+          "limits": "The partition bar already appears at 1 seconds before its meaning is labeled. Overlapping bars, labels, and lower explanatory text weaken the causal sequence and readability. Samples cannot establish how the objects move or transform between stages."
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "Three separate, aligned class columns identify cyan A, purple B, and orange C, each directly paired with its signed input: −0.8, +0.4, and +1.2."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "Each class retains its color and signed input alongside its exponential value. Three same-origin, rightward bars have positive lengths proportional to 0.449, 1.492, and 3.320, visibly including a positive cyan mass for the negative input."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "The three color-coded masses form one contiguous cyan-purple-orange bar, preserving their relative lengths. Together with the shared sum shown at 8 seconds, this visibly identifies all three components of the common total."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "One bar spans labeled endpoints 0 and 1 and is completely tiled by cyan, purple, and orange segments. Their lengths match the class probabilities 0.0854, 0.2835, and 0.6310 shown above; the whole bar is explicitly labeled capacity 1."
+            }
+          ],
+          "reconstructed_message": "Signed scores become positive, color-preserving exponential masses. All three masses combine into one total. Scaling every segment by that same total preserves relative shares and makes the entire combined bar one unit, so the three probabilities exhaust one capacity.",
+          "limits": "At 8 seconds the mass bars are still separated and staggered; that sample alone does not demonstrate completed end-to-end assembly. The contiguous combined bar is visible at 11 seconds. Motion continuity and actual newcomer learning cannot be assessed."
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "tie",
+          "reason": "Both provide only NO FRAME AVAILABLE placeholders at all supplied times; neither supplies assessable mechanism evidence."
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y visibly links signed inputs, positive exponential bars, a shared total, and a partitioned capacity-one bar. W supplies no frames."
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z supplies identifiable colored masses, their contiguous combination, and a clearly bounded 0-to-1 partition. W supplies no frames."
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y provides geometric evidence for all four steps despite crowding and overlap. X supplies no frames."
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z visibly connects class-specific exponential masses to one combined bar and one unit-capacity partition. X supplies no frames."
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z separates the stages more clearly: positive same-origin mass bars at 4 seconds, a contiguous combined bar at 11 seconds, and an unobstructed 0-to-1 partition at 14 seconds. Y's premature stacked bar and overlapping labels obscure the relationship between the masses, shared total, and final shares. Z makes the common scaling mechanism easier to identify from the geometry."
+        }
+      ],
+      "uncertainty": "Assessment uses only the supplied samples at 1, 4, 8, 11, 14, and 17 seconds. It does not establish unseen motion, audio, full-video quality, rendering success, or actual learning. W and X are tied only in missing visual evidence. Mathematical formulas support interpretation but were not treated as sufficient geometric demonstrations."
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 65.309,
+      "usage": [
+        {
+          "input_tokens": 27701,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1730,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

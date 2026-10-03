@@ -1,0 +1,189 @@
+Authorized original mathematical animation benchmark. Return ONLY structured html/javascript/storyboard.
+Do not use tools, read files, browse, delegate or invoke models. All material is supplied here.
+Produce a Chinese silent explanation for a newcomer: Canvas2D exactly 854x480, 15fps, 18 seconds.
+Use a dark background, legible concise captions, stable component identities/colors and meaningful changes.
+Show the question and what the objects mean. Visible geometric actions must support the mechanism, not just formulas.
+Keep authored JavaScript under 9000 characters, HTML under 1000, storyboard under 1500 (soft limits).
+Expose deterministic window.C2M version 1 and canvas#scene. index.html must load scene.js as a module.
+Redraw a whole frame at explicit render(t); no accumulated state or playback in ?export=1.
+Meta caseId is softmax. Preserve the required stages in order. No claim of trained weights.
+
+Every candidate receives the exact same preinstalled local math-frame.mjs, copied unchanged by the harness.
+Import {createMathFrame} from './math-frame.mjs'; create a fresh frame in render(t).
+Use its text calls for labels, massBar for exponential bars, partition for the final probability capacity,
+and vector for residual identity/correction/output arrows. Choose your own positions, colors, captions and timing.
+Return f.finish() evidence. For any extra raw Canvas shape, append its truthful measured bounds to that snapshot.
+Do not redefine, replace or edit the adapter. Do not fabricate registrations for unseen objects.
+The adapter reduces evidence boilerplate; the animation's explanation and visual design are your responsibility.
+
+Brief:
+{"id": "softmax", "duration_s": 18, "inputs": {"logits": [-0.8, 0.4, 1.2]}, "question": "Why must all three softmax outputs share one denominator?", "mechanism": "Signed inputs become positive exp masses; sum all three once; divide each by that same sum; partition one total-one capacity.", "visual_checks": ["Input signs and class identities are visible", "Each input visibly becomes its positive exponential mass", "All three masses visibly contribute to one shared total", "Three final probabilities visibly partition one total-one capacity"]}
+Common protocol:
+# Local scene protocol · version 1
+
+An HTML candidate exposes `window.C2M` with:
+
+```js
+{
+  meta: { version: 1, caseId: 'softmax', renderer: 'canvas2d',
+          width: 1920, height: 1080, duration: 12, fps: 60 },
+  render(timeInSeconds) { /* draw one complete frame, return evidence */ }
+}
+```
+
+The canvas has ID `scene`. Its intrinsic size matches metadata. With `?export=1`, automatic playback is paused. Frame rendering must use its explicit time; no wall clock, unseeded random numbers or accumulated animation state. Draw the entire frame on each call.
+
+`render(t)` returns time, stage, numerical mechanism data, and bounds measured while drawing. Every active text or shape has `{id, kind, x, y, width, height, opacity}`. Draw text using measured font bounds. In the normalized Softmax stage, also return `geometry.capacity` and three `geometry.segments` with stable IDs `class-0..2`, coordinates and six-digit hex colors. Mechanism fields are `logits`, positive raw `masses`, shared `denominator`, and `probabilities`.
+
+The independent validator recomputes reference probabilities from the saved brief. It checks numbers, partition widths, gaps, total capacity, text overlap, shape/text collisions and clipping. The renderer also samples actual canvas pixels at segment centers. Required stages must occur in order across sampled frames. Bounds checks use an opacity threshold of 0.2 and a two-pixel overlap tolerance. Intended text inside a shape is not supported by this narrow layout contract.
+
+The evidence registry is supplied by the candidate; this is useful instrumentation, not an adversarial proof of every pixel or of semantic understanding. Visual review remains necessary. A deliberate regression fixture overwrites the residual output pixels while keeping all numerical and geometric evidence correct; the renderer rejects it with `pixel_mismatch`.
+
+## Residual evidence
+
+For `caseId: 'residual'`, return `mechanism: {input, identity, correction, output}`. The independent reference uses the brief's `x` and `residual`, checks `identity = x`, and recomputes `output = x + residual` componentwise. The illustrative correction is not a learned network.
+
+Return `geometry.unitScale`, a positive shared pixels-per-unit scale, and signed horizontal vectors with `{id, start: {x, y}, end: {x, y}, color}`. `identity` exists throughout; `correction` is required after the input stage; `output` is required in the final stage. Stable IDs are `identity-i`, `correction-i`, `output-i`. Each signed displacement must equal its value times the shared scale. At the final merge, each correction starts at its identity endpoint, and the output's horizontal endpoints span their signed sum. The output may use a separate vertical lane for readability. Actual canvas colors are sampled at its vector midpoints in the output stage.
+
+The required stage sequences are Softmax: `logits → exponential → shared-total → normalizing → normalized`; residual: `input → branches → merging → output`.
+
+The rendered-evidence validator supports **Softmax and residual addition**. Unsupported case IDs fail explicitly. GRU has a numerical brief but its scene protocol and render validator are still pending.
+
+
+Additional exponential evidence: geometry.massBars must contain mass-0..2
+with actual x/y/width/height/color/opacity. Opaque exponential widths must be
+proportional to exp(logit) under one shared zero-intercept scale. Missing or
+transparent bars are not verified ratios. The helper records these automatically.
+Inspection findings do not stop diagnostic video export; drawing exceptions still do.
+
+Common adapter API:
+# Draw and record mathematical evidence
+
+`runtime/math-frame.mjs` is a small Canvas2D adapter for the existing three-component
+Softmax and residual contracts. It draws primitives and records their measured
+evidence together. The author still chooses composition, stage, timing, colors,
+explanation and the semantic role of each object. It does not generate a lesson.
+
+Copy the module into the candidate's local source directory, so the render snapshot
+includes the exact adapter version. Import it from that frozen local file:
+
+```js
+import { createMathFrame } from './math-frame.mjs';
+// Called afresh inside window.C2M.render(t).
+const f = createMathFrame(canvas, {
+  caseId: 'softmax', time: t, stage: 'exponential',
+  inputs: { logits: [-0.8, 0.4, 1.2] }
+});
+const colors = ['#57c7ef', '#af87ff', '#ffb65b'];
+[-0.8, 0.4, 1.2].forEach((z, i) => {
+  f.text(`label-${i}`, `exp(${z})`, 140, 110 + i * 80, { color: colors[i] });
+  f.massBar(i, { x: 140, y: 130 + i * 80,
+    width: 60 * Math.exp(z), height: 18, color: colors[i] });
+});
+return f.finish();
+```
+
+This is a frame/API example, not a complete candidate or a model-generated animation.
+`createMathFrame` clears the canvas and resets common drawing state on each call.
+It computes numerical evidence from the supplied inputs; the separate validator
+recomputes the reference from the saved brief, so passing the wrong inputs still fails.
+Raw exponentials must be in the supported finite range.
+
+| Method | Draws and records |
+|---|---|
+| `text(id, text, x, y, {size, color, align, opacity, font})` | Text and measured font bounds; alphabetic baseline |
+| `massBar(index, {x,y,width,height,color,opacity})` | Actual rectangle and `geometry.massBars`, fixed IDs `mass-0..2` |
+| `partition({x,y,width,height}, [{probability,color}, …])` | Three contiguous probability rectangles and capacity/segments |
+| `vector(role,index,{start,value,unitScale,color,strokeWidth})` | Signed horizontal arrow and endpoint evidence; roles identity/correction/output |
+| `finish()` | Detached snapshot of time, stage, mechanism, geometry and bounds |
+
+Use one positive `unitScale` for all residual components. The returned `vector`
+contains a detached `end` point; use an identity endpoint as the matching correction's
+start. Output vectors can occupy a separate vertical lane. The validator checks
+the supplied values, signed displacements and final sum independently.
+
+The adapter records what was actually requested through these primitives. It does
+not ensure that the author chose mathematically correct widths or semantic roles:
+the independent checker does that. Empty required arrays remain empty when objects
+were not drawn. Duplicate IDs fail. Drawing directly with `ctx` bypasses automatic
+registration; later overpainting can invalidate the evidence, so sampled pixel
+checks remain necessary. Sparse pixel probes do not prove all visible geometry,
+readable motion, clear explanation or artistic quality.
+
+The narrow overlap contract still flags text inside registered shapes; no new
+layout policy or artistic acceptance is introduced here. The generic animation
+runtime and its timing API remain documented in [runtime/API.md](../runtime/API.md).
+
+
+Exact local adapter implementation (not counted toward authored source-size limit):
+/** Small drawing/evidence adapter for the two existing math contracts. No lesson template. */
+export function createMathFrame(canvas,{caseId,time,stage,inputs,background='#10151f'}) {
+  const ctx=canvas.getContext('2d');
+  if(!ctx||!Number.isFinite(time))throw Error('Canvas2D and finite frame time required');
+  const finite=(...values)=>{if(!values.every(Number.isFinite))throw Error('Finite drawing coordinates required');};
+  const triplet=a=>Array.isArray(a)&&a.length===3&&a.every(Number.isFinite);
+  let mechanism,geometry={};
+  if(caseId==='softmax'&&triplet(inputs?.logits)) {
+    const logits=[...inputs.logits],masses=logits.map(Math.exp),denominator=masses.reduce((a,b)=>a+b,0);
+    if(!Number.isFinite(denominator)||denominator<=0)throw Error('Raw exponentials outside supported finite range');
+    mechanism={logits,masses,denominator,probabilities:masses.map(m=>m/denominator)};
+    geometry={massBars:[]};
+  } else if(caseId==='residual'&&triplet(inputs?.x)&&triplet(inputs?.residual)) {
+    mechanism={input:[...inputs.x],identity:[...inputs.x],correction:[...inputs.residual],output:inputs.x.map((v,i)=>v+inputs.residual[i])};
+    geometry={identity:[],correction:[],output:[]};
+  } else throw Error('Supported case and three finite inputs required');
+  const bounds=[],used=new Set();
+  const register=(id,kind,rect,opacity)=>{
+    if(typeof id!=='string'||!id||used.has(id))throw Error('Unique drawing ID required');
+    finite(rect.x,rect.y,rect.width,rect.height,opacity);
+    if(rect.width<0||rect.height<0||opacity<0||opacity>1)throw Error('Invalid bounds/opacity');
+    used.add(id);bounds.push({id,kind,...rect,opacity});
+  };
+  ctx.setTransform(1,0,0,1,0,0);ctx.globalAlpha=1;ctx.globalCompositeOperation='source-over';
+  ctx.shadowBlur=0;ctx.filter='none';ctx.setLineDash([]);ctx.fillStyle=background;
+  ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillRect(0,0,canvas.width,canvas.height);
+  const frame={
+    text(id,text,x,y,{size=20,color='#edf2fa',align='left',opacity=1,font='sans-serif'}={}) {
+      finite(x,y,size,opacity);if(size<=0)throw Error('Positive text size required');
+      ctx.save();ctx.font=`${size}px ${font}`;ctx.textAlign=align;ctx.textBaseline='alphabetic';
+      const metrics=ctx.measureText(String(text)),ascent=metrics.actualBoundingBoxAscent??size*.8,descent=metrics.actualBoundingBoxDescent??size*.2;
+      const rect={x:align==='center'?x-metrics.width/2:align==='right'?x-metrics.width:x,y:y-ascent,width:metrics.width,height:ascent+descent};
+      register(id,'text',rect,opacity);ctx.globalAlpha=opacity;ctx.fillStyle=color;ctx.fillText(String(text),x,y);ctx.restore();
+    },
+    massBar(index,{x,y,width,height=16,color,opacity=1}) {
+      if(caseId!=='softmax'||!Number.isInteger(index)||index<0||index>2)throw Error('Mass class index must be 0..2');
+      const id=`mass-${index}`,rect={x,y,width,height};register(id,'shape',rect,opacity);
+      ctx.save();ctx.globalAlpha=opacity;ctx.fillStyle=color;ctx.fillRect(x,y,width,height);ctx.restore();
+      (geometry.massBars??=[]).push({id,...rect,color,opacity});
+    },
+    partition({x,y,width,height=22},segments) {
+      finite(x,y,width,height);if(caseId!=='softmax'||width<=0||height<=0||!Array.isArray(segments)||segments.length!==3)throw Error('Three probability segments required');
+      geometry.capacity={x,y,width,height};geometry.segments=[];let cursor=x;
+      segments.forEach(({probability,color},i)=>{
+        finite(probability);if(probability<0)throw Error('Nonnegative segment required');
+        const segment={id:`class-${i}`,x:cursor,y,width:width*probability,height,color};
+        register(segment.id,'shape',segment,1);ctx.fillStyle=color;ctx.fillRect(segment.x,y,segment.width,height);
+        geometry.segments.push(segment);cursor+=segment.width;
+      });
+    },
+    vector(role,index,{start,value,unitScale,color,strokeWidth=4}) {
+      if(caseId!=='residual'||!['identity','correction','output'].includes(role)||!Number.isInteger(index)||index<0||index>2)throw Error('Residual role/index required');
+      finite(start?.x,start?.y,value,unitScale,strokeWidth);if(unitScale<=0||strokeWidth<=0)throw Error('Positive scale/stroke required');
+      if(geometry.unitScale!==undefined&&geometry.unitScale!==unitScale)throw Error('All component vectors must share one scale');
+      const id=`${role}-${index}`,end={x:start.x+value*unitScale,y:start.y},tip=6,sign=value<0?-1:1;
+      register(id,'shape',{x:Math.min(start.x,end.x)-strokeWidth/2,y:start.y-tip,
+        width:Math.abs(end.x-start.x)+strokeWidth,height:2*tip},1);
+      ctx.save();ctx.lineWidth=strokeWidth;ctx.strokeStyle=color;ctx.fillStyle=color;ctx.beginPath();
+      ctx.moveTo(start.x,start.y);ctx.lineTo(end.x,end.y);ctx.stroke();
+      if(value!==0){ctx.beginPath();ctx.moveTo(end.x,end.y);ctx.lineTo(end.x-sign*tip,end.y-tip);ctx.lineTo(end.x-sign*tip,end.y+tip);ctx.closePath();ctx.fill();}
+      ctx.restore();const vector={id,start:{...start},end,color};
+      geometry.unitScale=unitScale;(geometry[role]??=[]).push(vector);return structuredClone(vector);
+    },
+    finish() {
+      // Return a detached snapshot: modifying it cannot change subsequent measurements.
+      return structuredClone({time,stage,mechanism,geometry,bounds});
+    }
+  };
+  return Object.freeze(frame);
+}
+

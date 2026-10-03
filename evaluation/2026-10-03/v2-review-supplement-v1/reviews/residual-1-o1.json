@@ -1,0 +1,200 @@
+{
+  "id": "residual-1-o1",
+  "case": "residual",
+  "repeat": 1,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "69b6175a3ab67865bb499187ca8f749e498bd95b7bf62648c26c945b93728568",
+    "image_sha256": [
+      "ad963d73afc83b3a7151b5784e2a6ab64a2720230c4cc0e8b8def91369c79df8",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "f26b753e6a7e34351081463e678a9d55963f73dfb40deb42de32d44e2a254147",
+      "52ac044df074fb2aedc766621e17593172a9b77ff56bfa36962249f24fee65f4"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "三行原始箭头仍可辨认：+0.8 向右、−0.6 向左、+0.3 向右；方向和长度与 1 秒对应箭头一致。"
+            },
+            {
+              "criterion": 1,
+              "status": "uncertain",
+              "time_s": 8,
+              "evidence": "橙色修正箭头和 F1/F2/F3 数值可见，但直接叠在原箭头端部；没有清楚展示独立修正路径，第三行原分量也使用橙色。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "各行橙色箭头从原箭头末端折返：第一、三行向左，第二行向右，构成对应分量的首尾相接。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "下移显示的紫色结果与原箭头共用水平起点，终点对齐修正后的终点；长度和方向分别对应 +0.6、−0.2、+0.2。"
+            }
+          ],
+          "reconstructed_message": "保留 x 的三个带符号位移，在各自末端接上反向修正，得到幅度较小、符号保持的三个输出分量。",
+          "limits": "图例宣称输入为青色，但第二、三分量实际使用紫色和橙色，削弱角色辨识。独立修正路径未清楚呈现；11 秒结果长度与最终状态不同，无法仅凭采样确认过渡含义。"
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "仅显示 NO FRAME AVAILABLE，没有输入或恒等路径几何。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "仅显示 NO FRAME AVAILABLE，没有修正路径。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 11,
+              "evidence": "仅显示 NO FRAME AVAILABLE，没有首尾连接。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 17,
+              "evidence": "仅显示 NO FRAME AVAILABLE，没有可核验的结果。"
+            }
+          ],
+          "reconstructed_message": "无法从所供图片重建解释。",
+          "limits": "六个采样时刻均无画面；这说明证据缺失，不能据此判断未提供的视频内容。"
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "三行原箭头保留了 1 秒时的方向和长度，并持续对应 +0.8、−0.6、+0.3 标签。"
+            },
+            {
+              "criterion": 1,
+              "status": "uncertain",
+              "time_s": 8,
+              "evidence": "橙色修正及其数值可辨，但修正已覆盖原箭头端部，没有展示空间上独立的修正路径；第三行尤其同色重叠。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "第一行橙箭头从右端向左，第二行从左端向右，第三行从右端短距离向左，显示逐行首尾相接。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "紫色结果箭头的水平起点与原分量起点一致，终点与橙色修正终点对齐；分别为向右 +0.6、向左 −0.2、向右 +0.2。"
+            }
+          ],
+          "reconstructed_message": "每个带符号输入分量原样保留，修正在对应分量末端接入；结果是从原起点到修正终点的位移。",
+          "limits": "输入分量颜色与角色图例不一致。14 秒输出数值已标出，但紫色箭头明显短于其最终长度，构成该采样时刻的数值与几何不一致；17 秒一致。"
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "三个蓝色输入箭头保持 1 秒时的长度和方向，逐行对应 +0.8、−0.6、+0.3；整体位置变化没有改变分量。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "右侧独立展示三个橙色修正箭头，与蓝色输入分离，并按行对应 −0.2、+0.4、−0.1。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "三个橙箭头的起点分别落在对应蓝箭头终点，第一、三行向左折返，第二行向右折返。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 17,
+              "evidence": "绿色结果下移展示，水平起点对齐蓝箭头起点，终点对齐橙箭头终点；方向和相对长度支持 +0.6、−0.2、+0.2，并与逐行算式一致。"
+            }
+          ],
+          "reconstructed_message": "恒等路径保留每个输入分量的方向、长度和数值；另一条路径提供独立修正。逐行把修正起点接到输入终点，结果取原起点到修正终点的位移。",
+          "limits": "1 秒第二行箭头与数值文字重叠，右边缘有文字被裁切。11 秒修正尚未全部首尾对齐；14 和 17 秒才提供完整连接证据。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "W",
+          "reason": "W 在 14、17 秒提供可核验的逐分量连接和结果几何；X 全部采样无画面。"
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "W",
+          "reason": "两者最终连接几何相近，也共有角色配色混淆；W 在 14、17 秒结果长度与数值一致，Y 在 14 秒已标最终数值却显示过短结果箭头。W 的采样证据较少产生误导。"
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z 在 4 秒先分离展示修正，再于 14 秒展示接入；角色颜色一致。W 的修正主要以重叠形式出现，独立来源较难辨认。"
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y 在 11 秒显示首尾连接、17 秒显示正确结果几何；X 没有可评估画面。"
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z 的采样支持输入保留、独立修正、逐项接入和输出；X 四项均缺少证据。"
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z 的独立橙色修正、统一蓝色输入和绿色输出使角色更明确；14 秒连接与输出几何已一致，Y 同时刻的结果箭头仍与标值不符。"
+        }
+      ],
+      "uncertainty": "仅依据所附 1、4、8、11、14、17 秒静态采样作视觉判断；未检查源代码、实际渲染流程、模型生成或连续视频。不能确认帧间运动、过渡意图、精确像素比例或真实学习效果。数学核验限于可见方向、相对长度、端点关系与标值的一致性。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 111.168,
+      "usage": [
+        {
+          "input_tokens": 27696,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2250,
+          "reasoning_output_tokens": 137
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

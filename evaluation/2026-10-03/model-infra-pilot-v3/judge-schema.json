@@ -1,0 +1,104 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "videos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "criterion": {
+                  "type": "integer",
+                  "enum": [
+                    0,
+                    1,
+                    2,
+                    3
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "demonstrated",
+                    "missing",
+                    "contradicted",
+                    "uncertain"
+                  ]
+                },
+                "time_s": {
+                  "type": "number"
+                },
+                "evidence": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "criterion",
+                "status",
+                "time_s",
+                "evidence"
+              ]
+            }
+          },
+          "reconstructed_message": {
+            "type": "string"
+          },
+          "limits": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "checks",
+          "reconstructed_message",
+          "limits"
+        ]
+      }
+    },
+    "comparisons": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "left": {
+            "type": "string"
+          },
+          "right": {
+            "type": "string"
+          },
+          "winner": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "left",
+          "right",
+          "winner",
+          "reason"
+        ]
+      }
+    },
+    "uncertainty": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "videos",
+    "comparisons",
+    "uncertainty"
+  ]
+}

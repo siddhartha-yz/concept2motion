@@ -1,0 +1,199 @@
+{
+  "case": "softmax",
+  "repeat": 1,
+  "order": 2,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "5202c9d35850eada8c2c6e8db3eb4e1213b6d493cf2fe0af3e264a609269b1c9",
+    "image_sha256": [
+      "cbdc4e1b8f62e33707f2ada2db087aa1ee2de46975e2679865392b7e0d42088c",
+      "ed1775334c6df1ad462191277d4945e2b2a0ae7b49b3db8cc2b0e4e06c76733d",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "画面仅有“NO FRAME AVAILABLE”，无输入或类别。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "无可用帧，未见指数质量。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "无可用帧，未见三个质量汇总。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "无可用帧，未见概率分割总容量。"
+            }
+          ],
+          "reconstructed_message": "无法重建解释；六个时间点均无可用帧。",
+          "limits": "只能判定所附证据缺失，不能据此判断未展示的作品内容或失败原因。"
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "画面仅有“NO FRAME AVAILABLE”，无输入或类别。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "无可用帧，未见指数质量。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "无可用帧，未见三个质量汇总。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "无可用帧，未见概率分割总容量。"
+            }
+          ],
+          "reconstructed_message": "无法重建解释；六个时间点均无可用帧。",
+          "limits": "只能判定所附证据缺失，不能据此判断未展示的作品内容或失败原因。"
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "甲、乙、丙分别用青、紫、橙标识，数值为−0.8、+0.4、+1.2；短条相对共同对齐的起点分别向左或向右，支持输入正负。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "右侧同色指数条从共同左端向右延伸，长度对应约0.45、1.49、3.32，与左侧三个输入按颜色及行位置对应；橙色指数标签受到横贯画面的组合条遮挡。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "下方三种颜色的质量条各有同色连线汇向同一个节点，旁列共同总量Z；几何汇聚支持三个类别都进入同一总量。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "标为“同一条总容量代表1”的横条被青、紫、橙连续无缝分割，下方标注对应概率约0.085、0.284、0.631；周围旧图形和文字重叠，降低辨读性。"
+            }
+          ],
+          "reconstructed_message": "三个有正负的分数分别指数化为正质量，三份质量汇入同一个Z，再各除以Z，成为同一容量1中的三个份额。",
+          "limits": "组合条在1秒就已出现但尚无明确解释；后期指数条、概率条和文字相互干扰。采样支持各阶段关系，但不能确认中间转换运动。"
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "A、B、C按三个分离的列排列，青、紫、橙类别标签分别紧邻−0.8、+0.4、+1.2，空间分组明确各输入及符号的归属。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "各类别下保留输入并列出同色exp(z)；下方三条从同一左端向右延伸，长度对应0.449、1.492、3.320，负输入A也对应非零正长度。"
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 11,
+              "evidence": "青、紫、橙三份质量已首尾相接构成一条完整横条，颜色顺序和相对长度对应先前指数质量，下面明确所有段共除以S=5.261。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "横条两端标0和1，整条标注容量1；三个同色份额无缝覆盖全长，分别对应上方0.0854、0.2835、0.6310。"
+            }
+          ],
+          "reconstructed_message": "先把三个分数变成同尺度的正质量，再把三段拼成共同总量；整体及各段按同一比例换算，使总量成为1，所以各输出必须使用这个共同总量作为分母，才能共同分完这一份。",
+          "limits": "8秒三条仍错位分行，单凭该帧不能确认已首尾相接；11秒才清楚显示拼合结果。只能评判采样中的几何对应，不能确认连续运动。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "tie",
+          "reason": "两者六个采样点都没有可用帧，证据同样缺失，无法区分解释质量。"
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y在4秒显示同色正质量条、8秒显示三路汇聚、14秒显示容量1的三色分割；W没有可评视觉证据。"
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z从4秒同尺度指数条，经11秒拼接，到14秒完整分割0至1，提供共同分母的几何解释；W无可用帧。"
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "Y",
+          "reason": "Y具有输入、正质量、共同汇聚节点和最终三色容量条的可见关系；X所有采样均缺失。"
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z明确保留类别颜色，并展示三份质量拼成整体及最终覆盖单位容量；X没有对应证据。"
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Z",
+          "reason": "Z在4、11、14秒以清晰的同色条长度、拼接和单位区间连续建立部分与整体的关系，使同一总量成为共同分母更容易辨认。Y虽有8秒三路汇聚和14秒单位分割，但组合条提前出现，且4秒起遮挡指数标签、后期文字及图形重叠，削弱阶段和对象的对应。"
+        }
+      ],
+      "uncertainty": "仅评估1、4、8、11、14、17秒的所附静态采样；未查看视频、声音、源码、渲染过程或生成记录。不能推断未采样的运动、实际学习效果或W/X缺帧原因。数学文字仅作标识，判断主要依据可见空间分组、长度、汇聚和分割关系。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 62.205,
+      "usage": [
+        {
+          "input_tokens": 27701,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1895,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

@@ -1,0 +1,178 @@
+{
+  "kind": "separate review supplement, original failed calls retained",
+  "selection": "All and only original reviews whose status was not reviewed; never select by quality verdict",
+  "base": "/home/yang-zhi/文档/ChatGPT/concept2motion/evaluation/2026-10-03/model-infra-pilot-v2",
+  "base_judgements_sha256": "e8c1486fb09f37f66557149680d9d7cb4a0de5d22f9ebdc7a7b1a03152e47d97",
+  "base_panels_sha256": "dc3ff0b91a601661728ea164bd4c1b4c3093110ebe6971e0addbc75950b763f3",
+  "model": "gpt-6-astra",
+  "jobs": [
+    {
+      "id": "residual-1-o1",
+      "case": "residual",
+      "repeat": 1,
+      "order": 1,
+      "items": [
+        {
+          "id": "W",
+          "arm": "C",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/W.png",
+          "sha256": "ad963d73afc83b3a7151b5784e2a6ab64a2720230c4cc0e8b8def91369c79df8",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/source",
+          "rendered_video": true
+        },
+        {
+          "id": "X",
+          "arm": "A",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/X.png",
+          "sha256": "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/source",
+          "rendered_video": false
+        },
+        {
+          "id": "Y",
+          "arm": "B",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/Y.png",
+          "sha256": "f26b753e6a7e34351081463e678a9d55963f73dfb40deb42de32d44e2a254147",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/source",
+          "rendered_video": true
+        },
+        {
+          "id": "Z",
+          "arm": "D",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/Z.png",
+          "sha256": "52ac044df074fb2aedc766621e17593172a9b77ff56bfa36962249f24fee65f4",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/source",
+          "rendered_video": true
+        }
+      ],
+      "prompt": "residual-1-o1.txt"
+    },
+    {
+      "id": "residual-1-o2",
+      "case": "residual",
+      "repeat": 1,
+      "order": 2,
+      "items": [
+        {
+          "id": "Z",
+          "arm": "D",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/Z.png",
+          "sha256": "52ac044df074fb2aedc766621e17593172a9b77ff56bfa36962249f24fee65f4",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-D/v1/source",
+          "rendered_video": true
+        },
+        {
+          "id": "Y",
+          "arm": "B",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/Y.png",
+          "sha256": "f26b753e6a7e34351081463e678a9d55963f73dfb40deb42de32d44e2a254147",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-B/v3/source",
+          "rendered_video": true
+        },
+        {
+          "id": "X",
+          "arm": "A",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/X.png",
+          "sha256": "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-A/v1/source",
+          "rendered_video": false
+        },
+        {
+          "id": "W",
+          "arm": "C",
+          "contact": "work/model-infra-pilot-v2/panels/residual-1/W.png",
+          "sha256": "ad963d73afc83b3a7151b5784e2a6ab64a2720230c4cc0e8b8def91369c79df8",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-1-C/v3/source",
+          "rendered_video": true
+        }
+      ],
+      "prompt": "residual-1-o2.txt"
+    },
+    {
+      "id": "residual-2-o1",
+      "case": "residual",
+      "repeat": 2,
+      "order": 1,
+      "items": [
+        {
+          "id": "W",
+          "arm": "B",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/W.png",
+          "sha256": "2990702ea9a0be36abd5465a2f404aaba22d6df790709a07ded570b98c9e0794",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/source",
+          "rendered_video": true
+        },
+        {
+          "id": "X",
+          "arm": "A",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/X.png",
+          "sha256": "9c69f30c76653005bcf80ba2b4b9fbd31218dea01d2b707d9178247c5f7ba951",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/source",
+          "rendered_video": true
+        },
+        {
+          "id": "Y",
+          "arm": "D",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/Y.png",
+          "sha256": "bef6c9ec39fd97cce9b5d2f4e611e59db13f072ca0ac79abb617a5fbe8433591",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/source",
+          "rendered_video": true
+        },
+        {
+          "id": "Z",
+          "arm": "C",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/Z.png",
+          "sha256": "eef0eef4becc4e5659bbd7db3499c4c6275c5da0ce8f9c3b8fac88c65b43e625",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/source",
+          "rendered_video": true
+        }
+      ],
+      "prompt": "residual-2-o1.txt"
+    },
+    {
+      "id": "residual-2-o2",
+      "case": "residual",
+      "repeat": 2,
+      "order": 2,
+      "items": [
+        {
+          "id": "Z",
+          "arm": "C",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/Z.png",
+          "sha256": "eef0eef4becc4e5659bbd7db3499c4c6275c5da0ce8f9c3b8fac88c65b43e625",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-C/v3/source",
+          "rendered_video": true
+        },
+        {
+          "id": "Y",
+          "arm": "D",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/Y.png",
+          "sha256": "bef6c9ec39fd97cce9b5d2f4e611e59db13f072ca0ac79abb617a5fbe8433591",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-D/v1/source",
+          "rendered_video": true
+        },
+        {
+          "id": "X",
+          "arm": "A",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/X.png",
+          "sha256": "9c69f30c76653005bcf80ba2b4b9fbd31218dea01d2b707d9178247c5f7ba951",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-A/v1/source",
+          "rendered_video": true
+        },
+        {
+          "id": "W",
+          "arm": "B",
+          "contact": "work/model-infra-pilot-v2/panels/residual-2/W.png",
+          "sha256": "2990702ea9a0be36abd5465a2f404aaba22d6df790709a07ded570b98c9e0794",
+          "final_source": "work/model-infra-pilot-v2/candidates/residual-2-B/v3/source",
+          "rendered_video": true
+        }
+      ],
+      "prompt": "residual-2-o2.txt"
+    }
+  ],
+  "author_calls": 0,
+  "max_review_calls": 4,
+  "screening": "Reuse v2 four matched controlled screenings; no new screening claim",
+  "stop_policy": "First planned review checks availability; stop on failed batch without hidden recovery"
+}

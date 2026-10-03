@@ -1,0 +1,105 @@
+{
+  "case": "softmax",
+  "repeat": 1,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "93bc20daa8aef9876e2d6c3a85ccd41904f22ead22e4c78093a391133cc89a93",
+    "image_sha256": [
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "1秒面板仅显示“NO FRAME AVAILABLE”；没有可见输入符号或类别身份。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "4秒面板仅显示“NO FRAME AVAILABLE”；没有输入变为正指数质量的可见转换或几何对应。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 11,
+              "evidence": "11秒面板仅显示“NO FRAME AVAILABLE”；没有三个质量汇入同一个总量的几何关系。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 17,
+              "evidence": "17秒面板仅显示“NO FRAME AVAILABLE”；没有三个概率共同分割总容量1的几何关系。"
+            }
+          ],
+          "reconstructed_message": "无法重建解释：没有可见内容说明三个softmax输出为什么必须共用分母。",
+          "limits": "1、4、8、11、14、17秒全部为无帧占位。无法评价数学解释、运动、中文可读性或实际学习效果；缺帧不等于内容存在矛盾。"
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "1秒面板仅显示“NO FRAME AVAILABLE”；没有可见输入符号或类别身份。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "4秒面板仅显示“NO FRAME AVAILABLE”；没有输入变为正指数质量的可见转换或几何对应。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 11,
+              "evidence": "11秒面板仅显示“NO FRAME AVAILABLE”；没有三个质量汇入同一个总量的几何关系。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 17,
+              "evidence": "17秒面板仅显示“NO FRAME AVAILABLE”；没有三个概率共同分割总容量1的几何关系。"
+            }
+          ],
+          "reconstructed_message": "无法重建解释：没有可见内容说明三个softmax输出为什么必须共用分母。",
+          "limits": "1、4、8、11、14、17秒全部为无帧占位。无法评价数学解释、运动、中文可读性或实际学习效果；缺帧不等于内容存在矛盾。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "uncertain",
+          "reason": "两者在1、4、8、11、14、17秒均只显示“NO FRAME AVAILABLE”。没有可用于比较因果机制清晰度、组件身份、数学矛盾或教学可读性的画面；占位文字可读不能证明解释可读，也不能据此判定作品等质。"
+        }
+      ],
+      "uncertainty": "结论仅针对所供联系表：所有标准均缺少证据。无法确定缺帧原因，也不推断未见视频的内容或质量。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 47.687,
+      "usage": [
+        {
+          "input_tokens": 21672,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 775,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

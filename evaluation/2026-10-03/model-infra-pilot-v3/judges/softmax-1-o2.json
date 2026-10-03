@@ -1,0 +1,105 @@
+{
+  "case": "softmax",
+  "repeat": 1,
+  "order": 2,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "080b7e148301d7cf4a902d8e2f1c842c41585c0d4af880d95772731f13e3e81a",
+    "image_sha256": [
+      "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "1秒画面仅显示“NO FRAME AVAILABLE”；没有输入符号或类别身份。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "4秒画面仅显示“NO FRAME AVAILABLE”；没有输入变为正指数质量的可见变换或几何对应。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "8秒画面仅显示“NO FRAME AVAILABLE”；没有三个质量合成同一总量的几何关系。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 17,
+              "evidence": "17秒画面仅显示“NO FRAME AVAILABLE”；没有三个概率共同分割总量为1的容量。"
+            }
+          ],
+          "reconstructed_message": "无法重建解释内容；所提供的六个时间点均为缺帧占位提示。",
+          "limits": "1、4、8、11、14、17秒均无实际帧。无法判断机制、数学正确性、中文新手可读性、运动或学习效果；缺帧不构成内容矛盾。"
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "1秒画面仅显示“NO FRAME AVAILABLE”；没有输入符号或类别身份。"
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "4秒画面仅显示“NO FRAME AVAILABLE”；没有输入变为正指数质量的可见变换或几何对应。"
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "8秒画面仅显示“NO FRAME AVAILABLE”；没有三个质量合成同一总量的几何关系。"
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 17,
+              "evidence": "17秒画面仅显示“NO FRAME AVAILABLE”；没有三个概率共同分割总量为1的容量。"
+            }
+          ],
+          "reconstructed_message": "无法重建解释内容；所提供的六个时间点均为缺帧占位提示。",
+          "limits": "1、4、8、11、14、17秒均无实际帧。无法判断机制、数学正确性、中文新手可读性、运动或学习效果；缺帧不构成内容矛盾。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "Y",
+          "right": "X",
+          "winner": "uncertain",
+          "reason": "两者在1、4、8、11、14、17秒均只有“NO FRAME AVAILABLE”。没有可用于比较因果机制、组件身份、内容矛盾或教学可读性的实际图形，无法判定优胜者。"
+        }
+      ],
+      "uncertainty": "评估仅依据所供联系表。全部标准均缺少可见证据，不能据此推断原视频没有解释，也不能推断生成或渲染失败的原因。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 47.69,
+      "usage": [
+        {
+          "input_tokens": 21672,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 765,
+          "reasoning_output_tokens": 0
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

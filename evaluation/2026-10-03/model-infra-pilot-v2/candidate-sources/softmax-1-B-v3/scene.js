@@ -1,0 +1,19 @@
+import {createMathFrame} from './math-frame.mjs';
+const canvas=document.getElementById('scene'),ctx=canvas.getContext('2d');
+const logits=[-.8,.4,1.2],colors=['#57c7ef','#af87ff','#ffb65b'],names=['甲类','乙类','丙类'],m=logits.map(Math.exp),Z=m.reduce((a,b)=>a+b,0),p=m.map(v=>v/Z);
+const clamp=x=>Math.max(0,Math.min(1,x)),ease=x=>{x=clamp(x);return x*x*(3-2*x)};
+function render(t){t=clamp(t/18)*18;const stage=t<3?'logits':t<7?'exponential':t<10?'shared-total':t<13?'normalizing':'normalized';const f=createMathFrame(canvas,{caseId:'softmax',time:t,stage,inputs:{logits}}),raw=[];
+const label=(id,s,x,y,size=18,color='#edf2fa',opacity=1,align='left')=>f.text(id,s,x,y,{size,color,opacity,align,font:'sans-serif'});
+const shape=(id,x,y,w,h,color,alpha=1)=>{ctx.save();ctx.globalAlpha=alpha;ctx.fillStyle=color;ctx.fillRect(x,y,w,h);ctx.restore();raw.push({id,kind:'shape',x,y,width:w,height:h,opacity:alpha});};
+const line=(id,x1,y1,x2,y2,color,alpha=1)=>{ctx.save();ctx.globalAlpha=alpha;ctx.strokeStyle=color;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();ctx.restore();raw.push({id,kind:'shape',x:Math.min(x1,x2)-1,y:Math.min(y1,y2)-1,width:Math.abs(x2-x1)+2,height:Math.abs(y2-y1)+2,opacity:alpha});};
+label('title','Softmax：为什么三类共用一个分母？',32,39,23);label('question','共同总量让三类在同一尺度下比较，并让概率合计为 1。',32,68,16,'#aebbd0');
+const q=ease((t-.2)/.8);logits.forEach((v,i)=>{const y=127+i*57;label(`class-${i}`,names[i],50,y,18,colors[i]);label(`score-${i}`,`${v>0?'+':''}${v.toFixed(1)}`,169,y,19,colors[i],1,'right');line(`axis-${i}`,190,y-6,282,y-6,'#344155',1);const w=Math.abs(v)*42;shape(`signbar-${i}`,v<0?236-w:236,y-10,w,8,colors[i],q);label(`sign-${i}`,v<0?'负':'正',292,y,13,'#93a2b8',q);});
+label('input-caption','分数 z 带正负号；颜色始终对应同一个类别。',32,317,15,'#93a2b8');
+const e=ease((t-3)/1);label('exp-title','逐类取指数：负分也变成正质量',420,108,19,'#f4f7fc',e);logits.forEach((v,i)=>{const y=148+i*55,bw=82*Math.exp(v);label(`exp-label-${i}`,`exp(${v.toFixed(1)})`,420,y+5,16,colors[i],e);f.massBar(i,{x:540,y:y-12,width:bw,height:18,color:colors[i],opacity:e});label(`mass-value-${i}`,m[i].toFixed(2),632+bw,y+4,14,'#dce4f2',e);});label('mass-caption','条长按 exp(z) 成比例；三份质量都大于零。',420,328,14,'#93a2b8',e);
+const a=ease((t-6.7)/.8),d=ease((t-7.7)/.8);label('sum-title','三份质量汇入一个共同总量',32,370,18,'#f4f7fc',a);const xs=[92,285,478],yy=404,scale=45;logits.forEach((v,i)=>{const w=m[i]*scale;shape(`sumbar-${i}`,xs[i],yy-18,w,13,colors[i],a);line(`flow-${i}`,xs[i]+w/2,yy-2,424,yy+7,colors[i],a);});line('sum-stem',424,yy+7,424,yy+23,'#dce4f2',a);label('denominator',`Z = ${m.map(v=>v.toFixed(2)).join(' + ')} = ${Z.toFixed(2)}`,32,451,16,'#dce4f2',a);label('same-z-note','三类都除以同一个 Z',480,451,16,'#f4f7fc',d);
+const n=ease((t-9.7)/1),fin=ease((t-12.8)/1.2);label('divide-title','每类质量 ÷ 同一个 Z',168,211,18,'#f4f7fc',n);logits.forEach((v,i)=>label(`ratio-${i}`,`${names[i]}：${m[i].toFixed(2)} ÷ ${Z.toFixed(2)} = ${p[i].toFixed(3)}`,168,245+i*29,15,colors[i],n));
+label('capacity-title','三个概率分配同一总容量：宽度合计为 1',168,354,16,'#f4f7fc',fin);const x=168,y=376,w=518,h=27;const segs=p.map((probability,i)=>({probability,color:colors[i]}));if(fin>0)f.partition({x,y,width:w,height:h},segs);else {segs.forEach((s,i)=>f.massBar(i,{x:x+i*2,y,width:0,height:0,color:s.color,opacity:0}));}
+let cursor=x;p.forEach((v,i)=>{const mid=cursor+w*v/2;label(`prob-${i}`,`${names[i]} ${v.toFixed(3)}`,mid,426,14,colors[i],fin,'center');cursor+=w*v;});label('takeaway','同一个分母统一尺度；三段恰好填满总容量 1。',427,466,15,'#dce4f2',fin,'center');
+const snap=f.finish();snap.bounds.push(...raw);return snap;}
+window.C2M={meta:{version:1,caseId:'softmax',renderer:'canvas2d',width:854,height:480,duration:18,fps:15},render};
+if(new URLSearchParams(location.search).get('export')!=='1'){let start=performance.now();function loop(now){render(((now-start)/1000)%18);requestAnimationFrame(loop)}requestAnimationFrame(loop)}

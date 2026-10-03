@@ -1,0 +1,1226 @@
+{
+  "generation_complete": true,
+  "primary_C_vs_B": {
+    "C": 1,
+    "B": 1,
+    "tie": 0,
+    "uncertain": 0,
+    "unresolved": 1,
+    "not_comparable": 1
+  },
+  "comparisons": [
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "uncertain",
+          "reason": "两者在1、4、8、11、14、17秒均只显示“NO FRAME AVAILABLE”。没有可用于比较因果机制清晰度、组件身份、数学矛盾或教学可读性的画面；占位文字可读不能证明解释可读，也不能据此判定作品等质。"
+        },
+        {
+          "order": 2,
+          "winner": "uncertain",
+          "reason": "两者在1、4、8、11、14、17秒均只有“NO FRAME AVAILABLE”。没有可用于比较因果机制、组件身份、内容矛盾或教学可读性的实际图形，无法判定优胜者。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "B",
+          "reason": "Y 略胜在组件身份连续性：8、14 秒仍把各 exp 标签贴近对应颜色和行位置，便于确认上方条表示指数质量；Z 同时刻保留的是原始 score 标签，质量身份更依赖记忆。两者 14 秒都清楚展示一个整体的三段分割，也都在 8 秒缺少可追溯的三路汇总几何，11 秒缺少共同分母被三类复用的明确图示。未见明确数值或比例矛盾。Z 的汇总文字更短，但两者英文小字均有阅读门槛；判优不基于文字数量或装饰。"
+        },
+        {
+          "order": 2,
+          "winner": "B",
+          "reason": "Y has a modest component-identity advantage: at 8s and 14s, exponential labels remain beside the corresponding colored bars, whereas Z drops them. Both show proportional masses and a contiguous final partition at 14s, but neither clearly connects all three masses to the shared total at 8s or geometrically demonstrates division at 11s. No visible mathematical contradiction distinguishes them. Y's advantage comes from persistent correspondence, not additional text; both have small English labels that constrain newcomer readability."
+        }
+      ],
+      "stable_winner": "B"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "C",
+          "reason": "W在11秒直接画出三组首尾相接，明确呈现加法发生在对应输入终点；Y同一时刻只有水平坐标对齐，垂直空隙削弱了合流机制，并与连接说明矛盾。两者在8秒都保留了分量身份，17秒结果的方向和比例均正确。Y的中文与分离箭头更易阅读，但W对核心加法机制提供了更直接的几何证据。"
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "reason": "At 8s and 11s, W visibly attaches every correction tail to its matching input head; Y leaves vertical gaps despite claiming attachment. Both retain component colors and signs and show geometrically consistent results at 17s. Y is more readable linguistically for the Chinese audience and separates corrections more clearly, but W more directly demonstrates where addition happens."
+        }
+      ],
+      "stable_winner": "C"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "both_orders": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "reason": "At 11s both show the same causal mechanism: unchanged cyan components with orange corrections attached head-to-tail. At 17s both show geometrically consistent signed outputs, with no visible arithmetic contradiction. W has cleaner numeric spacing; Z provides Chinese-accessible explanations but crowds component labels, especially rows 2 and 3 at 11s. Neither has a decisive geometric clarity advantage."
+        },
+        {
+          "order": 2,
+          "winner": "B",
+          "reason": "两者机制证据基本相当：4 秒保留相同的三行分量，11 秒呈现相同的首尾连接，17 秒结果方向和相对长度均一致，未见数学矛盾。Z 对指定中文新手略胜：11 秒中文说明直接对应可见接点，17 秒中文图例解释方向和长度的含义。W 在 8 秒的数值标签间距更清楚，Z 第三行标签较挤，因此优势仅在受众可读性，不在机制完整性或文字数量。"
+        }
+      ],
+      "stable_winner": "unresolved"
+    }
+  ],
+  "technical": {
+    "A": {
+      "finals": 4,
+      "exports": 2,
+      "technical_pass": 0
+    },
+    "B": {
+      "finals": 4,
+      "exports": 3,
+      "technical_pass": 0
+    },
+    "C": {
+      "finals": 4,
+      "exports": 3,
+      "technical_pass": 2
+    },
+    "D": {
+      "finals": 4,
+      "exports": 4,
+      "technical_pass": 3
+    }
+  },
+  "cost": {
+    "attempted": 24,
+    "completed": 24,
+    "input_tokens": 483702,
+    "output_tokens": 39237
+  },
+  "candidates": [
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "9e7daa87a5c8e9482a2e8409d1c685b61b93377e0488d7cbcd1a0e40a87c5e33",
+            "storyboard.md": "1dbc315d3df66054dcac0ab1231e09189ca195ebf6d96207d62c149f9c70398d"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.8431036090041744,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "9e7daa87a5c8e9482a2e8409d1c685b61b93377e0488d7cbcd1a0e40a87c5e33",
+          "storyboard.md": "1dbc315d3df66054dcac0ab1231e09189ca195ebf6d96207d62c149f9c70398d"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.8431036090041744,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "ecf035fe5ae3b1ca5d64f3ea7fc05c6964be3eacd2fe706f730a86c56a385b5b",
+            "storyboard.md": "d4266c893acf0d4edf19cc42bee729aaed62f9079cf97b6e4c2d5c416f82c236"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.6138441950024571,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "ecf035fe5ae3b1ca5d64f3ea7fc05c6964be3eacd2fe706f730a86c56a385b5b",
+          "storyboard.md": "d4266c893acf0d4edf19cc42bee729aaed62f9079cf97b6e4c2d5c416f82c236"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.6138441950024571,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "0507ef7b52b071d5d0dfa8b131918d30150607dd893bc6f2b4d804c36d180063",
+            "scene.js": "61b38c11cec017b835bae72ebcee6409fca4d5a0f09561a7cc3aa6807966fba2",
+            "storyboard.md": "0bacc8777e9e2b34154879ca309c3ec872cfc6563e8f1d3c634d44bd30e1c41e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.884403303003637,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "0507ef7b52b071d5d0dfa8b131918d30150607dd893bc6f2b4d804c36d180063",
+          "scene.js": "61b38c11cec017b835bae72ebcee6409fca4d5a0f09561a7cc3aa6807966fba2",
+          "storyboard.md": "0bacc8777e9e2b34154879ca309c3ec872cfc6563e8f1d3c634d44bd30e1c41e"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.884403303003637,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "A",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "scene.js": "0378e833fe77cfaf6204b2b1b786d9f9bb87fc85f072c6717d2012cb59754ded",
+            "storyboard.md": "6f02700d4331d4f3fff447d077466ed5f347d594e757b4deb47659eecf3018ab"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.8228112659999169,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "A",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+          "scene.js": "0378e833fe77cfaf6204b2b1b786d9f9bb87fc85f072c6717d2012cb59754ded",
+          "storyboard.md": "6f02700d4331d4f3fff447d077466ed5f347d594e757b4deb47659eecf3018ab"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.8228112659999169,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-1-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v3/candidates/residual-1-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-1-D/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "641648c9b18f568bbfd24b44e7afd0337db79fa2acf104a999264ba0ed0e8826",
+            "scene.js": "9696b43efc1db30b4fd619b826f1e267ea989635b8fe1bee44eb587c31da6b28",
+            "storyboard.md": "d3a96e0e1ba22fa0907a169140372721d769c0cc7898e5dd9f5a69d92d70748c"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 0,
+          "render_wall_s": 3.0261200469976757,
+          "technical_pass": true,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-1-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v3/candidates/residual-1-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-1-D/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "641648c9b18f568bbfd24b44e7afd0337db79fa2acf104a999264ba0ed0e8826",
+          "scene.js": "9696b43efc1db30b4fd619b826f1e267ea989635b8fe1bee44eb587c31da6b28",
+          "storyboard.md": "d3a96e0e1ba22fa0907a169140372721d769c0cc7898e5dd9f5a69d92d70748c"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 0,
+        "render_wall_s": 3.0261200469976757,
+        "technical_pass": true,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-1-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-1-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-1-D/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "db1eecd79525c3cd219446250c476b0383062f9cb87c3c054d43e6929d00715c",
+            "scene.js": "7de6ac152d0adfda2ae2af21f89ac6d9686a3e926130c26633a9765c02594ee1",
+            "storyboard.md": "87a32353546b9afd5c200d2ddd4e60420dd7f0b48074dd94d3b2ac28542e2f31"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 0,
+          "render_wall_s": 2.3969616139947902,
+          "technical_pass": true,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-1-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-1-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-1-D/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "db1eecd79525c3cd219446250c476b0383062f9cb87c3c054d43e6929d00715c",
+          "scene.js": "7de6ac152d0adfda2ae2af21f89ac6d9686a3e926130c26633a9765c02594ee1",
+          "storyboard.md": "87a32353546b9afd5c200d2ddd4e60420dd7f0b48074dd94d3b2ac28542e2f31"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 0,
+        "render_wall_s": 2.3969616139947902,
+        "technical_pass": true,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-2-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v3/candidates/residual-2-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-2-D/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "301f3643d3f5239ff4f87ce15b2078a2b987b197a226a86f7aeaafdf09e05b64",
+            "scene.js": "5864144bcc8b1b6011fab3553acb172c22e4271e832de439b31ce38cb34824f9",
+            "storyboard.md": "717ad0e638f8b037887268c2cb09b4617bee1bd87ee99a42c7c34ac87ae38ae5"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.8147083619987825,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-2-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v3/candidates/residual-2-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-2-D/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "301f3643d3f5239ff4f87ce15b2078a2b987b197a226a86f7aeaafdf09e05b64",
+          "scene.js": "5864144bcc8b1b6011fab3553acb172c22e4271e832de439b31ce38cb34824f9",
+          "storyboard.md": "717ad0e638f8b037887268c2cb09b4617bee1bd87ee99a42c7c34ac87ae38ae5"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.8147083619987825,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "D",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "D",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-2-D/v1/call/safe.json",
+          "model": "gpt-6-astra",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-2-D/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-2-D/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "791b8d180c0d7348766204e630df186a1b7339f71cc990364a6b71148abbd920",
+            "scene.js": "7de68109b894c0d200330b3608341b485ff09424fcaf10f8caf303a6210dca30",
+            "storyboard.md": "c4506d49a5d1c03fb9687d32b7ac1ace8c1aeac47b56ecc7e282506972d5034c"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 0,
+          "render_wall_s": 2.485881172993686,
+          "technical_pass": true,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "D",
+        "version": 1,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-2-D/v1/call/safe.json",
+        "model": "gpt-6-astra",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-2-D/v1/render",
+        "revision_history": "fixed version 1; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-2-D/v1/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "791b8d180c0d7348766204e630df186a1b7339f71cc990364a6b71148abbd920",
+          "scene.js": "7de68109b894c0d200330b3608341b485ff09424fcaf10f8caf303a6210dca30",
+          "storyboard.md": "c4506d49a5d1c03fb9687d32b7ac1ace8c1aeac47b56ecc7e282506972d5034c"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 0,
+        "render_wall_s": 2.485881172993686,
+        "technical_pass": true,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "ecf035fe5ae3b1ca5d64f3ea7fc05c6964be3eacd2fe706f730a86c56a385b5b",
+            "storyboard.md": "d4266c893acf0d4edf19cc42bee729aaed62f9079cf97b6e4c2d5c416f82c236"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.6138441950024571,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-1-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-1-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-1-C/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "3b6400a29917c294dc288f677fbfa65cda8cb7e0023e7702fbd90f0c752678b1",
+            "scene.js": "9e4cdab4806e55757e5a2224abcecfac16f0536024bae173484e4082aafd650a",
+            "storyboard.md": "e81f700d0bd2220930d596626a3a239ba61a1249f58e05424051cc15d7f210c6"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.6783341859991197,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "C",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-1-C/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-1-C/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-1-C/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "3b6400a29917c294dc288f677fbfa65cda8cb7e0023e7702fbd90f0c752678b1",
+          "scene.js": "9e4cdab4806e55757e5a2224abcecfac16f0536024bae173484e4082aafd650a",
+          "storyboard.md": "e81f700d0bd2220930d596626a3a239ba61a1249f58e05424051cc15d7f210c6"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.6783341859991197,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "scene.js": "0378e833fe77cfaf6204b2b1b786d9f9bb87fc85f072c6717d2012cb59754ded",
+            "storyboard.md": "6f02700d4331d4f3fff447d077466ed5f347d594e757b4deb47659eecf3018ab"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.8228112659999169,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-2-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-2-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-2-B/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "scene.js": "26c585ef87adc71cb0fbe2567ad1523a4707e70ee25a2e7e0beedfdc4b55dace",
+            "storyboard.md": "db4d5ee1e7eec1139cb00312d785a1e09e5045e43a7bb34e9cf85652c117d855"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.562449053002638,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "B",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-2-B/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-2-B/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-2-B/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+          "scene.js": "26c585ef87adc71cb0fbe2567ad1523a4707e70ee25a2e7e0beedfdc4b55dace",
+          "storyboard.md": "db4d5ee1e7eec1139cb00312d785a1e09e5045e43a7bb34e9cf85652c117d855"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.562449053002638,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-2-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "scene.js": "0378e833fe77cfaf6204b2b1b786d9f9bb87fc85f072c6717d2012cb59754ded",
+            "storyboard.md": "6f02700d4331d4f3fff447d077466ed5f347d594e757b4deb47659eecf3018ab"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.8228112659999169,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 2,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+            "scene.js": "afeb998d144d5207ffe8ffe21ec14fd6ccd8e9e17cbc0e3e4f6a13fc18bb4a31",
+            "storyboard.md": "f86f9fea98d4a9b544ed8f78693cef96e885f68fb13879dcd46295d21457bd0b"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 0,
+          "render_wall_s": 2.393253841000842,
+          "technical_pass": true,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 2,
+        "arm": "C",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-2-C/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "13d4f836f083e2e0429e605474e0739d866ec8afe23d12c9be687ab1f72c5bd4",
+          "scene.js": "afeb998d144d5207ffe8ffe21ec14fd6ccd8e9e17cbc0e3e4f6a13fc18bb4a31",
+          "storyboard.md": "f86f9fea98d4a9b544ed8f78693cef96e885f68fb13879dcd46295d21457bd0b"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 0,
+        "render_wall_s": 2.393253841000842,
+        "technical_pass": true,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-1-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "ecf035fe5ae3b1ca5d64f3ea7fc05c6964be3eacd2fe706f730a86c56a385b5b",
+            "storyboard.md": "d4266c893acf0d4edf19cc42bee729aaed62f9079cf97b6e4c2d5c416f82c236"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.6138441950024571,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "softmax",
+          "repeat": 1,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+          "call": "work/model-infra-pilot-v3/candidates/softmax-1-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/softmax-1-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "render_failed",
+          "source": "work/model-infra-pilot-v3/candidates/softmax-1-B/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "6e4a6da388bca1e0787a087470641f12bc5e30a78ae635088b9baba21ffb292d",
+            "storyboard.md": "afade7277cba5b660ee2d536ec10dfcd19ee876fce70b76c38f19c292fa7ca0e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 0.7103921399975661,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "softmax",
+        "repeat": 1,
+        "arm": "B",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-softmax.json",
+        "call": "work/model-infra-pilot-v3/candidates/softmax-1-B/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/softmax-1-B/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "render_failed",
+        "source": "work/model-infra-pilot-v3/candidates/softmax-1-B/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "6e4a6da388bca1e0787a087470641f12bc5e30a78ae635088b9baba21ffb292d",
+          "storyboard.md": "afade7277cba5b660ee2d536ec10dfcd19ee876fce70b76c38f19c292fa7ca0e"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 0.7103921399975661,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "9e7daa87a5c8e9482a2e8409d1c685b61b93377e0488d7cbcd1a0e40a87c5e33",
+            "storyboard.md": "1dbc315d3df66054dcac0ab1231e09189ca195ebf6d96207d62c149f9c70398d"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.8431036090041744,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-2-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-2-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-2-B/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "203350e752a2867c8546741251fb7c0f87163ba241e7c737dc45b3a9473f10bd",
+            "storyboard.md": "256a26d74e23e77b13d275080a78d1f25b876597e2639da5c02da8f5f21e7a7e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.9028069820051314,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "B",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-2-B/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/residual-2-B/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-2-B/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "203350e752a2867c8546741251fb7c0f87163ba241e7c737dc45b3a9473f10bd",
+          "storyboard.md": "256a26d74e23e77b13d275080a78d1f25b876597e2639da5c02da8f5f21e7a7e"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.9028069820051314,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "0507ef7b52b071d5d0dfa8b131918d30150607dd893bc6f2b4d804c36d180063",
+            "scene.js": "61b38c11cec017b835bae72ebcee6409fca4d5a0f09561a7cc3aa6807966fba2",
+            "storyboard.md": "0bacc8777e9e2b34154879ca309c3ec872cfc6563e8f1d3c634d44bd30e1c41e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.884403303003637,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-1-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-1-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-1-C/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "21abe9be5515f3bf118efe612eaaf72e82317d6f9c6bd537b2b5929ff8d04d69",
+            "scene.js": "515fe79e956034e036b66f34f08dab3b88b970edf39c779894e6fc6e9ee9c319",
+            "storyboard.md": "48ca3ba81d91030d53590ef0421bff15e174bc298ae1e4ecac6ae1fc0bc7832b"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 0,
+          "render_wall_s": 2.9855868400045438,
+          "technical_pass": true,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "C",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-1-C/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/residual-1-C/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-1-C/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "21abe9be5515f3bf118efe612eaaf72e82317d6f9c6bd537b2b5929ff8d04d69",
+          "scene.js": "515fe79e956034e036b66f34f08dab3b88b970edf39c779894e6fc6e9ee9c319",
+          "storyboard.md": "48ca3ba81d91030d53590ef0421bff15e174bc298ae1e4ecac6ae1fc0bc7832b"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 0,
+        "render_wall_s": 2.9855868400045438,
+        "technical_pass": true,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "arm": "B",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-1-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "0507ef7b52b071d5d0dfa8b131918d30150607dd893bc6f2b4d804c36d180063",
+            "scene.js": "61b38c11cec017b835bae72ebcee6409fca4d5a0f09561a7cc3aa6807966fba2",
+            "storyboard.md": "0bacc8777e9e2b34154879ca309c3ec872cfc6563e8f1d3c634d44bd30e1c41e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.884403303003637,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 1,
+          "arm": "B",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-1-B/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-1-B/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-1-B/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "84063ab48e64fd8f75fcdc220dff178c69e2dfb28cecc560abea0d20ac21bca9",
+            "scene.js": "635d24e7d532df3b64b16acbf8ff498c05ccd8066c958973ac2cb9d4c304cbc2",
+            "storyboard.md": "1334deefbeb8a935f18b216f64c12b0fa1cef4eeeeabc211fda3f236169e4ece"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.8567033409926808,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 1,
+        "arm": "B",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-1-B/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/residual-1-B/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-1-B/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "84063ab48e64fd8f75fcdc220dff178c69e2dfb28cecc560abea0d20ac21bca9",
+          "scene.js": "635d24e7d532df3b64b16acbf8ff498c05ccd8066c958973ac2cb9d4c304cbc2",
+          "storyboard.md": "1334deefbeb8a935f18b216f64c12b0fa1cef4eeeeabc211fda3f236169e4ece"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.8567033409926808,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "arm": "C",
+      "attempts": [
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "A",
+          "version": 1,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/render",
+          "revision_history": "fixed version 1; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-2-A/v1/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "9e7daa87a5c8e9482a2e8409d1c685b61b93377e0488d7cbcd1a0e40a87c5e33",
+            "storyboard.md": "1dbc315d3df66054dcac0ab1231e09189ca195ebf6d96207d62c149f9c70398d"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.8431036090041744,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        },
+        {
+          "case": "residual",
+          "repeat": 2,
+          "arm": "C",
+          "version": 2,
+          "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+          "call": "work/model-infra-pilot-v3/candidates/residual-2-C/v2/call/safe.json",
+          "model": "gpt-6-luna",
+          "render": "work/model-infra-pilot-v3/candidates/residual-2-C/v2/render",
+          "revision_history": "fixed version 2; no strong judge feedback",
+          "status": "rendered",
+          "source": "work/model-infra-pilot-v3/candidates/residual-2-C/v2/source",
+          "source_sha256": {
+            "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+            "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+            "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+            "scene.js": "1dd8e897a5f7cff5983aee1d817e52d3e19af741f35b702707c4768f671ca4d2",
+            "storyboard.md": "39ddf076d98803ae704d1d5ae78142e32e7351f080f4409943e554e792f37c4e"
+          },
+          "requested_source_limits_met": true,
+          "render_exit_code": 1,
+          "render_wall_s": 2.7276655419991584,
+          "technical_pass": false,
+          "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+        }
+      ],
+      "final": {
+        "case": "residual",
+        "repeat": 2,
+        "arm": "C",
+        "version": 2,
+        "input_brief": "work/model-infra-pilot-v3/brief-residual.json",
+        "call": "work/model-infra-pilot-v3/candidates/residual-2-C/v2/call/safe.json",
+        "model": "gpt-6-luna",
+        "render": "work/model-infra-pilot-v3/candidates/residual-2-C/v2/render",
+        "revision_history": "fixed version 2; no strong judge feedback",
+        "status": "rendered",
+        "source": "work/model-infra-pilot-v3/candidates/residual-2-C/v2/source",
+        "source_sha256": {
+          "math-timeline.mjs": "16ad2eaaba3d68fa9736b1912da6b96e217f2d3c4174c936d57866eb33e15920",
+          "math-frame.mjs": "a2a22462d9df11ca865f6c8b222ff6231b3c447c858fe404f1e03086214cf2ae",
+          "index.html": "491533bc3f1415306205234a2ce537afc1b2188be1ad3e5be7102e38e84f539d",
+          "scene.js": "1dd8e897a5f7cff5983aee1d817e52d3e19af741f35b702707c4768f671ca4d2",
+          "storyboard.md": "39ddf076d98803ae704d1d5ae78142e32e7351f080f4409943e554e792f37c4e"
+        },
+        "requested_source_limits_met": true,
+        "render_exit_code": 1,
+        "render_wall_s": 2.7276655419991584,
+        "technical_pass": false,
+        "math_scope": "candidate-reported values and geometry, independently recomputed with sampled pixel checks; not all-pixel proof"
+      }
+    }
+  ],
+  "review_completed": 8,
+  "review_planned": 8,
+  "artistic_acceptance": "not_assigned"
+}

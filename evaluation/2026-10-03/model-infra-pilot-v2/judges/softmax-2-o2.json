@@ -1,0 +1,199 @@
+{
+  "case": "softmax",
+  "repeat": 2,
+  "order": 2,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "5202c9d35850eada8c2c6e8db3eb4e1213b6d493cf2fe0af3e264a609269b1c9",
+    "image_sha256": [
+      "2732ddf7e20a59589b2cc948b4f56b931ab4d614a9751251a438dc9016c1a769",
+      "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75",
+      "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+      "9c4bb7207fea743a5722eb36820e389eecca3fedfa81a11d743193563f029c85"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "W",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "Three separate, color-coded rows associate A with −0.8, B with +0.4, and C with +1.2; class identities and input signs are clearly visible."
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "Each colored input-to-mass mapping accompanies a positive-length bar: A −0.8 → 0.449, B +0.4 → 1.492, C +1.2 → 3.320. Bar lengths visibly follow these mass proportions on a stated common scale."
+            },
+            {
+              "criterion": 2,
+              "status": "demonstrated",
+              "time_s": 8,
+              "evidence": "The cyan, purple, and orange bars form a horizontal accumulation: each successive bar begins at the preceding bar's horizontal endpoint, although vertically staggered. All three appear in the shared-total expression S ≈ 5.261. At 11 seconds they also appear joined into one contiguous bar."
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "A contiguous bar spans endpoints 0 and 1, partitioned without gaps into cyan, purple, and orange segments. Their widths correspond to the displayed 8.54%, 28.35%, and 63.10%; the whole bar is explicitly labeled as 1."
+            }
+          ],
+          "reconstructed_message": "Three signed class scores become positive exponential masses. Place those masses together to obtain one shared total S, then apply the same scale conversion to every component so the whole becomes 1. Each probability is its mass divided by S; the three components therefore exhaust the same unit capacity. The shared denominator is visually motivated by preserving the proportions of one assembled whole.",
+          "limits": "Only sampled states are visible; continuous transformations cannot be verified. The warning about separate denominators is textual, without a geometric counterexample. Displayed percentages sum to 99.99% because of rounding."
+        },
+        {
+          "id": "X",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+        },
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "missing",
+              "time_s": 1,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+            },
+            {
+              "criterion": 1,
+              "status": "missing",
+              "time_s": 4,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+            },
+            {
+              "criterion": 2,
+              "status": "missing",
+              "time_s": 8,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+            },
+            {
+              "criterion": 3,
+              "status": "missing",
+              "time_s": 14,
+              "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+            }
+          ],
+          "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+          "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "W",
+          "right": "X",
+          "winner": "W",
+          "reason": "W visibly links colored exponential-mass bars at 4 seconds to a shared accumulation at 8 seconds and a unit partition at 14 seconds. X supplies only missing-frame placeholders."
+        },
+        {
+          "left": "W",
+          "right": "Y",
+          "winner": "W",
+          "reason": "W preserves component identity across proportional mass bars, an assembled total, and the final 0–1 partition. Y has no visible explanation at any supplied time."
+        },
+        {
+          "left": "W",
+          "right": "Z",
+          "winner": "W",
+          "reason": "W supports the common-denominator mechanism with three components joined into one whole at 11 seconds and partitioning unit capacity at 14 seconds. Z has only missing-frame placeholders."
+        },
+        {
+          "left": "X",
+          "right": "Y",
+          "winner": "tie",
+          "reason": "Both provide identical absence of frame evidence at all six times; neither visibly supports any criterion. This is an evidence tie only."
+        },
+        {
+          "left": "X",
+          "right": "Z",
+          "winner": "tie",
+          "reason": "Both provide only 'NO FRAME AVAILABLE' placeholders at all six times, leaving no visible mechanism or readability difference to assess."
+        },
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "tie",
+          "reason": "Neither supplies any actual sampled frame; their available visual evidence is equally missing."
+        }
+      ],
+      "uncertainty": "Assessment is restricted to the attached samples at 1, 4, 8, 11, 14, and 17 seconds. No unseen motion, rendering success, underlying source, or actual human learning is inferred. W's preference concerns supplied visual evidence; the quality of unseen X/Y/Z explanations remains unknown."
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 61.964,
+      "usage": [
+        {
+          "input_tokens": 27701,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1633,
+          "reasoning_output_tokens": 43
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

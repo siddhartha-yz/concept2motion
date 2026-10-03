@@ -1,0 +1,38 @@
+{
+  "version": 3,
+  "weak": "gpt-6-luna",
+  "strong": "gpt-6-astra",
+  "reasoning": "low; no tools or agents",
+  "cases": 2,
+  "repeats": 2,
+  "final_candidates": 16,
+  "unique_author_calls": 16,
+  "review_calls": 8,
+  "max_external_calls": 24,
+  "primary_comparison": "C vs B, both anonymous attachment orders",
+  "budgets": {
+    "A": 1,
+    "B": 2,
+    "C": 2,
+    "D": 1
+  },
+  "selection": "Fixed last version; no manual fixes, best-of or fallback",
+  "feedback": "Same initial source, frames and execution errors; only C sees deterministic findings",
+  "support": "Identical frozen frame and timeline modules, omitted from prior source text for BOTH B/C",
+  "judge_scope": "B/C only; A/D technical references, not quality rankings; reuse old screening with no new reliability claim",
+  "samples_s": [
+    1,
+    4,
+    8,
+    11,
+    14,
+    17
+  ],
+  "model_timeout_s": 240,
+  "render_timeout_s": 120,
+  "max_workers": 4,
+  "cost_scope": "Call/effort/soft source limits equal B/C; tokens measured separately; shared initial charged once actual",
+  "stop": "No later batch after unknown model result; no recovery calls",
+  "authorization": "prepare does not invoke models; separate explicit authorization required before external calls",
+  "limits": "Two familiar task families, exploratory n=4 paired weak initials; no significance, broad generalization or human learning claim"
+}

@@ -1,0 +1,26 @@
+{
+  "kind": "unblinded source/frame diagnosis, not independent artistic judgement",
+  "reviewer": "root experiment implementer",
+  "observations": [
+    {
+      "candidate": "softmax-2-C-v3",
+      "finding": "text uses class-0..2 IDs; partition generates those same IDs; shared register rejects text/shape collision. Repeated after both revisions.",
+      "planned_fix": "separate internal text and semantic-shape ID namespaces; preserve geometry class IDs and duplicate detection within each namespace"
+    },
+    {
+      "candidate": "residual-1-C-v3",
+      "finding": "wrong_vector_geometry occurs on correction arrows between t=4.5 and 8.625; final t=17 frame visually shows expected signed endpoints. Numerical contract currently treats partially revealed arrows as completed target vectors.",
+      "planned_fix": "investigate explicit reveal evidence with independent target check and final visibility checks, keeping old findings intact"
+    },
+    {
+      "candidate": "residual-2-C-v3",
+      "finding": "wrong_merge continues through t=18; this is not exclusively a transitional finding.",
+      "planned_fix": "retain final head-to-tail requirement and negative control"
+    },
+    {
+      "candidate": "softmax-1-C-v3",
+      "finding": "t=14 contains persistent earlier labels and bars behind final partition, so overlap remains visible despite recovered export.",
+      "planned_fix": "mechanism-preserving stage visibility API and overlap regression controls; no automatic artwork acceptance"
+    }
+  ]
+}

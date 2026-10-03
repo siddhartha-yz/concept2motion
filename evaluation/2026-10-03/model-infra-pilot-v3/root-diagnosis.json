@@ -1,0 +1,26 @@
+{
+  "reviewer": "root coding agent, unblinded source diagnosis",
+  "artistic_acceptance": "not_assigned",
+  "observations": [
+    {
+      "candidate": "softmax-1-A-v1",
+      "kind": "execution_error",
+      "detail": "Author uses nonexistent f.ctx; Canvas drawing stops before export."
+    },
+    {
+      "candidate": "softmax-1-C-v2",
+      "kind": "execution_error",
+      "detail": "Author uses nonexistent return rectangle of massBar; current API documents only text rectangle return."
+    },
+    {
+      "candidate": "residual-2-C-v2",
+      "kind": "contract_layout_constraint",
+      "detail": "Identity/correction are head-to-tail, but output arrows use a different horizontal origin/column. Existing narrow contract calls this wrong_merge even though signed lengths can still express a correct vector sum. Do not call this arithmetic failure or artistic rejection."
+    },
+    {
+      "candidate": "softmax-2-C-v2",
+      "kind": "technical_pass",
+      "detail": "Meets frozen numerical/layout/progress checks; independent visual judgement still required."
+    }
+  ]
+}

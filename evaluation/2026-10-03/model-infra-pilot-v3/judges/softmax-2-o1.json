@@ -1,0 +1,105 @@
+{
+  "case": "softmax",
+  "repeat": 2,
+  "order": 1,
+  "call": {
+    "model": "gpt-6-astra",
+    "prompt_sha256": "b197a0369fca83f556041459e40ca9b1d7cae4c67c26fed7d95818663f949fac",
+    "image_sha256": [
+      "10c4db25724aad8f341f62e17f53eb94f752d89bfa338a2d2c06024aee42a7f7",
+      "4cd6ff4cb597e39f5ca018099355df50fad8f7b4545c5a5f891e967623c929f6"
+    ],
+    "status": "completed",
+    "response": {
+      "videos": [
+        {
+          "id": "Y",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "A、B、C 分占三行，分别与 −1.0、+0.7、+1.3 水平配对；青、紫、橙三色保持类别区分。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "每个输入所在行都有同色 exp 标签及向右延伸的正长度条；三条共用左端，长度满足 A < B < C，约呈指数质量的相对比例。负输入 A 也对应正长度。支持逐类对应，但不能据此确认变形过程。"
+            },
+            {
+              "criterion": 2,
+              "status": "uncertain",
+              "time_s": 8,
+              "evidence": "三条质量条仍分别排列，下方明确列出三项相加及 6.051；但小箭头集中在 C 条下方，无法清楚追溯到 A、B、C 各条，也没有可辨认的三段汇合总量。文字说明了共享总和，几何关系尚未充分展示三者如何贡献。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "底部青、紫、橙三段无缝拼成同一根完整横条，分别标注 0.061、0.333、0.606；段宽与这些比例吻合，上方标明 P(A)+P(B)+P(C)=1，支持共享一个总量为一的容量。"
+            }
+          ],
+          "reconstructed_message": "三个带符号的类别分数先对应正指数质量，再将全部质量相加；每类用自己的质量除以这个共同总量，因此最终三类成为同一整体的三个份额。",
+          "limits": "11 秒以文字说明除以同一总和，但未清晰画出共同总量分别用于三次除法。共享分母的必要性主要靠文字和最终分割条连接；全部为英文，对中文新手存在阅读门槛。"
+        },
+        {
+          "id": "Z",
+          "checks": [
+            {
+              "criterion": 0,
+              "status": "demonstrated",
+              "time_s": 1,
+              "evidence": "三个独立水平行分别显示 class A score −1.0、class B score +0.7、class C score +1.3；类别、符号和数值在同一行内直接绑定，并用三色区分。"
+            },
+            {
+              "criterion": 1,
+              "status": "demonstrated",
+              "time_s": 4,
+              "evidence": "每个分数右侧同一行出现同色正长度条和对应 exp 标签；三条左端对齐，A 最短、B 居中、C 最长，长度比例与指数质量一致。可见逐类映射，不能确认帧间转化动作。"
+            },
+            {
+              "criterion": 2,
+              "status": "uncertain",
+              "time_s": 8,
+              "evidence": "三根质量条下方有青、紫、橙三个小箭头及一个 Σ=6.051 标签；但三个箭头都位于 C 条下方，没有从各自质量条连续连接到一个汇合容器或拼接总条。颜色提示三者参与，仍不足以几何证明共同贡献。"
+            },
+            {
+              "criterion": 3,
+              "status": "demonstrated",
+              "time_s": 14,
+              "evidence": "底部三色段首尾相接，完整填满同一横向容量；0.061、0.333、0.606 的标签与段宽对应，上方注明概率相加为 1。"
+            }
+          ],
+          "reconstructed_message": "三个类别共享一个概率预算：将分数变成正指数质量，合成共同总和，再各自除以该总和，得到填满一个总量为一的容量的三个概率。",
+          "limits": "8 秒起质量条旁不再保留逐类 exp 标签，需依靠颜色和行位置记住条的含义。11 秒的除法主要由文字交代；英文内容限制中文新手直接阅读。"
+        }
+      ],
+      "comparisons": [
+        {
+          "left": "Y",
+          "right": "Z",
+          "winner": "Y",
+          "reason": "Y 略胜在组件身份连续性：8、14 秒仍把各 exp 标签贴近对应颜色和行位置，便于确认上方条表示指数质量；Z 同时刻保留的是原始 score 标签，质量身份更依赖记忆。两者 14 秒都清楚展示一个整体的三段分割，也都在 8 秒缺少可追溯的三路汇总几何，11 秒缺少共同分母被三类复用的明确图示。未见明确数值或比例矛盾。Z 的汇总文字更短，但两者英文小字均有阅读门槛；判优不基于文字数量或装饰。"
+        }
+      ],
+      "uncertainty": "仅评估提供的 1、4、8、11、14、17 秒静帧；无法判断帧间运动、旁白、实际学习效果或制作过程。数学数值及比例的可见一致性，不等于汇总和归一化的因果机制已被完整展示。"
+    },
+    "process": {
+      "exit_code": 0,
+      "timed_out": false,
+      "wall_s": 73.725,
+      "usage": [
+        {
+          "input_tokens": 21672,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1423,
+          "reasoning_output_tokens": 110
+        }
+      ],
+      "tool_types": []
+    }
+  },
+  "status": "reviewed"
+}

@@ -1,0 +1,2139 @@
+{
+  "cost": {
+    "attempted": 4,
+    "completed": 4,
+    "input_tokens": 110811,
+    "output_tokens": 9881
+  },
+  "primary_C_vs_B": {
+    "C": 1,
+    "B": 0,
+    "tie": 0,
+    "uncertain": 0,
+    "unresolved": 1,
+    "not_comparable": 2
+  },
+  "comparisons": [
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "B",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "Both provide only NO FRAME AVAILABLE placeholders at all supplied times; neither supplies assessable mechanism evidence."
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "两者六个采样点都没有可用帧，证据同样缺失，无法区分解释质量。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "C",
+          "provenance": "original",
+          "reason": "Y visibly links signed inputs, positive exponential bars, a shared total, and a partitioned capacity-one bar. W supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "provenance": "original",
+          "reason": "Y在4秒显示同色正质量条、8秒显示三路汇聚、14秒显示容量1的三色分割；W没有可评视觉证据。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "Z supplies identifiable colored masses, their contiguous combination, and a clearly bounded 0-to-1 partition. W supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "Z从4秒同尺度指数条，经11秒拼接，到14秒完整分割0至1，提供共同分母的几何解释；W无可用帧。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "C",
+          "provenance": "original",
+          "reason": "Y provides geometric evidence for all four steps despite crowding and overlap. X supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "provenance": "original",
+          "reason": "Y具有输入、正质量、共同汇聚节点和最终三色容量条的可见关系；X所有采样均缺失。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "Z visibly connects class-specific exponential masses to one combined bar and one unit-capacity partition. X supplies no frames."
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "Z明确保留类别颜色，并展示三份质量拼成整体及最终覆盖单位容量；X没有对应证据。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "left_arm": "C",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "Z separates the stages more clearly: positive same-origin mass bars at 4 seconds, a contiguous combined bar at 11 seconds, and an unobstructed 0-to-1 partition at 14 seconds. Y's premature stacked bar and overlapping labels obscure the relationship between the masses, shared total, and final shares. Z makes the common scaling mechanism easier to identify from the geometry."
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "Z在4、11、14秒以清晰的同色条长度、拼接和单位区间连续建立部分与整体的关系，使同一总量成为共同分母更容易辨认。Y虽有8秒三路汇聚和14秒单位分割，但组合条提前出现，且4秒起遮挡指数标签、后期文字及图形重叠，削弱阶段和对象的对应。"
+        }
+      ],
+      "stable_winner": "D"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "B",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "两者全部六个采样时间均为无帧占位，无法依据可见内容偏好任何一方。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "Both provide only 'NO FRAME AVAILABLE' placeholders at all six times, leaving no visible mechanism or readability difference to assess."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "两者在 1、4、8、11、14、17 秒均只有 NO FRAME AVAILABLE，提供的机制证据同样缺失。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "Both provide identical absence of frame evidence at all six times; neither visibly supports any criterion. This is an evidence tie only."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "W 在 4 秒用同色正长度条对应指数质量，11 秒合为一条，14 秒分割 0 到 1 的容量；X 对应时间均无帧。W 的共同分母机制有可见支持。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "W visibly links colored exponential-mass bars at 4 seconds to a shared accumulation at 8 seconds and a unit partition at 14 seconds. X supplies only missing-frame placeholders."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "两者全部六个采样时间均缺少解释画面，在所提供证据层面并列。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "provenance": "original",
+          "reason": "Neither supplies any actual sampled frame; their available visual evidence is equally missing."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "W 的 4、11、14 秒形成指数质量、共同总量、单位容量分割的可见链条，颜色维持成分身份；Z 无可评估图形。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "W supports the common-denominator mechanism with three components joined into one whole at 11 seconds and partitioning unit capacity at 14 seconds. Z has only missing-frame placeholders."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "left_arm": "C",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "W 在 1 秒保留类别和符号，11 秒展示三色共同总量，14 秒展示完整概率分割；Y 全部采样点无帧，无法识别机制。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "original",
+          "reason": "W preserves component identity across proportional mass bars, an assembled total, and the final 0–1 partition. Y has no visible explanation at any supplied time."
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "B",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "B",
+          "provenance": "supplement",
+          "reason": "Y 在 11 秒显示首尾连接、17 秒显示正确结果几何；X 没有可评估画面。"
+        },
+        {
+          "order": 2,
+          "winner": "B",
+          "provenance": "supplement",
+          "reason": "Y 的 11 秒展示接合、17 秒展示与净位移一致的结果；X 没有可评估的解释画面。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "C",
+          "provenance": "supplement",
+          "reason": "W 在 14、17 秒提供可核验的逐分量连接和结果几何；X 全部采样无画面。"
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "provenance": "supplement",
+          "reason": "W 的 17 秒提供输入、首尾接合和结果的可见对应；X 六个时间均没有可用帧。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "A",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Z 的采样支持输入保留、独立修正、逐项接入和输出；X 四项均缺少证据。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Z 的 4、14、17 秒分别提供独立修正、对应接合和结果几何；X 只有无帧占位文字。"
+        }
+      ],
+      "stable_winner": "not_comparable"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "C",
+          "provenance": "supplement",
+          "reason": "两者最终连接几何相近，也共有角色配色混淆；W 在 14、17 秒结果长度与数值一致，Y 在 14 秒已标最终数值却显示过短结果箭头。W 的采样证据较少产生误导。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "provenance": "supplement",
+          "reason": "两者 17 秒的输入、反向修正和净结果几何基本等效，也都存在第三分量输入与修正同色的问题。W 的附加算式未提供决定性的几何优势。"
+        }
+      ],
+      "stable_winner": "unresolved"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "B",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Z 的独立橙色修正、统一蓝色输入和绿色输出使角色更明确；14 秒连接与输出几何已一致，Y 同时刻的结果箭头仍与标值不符。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Z 的三项输入与修正始终以不同颜色区分，4 秒还有空间分离的修正证据；Y 第三项橙色输入与橙色修正混同。Z 的最终起点、接点和终点关系也更易读。"
+        }
+      ],
+      "stable_winner": "D"
+    },
+    {
+      "case": "residual",
+      "repeat": 1,
+      "left_arm": "C",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Z 在 4 秒先分离展示修正，再于 14 秒展示接入；角色颜色一致。W 的修正主要以重叠形式出现，独立来源较难辨认。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Z 在 4 秒将三项修正独立展示，14 秒再明确首尾接合，且统一蓝色输入、橙色修正、绿色结果；W 第三项输入与修正同色，路径区分较弱。"
+        }
+      ],
+      "stable_winner": "D"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "B",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "tie",
+          "provenance": "supplement",
+          "reason": "两者都保留三个有符号输入并给出比例正确的输出，也都把修正头端对齐合流点。X 的公式和 W 的说明没有修复相同的几何矛盾；可见机制证据基本相当。"
+        },
+        {
+          "order": 2,
+          "winner": "tie",
+          "provenance": "supplement",
+          "reason": "两者都有可辨的原分量、独立修正区域和正确结果长度，也都在 11 秒把修正尖端而非尾端对向路径端点。W 的黄色修正更易区别于原分量，但不足以消除共有的关键合流矛盾。"
+        }
+      ],
+      "stable_winner": "tie"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "C",
+          "provenance": "supplement",
+          "reason": "Z 的 11 秒虚线连接了正确的原头端与修正尾端；X 的修正接法相反。Z 的排版拥挤不抵消这一关键几何优势。"
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "provenance": "supplement",
+          "reason": "Z 的虚线连接原头端与修正尾端，保留正确的因果对应；X 的 11 秒修正反而指向端点。Z 的修正分量也没有 X 在 8 秒的集中重叠。"
+        }
+      ],
+      "stable_winner": "C"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "A",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Y 的 11 秒直接接触和 14 秒绿色净位移共同解释加法；X 虽写出首尾相接，14 秒仍把修正头端对齐白点。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Y 的 11 秒接法和 14 秒绿色位移共同支持加法发生的位置与结果；X 的合流接法矛盾，结果则孤立显示在右侧。"
+        }
+      ],
+      "stable_winner": "D"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "C",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "C",
+          "provenance": "supplement",
+          "reason": "Z 在 11 秒从各原分量真实头端连到修正尾端，负分量的左端尤其清楚；W 的共同右侧通道端点和反向接法不能支持相同机制。"
+        },
+        {
+          "order": 2,
+          "winner": "C",
+          "provenance": "supplement",
+          "reason": "Z 在 11 秒将原箭头头端对齐到修正尾端，虽有竖向间隔，连接端仍正确；W 对齐的是修正尖端。Z 在 8 秒也更容易分别看清三项修正。"
+        }
+      ],
+      "stable_winner": "C"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "B",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Y 在 11 秒实际把修正尾端接到原箭头头端，14 秒结果与构造端点对齐；W 在 11 秒接反，输出虽正确却缺少正确的合流推导。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Y 在 11 秒逐列显示正确的首尾相接，14 秒结果与合成端点对齐；W 的合流方向相反，早期修正还互相重叠。"
+        }
+      ],
+      "stable_winner": "D"
+    },
+    {
+      "case": "residual",
+      "repeat": 2,
+      "left_arm": "C",
+      "right_arm": "D",
+      "answers": [
+        {
+          "order": 1,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Y 在 11 秒直接共线首尾相接，并在 14 秒按列显示同一原点到合并终点的结果。Z 依赖垂直错位虚线，输出又远置右侧，且标签拥挤，使因果关系更难追踪。"
+        },
+        {
+          "order": 2,
+          "winner": "D",
+          "provenance": "supplement",
+          "reason": "Y 在 11 秒直接展示同项箭头首尾相接，14 秒结果与原起点、修正终点横向对齐。Z 仍依靠竖虚线表达连接，输出远离合成图，读者需要更多自行对应。"
+        }
+      ],
+      "stable_winner": "D"
+    }
+  ],
+  "merged_reviews": [
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "order": 1,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "105e2b54608ff32bdb2d60f67467e5e51632e09c4c1b3850e4d82339b8189cc2",
+        "image_sha256": [
+          "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09",
+          "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "ed1775334c6df1ad462191277d4945e2b2a0ae7b49b3db8cc2b0e4e06c76733d",
+          "cbdc4e1b8f62e33707f2ada2db087aa1ee2de46975e2679865392b7e0d42088c"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "The panel says NO FRAME AVAILABLE; no inputs or class identities are visible."
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "NO FRAME AVAILABLE; no exponential masses are visible."
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 8,
+                  "evidence": "NO FRAME AVAILABLE; no shared-total geometry is visible."
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "NO FRAME AVAILABLE; no probability partition is visible."
+                }
+              ],
+              "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+              "limits": "All six supplied times lack frames. This establishes missing evidence, not incorrect mathematical content."
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "The panel says NO FRAME AVAILABLE; no inputs or class identities are visible."
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "NO FRAME AVAILABLE; no exponential masses are visible."
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 8,
+                  "evidence": "NO FRAME AVAILABLE; no shared-total geometry is visible."
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "NO FRAME AVAILABLE; no probability partition is visible."
+                }
+              ],
+              "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+              "limits": "All six supplied times lack frames. This establishes missing evidence, not incorrect mathematical content."
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 1,
+                  "evidence": "Cyan 甲类 −0.8 extends left of the input reference, while purple 乙类 +0.4 and orange 丙类 +1.2 extend right; class labels and colors distinguish the three inputs."
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "The signed inputs remain visible beside color-matched exp(−0.8), exp(0.4), and exp(1.2) bars. All three exponential bars extend positively, with lengths corresponding to approximately 0.45, 1.49, and 3.32. The orange label is partly obstructed by the large stacked bar."
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "Three colored mass bars at the bottom have lines converging to one junction under the shared-total heading. A contiguous cyan-purple-orange bar also shows the three contributions combined, supported by Z = 0.45 + 1.49 + 3.32 = 5.26."
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "A single contiguous bar is partitioned into cyan, purple, and orange segments, labeled approximately 0.085, 0.284, and 0.631 beneath a total-capacity-one label. Segment lengths support those shares, although nearby input and exponential graphics crowd the partition."
+                }
+              ],
+              "reconstructed_message": "Three signed class scores become positive exponential masses. Those masses feed one total Z; dividing each by Z turns them into three colored shares of one capacity.",
+              "limits": "The partition bar already appears at 1 seconds before its meaning is labeled. Overlapping bars, labels, and lower explanatory text weaken the causal sequence and readability. Samples cannot establish how the objects move or transform between stages."
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 1,
+                  "evidence": "Three separate, aligned class columns identify cyan A, purple B, and orange C, each directly paired with its signed input: −0.8, +0.4, and +1.2."
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "Each class retains its color and signed input alongside its exponential value. Three same-origin, rightward bars have positive lengths proportional to 0.449, 1.492, and 3.320, visibly including a positive cyan mass for the negative input."
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "The three color-coded masses form one contiguous cyan-purple-orange bar, preserving their relative lengths. Together with the shared sum shown at 8 seconds, this visibly identifies all three components of the common total."
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "One bar spans labeled endpoints 0 and 1 and is completely tiled by cyan, purple, and orange segments. Their lengths match the class probabilities 0.0854, 0.2835, and 0.6310 shown above; the whole bar is explicitly labeled capacity 1."
+                }
+              ],
+              "reconstructed_message": "Signed scores become positive, color-preserving exponential masses. All three masses combine into one total. Scaling every segment by that same total preserves relative shares and makes the entire combined bar one unit, so the three probabilities exhaust one capacity.",
+              "limits": "At 8 seconds the mass bars are still separated and staggered; that sample alone does not demonstrate completed end-to-end assembly. The contiguous combined bar is visible at 11 seconds. Motion continuity and actual newcomer learning cannot be assessed."
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "tie",
+              "reason": "Both provide only NO FRAME AVAILABLE placeholders at all supplied times; neither supplies assessable mechanism evidence."
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y visibly links signed inputs, positive exponential bars, a shared total, and a partitioned capacity-one bar. W supplies no frames."
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z supplies identifiable colored masses, their contiguous combination, and a clearly bounded 0-to-1 partition. W supplies no frames."
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y provides geometric evidence for all four steps despite crowding and overlap. X supplies no frames."
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z visibly connects class-specific exponential masses to one combined bar and one unit-capacity partition. X supplies no frames."
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z separates the stages more clearly: positive same-origin mass bars at 4 seconds, a contiguous combined bar at 11 seconds, and an unobstructed 0-to-1 partition at 14 seconds. Y's premature stacked bar and overlapping labels obscure the relationship between the masses, shared total, and final shares. Z makes the common scaling mechanism easier to identify from the geometry."
+            }
+          ],
+          "uncertainty": "Assessment uses only the supplied samples at 1, 4, 8, 11, 14, and 17 seconds. It does not establish unseen motion, audio, full-video quality, rendering success, or actual learning. W and X are tied only in missing visual evidence. Mathematical formulas support interpretation but were not treated as sufficient geometric demonstrations."
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 65.309,
+          "usage": [
+            {
+              "input_tokens": 27701,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1730,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "original",
+      "original_status": "reviewed"
+    },
+    {
+      "case": "softmax",
+      "repeat": 1,
+      "order": 2,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "5202c9d35850eada8c2c6e8db3eb4e1213b6d493cf2fe0af3e264a609269b1c9",
+        "image_sha256": [
+          "cbdc4e1b8f62e33707f2ada2db087aa1ee2de46975e2679865392b7e0d42088c",
+          "ed1775334c6df1ad462191277d4945e2b2a0ae7b49b3db8cc2b0e4e06c76733d",
+          "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "75be1a694516c678d259b1b877b93d2ba4ae259943a5c9f2fb474b2d56822d09"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "画面仅有“NO FRAME AVAILABLE”，无输入或类别。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "无可用帧，未见指数质量。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 8,
+                  "evidence": "无可用帧，未见三个质量汇总。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "无可用帧，未见概率分割总容量。"
+                }
+              ],
+              "reconstructed_message": "无法重建解释；六个时间点均无可用帧。",
+              "limits": "只能判定所附证据缺失，不能据此判断未展示的作品内容或失败原因。"
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "画面仅有“NO FRAME AVAILABLE”，无输入或类别。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "无可用帧，未见指数质量。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 8,
+                  "evidence": "无可用帧，未见三个质量汇总。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "无可用帧，未见概率分割总容量。"
+                }
+              ],
+              "reconstructed_message": "无法重建解释；六个时间点均无可用帧。",
+              "limits": "只能判定所附证据缺失，不能据此判断未展示的作品内容或失败原因。"
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 1,
+                  "evidence": "甲、乙、丙分别用青、紫、橙标识，数值为−0.8、+0.4、+1.2；短条相对共同对齐的起点分别向左或向右，支持输入正负。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "右侧同色指数条从共同左端向右延伸，长度对应约0.45、1.49、3.32，与左侧三个输入按颜色及行位置对应；橙色指数标签受到横贯画面的组合条遮挡。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "下方三种颜色的质量条各有同色连线汇向同一个节点，旁列共同总量Z；几何汇聚支持三个类别都进入同一总量。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "标为“同一条总容量代表1”的横条被青、紫、橙连续无缝分割，下方标注对应概率约0.085、0.284、0.631；周围旧图形和文字重叠，降低辨读性。"
+                }
+              ],
+              "reconstructed_message": "三个有正负的分数分别指数化为正质量，三份质量汇入同一个Z，再各除以Z，成为同一容量1中的三个份额。",
+              "limits": "组合条在1秒就已出现但尚无明确解释；后期指数条、概率条和文字相互干扰。采样支持各阶段关系，但不能确认中间转换运动。"
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 1,
+                  "evidence": "A、B、C按三个分离的列排列，青、紫、橙类别标签分别紧邻−0.8、+0.4、+1.2，空间分组明确各输入及符号的归属。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "各类别下保留输入并列出同色exp(z)；下方三条从同一左端向右延伸，长度对应0.449、1.492、3.320，负输入A也对应非零正长度。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "青、紫、橙三份质量已首尾相接构成一条完整横条，颜色顺序和相对长度对应先前指数质量，下面明确所有段共除以S=5.261。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "横条两端标0和1，整条标注容量1；三个同色份额无缝覆盖全长，分别对应上方0.0854、0.2835、0.6310。"
+                }
+              ],
+              "reconstructed_message": "先把三个分数变成同尺度的正质量，再把三段拼成共同总量；整体及各段按同一比例换算，使总量成为1，所以各输出必须使用这个共同总量作为分母，才能共同分完这一份。",
+              "limits": "8秒三条仍错位分行，单凭该帧不能确认已首尾相接；11秒才清楚显示拼合结果。只能评判采样中的几何对应，不能确认连续运动。"
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "tie",
+              "reason": "两者六个采样点都没有可用帧，证据同样缺失，无法区分解释质量。"
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y在4秒显示同色正质量条、8秒显示三路汇聚、14秒显示容量1的三色分割；W没有可评视觉证据。"
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z从4秒同尺度指数条，经11秒拼接，到14秒完整分割0至1，提供共同分母的几何解释；W无可用帧。"
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y具有输入、正质量、共同汇聚节点和最终三色容量条的可见关系；X所有采样均缺失。"
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z明确保留类别颜色，并展示三份质量拼成整体及最终覆盖单位容量；X没有对应证据。"
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z在4、11、14秒以清晰的同色条长度、拼接和单位区间连续建立部分与整体的关系，使同一总量成为共同分母更容易辨认。Y虽有8秒三路汇聚和14秒单位分割，但组合条提前出现，且4秒起遮挡指数标签、后期文字及图形重叠，削弱阶段和对象的对应。"
+            }
+          ],
+          "uncertainty": "仅评估1、4、8、11、14、17秒的所附静态采样；未查看视频、声音、源码、渲染过程或生成记录。不能推断未采样的运动、实际学习效果或W/X缺帧原因。数学文字仅作标识，判断主要依据可见空间分组、长度、汇聚和分割关系。"
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 62.205,
+          "usage": [
+            {
+              "input_tokens": 27701,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1895,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "original",
+      "original_status": "reviewed"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "order": 1,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "105e2b54608ff32bdb2d60f67467e5e51632e09c4c1b3850e4d82339b8189cc2",
+        "image_sha256": [
+          "9c4bb7207fea743a5722eb36820e389eecca3fedfa81a11d743193563f029c85",
+          "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75",
+          "2732ddf7e20a59589b2cc948b4f56b931ab4d614a9751251a438dc9016c1a769"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 1,
+                  "evidence": "三个分离且对齐的彩色行将 A、B、C 分别对应到 −0.8、+0.4、+1.2；类别身份与输入正负号清楚可见。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "A −0.8→0.449、B +0.4→1.492、C +1.2→3.320 各自对应同色正长度条；三条使用共同起点，长度比例支持指数质量的大小关系，负输入也对应正长度。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "蓝、紫、橙三段无缝相接为同一整条，三类身份保持可辨；整条标注“把整条总量 S 换算成 1”，支持所有质量共同组成一个总量。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "标有 0 和 1 的单条容量由蓝、紫、橙三段完整分割，无空隙或重叠；对应的 8.54%、28.35%、63.10% 与各段相对长度一致。"
+                }
+              ],
+              "reconstructed_message": "三个类别的带符号分数先转为正的指数质量，再把三份质量合为共同总量 S。将整条统一换算为 1，每份都除以同一个 S，因而保持相对比例并共同分完一个概率容量。共用分母的原因由同一整条的三段分割得到视觉支持。",
+              "limits": "仅评估六张采样帧，不能确认连续变换或实际学习效果。8 秒的三条仍上下错开，主要通过横向端点衔接暗示求和；11 秒才明确显示连续整条。不同分母的后果只有文字陈述，没有反例几何。显示百分比因舍入合计为 99.99%。"
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无输入符号或类别。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无指数质量或对应几何。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 11,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无三份质量组成总量的图形。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无总量为一的概率分割。"
+                }
+              ],
+              "reconstructed_message": "无法重建解释；所有提供的时间点均为无帧占位。",
+              "limits": "缺少可评估内容，不能据此断言原视频的内容或质量。"
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无输入符号或类别。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无指数质量或对应几何。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 11,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无三份质量组成总量的图形。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无总量为一的概率分割。"
+                }
+              ],
+              "reconstructed_message": "无法重建解释；所有提供的时间点均为无帧占位。",
+              "limits": "缺少可评估内容，不能据此断言原视频的内容或质量。"
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无输入符号或类别。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无指数质量或对应几何。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 11,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无三份质量组成总量的图形。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，无总量为一的概率分割。"
+                }
+              ],
+              "reconstructed_message": "无法重建解释；所有提供的时间点均为无帧占位。",
+              "limits": "缺少可评估内容，不能据此断言原视频的内容或质量。"
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "W",
+              "reason": "W 在 4 秒用同色正长度条对应指数质量，11 秒合为一条，14 秒分割 0 到 1 的容量；X 对应时间均无帧。W 的共同分母机制有可见支持。"
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "W",
+              "reason": "W 在 1 秒保留类别和符号，11 秒展示三色共同总量，14 秒展示完整概率分割；Y 全部采样点无帧，无法识别机制。"
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "W",
+              "reason": "W 的 4、11、14 秒形成指数质量、共同总量、单位容量分割的可见链条，颜色维持成分身份；Z 无可评估图形。"
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "tie",
+              "reason": "两者在 1、4、8、11、14、17 秒均只有 NO FRAME AVAILABLE，提供的机制证据同样缺失。"
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "tie",
+              "reason": "两者全部六个采样时间均为无帧占位，无法依据可见内容偏好任何一方。"
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "tie",
+              "reason": "两者全部六个采样时间均缺少解释画面，在所提供证据层面并列。"
+            }
+          ],
+          "uncertainty": "结论仅针对附图中的采样证据。无法判断未采样内容、连续运动、音频或真实学习效果；X/Y/Z 的并列只表示证据同样缺失，不表示原视频质量相同。"
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 55.045,
+          "usage": [
+            {
+              "input_tokens": 27701,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1717,
+              "reasoning_output_tokens": 0
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "original",
+      "original_status": "reviewed"
+    },
+    {
+      "case": "softmax",
+      "repeat": 2,
+      "order": 2,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "5202c9d35850eada8c2c6e8db3eb4e1213b6d493cf2fe0af3e264a609269b1c9",
+        "image_sha256": [
+          "2732ddf7e20a59589b2cc948b4f56b931ab4d614a9751251a438dc9016c1a769",
+          "9b50465923d7a8c58c911df6afa783802930a9b756e511d58382fd63487b9f75",
+          "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "9c4bb7207fea743a5722eb36820e389eecca3fedfa81a11d743193563f029c85"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 1,
+                  "evidence": "Three separate, color-coded rows associate A with −0.8, B with +0.4, and C with +1.2; class identities and input signs are clearly visible."
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "Each colored input-to-mass mapping accompanies a positive-length bar: A −0.8 → 0.449, B +0.4 → 1.492, C +1.2 → 3.320. Bar lengths visibly follow these mass proportions on a stated common scale."
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "The cyan, purple, and orange bars form a horizontal accumulation: each successive bar begins at the preceding bar's horizontal endpoint, although vertically staggered. All three appear in the shared-total expression S ≈ 5.261. At 11 seconds they also appear joined into one contiguous bar."
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "A contiguous bar spans endpoints 0 and 1, partitioned without gaps into cyan, purple, and orange segments. Their widths correspond to the displayed 8.54%, 28.35%, and 63.10%; the whole bar is explicitly labeled as 1."
+                }
+              ],
+              "reconstructed_message": "Three signed class scores become positive exponential masses. Place those masses together to obtain one shared total S, then apply the same scale conversion to every component so the whole becomes 1. Each probability is its mass divided by S; the three components therefore exhaust the same unit capacity. The shared denominator is visually motivated by preserving the proportions of one assembled whole.",
+              "limits": "Only sampled states are visible; continuous transformations cannot be verified. The warning about separate denominators is textual, without a geometric counterexample. Displayed percentages sum to 99.99% because of rounding."
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 8,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+                }
+              ],
+              "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+              "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 8,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+                }
+              ],
+              "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+              "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no inputs or class identities are visible."
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no exponential masses or input mappings are visible."
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 8,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no shared-total geometry is visible."
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 14,
+                  "evidence": "The supplied panel says 'NO FRAME AVAILABLE'; no probability partition is visible."
+                }
+              ],
+              "reconstructed_message": "No explanation can be reconstructed from the supplied placeholders.",
+              "limits": "All six supplied times lack frames. This establishes missing assessment evidence, not what an unseen video contains."
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "W",
+              "reason": "W visibly links colored exponential-mass bars at 4 seconds to a shared accumulation at 8 seconds and a unit partition at 14 seconds. X supplies only missing-frame placeholders."
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "W",
+              "reason": "W preserves component identity across proportional mass bars, an assembled total, and the final 0–1 partition. Y has no visible explanation at any supplied time."
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "W",
+              "reason": "W supports the common-denominator mechanism with three components joined into one whole at 11 seconds and partitioning unit capacity at 14 seconds. Z has only missing-frame placeholders."
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "tie",
+              "reason": "Both provide identical absence of frame evidence at all six times; neither visibly supports any criterion. This is an evidence tie only."
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "tie",
+              "reason": "Both provide only 'NO FRAME AVAILABLE' placeholders at all six times, leaving no visible mechanism or readability difference to assess."
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "tie",
+              "reason": "Neither supplies any actual sampled frame; their available visual evidence is equally missing."
+            }
+          ],
+          "uncertainty": "Assessment is restricted to the attached samples at 1, 4, 8, 11, 14, and 17 seconds. No unseen motion, rendering success, underlying source, or actual human learning is inferred. W's preference concerns supplied visual evidence; the quality of unseen X/Y/Z explanations remains unknown."
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 61.964,
+          "usage": [
+            {
+              "input_tokens": 27701,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 1633,
+              "reasoning_output_tokens": 43
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "original",
+      "original_status": "reviewed"
+    },
+    {
+      "id": "residual-1-o1",
+      "case": "residual",
+      "repeat": 1,
+      "order": 1,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "69b6175a3ab67865bb499187ca8f749e498bd95b7bf62648c26c945b93728568",
+        "image_sha256": [
+          "ad963d73afc83b3a7151b5784e2a6ab64a2720230c4cc0e8b8def91369c79df8",
+          "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "f26b753e6a7e34351081463e678a9d55963f73dfb40deb42de32d44e2a254147",
+          "52ac044df074fb2aedc766621e17593172a9b77ff56bfa36962249f24fee65f4"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "三行原始箭头仍可辨认：+0.8 向右、−0.6 向左、+0.3 向右；方向和长度与 1 秒对应箭头一致。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "uncertain",
+                  "time_s": 8,
+                  "evidence": "橙色修正箭头和 F1/F2/F3 数值可见，但直接叠在原箭头端部；没有清楚展示独立修正路径，第三行原分量也使用橙色。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "各行橙色箭头从原箭头末端折返：第一、三行向左，第二行向右，构成对应分量的首尾相接。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "下移显示的紫色结果与原箭头共用水平起点，终点对齐修正后的终点；长度和方向分别对应 +0.6、−0.2、+0.2。"
+                }
+              ],
+              "reconstructed_message": "保留 x 的三个带符号位移，在各自末端接上反向修正，得到幅度较小、符号保持的三个输出分量。",
+              "limits": "图例宣称输入为青色，但第二、三分量实际使用紫色和橙色，削弱角色辨识。独立修正路径未清楚呈现；11 秒结果长度与最终状态不同，无法仅凭采样确认过渡含义。"
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，没有输入或恒等路径几何。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，没有修正路径。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 11,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，没有首尾连接。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 17,
+                  "evidence": "仅显示 NO FRAME AVAILABLE，没有可核验的结果。"
+                }
+              ],
+              "reconstructed_message": "无法从所供图片重建解释。",
+              "limits": "六个采样时刻均无画面；这说明证据缺失，不能据此判断未提供的视频内容。"
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "三行原箭头保留了 1 秒时的方向和长度，并持续对应 +0.8、−0.6、+0.3 标签。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "uncertain",
+                  "time_s": 8,
+                  "evidence": "橙色修正及其数值可辨，但修正已覆盖原箭头端部，没有展示空间上独立的修正路径；第三行尤其同色重叠。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "第一行橙箭头从右端向左，第二行从左端向右，第三行从右端短距离向左，显示逐行首尾相接。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "紫色结果箭头的水平起点与原分量起点一致，终点与橙色修正终点对齐；分别为向右 +0.6、向左 −0.2、向右 +0.2。"
+                }
+              ],
+              "reconstructed_message": "每个带符号输入分量原样保留，修正在对应分量末端接入；结果是从原起点到修正终点的位移。",
+              "limits": "输入分量颜色与角色图例不一致。14 秒输出数值已标出，但紫色箭头明显短于其最终长度，构成该采样时刻的数值与几何不一致；17 秒一致。"
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "三个蓝色输入箭头保持 1 秒时的长度和方向，逐行对应 +0.8、−0.6、+0.3；整体位置变化没有改变分量。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "右侧独立展示三个橙色修正箭头，与蓝色输入分离，并按行对应 −0.2、+0.4、−0.1。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "三个橙箭头的起点分别落在对应蓝箭头终点，第一、三行向左折返，第二行向右折返。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "绿色结果下移展示，水平起点对齐蓝箭头起点，终点对齐橙箭头终点；方向和相对长度支持 +0.6、−0.2、+0.2，并与逐行算式一致。"
+                }
+              ],
+              "reconstructed_message": "恒等路径保留每个输入分量的方向、长度和数值；另一条路径提供独立修正。逐行把修正起点接到输入终点，结果取原起点到修正终点的位移。",
+              "limits": "1 秒第二行箭头与数值文字重叠，右边缘有文字被裁切。11 秒修正尚未全部首尾对齐；14 和 17 秒才提供完整连接证据。"
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "W",
+              "reason": "W 在 14、17 秒提供可核验的逐分量连接和结果几何；X 全部采样无画面。"
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "W",
+              "reason": "两者最终连接几何相近，也共有角色配色混淆；W 在 14、17 秒结果长度与数值一致，Y 在 14 秒已标最终数值却显示过短结果箭头。W 的采样证据较少产生误导。"
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 在 4 秒先分离展示修正，再于 14 秒展示接入；角色颜色一致。W 的修正主要以重叠形式出现，独立来源较难辨认。"
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y 在 11 秒显示首尾连接、17 秒显示正确结果几何；X 没有可评估画面。"
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 的采样支持输入保留、独立修正、逐项接入和输出；X 四项均缺少证据。"
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 的独立橙色修正、统一蓝色输入和绿色输出使角色更明确；14 秒连接与输出几何已一致，Y 同时刻的结果箭头仍与标值不符。"
+            }
+          ],
+          "uncertainty": "仅依据所附 1、4、8、11、14、17 秒静态采样作视觉判断；未检查源代码、实际渲染流程、模型生成或连续视频。不能确认帧间运动、过渡意图、精确像素比例或真实学习效果。数学核验限于可见方向、相对长度、端点关系与标值的一致性。"
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 111.168,
+          "usage": [
+            {
+              "input_tokens": 27696,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2250,
+              "reasoning_output_tokens": 137
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "supplement",
+      "original_status": "unknown"
+    },
+    {
+      "id": "residual-1-o2",
+      "case": "residual",
+      "repeat": 1,
+      "order": 2,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "787cc9b0502972b7c18c25e9f73a376fb6639cb0f697f2f5c444ea18411b509d",
+        "image_sha256": [
+          "52ac044df074fb2aedc766621e17593172a9b77ff56bfa36962249f24fee65f4",
+          "f26b753e6a7e34351081463e678a9d55963f73dfb40deb42de32d44e2a254147",
+          "137130edf29353f8a408c6c4af188d5af8ea86c443d14c5b5071907d388265ae",
+          "ad963d73afc83b3a7151b5784e2a6ab64a2720230c4cc0e8b8def91369c79df8"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "三个带标签的输入箭头分别向右、向左、向右，长度对应 +0.8、−0.6、+0.3；与 1 秒相比，方向和长度保留。分量仍可辨认，但输入使用三种颜色，与“青色：输入与恒等路径”图例不一致。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "uncertain",
+                  "time_s": 8,
+                  "evidence": "前两行能辨认橙色修正箭头及独立修正数值；第三行输入本身也是橙色，修正与输入重叠，无法清楚分辨完整的独立修正路径。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "第一行橙箭头从原箭头右端向左回走，第二行从原箭头左端向右回走，支持对应分量首尾相接；第三行接合也位于右端，但同色短箭头使它较难辨认。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "下移的紫色结果与各输入起点对齐，终点对应修正终点的横坐标；方向为右、左、右，长度约为原输入的 3/4、1/3、2/3，与 +0.6、−0.2、+0.2 一致。"
+                }
+              ],
+              "reconstructed_message": "恒等路径保留各输入分量的带符号位移；修正在每个输入箭头末端接入，输出是原起点到修正终点的净位移。",
+              "limits": "同色输入与修正削弱第三分量的可辨认性；11 秒结果长度与最终帧不同，不能凭采样判断其间如何变化。"
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "missing",
+                  "time_s": 1,
+                  "evidence": "只有“NO FRAME AVAILABLE”，没有输入或恒等路径几何。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "missing",
+                  "time_s": 4,
+                  "evidence": "只有“NO FRAME AVAILABLE”，没有修正路径。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "missing",
+                  "time_s": 11,
+                  "evidence": "只有“NO FRAME AVAILABLE”，没有合并或首尾接合。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "missing",
+                  "time_s": 17,
+                  "evidence": "只有“NO FRAME AVAILABLE”，没有结果几何。"
+                }
+              ],
+              "reconstructed_message": "无法从提供的画面重建解释。",
+              "limits": "六个采样时间均无可用帧；这表示证据缺失，不能据此推断实际视频内容或失败原因。"
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "三行标签对应 +0.8、−0.6、+0.3，箭头分别向右、向左、向右，长度比例相符；与 1 秒相比保持原样。但第二、第三输入分别为紫色、橙色，与图例的统一青色输入不一致。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "uncertain",
+                  "time_s": 8,
+                  "evidence": "第一、第二行出现可与输入区分的橙色反向修正；第三行原输入与修正同为橙色，末端挤成短小形状。右侧修正标签不能单独证明独立路径。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "第一行橙色左向箭头接在正输入右端，第二行橙色右向箭头接在负输入左端，形成首尾相接；第三行接点可定位，但短小同色箭头难读。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "紫色结果从输入起点的同一横坐标出发，终点与各修正终点横向对应；右、左、右的方向和约 0.6、0.2、0.2 的长度支持带符号逐项相加。"
+                }
+              ],
+              "reconstructed_message": "三个带符号输入保持原位移，橙色修正在对应末端反向接入，紫色箭头表示相加后的净位移。",
+              "limits": "第三行输入与修正颜色混同；14 秒紫色结果仍短于 17 秒结果，不能把采样间的变化当作已观察到的连续过程。"
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "三支输入均为蓝色，方向分别右、左、右，标签为 +0.8、−0.6、+0.3；相对 1 秒位置改变，但各自方向和长度保留。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "三支橙色修正与蓝色输入空间分离，分别左向 −0.2、右向 +0.4、左向 −0.1，颜色、方向和长度均可独立辨认。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "三行橙色修正的起点分别位于蓝色箭头终点，再沿反方向回走；正输入在右端接合，负输入在左端接合。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 17,
+                  "evidence": "绿色结果下移展示，起点与蓝色起点横向对齐，终点与橙色终点横向对齐；三行方向及长度分别支持 +0.6、−0.2、+0.2，旁边算式与几何一致。"
+                }
+              ],
+              "reconstructed_message": "恒等路径搬运原输入的方向、长度和数值；另一条路径提供独立修正。将每个修正首端接到对应输入末端，原起点到修正终点就是输出。",
+              "limits": "11 秒部分橙箭头尚未贴合，接合完成的依据是 14、17 秒；右侧少量文字被裁切，1 秒负分量数值与箭头局部重叠。"
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "W",
+              "reason": "W 的 17 秒提供输入、首尾接合和结果的可见对应；X 六个时间均没有可用帧。"
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "tie",
+              "reason": "两者 17 秒的输入、反向修正和净结果几何基本等效，也都存在第三分量输入与修正同色的问题。W 的附加算式未提供决定性的几何优势。"
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 在 4 秒将三项修正独立展示，14 秒再明确首尾接合，且统一蓝色输入、橙色修正、绿色结果；W 第三项输入与修正同色，路径区分较弱。"
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y 的 11 秒展示接合、17 秒展示与净位移一致的结果；X 没有可评估的解释画面。"
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 的 4、14、17 秒分别提供独立修正、对应接合和结果几何；X 只有无帧占位文字。"
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 的三项输入与修正始终以不同颜色区分，4 秒还有空间分离的修正证据；Y 第三项橙色输入与橙色修正混同。Z 的最终起点、接点和终点关系也更易读。"
+            }
+          ],
+          "uncertainty": "仅评估所附 1、4、8、11、14、17 秒采样画面。不能确认连续运动、完整节奏、音频、实际学习效果或未展示内容；长度判断是视觉比例判断。数学一致性与视觉可辨认性分别判断，未把公式正确当作几何证明。"
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 120.987,
+          "usage": [
+            {
+              "input_tokens": 27723,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2446,
+              "reasoning_output_tokens": 175
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "supplement",
+      "original_status": "unknown"
+    },
+    {
+      "id": "residual-2-o1",
+      "case": "residual",
+      "repeat": 2,
+      "order": 1,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "69b6175a3ab67865bb499187ca8f749e498bd95b7bf62648c26c945b93728568",
+        "image_sha256": [
+          "2990702ea9a0be36abd5465a2f404aaba22d6df790709a07ded570b98c9e0794",
+          "9c69f30c76653005bcf80ba2b4b9fbd31218dea01d2b707d9178247c5f7ba951",
+          "bef6c9ec39fd97cce9b5d2f4e611e59db13f072ca0ac79abb617a5fbe8433591",
+          "eef0eef4becc4e5659bbd7db3499c4c6275c5da0ce8f9c3b8fac88c65b43e625"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "三个原分量保持可辨的颜色、长度和方向：+0.8 向右、−0.6 向左、+0.3 向右；同色虚线标出各自的恒等通道。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "三个黄色修正箭头与原分量分开画出，分别标注 −0.2、+0.4、−0.1，并按行对应。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "contradicted",
+                  "time_s": 11,
+                  "evidence": "黄色修正箭头的箭头端对齐白点，尾端却经折线连到通道：−0.2 从白点右侧指回白点，+0.4 从白点左侧指向白点。这与所称修正从原分量末端开始的首尾相接相反。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "结果箭头分别向右、向左、向右；相对输入的长度约为 3/4、1/3、2/3，对应 +0.6、−0.2、+0.2。但结果与错误接法之间没有可信的几何推导。"
+                }
+              ],
+              "reconstructed_message": "三个有符号分量沿独立通道保留，黄色修正逐项加入，得到更短但符号不变的输出。输出数值和长度相符，合流处却把修正箭头的头接到了通道端点。",
+              "limits": "8 秒修正标签重叠，14 秒部分输出文字与箭头、底部文字相碰；只能判断这些静帧。"
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "三个输入保留原来的方向、长度和颜色，并各有同色水平虚线通道；负分量仍明确向左。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "修正箭头位于对应输入行下方，独立标注 F1、F2、F3；空间分离使其可与原分量区别。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "contradicted",
+                  "time_s": 14,
+                  "evidence": "F1 的左向箭头头部对齐白点，尾部在白点右侧；F2 的右向箭头也以头部对齐白点。虚线折角连接的是修正尾部，而非让尾部从原分量端点接续。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "输出 +0.6 向右、−0.2 向左、+0.2 向右，长度分别约为对应输入的 3/4、1/3、2/3，支持显示的逐项和；错误的合流接法仍未解释这些结果如何形成。"
+                }
+              ],
+              "reconstructed_message": "原始分量沿恒等通道直达，另一路修正按分量相加，输出为 +0.6、−0.2、+0.2。文字声称首尾相接，但画出的修正方向与端点连接关系不支持这一声称。",
+              "limits": "8 秒修正标签重叠，14 秒第一项输出文字贴近箭头；无法从采样判断实际移动过程。"
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "三列分别保留 +0.8、−0.6、+0.3 的蓝色箭头；与 1 秒相比，长度和左右方向不变，分量身份由列位置保持。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "每列蓝色原分量下方各有独立橙色修正箭头，方向依次为左、右、左，长度与 −0.2、+0.4、−0.1 对应。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "橙色箭头尾端与对应蓝色箭头头端实际相接：第一、三项从蓝箭头右端向左返回，第二项从蓝箭头左端向右返回。三列没有交叉混合。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "各绿色结果与上方蓝箭头原点及橙箭头终点在水平方向对应，方向依次右、左、右，长度对应 +0.6、−0.2、+0.2；尤其负分量相加后仍保留向左的短结果。"
+                }
+              ],
+              "reconstructed_message": "恒等路径保留每个分量的符号和大小。每个修正保持自己的方向和长度，把尾端放到对应原分量的头端；结果从原起点量到修正终点，逐项得到 +0.6、−0.2、+0.2。",
+              "limits": "恒等路径通过分阶段的位置变化表达，没有连续通道线；采样支持前后几何关系，不能证明中间移动始终保持形状。"
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "输入的三种颜色、左右方向和长度保持可辨；白点落在各自真实箭头端点，包括负分量的左端。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "三个修正箭头独立置于原分量下方，标注 F1、F2、F3，方向和长度有区别；第二项修正与第三项输入标签较拥挤。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "垂直虚线从每个原箭头头端连接到对应修正尾端：正分量右端接左向修正，负分量左端接右向修正。它以垂直错位的连接表达首尾关系。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "输出方向为右、左、右，长度约为输入的 3/4、1/3、2/3，与 +0.6、−0.2、+0.2 一致；左侧原箭头起点到修正终点的水平净位移也支持这些符号和大小。"
+                }
+              ],
+              "reconstructed_message": "原分量完整保留，修正通过虚线接到其真实末端，分别产生缩短后的正、负、正输出。加法由各分量末端接续修正的水平位移表达。",
+              "limits": "首尾关系依赖垂直虚线，未直接共线接触；输出远离构造，第二、三项标签及底部说明拥挤，降低逐项追踪的清晰度。"
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "tie",
+              "reason": "两者都保留三个有符号输入并给出比例正确的输出，也都把修正头端对齐合流点。X 的公式和 W 的说明没有修复相同的几何矛盾；可见机制证据基本相当。"
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y 在 11 秒实际把修正尾端接到原箭头头端，14 秒结果与构造端点对齐；W 在 11 秒接反，输出虽正确却缺少正确的合流推导。"
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 在 11 秒从各原分量真实头端连到修正尾端，负分量的左端尤其清楚；W 的共同右侧通道端点和反向接法不能支持相同机制。"
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y 的 11 秒直接接触和 14 秒绿色净位移共同解释加法；X 虽写出首尾相接，14 秒仍把修正头端对齐白点。"
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 的 11 秒虚线连接了正确的原头端与修正尾端；X 的修正接法相反。Z 的排版拥挤不抵消这一关键几何优势。"
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "Y",
+              "reason": "Y 在 11 秒直接共线首尾相接，并在 14 秒按列显示同一原点到合并终点的结果。Z 依赖垂直错位虚线，输出又远置右侧，且标签拥挤，使因果关系更难追踪。"
+            }
+          ],
+          "uncertainty": "仅评估每个候选在 1、4、8、11、14、17 秒的六张采样帧。长度判断为视觉近似；未检查视频、源码或数学测试，不能断言未采样的运动、过渡质量或实际学习效果。"
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 121.435,
+          "usage": [
+            {
+              "input_tokens": 27696,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2516,
+              "reasoning_output_tokens": 169
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "supplement",
+      "original_status": "unknown"
+    },
+    {
+      "id": "residual-2-o2",
+      "case": "residual",
+      "repeat": 2,
+      "order": 2,
+      "call": {
+        "model": "gpt-6-astra",
+        "prompt_sha256": "787cc9b0502972b7c18c25e9f73a376fb6639cb0f697f2f5c444ea18411b509d",
+        "image_sha256": [
+          "eef0eef4becc4e5659bbd7db3499c4c6275c5da0ce8f9c3b8fac88c65b43e625",
+          "bef6c9ec39fd97cce9b5d2f4e611e59db13f072ca0ac79abb617a5fbe8433591",
+          "9c69f30c76653005bcf80ba2b4b9fbd31218dea01d2b707d9178247c5f7ba951",
+          "2990702ea9a0be36abd5465a2f404aaba22d6df790709a07ded570b98c9e0794"
+        ],
+        "status": "completed",
+        "response": {
+          "videos": [
+            {
+              "id": "W",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "三个原分量仍分别向右、向左、向右，长度对应 +0.8、−0.6、+0.3；同色虚线路径保持三行分量的对应关系。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "黄色修正箭头位于原分量下方的独立区域，与三条原值箭头分离；但修正箭头彼此重叠，尚不能清楚分辨三项。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "contradicted",
+                  "time_s": 11,
+                  "evidence": "三条修正箭头的箭头尖端与各行白色端点横向对齐，尾端却在旁边，并由竖虚线引向原路径高度。画面呈现修正指回端点，不能支持文字所称的修正尾端接原分量头端。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "结果箭头依次向右、向左、向右，长度约为原箭头的 3/4、1/3、2/3；分别符合负向修正 0.2、正向修正 0.4、负向修正 0.1 后的有符号长度。合流接法仍存在上述矛盾。"
+                }
+              ],
+              "reconstructed_message": "三个带符号的原分量沿各自路径保留，独立修正逐项合入，得到 +0.6、−0.2、+0.2。图上能识别分量与结果，但合流处的箭头连接方向不支持其首尾相接说明。",
+              "limits": "仅据六个采样帧。4 秒和 8 秒修正重叠，14 秒结果标签与箭头重叠，底部说明也有拥挤。"
+            },
+            {
+              "id": "X",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "蓝、橙、紫三条原箭头保留各自方向与长度，同色虚线分别延续三行，原始负分量仍可辨认。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "原分量下方另有橙色修正箭头区域，空间上独立于原值；但多条修正叠在一起，且与第二原分量同色。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "contradicted",
+                  "time_s": 11,
+                  "evidence": "修正箭头尖端与白色路径端点横向对齐，尾端则横向偏移。尤其第二项正向修正从白点左侧指向白点，而不是从白点继续向右，和首尾相接相反。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "三个结果的方向和长度分别对应 +0.6、−0.2、+0.2；与原分量及修正箭头所编码的大小一致，但没有由正确的合流几何直接构造出来。"
+                }
+              ],
+              "reconstructed_message": "原值沿三条分开的恒等路径保持，修正分量在右侧对应合流，输出逐项和。结果长度正确，但修正接向白点的方向与所称的首尾相接矛盾。",
+              "limits": "仅据六个采样帧。8 秒修正标签重叠，14 秒第一项结果标签压在箭头上；不能推断中间运动是否补足说明。"
+            },
+            {
+              "id": "Y",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "三列始终分别保留 +0.8、−0.6、+0.3 的蓝色箭头；相较 1 秒，方向与长度保持，负分量没有消失。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 4,
+                  "evidence": "每列蓝色原箭头下方都有独立橙色修正箭头，三项方向依次为左、右、左，长度也可分别辨认。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "每条橙色箭头的尾端接在对应蓝色箭头的头端附近：第一、三项从右端向左折回，第二项从蓝箭头左端向右折回，逐列对应明确。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "各列绿色结果与上方合成几何横向对齐，从原箭头起点到橙色修正终点的位移分别向右 0.6、向左 0.2、向右 0.2；方向和比例同时支持逐项加法。"
+                }
+              ],
+              "reconstructed_message": "恒等路径保留每个原分量的符号和大小。修正先独立显示，再把每项修正的尾端接到同项原箭头的头端；结果是从原起点到修正终点的有符号位移。",
+              "limits": "仅据六个采样帧。可验证采样位置之间的几何关系，不能验证连续移动过程或实际学习效果。"
+            },
+            {
+              "id": "Z",
+              "checks": [
+                {
+                  "criterion": 0,
+                  "status": "demonstrated",
+                  "time_s": 11,
+                  "evidence": "三个原箭头仍保留右、左、右的方向及 +0.8、−0.6、+0.3 对应长度，与 1 秒一致；各原箭头头端用白点标出。"
+                },
+                {
+                  "criterion": 1,
+                  "status": "demonstrated",
+                  "time_s": 8,
+                  "evidence": "三条橙色修正分别位于原箭头下方，方向和长度可独立识别，并有 F1、F2、F3 对应标记。"
+                },
+                {
+                  "criterion": 2,
+                  "status": "uncertain",
+                  "time_s": 11,
+                  "evidence": "白色原箭头头端通过竖虚线与对应修正尾端对齐，连接端选择正确；但原箭头与修正仍分处不同高度，未直接显示共点的首尾相接。"
+                },
+                {
+                  "criterion": 3,
+                  "status": "demonstrated",
+                  "time_s": 14,
+                  "evidence": "右侧结果箭头方向依次为右、左、右，长度约为原值的 3/4、1/3、2/3，与左侧修正后的横向位移相符；结果与合成图空间分离，需跨区域比较。"
+                }
+              ],
+              "reconstructed_message": "原分量保持不变，修正从各原箭头末端的横向位置继续，最终输出三个逐项和。虚线提示了正确的连接端，但没有把两段箭头真正放到同一条线上。",
+              "limits": "仅据六个采样帧。第三项附近的说明与修正标签拥挤；恒等路径主要由保留的原箭头体现，未见完整的运输过程。"
+            }
+          ],
+          "comparisons": [
+            {
+              "left": "W",
+              "right": "X",
+              "winner": "tie",
+              "reason": "两者都有可辨的原分量、独立修正区域和正确结果长度，也都在 11 秒把修正尖端而非尾端对向路径端点。W 的黄色修正更易区别于原分量，但不足以消除共有的关键合流矛盾。"
+            },
+            {
+              "left": "W",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y 在 11 秒逐列显示正确的首尾相接，14 秒结果与合成端点对齐；W 的合流方向相反，早期修正还互相重叠。"
+            },
+            {
+              "left": "W",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 在 11 秒将原箭头头端对齐到修正尾端，虽有竖向间隔，连接端仍正确；W 对齐的是修正尖端。Z 在 8 秒也更容易分别看清三项修正。"
+            },
+            {
+              "left": "X",
+              "right": "Y",
+              "winner": "Y",
+              "reason": "Y 的 11 秒接法和 14 秒绿色位移共同支持加法发生的位置与结果；X 的合流接法矛盾，结果则孤立显示在右侧。"
+            },
+            {
+              "left": "X",
+              "right": "Z",
+              "winner": "Z",
+              "reason": "Z 的虚线连接原头端与修正尾端，保留正确的因果对应；X 的 11 秒修正反而指向端点。Z 的修正分量也没有 X 在 8 秒的集中重叠。"
+            },
+            {
+              "left": "Y",
+              "right": "Z",
+              "winner": "Y",
+              "reason": "Y 在 11 秒直接展示同项箭头首尾相接，14 秒结果与原起点、修正终点横向对齐。Z 仍依靠竖虚线表达连接，输出远离合成图，读者需要更多自行对应。"
+            }
+          ],
+          "uncertainty": "这是对所附接触表的盲视觉评估，仅覆盖 1、4、8、11、14、17 秒。没有检查源文件、完整视频、渲染流程或模型生成情况。箭头比例为可见近似关系；不能推断未采样的运动、实际人类学习效果或制作方法。"
+        },
+        "process": {
+          "exit_code": 0,
+          "timed_out": false,
+          "wall_s": 79.127,
+          "usage": [
+            {
+              "input_tokens": 27696,
+              "cached_input_tokens": 0,
+              "cache_write_input_tokens": 0,
+              "output_tokens": 2669,
+              "reasoning_output_tokens": 150
+            }
+          ],
+          "tool_types": []
+        }
+      },
+      "status": "reviewed",
+      "provenance": "supplement",
+      "original_status": "unknown"
+    }
+  ],
+  "original_failures_retained": 4,
+  "base_report_unchanged": true,
+  "limits": "Supplementary analysis, not original fixed-budget completion. Original 4 failures + new requests all counted. No new author source or quality selection."
+}
