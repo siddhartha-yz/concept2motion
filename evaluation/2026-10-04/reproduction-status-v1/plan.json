@@ -1,0 +1,33 @@
+{
+  "scope": "Audit every recorded primary reference; first reproduce TEA/PhyEduVideo local code and preprocessing without model calls; no claim of full paper reproduction",
+  "model_call_budget": 48,
+  "new_model_budget_pending": false,
+  "pins": {
+    "TheoremExplainAgent": "e9ece5db7756b6ded8a812eceeb936cfd02aae21",
+    "PhyEduVideo": "5a36a13818552095c9ed12c6562f236d5b5011bd"
+  },
+  "unmodified_upstream": true,
+  "actual_model_and_human_validation_required_later": true,
+  "authorization": "User explicitly authorized at most 48 new official Codex calls in this turn.",
+  "model": "gpt-6-astra",
+  "calls": {
+    "fact": 24,
+    "TEA_single_frame": 12,
+    "Code2Video_AES_sampled_stills": 12
+  },
+  "retries": 0,
+  "maximum_simultaneous_calls": 3,
+  "call_timeout_s": 240,
+  "controls": "The 12 already frozen local judge-fact-probes-v3 stimuli; six supported, four contradicted, two unverifiable",
+  "fact_repeats": 2,
+  "TEA_frame_time_s": 11,
+  "AES_evidence": "six existing sampled frames as contact sheet; original video transport replaced",
+  "claims_excluded": [
+    "full paper performance replication",
+    "human learning",
+    "stable quality improvement",
+    "original evaluator model equivalence",
+    "full TEA multi-axis evaluation",
+    "PhyEduVideo neural model scores"
+  ]
+}
