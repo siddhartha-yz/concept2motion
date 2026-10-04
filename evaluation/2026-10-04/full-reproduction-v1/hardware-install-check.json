@@ -1,0 +1,16 @@
+{
+  "sandbox_nvidia_smi": {
+    "exit_code": 9,
+    "classification": "sandbox device access unavailable; not host driver evidence"
+  },
+  "host_nvidia_smi": {
+    "exit_code": 0,
+    "name": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+    "memory_total_mib": 12227,
+    "driver": "595.91.07"
+  },
+  "torch_runtime_verified": false,
+  "training_verified": false,
+  "compatibility_reference": "https://pytorch.org/blog/pytorch-2-7/",
+  "planned_runtime": "torch 2.7.1 and torchvision 0.22.1 from official cu128 wheel index; installation pending"
+}
