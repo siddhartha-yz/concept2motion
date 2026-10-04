@@ -1,0 +1,241 @@
+{
+  "cli_version": "0.159.0",
+  "authentication": "Logged in using ChatGPT",
+  "model": "gpt-6-astra",
+  "reasoning": "low",
+  "max_parallel": 3,
+  "attempts": 48,
+  "usable_responses": 16,
+  "without_usable_responses": 32,
+  "tls_handshake_eof_in_failed_private_logs": 19,
+  "by_method": {
+    "fact": {
+      "attempts": 24,
+      "completed": 8,
+      "without_usable_response": 16,
+      "sum_cli_wall_s": 365.968
+    },
+    "tea": {
+      "attempts": 12,
+      "completed": 4,
+      "without_usable_response": 8,
+      "sum_cli_wall_s": 162.404
+    },
+    "aes": {
+      "attempts": 12,
+      "completed": 4,
+      "without_usable_response": 8,
+      "sum_cli_wall_s": 310.33
+    }
+  },
+  "reported_usage": {
+    "input_tokens": 291150,
+    "cached_input_tokens": 0,
+    "output_tokens": 8621
+  },
+  "calls_with_reported_usage": 16,
+  "failed_call_usage": null,
+  "runner_reinvocations": 0,
+  "cli_internal_connection_retries": "Observed in private logs; underlying provider request attempts cannot be certified as 48 or as zero for failures. Budget unit is official CLI invocations.",
+  "tools_observed": [],
+  "models_trained": 0,
+  "new_author_generations": 0,
+  "new_call_budget_remaining": 0,
+  "gate_fix": "tools/bounded_calls.py; four mock controls passed; not used for this frozen v1 batch or a new real batch",
+  "official_usage_limit_in_failed_events": 32,
+  "failure_classification": [
+    {
+      "job": "fact-B8-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-B8-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-B8",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-B8",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-D3-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-D3-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-D3",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-D3",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-K6-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-K6-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-K6",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-K6",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-M1-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-M1-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-M1",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-M1",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-P5-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-P5-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-P5",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-P5",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-R8-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-R8-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-R8",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-R8",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-S3-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-S3-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-S3",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-S3",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-V6-r1",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    },
+    {
+      "job": "fact-V6-r2",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "tea-V6",
+      "official_usage_limit_message": true,
+      "tls_log_present": false,
+      "no_usable_response": true
+    },
+    {
+      "job": "aes-V6",
+      "official_usage_limit_message": true,
+      "tls_log_present": true,
+      "no_usable_response": true
+    }
+  ],
+  "failure_interpretation": "Official terminal usage-limit errors; TLS diagnostics also present in some logs. Authorization is not account quota. No failure is converted to a score."
+}

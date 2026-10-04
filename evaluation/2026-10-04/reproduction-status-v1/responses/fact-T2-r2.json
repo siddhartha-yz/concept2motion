@@ -1,0 +1,39 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1820933df5fde26672001cd52f26875b663bccfdff2ca8567ec0f0faeaa70776",
+  "image_sha256": [
+    "ea111b65e55e3913c5dc816e1ee0d9c507c692d9726b8846e003c6ce2b0429cd"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "supported",
+    "limitations": "1秒和4秒未显示橙色箭头，无法检验该关系。其余帧中部分蓝色箭身被橙色覆盖；结论仅限可见接点，不推断帧间情况。",
+    "observations": [
+      {
+        "time_s": 8,
+        "object": "三行橙色修正箭头与蓝色输入箭头",
+        "description": "第一行和第三行橙色箭头向左，其右侧尾端与蓝色向右箭头的头端重合；第二行橙色箭头向右，其左侧尾端与蓝色向左箭头的头端重合。接点处未见间隙。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "三行橙色修正箭头与蓝色输入箭头",
+        "description": "三行均保持上述连接：第一、三行接在蓝色右端，第二行接在蓝色左端，未见橙色尾端与蓝色头端错位。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 31.409,
+    "usage": [
+      {
+        "input_tokens": 18739,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 304,
+        "reasoning_output_tokens": 66
+      }
+    ],
+    "tool_types": []
+  }
+}

@@ -14,6 +14,8 @@
 
 现成评分也需要先检查：[Code2Video 评分代码重放](evaluation/2026-10-04/metric-replay-v1/REPORT.md)发现答案读取、格式计分和失败处理会制造假成绩。新增[严格离线计算](docs/metric-replay.md)，没有把模拟验证当真实裁判或教学评价。
 
+[参考复现清单](docs/reproductions.md)逐项区分研究与执行：六个项目有部分实际执行，尚无完整论文成绩复现。本轮补 TEA/PhyEduVideo 原函数处理；48 次官方 Codex 裁判尝试只有 16 次可用，32 次遇到账号额度上限。[结果和失败](evaluation/2026-10-04/reproduction-status-v1/REPORT.md)保留全部分母，评分可信度仍未建立。
+
 现在的主要入口是小型 Canvas 运行时、常驻局部预览和带哈希的版本修改。对象、镜头、时间和绘图代码分别处理；已注册的动作可以只改 `timing.json`，保留原绘图源码。
 
 首轮同模型对照没有证明运行时提速：Direct 整臂 93.6 秒，Infra 100.7 秒。[保留的负结果](evaluation/2026-10-02/infra-pair-v1/REPORT.md)。随后将同一生成候选明确适配到命名动作，参数修改到局部视频实测 0.865 秒、零模型调用；这是时序调整的结果，不是新场景生成或艺术质量的收益。[参数实验](evaluation/2026-10-02/timing-bindings-v1/REPORT.md)。

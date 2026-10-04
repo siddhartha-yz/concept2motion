@@ -1,0 +1,34 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1820933df5fde26672001cd52f26875b663bccfdff2ca8567ec0f0faeaa70776",
+  "image_sha256": [
+    "deb4d429ce92f7cd7ca120992f03384e7eb5f2ad38b9e4521f4551b68a092418"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "contradicted",
+    "limitations": "仅评价供给抽帧中的可见几何关系，不能判断未供给时刻；1秒和4秒未见橙色箭头。",
+    "observations": [
+      {
+        "time_s": 17.5,
+        "object": "三行橙色修正箭头与蓝色输入箭头",
+        "description": "第一、三行橙色箭头向左，其尾端在最右侧，明显位于蓝色箭头头端右方，没有相接。第二行橙色箭头向右，其左侧尾端位于蓝色箭身靠右处，而蓝色箭头头端在最左侧，也没有相接。因此不满足每一行尾端与头端相接。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 20.792,
+    "usage": [
+      {
+        "input_tokens": 18590,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 284,
+        "reasoning_output_tokens": 86
+      }
+    ],
+    "tool_types": []
+  }
+}

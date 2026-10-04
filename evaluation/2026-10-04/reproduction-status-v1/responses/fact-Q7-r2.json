@@ -1,0 +1,39 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1820933df5fde26672001cd52f26875b663bccfdff2ca8567ec0f0faeaa70776",
+  "image_sha256": [
+    "5aededf95bd2e7888c546b57d1687a4b2e84421a2d9f631783eb1b523fac9d4c"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "supported",
+    "limitations": "仅限所供抽帧。1秒和4秒未见橙色箭头，无法检验相接关系；部分线段重叠，端点判断受图像分辨率限制，不能确认帧间情况。",
+    "observations": [
+      {
+        "time_s": 8,
+        "object": "三行橙色修正箭头与蓝色输入箭头",
+        "description": "第一行橙色向左箭头的右侧尾端接在蓝色向右箭头的头端；第二行橙色向右箭头的左侧尾端接在蓝色向左箭头的头端；第三行橙色向左箭头的右侧尾端接在蓝色向右箭头的头端。三处均未见可辨间隙。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "三行橙色修正箭头与蓝色输入箭头",
+        "description": "三行仍呈现上述端点相接关系：第一、三行在右端相接，第二行在左端相接；尽管线段部分重叠，未见橙色尾端与蓝色头端分离。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 24.199,
+    "usage": [
+      {
+        "input_tokens": 18766,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 354,
+        "reasoning_output_tokens": 79
+      }
+    ],
+    "tool_types": []
+  }
+}

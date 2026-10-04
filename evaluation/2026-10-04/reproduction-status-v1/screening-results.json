@@ -1,0 +1,909 @@
+{
+  "rows": [
+    {
+      "job": "fact-Q7-r1",
+      "method": "fact",
+      "control": "Q7",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 21.095,
+        "usage": [
+          {
+            "input_tokens": 18617,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 262,
+            "reasoning_output_tokens": 68
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-Q7-r2",
+      "method": "fact",
+      "control": "Q7",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 24.199,
+        "usage": [
+          {
+            "input_tokens": 18766,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 354,
+            "reasoning_output_tokens": 79
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-Q7",
+      "method": "tea",
+      "control": "Q7",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 20.794,
+        "usage": [
+          {
+            "input_tokens": 16391,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 337,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "overall_analysis": "The frame broadly illustrates residual addition using unchanged blue inputs and signed orange corrections. The three displayed sums are arithmetically correct, and arrow lengths appear consistent with the stated scale. However, the promised purple sum is not visibly distinguishable. This assessment uses only the supplied frame at 11 seconds; animation timing, other frames, implementation, and whether any weights were trained cannot be verified.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The component examples correctly show 0.7−0.2=0.50, −0.4+0.15=−0.25, and 0.2−0.3=−0.10. Orange corrections appear to start at blue endpoints and point in the appropriate signed directions, supporting componentwise residual addition. The third example illustrates a correction crossing zero. However, the purple resultant described in the text is not visibly identifiable, weakening the explicit representation of the output. Nothing visible establishes trained weights; the examples are consistent with illustrative corrections.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "Text is readable against the dark background, and the three examples are vertically separated without unintended text overlap. The scale guide provides useful context. However, the arrows occupy a small central region with substantial unused space, and the labels are distant from their corresponding diagrams. Shared blue/orange segments make endpoints harder to distinguish, while the absent or obscured purple result prevents easy visual comparison of input, correction, and sum. Origin markers and clearer resultant separation would improve readability.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-Q7",
+      "method": "aes",
+      "control": "Q7",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 57.549,
+        "usage": [
+          {
+            "input_tokens": 19203,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1198,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "element_layout": 14.0,
+        "attractiveness": 12.0,
+        "logic_flow": 14.0,
+        "accuracy_depth": 15.0,
+        "visual_consistency": 17.0,
+        "overall_score": 72.0,
+        "detailed_feedback": "**Element Layout (14 points):**\nThe six frames maintain a clear title, explanatory text, three aligned numerical examples, and a scale reference. Light text and colored arrows are readable against the dark background. However, the arrows occupy a small fraction of the available space, particularly for the smaller components, while substantial space remains unused. Text and graphics are only loosely connected spatially. The presentation does not establish a strong left-side explanation/right-side animation division. Enlarging the diagrams and marking each component's zero point would make direction, magnitude, and correspondence easier to interpret. The final purple arrows are separated vertically from their constructions without explicit endpoint guides or individual labels.\n\n**Attractiveness (12 points):**\nThe restrained cyan, orange, and purple palette is harmonious and gives the three quantities distinguishable roles. Signed arrows are an appropriate visual representation for this concept. Nevertheless, the sampled compositions are sparse and repetitive, with small diagrams and little visual emphasis on the moment of addition. The final result receives limited prominence. A larger central construction, selective highlighting of the active component, and a clear concluding equation could increase engagement while preserving mathematical clarity. Animation smoothness, effects, and audiovisual engagement cannot be evaluated from still frames.\n\n**Logic Flow (14 points):**\nThe timestamps suggest an understandable sequence: input at 1.00 and 4.00 seconds, correction branches at 6.50 and 8.00 seconds, merging at 11.00 seconds, and output at 17.50 seconds. The blue arrows appear unchanged after their initial reveal, while orange arrows develop from their endpoints and purple outputs appear later. This supports the intended additive progression. However, the numerical sums are already shown in the earliest frame, and the merging frame does not visibly demonstrate how the resultant is constructed. English stage labels embedded in otherwise Chinese content add unnecessary language switching. A brief introduction of y = x + c, followed by one worked component and then the three-component result, would provide stronger scaffolding. Actual pacing and transitions between the sampled times remain unverified.\n\n**Accuracy & Depth (15 points):**\nAll three displayed calculations are correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. The completed orange arrows point in the correct signed directions from the blue endpoints, and the final purple arrows have directions and approximate lengths consistent with the stated sums and scale. The examples usefully cover a reduced positive value, a less negative value, and a sign reversal. These are strong illustrations of signed componentwise addition. However, the visible content does not explicitly identify the mechanism as a residual connection, state a vector equation, or label the three rows as components of one vector. It also does not explicitly state that the corrections are illustrative and that no trained weights are used; their provenance cannot be established from these frames. Adding those statements would align the presentation more fully with the requested knowledge point. No factual arithmetic error is evident in the samples.\n\n**Visual Consistency (17 points):**\nAcross the six samples, the background, typography, row positions, explanatory legend, and scale reference remain stable. Cyan consistently represents input, orange correction, and purple output. The completed blue input geometry appears preserved as subsequent elements are introduced, reinforcing the unchanged-input idea. The principal weaknesses are mixed-language stage labels and the lack of explicit alignment cues between each purple result and its corresponding construction. The samples support strong consistency of static styling, but they cannot establish uniform motion timing, smoothness, or freedom from artifacts between frames.\n\n**Overall Summary:**\nBased only on six timestamped still frames, the presentation offers a mathematically correct and visually consistent illustration of signed addition. It partially teaches the target residual-connection concept through preserved input arrows and endpoint-attached corrections, but leaves the residual identity, vector-component interpretation, and absence of trained weights implicit. The pedagogical approach is suitable for a compact introductory explanation, with larger diagrams and a more explicit synthesis needed. This is an assessment of sampled visual evidence, not a full-video or audio review; narration, continuous timing, transitions, and synchronization cannot be verified.\n\n**Key Strengths:**\n• Correct arithmetic across three complementary signed examples.\n• Endpoint-attached correction arrows make signed addition visually concrete.\n• Blue inputs appear preserved after their initial reveal.\n• Stable colors distinguish input, correction, and result.\n• A scale reference supports interpretation of arrow magnitudes.\n\n**Areas for Improvement:**\n• Explicitly name residual connection and display y = x + c, with y_i = x_i + c_i for each component.\n• State that the correction values are illustrative and no trained weights are used.\n• Label the three rows as components of one vector and summarize the final output vector.\n• Enlarge the arrows and add zero markers, component labels, and endpoint guides.\n• Visually demonstrate how each purple result runs from the original origin to the corrected endpoint.\n• Use consistent Chinese stage labels and emphasize the final additive relationship.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 14,
+          "attractiveness": 12,
+          "logic_flow": 14,
+          "accuracy_depth": 15,
+          "visual_consistency": 17
+        },
+        "overall_score": 72,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-T2-r1",
+      "method": "fact",
+      "control": "T2",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 35.364,
+        "usage": [
+          {
+            "input_tokens": 18492,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 326,
+            "reasoning_output_tokens": 64
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-T2-r2",
+      "method": "fact",
+      "control": "T2",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 31.409,
+        "usage": [
+          {
+            "input_tokens": 18739,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 304,
+            "reasoning_output_tokens": 66
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-T2",
+      "method": "tea",
+      "control": "T2",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 31.16,
+        "usage": [
+          {
+            "input_tokens": 16391,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 322,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "overall_analysis": "The frame illustrates componentwise residual addition with three numerically correct signed examples. Text is readable and the composition is orderly, but the promised purple sum vectors are not visibly distinguishable, leaving the resulting outputs insufficiently illustrated. Evidence is limited to the supplied frame at 11 seconds; motion, other frames, and whether any model generation or trained weights were involved cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The unchanged blue inputs and orange corrections starting at their endpoints align with residual addition. The examples correctly give 0.7 − 0.2 = 0.50, −0.4 + 0.15 = −0.25, and 0.2 − 0.3 = −0.10. Their directions and approximate lengths agree with the stated scale of 210 pixels per unit. However, although the caption promises purple sums, no distinct purple result vectors are visible. The frame supports illustrative signed corrections and makes no claim of trained weights.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, explanation, numerical labels, and three diagrams have clear vertical separation and good contrast, with no obvious unintended text overlap. The shared horizontal origin and bottom scale help comparison. However, the diagrams occupy a small portion of the available width, arrowheads are small, and orange corrections overlap the blue segments, making endpoints harder to distinguish. Missing visible purple sums further reduce clarity of the final outputs.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-T2",
+      "method": "aes",
+      "control": "T2",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 59.0,
+        "usage": [
+          {
+            "input_tokens": 19230,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1191,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "element_layout": 15.0,
+        "attractiveness": 13.0,
+        "logic_flow": 14.0,
+        "accuracy_depth": 15.0,
+        "visual_consistency": 17.0,
+        "overall_score": 74.0,
+        "detailed_feedback": "**Element Layout (15 points):**\nThe six frames show a stable arrangement: title and explanation above three labeled examples, horizontal arrows alongside the examples, and a scale below. Light text contrasts well with the dark background, and consistent row placement makes comparisons straightforward. However, the arrows occupy relatively little of the available space, while substantial whitespace contributes little instructional value. The smallest negative output is especially easy to overlook. Orange corrections overlap the blue inputs, sometimes obscuring their lengths and arrowheads. Explicit zero markers and alignment guides between input and output rows would make the vector geometry easier to read.\n\n**Attractiveness (13 points):**\nCyan, orange, and purple provide a restrained, distinguishable palette appropriate for separating input, correction, and sum. Signed arrows are a useful visual metaphor for this particular concept. The presentation is clean but visually sparse, with repeated explanatory text and limited emphasis on the currently developing operation. Larger diagrams and selective highlighting of each component calculation could strengthen engagement. Still frames establish appearance and changing states, but cannot establish animation smoothness, attention retention, or the quality of effects between samples.\n\n**Logic Flow (14 points):**\nThe sampled sequence supports a sensible progression: blue inputs appear first, orange corrections develop from their endpoints, and purple outputs appear later. Keeping the blue inputs visible supports the unchanged-input idea. However, all three numerical sums are already printed in the earliest sample, so the animation reveals their geometry rather than progressively deriving the answers. The English stage labels input, branches, merging, and output offer limited explanation within an otherwise Chinese presentation. At 11 seconds, merging is labeled but no purple result is yet visible; the sampled state does not clearly explain that step. A final statement linking the three scalar examples into one componentwise vector equation would strengthen closure. Actual pacing and transitions cannot be judged from six stills.\n\n**Accuracy & Depth (15 points):**\nThe displayed arithmetic is correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. In the final sample, correction directions and purple output directions and relative lengths agree with these values. The examples usefully demonstrate a reduced positive value, a negative value moving toward zero, and a sign reversal. The shared scale supports quantitative interpretation. However, the visible content does not explicitly identify the corrections as illustrative, state that no trained weights are involved, or connect the operation to the term residual connection. The three rows suggest componentwise addition without explicitly identifying them as coordinates of one vector. Adding y = x + Δx, vector brackets, and a clear illustrative-correction disclaimer would make the intended knowledge point substantially more complete. These are visual and arithmetic checks, not verification of an underlying implementation or model.\n\n**Visual Consistency (17 points):**\nAcross the supplied samples, the background, typography, title placement, example ordering, scale, and color roles remain stable. Blue consistently represents input, orange correction, and purple the final sum. This continuity helps learners follow changes without relearning the layout. The final purple outputs are offset below their corresponding inputs, which improves separation but would benefit from origin guides to clarify their shared coordinate reference. Mixed Chinese explanations and English stage labels weaken linguistic consistency slightly. Uniformity across the sampled frames is strong; temporal consistency and smooth integration throughout the full video remain unverified.\n\n**Overall Summary:**\nBased only on six timestamped still frames, this is a clear and mathematically correct illustration of signed componentwise addition, with useful examples and consistent color coding. It only partially establishes the intended residual-connection lesson: the unchanged input is visually supported, but the residual terminology, vector relationship, and absence of trained weights are not explicitly stated in the visible material. No full video or audio was supplied, so narration, continuous motion, transition quality, and actual pacing cannot be evaluated. Prioritize explicit conceptual framing, larger diagrams, and clearer origins and endpoints.\n\n**Key Strengths:**\n• All three displayed component calculations are correct.\n• Examples cover positive and negative corrections, including a sign reversal.\n• Persistent blue inputs support the identity-path interpretation.\n• Stable colors and row positions make the sampled progression easy to follow.\n• A shared scale connects arrow lengths with numerical magnitudes.\n\n**Areas for Improvement:**\n• Explicitly name residual connection and display y = x + Δx, identifying each row as a vector component.\n• State that the corrections are illustrative chosen values and that no trained weights are used.\n• Enlarge the arrows and add zero markers and endpoint guides, especially for the small negative output.\n• Make overlapping input and correction arrows easier to distinguish while preserving their head-to-tail relationship.\n• Synchronize emphasis on each numerical calculation with the corresponding correction and resulting sum.\n• Use explanatory stage labels in the presentation's primary language and conclude with the complete vector equation.\n• Evaluate full video and audio separately before making claims about pacing, smoothness, or narration quality.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 15,
+          "attractiveness": 13,
+          "logic_flow": 14,
+          "accuracy_depth": 15,
+          "visual_consistency": 17
+        },
+        "overall_score": 74,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-H9-r1",
+      "method": "fact",
+      "control": "H9",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 23.246,
+        "usage": [
+          {
+            "input_tokens": 18187,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 260,
+            "reasoning_output_tokens": 94
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-H9-r2",
+      "method": "fact",
+      "control": "H9",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 20.792,
+        "usage": [
+          {
+            "input_tokens": 18590,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 284,
+            "reasoning_output_tokens": 86
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-H9",
+      "method": "tea",
+      "control": "H9",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 26.753,
+        "usage": [
+          {
+            "input_tokens": 16513,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 352,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "overall_analysis": "The frame communicates componentwise residual addition through three signed numerical examples and directional arrows. Text is legible and the layout is uncluttered, but the visible geometry does not fully support the stated construction: orange corrections are separated from blue endpoints, and the promised purple sums are absent. This assessment uses only the supplied frame at 11 seconds; motion, surrounding explanations, and whether these gaps are transitional cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The examples correctly calculate 0.7 − 0.2 = 0.50, −0.4 + 0.15 = −0.25, and 0.2 − 0.3 = −0.10. Blue arrows depict signed inputs, and orange arrows indicate the appropriate correction directions with lengths consistent with the stated scale. However, orange arrows do not visibly begin at blue endpoints as the caption claims, and no purple resultant arrows are visible. Consequently, the frame illustrates the operands more clearly than their componentwise addition. No trained weights are claimed, though the illustrative nature of the corrections is not explicitly stated.",
+            "score": 3
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, instructions, numerical rows, and scale occupy distinct areas with good contrast and no problematic text overlap. Row spacing makes the examples easy to distinguish. However, the arrows are small relative to the available space, their separation from the corresponding text weakens the association, and the unlabeled scale bar requires reading the caption. Gaps between the input and correction arrows and the missing result arrows make the intended visual construction harder to follow.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.0,
+      "range_valid": true
+    },
+    {
+      "job": "aes-H9",
+      "method": "aes",
+      "control": "H9",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 64.112,
+        "usage": [
+          {
+            "input_tokens": 19203,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1301,
+            "reasoning_output_tokens": 45
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "element_layout": 14.0,
+        "attractiveness": 12.0,
+        "logic_flow": 13.0,
+        "accuracy_depth": 10.0,
+        "visual_consistency": 16.0,
+        "overall_score": 65.0,
+        "detailed_feedback": "**Element Layout (14 points):**\nThe six sampled frames maintain a readable structure: explanatory text at the upper left, three consistently spaced examples, arrows toward the right, and a scale at the bottom. The dark background provides good text and arrow contrast. However, the arrows occupy a small fraction of the available space, especially for the third component and its final negative result. Large unused regions reduce the prominence of the mechanism. The numerical labels are separated from the corresponding arrow geometry, requiring learners to look back and forth. A shared zero marker for each row and nearby component labels would make the spatial relationships easier to interpret.\n\n**Attractiveness (12 points):**\nCyan, orange, and purple form a clear, harmonious palette and distinguish input, correction, and output effectively. The restrained design avoids distracting decoration, and signed arrows are an appropriate visual metaphor for this concept. Nevertheless, the composition is visually sparse and repetitive, with small arrows and little emphasis on the decisive addition step. The sampled progression suggests staged arrow reveals, but smoothness, motion quality, and sustained engagement cannot be assessed from still images. Enlarging the diagram and highlighting each completed addition would improve engagement while preserving conceptual focus.\n\n**Logic Flow (13 points):**\nThe visible sequence—input at 1 and 4 seconds, branches at 6.5 and 8 seconds, merging at 11 seconds, and output at 17.5 seconds—provides a sensible broad progression. The blue input appears unchanged after its initial reveal, supporting the identity-path idea. However, all three numerical sums are already printed in the earliest sample, reducing the explanatory role of the final reveal. The sampled merging frame does not visibly establish a correct head-to-tail addition construction, so the transition to purple output arrows lacks a clear geometric justification. English stage labels embedded in Chinese explanations also weaken terminology coherence. Actual pacing, transitions between samples, and any spoken explanation are unavailable for evaluation.\n\n**Accuracy & Depth (10 points):**\nThe displayed arithmetic is correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. The completed blue and purple arrows appear consistent with the indicated signs and relative magnitudes. The examples usefully cover attenuation of a positive input, attenuation of a negative input, and a sign reversal. However, the central geometric explanation contradicts the displayed instruction that orange starts at the blue endpoint. In the sampled merging and output states, the first and third orange arrows sit to the right of the blue tips, while the second orange arrow begins near the blue origin rather than at its leftward tip. Consequently, the orange endpoint does not demonstrate the stated sum. This is a substantial problem for teaching componentwise addition through directed segments. The visible content also does not explicitly state that corrections are illustrative and no trained weights are involved. An equation such as y_i = x_i + c_i, a shared component index, and an explicit illustrative-values note would better connect the arithmetic to the intended residual-connection concept.\n\n**Visual Consistency (16 points):**\nAcross the supplied frames, background, typography, row positions, scale placement, and color roles remain stable. The purple outputs appear beneath their corresponding inputs, allowing useful comparison without removing the original values. This uniformity helps viewers track the three components. The main weaknesses are mixed-language stage labels and an inconsistent relationship between the claimed arrow-attachment rule and the actual geometry. The latter is primarily a conceptual accuracy issue, but it also undermines the visual grammar. Temporal continuity, flicker, and interpolation quality cannot be verified from six stills.\n\n**Overall Summary:**\nBased only on six timestamped still frames, the presentation offers a clear color scheme, correct numerical examples, and a suitable signed-arrow metaphor. It partially teaches unchanged input plus componentwise correction, but the orange-arrow placement fails to demonstrate the advertised head-to-tail addition and weakens the central learning objective. The absence of a visible statement that the corrections are illustrative and involve no trained weights leaves another required point unaddressed in the available evidence. Full-video motion, audio, synchronization, and pacing were not available and are not verified by this assessment.\n\n**Key Strengths:**\n• Correct arithmetic across three examples with different sign relationships.\n• Stable color coding distinguishes preserved input, correction, and result.\n• Blue input remains visibly present during later stages.\n• Consistent row structure and a signed-distance scale support comparison.\n• The sign-reversal example can demonstrate that a correction may exceed the input magnitude.\n\n**Areas for Improvement:**\n• Anchor each orange arrow's tail exactly at the corresponding blue arrow's head; its head should end at the signed sum position.\n• Draw each purple result from the original zero position to the combined endpoint, with alignment guides if it is vertically offset.\n• Add visible zero markers and label the rows as components of one vector.\n• Show y = x + c and explain that x passes through unchanged while addition occurs componentwise.\n• Explicitly state that correction values are illustrative, hand-selected values and that no trained weights are used.\n• Enlarge the arrows and work through one complete example before revealing the remaining components.\n• Reveal each numerical result alongside its geometric construction and use consistent instructional language.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 14,
+          "attractiveness": 12,
+          "logic_flow": 13,
+          "accuracy_depth": 10,
+          "visual_consistency": 16
+        },
+        "overall_score": 65,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-L4-r1",
+      "method": "fact",
+      "control": "L4",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 25.454,
+        "usage": [
+          {
+            "input_tokens": 18617,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 349,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-L4-r2",
+      "method": "fact",
+      "control": "L4",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 24.25,
+        "usage": [
+          {
+            "input_tokens": 18590,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 314,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-L4",
+      "method": "tea",
+      "control": "L4",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 26.803,
+        "usage": [
+          {
+            "input_tokens": 16391,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 302,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "overall_analysis": "The frame contains relevant explanatory text and three correct componentwise addition examples, but no visible vector arrows, colored segments, or other graphical depiction of the residual connection. Assessment is limited to the single supplied frame at 11 seconds; animation, other frames, implementation, and weight provenance cannot be verified.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The title and description explain retaining the input and adding a correction. The examples are mathematically correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. However, the promised blue input, orange correction, and purple sum are not visible, nor is a diagram showing the unchanged input path. The scale and direction legend therefore lacks a visible referent. Nothing claims trained weights, but this frame alone cannot establish their absence.",
+            "score": 3
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "Text is legible, consistently left-aligned, and well contrasted against the dark background, with no apparent overlap or clipping. The examples are spaced distinctly. However, most of the frame is empty, and the absence of graphical elements leaves the numerical examples and bottom scale legend disconnected from any visual demonstration. This substantially limits the layout's explanatory effectiveness.",
+            "score": 2
+          }
+        }
+      },
+      "single_frame_geometric_mean": 2.449489742783178,
+      "range_valid": true
+    },
+    {
+      "job": "aes-L4",
+      "method": "aes",
+      "control": "L4",
+      "status": "completed",
+      "process": {
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 57.052,
+        "usage": [
+          {
+            "input_tokens": 19230,
+            "cached_input_tokens": 0,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 1165,
+            "reasoning_output_tokens": 0
+          }
+        ],
+        "tool_types": []
+      },
+      "native": {
+        "element_layout": 8.0,
+        "attractiveness": 4.0,
+        "logic_flow": 6.0,
+        "accuracy_depth": 10.0,
+        "visual_consistency": 14.0,
+        "overall_score": 42.0,
+        "detailed_feedback": "**Element Layout (8 points):**\nThe six supplied frames show consistently positioned, readable light text on a dark background. The title, stage label, explanatory sentence, numerical examples, and scale note form a basic hierarchy. However, text occupies mainly the left portion of each frame, while the large remaining area contains no visible instructional graphics. No identifiable right-side animation or diagram balances the text. Wide vertical gaps separate the examples without providing visible component axes or vectors. The layout is orderly but leaves most of the available teaching space unused.\n\n**Attractiveness (4 points):**\nThe restrained dark palette and legible text provide a clean baseline, but the sampled frames offer little visual engagement. Blue input, orange correction, and purple sum are described in text, yet corresponding colored graphical elements are not visible. Consequently, the proposed visual metaphor of a correction starting at the input endpoint is not demonstrated in these samples. The frames look nearly identical apart from stage labels. Animation appeal and motion quality cannot be assessed from still images.\n\n**Logic Flow (6 points):**\nThe labels progress from input at 1.00 and 4.00 seconds, to branches at 6.50 and 8.00 seconds, merging at 11.00 seconds, and output at 17.50 seconds. This suggests a suitable intended sequence for explaining a residual connection. However, all three numerical results and the same explanation are already visible in the earliest sample and remain unchanged. The visible evidence therefore provides little scaffolding from preserved input through signed correction to componentwise addition. English stage labels within otherwise Chinese content also introduce avoidable friction. Actual pacing, transitions, and any narration cannot be evaluated from these six frames.\n\n**Accuracy & Depth (10 points):**\nAll displayed calculations are correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. The examples use both positive and negative corrections, including a correction that takes a positive input below zero, which suits the learning objective. The text states that blue preserves the input and describes orange beginning at its endpoint, consistent with signed addition. However, no visible vectors demonstrate preservation, direction, magnitude, or componentwise correspondence. The rows are not explicitly identified as components of a single vector, and no explicit residual equation connects them. The supplied frames also do not state that the correction values are illustrative and that no trained weights are involved. The stated scale of 160 pixels per unit cannot be checked without visible graphical lengths. Numerical correctness is established; a complete visual explanation of the intended mechanism is not.\n\n**Visual Consistency (14 points):**\nBackground, typography, text alignment, spacing, and numerical formatting remain stable across all six samples. This uniformity supports readability and avoids distracting visual shifts. However, the semantic color system described by the text is not visibly implemented in the instructional graphics, and integration between static text and animated elements cannot be established. The score credits the observed consistency of the static presentation; it does not establish smooth motion, coherent animation timing, or consistency between unsampled frames.\n\n**Overall Summary:**\nBased only on six timestamped still frames, the material presents correct signed-addition examples but does not visibly demonstrate the residual-connection mechanism. The proposed endpoint-based addition approach is appropriate, yet the supplied samples show text and stage labels without the colored vectors needed to make that approach effective. This evaluation has no full video or audio: motion, transitions, narration, and events between samples remain unassessed. Prioritize a visible unchanged input path, corresponding signed corrections, componentwise sums, and an explicit statement that the values are illustrative with no trained weights.\n\n**Key Strengths:**\n• All three numerical sums are correct.\n• Examples cover positive and negative corrections, including a sign-changing result.\n• Text positions, contrast, and formatting are consistent across samples.\n• Stage labels suggest an appropriate input-to-branches-to-merge-to-output structure.\n\n**Areas for Improvement:**\n• Show a residual-path diagram in which the unchanged input and an illustrative correction meet at an addition node.\n• Render blue input arrows, orange signed corrections beginning at their endpoints, and purple result arrows on clearly marked component axes.\n• Explicitly group the three rows as vector components and display y_i = x_i + c_i alongside the examples.\n• Reveal input, correction, and sum progressively so each stage produces a meaningful visible change.\n• State that correction values are hand-selected for illustration and no trained weights are used.\n• Use the empty frame area for larger explanatory graphics and align each numerical example with its corresponding visual.\n• Use consistent language for stage labels and verify that graphical lengths and directions match the stated scale.\n• Review the full video and audio separately to assess synchronization, pacing, transitions, and whether graphics appear between the sampled timestamps.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 8,
+          "attractiveness": 4,
+          "logic_flow": 6,
+          "accuracy_depth": 10,
+          "visual_consistency": 14
+        },
+        "overall_score": 42,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-B8-r1",
+      "method": "fact",
+      "control": "B8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.676,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-B8-r2",
+      "method": "fact",
+      "control": "B8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.276,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-B8",
+      "method": "tea",
+      "control": "B8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 8.727,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-B8",
+      "method": "aes",
+      "control": "B8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.974,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-D3-r1",
+      "method": "fact",
+      "control": "D3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.925,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-D3-r2",
+      "method": "fact",
+      "control": "D3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.977,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-D3",
+      "method": "tea",
+      "control": "D3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 9.678,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-D3",
+      "method": "aes",
+      "control": "D3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 13.235,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-K6-r1",
+      "method": "fact",
+      "control": "K6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 23.6,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-K6-r2",
+      "method": "fact",
+      "control": "K6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 21.543,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-K6",
+      "method": "tea",
+      "control": "K6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.173,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-K6",
+      "method": "aes",
+      "control": "K6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 9.878,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-M1-r1",
+      "method": "fact",
+      "control": "M1",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 8.326,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-M1-r2",
+      "method": "fact",
+      "control": "M1",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.324,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-M1",
+      "method": "tea",
+      "control": "M1",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.974,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-M1",
+      "method": "aes",
+      "control": "M1",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.576,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-P5-r1",
+      "method": "fact",
+      "control": "P5",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.324,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-P5-r2",
+      "method": "fact",
+      "control": "P5",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.326,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-P5",
+      "method": "tea",
+      "control": "P5",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.175,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-P5",
+      "method": "aes",
+      "control": "P5",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 9.978,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-R8-r1",
+      "method": "fact",
+      "control": "R8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.773,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-R8-r2",
+      "method": "fact",
+      "control": "R8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 8.276,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-R8",
+      "method": "tea",
+      "control": "R8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.723,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-R8",
+      "method": "aes",
+      "control": "R8",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.975,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-S3-r1",
+      "method": "fact",
+      "control": "S3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.473,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-S3-r2",
+      "method": "fact",
+      "control": "S3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 14.734,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-S3",
+      "method": "tea",
+      "control": "S3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 4.921,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-S3",
+      "method": "aes",
+      "control": "S3",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 11.479,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-V6-r1",
+      "method": "fact",
+      "control": "V6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 7.875,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "fact-V6-r2",
+      "method": "fact",
+      "control": "V6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 11.731,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "tea-V6",
+      "method": "tea",
+      "control": "V6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 6.523,
+        "usage": [],
+        "tool_types": []
+      }
+    },
+    {
+      "job": "aes-V6",
+      "method": "aes",
+      "control": "V6",
+      "status": "unknown",
+      "process": {
+        "exit_code": 1,
+        "timed_out": false,
+        "wall_s": 5.522,
+        "usage": [],
+        "tool_types": []
+      }
+    }
+  ],
+  "budget": 48,
+  "attempt_directories": 48,
+  "complete": 16,
+  "missing": 0,
+  "limitations": "Changed models, sparse still evidence; original paper performance and human learning not reproduced."
+}

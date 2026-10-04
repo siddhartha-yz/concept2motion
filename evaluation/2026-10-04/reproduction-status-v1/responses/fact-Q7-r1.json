@@ -1,0 +1,34 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1820933df5fde26672001cd52f26875b663bccfdff2ca8567ec0f0faeaa70776",
+  "image_sha256": [
+    "5aededf95bd2e7888c546b57d1687a4b2e84421a2d9f631783eb1b523fac9d4c"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "supported",
+    "limitations": "仅依据供给抽帧判断可见接合；同线重叠和箭头尺寸限制了端点的像素级辨认。1秒、4秒未见橙色箭头，不能用于验证该关系。",
+    "observations": [
+      {
+        "time_s": 8,
+        "object": "三行橙色修正箭头与蓝色输入箭头",
+        "description": "第一行橙色箭头向左，其右侧尾端接在蓝色向右箭头的头端；第二行橙色箭头向右，其左侧尾端接在蓝色向左箭头的头端；第三行橙色箭头向左，其右侧尾端接在蓝色向右箭头的头端。三行接合处均未见明显间隙。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 21.095,
+    "usage": [
+      {
+        "input_tokens": 18617,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 262,
+        "reasoning_output_tokens": 68
+      }
+    ],
+    "tool_types": []
+  }
+}

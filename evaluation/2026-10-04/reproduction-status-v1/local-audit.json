@@ -1,0 +1,21 @@
+{
+  "scope": "Local main history and intended public tracked/untracked files; no push or publication in this round",
+  "scanner": "Gitleaks 8.30.1, default rules, redacted output",
+  "intended_file_scan": {
+    "files": 1907,
+    "leaks": 0,
+    "raw_report": "work/reference-replay-audit-v1/intended-v2-gitleaks.json"
+  },
+  "pre_final_commit_history_scan": {
+    "ref": "main",
+    "commits": 31,
+    "leaks": 0,
+    "raw_report": "work/reference-replay-audit-v1/main-before-final.json"
+  },
+  "old_evaluation_files": "No changes relative to 07a0bdc in 2026-10-01/02/03 or metric-replay-v1",
+  "ignored": "third-party exports, dependencies, all videos/derived frames, raw provider stdout/stderr, tokens and credentials",
+  "new_model_calls_after_screening": 0,
+  "github_public_surfaces": "Not re-audited; no new publication, release, issue or comment was created",
+  "ci": "Local tests passed; no new remote CI conclusion",
+  "limitations": "Pattern scanning is not an absolute secret guarantee. Post-commit scan will be performed and raw reports retained in ignored work. Before future publication, inspect current GitHub public surfaces per AGENTS."
+}

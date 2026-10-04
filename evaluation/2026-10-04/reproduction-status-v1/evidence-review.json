@@ -1,0 +1,37 @@
+{
+  "kind": "unblinded maintainer technical image inspection after oracle and model outputs were visible",
+  "independent_judge": false,
+  "human_artistic_or_learning_study": false,
+  "controls": [
+    {
+      "id": "Q7",
+      "contact_sha256": "5aededf95bd2e7888c546b57d1687a4b2e84421a2d9f631783eb1b523fac9d4c",
+      "responses_checked": 2,
+      "observations": "At t=8 and t=17.5, orange tails attach to blue tips on all three rows; early frames lack orange arrows.",
+      "label_and_quoted_geometry_supported_at_sample_resolution": true
+    },
+    {
+      "id": "T2",
+      "contact_sha256": "ea111b65e55e3913c5dc816e1ee0d9c507c692d9726b8846e003c6ce2b0429cd",
+      "responses_checked": 2,
+      "observations": "Same attachment at larger scale; second row attachment is at blue left tip, not right origin.",
+      "label_and_quoted_geometry_supported_at_sample_resolution": true
+    },
+    {
+      "id": "H9",
+      "contact_sha256": "deb4d429ce92f7cd7ca120992f03384e7eb5f2ad38b9e4521f4551b68a092418",
+      "responses_checked": 2,
+      "observations": "At t=17.5 orange tails are offset from blue tips in all rows; second tail is near blue origin instead of left tip.",
+      "label_and_quoted_geometry_supported_at_sample_resolution": true
+    },
+    {
+      "id": "L4",
+      "contact_sha256": "a1783715fa49de2aeb58fa06695c69eb0fa4f0a2ad05f4eaafe74aab6666badf",
+      "responses_checked": 2,
+      "observations": "Six frames show text but no identifiable colored arrows; geometry cannot be inferred from the correct arithmetic.",
+      "label_and_quoted_geometry_supported_at_sample_resolution": true
+    }
+  ],
+  "limits": "Six supplied sampled frames per contact; overlapping arrow shafts and raster endpoints limit exact contact precision; no between-frame or full-video inference.",
+  "TEA_frame_limit": "Purple output arrows are absent in t=11 merging frame and visible at t=17.5 output frame in positive controls; single-frame absence must not be generalized to whole video."
+}

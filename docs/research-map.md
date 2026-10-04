@@ -12,10 +12,10 @@
 | 检查器自己可靠吗？ | 保留正负控制、数值边界、元数据失败与原样重渲染；这些不是艺术评价 | [进度控制](../evaluation/2026-10-03/progress-controls-v3/REPORT.md)、[实际边界渲染](../evaluation/2026-10-03/render-math-stress-v3/REPORT.md) · [ebbc21d](https://github.com/siddhartha-yz/concept2motion/commit/ebbc21d) |
 | 复用环境能否缩短等待？ | 同一两秒片段的 8 对测速：中位数 0.533 秒对 0.858 秒；不含模型生成 | [测速](../evaluation/2026-10-03/math-preview-latency-v1/REPORT.md) · [592059e](https://github.com/siddhartha-yz/concept2motion/commit/592059e) |
 | 同接口、同修订次数下有质量提升吗？ | v3 四组：C/B 各赢一组，一组未决、一组缺视频；未证明稳定优势 | [v2 与额度失败](../evaluation/2026-10-03/model-infra-pilot-v2/REPORT.md)、[v3](../evaluation/2026-10-03/model-infra-pilot-v3/REPORT.md) · [75630a5](https://github.com/siddhartha-yz/concept2motion/commit/75630a5) |
-| 有没有可信的现成评分？ | 已核查论文公式和验证范围，尚未在本项目独立复现；新的图形事实控制只做了本地渲染 | [已发表评价研究](../evaluation/2026-10-03/published-metrics/REPORT.md)、[未执行裁判的控制包](../evaluation/2026-10-03/judge-fact-probes-v3/REPORT.md) · [aa4ec74](https://github.com/siddhartha-yz/concept2motion/commit/aa4ec74) |
+| 有没有可信的现成评分？ | 原函数已有局部执行；本轮 48 次裁判尝试只有 16 次可用，仅覆盖四个残差控制；尚未验证可靠性或复现完整论文成绩 | [论文核查](../evaluation/2026-10-03/published-metrics/REPORT.md)、[本轮执行与失败](../evaluation/2026-10-04/reproduction-status-v1/REPORT.md)；原控制包 [aa4ec74](https://github.com/siddhartha-yz/concept2motion/commit/aa4ec74) |
 | 仓库到底承诺什么？现在该训练吗？ | 明确可证伪假设、约束与三项缺口；先验证反馈循环，后训练仍是候选实验 | [定位](positioning.md)、[模型策略](decisions/2026-10-04-model-strategy.md)、[Harness 参考](decisions/2026-10-04-harness-reference.md) · [585b582](https://github.com/siddhartha-yz/concept2motion/commit/585b582) |
 
-本轮无新额度的执行边界见[离线反馈设计](decisions/2026-10-04-offline-feedback.md)：先准备事实响应校验，再用已知控制验证技术修改与回退；不把它算作新模型或表达质量结果。
+此前无新额度的执行边界见[离线反馈设计](decisions/2026-10-04-offline-feedback.md)：先准备事实响应校验，再用已知控制验证技术修改与回退；不把它算作新模型或表达质量结果。本轮随后获得的新授权单独记录如下。
 
 ## 本轮零额外实验调用的推进
 
@@ -40,4 +40,6 @@
 
 ## 参考复现盘点与新授权
 
-用户为本轮新增授权最多 48 次官方 Codex 调用。[固定设计](../evaluation/2026-10-04/reproduction-status-v1/DESIGN.md)先盘点每个参考的实际执行程度，再补 TEA/PhyEduVideo 原函数执行与三种评价入口的控制测试。当前仅设计，结果完成后另行归档；更换模型和输入的部分不称为原论文成绩复现。
+用户为本轮新增授权最多 48 次官方 Codex 调用。[固定设计](../evaluation/2026-10-04/reproduction-status-v1/DESIGN.md)先盘点每个参考的实际执行程度，再补 TEA/PhyEduVideo 原函数执行与三种评价入口的控制测试。设计先于调用冻结；更换模型和输入的部分不称为原论文成绩复现。
+
+[执行结果](../evaluation/2026-10-04/reproduction-status-v1/REPORT.md)：30 项一手参考逐项盘点，[六个项目有部分执行](reproductions.md)，无完整论文成绩复现。TEA/PhyEduVideo 原函数 12/12 预设行为得到验证，其中包括漏抽尾段、除零和缺失项跳过等负结果。48 次裁判尝试只有 16 次可用、32 次账号额度失败；事实重复各 4/12 覆盖，不能证明可信评分。设计 `57ced1e`、固定调用器 `23e5bc1`、原函数结果 `ada5408`、停发保护及模拟检查 `2ebdab5`；失败不重写，保护未用于本次冻结批次。下一步仍先补评分覆盖，再修改循环与未见任务。
