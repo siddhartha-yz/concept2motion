@@ -1,0 +1,1506 @@
+[
+  {
+    "id": "fact-B8-r1",
+    "control": "B8",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/B8/contact.png"
+    ],
+    "image_sha256": [
+      "b8a8d1694609a55d8567b716d988bb0a5f2bdd930100ffa800c182ba7c2078c7"
+    ],
+    "new_id": "screen-fact-B8-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-B8-r2",
+    "control": "B8",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/B8/contact.png"
+    ],
+    "image_sha256": [
+      "b8a8d1694609a55d8567b716d988bb0a5f2bdd930100ffa800c182ba7c2078c7"
+    ],
+    "new_id": "screen-fact-B8-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-B8",
+    "control": "B8",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nSoftmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/B8/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "37b74aa932cb0b05d2979ded0f56925ad2501bb5a255a2810d4236914ad5137c"
+    ],
+    "new_id": "screen-tea-B8",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-B8",
+    "control": "B8",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Softmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/B8/contact.png"
+    ],
+    "image_sha256": [
+      "b8a8d1694609a55d8567b716d988bb0a5f2bdd930100ffa800c182ba7c2078c7"
+    ],
+    "new_id": "screen-aes-B8",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-D3-r1",
+    "control": "D3",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/D3/contact.png"
+    ],
+    "image_sha256": [
+      "6c7165d3e47ab657d50ac33da2884070742685a773692ae8b3528326bbba31ad"
+    ],
+    "new_id": "screen-fact-D3-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-D3-r2",
+    "control": "D3",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/D3/contact.png"
+    ],
+    "image_sha256": [
+      "6c7165d3e47ab657d50ac33da2884070742685a773692ae8b3528326bbba31ad"
+    ],
+    "new_id": "screen-fact-D3-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-D3",
+    "control": "D3",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nSoftmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/D3/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "37b74aa932cb0b05d2979ded0f56925ad2501bb5a255a2810d4236914ad5137c"
+    ],
+    "new_id": "screen-tea-D3",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-D3",
+    "control": "D3",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Softmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/D3/contact.png"
+    ],
+    "image_sha256": [
+      "6c7165d3e47ab657d50ac33da2884070742685a773692ae8b3528326bbba31ad"
+    ],
+    "new_id": "screen-aes-D3",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-K6-r1",
+    "control": "K6",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/K6/contact.png"
+    ],
+    "image_sha256": [
+      "d25c0cf73ea2f0992091cb732959fdae896498f8a9d043dc11ff4860f196fc8c"
+    ],
+    "new_id": "screen-fact-K6-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-K6-r2",
+    "control": "K6",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/K6/contact.png"
+    ],
+    "image_sha256": [
+      "d25c0cf73ea2f0992091cb732959fdae896498f8a9d043dc11ff4860f196fc8c"
+    ],
+    "new_id": "screen-fact-K6-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-K6",
+    "control": "K6",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nSoftmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/K6/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "37b74aa932cb0b05d2979ded0f56925ad2501bb5a255a2810d4236914ad5137c"
+    ],
+    "new_id": "screen-tea-K6",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-K6",
+    "control": "K6",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Softmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/K6/contact.png"
+    ],
+    "image_sha256": [
+      "d25c0cf73ea2f0992091cb732959fdae896498f8a9d043dc11ff4860f196fc8c"
+    ],
+    "new_id": "screen-aes-K6",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-M1-r1",
+    "control": "M1",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/M1/contact.png"
+    ],
+    "image_sha256": [
+      "86092249b2891809431d57c4be1982f819d602c1d360c7af45da8aaedf001627"
+    ],
+    "new_id": "screen-fact-M1-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-M1-r2",
+    "control": "M1",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n三个指数条的长度，是否与旁边标出的三个指数质量成比例？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/M1/contact.png"
+    ],
+    "image_sha256": [
+      "86092249b2891809431d57c4be1982f819d602c1d360c7af45da8aaedf001627"
+    ],
+    "new_id": "screen-fact-M1-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-M1",
+    "control": "M1",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nSoftmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/M1/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "d077de2f749a4508eaaeea2e463fd5558fbfde26d510611e27d9e56953dae594"
+    ],
+    "new_id": "screen-tea-M1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-M1",
+    "control": "M1",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Softmax: signed inputs become positive exponential masses and normalized probabilities sharing one total.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/M1/contact.png"
+    ],
+    "image_sha256": [
+      "86092249b2891809431d57c4be1982f819d602c1d360c7af45da8aaedf001627"
+    ],
+    "new_id": "screen-aes-M1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-P5-r1",
+    "control": "P5",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/P5/contact.png"
+    ],
+    "image_sha256": [
+      "8947bde55f1e38aedd754ad5a20379d01c63dfeabbad56c39533dbdc6a314d84"
+    ],
+    "new_id": "screen-fact-P5-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-P5-r2",
+    "control": "P5",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/P5/contact.png"
+    ],
+    "image_sha256": [
+      "8947bde55f1e38aedd754ad5a20379d01c63dfeabbad56c39533dbdc6a314d84"
+    ],
+    "new_id": "screen-fact-P5-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-P5",
+    "control": "P5",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nResidual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/P5/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "570e69978bb73e6ef0200b11f1af72980f55f0b913c044212ca5d53233fe6974"
+    ],
+    "new_id": "screen-tea-P5",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-P5",
+    "control": "P5",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Residual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/P5/contact.png"
+    ],
+    "image_sha256": [
+      "8947bde55f1e38aedd754ad5a20379d01c63dfeabbad56c39533dbdc6a314d84"
+    ],
+    "new_id": "screen-aes-P5",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-R8-r1",
+    "control": "R8",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/R8/contact.png"
+    ],
+    "image_sha256": [
+      "e6c600737c7749895d8c3879603afff62d6df0035bf63ddc56addaad36fb1411"
+    ],
+    "new_id": "screen-fact-R8-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-R8-r2",
+    "control": "R8",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/R8/contact.png"
+    ],
+    "image_sha256": [
+      "e6c600737c7749895d8c3879603afff62d6df0035bf63ddc56addaad36fb1411"
+    ],
+    "new_id": "screen-fact-R8-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-R8",
+    "control": "R8",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nResidual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/R8/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "996040295547e0e5a0ba1353d94d943eda8aabc942ca235a38e8fd44ef174bb3"
+    ],
+    "new_id": "screen-tea-R8",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-R8",
+    "control": "R8",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Residual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/R8/contact.png"
+    ],
+    "image_sha256": [
+      "e6c600737c7749895d8c3879603afff62d6df0035bf63ddc56addaad36fb1411"
+    ],
+    "new_id": "screen-aes-R8",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-S3-r1",
+    "control": "S3",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/S3/contact.png"
+    ],
+    "image_sha256": [
+      "771563e0b08984f34c5cb066cc2ac375acc1e9c668c24c62014547fe178e5d01"
+    ],
+    "new_id": "screen-fact-S3-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-S3-r2",
+    "control": "S3",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/S3/contact.png"
+    ],
+    "image_sha256": [
+      "771563e0b08984f34c5cb066cc2ac375acc1e9c668c24c62014547fe178e5d01"
+    ],
+    "new_id": "screen-fact-S3-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-S3",
+    "control": "S3",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nResidual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/S3/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "570e69978bb73e6ef0200b11f1af72980f55f0b913c044212ca5d53233fe6974"
+    ],
+    "new_id": "screen-tea-S3",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-S3",
+    "control": "S3",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Residual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/S3/contact.png"
+    ],
+    "image_sha256": [
+      "771563e0b08984f34c5cb066cc2ac375acc1e9c668c24c62014547fe178e5d01"
+    ],
+    "new_id": "screen-aes-S3",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-V6-r1",
+    "control": "V6",
+    "method": "fact",
+    "repeat": 1,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/V6/contact.png"
+    ],
+    "image_sha256": [
+      "d62b5fb959c791842d7fd16fce86cffd1ce6eb12db46b303cb78cc0fe613cf44"
+    ],
+    "new_id": "screen-fact-V6-r1",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "fact-V6-r2",
+    "control": "V6",
+    "method": "fact",
+    "repeat": 2,
+    "prompt": "Only inspect supplied frames. Do not infer correctness from formulas or prior mathematics. For the requested visible relation, return supported/contradicted/unverifiable, an exact supplied time, the concrete geometric evidence and limitations. No source, model or control-role information is supplied. Do not score beauty or human learning.\n最终紫色箭头的方向和长度，是否对应每一行标出的完整分量和？\n供给的抽帧时间：[1, 4, 6.5, 8, 11, 17.5]。只评价这个关系，证据不充分时保留未知。\nReturn the supplied JSON schema. Do not use tools, read files, browse, delegate or invoke another model.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "label": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "unverifiable"
+          ]
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "time_s": {
+                "type": "number",
+                "enum": [
+                  1,
+                  4,
+                  6.5,
+                  8,
+                  11,
+                  17.5
+                ]
+              },
+              "object": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "time_s",
+              "object",
+              "description"
+            ]
+          }
+        }
+      },
+      "required": [
+        "label",
+        "limitations",
+        "observations"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/V6/contact.png"
+    ],
+    "image_sha256": [
+      "d62b5fb959c791842d7fd16fce86cffd1ce6eb12db46b303cb78cc0fe613cf44"
+    ],
+    "new_id": "screen-fact-V6-r2",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "tea-V6",
+    "control": "V6",
+    "method": "tea",
+    "prompt": "# Task: Video Frame Quality Evaluation\n\nYou are tasked with analyzing and scoring a frame taken from a theorem explanation video. Note that you may not have the context of the video, so the captured frame may be a frame where some motion of visual elements is taking place. Your job is to assign a score from 1 to 5 for each criterion. Please provide a brief justification for your scores.\n\n## Evaluation Criteria\n\n1. **Visual Relevance**\n   - Does the video frame align with the theorem's concepts and derivations?\n\n2. **Element Layout**\n   - Placemend and Size: Are the visual elements well-placed and appropriately sized within the frame?\n   - Overlap: Are the visual elements free of unintentional overlap?\n   - Clarity: Is the visual information conveyed in the frame clear and easy to understand?\n\n## Scoring Instructions\n1. Assign a score from **1 to 5** for each dimension:\n   - **1**: Very poor quality, completely fails to meet the criteria.\n   - **2**: Below average, significant issues present.\n   - **3**: Acceptable, meets the basic criteria with minor issues.\n   - **4**: Good, performs well with no major issues.\n   - **5**: Excellent, fully meets or exceeds expectations.\n2. Provide a comprehensive evaluation for each dimension.\n3. Format your output in **JSON**\n\n### JSON Output Format\n```json\n{\n  \"overall_analysis\": \"[Provide a general assessment of the image's quality]\",\n  \"evaluation\": {\n    \"visual_relevance\": {\n      \"comprehensive_evaluation\": \"[Analysis of visual relevance]\",\n      \"score\": [1-5]\n    },\n    \"element_layout\": {\n      \"comprehensive_evaluation\": \"[Analysis of element layout]\",\n      \"score\": [1-5]\n    }\n  }\n}\n```\n\nDescription of the theorem:\nResidual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\n\nImage:\nThis authorized isolated evaluator call supplies only one frame at 11 seconds. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "/home/yang-zhi/文档/ChatGPT/concept2motion/work/judge-fact-probes-v3/V6/render/frame-11.00.jpg"
+    ],
+    "image_sha256": [
+      "570e69978bb73e6ef0200b11f1af72980f55f0b913c044212ca5d53233fe6974"
+    ],
+    "new_id": "screen-tea-V6",
+    "model": "gpt-6-astra"
+  },
+  {
+    "id": "aes-V6",
+    "control": "V6",
+    "method": "aes",
+    "prompt": "\nYou are an expert educational content evaluator specializing in instructional videos with synchronized presentations and animations. Please thoroughly analyze the provided educational video across five critical dimensions and provide detailed scoring.\n\n\n**KNOWLEDGE POINT CONTEXT:**\nThis educational video is designed to teach: \"Residual connection: the unchanged input and an illustrative signed correction add componentwise; no trained weights.\"\n\nPlease evaluate the video specifically in relation to how effectively it teaches this particular knowledge point. Consider whether the content, animations, and presentation approach are appropriate and effective for conveying this specific concept.\n\n\n\n**EVALUATION FRAMEWORK:**\n\n**1. Element Layout (20 points)**\nAssess the spatial arrangement and organization of visual elements:\n- Clarity and readability of text/diagrams in the presentation (left side)\n- Optimal positioning and sizing of animated content (right side)\n- Balance between presentation and animation areas\n- Appropriate use of whitespace and visual hierarchy\n- Consistency in font sizes, colors, and element positioning\n- Overall aesthetic appeal and professional appearance\n\n**2. Attractiveness (20 points)**\nEvaluate the visual appeal and engagement factors:\n- Color scheme harmony and appropriateness for educational content\n- Visual design quality and modern aesthetic\n- Engaging animation styles and effects\n- Creative use of visual metaphors and illustrations\n- Ability to capture and maintain learner attention\n- Professional presentation quality\n\n**3. Logic Flow (20 points)**\nAnalyze the pedagogical structure and content progression:\n- Clear introduction, development, and conclusion of concepts\n- Logical sequence of information presentation\n- Smooth transitions between topics and concepts\n- Appropriate pacing for learning comprehension\n- Coherent connection between presentation content and animations\n- Progressive complexity building (scaffolding)\n\n**4. Accuracy and Depth (20 points)**\nEvaluate content quality and educational value:\n- Factual correctness of all presented information\n- Appropriate depth and complexity for the specific knowledge point\n- Comprehensive coverage of the key concepts within the knowledge point\n- Clarity of explanations and concept definitions relevant to the topic\n- Effective use of examples and illustrations that support the knowledge point\n- Alignment between video content and the intended learning objective\n- Scientific/academic rigor appropriate for the subject matter\n\n**5. Visual Consistency (20 points)**\nAssess uniformity and coherence throughout:\n- Consistent visual style across all elements\n- Uniform color palette and design language\n- Coherent animation styles and timing\n- Consistent typography and formatting\n- Smooth integration between static and animated elements\n- Maintaining visual standards throughout the entire video\n\n**SCORING INSTRUCTIONS:**\n- Provide a score for each dimension (exact decimal allowed)\n- Calculate overall score as sum\n- Provide specific feedback for each dimension, considering the knowledge point context\n- Evaluate whether the video effectively teaches the specified knowledge point\n- Assess if the pedagogical approach is suitable for the subject matter\n- Consider if animations and visual elements appropriately support the knowledge point\n\n**RESPONSE FORMAT:**\nMUST structure your response in the following JSON format:\n\n{\n\"element_layout\": {\n    \"score\": [0-20],\n    \"feedback\": \"Detailed analysis of layout quality...\"\n},\n\"attractiveness\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual appeal...\"\n},\n\"logic_flow\": {\n    \"score\": [0-20],\n    \"feedback\": \"Analysis of pedagogical structure...\"\n},\n\"accuracy_depth\": {\n    \"score\": [0-20],\n    \"feedback\": \"Evaluation of content quality...\"\n},\n\"visual_consistency\": {\n    \"score\": [0-20],\n    \"feedback\": \"Assessment of visual uniformity...\"\n},\n\"overall_score\": [0-100],\n\"summary\": \"Overall assessment and key recommendations...\",\n\"strengths\": [\"List of notable strengths\"],\n\"improvements\": [\"List of suggested improvements\"]\n}\n\nPlease analyze the video carefully and provide comprehensive, constructive feedback that will help improve future educational content creation.\n\nThis authorized isolated evaluator call supplies only six timestamped still frames, not full video or audio. State evidence limitations in your analysis. Do not use tools, read files, browse, delegate or invoke another model. Return the original requested JSON as a string in content.",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "content": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "content"
+      ]
+    },
+    "images": [
+      "work/judge-fact-probes-v3/contacts/V6/contact.png"
+    ],
+    "image_sha256": [
+      "d62b5fb959c791842d7fd16fce86cffd1ce6eb12db46b303cb78cc0fe613cf44"
+    ],
+    "new_id": "screen-aes-V6",
+    "model": "gpt-6-astra"
+  }
+]
