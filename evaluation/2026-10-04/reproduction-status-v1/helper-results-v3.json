@@ -1,0 +1,363 @@
+{
+  "controls": [
+    {
+      "id": "tea-gm-positive",
+      "input": [
+        3,
+        5
+      ],
+      "expected": "sqrt(15)",
+      "observed": 3.872983346207417,
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-gm-missing",
+      "input": [
+        5,
+        null,
+        5
+      ],
+      "expected": 5,
+      "limitation": "Missing score is dropped",
+      "observed": 5.0,
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-gm-empty",
+      "input": [],
+      "expected": 0,
+      "observed": 0.0,
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-gm-out-of-range",
+      "input": [
+        6,
+        6
+      ],
+      "expected": 6,
+      "limitation": "No 1..5 range guard",
+      "observed": 6.0,
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-image-ten-chunks",
+      "source_frames_at_1fps": 18,
+      "samples": 10,
+      "sampled_times_s": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "excluded_times_s": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ],
+      "output_sha256": [
+        "dc26c4456844e821f36b373d3f3f56afefde9f296a6152b0e5f84b8be15339fb",
+        "a2690aa89fb01b54f35fed37f2a439f19ffb0c1925e9a5bc192f98ff273c1eb9",
+        "2beeb239c6a7b2a2712159bbfd0bb7bf494560fbe80894ea06956e0a44081697",
+        "c88868bc8e50943853cb2203584b564e4d793bdfd78d0321c5eb5a1311c00a5a",
+        "de199cf798d36f1e080e4809dd703235a660a29bbdf3a98c532ee8811672670b",
+        "93a1902562408e982bd4b77fb031250882d486c3c71b207b8a2b0a792c53bb05",
+        "862b9940144ba7697723c21720a457a1300a1601c6905889c5cf883172a4d4b5",
+        "e43feaf15c28bfdbc1d370aec2aca487880b7a6167d0a4b6dbe1cdf026dc6556",
+        "37ca1b0dbd8703a7db7a9fbe5319e4150a7c4d317f6bd27049cd4b5672519151",
+        "eda3f718c2d063e2747c3589ac93aef701c82e719d2549ff9d01ad78bf4ec9e2"
+      ],
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-image-short",
+      "error": "ZeroDivisionError",
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-downsample-1",
+      "fps": 1.0,
+      "frames": 18,
+      "decoded_frames": 18,
+      "duration_s": 18.0,
+      "output_sha256": "b44cf8035a3169c1a75fd0f10d8c5f083b26c12418aedf87b447e20dee180e15",
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-downsample-7",
+      "fps": 7.0,
+      "frames": 135,
+      "decoded_frames": 135,
+      "duration_s": 19.285714285714285,
+      "output_sha256": "73df330cad92103ddf8beb3f10a3de945d63dbc2691a97dfae5371446caaa936",
+      "expected_behavior": true
+    },
+    {
+      "id": "tea-downsample-30",
+      "error": "ZeroDivisionError",
+      "expected_behavior": true
+    },
+    {
+      "id": "phy-sample-32",
+      "indices": [
+        0,
+        8,
+        17,
+        26,
+        34,
+        43,
+        52,
+        60,
+        69,
+        78,
+        86,
+        95,
+        104,
+        112,
+        121,
+        130,
+        138,
+        147,
+        156,
+        164,
+        173,
+        182,
+        190,
+        199,
+        208,
+        216,
+        225,
+        234,
+        242,
+        251,
+        260,
+        269
+      ],
+      "samples": 32,
+      "expected_behavior": true
+    },
+    {
+      "id": "phy-middle",
+      "index": 135,
+      "expected_behavior": true
+    },
+    {
+      "id": "phy-missing-video",
+      "samples": 0,
+      "expected_behavior": true
+    }
+  ],
+  "matched": 12,
+  "denominator": 12,
+  "source_video_sha256": "23c4c74a84afbbeefb69cce6df774c738f871cd4ec909b4c3ff31dcd2fb26577",
+  "source_frames": 270,
+  "source_fps": 15.0,
+  "selected_native_definitions": [
+    {
+      "file": "work/reproduction-source-v1/tea/src/core/parse_video.py",
+      "function": "image_with_most_non_black_space",
+      "start_line": 23,
+      "end_line": 74,
+      "source_sha256": "c4cf353a4ee337891f46513aade2305210d8584c4d1c442718e03f16c952afc1"
+    },
+    {
+      "file": "work/reproduction-source-v1/tea/eval_suite/image_utils.py",
+      "function": "extract_key_frames",
+      "start_line": 13,
+      "end_line": 60,
+      "source_sha256": "dc702196245c5b4ef6f71b32717cec74d496911cdd91538013113185039da0bb"
+    },
+    {
+      "file": "work/reproduction-source-v1/tea/eval_suite/video_utils.py",
+      "function": "reduce_video_framerate",
+      "start_line": 14,
+      "end_line": 114,
+      "source_sha256": "0bf7d5564417e0ab32e417125536e124dd1e5c8a527ddae40c31582c7da0ae8b"
+    },
+    {
+      "file": "work/reproduction-source-v1/phy/scripts/multiimage.py",
+      "function": "get_video_frame_count",
+      "start_line": 64,
+      "end_line": 68,
+      "source_sha256": "c0b00c38508bb465ec2a3c7e1822fed27c32c0100f03db5ee2e8b5489795caaa"
+    },
+    {
+      "file": "work/reproduction-source-v1/phy/scripts/multiimage.py",
+      "function": "sample_frames",
+      "start_line": 70,
+      "end_line": 84,
+      "source_sha256": "c0b00c38508bb465ec2a3c7e1822fed27c32c0100f03db5ee2e8b5489795caaa"
+    },
+    {
+      "file": "work/reproduction-source-v1/phy/scripts/multiimage.py",
+      "function": "get_middle_frame",
+      "start_line": 101,
+      "end_line": 115,
+      "source_sha256": "c0b00c38508bb465ec2a3c7e1822fed27c32c0100f03db5ee2e8b5489795caaa"
+    }
+  ],
+  "assets": [
+    {
+      "project": "tea",
+      "path": "data/thb_easy/chemistry.json",
+      "sha256": "3a6dc008ad6990b0749a7921c04dff24fe36ade94ca288fa8fd337fb1d7e7ebd",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_easy/comp_sci.json",
+      "sha256": "5efc9f9cde9cc37b68eb7d77b8b89837dbc635c59fbd4a5d001ad91b4fb28bec",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_easy/math.json",
+      "sha256": "560bd50274cbfccc692488eb5ae56f8a2dc3a549dcb7fb0bd58ac68791085c33",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_easy/physics.json",
+      "sha256": "d78adb2567f416c42b7e07afec02cfb8e2c17bf398942647d30ad93156fcc6ad",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_hard/chemistry.json",
+      "sha256": "be5889324658ba9a5ecf58a0e91731d7989fb4ab865ca199f3611af006ea2f64",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_hard/comp_sci.json",
+      "sha256": "4bdadc40e62f72d32d28c405dffeb8e8d483ede3a8f41bbe667473afaa57d7e4",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_hard/math.json",
+      "sha256": "5335441bf2de6cac86d9bf1ede33440dd15db8da47a62ac27bf9bd22d8133cae",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_hard/physics.json",
+      "sha256": "f97fb0252156b86c56b0358208f34586afe8a9fa279487f6585ebe0e8666335c",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_medium/chemistry.json",
+      "sha256": "3bbbbb0326b3a78a4de4db0ecbd68e74bbfda00d58ad1b893290264e52a4b83c",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_medium/comp_sci.json",
+      "sha256": "8113b864d80d427135b26a61888a9e8510bc1cc975aac3a22077531af4e1bba0",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_medium/math.json",
+      "sha256": "29406f13fc7f50ed75478cce2865babe03282000f21c7cc6d2dc2e56d31a6b85",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "tea",
+      "path": "data/thb_medium/physics.json",
+      "sha256": "5eb654c8e093e898f5e4e3817af175c903be186068faedd0b569767cda58d01d",
+      "rows": 20,
+      "json_type": "list"
+    },
+    {
+      "project": "phy",
+      "path": "Prompts/PC-1.json",
+      "sha256": "e37e02ddfdc4a47ed45db51696020df2ecc4bb91fc391b824df0a2f118914dc5",
+      "rows": 205,
+      "json_type": "list",
+      "unique_concepts": 60,
+      "unique_teaching_points": 205,
+      "duplicate_keys": 0
+    },
+    {
+      "project": "phy",
+      "path": "Prompts/PC-2.json",
+      "sha256": "4344de338633e27272dc8d7daa670cd7020072200e75dfbb420107153edc6683",
+      "rows": 205,
+      "json_type": "list",
+      "unique_concepts": 60,
+      "unique_teaching_points": 205,
+      "duplicate_keys": 0
+    },
+    {
+      "project": "phy",
+      "path": "Prompts/PC-3.json",
+      "sha256": "079d18c3d7d1e387f346e242b0296a4e1ef13eeaa27e87d6af51665831fd6d0d",
+      "rows": 205,
+      "json_type": "list",
+      "unique_concepts": 60,
+      "unique_teaching_points": 205,
+      "duplicate_keys": 0
+    },
+    {
+      "project": "phy",
+      "path": "Prompts/Prompts.json",
+      "sha256": "5fd6db592574a78ffe61c09dfc78dbaaea879fff6f46eda0e9e7839666cb062a",
+      "rows": 60,
+      "json_type": "list"
+    },
+    {
+      "project": "phy",
+      "path": "Prompts/SA.json",
+      "sha256": "e2aea19acf91cb57a1341884282439d9916e66b0dabe2b6c6ceb738673365ff8",
+      "rows": 205,
+      "json_type": "list",
+      "unique_concepts": 60,
+      "unique_teaching_points": 205,
+      "duplicate_keys": 0
+    },
+    {
+      "project": "phy",
+      "path": "Prompts/cap.json",
+      "sha256": "872a21a52d9cd4f3f310066bfb22a8062f181d53b584d2f07bcc13541fb5b575",
+      "rows": 18,
+      "json_type": "list"
+    }
+  ],
+  "packages": {
+    "numpy": "2.2.6",
+    "opencv-python": "4.12.0.88",
+    "pillow": "11.2.1",
+    "moviepy": "2.2.1",
+    "scipy": "1.15.3"
+  },
+  "model_calls": 0,
+  "full_upstream_installation": false,
+  "generated_animation_renders": 0,
+  "actual_video_preprocessing": true,
+  "neural_metric_scores": null,
+  "artistic_review": null
+}

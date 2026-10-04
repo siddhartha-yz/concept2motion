@@ -1,0 +1,7 @@
+{
+  "status": "maintenance runner failed before any upstream function executed",
+  "error": "AttributeError: str has no attribute read_bytes at digest(__file__)",
+  "upstream_controls_executed": 0,
+  "model_calls": 0,
+  "fix": "Convert __file__ to Path; preserve frozen v1, run revised helper v2"
+}

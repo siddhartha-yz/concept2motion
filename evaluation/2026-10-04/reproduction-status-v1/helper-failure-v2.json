@@ -1,0 +1,7 @@
+{
+  "status": "maintenance runner failed while hashing native key-frame paths",
+  "error": "AttributeError: str has no attribute read_bytes at digest(p)",
+  "native_execution_before_abort": "Four geometric-mean inputs; extract_key_frames wrote ten images; no finalized control report",
+  "model_calls": 0,
+  "fix": "Normalize all digest inputs through Path; preserve v2 freeze and artifacts"
+}

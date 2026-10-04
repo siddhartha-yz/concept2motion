@@ -1,0 +1,20 @@
+{
+  "execution": "AST-selected original definitions; preinstalled Python environment, not full upstream installation",
+  "video": "work/judge-fact-probes-v3/Q7/render/video.mp4",
+  "controls": [
+    {"id":"tea-gm-positive","input":[3,5],"expected":"sqrt(15)"},
+    {"id":"tea-gm-missing","input":[5,null,5],"expected":5,"limitation":"Missing score is dropped"},
+    {"id":"tea-gm-empty","input":[],"expected":0},
+    {"id":"tea-gm-out-of-range","input":[6,6],"expected":6,"limitation":"No 1..5 range guard"},
+    {"id":"tea-image-ten-chunks","expected":"18 one-fps source frames produce only 10 samples from t=0..9, discarding t=10..17"},
+    {"id":"tea-image-short","expected":"5-second clip with 10 chunks raises ZeroDivisionError"},
+    {"id":"tea-downsample-1","expected":"18 frames, 18 seconds"},
+    {"id":"tea-downsample-7","expected":"135 frames, 135/7 seconds; duration changes"},
+    {"id":"tea-downsample-30","expected":"ZeroDivisionError at modulo with zero interval"},
+    {"id":"phy-sample-32","expected":"32 uniformly spaced frame indices, from 0 to 269"},
+    {"id":"phy-middle","expected":"frame index 135"},
+    {"id":"phy-missing-video","expected":"sample_frames returns empty list without raising"}
+  ],
+  "model_calls":0,
+  "assets":"All TEA and PhyEduVideo exported JSON prompt/data files audited structurally; semantic truth not checked"
+}
