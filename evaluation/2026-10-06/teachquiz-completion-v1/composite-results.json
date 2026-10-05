@@ -1,0 +1,282 @@
+{
+  "selected_valid_responses": 15,
+  "expected_responses": 15,
+  "old_attempts": 14,
+  "new_attempts": 4,
+  "total_attempts": 18,
+  "source_rows": [
+    {
+      "stage": "baseline",
+      "question_id": "q1",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-baseline-q1-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "baseline",
+      "question_id": "q2",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-baseline-q2-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "baseline",
+      "question_id": "q3",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-baseline-q3-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "baseline",
+      "question_id": "q4",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-baseline-q4-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "baseline",
+      "question_id": "q5",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-baseline-q5-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_unlearning",
+      "question_id": "q1",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-post_unlearning-q1-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_unlearning",
+      "question_id": "q2",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-post_unlearning-q2-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_unlearning",
+      "question_id": "q3",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-post_unlearning-q3-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_unlearning",
+      "question_id": "q4",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-post_unlearning-q4-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_unlearning",
+      "question_id": "q5",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-post_unlearning-q5-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_video",
+      "question_id": "q1",
+      "selected_response": "evaluation/2026-10-05/teachquiz-codex-port-v1/teachquiz-lintrans-post_video-q1-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_video",
+      "question_id": "q2",
+      "selected_response": "evaluation/2026-10-06/teachquiz-completion-v1/teachquiz-lintrans-post_video-q2-completion-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_video",
+      "question_id": "q3",
+      "selected_response": "evaluation/2026-10-06/teachquiz-completion-v1/teachquiz-lintrans-post_video-q3-completion-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_video",
+      "question_id": "q4",
+      "selected_response": "evaluation/2026-10-06/teachquiz-completion-v1/teachquiz-lintrans-post_video-q4-completion-v1.json",
+      "status": "completed"
+    },
+    {
+      "stage": "post_video",
+      "question_id": "q5",
+      "selected_response": "evaluation/2026-10-06/teachquiz-completion-v1/teachquiz-lintrans-post_video-q5-completion-v1.json",
+      "status": "completed"
+    }
+  ],
+  "strict": {
+    "stages": {
+      "baseline": {
+        "questions": 5,
+        "correct": 5,
+        "full_denominator_fraction": {
+          "numerator": 5,
+          "denominator": 5,
+          "value": 1.0
+        },
+        "reportable": true,
+        "statuses": {
+          "correct": 5
+        },
+        "rows": [
+          {
+            "id": "q1",
+            "status": "correct",
+            "answer": "B",
+            "correct": true
+          },
+          {
+            "id": "q2",
+            "status": "correct",
+            "answer": "C",
+            "correct": true
+          },
+          {
+            "id": "q3",
+            "status": "correct",
+            "answer": "C",
+            "correct": true
+          },
+          {
+            "id": "q4",
+            "status": "correct",
+            "answer": "B",
+            "correct": true
+          },
+          {
+            "id": "q5",
+            "status": "correct",
+            "answer": "A",
+            "correct": true
+          }
+        ],
+        "scope": "answer-key calculation; insufficient evidence is noncorrect, execution failures block a gain claim"
+      },
+      "post_unlearning": {
+        "questions": 5,
+        "correct": 0,
+        "full_denominator_fraction": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "reportable": true,
+        "statuses": {
+          "unverifiable": 5
+        },
+        "rows": [
+          {
+            "id": "q1",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q2",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q3",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q4",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q5",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          }
+        ],
+        "scope": "answer-key calculation; insufficient evidence is noncorrect, execution failures block a gain claim"
+      },
+      "post_video": {
+        "questions": 5,
+        "correct": 4,
+        "full_denominator_fraction": {
+          "numerator": 4,
+          "denominator": 5,
+          "value": 0.8
+        },
+        "reportable": false,
+        "statuses": {
+          "correct": 4,
+          "invalid": 1
+        },
+        "rows": [
+          {
+            "id": "q1",
+            "status": "correct",
+            "answer": "B",
+            "correct": true
+          },
+          {
+            "id": "q2",
+            "status": "correct",
+            "answer": "C",
+            "correct": true
+          },
+          {
+            "id": "q3",
+            "status": "invalid",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q4",
+            "status": "correct",
+            "answer": "B",
+            "correct": true
+          },
+          {
+            "id": "q5",
+            "status": "correct",
+            "answer": "A",
+            "correct": true
+          }
+        ],
+        "scope": "answer-key calculation; insufficient evidence is noncorrect, execution failures block a gain claim"
+      }
+    },
+    "learning_gain": null,
+    "learning_gain_percentage_points": null,
+    "reportable": false,
+    "measurement": "model answer-key gain, not human learning",
+    "unlearning_proven": false
+  },
+  "native_cached_replay": {
+    "concept": "Linear transformations and matrices",
+    "pre_unlearning_score": 1.0,
+    "post_unlearning_score": 0.0,
+    "post_video_score": 1.0,
+    "unlearning_success": true,
+    "learning_gain": 1.0,
+    "detailed_responses": {
+      "baseline": [
+        "B\nA transformation maps an input, such as a point or vector, to an output and can move or reshape objects.",
+        "C\nThe vector (2, 3) is shown as an arrow from the origin to (2, 3), moving 2 units right and 3 units up.",
+        "C\nEvery linear transformation preserves vector addition: T(u + v) = T(u) + T(v).",
+        "B\nMultiplying gives (2×3, 1×4) = (6, 4), so only the x-coordinate is scaled by 2.",
+        "A\nMatrices represent linear transformations such as rotation and scaling, which animate a game character’s orientation and size on screen."
+      ],
+      "post_unlearning": [
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question refers to a warm-up whose content is not provided. The options alone do not establish which description was introduced there.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nThe question provides possible visualizations but no rule for choosing among them. Selecting an option requires knowledge outside the permitted text.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question provides no definition or stated properties to evaluate the options. Choosing an option would require knowledge excluded by the test rules.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question does not state the rule for obtaining the output from the given inputs. Selecting an option would require knowledge excluded by the test rules.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question lists scenarios but provides no explanation connecting them to the named concepts. Choosing an option would require knowledge excluded by the test rules."
+      ],
+      "post_video": [
+        "EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nVIDEO_EVIDENCE = Section 1 introduces one rule to move every map point: double horizontal coordinates and keep vertical coordinates unchanged.\nIt shows P = (1,2) becoming T(P) = (2,2), illustrating an input point mapped to a new output.",
+        "EVIDENCE_STATUS = SUFFICIENT\nANSWER = C\nVIDEO_EVIDENCE: Section 2 shows v = (2,1) as an arrow from the origin to its labeled endpoint. Section 6 shows (2,3) reached by moving two units right and three units up from the origin.",
+        "C. Section 3 explicitly displays T(u + v) = T(u) + T(v) and states that linear transformations preserve vector addition.",
+        "EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nVIDEO_EVIDENCE: Section 1 shows the matrix [[2, 0], [0, 1]] with T(x,y) = (2x,y).\nApplying this displayed rule to (3,4) gives (6,4): only the x-coordinate is doubled.",
+        "EVIDENCE_STATUS = SUFFICIENT\nANSWER = A\nVIDEO_EVIDENCE: Section 5 states, “Scaling changes lengths; rotation turns vectors.” Section 6 shows a robot resizing under the displayed transformation, supporting the character-animation scenario."
+      ]
+    }
+  },
+  "native_cached_replay_additional_calls": 0,
+  "same_batch": false,
+  "unlearning_is_weight_update": false,
+  "human_learning_evaluation": false
+}
