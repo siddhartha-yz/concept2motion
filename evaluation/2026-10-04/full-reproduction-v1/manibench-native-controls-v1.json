@@ -1,0 +1,49 @@
+{
+  "source_sha256": "ab4af674ff9fe17032e8d46b018a83deef06dea6ef810151bdba75492854e01e",
+  "original_AST_functions": [
+    "_parse_error",
+    "check_imports",
+    "check_scene_class",
+    "check_syntax",
+    "compute_executability",
+    "run_manim_code"
+  ],
+  "fixture_sha256": "9e3d8c0f0354dc7d3fd2cf62bcd919253509010d32fcc20665db4d0236648612",
+  "fixture_provenance": "pinned upstream hand-authored smoke scene, not model generation",
+  "native_actual_render": {
+    "success": true,
+    "returncode": 0,
+    "video_path": "/tmp/manibench_jy0nxp8x/media/videos/scene/480p15/SmokeScene.mp4",
+    "error_type": null,
+    "error_message": null,
+    "returned_video_exists_after_function": false
+  },
+  "deliberately_broken_source_static_only": {
+    "executability": 1,
+    "syntax_valid": true,
+    "has_scene": true,
+    "has_manim_import": true,
+    "has_gl_import": false,
+    "render_success": true,
+    "error_type": null,
+    "error_message": null,
+    "scene_names": [
+      "Broken"
+    ]
+  },
+  "deliberately_broken_source_actual_render": {
+    "executability": 0,
+    "syntax_valid": true,
+    "has_scene": true,
+    "has_manim_import": true,
+    "has_gl_import": false,
+    "render_success": false,
+    "error_type": "RuntimeError",
+    "error_message": "RuntimeError: deliberate render failure",
+    "scene_names": [
+      "Broken"
+    ]
+  },
+  "whole_pipeline": false,
+  "limitations": "Native function deletes TemporaryDirectory video after return; no retained render/frame/art review from this call. Static skip_render flags cannot prove executability."
+}

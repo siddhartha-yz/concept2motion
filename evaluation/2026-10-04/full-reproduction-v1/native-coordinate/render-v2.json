@@ -1,0 +1,48 @@
+{
+  "backend": "local",
+  "official": false,
+  "command": [
+    "python",
+    "-m",
+    "manim",
+    "-qh",
+    "--fps",
+    "60",
+    "--media_dir",
+    "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/native-coordinate/render-v2/media",
+    "--output_file",
+    "result",
+    "--disable_caching",
+    "--flush_cache",
+    "--progress_bar",
+    "none",
+    "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/native-coordinate/render-v2/solution.py",
+    "MainScene"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "media_files": [
+    "media/videos/solution/1080p60/result.mp4"
+  ],
+  "metadata": {
+    "sandbox": "local",
+    "official": false,
+    "elapsed_seconds": 35.92575213999953,
+    "limits": {
+      "memory_mb": 4096,
+      "cpu_seconds": 180,
+      "timeout_seconds": 240,
+      "processes": 8192
+    },
+    "media": {
+      "media/videos/solution/1080p60/result.mp4": {
+        "duration_seconds": 13.3,
+        "fps": 60.0,
+        "width": 1920,
+        "height": 1080,
+        "codec": "h264"
+      }
+    }
+  },
+  "change_from_v1": "Original constructor process_limit 2048 raised to 8192 after Pango thread creation abort; source unchanged. Still non-official local sandbox."
+}

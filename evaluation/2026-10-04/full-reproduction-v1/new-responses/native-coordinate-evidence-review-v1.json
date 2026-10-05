@@ -1,0 +1,41 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1154c7a7cb87c15dd1f2490bd46daba2e33d9a675f5aae977b992a6087922b17",
+  "image_sha256": [
+    "3634643a46f69a20314f71f17b9b829112754903cd18a5f41c9d9559f530a22f"
+  ],
+  "status": "completed",
+  "response": {
+    "verdict": "visible_defect",
+    "limitations": "Review covers only eight stills; motion, audio, and intervening content are uncertain. The displayed milestone calculations are correct. Their remaining visible while the live coordinates change does not establish a calculation error.",
+    "observations": [
+      {
+        "time_s": 6.5,
+        "object": "“moving point” label",
+        "observation": "The red label crosses the y-axis near the 1 tick, crowding the axis markings.",
+        "proposed_change": "Offset the label to the right of the y-axis, retaining its pointer to the dot."
+      },
+      {
+        "time_s": 8,
+        "object": "“moving point” label",
+        "observation": "The label again crosses the y-axis near the 1 tick while the point is at the origin.",
+        "proposed_change": "Place the label above and to the right of the origin, clear of the axis and tick labels."
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 32.679,
+    "usage": [
+      {
+        "input_tokens": 16911,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 480,
+        "reasoning_output_tokens": 292
+      }
+    ],
+    "tool_types": []
+  }
+}

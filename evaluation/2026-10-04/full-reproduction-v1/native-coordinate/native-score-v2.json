@@ -1,0 +1,195 @@
+{
+  "task_id": "coordinate_system_animation",
+  "model": "gpt-6-astra",
+  "passed": true,
+  "automated_score": 95.83,
+  "checks": {
+    "source_parse": {
+      "passed": true,
+      "error": null
+    },
+    "scene_class": true,
+    "forbidden_imports": {
+      "requests": true,
+      "socket": true,
+      "urllib": true,
+      "subprocess": true,
+      "pathlib.Path.home": true
+    },
+    "required_labels_in_source": {
+      "Coordinate system": true,
+      "x-axis": true,
+      "y-axis": true,
+      "origin": true,
+      "moving point": true,
+      "y = x^2": true
+    },
+    "minimum_required_labels": {
+      "minimum": 5,
+      "observed": 6,
+      "passed": true
+    },
+    "required_sections": {
+      "passed": true,
+      "sections": {}
+    },
+    "required_source_terms": {
+      "passed": false,
+      "matches": {
+        "Axes": true,
+        "Dot": true,
+        "Arrow": true,
+        "Text": true,
+        "MathTex": false,
+        "TracedPath": true
+      },
+      "string_only_matches": {
+        "Axes": false,
+        "Dot": false,
+        "Arrow": false,
+        "Text": false,
+        "MathTex": false,
+        "TracedPath": false
+      }
+    },
+    "suspicious_source_patterns": {
+      "passed": true,
+      "findings": []
+    },
+    "render_exit_code": true,
+    "render_not_timed_out": true,
+    "media_generated": true,
+    "fps": {
+      "expected": 60,
+      "observed": 60.0,
+      "passed": true
+    },
+    "duration": {
+      "max_seconds": 120,
+      "observed": 13.3,
+      "passed": true
+    },
+    "visual_sanity": {
+      "status": "analyzed",
+      "passed": true,
+      "findings": [],
+      "metrics": {
+        "frames_sampled": 6,
+        "avg_contrast": 26.5885,
+        "avg_foreground_density": 0.0229,
+        "max_foreground_density": 0.0269,
+        "max_edge_band_density": 0.0,
+        "max_crowded_cell_density": 0.1738,
+        "max_crowded_cells": 0,
+        "max_component_count": 9
+      }
+    },
+    "layout_probe": {
+      "labels_checked": 0,
+      "labels_outside_frame": 0,
+      "label_overlaps": 0,
+      "status": "analyzed",
+      "passed": true,
+      "findings": []
+    }
+  },
+  "rubric": {
+    "status": "pending",
+    "scale": "0-5",
+    "visual_review_scale": "pass|partial|fail|pending",
+    "visual_review": {
+      "schema_version": "0.4.0",
+      "overall": "pending",
+      "fields": {
+        "geometry_correctness": {
+          "status": "pending",
+          "notes": ""
+        },
+        "text_readability": {
+          "status": "pending",
+          "notes": ""
+        },
+        "label_overlap": {
+          "status": "pending",
+          "notes": ""
+        },
+        "layout_composition": {
+          "status": "pending",
+          "notes": ""
+        },
+        "pacing": {
+          "status": "pending",
+          "notes": ""
+        },
+        "prompt_section_coverage": {
+          "status": "pending",
+          "notes": ""
+        },
+        "fake_or_superficial_visuals": {
+          "status": "pending",
+          "notes": ""
+        },
+        "final_shareability": {
+          "status": "pending",
+          "notes": ""
+        }
+      },
+      "critical_issues": [],
+      "notes": ""
+    },
+    "criteria": {
+      "mathematical_correctness": null,
+      "manim_correctness_and_idiom": null,
+      "visual_clarity_and_labeling": null,
+      "animation_quality_and_pacing": null,
+      "faithfulness_to_prompt": null,
+      "mathematical_depth": null,
+      "robustness_and_reproducibility": null
+    },
+    "task_specific_notes": {
+      "visual_clarity": "Axes, labels, and moving point are readable and not clipped.",
+      "manim_idiom": "Uses native Manim objects and animations.",
+      "animation_quality": "The point motion and trace are easy to follow."
+    },
+    "reviewer_notes": ""
+  },
+  "artifacts": {
+    "solution": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/native-coordinate/render-v2/solution.py",
+    "stdout": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/native-coordinate/render-v2/logs/stdout.log",
+    "stderr": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/native-coordinate/render-v2/logs/stderr.log",
+    "render_log": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/native-coordinate/render-v2/logs/render.log",
+    "media": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/native-coordinate/render-v2/media/videos/solution/1080p60/result.mp4"
+  },
+  "rank_score": 95.83,
+  "pass_gate": {
+    "schema_version": "0.6.0",
+    "passed": true,
+    "threshold": 70.0,
+    "score_passed": true,
+    "hard_checks": [
+      "duration",
+      "forbidden_imports",
+      "fps",
+      "layout_probe",
+      "media_generated",
+      "minimum_required_labels",
+      "render_exit_code",
+      "render_not_timed_out",
+      "required_labels_in_source",
+      "required_sections",
+      "scene_class",
+      "source_parse",
+      "suspicious_source_patterns",
+      "visual_sanity"
+    ],
+    "advisory_checks": [
+      "required_source_terms"
+    ],
+    "failed_hard_checks": [],
+    "failed_advisory_checks": [
+      "required_source_terms.MathTex"
+    ],
+    "policy": "v0.6 ranks by automated score and gates only required output, render, safety, label, timing, and visual checks. Required source terms remain scored advisory evidence."
+  },
+  "failure_category": "pass"
+}

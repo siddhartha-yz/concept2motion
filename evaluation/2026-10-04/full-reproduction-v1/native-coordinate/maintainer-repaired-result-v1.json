@@ -1,0 +1,75 @@
+{
+  "source_sha256": "c4a6b9d31b06a20d93100d6dcc5c73ae8e0c8ac0a73c0c9808dc8b3533375b9e",
+  "video_sha256": "273f4599c7ce6376a24fc42bc1323c0cf09adce5a51f440515da9cf4f90d7c3e",
+  "decoded_frames": 798,
+  "fps": 60.0,
+  "duration_s": 13.3,
+  "frames": [
+    {
+      "time_s": 0.5,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-0.5.png",
+      "sha256": "016c76d6fa81569c804ec40a03b6b0114d52ebd330fd7f04388c6384d181c340"
+    },
+    {
+      "time_s": 2.5,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-2.5.png",
+      "sha256": "d2078d924202771431748d4e8cbfeffa4ba40bd93678b0f56c8d725fd16e98e4"
+    },
+    {
+      "time_s": 4,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-4.png",
+      "sha256": "c43910d9d9f4413c59408a3d5a6c8ed7bab2670bf5f6845c29de2268b31e5839"
+    },
+    {
+      "time_s": 6.5,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-6.5.png",
+      "sha256": "c9ccbeea4845bd71486a995ff75b8bf9c5fa0ac46126838aba5aa8d88adf6884"
+    },
+    {
+      "time_s": 8,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-8.png",
+      "sha256": "6e6130932bf73068d1f387076aabe7b8bacd294be885d5467d6e67669d0a10ca"
+    },
+    {
+      "time_s": 10,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-10.png",
+      "sha256": "bce1e17ed187a0d27180f47ccd05f1093df9d5dc33a84906433ee64b33f86524"
+    },
+    {
+      "time_s": 11.8,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-11.8.png",
+      "sha256": "7a15d81749cdc4a24e1f153fa55fc6f3de0c7dd43a449dabdfb9c2cd79de0cb8"
+    },
+    {
+      "time_s": 12.9,
+      "path": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/frame-12.9.png",
+      "sha256": "945a0dc46434461be37d3eca0c824aaf4d6d064708f2b6f3fd5a11f8c5927683"
+    }
+  ],
+  "contact": "work/full-reproduction-v1/native-coordinate/maintainer-repaired-v1/contact.png",
+  "protected_frames": [
+    {
+      "time_s": 0.5,
+      "identical_PNG": true
+    },
+    {
+      "time_s": 2.5,
+      "identical_PNG": true
+    }
+  ],
+  "gates": {
+    "frame_count_unchanged": true,
+    "fps_unchanged": true,
+    "trajectory_AST_unchanged": true,
+    "protected_frames_identical": true,
+    "reviewed_positions_clear": true,
+    "no_new_clipping": true,
+    "no_new_axis_crossings": true
+  },
+  "decision": "keep maintainer-repaired variant",
+  "model_patch_v1": "rejected unmatched parenthesis; baseline retained",
+  "human_assistance": true,
+  "artistic_improvement_verified": false,
+  "unseen_task": false,
+  "limitations": "One public native coordinate task, one model author, one image reviewer, one invalid model patch, then explicit maintainer syntax repair. No independent blind preference or viewer learning evaluation."
+}

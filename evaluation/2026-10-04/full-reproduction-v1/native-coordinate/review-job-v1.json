@@ -1,0 +1,61 @@
+{
+  "id": "native-coordinate-evidence-review-v1",
+  "model": "gpt-6-astra",
+  "prompt": "Review the supplied mathematical animation evidence for the original task: introduce labeled 2D axes, origin, moving point, y=x^2, traced path, and three moments. These are eight timestamped stills, not the full video or audio. Identify only visible concrete defects in mathematical communication or readable layout. Separate a wrong calculation from an old milestone calculation that remains visible during continuous motion. Do not infer absent content between sampled frames. Return no quality score. Give a specific time, object, visible observation, and minimal proposed modification for each defect; say uncertain when evidence is insufficient. Do not use tools, browse, read files, delegate or invoke another model.",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "verdict": {
+        "type": "string",
+        "enum": [
+          "visible_defect",
+          "no_visible_defect",
+          "uncertain"
+        ]
+      },
+      "limitations": {
+        "type": "string"
+      },
+      "observations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "time_s": {
+              "type": "number"
+            },
+            "object": {
+              "type": "string"
+            },
+            "observation": {
+              "type": "string"
+            },
+            "proposed_change": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "time_s",
+            "object",
+            "observation",
+            "proposed_change"
+          ]
+        }
+      }
+    },
+    "required": [
+      "verdict",
+      "limitations",
+      "observations"
+    ]
+  },
+  "images": [
+    "work/full-reproduction-v1/native-coordinate/render-v2/contact.png"
+  ],
+  "image_sha256": [
+    "3634643a46f69a20314f71f17b9b829112754903cd18a5f41c9d9559f530a22f"
+  ],
+  "source_sha256": "78b549a8e4d1fad6fd0c3046488903c6703442c00b29e90846b67d5d2cbf7795"
+}

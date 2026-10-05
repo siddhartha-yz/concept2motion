@@ -1,0 +1,53 @@
+{
+  "source_sha256": "ea1ff2b38e97a6bec6a5ef2d182bdbea3f45abef0b29bc946fd99bff5f0f5611",
+  "method": "independent central finite differences on torus height; not copying source Hessian calculation",
+  "delta": 0.0001,
+  "points": [
+    {
+      "u": -1.5707963267948966,
+      "v": 0,
+      "height": -2.8,
+      "finite_difference_gradient_norm": 0.0,
+      "finite_difference_Hessian_eigenvalues": [
+        0.7999999773744548,
+        2.799999965219513
+      ],
+      "index": 0
+    },
+    {
+      "u": -1.5707963267948966,
+      "v": 3.141592653589793,
+      "height": -1.2,
+      "finite_difference_gradient_norm": 0.0,
+      "finite_difference_Hessian_eigenvalues": [
+        -0.8000000217833758,
+        1.2000000104706032
+      ],
+      "index": 1
+    },
+    {
+      "u": 1.5707963267948966,
+      "v": 3.141592653589793,
+      "height": 1.2,
+      "finite_difference_gradient_norm": 0.0,
+      "finite_difference_Hessian_eigenvalues": [
+        -1.2000000104706032,
+        0.8000000217833758
+      ],
+      "index": 1
+    },
+    {
+      "u": 1.5707963267948966,
+      "v": 0,
+      "height": 2.8,
+      "finite_difference_gradient_norm": 0.0,
+      "finite_difference_Hessian_eigenvalues": [
+        -2.799999965219513,
+        -0.7999999773744548
+      ],
+      "index": 2
+    }
+  ],
+  "alternating_index_sum": 0,
+  "limitations": "Numerical check of critical point values/indices. Does not prove Morse theorem, all topology narrative, or artistic quality."
+}

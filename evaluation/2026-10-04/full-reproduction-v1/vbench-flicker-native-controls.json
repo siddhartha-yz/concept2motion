@@ -1,0 +1,37 @@
+{
+  "source_sha256": "c2c892034d1652c9390f213308c18b77ae20a87bd52fc50a125294ce83af4e83",
+  "original_functions": [
+    "cal_score",
+    "calculate_mae",
+    "get_frames",
+    "mae_seq"
+  ],
+  "whole_VBench_installed": false,
+  "rows": [
+    {
+      "id": "blank_static",
+      "source": "hand-authored deterministic control, not model generation",
+      "video_sha256": "d80f8495858f8fb6a819d0820951fb95466cda67445132d7aed8d265d14d44d3",
+      "decoded_frames": 30,
+      "native_score": 1.0,
+      "nonfinite": false
+    },
+    {
+      "id": "white_black_flicker",
+      "source": "hand-authored deterministic control, not model generation",
+      "video_sha256": "8504dad1b54d0a1362c93b8872d3feecdc0401f147dcb7b858f82f1daed355ee",
+      "decoded_frames": 30,
+      "native_score": 0.014378985236672795,
+      "nonfinite": false
+    },
+    {
+      "id": "one_blank_frame",
+      "source": "hand-authored deterministic control, not model generation",
+      "video_sha256": "8dd44039ba3dcadc6d7ac9999d947bf684b5d2f4e9125a7da341d821776f08e4",
+      "decoded_frames": 1,
+      "native_score": null,
+      "nonfinite": true
+    }
+  ],
+  "limitation": "Only native static-scene temporal flicker metric; blank static can score 1.0. Not semantic, pedagogical, artistic quality or full VBench reproduction."
+}

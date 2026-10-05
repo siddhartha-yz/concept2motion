@@ -1,0 +1,66 @@
+{
+  "rows": [
+    {
+      "project": "ManimBench",
+      "log": "work/full-reproduction-v1/manimbench-pytest-v1.log",
+      "log_sha256": "76361393636d37ffb29efa065e6f3ebec289aa37033afbfb45a6f24a46538e18",
+      "passed": 105,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "original tests, includes mocks; not actual model generation"
+    },
+    {
+      "project": "Math-To-Manim",
+      "log": "work/full-reproduction-v1/math-to-manim-pytest-v2.log",
+      "log_sha256": "3e36fd1eb4eb7a721423b068059821c899aaebf55a1fb936a349d93d3798210d",
+      "passed": 268,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "268 progress pass marks; quiet upstream config suppresses summary; includes offline and render smoke tests"
+    },
+    {
+      "project": "RLM",
+      "log": "work/full-reproduction-v1/rlm-tests-v1.log",
+      "log_sha256": "84274bfd48d6e8ff5be0b56429d3f26555aae397deb2a5809a49cb60edc9cd9d",
+      "passed": 271,
+      "failed": 0,
+      "skipped": 63,
+      "scope": "original local/mocked tests; external API, Docker and IPython paths skipped"
+    },
+    {
+      "project": "realtime-manim-rs web",
+      "log": "work/full-reproduction-v1/realtime-web-v1.log",
+      "log_sha256": "dd77bd5345f6b23e9ce9701e0abc7386a3b0ecf1dd644a07dc1e15ed6af363a8",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "one Node test file"
+    },
+    {
+      "project": "realtime-manim-rs package",
+      "log": "work/full-reproduction-v1/realtime-package-v2.log",
+      "log_sha256": "f681db24d228eb45802714d826722f38bb15cf817f670a3f29b28387c0aa4f76",
+      "passed": 35,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "35 native JS tests plus TypeScript, pack and tarball consumer checks"
+    },
+    {
+      "project": "Karpathy output style",
+      "log": "work/full-reproduction-v1/karpathy-offline-tests.log",
+      "log_sha256": "31fee74ca91764ff428912a09870cbe01b998b86899b47ff32b2bbbf7fdc0d92",
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "mocked narration HTTP; no real narration"
+    }
+  ],
+  "failures_preserved": [
+    "Math-To-Manim sandbox test hung after four marks, original process no longer live after session ended; not completed",
+    "realtime package v1 global npm cache read-only; v2 isolated cache passed",
+    "realtime Python core failed on missing Camera.points_to_subpixel_coords with Manim0.20.1/Python3.12; no upstream patch",
+    "realtime WebGPU v1/v2 both null adapter; no frames rendered",
+    "Rust official CDN TLS failed; no compiler installed"
+  ],
+  "model_generation_claim": false
+}

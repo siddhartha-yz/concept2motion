@@ -1,0 +1,63 @@
+{
+  "source_sha256": "78b549a8e4d1fad6fd0c3046488903c6703442c00b29e90846b67d5d2cbf7795",
+  "video_sha256": "85efb5fe261803ab3a7189754a47029f512069d4ff12cacc16d1664d3ff3972f",
+  "decoded_frames": 798,
+  "fps": 60.0,
+  "duration_s": 13.3,
+  "frames": [
+    {
+      "time_s": 0.5,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-0.5.png",
+      "sha256": "016c76d6fa81569c804ec40a03b6b0114d52ebd330fd7f04388c6384d181c340"
+    },
+    {
+      "time_s": 2.5,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-2.5.png",
+      "sha256": "d2078d924202771431748d4e8cbfeffa4ba40bd93678b0f56c8d725fd16e98e4"
+    },
+    {
+      "time_s": 4,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-4.png",
+      "sha256": "c43910d9d9f4413c59408a3d5a6c8ed7bab2670bf5f6845c29de2268b31e5839"
+    },
+    {
+      "time_s": 6.5,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-6.5.png",
+      "sha256": "616d85a26f6298dd38d230ee27ab6402fe440cc278c9425fe46b9e45b7ea3d57"
+    },
+    {
+      "time_s": 8,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-8.png",
+      "sha256": "31de7be39b65b1829b89aa36ba2886b0108b751c81962b91369b2c1a431150f1"
+    },
+    {
+      "time_s": 10,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-10.png",
+      "sha256": "0dfc40f52e5dd38044d471611dd087d90d9261ef60dcfc2b983863017b0bf433"
+    },
+    {
+      "time_s": 11.8,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-11.8.png",
+      "sha256": "7a15d81749cdc4a24e1f153fa55fc6f3de0c7dd43a449dabdfb9c2cd79de0cb8"
+    },
+    {
+      "time_s": 12.9,
+      "path": "work/full-reproduction-v1/native-coordinate/render-v2/frame-12.9.png",
+      "sha256": "945a0dc46434461be37d3eca0c824aaf4d6d064708f2b6f3fd5a11f8c5927683"
+    }
+  ],
+  "contact": "work/full-reproduction-v1/native-coordinate/render-v2/contact.png",
+  "contact_sha256": "3634643a46f69a20314f71f17b9b829112754903cd18a5f41c9d9559f530a22f",
+  "independent_math": {
+    "implemented_point_update_extracted_from_AST": true,
+    "grid_points": 101,
+    "max_abs_coordinate_error_against_y_equals_x_squared": 0,
+    "limitations": "Tests numerical update, not visible layout or all task claims."
+  },
+  "review": "pending",
+  "revision_history": [
+    "author-v1 unchanged source",
+    "render-v1 Pango process-limit abort",
+    "render-v2 configured process_limit=8192; source unchanged"
+  ]
+}
