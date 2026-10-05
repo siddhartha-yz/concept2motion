@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-05",
+  "scope": "availability updates for five entries in the existing 30-reference scope, not new reproduced results",
+  "entries": [
+    {
+      "name": "SVGEditBench V2",
+      "primary": "https://github.com/mti-lab/SVGEditBenchV2",
+      "status": "official source and 1683-task dataset acquired at pinned Git and submodule revisions; native restore, MSE and limited Chamfer executed separately",
+      "evidence": "evaluation/2026-10-05/svg-editbench-v2-native-v1/source-pin.json"
+    },
+    {
+      "name": "Animation2Code",
+      "primary": "https://anya-ji.github.io/animation2code-website/",
+      "observed": "official project page says Code soon and Hugging Face Dataset soon",
+      "status": "core code/data not obtained; dashboard does not substitute for executable evaluator; no paper result replication"
+    },
+    {
+      "name": "EduVideoBench",
+      "primary": "https://arxiv.org/html/2605.26918v1",
+      "source_link": "https://anonymous.4open.science/r/EduVideoBench-anonymous-D5F2/",
+      "observed": "web tool cannot access; explicit public curl followed redirects and returned HTTP 401",
+      "status": "anonymous source access unavailable, not evidence that no code exists; no new complete evaluator executed"
+    },
+    {
+      "name": "VidCode",
+      "primary": "https://openreview.net/pdf/af519bec3825aee9059f5580f85e682316617428.pdf",
+      "observed": "indexed primary abstract is VidCode: Benchmarking Multimodal Code Generation for Video Animation; direct paper shows browser verification and curl returns HTTP 403; source URL not established",
+      "status": "do not clone unrelated Vidcode education product or app; full code/data still unverified"
+    },
+    {
+      "name": "VideoEditBench (exact name)",
+      "primary": "https://subjectivitylabs.com/",
+      "observed": "primary site labels itself VideoEditBench v0.1 Benchmark demo; no public code or dataset link in inspected page",
+      "status": "name now matched to a public demo, but provenance to original research reference and complete runnable assets still unconfirmed; not HKUDS VideoEdit or EditBoard"
+    }
+  ],
+  "new_model_calls_for_availability": 0
+}

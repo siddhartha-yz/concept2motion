@@ -41,11 +41,11 @@ TEA 和 PhyEduVideo 的原函数从固定源码中抽取后执行，绕开会加
 | [Animation2Code](https://arxiv.org/abs/2606.28593) | 论文与项目页核查 | 既有核查时未定位可运行的完整发布；本轮未更新发布状态 |
 | [LessonBench-V1](https://www.kaggle.com/datasets/ravidussilva/lessonbench-v1) | 原论文与数据集存在性核查 | 647 篇/240 主题为作者资产描述；未下载、生成或评价 |
 | [EditBench](https://imagen.research.google/editor/) | 原论文/官方页面核查 | 图像修补基准；未跑，不当作动画质量基准 |
-| [EduVideoBench](https://arxiv.org/abs/2605.26918v1) | 论文评价公式核查 | 未定位并执行完整公开评价器 |
+| [EduVideoBench](https://arxiv.org/abs/2605.26918v1) | 论文评价公式核查；2026-10-05找到论文直接给出的匿名代码链接，但访问返回401 | 尚未获取并执行完整评价器，不把链接不可访问写成代码不存在 |
 | [generative-manim](https://github.com/marcelo-earth/generative-manim) | 基准 README 核查 | 未固定源码/跑题集；工程通过率不等于讲懂 |
-| VidCode | 部分一手来源核查受阻 | 没有已核实的完整官方代码/数据入口，不能声称可复现 |
-| VideoEditBench（精确名字） | 名称与入口未核实 | 不与 VideoEdit 或 EditBoard 混同 |
-| SVGEditBench V2 | 未核读实际官方评价器 | 不列为已经可运行的基准 |
+| [VidCode](https://openreview.net/pdf/af519bec3825aee9059f5580f85e682316617428.pdf) | 找到对应的匿名论文，直接全文访问403/浏览器验证 | 完整官方代码/数据入口仍未核实，不能用同名产品代替 |
+| [VideoEditBench（精确名字）](https://subjectivitylabs.com/) | 找到同名v0.1演示站 | 页面未提供可执行代码/数据，和原研究参考的归属仍待确认；不与VideoEdit或EditBoard混同 |
+| [SVGEditBench V2](https://github.com/mti-lab/SVGEditBenchV2/tree/7e7879a700e839bd382462a6aa5642ae53b4b6e6) | [全部1683题原恢复、两组原MSE、三题原轮廓与四项控制实际执行](../evaluation/2026-10-05/svg-editbench-v2-native-v1/REPORT.md) | 模型生成、CLIP/DINO及完整四指标未执行；空白失败、颜色盲区和中心旋转错误保留 |
 
 ## 接下来怎么把复现做完整
 

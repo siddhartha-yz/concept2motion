@@ -1,0 +1,80 @@
+{
+  "hand_controls": 4,
+  "results": {
+    "identical": {
+      "value": 0.0,
+      "error": null
+    },
+    "color_only": {
+      "value": 0.0,
+      "error": null
+    },
+    "blank": {
+      "value": null,
+      "error": "ValueError: min() iterable argument is empty"
+    },
+    "rotate_center": {
+      "transform": "rotate(90 10 20)",
+      "point": [
+        10.0,
+        20.0,
+        1.0
+      ],
+      "expected_point": [
+        10.0,
+        20.0,
+        1.0
+      ],
+      "native_point": [
+        -50.0,
+        3.552713678800501e-15,
+        1.0
+      ],
+      "expected_matrix": [
+        [
+          0.0,
+          -1.0,
+          30.0
+        ],
+        [
+          1.0,
+          0.0,
+          10.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "native_matrix": [
+        [
+          6.123233995736766e-17,
+          -1.0,
+          -30.0
+        ],
+        [
+          1.0,
+          6.123233995736766e-17,
+          -9.999999999999998
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "max_matrix_error": 60.0,
+      "cairo_dark_pixel_centroid": [
+        34.5,
+        69.5
+      ],
+      "expected_pixel_center_continuous": [
+        34.5,
+        69.5
+      ]
+    }
+  },
+  "contact_sha256": "7f98399ec0d423a46f58081b80e798b4788d427962edb75aa67d7c6bfea13d29",
+  "artistic_or_learning_review": false
+}
