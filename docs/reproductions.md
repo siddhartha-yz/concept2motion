@@ -20,6 +20,7 @@
 | VBench | 原静态场景闪烁函数执行三个实际编码/解码控制 | 空白静态视频得 1；单帧返回非有限值；仅局部指标，未完整安装/执行 VBench-2.0 或权重评分 | [控制结果](../evaluation/2026-10-04/full-reproduction-v1/vbench-flicker-native-controls.json) |
 | [ALGOGEN](https://github.com/algenlab/algogen_anonymous/tree/1bb093c76499135ecf54fc8030219a4e7ee4424c) | [原requirements安装、原基础渲染CLI及筛法终态核对实际执行](../evaluation/2026-10-06/algogen-native-render-v1/REPORT.md) | 原发布轨迹，不是本次模型生成；LLM增强样式和原AES评价未跑 | [结果](../evaluation/2026-10-06/algogen-native-render-v1/REPORT.md) |
 | [SVGEditBench V2](https://github.com/mti-lab/SVGEditBenchV2/tree/7e7879a700e839bd382462a6aa5642ae53b4b6e6) | [全部1683题原恢复、两组原MSE、三题原轮廓与四项控制实际执行](../evaluation/2026-10-05/svg-editbench-v2-native-v1/REPORT.md) | 模型生成、CLIP/DINO及完整四指标未执行；空白失败、颜色盲区和中心旋转错误保留 | [结果](../evaluation/2026-10-05/svg-editbench-v2-native-v1/REPORT.md) |
+| [Manimator](https://github.com/HyperCluster-Tech/manimator/tree/928b8b2331791bd46f1ad14676893be7528309d8) | 原requirements安装；官方Codex替换传输执行原分镜/代码两阶段，原Manim0.18.1渲染498帧；202进度值独立几何核对、六帧模型定位 | 要求≤30秒但实际33.2秒；中途公式/画面含糊及标签低对比度；原模型、完整应用、评价驱动修改和论文成绩未复现 | [结果与失败](../evaluation/2026-10-06/manimator-port-v1/REPORT.md) |
 
 TEA 和 PhyEduVideo 的原函数从固定源码中抽取后执行，绕开会加载权重、访问服务的顶层代码。源码本身没有改写。这是**原函数的局部执行**，不能叫整套程序已经跑通。
 
@@ -29,7 +30,6 @@ TEA 和 PhyEduVideo 的原函数从固定源码中抽取后执行，绕开会加
 
 | 参考 | 已做的程度 | 下一步/限制 |
 |---|---|---|
-| [Manimator](https://github.com/HyperCluster-Tech/manimator) | 固定源码与论文核查 | 安装、原生成与评价未跑；若换 Codex，要另记改编 |
 | [Teaching Monster](https://github.com/Teaching-Monster/TeachingMonster-released) | 固定源码与论文核查 | 公开评价资产、许可仍有缺口；GPU TTS、原 provider 和人评未复现 |
 | [VisualEDU](https://github.com/UchihaIchigo/VisualEDU) | 固定源码、论文核查 | 安装、生成和学习评价未跑 |
 | [ManimTrainer / ManimAgent](https://github.com/SuienS/manim-trainer) | 固定源码、题集规模核查 | 本地 HF/CUDA 推理与训练未跑；417 项中 317/100 为作者划分，不是本项目结果 |
@@ -68,3 +68,5 @@ python3 tools/fetch_reference_sources.py --verify-only
 2026-10-05 新结果与失败见[持续复现证据](../evaluation/2026-10-04/full-reproduction-v1/REPORT.md)。新增授权 96 次，已用 35 次（34 有结果、1 额度失败），保守余额 61；旧 48 次不改写。全范围仍包含原 30 项，没有任何完整论文成绩复现。截图关联 [Karpathy 消息核查](research-notes/2026-10-05-karpathy-output-understanding.md)单独记录，不扩张原分母。
 
 2026-10-06补充：新96次授权累计53次（49有结果、4无结果），余43；[TeachQuiz组合结果](../evaluation/2026-10-06/teachquiz-completion-v1/REPORT.md)保留两个批次和一项格式无效。SVG原数据恢复与ALGOGEN原渲染已单独提交；无完整论文成绩或未见任务收益结论。
+
+同日Manimator新增3次后，累计56次（52完成、4无结果），余40。上表已有15项部分实际执行，另15项仍缺完整流程；这是执行索引，不是15/30质量通过率，也没有完整论文成绩复现。

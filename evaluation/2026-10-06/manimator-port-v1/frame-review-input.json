@@ -1,0 +1,76 @@
+{
+  "job_id": "manimator-determinant-frame-review-v1",
+  "maximum_calls": 1,
+  "model": "gpt-6-astra",
+  "prompt": "Inspect only the attached six sampled frames. Do not use tools, browse, read files, delegate, invoke models or assign a quality score. For each factual observation cite the zero-based sample index and visible evidence. Can the unit square, transformed basis vectors, signed area 2 under [[2,1],[0,1]], and reversal with signed area -1 under [[-1,0],[0,1]] be checked from the actual geometry? Correct text alone does not prove correct geometry. Mark supported/contradicted/unverifiable, and list concrete readability defects. Unseen motion/audio remains unknown.",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "observations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sample_index": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "supported",
+                "contradicted",
+                "unverifiable"
+              ]
+            },
+            "fact": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sample_index",
+            "status",
+            "fact",
+            "evidence"
+          ]
+        }
+      },
+      "readability_defects": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "limits": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "observations",
+      "readability_defects",
+      "limits"
+    ]
+  },
+  "sample_fractions": [
+    0.05,
+    0.25,
+    0.45,
+    0.65,
+    0.85,
+    0.98
+  ],
+  "if_generation_failed": "no review call",
+  "guides_further_revision": false,
+  "image_sha256": [
+    "1abf1cb4c6cc3e4520ffddca6b206a8b6489c9dfccb22de822758b4845828664",
+    "44a3403b80914dbc570fc912bc794044f7d425be3f8685d0b79c91aff70bd2a2",
+    "62f33688667e563b3cc500d808b1f1fcfaac4465b4083b4860fe64f470a89c9a",
+    "91be05fdcc3aa0042bdf4d0e5beff4b7b562527dc4bc35d005a386fe8043098a",
+    "da29ab63e2b18f67c1637d315dc75893db4364eb1c0dd6e31a2636b3e6a39f2e",
+    "ca39f884cd2e3d9ba250019bcf366cb9d8c6848315b4a0625ca2968f3c444571"
+  ]
+}

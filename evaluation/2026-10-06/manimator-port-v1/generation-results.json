@@ -1,0 +1,57 @@
+{
+  "calls": [
+    {
+      "id": "manimator-determinant-generation-01-v1",
+      "status": "completed"
+    },
+    {
+      "id": "manimator-determinant-generation-02-v1",
+      "status": "completed"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "candidate-01",
+      "brief_sha256": "98bce1d7f1cbd26239242459670c9d414f476332d07f45df262d0f88f65376b6",
+      "source_sha256": "d986f7cc37d3216cb20407b9b3a92ead580b3259fdfab00c6d31ff68fdee7d77",
+      "code_path": "work/full-reproduction-v1/manimator-port-v1/candidate-01/extracted.py",
+      "revision_history": "native regeneration after failure only; no judge feedback; no source edits",
+      "preflight": "passed",
+      "render": {
+        "native_command": [
+          "manim",
+          "-pql",
+          "--media_dir",
+          "/tmp/tmpnc79tv0r",
+          "/tmp/tmpnc79tv0r/scene.py",
+          "MainScene"
+        ],
+        "adapted_command": [
+          "manim",
+          "-ql",
+          "--media_dir",
+          "/tmp/tmpnc79tv0r",
+          "/tmp/tmpnc79tv0r/scene.py",
+          "MainScene"
+        ],
+        "exit_code": 0,
+        "elapsed_seconds": 47.5855255839997
+      }
+    }
+  ],
+  "native_message": "Animation generated successfully!",
+  "native_video_returned": true,
+  "video": "work/full-reproduction-v1/manimator-port-v1/native-returned.mp4",
+  "video_sha256": "f48678832d45b42fdc25ec29ab1052669f67f9610ee55dba59efca17073f0107",
+  "original_source_changed": false,
+  "complete_native_server_started": false,
+  "adaptations": [
+    "official Codex replaces LiteLLM transport/model; retries disabled",
+    "original process_prompt AST without UI initialization",
+    "skip .env",
+    "archive sources before native temporary cleanup",
+    "remove preview p and limit render to300s",
+    "preflight generated code before execution"
+  ],
+  "model_weight_updates": 0
+}

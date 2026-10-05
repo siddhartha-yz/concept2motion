@@ -1,0 +1,36 @@
+{
+  "viewed": "six sampled frames in contact, twice inspected",
+  "blinded": false,
+  "source_known": true,
+  "endpoint_observations": [
+    "sample2: positive parallelogram, red basis two units right, green basis one right/one up",
+    "sample4 and5: red basis one left, green one up; opposite corner upper-left"
+  ],
+  "defects": [
+    {
+      "sample_index": 1,
+      "observation": "det(A)=+2 displayed during changing geometry; current shape differs from endpoint",
+      "interpretation": "target-versus-current ambiguity, not a wrong endpoint",
+      "hypothesis": "label determinant as target or defer result until morph ends"
+    },
+    {
+      "sample_index": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "observation": "small low-contrast red/green corner labels and bottom legend",
+      "hypothesis": "brighter colors and larger labels, validate geometry unchanged"
+    },
+    {
+      "kind": "duration",
+      "requested_max_s": 30,
+      "actual_s": 33.2,
+      "hypothesis": "reduce holds without dropping mechanism"
+    }
+  ],
+  "limits": "No blind artistic, audience learning, continuous motion/audio review or quality score."
+}

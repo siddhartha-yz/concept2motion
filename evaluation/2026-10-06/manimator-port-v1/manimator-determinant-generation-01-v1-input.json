@@ -1,0 +1,51 @@
+{
+  "original_messages": [
+    {
+      "role": "system",
+      "content": "# Content Structure System\n\nWhen presented with any research paper, topic, question, or material, transform it into the following structured format:\n\n## Basic Structure\nFor each topic or concept, organize the information as follows:\n\n1. **Topic**: [Main subject or concept name]\n   \n**Key Points**:\n* 3-4 core concepts or fundamental principles\n* Include relevant mathematical formulas where applicable\n* Each point should be substantive and detailed\n* Focus on foundational understanding\n\n**Visual Elements**:\n* 2-3 suggested visualizations or animations\n* Emphasis on dynamic representations where appropriate\n* Clear connection to key points\n\n**Style**:\n* Brief description of visual presentation approach\n* Tone and aesthetic guidelines\n* Specific effects or animation suggestions\n\n## Formatting Rules\n\n1. Mathematical Formulas:\n   - Use proper mathematical notation\n   - Include both symbolic and descriptive forms\n   - Ensure formulas are relevant to key concepts\n\n2. Visual Elements:\n   - Start each bullet with an action verb (Show, Animate, Demonstrate)\n   - Focus on dynamic rather than static representations\n   - Include specific details about what should be visualized\n\n3. Style Guidelines:\n   - Keep to 1-2 sentences\n   - Include both visual and presentational elements\n   - Match style to content type (e.g., \"geometric\" for math, \"organic\" for biology)\n\n## Content Guidelines\n\n1. Key Points Selection:\n   - Choose foundational concepts over advanced applications\n   - Include quantitative elements where relevant\n   - Balance theory with practical understanding\n   - Prioritize interconnected concepts\n\n2. Visual Elements Selection:\n   - Focus on elements that clarify complex concepts\n   - Emphasize dynamic processes over static states\n   - Include both macro and micro level visualizations\n   - Suggest interactive elements where appropriate\n\n3. Style Development:\n   - Match aesthetic to subject matter\n   - Consider audience engagement\n   - Incorporate field-specific conventions\n   - Balance technical accuracy with visual appeal\n\n## Example Format:\n\n\n*Topic*: [Subject Name]\n*Key Points*:\n* [Core concept with mathematical formula if applicable]\n* [Fundamental principle]\n* [Essential relationship or process]\n* [Key application or implication]\n\n*Visual Elements*:\n* [Primary visualization with specific details]\n* [Secondary visualization with animation suggestions]\n* [Supporting visual element]\n\n*Style*: [Visual approach and specific effects]\n\n## Implementation Notes:\n\n1. Maintain consistency in depth and detail across all topics\n2. Ensure mathematical notation is precise and relevant\n3. Make visual suggestions specific and actionable\n4. Keep style descriptions concise but informative\n5. Adapt format based on subject matter while maintaining structure\n\nWhen processing input:\n1. First identify core concepts\n2. Organize into key points with relevant formulas\n3. Develop appropriate visual representations\n4. Define suitable style approach\n5. Review for completeness and consistency"
+    },
+    {
+      "role": "user",
+      "content": "Fourier Transform"
+    },
+    {
+      "role": "assistant",
+      "content": "### *Topic*: Fourier Transform\n*Key Points*:\n- Time domain vs frequency domain\n- Decomposing signals into sine waves: \\( f(t) = \\sum_{n} A_n \\sin(2\\pi n t + \\phi_n) \\)\n- Fourier Transform formula: \\( \\hat{f}(\\xi) = \\int_{-\\infty}^{\\infty} f(t) e^{-2\\pi i \\xi t} dt \\)\n- Applications in signal processing\n*Visual Elements*:\n- Animate a complex signal being decomposed into sine waves.\n- Show the Fourier Transform as a graph in the frequency domain.\n*Style*: Smooth animations with mathematical formulas and graphs."
+    },
+    {
+      "role": "user",
+      "content": "Explain Gradient Descent"
+    },
+    {
+      "role": "assistant",
+      "content": "### *Topic*: Gradient Descent\n*Key Points*:\n- Loss function: \\( L(\\theta) = \\frac{1}{N} \\sum_{i=1}^{N} (y_i - f(x_i; \\theta))^2 \\)\n- Gradient calculation: \\( \\nabla L(\\theta) = \\frac{\\partial L}{\\partial \\theta} \\)\n- Update rule: \\( \\theta_{new} = \\theta_{old} - \\alpha \\nabla L(\\theta) \\)\n- Convergence to the minimum\n*Visual Elements*:\n- 3D surface plot of the loss function.\n- Animate the gradient descent steps moving toward the minimum.\n*Style*: 3D visualizations with step-by-step explanations."
+    },
+    {
+      "role": "user",
+      "content": "How does backpropogation work in neural networks?"
+    },
+    {
+      "role": "assistant",
+      "content": "### *Topic*: Neural Networks (Backpropagation)\n*Key Points*:\n- Loss function: \\( L(\\theta) = \\frac{1}{N} \\sum_{i=1}^{N} (y_i - f(x_i; \\theta))^2 \\)\n- Chain rule: \\( \\frac{\\partial L}{\\partial f} \\frac{\\partial f}{\\partial \\theta} \\)\n- Weight updates: \\( \\theta_{new} = \\theta_{old} - \\alpha \\nabla L(\\theta) \\)\n*Visual Elements*:\n- Animate the flow of gradients through the network.\n- Show the loss surface and gradient descent steps.\n*Style*: Step-by-step, with clear visualizations of gradients and updates."
+    },
+    {
+      "role": "user",
+      "content": "Explain signed area and the 2D determinant for a beginner. Use a single class MainScene and at most 30 seconds. Show the unit square transformed by A=[[2,1],[0,1]] into a parallelogram of signed area 2. Separately show the unit square reflected by B=[[-1,0],[0,1]], signed area -1. Keep the basis vectors and corresponding corners identifiable. Show orientation reversal. Avoid overlapping labels. Use only Manim, numpy and math; no files, network or subprocess operations in the generated code."
+    }
+  ],
+  "prompt_sha256": "6beaf2e9bd78a9d4290076cc0bb3c15181567cbca12c9c15166af0308489b801",
+  "requested_native_model": null,
+  "native_num_retries_ignored": 2,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "content": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "content"
+    ]
+  }
+}
