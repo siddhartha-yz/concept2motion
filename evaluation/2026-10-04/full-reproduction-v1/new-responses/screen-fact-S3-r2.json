@@ -1,0 +1,44 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1c7cc1491353498d5f3bbf656cdc2a24e7805b6019344c0888dfbbb50316593b",
+  "image_sha256": [
+    "771563e0b08984f34c5cb066cc2ac375acc1e9c668c24c62014547fe178e5d01"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "contradicted",
+    "limitations": "仅依据供给的17.5秒帧中可见箭头、行标签和单位标尺判断；长度为画面估测，未检查帧间过程。",
+    "observations": [
+      {
+        "time_s": 17.5,
+        "object": "第一行紫色箭头",
+        "description": "标注和为0.50；紫色箭头向右，长度约为单位标尺的0.85倍，明显超过标注所对应的半个单位。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "第二行紫色箭头",
+        "description": "标注和为-0.25；紫色箭头实际向右，长度约为单位标尺的0.10倍，与应向左的四分之一单位不符。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "第三行紫色箭头",
+        "description": "标注和为-0.10；紫色箭头实际向右，长度约为单位标尺的0.25倍，与应向左的十分之一单位不符。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 22.3,
+    "usage": [
+      {
+        "input_tokens": 18595,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 238,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "tool_types": []
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1c7cc1491353498d5f3bbf656cdc2a24e7805b6019344c0888dfbbb50316593b",
+  "image_sha256": [
+    "d62b5fb959c791842d7fd16fce86cffd1ce6eb12db46b303cb78cc0fe613cf44"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "contradicted",
+    "limitations": "仅依据供给抽帧的可见几何与标尺判断；无法判断未供给时刻。第三行紫色标记过短，方向无法可靠辨认。",
+    "observations": [
+      {
+        "time_s": 17.5,
+        "object": "第一行紫色箭头",
+        "description": "朝右，方向符合标出的和0.50；但长度约为可见单位标尺的1/5，而非1/2，明显偏短。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "第二行紫色箭头",
+        "description": "朝左，方向符合标出的和-0.25；但长度约为单位标尺的1/10，而非1/4，明显偏短。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "第三行紫色标记",
+        "description": "仅见很短的紫色横线，长度约为单位标尺的1/25，小于标出的和-0.10所对应的1/10；箭头方向不清楚。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 30.96,
+    "usage": [
+      {
+        "input_tokens": 18595,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 308,
+        "reasoning_output_tokens": 72
+      }
+    ],
+    "tool_types": []
+  }
+}

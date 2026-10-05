@@ -1,0 +1,44 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "1c7cc1491353498d5f3bbf656cdc2a24e7805b6019344c0888dfbbb50316593b",
+  "image_sha256": [
+    "e6c600737c7749895d8c3879603afff62d6df0035bf63ddc56addaad36fb1411"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "supported",
+    "limitations": "仅依据17.5秒供给帧的可见方向及相对标尺长度判断；像素测量为近似，不能确认抽帧之间的状态。",
+    "observations": [
+      {
+        "time_s": 17.5,
+        "object": "第一行紫色箭头",
+        "description": "标出的和为0.50；紫色箭头向右，长度约为下方1单位标尺的一半，与标注对应。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "第二行紫色箭头",
+        "description": "标出的和为-0.25；紫色箭头向左，长度约为1单位标尺的四分之一，与标注对应。"
+      },
+      {
+        "time_s": 17.5,
+        "object": "第三行紫色箭头",
+        "description": "标出的和为-0.10；紫色箭头向左，长度约为1单位标尺的十分之一，与标注对应。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 21.295,
+    "usage": [
+      {
+        "input_tokens": 18744,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 263,
+        "reasoning_output_tokens": 48
+      }
+    ],
+    "tool_types": []
+  }
+}

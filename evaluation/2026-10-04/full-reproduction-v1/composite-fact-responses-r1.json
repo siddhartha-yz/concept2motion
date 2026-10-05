@@ -1,0 +1,277 @@
+{
+  "kind": "external",
+  "reviewer": "gpt-6-astra; composite of two separately authorized batches",
+  "responses": [
+    {
+      "label": "supported",
+      "limitations": "仅依据供给抽帧判断可见接合；同线重叠和箭头尺寸限制了端点的像素级辨认。1秒、4秒未见橙色箭头，不能用于验证该关系。",
+      "observations": [
+        {
+          "time_s": 8,
+          "object": "三行橙色修正箭头与蓝色输入箭头",
+          "description": "第一行橙色箭头向左，其右侧尾端接在蓝色向右箭头的头端；第二行橙色箭头向右，其左侧尾端接在蓝色向左箭头的头端；第三行橙色箭头向左，其右侧尾端接在蓝色向右箭头的头端。三行接合处均未见明显间隙。",
+          "frame_sha256": "74fbf01511f8d9a07cd1cd9b755ee2b61d06645a31d255396c616249fafe8243"
+        }
+      ],
+      "id": "Q7",
+      "status": "completed",
+      "contact_sha256": "5aededf95bd2e7888c546b57d1687a4b2e84421a2d9f631783eb1b523fac9d4c"
+    },
+    {
+      "label": "supported",
+      "limitations": "仅限所供抽帧。1秒和4秒未见橙色箭头，无法检查；其余帧有线段重叠，只能按可见端点判断相接，不能确认亚像素精度或帧间情况。",
+      "observations": [
+        {
+          "time_s": 8,
+          "object": "三行橙色修正箭头与蓝色输入箭头",
+          "description": "第一行橙色箭头向左，其右侧尾端与蓝色向右箭头的头端重合；第二行橙色箭头向右，其左侧尾端与蓝色向左箭头的头端重合；第三行橙色箭头向左，其右侧尾端与仍可见的蓝色向右箭头头端重合。三行均未见端点间隙。",
+          "frame_sha256": "1d152c647a9e1650b7ab47f48d4281f536d02d5bc41d95daa5c3bd73a1cda624"
+        },
+        {
+          "time_s": 17.5,
+          "object": "三行橙蓝箭头连接处",
+          "description": "三行仍呈现相同连接关系：第一、三行在蓝色箭头右端相接，第二行在蓝色箭头左端相接。",
+          "frame_sha256": "2297f85b022a5746fb9e53990bb2e41523ca7f15a33ab1cbd73528f17849fe5e"
+        }
+      ],
+      "id": "T2",
+      "status": "completed",
+      "contact_sha256": "ea111b65e55e3913c5dc816e1ee0d9c507c692d9726b8846e003c6ce2b0429cd"
+    },
+    {
+      "label": "contradicted",
+      "limitations": "仅评价供给抽帧中的几何关系；未显示橙色箭头的早期帧不能验证相接，也不能判断帧间状态。",
+      "observations": [
+        {
+          "time_s": 17.5,
+          "object": "三行橙色修正箭头与蓝色输入箭头",
+          "description": "三行均未尾接头。第一、三行橙色箭头向左，尾端在其右端，明显位于蓝色箭头头端右侧；第二行橙色箭头向右，左侧尾端落在蓝色箭身附近，而蓝色向左箭头的头端在更左侧。",
+          "frame_sha256": "9de59d68a5b7954027328705e5e5658f3b7db75084eb6b0be2eda3003afd3f63"
+        }
+      ],
+      "id": "H9",
+      "status": "completed",
+      "contact_sha256": "deb4d429ce92f7cd7ca120992f03384e7eb5f2ad38b9e4521f4551b68a092418"
+    },
+    {
+      "label": "unverifiable",
+      "limitations": "供给的六个抽帧仅见文字，未见可辨认的橙色修正箭头或蓝色输入箭头，无法判断每一行的尾端与头端是否相接；文字说明不能作为几何证据。",
+      "observations": [
+        {
+          "time_s": 1,
+          "object": "各行蓝色输入箭头与橙色修正箭头",
+          "description": "未见可辨认的箭头及端点，无法检查相接关系。",
+          "frame_sha256": "49dfc07397324f99f22b2389bdca2e38ecc115675f71b69d7e7f17f2e906d6a1"
+        },
+        {
+          "time_s": 4,
+          "object": "各行蓝色输入箭头与橙色修正箭头",
+          "description": "未见可辨认的箭头及端点，无法检查相接关系。",
+          "frame_sha256": "49dfc07397324f99f22b2389bdca2e38ecc115675f71b69d7e7f17f2e906d6a1"
+        },
+        {
+          "time_s": 6.5,
+          "object": "各行蓝色输入箭头与橙色修正箭头",
+          "description": "未见可辨认的箭头及端点，无法检查相接关系。",
+          "frame_sha256": "679e7d3f35771c355c3207ade61a0677163bb2b0e16c5c9533303c9a37220294"
+        },
+        {
+          "time_s": 8,
+          "object": "各行蓝色输入箭头与橙色修正箭头",
+          "description": "未见可辨认的箭头及端点，无法检查相接关系。",
+          "frame_sha256": "679e7d3f35771c355c3207ade61a0677163bb2b0e16c5c9533303c9a37220294"
+        },
+        {
+          "time_s": 11,
+          "object": "各行蓝色输入箭头与橙色修正箭头",
+          "description": "未见可辨认的箭头及端点，无法检查相接关系。",
+          "frame_sha256": "09e9b36adeb5e44071a84e93a90c68ec965df4712a5b39b82eebefc3198f691c"
+        },
+        {
+          "time_s": 17.5,
+          "object": "各行蓝色输入箭头与橙色修正箭头",
+          "description": "未见可辨认的箭头及端点，无法检查相接关系。",
+          "frame_sha256": "511e7a85f73e657efa479a6404d9d271490d0e966261d0878404553aa4f27315"
+        }
+      ],
+      "id": "L4",
+      "status": "completed",
+      "contact_sha256": "a1783715fa49de2aeb58fa06695c69eb0fa4f0a2ad05f4eaafe74aab6666badf"
+    },
+    {
+      "label": "supported",
+      "limitations": "仅判断供给帧中的可见长度关系；像素测量存在取整误差，不能确认未供给时刻的比例。",
+      "observations": [
+        {
+          "time_s": 6.5,
+          "object": "三个指数条",
+          "description": "三个条左端对齐，青、紫、橙条的可见长度约为23、128、232像素，旁边分别标注0.368、2.014、3.669。每单位标注质量对应的长度约为62.5、63.6、63.2像素，在像素误差内一致，支持长度成比例。",
+          "frame_sha256": "30e33f54b648276517eaf441b3b9bd1c516ac78f45c7693856c07766222fba59"
+        }
+      ],
+      "id": "B8",
+      "status": "completed",
+      "contact_sha256": "b8a8d1694609a55d8567b716d988bb0a5f2bdd930100ffa800c182ba7c2078c7"
+    },
+    {
+      "label": "supported",
+      "limitations": "仅判断供给帧中的可见长度；像素估读存在边缘误差，不能确认未供给时刻的比例。4 秒的条形过短，不足以精确核对。",
+      "observations": [
+        {
+          "time_s": 6.5,
+          "object": "三个指数条",
+          "description": "青、紫、橙条左端对齐，可见长度约为 14、78、143 像素，旁边分别标注 0.368、2.014、3.669。每单位标注质量对应的长度约为 38、39、39 像素，在估读误差内一致，支持长度成比例。",
+          "frame_sha256": "1a90213fb8b4fe7393e22f2d468997616970cbb3ff01f5816fe126003ef9956e"
+        }
+      ],
+      "id": "D3",
+      "status": "completed",
+      "contact_sha256": "6c7165d3e47ab657d50ac33da2884070742685a773692ae8b3528326bbba31ad"
+    },
+    {
+      "label": "contradicted",
+      "limitations": "仅评价供给静帧中的可见条长与旁侧标值；不推断帧间变化。像素长度为近似读数。",
+      "observations": [
+        {
+          "time_s": 6.5,
+          "object": "三个指数条",
+          "description": "青、紫、橙条具有相同左端，长度约为101、205、310像素，比例约1:2.03:3.07；旁侧标值为0.368、2.014、3.669，比例约1:5.47:9.97。青条可见长度约为橙条的三分之一，而标值约为其十分之一，明显不成比例。",
+          "frame_sha256": "3ab04b17b91b0bd6434143ff1aab088a23cd4f90e0183c6ce400991345364184"
+        }
+      ],
+      "id": "K6",
+      "status": "completed",
+      "contact_sha256": "d25c0cf73ea2f0992091cb732959fdae896498f8a9d043dc11ff4860f196fc8c"
+    },
+    {
+      "label": "unverifiable",
+      "limitations": "供给帧中可见指数质量文字，但未见可辨识的三个指数条及其端点，无法测量长度或比较长度比例；文字声明与数值本身不能证明几何关系。",
+      "observations": [
+        {
+          "time_s": 4,
+          "object": "三个指数条及旁侧指数质量标注",
+          "description": "可见纵向排列的青色“exp(-1) = 0.368”、紫色“exp(0.7) = 2.014”和橙色“exp(1.3) = 3.669”；未见对应的条形几何或可确定的长度端点。",
+          "frame_sha256": "4eb028e56556f45cbfc76f1d3407e6351bacbe21985df415152fbda4a445c6d8"
+        },
+        {
+          "time_s": 6.5,
+          "object": "三个指数条及旁侧指数质量标注",
+          "description": "仍可见三项彩色指数质量文字，但未见可测量的三个条形，无法核对其长度是否与标注质量成比例。",
+          "frame_sha256": "4eb028e56556f45cbfc76f1d3407e6351bacbe21985df415152fbda4a445c6d8"
+        }
+      ],
+      "id": "M1",
+      "status": "completed",
+      "contact_sha256": "86092249b2891809431d57c4be1982f819d602c1d360c7af45da8aaedf001627"
+    },
+    {
+      "label": "supported",
+      "limitations": "仅依据17.5秒供给帧中的紫色箭头、标注和可见比例尺判断；长度为图像目测近似，无法确认像素级精度或未供给时刻的状态。",
+      "observations": [
+        {
+          "time_s": 17.5,
+          "object": "第一行紫色箭头",
+          "description": "向右，长度约为可见1单位比例尺的一半，对应标出的完整分量和0.50。",
+          "frame_sha256": "ffd490b9ab30be849b6f56b6e63834689024e59fc8d9906c973ad097bed5bc03"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第二行紫色箭头",
+          "description": "向左，长度约为可见1单位比例尺的四分之一，对应标出的完整分量和-0.25。",
+          "frame_sha256": "ffd490b9ab30be849b6f56b6e63834689024e59fc8d9906c973ad097bed5bc03"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第三行紫色箭头",
+          "description": "向左，长度约为可见1单位比例尺的十分之一，对应标出的完整分量和-0.10。",
+          "frame_sha256": "ffd490b9ab30be849b6f56b6e63834689024e59fc8d9906c973ad097bed5bc03"
+        }
+      ],
+      "id": "P5",
+      "status": "completed",
+      "contact_sha256": "8947bde55f1e38aedd754ad5a20379d01c63dfeabbad56c39533dbdc6a314d84"
+    },
+    {
+      "label": "supported",
+      "limitations": "仅依据供给的17.5秒帧及可见标尺比较，长度为图像近似测量；不验证标注数值的计算过程或未供给帧。",
+      "observations": [
+        {
+          "time_s": 17.5,
+          "object": "第一行紫色箭头",
+          "description": "箭头向右，长度约为可见1单位标尺的一半，对应行内标出的和0.50。",
+          "frame_sha256": "2297f85b022a5746fb9e53990bb2e41523ca7f15a33ab1cbd73528f17849fe5e"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第二行紫色箭头",
+          "description": "箭头向左，长度约为可见1单位标尺的四分之一，对应行内标出的和-0.25。",
+          "frame_sha256": "2297f85b022a5746fb9e53990bb2e41523ca7f15a33ab1cbd73528f17849fe5e"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第三行紫色箭头",
+          "description": "箭头向左，长度约为可见1单位标尺的十分之一，对应行内标出的和-0.10。",
+          "frame_sha256": "2297f85b022a5746fb9e53990bb2e41523ca7f15a33ab1cbd73528f17849fe5e"
+        }
+      ],
+      "id": "R8",
+      "status": "completed",
+      "contact_sha256": "e6c600737c7749895d8c3879603afff62d6df0035bf63ddc56addaad36fb1411"
+    },
+    {
+      "label": "contradicted",
+      "limitations": "仅依据供给的17.5秒静帧及可见标尺判断；像素长度为近似值，未检查帧间过程。",
+      "observations": [
+        {
+          "time_s": 17.5,
+          "object": "第一行最终紫色箭头",
+          "description": "标注和为0.50，紫色箭头向右，方向相符；但长度约为可见1单位标尺的0.85倍，而非0.50倍，长度不符。",
+          "frame_sha256": "4b9ecc84e48d7c262cf210a30b0fc28ea5b5e3885ad7a3fcbc9d1fa12998b1f2"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第二行最终紫色箭头",
+          "description": "标注和为-0.25，紫色箭头却向右，且长度约为1单位标尺的0.10倍；方向和长度均不符。",
+          "frame_sha256": "4b9ecc84e48d7c262cf210a30b0fc28ea5b5e3885ad7a3fcbc9d1fa12998b1f2"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第三行最终紫色箭头",
+          "description": "标注和为-0.10，紫色箭头却向右，且长度约为1单位标尺的0.25倍；方向和长度均不符。",
+          "frame_sha256": "4b9ecc84e48d7c262cf210a30b0fc28ea5b5e3885ad7a3fcbc9d1fa12998b1f2"
+        }
+      ],
+      "id": "S3",
+      "status": "completed",
+      "contact_sha256": "771563e0b08984f34c5cb066cc2ac375acc1e9c668c24c62014547fe178e5d01"
+    },
+    {
+      "label": "contradicted",
+      "limitations": "仅依据供给的17.5秒帧；像素长度为近似测量。第三行紫色标记过短，箭头方向无法可靠辨认。",
+      "observations": [
+        {
+          "time_s": 17.5,
+          "object": "第一行紫色箭头",
+          "description": "向右，方向与标注的和0.50一致；但长度约为单位标尺的1/5，而非1/2，长度不对应完整分量和。",
+          "frame_sha256": "e4541c6286c2e4558cd6e1ed9f88fa476bb3ba4681d1985a1a2845df1b2a67e4"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第二行紫色箭头",
+          "description": "向左，方向与标注的和-0.25一致；但长度约为单位标尺的1/10，而非1/4，长度不对应完整分量和。",
+          "frame_sha256": "e4541c6286c2e4558cd6e1ed9f88fa476bb3ba4681d1985a1a2845df1b2a67e4"
+        },
+        {
+          "time_s": 17.5,
+          "object": "第三行紫色标记",
+          "description": "只呈现很短的紫色横线，长度约为单位标尺的1/25，小于标注的和-0.10所对应的1/10；方向无法可靠辨认。",
+          "frame_sha256": "e4541c6286c2e4558cd6e1ed9f88fa476bb3ba4681d1985a1a2845df1b2a67e4"
+        }
+      ],
+      "id": "V6",
+      "status": "completed",
+      "contact_sha256": "d62b5fb959c791842d7fd16fce86cffd1ce6eb12db46b303cb78cc0fe613cf44"
+    }
+  ],
+  "stimuli_sha256": "e566e2633fd910256ca964b9345f7a9a1d11fdf1da038b5f8e67cc0ca77b56fb"
+}

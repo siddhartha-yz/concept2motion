@@ -1,0 +1,34 @@
+{
+  "model": "gpt-6-astra",
+  "prompt_sha256": "a47679a4573d0ee0118f524f66158725257818204f678e6fa7986299c97efec4",
+  "image_sha256": [
+    "6c7165d3e47ab657d50ac33da2884070742685a773692ae8b3528326bbba31ad"
+  ],
+  "status": "completed",
+  "response": {
+    "label": "supported",
+    "limitations": "仅判断供给帧中的可见长度；像素估读存在边缘误差，不能确认未供给时刻的比例。4 秒的条形过短，不足以精确核对。",
+    "observations": [
+      {
+        "time_s": 6.5,
+        "object": "三个指数条",
+        "description": "青、紫、橙条左端对齐，可见长度约为 14、78、143 像素，旁边分别标注 0.368、2.014、3.669。每单位标注质量对应的长度约为 38、39、39 像素，在估读误差内一致，支持长度成比例。"
+      }
+    ]
+  },
+  "process": {
+    "exit_code": 0,
+    "timed_out": false,
+    "wall_s": 30.912,
+    "usage": [
+      {
+        "input_tokens": 18591,
+        "cached_input_tokens": 14720,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 222,
+        "reasoning_output_tokens": 57
+      }
+    ],
+    "tool_types": []
+  }
+}

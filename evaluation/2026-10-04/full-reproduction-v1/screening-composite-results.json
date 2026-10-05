@@ -1,0 +1,872 @@
+{
+  "rows": [
+    {
+      "job": "fact-Q7-r1",
+      "method": "fact",
+      "control": "Q7",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-Q7-r1.json",
+      "response_sha256": "2e4be561f243d9dfaa82645d6931ae71ab639af61ab4e5196586fa0c706cf7e6",
+      "status": "completed"
+    },
+    {
+      "job": "fact-Q7-r2",
+      "method": "fact",
+      "control": "Q7",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-Q7-r2.json",
+      "response_sha256": "e01d82395ae50f1a2530b9c98c5c852a85de7d5f1c9116789c5028d2981adc9f",
+      "status": "completed"
+    },
+    {
+      "job": "tea-Q7",
+      "method": "tea",
+      "control": "Q7",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/tea-Q7.json",
+      "response_sha256": "f049ca7492041cd11430eb75064abe06ef0f315bd449450b114d4a4ec6183993",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame broadly illustrates residual addition using unchanged blue inputs and signed orange corrections. The three displayed sums are arithmetically correct, and arrow lengths appear consistent with the stated scale. However, the promised purple sum is not visibly distinguishable. This assessment uses only the supplied frame at 11 seconds; animation timing, other frames, implementation, and whether any weights were trained cannot be verified.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The component examples correctly show 0.7−0.2=0.50, −0.4+0.15=−0.25, and 0.2−0.3=−0.10. Orange corrections appear to start at blue endpoints and point in the appropriate signed directions, supporting componentwise residual addition. The third example illustrates a correction crossing zero. However, the purple resultant described in the text is not visibly identifiable, weakening the explicit representation of the output. Nothing visible establishes trained weights; the examples are consistent with illustrative corrections.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "Text is readable against the dark background, and the three examples are vertically separated without unintended text overlap. The scale guide provides useful context. However, the arrows occupy a small central region with substantial unused space, and the labels are distant from their corresponding diagrams. Shared blue/orange segments make endpoints harder to distinguish, while the absent or obscured purple result prevents easy visual comparison of input, correction, and sum. Origin markers and clearer resultant separation would improve readability.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-Q7",
+      "method": "aes",
+      "control": "Q7",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/aes-Q7.json",
+      "response_sha256": "fcb0697fb2015ecfaa36eb21012f7d3584d8d324c18235a3325cb0fc91111c8d",
+      "status": "completed",
+      "native": {
+        "element_layout": 14.0,
+        "attractiveness": 12.0,
+        "logic_flow": 14.0,
+        "accuracy_depth": 15.0,
+        "visual_consistency": 17.0,
+        "overall_score": 72.0,
+        "detailed_feedback": "**Element Layout (14 points):**\nThe six frames maintain a clear title, explanatory text, three aligned numerical examples, and a scale reference. Light text and colored arrows are readable against the dark background. However, the arrows occupy a small fraction of the available space, particularly for the smaller components, while substantial space remains unused. Text and graphics are only loosely connected spatially. The presentation does not establish a strong left-side explanation/right-side animation division. Enlarging the diagrams and marking each component's zero point would make direction, magnitude, and correspondence easier to interpret. The final purple arrows are separated vertically from their constructions without explicit endpoint guides or individual labels.\n\n**Attractiveness (12 points):**\nThe restrained cyan, orange, and purple palette is harmonious and gives the three quantities distinguishable roles. Signed arrows are an appropriate visual representation for this concept. Nevertheless, the sampled compositions are sparse and repetitive, with small diagrams and little visual emphasis on the moment of addition. The final result receives limited prominence. A larger central construction, selective highlighting of the active component, and a clear concluding equation could increase engagement while preserving mathematical clarity. Animation smoothness, effects, and audiovisual engagement cannot be evaluated from still frames.\n\n**Logic Flow (14 points):**\nThe timestamps suggest an understandable sequence: input at 1.00 and 4.00 seconds, correction branches at 6.50 and 8.00 seconds, merging at 11.00 seconds, and output at 17.50 seconds. The blue arrows appear unchanged after their initial reveal, while orange arrows develop from their endpoints and purple outputs appear later. This supports the intended additive progression. However, the numerical sums are already shown in the earliest frame, and the merging frame does not visibly demonstrate how the resultant is constructed. English stage labels embedded in otherwise Chinese content add unnecessary language switching. A brief introduction of y = x + c, followed by one worked component and then the three-component result, would provide stronger scaffolding. Actual pacing and transitions between the sampled times remain unverified.\n\n**Accuracy & Depth (15 points):**\nAll three displayed calculations are correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. The completed orange arrows point in the correct signed directions from the blue endpoints, and the final purple arrows have directions and approximate lengths consistent with the stated sums and scale. The examples usefully cover a reduced positive value, a less negative value, and a sign reversal. These are strong illustrations of signed componentwise addition. However, the visible content does not explicitly identify the mechanism as a residual connection, state a vector equation, or label the three rows as components of one vector. It also does not explicitly state that the corrections are illustrative and that no trained weights are used; their provenance cannot be established from these frames. Adding those statements would align the presentation more fully with the requested knowledge point. No factual arithmetic error is evident in the samples.\n\n**Visual Consistency (17 points):**\nAcross the six samples, the background, typography, row positions, explanatory legend, and scale reference remain stable. Cyan consistently represents input, orange correction, and purple output. The completed blue input geometry appears preserved as subsequent elements are introduced, reinforcing the unchanged-input idea. The principal weaknesses are mixed-language stage labels and the lack of explicit alignment cues between each purple result and its corresponding construction. The samples support strong consistency of static styling, but they cannot establish uniform motion timing, smoothness, or freedom from artifacts between frames.\n\n**Overall Summary:**\nBased only on six timestamped still frames, the presentation offers a mathematically correct and visually consistent illustration of signed addition. It partially teaches the target residual-connection concept through preserved input arrows and endpoint-attached corrections, but leaves the residual identity, vector-component interpretation, and absence of trained weights implicit. The pedagogical approach is suitable for a compact introductory explanation, with larger diagrams and a more explicit synthesis needed. This is an assessment of sampled visual evidence, not a full-video or audio review; narration, continuous timing, transitions, and synchronization cannot be verified.\n\n**Key Strengths:**\n• Correct arithmetic across three complementary signed examples.\n• Endpoint-attached correction arrows make signed addition visually concrete.\n• Blue inputs appear preserved after their initial reveal.\n• Stable colors distinguish input, correction, and result.\n• A scale reference supports interpretation of arrow magnitudes.\n\n**Areas for Improvement:**\n• Explicitly name residual connection and display y = x + c, with y_i = x_i + c_i for each component.\n• State that the correction values are illustrative and no trained weights are used.\n• Label the three rows as components of one vector and summarize the final output vector.\n• Enlarge the arrows and add zero markers, component labels, and endpoint guides.\n• Visually demonstrate how each purple result runs from the original origin to the corrected endpoint.\n• Use consistent Chinese stage labels and emphasize the final additive relationship.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 14,
+          "attractiveness": 12,
+          "logic_flow": 14,
+          "accuracy_depth": 15,
+          "visual_consistency": 17
+        },
+        "overall_score": 72,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-T2-r1",
+      "method": "fact",
+      "control": "T2",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-T2-r1.json",
+      "response_sha256": "c4b418162a5856b7e89ff20252651acd6df076ee0bbd102e831b8df646a8c0e3",
+      "status": "completed"
+    },
+    {
+      "job": "fact-T2-r2",
+      "method": "fact",
+      "control": "T2",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-T2-r2.json",
+      "response_sha256": "60a40f0dd70feda72ed3695a53e949aa51623703f9d7e3355096777e26876d96",
+      "status": "completed"
+    },
+    {
+      "job": "tea-T2",
+      "method": "tea",
+      "control": "T2",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/tea-T2.json",
+      "response_sha256": "b72e95bbc1aefc3e58dc827ff626b8ffe9eb7fa2a76dc275016ea21594923a78",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame illustrates componentwise residual addition with three numerically correct signed examples. Text is readable and the composition is orderly, but the promised purple sum vectors are not visibly distinguishable, leaving the resulting outputs insufficiently illustrated. Evidence is limited to the supplied frame at 11 seconds; motion, other frames, and whether any model generation or trained weights were involved cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The unchanged blue inputs and orange corrections starting at their endpoints align with residual addition. The examples correctly give 0.7 − 0.2 = 0.50, −0.4 + 0.15 = −0.25, and 0.2 − 0.3 = −0.10. Their directions and approximate lengths agree with the stated scale of 210 pixels per unit. However, although the caption promises purple sums, no distinct purple result vectors are visible. The frame supports illustrative signed corrections and makes no claim of trained weights.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, explanation, numerical labels, and three diagrams have clear vertical separation and good contrast, with no obvious unintended text overlap. The shared horizontal origin and bottom scale help comparison. However, the diagrams occupy a small portion of the available width, arrowheads are small, and orange corrections overlap the blue segments, making endpoints harder to distinguish. Missing visible purple sums further reduce clarity of the final outputs.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-T2",
+      "method": "aes",
+      "control": "T2",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/aes-T2.json",
+      "response_sha256": "2d63602f4232418971e4195229959342a99056edf8289ab46a56dc34d8669f3a",
+      "status": "completed",
+      "native": {
+        "element_layout": 15.0,
+        "attractiveness": 13.0,
+        "logic_flow": 14.0,
+        "accuracy_depth": 15.0,
+        "visual_consistency": 17.0,
+        "overall_score": 74.0,
+        "detailed_feedback": "**Element Layout (15 points):**\nThe six frames show a stable arrangement: title and explanation above three labeled examples, horizontal arrows alongside the examples, and a scale below. Light text contrasts well with the dark background, and consistent row placement makes comparisons straightforward. However, the arrows occupy relatively little of the available space, while substantial whitespace contributes little instructional value. The smallest negative output is especially easy to overlook. Orange corrections overlap the blue inputs, sometimes obscuring their lengths and arrowheads. Explicit zero markers and alignment guides between input and output rows would make the vector geometry easier to read.\n\n**Attractiveness (13 points):**\nCyan, orange, and purple provide a restrained, distinguishable palette appropriate for separating input, correction, and sum. Signed arrows are a useful visual metaphor for this particular concept. The presentation is clean but visually sparse, with repeated explanatory text and limited emphasis on the currently developing operation. Larger diagrams and selective highlighting of each component calculation could strengthen engagement. Still frames establish appearance and changing states, but cannot establish animation smoothness, attention retention, or the quality of effects between samples.\n\n**Logic Flow (14 points):**\nThe sampled sequence supports a sensible progression: blue inputs appear first, orange corrections develop from their endpoints, and purple outputs appear later. Keeping the blue inputs visible supports the unchanged-input idea. However, all three numerical sums are already printed in the earliest sample, so the animation reveals their geometry rather than progressively deriving the answers. The English stage labels input, branches, merging, and output offer limited explanation within an otherwise Chinese presentation. At 11 seconds, merging is labeled but no purple result is yet visible; the sampled state does not clearly explain that step. A final statement linking the three scalar examples into one componentwise vector equation would strengthen closure. Actual pacing and transitions cannot be judged from six stills.\n\n**Accuracy & Depth (15 points):**\nThe displayed arithmetic is correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. In the final sample, correction directions and purple output directions and relative lengths agree with these values. The examples usefully demonstrate a reduced positive value, a negative value moving toward zero, and a sign reversal. The shared scale supports quantitative interpretation. However, the visible content does not explicitly identify the corrections as illustrative, state that no trained weights are involved, or connect the operation to the term residual connection. The three rows suggest componentwise addition without explicitly identifying them as coordinates of one vector. Adding y = x + Δx, vector brackets, and a clear illustrative-correction disclaimer would make the intended knowledge point substantially more complete. These are visual and arithmetic checks, not verification of an underlying implementation or model.\n\n**Visual Consistency (17 points):**\nAcross the supplied samples, the background, typography, title placement, example ordering, scale, and color roles remain stable. Blue consistently represents input, orange correction, and purple the final sum. This continuity helps learners follow changes without relearning the layout. The final purple outputs are offset below their corresponding inputs, which improves separation but would benefit from origin guides to clarify their shared coordinate reference. Mixed Chinese explanations and English stage labels weaken linguistic consistency slightly. Uniformity across the sampled frames is strong; temporal consistency and smooth integration throughout the full video remain unverified.\n\n**Overall Summary:**\nBased only on six timestamped still frames, this is a clear and mathematically correct illustration of signed componentwise addition, with useful examples and consistent color coding. It only partially establishes the intended residual-connection lesson: the unchanged input is visually supported, but the residual terminology, vector relationship, and absence of trained weights are not explicitly stated in the visible material. No full video or audio was supplied, so narration, continuous motion, transition quality, and actual pacing cannot be evaluated. Prioritize explicit conceptual framing, larger diagrams, and clearer origins and endpoints.\n\n**Key Strengths:**\n• All three displayed component calculations are correct.\n• Examples cover positive and negative corrections, including a sign reversal.\n• Persistent blue inputs support the identity-path interpretation.\n• Stable colors and row positions make the sampled progression easy to follow.\n• A shared scale connects arrow lengths with numerical magnitudes.\n\n**Areas for Improvement:**\n• Explicitly name residual connection and display y = x + Δx, identifying each row as a vector component.\n• State that the corrections are illustrative chosen values and that no trained weights are used.\n• Enlarge the arrows and add zero markers and endpoint guides, especially for the small negative output.\n• Make overlapping input and correction arrows easier to distinguish while preserving their head-to-tail relationship.\n• Synchronize emphasis on each numerical calculation with the corresponding correction and resulting sum.\n• Use explanatory stage labels in the presentation's primary language and conclude with the complete vector equation.\n• Evaluate full video and audio separately before making claims about pacing, smoothness, or narration quality.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 15,
+          "attractiveness": 13,
+          "logic_flow": 14,
+          "accuracy_depth": 15,
+          "visual_consistency": 17
+        },
+        "overall_score": 74,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-H9-r1",
+      "method": "fact",
+      "control": "H9",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-H9-r1.json",
+      "response_sha256": "e3da477b6afb492ce0edca330a27b060ff999829c4f10e1abb074b24f0f741dc",
+      "status": "completed"
+    },
+    {
+      "job": "fact-H9-r2",
+      "method": "fact",
+      "control": "H9",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-H9-r2.json",
+      "response_sha256": "97e43155df9eb8946ce763b970eded4f756875fbddd7359682598548c2a8ed7c",
+      "status": "completed"
+    },
+    {
+      "job": "tea-H9",
+      "method": "tea",
+      "control": "H9",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/tea-H9.json",
+      "response_sha256": "2bb053aa9814198fc3454476cd9bf90bdbaac0bc0c8db4d3ee34a0c1495405f1",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame communicates componentwise residual addition through three signed numerical examples and directional arrows. Text is legible and the layout is uncluttered, but the visible geometry does not fully support the stated construction: orange corrections are separated from blue endpoints, and the promised purple sums are absent. This assessment uses only the supplied frame at 11 seconds; motion, surrounding explanations, and whether these gaps are transitional cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The examples correctly calculate 0.7 − 0.2 = 0.50, −0.4 + 0.15 = −0.25, and 0.2 − 0.3 = −0.10. Blue arrows depict signed inputs, and orange arrows indicate the appropriate correction directions with lengths consistent with the stated scale. However, orange arrows do not visibly begin at blue endpoints as the caption claims, and no purple resultant arrows are visible. Consequently, the frame illustrates the operands more clearly than their componentwise addition. No trained weights are claimed, though the illustrative nature of the corrections is not explicitly stated.",
+            "score": 3
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, instructions, numerical rows, and scale occupy distinct areas with good contrast and no problematic text overlap. Row spacing makes the examples easy to distinguish. However, the arrows are small relative to the available space, their separation from the corresponding text weakens the association, and the unlabeled scale bar requires reading the caption. Gaps between the input and correction arrows and the missing result arrows make the intended visual construction harder to follow.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.0,
+      "range_valid": true
+    },
+    {
+      "job": "aes-H9",
+      "method": "aes",
+      "control": "H9",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/aes-H9.json",
+      "response_sha256": "15544323ae586bcf417ddb2800e3c4689733104bbf355f579dcf51e9a22d4cd2",
+      "status": "completed",
+      "native": {
+        "element_layout": 14.0,
+        "attractiveness": 12.0,
+        "logic_flow": 13.0,
+        "accuracy_depth": 10.0,
+        "visual_consistency": 16.0,
+        "overall_score": 65.0,
+        "detailed_feedback": "**Element Layout (14 points):**\nThe six sampled frames maintain a readable structure: explanatory text at the upper left, three consistently spaced examples, arrows toward the right, and a scale at the bottom. The dark background provides good text and arrow contrast. However, the arrows occupy a small fraction of the available space, especially for the third component and its final negative result. Large unused regions reduce the prominence of the mechanism. The numerical labels are separated from the corresponding arrow geometry, requiring learners to look back and forth. A shared zero marker for each row and nearby component labels would make the spatial relationships easier to interpret.\n\n**Attractiveness (12 points):**\nCyan, orange, and purple form a clear, harmonious palette and distinguish input, correction, and output effectively. The restrained design avoids distracting decoration, and signed arrows are an appropriate visual metaphor for this concept. Nevertheless, the composition is visually sparse and repetitive, with small arrows and little emphasis on the decisive addition step. The sampled progression suggests staged arrow reveals, but smoothness, motion quality, and sustained engagement cannot be assessed from still images. Enlarging the diagram and highlighting each completed addition would improve engagement while preserving conceptual focus.\n\n**Logic Flow (13 points):**\nThe visible sequence—input at 1 and 4 seconds, branches at 6.5 and 8 seconds, merging at 11 seconds, and output at 17.5 seconds—provides a sensible broad progression. The blue input appears unchanged after its initial reveal, supporting the identity-path idea. However, all three numerical sums are already printed in the earliest sample, reducing the explanatory role of the final reveal. The sampled merging frame does not visibly establish a correct head-to-tail addition construction, so the transition to purple output arrows lacks a clear geometric justification. English stage labels embedded in Chinese explanations also weaken terminology coherence. Actual pacing, transitions between samples, and any spoken explanation are unavailable for evaluation.\n\n**Accuracy & Depth (10 points):**\nThe displayed arithmetic is correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. The completed blue and purple arrows appear consistent with the indicated signs and relative magnitudes. The examples usefully cover attenuation of a positive input, attenuation of a negative input, and a sign reversal. However, the central geometric explanation contradicts the displayed instruction that orange starts at the blue endpoint. In the sampled merging and output states, the first and third orange arrows sit to the right of the blue tips, while the second orange arrow begins near the blue origin rather than at its leftward tip. Consequently, the orange endpoint does not demonstrate the stated sum. This is a substantial problem for teaching componentwise addition through directed segments. The visible content also does not explicitly state that corrections are illustrative and no trained weights are involved. An equation such as y_i = x_i + c_i, a shared component index, and an explicit illustrative-values note would better connect the arithmetic to the intended residual-connection concept.\n\n**Visual Consistency (16 points):**\nAcross the supplied frames, background, typography, row positions, scale placement, and color roles remain stable. The purple outputs appear beneath their corresponding inputs, allowing useful comparison without removing the original values. This uniformity helps viewers track the three components. The main weaknesses are mixed-language stage labels and an inconsistent relationship between the claimed arrow-attachment rule and the actual geometry. The latter is primarily a conceptual accuracy issue, but it also undermines the visual grammar. Temporal continuity, flicker, and interpolation quality cannot be verified from six stills.\n\n**Overall Summary:**\nBased only on six timestamped still frames, the presentation offers a clear color scheme, correct numerical examples, and a suitable signed-arrow metaphor. It partially teaches unchanged input plus componentwise correction, but the orange-arrow placement fails to demonstrate the advertised head-to-tail addition and weakens the central learning objective. The absence of a visible statement that the corrections are illustrative and involve no trained weights leaves another required point unaddressed in the available evidence. Full-video motion, audio, synchronization, and pacing were not available and are not verified by this assessment.\n\n**Key Strengths:**\n• Correct arithmetic across three examples with different sign relationships.\n• Stable color coding distinguishes preserved input, correction, and result.\n• Blue input remains visibly present during later stages.\n• Consistent row structure and a signed-distance scale support comparison.\n• The sign-reversal example can demonstrate that a correction may exceed the input magnitude.\n\n**Areas for Improvement:**\n• Anchor each orange arrow's tail exactly at the corresponding blue arrow's head; its head should end at the signed sum position.\n• Draw each purple result from the original zero position to the combined endpoint, with alignment guides if it is vertically offset.\n• Add visible zero markers and label the rows as components of one vector.\n• Show y = x + c and explain that x passes through unchanged while addition occurs componentwise.\n• Explicitly state that correction values are illustrative, hand-selected values and that no trained weights are used.\n• Enlarge the arrows and work through one complete example before revealing the remaining components.\n• Reveal each numerical result alongside its geometric construction and use consistent instructional language.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 14,
+          "attractiveness": 12,
+          "logic_flow": 13,
+          "accuracy_depth": 10,
+          "visual_consistency": 16
+        },
+        "overall_score": 65,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-L4-r1",
+      "method": "fact",
+      "control": "L4",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-L4-r1.json",
+      "response_sha256": "408b2f9c44866ce6429ec4697dbca0674abc4297ec6c80a26938c9d193416159",
+      "status": "completed"
+    },
+    {
+      "job": "fact-L4-r2",
+      "method": "fact",
+      "control": "L4",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/fact-L4-r2.json",
+      "response_sha256": "b17500d42d734e3e48ba96acd9c8a36e7aefda54495222ac7228665a0a26df3a",
+      "status": "completed"
+    },
+    {
+      "job": "tea-L4",
+      "method": "tea",
+      "control": "L4",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/tea-L4.json",
+      "response_sha256": "dba0ae74713dd674645f1fbd581837f64101aef2a7e68bcde5f140bc765b4666",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame contains relevant explanatory text and three correct componentwise addition examples, but no visible vector arrows, colored segments, or other graphical depiction of the residual connection. Assessment is limited to the single supplied frame at 11 seconds; animation, other frames, implementation, and weight provenance cannot be verified.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The title and description explain retaining the input and adding a correction. The examples are mathematically correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. However, the promised blue input, orange correction, and purple sum are not visible, nor is a diagram showing the unchanged input path. The scale and direction legend therefore lacks a visible referent. Nothing claims trained weights, but this frame alone cannot establish their absence.",
+            "score": 3
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "Text is legible, consistently left-aligned, and well contrasted against the dark background, with no apparent overlap or clipping. The examples are spaced distinctly. However, most of the frame is empty, and the absence of graphical elements leaves the numerical examples and bottom scale legend disconnected from any visual demonstration. This substantially limits the layout's explanatory effectiveness.",
+            "score": 2
+          }
+        }
+      },
+      "single_frame_geometric_mean": 2.449489742783178,
+      "range_valid": true
+    },
+    {
+      "job": "aes-L4",
+      "method": "aes",
+      "control": "L4",
+      "batch": "old48",
+      "response_file": "evaluation/2026-10-04/reproduction-status-v1/responses/aes-L4.json",
+      "response_sha256": "09c2a6351cffd1e4bc0e02510a325139ec4035f6b91ea9991e0b86e151cc84af",
+      "status": "completed",
+      "native": {
+        "element_layout": 8.0,
+        "attractiveness": 4.0,
+        "logic_flow": 6.0,
+        "accuracy_depth": 10.0,
+        "visual_consistency": 14.0,
+        "overall_score": 42.0,
+        "detailed_feedback": "**Element Layout (8 points):**\nThe six supplied frames show consistently positioned, readable light text on a dark background. The title, stage label, explanatory sentence, numerical examples, and scale note form a basic hierarchy. However, text occupies mainly the left portion of each frame, while the large remaining area contains no visible instructional graphics. No identifiable right-side animation or diagram balances the text. Wide vertical gaps separate the examples without providing visible component axes or vectors. The layout is orderly but leaves most of the available teaching space unused.\n\n**Attractiveness (4 points):**\nThe restrained dark palette and legible text provide a clean baseline, but the sampled frames offer little visual engagement. Blue input, orange correction, and purple sum are described in text, yet corresponding colored graphical elements are not visible. Consequently, the proposed visual metaphor of a correction starting at the input endpoint is not demonstrated in these samples. The frames look nearly identical apart from stage labels. Animation appeal and motion quality cannot be assessed from still images.\n\n**Logic Flow (6 points):**\nThe labels progress from input at 1.00 and 4.00 seconds, to branches at 6.50 and 8.00 seconds, merging at 11.00 seconds, and output at 17.50 seconds. This suggests a suitable intended sequence for explaining a residual connection. However, all three numerical results and the same explanation are already visible in the earliest sample and remain unchanged. The visible evidence therefore provides little scaffolding from preserved input through signed correction to componentwise addition. English stage labels within otherwise Chinese content also introduce avoidable friction. Actual pacing, transitions, and any narration cannot be evaluated from these six frames.\n\n**Accuracy & Depth (10 points):**\nAll displayed calculations are correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. The examples use both positive and negative corrections, including a correction that takes a positive input below zero, which suits the learning objective. The text states that blue preserves the input and describes orange beginning at its endpoint, consistent with signed addition. However, no visible vectors demonstrate preservation, direction, magnitude, or componentwise correspondence. The rows are not explicitly identified as components of a single vector, and no explicit residual equation connects them. The supplied frames also do not state that the correction values are illustrative and that no trained weights are involved. The stated scale of 160 pixels per unit cannot be checked without visible graphical lengths. Numerical correctness is established; a complete visual explanation of the intended mechanism is not.\n\n**Visual Consistency (14 points):**\nBackground, typography, text alignment, spacing, and numerical formatting remain stable across all six samples. This uniformity supports readability and avoids distracting visual shifts. However, the semantic color system described by the text is not visibly implemented in the instructional graphics, and integration between static text and animated elements cannot be established. The score credits the observed consistency of the static presentation; it does not establish smooth motion, coherent animation timing, or consistency between unsampled frames.\n\n**Overall Summary:**\nBased only on six timestamped still frames, the material presents correct signed-addition examples but does not visibly demonstrate the residual-connection mechanism. The proposed endpoint-based addition approach is appropriate, yet the supplied samples show text and stage labels without the colored vectors needed to make that approach effective. This evaluation has no full video or audio: motion, transitions, narration, and events between samples remain unassessed. Prioritize a visible unchanged input path, corresponding signed corrections, componentwise sums, and an explicit statement that the values are illustrative with no trained weights.\n\n**Key Strengths:**\n• All three numerical sums are correct.\n• Examples cover positive and negative corrections, including a sign-changing result.\n• Text positions, contrast, and formatting are consistent across samples.\n• Stage labels suggest an appropriate input-to-branches-to-merge-to-output structure.\n\n**Areas for Improvement:**\n• Show a residual-path diagram in which the unchanged input and an illustrative correction meet at an addition node.\n• Render blue input arrows, orange signed corrections beginning at their endpoints, and purple result arrows on clearly marked component axes.\n• Explicitly group the three rows as vector components and display y_i = x_i + c_i alongside the examples.\n• Reveal input, correction, and sum progressively so each stage produces a meaningful visible change.\n• State that correction values are hand-selected for illustration and no trained weights are used.\n• Use the empty frame area for larger explanatory graphics and align each numerical example with its corresponding visual.\n• Use consistent language for stage labels and verify that graphical lengths and directions match the stated scale.\n• Review the full video and audio separately to assess synchronization, pacing, transitions, and whether graphics appear between the sampled timestamps.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 8,
+          "attractiveness": 4,
+          "logic_flow": 6,
+          "accuracy_depth": 10,
+          "visual_consistency": 14
+        },
+        "overall_score": 42,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-B8-r1",
+      "method": "fact",
+      "control": "B8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-B8-r1.json",
+      "response_sha256": "7b76a63cf75aee2618fb2d5c6b152c09cc9e53da41c83b161d255bf804217431",
+      "status": "completed"
+    },
+    {
+      "job": "fact-B8-r2",
+      "method": "fact",
+      "control": "B8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-B8-r2.json",
+      "response_sha256": "066764e46f55ec0ca7f43bd86d72542756d5b0add8d34949ff1d7cde66c7e9cd",
+      "status": "completed"
+    },
+    {
+      "job": "tea-B8",
+      "method": "tea",
+      "control": "B8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-B8.json",
+      "response_sha256": "8a4be5e1c4e17d0a52e9feb5dc670a311839f81161a4f6cc22cb67998f980f7c",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame presents a readable numerical softmax normalization step with consistent color coding. However, it shows equations without the proportional bars mentioned in its text, limiting visual explanation. Evidence is restricted to this single frame at 11 seconds; preceding transformations, animation, and other frames cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The three positive masses sum to 6.051, and their displayed normalized values are correctly rounded to 0.061, 0.333, and 0.606, summing to 1. This supports the shared-total normalization concept. Signed inputs and exponentiation are not visible, and the stated proportional mass bars are absent, so this frame illustrates only part of softmax's mechanism.",
+            "score": 3
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, explanation, and three color-coded equations are legible, consistently left-aligned, and free of overlap or clipping. Vertical spacing clearly separates the calculations. However, most of the right and lower frame is empty, and the absence of the referenced bars leaves the visual composition sparse and weakens comparison of the masses.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.0,
+      "range_valid": true
+    },
+    {
+      "job": "aes-B8",
+      "method": "aes",
+      "control": "B8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-B8.json",
+      "response_sha256": "26ae5b52cd0cb74cc073d66fb7dfdef52f472242f7cca37b7e09b45f16ab7498",
+      "status": "completed",
+      "native": {
+        "element_layout": 14.0,
+        "attractiveness": 12.0,
+        "logic_flow": 15.0,
+        "accuracy_depth": 16.0,
+        "visual_consistency": 17.0,
+        "overall_score": 74.0,
+        "detailed_feedback": "**Element Layout (14 points):**\nThe six sampled frames use readable light text on a dark background, a stable title, and clearly separated rows. Cyan, purple, and orange reliably connect each class with its values and bars. However, the graphics occupy relatively little of the available space, leaving large empty areas while explanatory text remains modest in size. At 4.00 seconds, the exponential bars are extremely small and hard to interpret. The shared-total frame at 8.00 seconds shows only a number, missing an opportunity to arrange all three contributions visibly around their sum. The final stacked bar is useful but spatially separated from its class labels. These samples do not establish a persistent presentation-left/animation-right division; the assessment therefore concerns the layouts actually visible.\n\n**Attractiveness (12 points):**\nThe restrained dark theme and three contrasting class colors create a clean, coherent appearance. The final segmented probability bar provides a meaningful visual payoff. Nevertheless, the sampled presentation is dominated by text and plain rectangles, with limited visual variety or emphasis. The large unused regions and repeated header make several stages feel visually sparse. The shared-total idea could become more engaging through a visible collection of the three colored masses into one whole. Animation fluidity, effects, and sustained engagement cannot be judged from still frames.\n\n**Logic Flow (15 points):**\nThe sampled sequence follows an appropriate scaffold: signed inputs at 1.00 seconds, exponential values at 4.00 and 6.50 seconds, a shared sum at 8.00 seconds, division by that sum at 11.00 seconds, and normalized probabilities at 17.50 seconds. This progression aligns directly with the learning objective. However, the intermediate total and division stages remove the visible bars, so the learner must mentally connect the original masses to the final segments. The repeated sentence also mentions a total of 1 before clearly distinguishing it from the unnormalized total of 6.051. Actual pacing, transitions, narration, and any explanations between the supplied timestamps are unavailable for evaluation.\n\n**Accuracy & Depth (16 points):**\nThe displayed mathematics is correct to the stated precision: exp(-1) is approximately 0.368, exp(0.7) approximately 2.014, and exp(1.3) approximately 3.669; their unrounded sum rounds to 6.051. Normalizing yields approximately 0.061, 0.333, and 0.606, whose displayed values sum to 1. The 6.50-second bars and final stacked segments appear consistent with the corresponding ratios. The example appropriately includes a negative input that becomes a positive mass. However, the visible text does not explicitly state that exponentiation makes every real input positive, nor provide the general softmax formula. Rounded calculations use equality signs rather than approximation signs. The statement that the three terms ultimately form total 1 needs clearer qualification: normalized probabilities sum to 1, whereas the exponential masses sum to approximately 6.051. These are mathematical observations separate from aesthetic judgments; no unseen content is assumed.\n\n**Visual Consistency (17 points):**\nAcross the samples, background, typography, title placement, and class colors remain consistent. The same colors connect input labels, exponential masses, division expressions, and final probabilities, supporting visual tracking. Formatting is generally uniform. English stage labels embedded in an otherwise Chinese presentation slightly weaken language cohesion. The disappearance of graphics during intermediate stages and relocation into a final stacked bar reduce spatial continuity, although the unseen transitions may provide connections. Consistency of motion, timing, and interpolation cannot be assessed from the supplied stills.\n\n**Overall Summary:**\nBased only on six timestamped still frames, this is a mathematically sound and logically ordered introduction to softmax. It shows the intended numerical transformation and ends with a useful representation of probabilities sharing total 1. Its teaching would improve by explicitly explaining positivity and preserving visual links from separate exponential masses through their shared denominator to normalized segments. These scores are provisional assessments of sampled visual evidence, not verification of the complete video, audio, pacing, or animation quality.\n\n**Key Strengths:**\n• Correct numerical example containing both negative and positive inputs.\n• Clear progression from logits through exponentiation and common-total division to probabilities.\n• Stable class colors support tracking across the sampled stages.\n• Final stacked bar communicates a shared probability total of 1.\n\n**Areas for Improvement:**\n• Explicitly state that exp(z) is positive for every real input, highlighting the transformation of -1 into approximately 0.368.\n• Display p_i = exp(z_i) / sum_j exp(z_j) alongside the worked example and use approximation signs for rounded values.\n• Visually assemble the three colored masses into their shared total of approximately 6.051 before showing normalization.\n• Keep the masses visible during division and connect them clearly to the final probability segments.\n• Distinguish the exponential-mass total from the normalized probability total in the persistent explanatory text.\n• Enlarge the central graphics, place labels nearer their corresponding marks, and use consistent instructional language.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 14,
+          "attractiveness": 12,
+          "logic_flow": 15,
+          "accuracy_depth": 16,
+          "visual_consistency": 17
+        },
+        "overall_score": 74,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-D3-r1",
+      "method": "fact",
+      "control": "D3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-D3-r1.json",
+      "response_sha256": "6d8241fa5dd039e9d036ca1b9f6a0290f05ef049a41ae50bdaec760a8bd441a3",
+      "status": "completed"
+    },
+    {
+      "job": "fact-D3-r2",
+      "method": "fact",
+      "control": "D3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-D3-r2.json",
+      "response_sha256": "e46e864ecc2ea04db18037fcb6d81910ecca17a7cce16be867a9ada2a87ef18a",
+      "status": "completed"
+    },
+    {
+      "job": "tea-D3",
+      "method": "tea",
+      "control": "D3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-D3.json",
+      "response_sha256": "3e31efc48d32ab01291c1411d1c7846fc1da24a8c249031fee54cbb4c1d965ef",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame clearly presents the normalization stage of softmax using three color-coded numerical divisions by a shared total. However, the text refers to proportional bars that are not visible, leaving the explanation primarily textual. Evidence is limited to this single frame at 11 seconds; earlier transformations, motion, and the full derivation cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The positive masses 0.368, 2.014, and 3.669 sum to the displayed denominator 6.051. Their displayed normalized values, 0.061, 0.333, and 0.606, are consistent with rounding and sum to 1. This directly supports softmax normalization. Signed inputs and exponentiation are not shown, and the proportional bars mentioned in the caption are absent, limiting the visual demonstration of the complete concept.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The heading, explanatory text, and three color-coded equations are legible against the dark background, with consistent left alignment and no visible overlap or clipping. The equations are comfortably spaced. However, most of the right and lower frame is empty, and the missing bars leave the promised length comparison unavailable. The layout communicates the arithmetic clearly but makes limited use of the available space.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-D3",
+      "method": "aes",
+      "control": "D3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-D3.json",
+      "response_sha256": "968223e25a5f98a807885d54271917fd5554edf27a98a60491df39e2caf7024b",
+      "status": "completed",
+      "native": {
+        "element_layout": 13.5,
+        "attractiveness": 12.5,
+        "logic_flow": 15.0,
+        "accuracy_depth": 16.0,
+        "visual_consistency": 17.0,
+        "overall_score": 74.0,
+        "detailed_feedback": "**Element Layout (13.5 points):**\nThe six sampled frames show readable light text on a dark background, a stable header, and neatly aligned rows. Cyan, purple, and orange distinguish the three classes. However, the visual demonstration occupies a small portion of the available space, leaving substantial empty areas. At 4.00 seconds, the exponential bars are tiny marks that are difficult to compare; at 6.50 seconds, they are clearer but still modest in size. The shared-total frame at 8.00 seconds contains only a numerical statement beneath the header, missing an opportunity to use the space to show the three contributions combining. The final stacked bar is prominent, but its separation from the class labels requires learners to rely on color matching. The contact sheet's two columns represent different timestamps, not evidence of a simultaneous presentation-left/animation-right layout.\n\n**Attractiveness (12.5 points):**\nThe restrained dark palette and three distinct accent colors provide a clean, cohesive appearance. The final segmented bar offers an immediately recognizable part-to-whole representation. Nevertheless, most sampled compositions are sparse and text-led, with little visual emphasis on the important transformations. The intermediate bars have limited visual presence, and the shared-total stage is especially visually thin. A more prominent progression from signed inputs to positive masses to a shared whole would make the mathematical mechanism more engaging. Still frames cannot establish animation fluidity, effects quality, or sustained attention.\n\n**Logic Flow (15.0 points):**\nThe sampled sequence follows a sound instructional order: signed logits at 1.00 seconds, exponential values at 4.00 and 6.50 seconds, their common total at 8.00 seconds, division by that total at 11.00 seconds, and normalized probabilities at 17.50 seconds. This scaffolding directly supports the learning objective. However, the sampled shared-total and division stages do not preserve the bars alongside the arithmetic, weakening the visible connection between mass, denominator, and probability. The repeated explanatory sentence also describes an eventual total of 1 while the current exponential total is 6.051; clearer stage-specific wording would reduce confusion. The timestamps establish ordering but do not establish actual dwell times, transition quality, narration synchronization, or whether intervening frames supply missing connections.\n\n**Accuracy & Depth (16.0 points):**\nThe displayed example is numerically correct to the shown precision: exp(-1) is approximately 0.368, exp(0.7) approximately 2.014, and exp(1.3) approximately 3.669. Their total rounds to 6.051, and the normalized probabilities round to 0.061, 0.333, and 0.606, summing to 1.000. The 6.50-second bar lengths and final segment widths appear consistent with these relative values. Including a negative input usefully demonstrates that exponentiation produces a positive contribution. However, the sampled text does not explicitly state the general rule exp(z) > 0 or show the general softmax formula. The common denominator is displayed correctly but is not visibly constructed from the three terms at the shared-total stage. Distinguishing unnormalized exponential mass from probability, and explicitly explaining why division by the sum makes the probabilities total 1, would strengthen conceptual depth. Approximation symbols would also be more mathematically precise than equality signs for rounded exponential and division results.\n\n**Visual Consistency (17.0 points):**\nAcross all six samples, the background, header placement, typography, and class-color mapping remain consistent. The same cyan, purple, and orange carry from input labels through exponential values and division results into the final stacked bar, supporting identity tracking. The plain rectangular bars match the otherwise minimal design. There are some integration weaknesses: intermediate stages remove the graphical representation, and the final composition relocates the quantitative display below the class list. English stage labels within otherwise Chinese instructional content also slightly interrupt the presentation's linguistic uniformity. Temporal consistency and smoothness cannot be judged from these still images.\n\n**Overall Summary:**\nBased only on six timestamped still frames, this is a mathematically sound and logically ordered softmax demonstration with consistent class colors and a useful final part-to-whole graphic. It supports the intended knowledge point, but the visible evidence communicates the numerical procedure more strongly than the continuous transformation from signed inputs to positive masses sharing a normalized total. The approach is suitable for an introductory explanation, especially if the missing visual connections are strengthened. No full video or audio was supplied, so this assessment cannot verify motion quality, pacing, narration, synchronization, or content between the sampled timestamps.\n\n**Key Strengths:**\n• Correct numerical example includes both negative and positive inputs.\n• Instructional stages follow the actual softmax computation in a sensible order.\n• Persistent class colors help connect inputs, exponential masses, and probabilities.\n• Final stacked bar visibly represents three probabilities sharing one total of 1.\n• Stable typography and high-contrast text support readability.\n\n**Areas for Improvement:**\n• Enlarge intermediate bars so their relative magnitudes are easy to compare.\n• Keep each input, its exponential mass, and its probability visibly linked throughout the transformation.\n• Construct the denominator explicitly as 0.368 + 2.014 + 3.669, approximately 6.051, while showing all three contributions.\n• Show the combined mass being rescaled to a unit-length whole while preserving the three proportions.\n• State that exponentials are always positive and include p_i = exp(z_i) / sum_j exp(z_j).\n• Use stage-specific captions to distinguish the unnormalized total 6.051 from the normalized total 1.\n• Use approximation symbols for rounded values and place probability labels closer to their final segments.\n• Assess full video and audio separately before drawing conclusions about timing, transitions, or synchronized instruction.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 13.5,
+          "attractiveness": 12.5,
+          "logic_flow": 15.0,
+          "accuracy_depth": 16.0,
+          "visual_consistency": 17.0
+        },
+        "overall_score": 74.0,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-K6-r1",
+      "method": "fact",
+      "control": "K6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-K6-r1.json",
+      "response_sha256": "eb06bb704bd74381d48f628d7ed8ba94e86199831d91bbbe417fca8ac132afc5",
+      "status": "completed"
+    },
+    {
+      "job": "fact-K6-r2",
+      "method": "fact",
+      "control": "K6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-K6-r2.json",
+      "response_sha256": "deea219d7585c0b3ad6d0d60e39ca6c8b0d35f6add34ff1d57154cbbfe14e5f0",
+      "status": "completed"
+    },
+    {
+      "job": "tea-K6",
+      "method": "tea",
+      "control": "K6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-K6.json",
+      "response_sha256": "724256fd92a6792dbcfcbaf8cb3536dfff368d767e0cb8b112b21d8411f32354",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame clearly presents the normalization stage of softmax through three color-coded calculations. However, it relies on text and leaves most of the canvas empty. Evidence is limited to the single supplied frame at 11 seconds; preceding derivations, motion, and subsequent visuals cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The positive masses 0.368, 2.014, and 3.669 sum to the shared denominator 6.051. Their displayed normalized probabilities are correctly rounded and sum to 1, supporting the normalization concept. Signed inputs and exponentiation are not visible. The text references proportional bar lengths, but no bars are visible in this frame, limiting the visual demonstration of the concept.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The heading, explanatory text, and three calculations are consistently left-aligned, readable, and free of overlap. Distinct colors separate the quantities against the dark background. However, the content occupies only the upper-left portion of the frame, leaving substantial unused space to the right and below. The absent referenced bars and relatively small calculations weaken the visual hierarchy and explanatory use of the canvas.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-K6",
+      "method": "aes",
+      "control": "K6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-K6.json",
+      "response_sha256": "d3401a514d10860d43ac9cdf7aa0a6829c2026fe90d120a09760ae63ee84d8fd",
+      "status": "completed",
+      "native": {
+        "element_layout": 13.0,
+        "attractiveness": 11.0,
+        "logic_flow": 14.0,
+        "accuracy_depth": 10.0,
+        "visual_consistency": 16.0,
+        "overall_score": 64.0,
+        "detailed_feedback": "**Element Layout (13 points):**\nThe six frames show readable light text on a dark background, aligned category labels, and stable title placement. Text generally occupies the left and graphics the right within each frame; the contact sheet itself is not a presentation/animation split. Much of the available space remains unused, while the explanatory subtitle is relatively small. At 4.00 seconds the exponential bars are tiny and difficult to interpret. The shared-total and division stages become mostly text, leaving the visual area empty. Enlarging the central demonstration and retaining the three masses alongside their calculations would improve hierarchy and spatial continuity.\n\n**Attractiveness (11 points):**\nThe cyan, purple, and orange palette distinguishes the categories clearly against the dark background. The restrained styling is appropriate for a mathematical explanation, and the final segmented bar provides a useful visual payoff. However, most sampled frames resemble sparse text slides, with limited visual development beyond basic rectangles. English stage labels mixed with Chinese explanations also give the presentation a technical prototype feel. A visible transformation from signed inputs to positive masses, followed by their assembly into one normalized bar, could make the mechanism more engaging. Animation smoothness, effects, and sustained attention cannot be assessed from still frames.\n\n**Logic Flow (14 points):**\nThe sampled sequence follows the correct instructional order: signed inputs at 1.00 seconds, exponentiation at 4.00 and 6.50 seconds, a shared denominator at 8.00 seconds, division at 11.00 seconds, and normalized probabilities at 17.50 seconds. This is suitable scaffolding for the stated knowledge point. However, the masses disappear when the total is introduced, and the normalization stage shows arithmetic without a corresponding visual transformation. These choices weaken the connection between individual masses, their shared sum, and the final unit total. Explicitly displaying the summation and carrying the same objects through division would strengthen the causal explanation. The samples establish stage order but cannot establish actual pacing or transition quality.\n\n**Accuracy & Depth (10 points):**\nThe numerical example is correct to the displayed precision: exp(-1) ≈ 0.368, exp(0.7) ≈ 2.014, and exp(1.3) ≈ 3.669; their unrounded sum rounds to 6.051, and the normalized probabilities round to 0.061, 0.333, and 0.606. The final segmented bar appears consistent with those probabilities. However, the exponential bars at 6.50 seconds have approximate lengths of 101, 205, and 310 pixels, a ratio of about 1:2:3, whereas the stated masses require approximately 1:5.47:9.97. This directly conflicts with the subtitle's claim that bar length is proportional to exponential mass. If this frame is an intermediate animation state, the sample still does not provide a verified proportional endpoint. The subtitle also leaves ambiguous that normalized probabilities, rather than raw exponential masses, sum to one. The example demonstrates a negative input becoming positive, but does not explicitly explain that exponentiation makes every finite real input positive. Add p_i = exp(z_i)/Σ_j exp(z_j), a visible sum, and a brief positivity explanation. Advanced implementation details are unnecessary for this introductory objective.\n\n**Visual Consistency (16 points):**\nThe background, title, category colors, and typography remain consistent across all six samples. Color identity carries successfully from inputs through exponentials and division to the final stacked bar, helping learners track the categories. Spatial continuity is weaker: the graphic vanishes during the shared-total and normalization stages, then returns lower in the final frame. The exponential bars and final probability segments also use inconsistent quantitative proportions, despite representing masses related by a common scale factor. Preserve category positions and use a coherent length encoding throughout. Temporal consistency and animation timing cannot be verified from these samples.\n\n**Overall Summary:**\nBased only on six timestamped still frames, the presentation partially succeeds in teaching Softmax through a correct numerical sequence and consistent category colors. Its most consequential weakness is that the visible exponential-bar proportions contradict their labels and the stated proportional encoding. The final unit-total bar communicates normalization more successfully. Correct the mass geometry, retain the quantities during summation and division, and explicitly distinguish the raw total of 6.051 from the normalized total of 1. No full video or audio was supplied, so narration, motion quality, intervening explanations, synchronization, and actual pacing remain unassessed.\n\n**Key Strengths:**\n• Correct displayed exponential values, shared total, and normalized probabilities to the shown precision.\n• Logical progression from signed inputs through exponentiation to normalization.\n• Stable category colors support tracking across stages.\n• Final segmented bar effectively depicts probabilities sharing one unit total.\n\n**Areas for Improvement:**\n• Scale exponential bars in the ratio 0.368:2.014:3.669; any displayed proportional comparison should preserve that relationship.\n• Show the three positive masses being summed, and keep them visible while dividing each by the same denominator.\n• Explicitly state that exponentiation produces positive masses and normalization makes their probabilities sum to one.\n• Add the general Softmax formula and visually connect each part to the numerical example.\n• Enlarge the main graphics and use the available space to connect labels, calculations, and quantities.\n• Use learner-facing stage labels in a consistent language and retain spatial continuity across stages.\n• Review the full video separately to assess narration, transition continuity, synchronization, and comprehension time.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 13,
+          "attractiveness": 11,
+          "logic_flow": 14,
+          "accuracy_depth": 10,
+          "visual_consistency": 16
+        },
+        "overall_score": 64,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-M1-r1",
+      "method": "fact",
+      "control": "M1",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-M1-r1.json",
+      "response_sha256": "1b62dce1ba9b4c8b6bc37aaa4f7763e42695cd46e74bff979a3788d1b2b62933",
+      "status": "completed"
+    },
+    {
+      "job": "fact-M1-r2",
+      "method": "fact",
+      "control": "M1",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-M1-r2.json",
+      "response_sha256": "641b6a9ab7e65afd633396507a0f5294d829b28b4c2d639b0ad75e5afe0be9a8",
+      "status": "completed"
+    },
+    {
+      "job": "tea-M1",
+      "method": "tea",
+      "control": "M1",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-M1.json",
+      "response_sha256": "7d58b061801cdc1ceef3f2a4f0286e8c82818a54bb2dfb68c550fd5bcf94da81",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame clearly presents the normalization stage of softmax using three color-coded exponential masses and a shared total. The equations are consistent at the displayed precision, but the frame is text-heavy and leaves substantial unused space. Evidence is limited to this single frame at 11 seconds; preceding transformations, animation behavior, and the full explanation cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The displayed masses 0.368, 2.014, and 3.669 are positive and sum to 6.051. Dividing each by this shared total gives the displayed probabilities 0.061, 0.333, and 0.606, which sum to 1. This directly supports softmax normalization. However, signed inputs and their exponential transformation are not visible. The subtitle refers to proportional bar lengths, but no bars are visible in this frame, limiting the visual demonstration of relative mass.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, explanatory text, and three equations are consistently left-aligned, readable, and free of overlap. Cyan, purple, and orange distinguish the terms against the dark background. However, the content occupies mainly the upper-left portion, leaving most of the right and lower areas empty. The small equations and absent bars make the composition feel sparse and provide limited graphical support for comparing the quantities.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-M1",
+      "method": "aes",
+      "control": "M1",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-M1.json",
+      "response_sha256": "4e3868ea28c375dccf82cb6ddbd572043d373383b6ace952d6d03e70d47dadbc",
+      "status": "completed",
+      "native": {
+        "element_layout": 9.0,
+        "attractiveness": 6.0,
+        "logic_flow": 14.0,
+        "accuracy_depth": 13.0,
+        "visual_consistency": 16.0,
+        "overall_score": 58.0,
+        "detailed_feedback": "**Element Layout (9 points):**\nThe six supplied frames show legible light text on a dark background, stable left alignment, and consistent category colors. The title, stage label, and explanatory sentence establish a basic hierarchy. However, the instructional content occupies a small portion of each frame, leaving substantial unused space. No distinct presentation-and-animation arrangement or visible graphical teaching area is apparent. The statement that bar lengths represent exponential masses is unsupported by any visible bars in these samples. The shared total and final probability labels are spatially separated without connectors or a visible common container. Larger mathematical content and an integrated quantitative diagram would make the layout more useful for learning.\n\n**Attractiveness (6 points):**\nThe restrained dark palette and cyan, purple, and orange category coding are harmonious and provide recognizable identities. Nevertheless, the sampled presentation is almost entirely text, with little visual variation or illustration. The exponential stage appears essentially unchanged between 4.0 and 6.5 seconds, though intervening motion cannot be assessed. No visible mass bars, combining operation, or probability partition provides a compelling visual representation of the concept. The result is orderly but visually sparse. Animation quality, effects, and sustained engagement cannot be established from still frames alone.\n\n**Logic Flow (14 points):**\nThe sampled sequence follows an appropriate instructional order: signed logits at 1.0 seconds, exponentials at 4.0 and 6.5 seconds, a shared total at 8.0 seconds, division by that total at 11.0 seconds, and normalized probabilities at 17.5 seconds. This scaffolding makes the numerical procedure traceable. Consistent category colors help connect inputs and outputs. However, stages mostly replace one another, limiting direct comparison, and the total is presented without a visible addition expression connecting its three contributors. English stage labels within Chinese instructional text may also reduce accessibility for some learners. The timestamps establish sequence, but transition smoothness, narration synchronization, and actual pacing remain unverified.\n\n**Accuracy & Depth (13 points):**\nThe displayed calculations are correct to the stated precision: exp(-1) ≈ 0.368, exp(0.7) ≈ 2.014, and exp(1.3) ≈ 3.669; their unrounded sum rounds to 6.051. The normalized probabilities round to 0.061, 0.333, and 0.606 and sum to 1.000 at the displayed precision. The negative input is a useful example of exponentiation producing a positive value. However, the supplied frames do not explicitly explain that every exponential is positive, show the general softmax formula, or explain why dividing every mass by the same sum produces probabilities totaling one. The repeated claim about proportional bar lengths and the final claim about filling a shared total are not demonstrated graphically in the visible evidence. The example teaches calculation more effectively than the intended mass-and-shared-total interpretation.\n\n**Visual Consistency (16 points):**\nBackground, title placement, text styling, and category colors remain consistent across the six samples. Cyan consistently identifies category 1, purple category 2, and orange category 3, providing continuity through the numerical transformations. The shared total uses neutral text appropriately. The final stage changes vertical spacing and places the concluding statement farther toward the center, slightly weakening spatial continuity. Mixed Chinese and English labels and inconsistent spacing around some mathematical expressions could be standardized. These frames support a judgment of strong static consistency, but they cannot establish coherent motion timing or smooth integration of animated elements.\n\n**Overall Summary:**\nBased only on six timestamped still frames, this presentation offers a correct, logically ordered numerical softmax example but only partially teaches the intended visual concept. Signed inputs become positive exponentials and then probabilities through a shared denominator, yet proportional masses and the common unit total are stated rather than visibly demonstrated. No full video or audio was supplied, so motion quality, transitions, narration, synchronization, and continuous pacing cannot be evaluated. The teaching approach is suitable as a worked calculation; adding quantitative graphics and explicit conceptual explanations would make it substantially more effective.\n\n**Key Strengths:**\n• Correct exponential values, shared denominator, and normalized probabilities at the displayed precision.\n• Clear progression from signed inputs to exponentiation, summation, division, and final probabilities.\n• Stable category colors help learners trace corresponding values across stages.\n• The negative input concretely illustrates that an exponential output can be positive despite a negative logit.\n• Readable contrast and consistent static styling across the sampled frames.\n\n**Areas for Improvement:**\n• Show signed inputs around a zero baseline, then transform them into positive exponential bars using a common linear scale.\n• Display the sum explicitly: Z = exp(-1) + exp(0.7) + exp(1.3) ≈ 6.051, with visual connections to all three masses.\n• Scale all three masses by the same denominator and assemble the resulting colored segments into a visible unit-total bar.\n• Add the general formula p_i = exp(z_i) / Σ_j exp(z_j), explaining positivity and why the probabilities sum to one.\n• Keep input, exponential mass, and probability values available for comparison through aligned rows or persistent labels.\n• Increase the size and spatial prominence of the main teaching graphics, and standardize stage-label language and notation.\n• Review the full video and audio separately to assess motion, pacing, transitions, and narration synchronization.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 9,
+          "attractiveness": 6,
+          "logic_flow": 14,
+          "accuracy_depth": 13,
+          "visual_consistency": 16
+        },
+        "overall_score": 58,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-P5-r1",
+      "method": "fact",
+      "control": "P5",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-P5-r1.json",
+      "response_sha256": "955163ea1e08d738f7530a7abe449292e63c7a87928886683d1cea7adb987fc9",
+      "status": "completed"
+    },
+    {
+      "job": "fact-P5-r2",
+      "method": "fact",
+      "control": "P5",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-P5-r2.json",
+      "response_sha256": "df995b9ca5a4982f1fa015967fb00305e18e98d960a6d7c9a2ec86fe0196f679",
+      "status": "completed"
+    },
+    {
+      "job": "tea-P5",
+      "method": "tea",
+      "control": "P5",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-P5.json",
+      "response_sha256": "4654caab1b2104906bbc48003efb654fc3ac7794280397fa92840ca31bb20ca6",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame broadly illustrates residual addition with three numerically correct signed component examples and a consistent length scale. However, the purple sum mentioned in the legend is not visibly distinguishable, leaving the result primarily communicated through text. Evidence is limited to the single supplied frame at 11 seconds; motion, surrounding explanation, and the full video cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The unchanged blue inputs and orange corrections starting at their endpoints align with componentwise residual addition. All displayed sums are correct: 0.7−0.2=0.50, −0.4+0.15=−0.25, and 0.2−0.3=−0.10. Direction and scale annotations support interpretation. The promised purple resultant is not clearly visible, and the frame does not explicitly identify the corrections as illustrative or state that no trained weights are involved.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "High-contrast text, separated rows, and a common horizontal origin make the examples reasonably readable without unintended text overlap. However, the vectors are small relative to the frame, much of the right side is unused, and orange corrections overlap portions of the blue inputs. Without a distinguishable purple sum or marked origin for each row, the geometric results require inference from the numeric labels.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-P5",
+      "method": "aes",
+      "control": "P5",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-P5.json",
+      "response_sha256": "523195faea99deef332eab473ce652c6ffb899dc25fb99bc0c453369150c7a5e",
+      "status": "completed",
+      "native": {
+        "element_layout": 13.5,
+        "attractiveness": 12.0,
+        "logic_flow": 14.0,
+        "accuracy_depth": 15.0,
+        "visual_consistency": 17.0,
+        "overall_score": 71.5,
+        "detailed_feedback": "**Element Layout (13.5 points):**\nThe six sampled frames show a stable arrangement: title and explanatory text above three vertically separated component examples, with arrows aligned around a common horizontal origin and a scale reference below. Light text on a dark background is readable, and the rows are easy to distinguish. However, the arrows occupy a small portion of the available space, especially for the smallest input and output, while substantial space remains unused. The numerical labels are separated from their corresponding arrows, requiring repeated visual scanning. There are no visible origin markers or projection guides to connect each purple result with the endpoint of its orange correction. Enlarging the diagrams and bringing labels closer would strengthen the hierarchy. The two-column supplied image is a contact sheet of timestamps, so it does not establish a separate presentation-left/animation-right video layout.\n\n**Attractiveness (12.0 points):**\nThe restrained dark background and cyan, orange, and purple arrows provide a harmonious, functional palette. Signed displacement is an appropriate visual metaphor for adding a correction, including a correction that reverses the input's sign. The presentation is visually sparse, however: small arrow lengths, repeated text, and nearly identical compositions offer limited emphasis or variety. The sampled frames do not visibly highlight the active component or the transition from input to correction to sum. Larger vectors, selective emphasis, and a clear result reveal could make the lesson more engaging while preserving mathematical clarity. Animation smoothness and attention retention cannot be judged from still frames.\n\n**Logic Flow (14.0 points):**\nThe timestamps support a sensible progression: input at 1.00 and 4.00 seconds, branches at 6.50 and 8.00 seconds, merging at 11.00 seconds, and output at 17.50 seconds. Blue arrows grow to represent the inputs, orange corrections subsequently appear, and purple sums are visible in the final sample. This ordering supports the intended componentwise-addition explanation. The examples cover a positive input reduced by a negative correction, a negative input partly offset by a positive correction, and a positive input becoming negative. Nevertheless, all numerical sums are already displayed in the first sample, and the merging sample does not yet visibly explain how the resultant is constructed. English stage labels embedded in Chinese instructional text also weaken continuity. A visible equation connecting each stage and a concluding statement about the unchanged input would improve the progression. Six samples cannot establish actual pacing, transition quality, narration synchronization, or what occurs between timestamps.\n\n**Accuracy & Depth (15.0 points):**\nThe displayed arithmetic is correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. In the final sample, arrow directions and approximate relative lengths agree with these values and the displayed unit reference. Orange corrections begin at the blue endpoints, illustrating signed head-to-tail addition, while purple arrows represent the resulting displacement from the original starting position. The established blue inputs appear preserved across later samples, supporting the unchanged-input requirement. However, the visible material does not explicitly identify the corrections as illustrative or state that no trained weights are involved. It also lacks a compact vector equation such as y = x + Δ and an explicit explanation that each row is one corresponding component. The title describes direct input and component addition without explicitly naming residual connection. These omissions leave the arithmetic clearer than its connection to the intended concept. The evidence does not show a false trained-weight claim; it shows that the requested qualification is not visible in the supplied samples.\n\n**Visual Consistency (17.0 points):**\nAcross all six samples, the background, typography, row spacing, explanatory text, color roles, and scale position remain stable. Cyan consistently denotes input, orange correction, and purple output, giving learners a dependable visual vocabulary. The final purple arrows are vertically offset from the input/correction arrows, which helps distinguish results but would benefit from faint shared-origin and endpoint guides. Overlapping cyan and orange segments can obscure the shorter input, particularly in the third example. The mixture of English stage names and Chinese explanatory text creates a minor stylistic inconsistency. Frame-to-frame visual stability is well supported, but temporal consistency, flicker, and motion easing are not assessable from these stills.\n\n**Overall Summary:**\nBased only on six timestamped still frames, this is a mathematically sound and visually consistent illustration of signed componentwise addition. It partially teaches the intended residual-connection concept: preserving the input and adding corrections are visible, but the residual equation, component interpretation, and explicit statement that the corrections are illustrative with no trained weights need strengthening. The pedagogical approach is suitable for this narrow objective, particularly because it includes both partial cancellation and sign reversal. Larger diagrams and clearer construction of the purple resultant would improve comprehension. No full video or audio was supplied, so these scores are provisional visual-content judgments rather than assessments of narration, continuous animation, or complete video pacing.\n\n**Key Strengths:**\n• All three numerical additions are correct and agree with the visible final arrow directions.\n• Examples include positive and negative corrections, partial cancellation, and a sign-changing result.\n• Stable color roles distinguish the preserved input, correction, and output.\n• Head-to-tail correction placement provides an appropriate geometric explanation of signed addition.\n• A unit reference and explicit left/right sign convention support quantitative interpretation.\n\n**Areas for Improvement:**\n• Explicitly name residual connection and display y = x + Δ, identifying each row as a corresponding component.\n• State that the correction values are illustrative and that no trained weights are involved.\n• Enlarge the arrows and place numerical expressions closer to their diagrams.\n• Add origin markers and subtle endpoint guides to show why each purple arrow is the sum.\n• Make the merging stage visibly construct the resultant while keeping the unchanged blue input identifiable.\n• Use consistent instructional language and highlight the active stage or component.\n• Assess full video and audio separately to verify pacing, transition quality, and synchronization.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 13.5,
+          "attractiveness": 12.0,
+          "logic_flow": 14.0,
+          "accuracy_depth": 15.0,
+          "visual_consistency": 17.0
+        },
+        "overall_score": 71.5,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-R8-r1",
+      "method": "fact",
+      "control": "R8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-R8-r1.json",
+      "response_sha256": "f335082a90d91edff500ff8074fa1335190b5bdbfdffb358446e7cea8f3ba2ca",
+      "status": "completed"
+    },
+    {
+      "job": "fact-R8-r2",
+      "method": "fact",
+      "control": "R8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-R8-r2.json",
+      "response_sha256": "cf7b11cf4d882c81a0cc569ed5d1dee0896e4adb66f7fd5fe11b6c9be46646ce",
+      "status": "completed"
+    },
+    {
+      "job": "tea-R8",
+      "method": "tea",
+      "control": "R8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-R8.json",
+      "response_sha256": "2c7ff47d7c13d05d1d1aada2ab28823d8567acd29c2a3480ebc034979baba4c7",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame presents three signed componentwise additions relevant to residual connections. The arithmetic and visible arrow directions are consistent, but the promised purple sum is not discernible. This assessment uses only the supplied frame at 11 seconds; motion, other frames, and whether the missing sum appears later cannot be assessed. The frame does not establish how corrections were obtained or explicitly state that no trained weights are used.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The examples correctly show 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. Blue input arrows and orange corrections starting at the input endpoints illustrate signed addition, including reversal across the origin. However, the purple resultant described in the legend is not visibly distinguishable, weakening the direct depiction of the residual output.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "Text is legible against the dark background, rows are well separated, and the scale provides a useful size reference. No unintended text overlap is apparent. The arrows are relatively small and concentrated toward the center-left, leaving substantial unused space. Overlapping input and correction segments, absent origin markers, and the indiscernible purple sums make the resulting values harder to read visually.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-R8",
+      "method": "aes",
+      "control": "R8",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-R8.json",
+      "response_sha256": "e402b6bfb92cf3ae86047fa274bdc746bad6d8c20bde445732620cef459a2fdb",
+      "status": "completed",
+      "native": {
+        "element_layout": 14.0,
+        "attractiveness": 12.5,
+        "logic_flow": 14.0,
+        "accuracy_depth": 15.0,
+        "visual_consistency": 17.0,
+        "overall_score": 72.5,
+        "detailed_feedback": "**Element Layout (14 points):**\nThe six supplied frames show a stable layout with a title, explanatory legend, three aligned component examples, and a scale reference. Light text contrasts clearly with the dark background. However, the arrows occupy a small fraction of the available area, leaving substantial unused space while the instructional graphics remain relatively small. Numerical labels sit apart from the corresponding arrow endpoints, requiring learners to connect quantities and geometry mentally. Overlapping blue and orange segments obscure parts of the unchanged input, particularly in the third example. Enlarging the diagrams and adding aligned zero markers would improve readability and comparison. The two-column contact sheet represents different timestamps, so it should not be interpreted as the video's presentation-versus-animation split.\n\n**Attractiveness (12.5 points):**\nThe restrained dark background and cyan, orange, and purple palette provide clear role differentiation. Directed arrows are an appropriate visual representation of signed scalar addition. Nevertheless, the composition is sparse and visually repetitive, with small graphics and little emphasis on the important moment when the correction changes the result. The output frame introduces a useful purple comparison, but could make the relationship more engaging through clearer endpoint correspondence and a prominent equation. Actual animation fluidity, effects, and attention retention cannot be assessed from still frames.\n\n**Logic Flow (14 points):**\nThe sampled sequence progresses sensibly from input at 1 and 4 seconds, to corrections at 6.5 and 8 seconds, to merging at 11 seconds, and output at 17.5 seconds. This supports the intended explanation that an input is retained and a signed correction is added. The examples include a positive input reduced by a negative correction, a negative input increased by a positive correction, and a correction large enough to reverse the sign. However, all numerical sums are displayed from the beginning, so the visual progression reveals construction rather than inviting prediction. The 11-second merging frame does not visibly explain merging beyond the already established overlapping arrows. English stage labels within Chinese instructional text also weaken continuity. Smooth transitions and appropriate pacing cannot be verified from these six samples, and no audio explanation is available.\n\n**Accuracy & Depth (15 points):**\nAll three displayed sums are correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. In the completed examples, arrow directions and approximate relative lengths agree with these values. Orange corrections begin at blue endpoints, and the final purple arrows represent the resulting signed quantities on vertically offset rows. This is a sound illustration of componentwise addition. However, the visible material does not explicitly state that these are illustrative corrections with no trained weights, which is part of the specified learning objective. It also lacks an explicit residual equation such as y = x + Δx and component indices that establish the three rows as components of one vector. The title and legend suggest an unchanged input, but overlapping correction arrows make that preservation harder to inspect. A labeled identity path, aligned origins, and an explicit statement about illustrative values would strengthen conceptual precision without adding unnecessary model detail.\n\n**Visual Consistency (17 points):**\nAcross the six frames, typography, background, row spacing, legend, scale placement, and color meanings remain consistent. The final purple outputs match the role announced in the legend. This stable visual vocabulary supports comparison across stages. Minor weaknesses include mixed Chinese and English labeling and uneven decimal precision across the numerical examples. The vertically offset outputs would integrate more clearly with the original arrows if they shared visible zero guides. Consistency between sampled states is strong, but temporal consistency, motion timing, and transition smoothness remain unverified.\n\n**Overall Summary:**\nBased only on six timestamped still frames, this is a mathematically correct, visually consistent illustration of signed addition that partially teaches the intended residual-connection concept. Its strongest feature is the set of examples, including sign reversal. Its main limitations are small diagrams, overlapping arrows, and insufficiently explicit connections to vector components, the unchanged identity input, and the absence of trained weights. The instructional approach is suitable for this narrow concept, but would benefit from clearer mathematical labeling and a more explanatory final state. These scores assess visible sampled evidence, not the full video; audio, continuous motion, transitions, and overall pacing were unavailable.\n\n**Key Strengths:**\n• All three numerical sums are correct and agree with the final arrow directions.\n• Examples cover positive and negative inputs, opposing corrections, and sign reversal.\n• Stable colors distinguish input, correction, and output.\n• Head-to-tail arrow placement provides a useful geometric explanation of signed addition.\n• The sampled progression separates input, correction, and output stages.\n\n**Areas for Improvement:**\n• Add y = x + Δx and label the rows as components of the same vector.\n• Explicitly state that correction values are illustrative and no trained weights are involved.\n• Enlarge the arrows and place numerical labels nearer the quantities they describe.\n• Add aligned zero guides and endpoint markers to make signed lengths and outputs easier to compare.\n• Keep the full unchanged input distinguishable where the correction overlaps it.\n• Use consistent instructional language and numerical formatting.\n• Make the merging stage visibly connect correction endpoints to the final outputs, and end with a concise statement of componentwise addition.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 14,
+          "attractiveness": 12.5,
+          "logic_flow": 14,
+          "accuracy_depth": 15,
+          "visual_consistency": 17
+        },
+        "overall_score": 72.5,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-S3-r1",
+      "method": "fact",
+      "control": "S3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-S3-r1.json",
+      "response_sha256": "c4a23ceb96b3c3960a660ecbfdfd7d6b0c0070dd793b5c958592f88820a2767d",
+      "status": "completed"
+    },
+    {
+      "job": "fact-S3-r2",
+      "method": "fact",
+      "control": "S3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-S3-r2.json",
+      "response_sha256": "4e0eca6d7c325e185eaef679cedb741eac049a8eceafa3b7b3dbec5abafd3a98",
+      "status": "completed"
+    },
+    {
+      "job": "tea-S3",
+      "method": "tea",
+      "control": "S3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-S3.json",
+      "response_sha256": "c52079f0280f70fb41f29bc90c8189e59d9642a339aef8fac1323a857e19e298",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame illustrates componentwise residual addition using three signed numerical examples and horizontal arrows. The arithmetic is correct, and no trained weights are claimed. However, the purple sum described in the text is not visibly distinguishable. Evidence is limited to the single supplied frame at 11 seconds; animation progression, other frames, and the full explanation cannot be assessed.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The unchanged blue input and orange correction starting at its endpoint appropriately represent residual addition. All three examples are correct: 0.7−0.2=0.50, −0.4+0.15=−0.25, and 0.2−0.3=−0.10. Direction and length appear consistent with the stated scale of 160 pixels per unit. The missing or indistinguishable purple resultant weakens the explicit visualization of the sum, particularly for the correction that crosses zero.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, explanatory text, three example rows, and scale reference are separated clearly, with readable contrast and no apparent unintended text overlap. However, the arrows are small relative to the frame, substantial space on the right is unused, and overlapping collinear arrows make the components harder to distinguish. The promised purple sum is not clearly visible, reducing immediate clarity.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-S3",
+      "method": "aes",
+      "control": "S3",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-S3.json",
+      "response_sha256": "4400c9831fa53e45736cd0b8acbc77c315593a88ee2acfbbc2647908c0da7f02",
+      "status": "completed",
+      "native": {
+        "element_layout": 14.0,
+        "attractiveness": 12.0,
+        "logic_flow": 13.0,
+        "accuracy_depth": 6.0,
+        "visual_consistency": 16.0,
+        "overall_score": 61.0,
+        "detailed_feedback": "**Element Layout (14 points):**\nThe six supplied frames show a stable arrangement: title and explanation above three labeled component examples, with arrows aligned by row and a scale reference below. Light text on a dark background is readable, and repeated positions support comparison. However, arrows occupy a small portion of the available space, leaving substantial unused space on the right. Numerical labels are separated from the corresponding arrow geometry, increasing comparison effort. Blue and orange arrows overlap on the same line, making endpoints and the unchanged input difficult to distinguish, particularly in the third example. Larger diagrams, explicit zero markers, and closer label placement would improve instructional clarity.\n\n**Attractiveness (12 points):**\nThe restrained dark background and cyan, orange, and purple palette provide clear contrast and a professional baseline. Signed arrows are an appropriate visual metaphor for componentwise addition. Nevertheless, the presentation is visually sparse, with small arrowheads, limited hierarchy, and considerable empty space. The sampled states show progressive construction, but the still frames cannot establish animation smoothness, transition quality, or sustained engagement. Enlarging the mathematical action and emphasizing the active component would make the lesson more engaging without unnecessary decoration.\n\n**Logic Flow (13 points):**\nThe timestamps and stage labels suggest a sensible progression from input to branches, merging, and output. Drawing the unchanged input before attaching a correction at its endpoint is pedagogically suitable. The examples cover a positive input with a negative correction, a negative input with a positive correction, and a correction that reverses the input's sign. However, all numerical answers appear from the first sampled frame, reducing the sense of discovery. The sampled merging state does not visibly clarify how the resultant is constructed, and the final purple arrows contradict the stated sums, undermining the conclusion. English stage labels mixed with Chinese explanations also add avoidable friction. Actual pacing and transitions cannot be judged from these six stills.\n\n**Accuracy & Depth (6 points):**\nThe written arithmetic is correct: 0.7 + (-0.2) = 0.50, -0.4 + 0.15 = -0.25, and 0.2 + (-0.3) = -0.10. The blue inputs and final orange corrections appear broadly consistent with the stated signed quantities and scale. The decisive error is in the final purple result arrows: all point right, although the second and third sums must point left. Relative to the displayed unit scale, their lengths appear approximately 0.85, 0.10, and 0.25 units, rather than 0.50, 0.25, and 0.10. Even the first positive result appears longer than its input despite a negative correction. This directly misrepresents the target operation. The frames also do not explicitly identify the correction as illustrative and untrained, or provide a compact componentwise equation such as y_i = x_i + c_i. An explicit identity-path explanation would better connect the arithmetic to residual connections. No audio is available to assess whether narration supplies these missing qualifications.\n\n**Visual Consistency (16 points):**\nTypography, background, row spacing, title placement, scale position, and color assignments remain stable across the supplied frames. Purple results are placed on separate lines, which helps distinguish them from the input-and-correction construction. However, overlapping cyan and orange segments weaken the visibility of the unchanged input. More seriously, the purple geometry fails to follow the same signed direction and scale conventions as the other arrows, breaking the visual encoding at the conclusion. Temporal consistency and motion quality remain unassessable from isolated frames.\n\n**Overall Summary:**\nThis evaluation is limited to six timestamped still frames; no full video or audio was supplied. The presentation offers a readable, consistent foundation and an appropriate signed-arrow approach to componentwise residual addition. However, the final result arrows visibly contradict the correct written arithmetic, so the sampled lesson does not reliably teach the intended knowledge point. Correct the result geometry first, then explicitly label the unchanged identity input and the illustrative correction with no trained weights. Scores for progression and engagement are provisional because continuous motion and narration cannot be assessed.\n\n**Key Strengths:**\n• Correct numerical equations across three useful signed examples.\n• Appropriate head-to-tail arrow metaphor for adding a signed correction.\n• Stable row alignment, color roles, and visible unit reference.\n• Sampled stages indicate an understandable input-to-output progression.\n\n**Areas for Improvement:**\n• Construct purple arrows from the common origin to the actual sum: +0.50 right, -0.25 left, and -0.10 left, using the same unit scale.\n• Mark each component's origin and align the resultant endpoint with the correction endpoint.\n• Keep the entire unchanged blue input identifiable when the orange correction overlaps it.\n• Add y_i = x_i + c_i and explicitly state that corrections are illustrative and no trained weights are used.\n• Enlarge the arrow diagrams, place values closer to them, and use consistent language for stage labels.\n• Reveal or emphasize each computed sum when its resultant appears, and verify full-video pacing and narration separately.",
+        "knowledge_point": ""
+      },
+      "strict": {
+        "status": "valid",
+        "dimensions": {
+          "element_layout": 14,
+          "attractiveness": 12,
+          "logic_flow": 13,
+          "accuracy_depth": 6,
+          "visual_consistency": 16
+        },
+        "overall_score": 61,
+        "scope": "five 0–20 scores summed; no semantic or artistic judgement performed"
+      }
+    },
+    {
+      "job": "fact-V6-r1",
+      "method": "fact",
+      "control": "V6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-V6-r1.json",
+      "response_sha256": "a64285c93860a72ddda099092f57dc29b59b2352b1f40dac20130d16507c0c4b",
+      "status": "completed"
+    },
+    {
+      "job": "fact-V6-r2",
+      "method": "fact",
+      "control": "V6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-fact-V6-r2.json",
+      "response_sha256": "994f2806f4c28930c51a92f1eac95cee06de2d9399291b5f9b2ba7f7aac27e2e",
+      "status": "completed"
+    },
+    {
+      "job": "tea-V6",
+      "method": "tea",
+      "control": "V6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-tea-V6.json",
+      "response_sha256": "753977fcb982706c16a10a7c8673c650342d9234395f88930c09b0a3cf0fe0aa",
+      "status": "completed",
+      "native": {
+        "overall_analysis": "The frame illustrates componentwise residual addition using three signed numerical examples and directional arrows. The equations are correct, but the purple sum described in the legend is not visibly distinguishable, weakening the explanation. This assessment is limited to the supplied frame at 11 seconds; animation timing, other frames, and whether any weights were trained cannot be established.",
+        "evaluation": {
+          "visual_relevance": {
+            "comprehensive_evaluation": "The unchanged blue inputs and orange corrections starting at their endpoints align with residual addition. All three displayed sums are correct: 0.7−0.2=0.50, −0.4+0.15=−0.25, and 0.2−0.3=−0.10. Arrow directions and lengths appear consistent with the stated scale. However, the promised purple resultant is not discernible, so the final sum is conveyed primarily through text. The frame does not establish a trained mechanism or explicitly identify the corrections as illustrative.",
+            "score": 4
+          },
+          "element_layout": {
+            "comprehensive_evaluation": "The title, explanation, examples, and scale are legible against the dark background, with clear vertical separation and no obvious text collisions. However, the arrows are small relative to the available space, and substantial unused space remains on the right. Blue and orange segments overlap as expected for opposing signed quantities, but their shared paths and closely placed arrowheads reduce readability. The absent or obscured purple sum further limits immediate visual interpretation.",
+            "score": 3
+          }
+        }
+      },
+      "single_frame_geometric_mean": 3.4641016151377544,
+      "range_valid": true
+    },
+    {
+      "job": "aes-V6",
+      "method": "aes",
+      "control": "V6",
+      "batch": "new96",
+      "response_file": "evaluation/2026-10-04/full-reproduction-v1/new-responses/screen-aes-V6.json",
+      "response_sha256": "a5f5008ec5c5e0f64ee106720595138a831e2699bcc9166b09c8865ebd8f5025",
+      "status": "unknown"
+    }
+  ],
+  "selected_response_counts": {
+    "completed": 47,
+    "unknown": 1
+  },
+  "repeated_label_agreement": {
+    "numerator": 12,
+    "denominator": 12
+  },
+  "independent_controls": 12,
+  "new_attempts": 32,
+  "old_attempts_preserved": 48,
+  "composite_is_one_batch": false,
+  "semantic_evidence_verified": false,
+  "limitations": "Same frozen controls across two dates/budgets; changed paper models and sparse still inputs. No general quality, learning, or full reproduction claim."
+}
