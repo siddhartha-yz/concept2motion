@@ -1,0 +1,17 @@
+{
+  "id": "native-coordinate-author-v1",
+  "model": "gpt-6-astra",
+  "prompt": "# ManimBench Master Prompt\n\nYou are generating a Manim Community Edition animation for a public benchmark.\n\n## Runtime Contract\n\n- Use Manim Community Edition only.\n- Import with `from manim import *`.\n- Define exactly one primary scene class named `MainScene`.\n- The scene must render as an MP4 at 60 FPS.\n- The final animation must be no longer than 120 seconds.\n- Do not use network access.\n- Do not read files outside the working directory.\n- Do not require user interaction.\n- Do not depend on external assets unless the task explicitly provides them.\n- Prefer deterministic code and stable layouts.\n\n## Visual Communication Requirements\n\nEvery important visual element must be clearly labeled in the video:\n\n- Examples.\n- Diagrams.\n- Graphs and axes.\n- Equations.\n- Variables.\n- Coordinates.\n- Transformations.\n- Mathematical objects.\n- Intermediate steps in derivations or proofs.\n\nUse concise, information-dense animation. Avoid unnecessary waits, repeated decorative transitions, filler scenes, and slow pacing. Camera movement should support the explanation rather than distract from it.\n\n## Mathematical Requirements\n\nThe animation must be mathematically correct and faithful to the task. Show enough structure that a viewer can understand why the claim, construction, or computation is true.\n\nDo not fake the result by drawing only the final answer while skipping the requested reasoning. Do not hardcode a superficial visual when the task asks for a derivation, dynamic process, or general construction.\n\n## Output Contract\n\nReturn only Python source code for the ManimCE scene. Do not wrap it in Markdown fences. Do not include prose outside the code.\n\nThe benchmark runner will save your response as `solution.py` and render:\n\n```bash\npython -m manim -qh --fps 60 --media_dir <media_dir> --output_file result solution.py MainScene\n```\n\n## Benchmark Task\n\nTask ID: coordinate_system_animation\n\nDifficulty: focused\n\nTitle: Coordinate System Animation\n\nCreate a concise Manim Community Edition animation that introduces a 2D\ncoordinate system and traces a point along a simple curve.\n\nRequirements:\n- Define exactly one primary scene class named MainScene.\n- Use Axes, Dot, Arrow, Text or MathTex labels, and a visible traced path.\n- Label the x-axis, y-axis, origin, moving point, and curve equation.\n- Include a step indicator showing at least three moments in the motion.\n- Keep labels readable, avoid edge clipping, and do not use external assets.\n\n## Required Labels\n\n- Coordinate system\n- x-axis\n- y-axis\n- origin\n- moving point\n- y = x^2\n\n## Required Visual Elements\n\n- labeled axes\n- moving point\n- traced curve\n- step indicator\n\n## Task Runtime Limit\n\nThe animation must be no longer than 120 seconds.\nTransport adapter: put exactly the requested Python source in the JSON field source. Do not use tools, browse, read local files, delegate, or call another model.",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "source": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "source"
+    ]
+  }
+}
