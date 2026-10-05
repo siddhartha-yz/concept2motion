@@ -1,0 +1,28 @@
+{
+  "source_sha256": "858b52743793675c5235000172d71a240bb0cf7dca0d50fa27a22173dec0403c",
+  "production_helpers_executed": true,
+  "oracle": "explicit scalar corners; independent edge-sum area; production plane scale 1.25",
+  "exploratory_after_generation": true,
+  "checks": [
+    {
+      "matrix": "A",
+      "sampled_progress_values": 101,
+      "maximum_corner_error": 1.5543122344752192e-15,
+      "maximum_arrow_error": 1.4432899320127035e-15,
+      "maximum_signed_area_error": 1.3322676295501878e-15,
+      "corner_and_basis_colors_stable": true,
+      "collapsed_reflection_at_halfway_checked": false
+    },
+    {
+      "matrix": "B",
+      "sampled_progress_values": 101,
+      "maximum_corner_error": 1.3322676295501878e-15,
+      "maximum_arrow_error": 1.3322676295501878e-15,
+      "maximum_signed_area_error": 1.5543122344752192e-15,
+      "corner_and_basis_colors_stable": true,
+      "collapsed_reflection_at_halfway_checked": true
+    }
+  ],
+  "passed": true,
+  "limits": "202 sampled progress values, two fixed matrices. No pixel, label, motion trace, general matrix or artistic quality proof."
+}

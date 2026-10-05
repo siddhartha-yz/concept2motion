@@ -1,0 +1,31 @@
+{
+  "decision": "keep_partial_technical_revision",
+  "baseline_commit": "5f522d8",
+  "candidate_source_sha256": "858b52743793675c5235000172d71a240bb0cf7dca0d50fa27a22173dec0403c",
+  "candidate_source_modified_by_maintainer": false,
+  "checks": {
+    "protected_AST_identical": true,
+    "independent_geometry_passed": true,
+    "decoded_frames": 444,
+    "expected_frames": 444,
+    "duration_s": 29.6,
+    "duration_limit_s": 30,
+    "TARGET_result_visible_during_morph": true,
+    "six_frames_viewed_by_maintainer": true,
+    "new_layout_or_geometry_regression_observed": false
+  },
+  "outcomes": {
+    "duration": "fixed:33.2 to29.6s",
+    "target_formula": "fixed: explicitTARGET",
+    "label_presentation": "font24 to28, red/green full-opacity source contrast increased; review still reports small/faint labels"
+  },
+  "remaining_defects": [
+    "Footer u=Me1/v=Me2 persists unchanged while displaying target matrix and fresh/intermediate shape: map identity ambiguous",
+    "Labels/grid remain small or faint; fade-in/out samples further dim"
+  ],
+  "artistic_quality_proven": false,
+  "learning_gain_proven": false,
+  "ordinary_self_check_comparison": false,
+  "held_out_task": false,
+  "limits": "Maintainer selected ticket/keep decision and repaired checker; one task, same model family, nonblind review. No general automatic improvement loop."
+}
