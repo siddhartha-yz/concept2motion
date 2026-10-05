@@ -1,0 +1,56 @@
+{
+  "expected_frames": 100,
+  "fully_decoded_frames": 100,
+  "all_frames_decoded": true,
+  "width": 854,
+  "height": 480,
+  "fps": 15.0,
+  "duration_s": 6.666666666666667,
+  "video_sha256": "41fee3c86160800d15943be9a3ef7988aad223d22c3102989636c38e2e3fc256",
+  "sampled_frames": [
+    {
+      "index": 5,
+      "time_s": 0.3333333333333333,
+      "path": "work/full-reproduction-v1/algogen-native-render-v1/frame-00005.png",
+      "sha256": "980c5a803fae35307c4e10be400e60abe22a0d720b6ba98db5b6359240bb67f7"
+    },
+    {
+      "index": 25,
+      "time_s": 1.6666666666666667,
+      "path": "work/full-reproduction-v1/algogen-native-render-v1/frame-00025.png",
+      "sha256": "929c25d5a642f3a4977ce82a3cec55f7fada2918572d1bbe66b7a63a068d1ce5"
+    },
+    {
+      "index": 45,
+      "time_s": 3.0,
+      "path": "work/full-reproduction-v1/algogen-native-render-v1/frame-00045.png",
+      "sha256": "f5dcf0506d77b4aeb930b9524611221d6207736e53f20e7bcb6b9bcbf0b7c113"
+    },
+    {
+      "index": 65,
+      "time_s": 4.333333333333333,
+      "path": "work/full-reproduction-v1/algogen-native-render-v1/frame-00065.png",
+      "sha256": "6982e6057f5b27c607f09a1788b1a729f1e72755ba9e02ed9435e85644430060"
+    },
+    {
+      "index": 85,
+      "time_s": 5.666666666666667,
+      "path": "work/full-reproduction-v1/algogen-native-render-v1/frame-00085.png",
+      "sha256": "c77c5f98640c7fe320c287a2b14d72946af2f09d33b27403c831cb8699de860d"
+    },
+    {
+      "index": 98,
+      "time_s": 6.533333333333333,
+      "path": "work/full-reproduction-v1/algogen-native-render-v1/frame-00098.png",
+      "sha256": "c330627df8bfabf22da77b24170cbf239350728eb10f239e4b001accbfc4bd43"
+    }
+  ],
+  "contact_sha256": "2584cb993bce334272fb553747148c318781057d99f87d48e3536bcc4acc9d9a",
+  "continuous_all_frames_visual_review": false,
+  "maintainer_review": "actual six sampled frames viewed, source roles known; not blind artistic judgement",
+  "observations": [
+    "terminal T cells at 2,3,5,7 and count4 visibly agree with independent computation",
+    "title and final count readable; pseudocode and black cell labels small/low contrast at 854x480",
+    "six frames do not establish correctness of all code-highlighting timing or continuous animation"
+  ]
+}

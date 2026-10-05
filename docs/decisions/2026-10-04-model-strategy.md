@@ -32,3 +32,7 @@
 主要问题是：在未见任务上，同预算下质量是否更好；或达到事先规定的质量要求时，总成本是否降低。评价标准应先固定，不能看结果后选分数。这个设计仍待实施，不是现有实验的复现成绩。
 
 [OpenAI 的 SFT 指南](https://developers.openai.com/api/docs/guides/supervised-fine-tuning)也要求先建立评价，再考虑微调；引用这一研究顺序，不表示计划使用付费托管训练服务。
+
+## 2026-10-05硬件实测补充
+
+旧段落保留当时驱动检查失败。后续[实际GPU检查](../../evaluation/2026-10-04/full-reproduction-v1/torch-gpu-smoke-v1.json)确认RTX5070 Ti Laptop、驱动显示12227MiB，PyTorch2.7.1+cu128执行矩阵乘和反向求导成功。随后固定CLIP权重的局部推理使用CPU，不能把它叫GPU模型测速。没有QLoRA训练、训练吞吐或成本结果，后训练仍是候选。

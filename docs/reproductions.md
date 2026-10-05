@@ -31,14 +31,14 @@ TEA 和 PhyEduVideo 的原函数从固定源码中抽取后执行，绕开会加
 | [Manimator](https://github.com/HyperCluster-Tech/manimator) | 固定源码与论文核查 | 安装、原生成与评价未跑；若换 Codex，要另记改编 |
 | [Teaching Monster](https://github.com/Teaching-Monster/TeachingMonster-released) | 固定源码与论文核查 | 公开评价资产、许可仍有缺口；GPU TTS、原 provider 和人评未复现 |
 | [VisualEDU](https://github.com/UchihaIchigo/VisualEDU) | 固定源码、论文核查 | 安装、生成和学习评价未跑 |
-| [ALGOGEN](https://github.com/algenlab/algogen_anonymous) | 固定源码、论文核查 | 安装、算法生成及原评价未跑 |
+| [ALGOGEN](https://github.com/algenlab/algogen_anonymous/tree/1bb093c76499135ecf54fc8030219a4e7ee4424c) | [原requirements安装、原基础渲染CLI及筛法终态核对实际执行](../evaluation/2026-10-06/algogen-native-render-v1/REPORT.md) | 原发布轨迹，不是本次模型生成；LLM增强样式和原AES评价未跑 |
 | [ManimTrainer / ManimAgent](https://github.com/SuienS/manim-trainer) | 固定源码、题集规模核查 | 本地 HF/CUDA 推理与训练未跑；417 项中 317/100 为作者划分，不是本项目结果 |
 | [InternSVG / SArena](https://github.com/hmwang2002/InternSVG) | 固定源码、论文核查 | 权重、生成及原评分未跑；SVG 静态任务与动画有边界 |
 | [EditBoard](https://github.com/Samchen2003/EditBoard) | 固定源码、论文核查 | 未跑图像编辑评价；不能替代数学机制评价 |
 | [VideoScore v1/v1.1](https://github.com/TIGER-AI-Lab/VideoScore) | 固定源码、论文核查 | 权重推理未跑；v2 未核查，不能合并 |
 | [HKUDS VideoAgent / VideoEdit](https://github.com/HKUDS/VideoAgent) | 固定源码、论文核查 | 评价标签/资产完整性未确认；provider 和媒体工具未执行 |
 | [HeyGen Code2Video](https://www.kaggle.com/datasets/heygen/code2video-public) | 公开 v5 的 50 任务/409 文件及服务器预览核查 | 未下载/运行；原评分需要 HeyGen 服务与 GCS 配置，未授权购买；与 ShowLab 分开 |
-| [Animation2Code](https://arxiv.org/abs/2606.28593) | 论文与项目页核查 | 既有核查时未定位可运行的完整发布；本轮未更新发布状态 |
+| [Animation2Code](https://arxiv.org/abs/2606.28593) | 论文与项目页核查；2026-10-05再核对官方页 | 官方页仍标Code soon / Dataset soon；未取得核心代码/数据，演示站不代替原评价器 |
 | [LessonBench-V1](https://www.kaggle.com/datasets/ravidussilva/lessonbench-v1) | 原论文与数据集存在性核查 | 647 篇/240 主题为作者资产描述；未下载、生成或评价 |
 | [EditBench](https://imagen.research.google/editor/) | 原论文/官方页面核查 | 图像修补基准；未跑，不当作动画质量基准 |
 | [EduVideoBench](https://arxiv.org/abs/2605.26918v1) | 论文评价公式核查；2026-10-05找到论文直接给出的匿名代码链接，但访问返回401 | 尚未获取并执行完整评价器，不把链接不可访问写成代码不存在 |

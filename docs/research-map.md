@@ -66,3 +66,5 @@
 [TeachQuiz第一次真实调用](../evaluation/2026-10-05/teachquiz-codex-port-v1/REPORT.md)14次得到11个结果，3次额度失败后停发，1题未发；失败冻结 `4a47c34`。[四次补齐](../evaluation/2026-10-06/teachquiz-completion-v1/REPORT.md)另行冻结 `be43648`，不改旧批次。15个入口合计18次尝试；原缓存重放普通/禁用/画面后为5/5、0/5、5/5，严格入口在画面后一题格式无效，因此仍不报告增益。模型看画面前已答对全部题，拒答不证明遗忘，后续答对不证明学习。
 
 新96次总账累计53：49完成、4无结果，余43；旧48不改。截图建议已落实为具体画面与可核对修改记录，未用消息做效果证明。原30项范围继续保留；[来源可用性更新](../evaluation/2026-10-05/reference-availability-v1/results.json)记录Animation2Code仍标代码/数据待发布、EduVideoBench匿名链接401，以及VidCode/VideoEditBench的来源边界。
+
+[ALGOGEN原渲染](../evaluation/2026-10-06/algogen-native-render-v1/REPORT.md)：原requirements安装成功（首次路径失败保留），原未改n=10筛法轨迹经原基础CLI产生100帧/6.667秒新视频并全解码，10个终态位置与独立试除一致。六帧实际查看保留小字/低对比度限制；原RSL函数接受空对象的边界记录。没有本次模型创作、增强LLM样式支路或完整论文评价。设计 `2540331`；结果由随后的独立提交归档。
