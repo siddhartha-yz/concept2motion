@@ -1,0 +1,57 @@
+--- candidate-01.py
++++ candidate-02.py
+@@ -44,10 +44,10 @@
+         offsets = (DOWN * 0.28, DOWN * 0.65,
+                    UP * 0.65, UP * 0.28)
+         return VGroup(*[
+-            MathTex(name, color=color, font_size=24)
++            MathTex(name, color=color, font_size=28)
+             .move_to(self.point(vertex) + offset)
+             for name, color, vertex, offset in zip(
+-                self.NAMES, self.COLORS, vertices, offsets
++                self.NAMES, (WHITE, RED_A, YELLOW_A, GREEN_A), vertices, offsets
+             )
+         ]).set_z_index(5)
+ 
+@@ -87,7 +87,7 @@
+         self.play(FadeIn(text), FadeIn(tracer), run_time=0.3)
+         self.play(
+             MoveAlongPath(tracer, path),
+-            run_time=2.4, rate_func=linear,
++            run_time=2.0, rate_func=linear,
+         )
+         self.wait(0.4)
+         self.play(FadeOut(text), FadeOut(tracer), run_time=0.3)
+@@ -126,10 +126,10 @@
+         self.plane.shift(np.array([-1., -2., 0.]) - self.plane.c2p(0, 0))
+ 
+         legend = VGroup(
+-            MathTex(r"u=M e_1", color=RED_C, font_size=24),
+-            MathTex(r"v=M e_2", color=GREEN_C, font_size=24),
++            MathTex(r"u=M e_1", color=RED_A, font_size=28),
++            MathTex(r"v=M e_2", color=GREEN_A, font_size=28),
+             MathTex(r"\text{opposite corner}=u+v",
+-                    color=YELLOW_C, font_size=24),
++                    color=YELLOW_A, font_size=28),
+         ).arrange(RIGHT, buff=0.6).move_to([0, -3.65, 0])
+ 
+         shape = self.make_geometry(self.UNIT, BLUE_D)
+@@ -143,7 +143,7 @@
+ 
+         # Remove the old status before writing its replacement, so text
+         # never morphs through overlapping glyphs.
+-        result = MathTex(result_tex, font_size=29).move_to(status)
++        result = MathTex(r"\text{TARGET:}\quad" + result_tex, font_size=29).move_to(status)
+         self.play(FadeOut(status), run_time=0.25)
+         self.play(Write(result), run_time=0.6)
+ 
+@@ -172,8 +172,8 @@
+         note = Text(conclusion, font_size=23)
+         note.move_to([0, -3.15, 0])
+         self.play(FadeIn(note), run_time=0.4)
+-        self.wait(2)
++        self.wait(1)
+ 
+         # Complete cleanup: the next example starts with a fresh unit square.
+         self.play(FadeOut(*self.mobjects), run_time=0.7)
+-        self.wait(0.25)+        self.wait(0.25)

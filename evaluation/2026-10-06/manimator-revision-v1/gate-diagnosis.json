@@ -1,0 +1,14 @@
+{
+  "cause": "guard compared full call receiver expression including MathTex font/color arguments; changed presentation was misidentified as a new function",
+  "unexpected_call_expressions": [
+    "MathTex('\\\\text{TARGET:}\\\\quad' + result_tex, font_size=29).move_to",
+    "MathTex(name, color=color, font_size=28).move_to",
+    "VGroup(*[MathTex(name, color=color, font_size=28).move_to(self.point(vertex) + offset) for name, color, vertex, offset in zip(self.NAMES, (WHITE, RED_A, YELLOW_A, GREEN_A), vertices, offsets)]).set_z_index",
+    "VGroup(MathTex('u=M e_1', color=RED_A, font_size=28), MathTex('v=M e_2', color=GREEN_A, font_size=28), MathTex('\\\\text{opposite corner}=u+v', color=YELLOW_A, font_size=28)).arrange",
+    "VGroup(MathTex('u=M e_1', color=RED_A, font_size=28), MathTex('v=M e_2', color=GREEN_A, font_size=28), MathTex('\\\\text{opposite corner}=u+v', color=YELLOW_A, font_size=28)).arrange(RIGHT, buff=0.6).move_to"
+  ],
+  "candidate_source_repaired": false,
+  "render_attempts": 0,
+  "review_calls": 0,
+  "decision": "v1 rejection preserved; v2 may recheck same candidate with corrected function-name normalization"
+}
