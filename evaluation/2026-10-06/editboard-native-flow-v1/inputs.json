@@ -1,0 +1,40 @@
+{
+  "native_dimensions": [
+    "ff_alpha",
+    "ff_beta"
+  ],
+  "upstream_pair": [
+    "sample/bear",
+    "sample/bear_white"
+  ],
+  "controls": [
+    {
+      "name": "static-identical",
+      "size": 512,
+      "frames": 8,
+      "definition": "constant gray64, identical copy"
+    },
+    {
+      "name": "moving-identical",
+      "size": 512,
+      "frames": 8,
+      "definition": "gray32 background, white224 square96px at(96+8*i,160), identical copy"
+    },
+    {
+      "name": "moving-reversed",
+      "size": 512,
+      "frames": 8,
+      "definition": "same moving input, edited square at(152-8*i,160)"
+    }
+  ],
+  "scalar_controls": [
+    "256px identical alpha valid proportion",
+    "512px no-valid-pixel alpha",
+    "zero/zero beta",
+    "same nonzero beta",
+    "opposite nonzero beta",
+    "single-frame native CLI"
+  ],
+  "model_calls": 0,
+  "weights_downloaded": 0
+}
