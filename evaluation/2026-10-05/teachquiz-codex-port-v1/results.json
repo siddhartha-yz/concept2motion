@@ -1,0 +1,198 @@
+{
+  "expected_calls": 15,
+  "invoked_calls": 14,
+  "completed_calls": 11,
+  "dispatch_stopped": true,
+  "unstarted_jobs": [
+    "teachquiz-lintrans-post_video-q5-v1"
+  ],
+  "native": {
+    "concept": "Linear transformations and matrices",
+    "pre_unlearning_score": 1.0,
+    "post_unlearning_score": 0.0,
+    "post_video_score": 0.2,
+    "unlearning_success": true,
+    "learning_gain": 0.2,
+    "detailed_responses": {
+      "baseline": [
+        "B\nA transformation maps an input, such as a point or vector, to an output and can move or reshape objects.",
+        "C\nThe vector (2, 3) is shown as an arrow from the origin to (2, 3), moving 2 units right and 3 units up.",
+        "C\nEvery linear transformation preserves vector addition: T(u + v) = T(u) + T(v).",
+        "B\nMultiplying gives (2×3, 1×4) = (6, 4), so only the x-coordinate is scaled by 2.",
+        "A\nMatrices represent linear transformations such as rotation and scaling, which animate a game character’s orientation and size on screen."
+      ],
+      "post_unlearning": [
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question refers to a warm-up whose content is not provided. The options alone do not establish which description was introduced there.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nThe question provides possible visualizations but no rule for choosing among them. Selecting an option requires knowledge outside the permitted text.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question provides no definition or stated properties to evaluate the options. Choosing an option would require knowledge excluded by the test rules.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question does not state the rule for obtaining the output from the given inputs. Selecting an option would require knowledge excluded by the test rules.",
+        "EVIDENCE_STATUS = INSUFFICIENT\nANSWER = NULL\nJUSTIFICATION: The question lists scenarios but provides no explanation connecting them to the named concepts. Choosing an option would require knowledge excluded by the test rules."
+      ],
+      "post_video": [
+        "EVIDENCE_STATUS = SUFFICIENT\nANSWER = B\nVIDEO_EVIDENCE = Section 1 introduces one rule to move every map point: double horizontal coordinates and keep vertical coordinates unchanged.\nIt shows P = (1,2) becoming T(P) = (2,2), illustrating an input point mapped to a new output.",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "strict": {
+    "stages": {
+      "baseline": {
+        "questions": 5,
+        "correct": 5,
+        "full_denominator_fraction": {
+          "numerator": 5,
+          "denominator": 5,
+          "value": 1.0
+        },
+        "reportable": true,
+        "statuses": {
+          "correct": 5
+        },
+        "rows": [
+          {
+            "id": "q1",
+            "status": "correct",
+            "answer": "B",
+            "correct": true
+          },
+          {
+            "id": "q2",
+            "status": "correct",
+            "answer": "C",
+            "correct": true
+          },
+          {
+            "id": "q3",
+            "status": "correct",
+            "answer": "C",
+            "correct": true
+          },
+          {
+            "id": "q4",
+            "status": "correct",
+            "answer": "B",
+            "correct": true
+          },
+          {
+            "id": "q5",
+            "status": "correct",
+            "answer": "A",
+            "correct": true
+          }
+        ],
+        "scope": "answer-key calculation; insufficient evidence is noncorrect, execution failures block a gain claim"
+      },
+      "post_unlearning": {
+        "questions": 5,
+        "correct": 0,
+        "full_denominator_fraction": {
+          "numerator": 0,
+          "denominator": 5,
+          "value": 0.0
+        },
+        "reportable": true,
+        "statuses": {
+          "unverifiable": 5
+        },
+        "rows": [
+          {
+            "id": "q1",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q2",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q3",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q4",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q5",
+            "status": "unverifiable",
+            "answer": null,
+            "correct": false
+          }
+        ],
+        "scope": "answer-key calculation; insufficient evidence is noncorrect, execution failures block a gain claim"
+      },
+      "post_video": {
+        "questions": 5,
+        "correct": 1,
+        "full_denominator_fraction": {
+          "numerator": 1,
+          "denominator": 5,
+          "value": 0.2
+        },
+        "reportable": false,
+        "statuses": {
+          "correct": 1,
+          "call_failed": 3,
+          "missing": 1
+        },
+        "rows": [
+          {
+            "id": "q1",
+            "status": "correct",
+            "answer": "B",
+            "correct": true
+          },
+          {
+            "id": "q2",
+            "status": "call_failed",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q3",
+            "status": "call_failed",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q4",
+            "status": "call_failed",
+            "answer": null,
+            "correct": false
+          },
+          {
+            "id": "q5",
+            "status": "missing",
+            "answer": null,
+            "correct": false
+          }
+        ],
+        "scope": "answer-key calculation; insufficient evidence is noncorrect, execution failures block a gain claim"
+      }
+    },
+    "learning_gain": null,
+    "learning_gain_percentage_points": null,
+    "reportable": false,
+    "measurement": "model answer-key gain, not human learning",
+    "unlearning_proven": false
+  },
+  "original_source_changed": false,
+  "limits": [
+    "one concept, five questions",
+    "Codex replaces Gemini",
+    "36 still frames replace continuous video/audio",
+    "native AST definitions not full provider CLI",
+    "prompt unlearning is not a weight update",
+    "no human learning or independent art evaluation"
+  ]
+}
