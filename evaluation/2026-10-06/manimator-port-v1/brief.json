@@ -1,0 +1,23 @@
+{
+  "text": "Explain signed area and the 2D determinant for a beginner. Use a single class MainScene and at most 30 seconds. Show the unit square transformed by A=[[2,1],[0,1]] into a parallelogram of signed area 2. Separately show the unit square reflected by B=[[-1,0],[0,1]], signed area -1. Keep the basis vectors and corresponding corners identifiable. Show orientation reversal. Avoid overlapping labels. Use only Manim, numpy and math; no files, network or subprocess operations in the generated code.",
+  "audience": "beginner",
+  "task": "signed area/determinant",
+  "held_out_task": false,
+  "model": "gpt-6-astra",
+  "generation_call_limit": 4,
+  "review_call_limit": 1,
+  "shared_authorization_limit": 96,
+  "already_used_before_design": 53,
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "content": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "content"
+    ]
+  }
+}
