@@ -1,0 +1,68 @@
+{
+  "job_id": "manimator-determinant-revised-frame-review-v1",
+  "maximum_calls": 1,
+  "model": "gpt-6-astra",
+  "prompt": "Inspect only the attached six sampled frames. Do not use tools, browse, read files, delegate, invoke models or assign a quality score. For each factual observation cite the zero-based sample index and visible evidence. Can the unit square, transformed basis vectors, signed area 2 under [[2,1],[0,1]], and reversal with signed area -1 under [[-1,0],[0,1]] be checked from the actual geometry? Correct text alone does not prove correct geometry. Mark supported/contradicted/unverifiable, and list concrete readability defects. Also inspect whether the determinant text distinguishes target result from the currently changing shape, and whether labels are readable. Unseen motion/audio remains unknown.",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "observations": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sample_index": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string",
+              "enum": [
+                "supported",
+                "contradicted",
+                "unverifiable"
+              ]
+            },
+            "fact": {
+              "type": "string"
+            },
+            "evidence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "sample_index",
+            "status",
+            "fact",
+            "evidence"
+          ]
+        }
+      },
+      "readability_defects": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "limits": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "observations",
+      "readability_defects",
+      "limits"
+    ]
+  },
+  "sample_fractions": [
+    0.05,
+    0.25,
+    0.45,
+    0.65,
+    0.85,
+    0.98
+  ],
+  "if_generation_failed": "no review call",
+  "guides_further_revision": false
+}
