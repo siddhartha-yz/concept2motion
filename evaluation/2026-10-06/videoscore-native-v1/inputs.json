@@ -1,0 +1,26 @@
+[
+  {
+    "id": "published-example",
+    "video": "work/full-reproduction-v1/upstreams/VideoScore/examples/video1.mp4",
+    "video_sha256": "ef7f64f5d3cd4e4765a012c80c998997741b8b1eae1b1998ddbfc3c8a830553e",
+    "prompt": "Near the Elephant Gate village, they approach the haunted house at night. Rajiv feels anxious, but Bhavesh encourages him. As they reach the house, a mysterious sound in the air adds to the suspense.",
+    "max_frames": 48,
+    "expected_selected_frames": 24
+  },
+  {
+    "id": "blank-control",
+    "video": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/original.mp4",
+    "video_sha256": "f84ddb485c64a1ca1fa5b9b0888e75f3106159899527295e1928ee7ed923e203",
+    "prompt": "A static flat gray screen with no objects or motion.",
+    "max_frames": 48,
+    "expected_selected_frames": 8
+  },
+  {
+    "id": "manimator-revision",
+    "video": "work/full-reproduction-v1/manimator-revision-v2/revised.mp4",
+    "video_sha256": "950ff81632b08d909f7d087386ffb6f4659dac8083019e41350c4fe39515af41",
+    "prompt": "Explain signed area and the two-dimensional determinant. Transform a unit square by A=[[2,1],[0,1]] to signed area +2; separately reflect it by B=[[-1,0],[0,1]] to signed area -1, with identifiable basis vectors and corner orientation.",
+    "max_frames": 48,
+    "expected_selected_frames": 48
+  }
+]
