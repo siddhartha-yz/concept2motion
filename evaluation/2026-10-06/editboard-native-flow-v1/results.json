@@ -1,0 +1,363 @@
+{
+  "original_cli": [
+    {
+      "exit_code": 0,
+      "elapsed_s": 7.179381756999646,
+      "stdout_sha256": "4ba658dc8216f20a3ccbdc8250defeccdfe3406bf098b252780c28f713771826",
+      "stderr_sha256": "50632f2f03628bee4e0be74fa10d4a82f99fa7412ab7eea82252618b8859a7ad",
+      "name": "upstream-bear-white",
+      "native_results": [
+        {
+          "original_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/upstreams/EditBoard/sample/bear",
+          "edited_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/upstreams/EditBoard/sample/bear_white",
+          "dimension": {
+            "ff_alpha": 15.5548255823153,
+            "ff_beta": 0.21926201454230718
+          }
+        }
+      ]
+    },
+    {
+      "exit_code": 0,
+      "elapsed_s": 6.147860122000566,
+      "stdout_sha256": "3f59cb29a31ee5653aae9fc65a336410220217d9d71c4a77478c75efc70602f7",
+      "stderr_sha256": "3ef55ca12c7f1993f601a347e50511361682858c34b2f9cce6cedd2f1d89650b",
+      "name": "static-identical",
+      "native_results": [
+        {
+          "original_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original",
+          "edited_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited",
+          "dimension": {
+            "ff_alpha": 0.0,
+            "ff_beta": 1.0
+          }
+        }
+      ]
+    },
+    {
+      "exit_code": 0,
+      "elapsed_s": 6.2831821470026625,
+      "stdout_sha256": "bab25329508508767521f0be3912f53ae6e64bcbacd3e37eccb3768f484299b1",
+      "stderr_sha256": "8de3c7a960f94c6eb4bb78fa04821800d65700cabc5913b51278893da4489801",
+      "name": "moving-identical",
+      "native_results": [
+        {
+          "original_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original",
+          "edited_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited",
+          "dimension": {
+            "ff_alpha": 0.0,
+            "ff_beta": 0.9857059376580375
+          }
+        }
+      ]
+    },
+    {
+      "exit_code": 0,
+      "elapsed_s": 6.347786188998725,
+      "stdout_sha256": "9161c1808ec51ae6a97c4ec0563f8229c7fe1455ed9d8f365c090272ea44aa4b",
+      "stderr_sha256": "9b42f1c445c8ba58d98c74ab2c939e040d5651c15cd40c647e053c87f3b35069",
+      "name": "moving-reversed",
+      "native_results": [
+        {
+          "original_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original",
+          "edited_video_path": "/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited",
+          "dimension": {
+            "ff_alpha": 1.0603380692518591,
+            "ff_beta": 1.0032288517270769
+          }
+        }
+      ]
+    }
+  ],
+  "control_video_exports": [
+    {
+      "name": "static-identical",
+      "encoded_frames_per_video": 8,
+      "decoded_frame_counts": {
+        "original": 8,
+        "edited": 8
+      },
+      "preprocess": {
+        "exit_code": 0,
+        "elapsed_s": 0.3035039570022491,
+        "stdout_sha256": "593b8505bd2f87550aaeb03e0054606c1c06d3a85de1c213b1ef3b6ff02f2b03",
+        "stderr_sha256": "88d9365d9df33f136245b2fb4542bdc67f29e87b1360c8a7d6cba975866edb23"
+      },
+      "video_hashes": {
+        "original": "f84ddb485c64a1ca1fa5b9b0888e75f3106159899527295e1928ee7ed923e203",
+        "edited": "f84ddb485c64a1ca1fa5b9b0888e75f3106159899527295e1928ee7ed923e203"
+      }
+    },
+    {
+      "name": "moving-identical",
+      "encoded_frames_per_video": 8,
+      "decoded_frame_counts": {
+        "original": 8,
+        "edited": 8
+      },
+      "preprocess": {
+        "exit_code": 0,
+        "elapsed_s": 0.2701338039987604,
+        "stdout_sha256": "593b8505bd2f87550aaeb03e0054606c1c06d3a85de1c213b1ef3b6ff02f2b03",
+        "stderr_sha256": "f8a850f9c169981ae429714a16f55128fdef368198c57820099082224fdcef84"
+      },
+      "video_hashes": {
+        "original": "d758c99b5f358ce8ffca71d8391e227c6372f75cae9f7afe869541c809ca7b46",
+        "edited": "d758c99b5f358ce8ffca71d8391e227c6372f75cae9f7afe869541c809ca7b46"
+      }
+    },
+    {
+      "name": "moving-reversed",
+      "encoded_frames_per_video": 8,
+      "decoded_frame_counts": {
+        "original": 8,
+        "edited": 8
+      },
+      "preprocess": {
+        "exit_code": 0,
+        "elapsed_s": 0.2677628090023063,
+        "stdout_sha256": "593b8505bd2f87550aaeb03e0054606c1c06d3a85de1c213b1ef3b6ff02f2b03",
+        "stderr_sha256": "4c758341c23c1b1596f0eac5c77ab3b3a742e2ed16bec07f90b53cc25db1ca96"
+      },
+      "video_hashes": {
+        "original": "d758c99b5f358ce8ffca71d8391e227c6372f75cae9f7afe869541c809ca7b46",
+        "edited": "62bd8feb13e2a2e7a1cd23c7f07c8c8dcf856894d330d7dcfbf5c710a9e068d4"
+      }
+    }
+  ],
+  "scalar_native_controls": {
+    "alpha_256_identical": [
+      0.0,
+      0.25
+    ],
+    "alpha_no_valid_pixels": [
+      null,
+      0.0
+    ],
+    "alpha_no_valid_finite": false,
+    "beta_zero_zero": 1.0,
+    "beta_same_nonzero": 1.7881393432617188e-07,
+    "beta_opposite_nonzero": 1.999999761581421
+  },
+  "single_frame_cli": [
+    {
+      "exit_code": 1,
+      "elapsed_s": 3.6231329959991854,
+      "stdout_sha256": "216ba2117bb8c9247b14d4b3329fe7d8a4fc390e2f8b68090935fd99f121da22",
+      "stderr_sha256": "847f27eae4f1d1d63e2032d1dd3741af5a4003b79d30d2625acd566c20c42db8",
+      "dimension": "ff_alpha",
+      "boundary": "one-frame input"
+    },
+    {
+      "exit_code": 1,
+      "elapsed_s": 4.697726743994281,
+      "stdout_sha256": "e8c0017ab920c5dbc745bcafa3647f7c1da8b6ae1f60c05a3c76ce132a27d71a",
+      "stderr_sha256": "eeb13dd9e92f5f05927f7c53d4c0ddf3f4a26fc4f128d661fff30b8970e4a45d",
+      "dimension": "ff_beta",
+      "boundary": "one-frame input"
+    }
+  ],
+  "decoded_control_frame_hashes": [
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0000.png",
+      "sha256": "3cbb07706d8c3bf19ae4c4207e628e02a3531696b3e5b726dcab00f95f02f2b9"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0001.png",
+      "sha256": "388db1ec50d0f5e0cd9233d0a8bdb024ea649492dd71e2ea6a3b88297b47df69"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0002.png",
+      "sha256": "a2dd964a3b337756ea21ddb301ab74f730f3e1e66ba924d5166a660c6d08961f"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0003.png",
+      "sha256": "5bd57b1530cf004f9f235fe9b974ba4480b62d75bb3fde384bb26c392e3dac16"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0004.png",
+      "sha256": "e8723056b621fed0607a1be56c9914dc741c2db4e11840df8ffd0e23f13b9414"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0005.png",
+      "sha256": "ba6e4bee68637dad5abbb6b744b715b22aa6b0640c20fdcbaae299c0ebd3368b"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0006.png",
+      "sha256": "e45094496b44f8fd6b4a972655fa1b67f7eed9d7e42e6811e7e6d1cd6162993e"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/edited/frame_0007.png",
+      "sha256": "42ecafd261a226229227146bae35e545d15cc091b7c3088d65935191fb357c28"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0000.png",
+      "sha256": "3cbb07706d8c3bf19ae4c4207e628e02a3531696b3e5b726dcab00f95f02f2b9"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0001.png",
+      "sha256": "388db1ec50d0f5e0cd9233d0a8bdb024ea649492dd71e2ea6a3b88297b47df69"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0002.png",
+      "sha256": "a2dd964a3b337756ea21ddb301ab74f730f3e1e66ba924d5166a660c6d08961f"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0003.png",
+      "sha256": "5bd57b1530cf004f9f235fe9b974ba4480b62d75bb3fde384bb26c392e3dac16"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0004.png",
+      "sha256": "e8723056b621fed0607a1be56c9914dc741c2db4e11840df8ffd0e23f13b9414"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0005.png",
+      "sha256": "ba6e4bee68637dad5abbb6b744b715b22aa6b0640c20fdcbaae299c0ebd3368b"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0006.png",
+      "sha256": "e45094496b44f8fd6b4a972655fa1b67f7eed9d7e42e6811e7e6d1cd6162993e"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-identical/frames/original/frame_0007.png",
+      "sha256": "42ecafd261a226229227146bae35e545d15cc091b7c3088d65935191fb357c28"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0000.png",
+      "sha256": "42ecafd261a226229227146bae35e545d15cc091b7c3088d65935191fb357c28"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0001.png",
+      "sha256": "e45094496b44f8fd6b4a972655fa1b67f7eed9d7e42e6811e7e6d1cd6162993e"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0002.png",
+      "sha256": "ba6e4bee68637dad5abbb6b744b715b22aa6b0640c20fdcbaae299c0ebd3368b"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0003.png",
+      "sha256": "e8723056b621fed0607a1be56c9914dc741c2db4e11840df8ffd0e23f13b9414"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0004.png",
+      "sha256": "5bd57b1530cf004f9f235fe9b974ba4480b62d75bb3fde384bb26c392e3dac16"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0005.png",
+      "sha256": "a2dd964a3b337756ea21ddb301ab74f730f3e1e66ba924d5166a660c6d08961f"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0006.png",
+      "sha256": "388db1ec50d0f5e0cd9233d0a8bdb024ea649492dd71e2ea6a3b88297b47df69"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/edited/frame_0007.png",
+      "sha256": "3cbb07706d8c3bf19ae4c4207e628e02a3531696b3e5b726dcab00f95f02f2b9"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0000.png",
+      "sha256": "3cbb07706d8c3bf19ae4c4207e628e02a3531696b3e5b726dcab00f95f02f2b9"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0001.png",
+      "sha256": "388db1ec50d0f5e0cd9233d0a8bdb024ea649492dd71e2ea6a3b88297b47df69"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0002.png",
+      "sha256": "a2dd964a3b337756ea21ddb301ab74f730f3e1e66ba924d5166a660c6d08961f"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0003.png",
+      "sha256": "5bd57b1530cf004f9f235fe9b974ba4480b62d75bb3fde384bb26c392e3dac16"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0004.png",
+      "sha256": "e8723056b621fed0607a1be56c9914dc741c2db4e11840df8ffd0e23f13b9414"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0005.png",
+      "sha256": "ba6e4bee68637dad5abbb6b744b715b22aa6b0640c20fdcbaae299c0ebd3368b"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0006.png",
+      "sha256": "e45094496b44f8fd6b4a972655fa1b67f7eed9d7e42e6811e7e6d1cd6162993e"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/moving-reversed/frames/original/frame_0007.png",
+      "sha256": "42ecafd261a226229227146bae35e545d15cc091b7c3088d65935191fb357c28"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/single-frame/frame_0000.png",
+      "sha256": "431091eb26b8e9ddaa74ec095d6e2537ff10398a2f71b26a6d6e4ed7f8e1c146"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0000.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0001.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0002.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0003.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0004.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0005.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0006.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/edited/frame_0007.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0000.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0001.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0002.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0003.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0004.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0005.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0006.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "path": "work/full-reproduction-v1/editboard-native-flow-v1/inputs/static-identical/frames/original/frame_0007.png",
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    }
+  ],
+  "model_calls": 0,
+  "weight_fetch_requests": 0,
+  "source_changed": false,
+  "device": "native CLI forced CPU; Farneback optical flow itself is OpenCV CPU",
+  "limits": "2/9 original dimensions; published sample frames, hand-coded controls, no model generation, learned metrics, full paper comparisons or human correlation."
+}
