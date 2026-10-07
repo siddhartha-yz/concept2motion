@@ -1,0 +1,147 @@
+{
+  "review": "accepted before scoring",
+  "checks": [
+    {
+      "id": "determinant-correct",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "determinant-wrong-formula",
+      "formula_matches_independent_target": false,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "determinant-wrong-geometry",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "determinant-missing-step",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "determinant-tiny-text",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "determinant-flicker",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true,
+      "decoded_mean_luminance_min": 27.741481264637002,
+      "decoded_mean_luminance_max": 224.9298643637783,
+      "minimum_adjacent_mean_change": 192.04291975670048
+    },
+    {
+      "id": "determinant-blank",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true,
+      "decoded_mean_luminance_min": 128.0,
+      "decoded_mean_luminance_max": 128.0,
+      "minimum_adjacent_mean_change": 0.0
+    },
+    {
+      "id": "softmax-correct",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "softmax-wrong-formula",
+      "formula_matches_independent_target": false,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "softmax-wrong-geometry",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "softmax-missing-step",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "softmax-tiny-text",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "softmax-flicker",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true,
+      "decoded_mean_luminance_min": 28.651798724954464,
+      "decoded_mean_luminance_max": 224.02438361956806,
+      "minimum_adjacent_mean_change": 187.06700331772052
+    },
+    {
+      "id": "softmax-blank",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true,
+      "decoded_mean_luminance_min": 128.0,
+      "decoded_mean_luminance_max": 128.0,
+      "minimum_adjacent_mean_change": 0.0
+    },
+    {
+      "id": "residual-correct",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "residual-wrong-formula",
+      "formula_matches_independent_target": false,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "residual-wrong-geometry",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "residual-missing-step",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "residual-tiny-text",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true
+    },
+    {
+      "id": "residual-flicker",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true,
+      "decoded_mean_luminance_min": 26.106700494405413,
+      "decoded_mean_luminance_max": 226.5680148972157,
+      "minimum_adjacent_mean_change": 197.65978808873277
+    },
+    {
+      "id": "residual-blank",
+      "formula_matches_independent_target": true,
+      "all_assertions_passed": true,
+      "decoded_mean_luminance_min": 128.0,
+      "decoded_mean_luminance_max": 128.0,
+      "minimum_adjacent_mean_change": 0.0
+    }
+  ],
+  "source_pointer_correction": "v2 entries now point to actual v2 builder; rendered pixels unchanged",
+  "contacts": [
+    {
+      "concept": "determinant",
+      "sha256": "9d97e6cb5d20a7109b3d781056f60ac0053dae3ecd778dfd2cc578dd8ba61eae"
+    },
+    {
+      "concept": "softmax",
+      "sha256": "f738ebe8242f7113317dfe24ccacb41368ba5324883da30233c4ae12522516ac"
+    },
+    {
+      "concept": "residual",
+      "sha256": "9355b409fe3941bfd460fcc394181cb85fc9a7e2a75178343adbb0af4b885a56"
+    }
+  ],
+  "rendered_videos": 21,
+  "full_decoded_frames": 1344,
+  "generated_by_model": false,
+  "human_overall_quality_labels": false
+}
