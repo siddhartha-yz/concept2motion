@@ -1,0 +1,26 @@
+[
+  {
+    "id": "determinant-correct-repeat",
+    "video": "work/videoscore-validation-v1/determinant-correct/video.mp4",
+    "video_sha256": "7620cb66d33e2fdddbfa933e1c1f078ee43bb137e3ef65df8b1d71929ce05a1e",
+    "prompt": "Explain the two-dimensional determinant with a unit square, show its continuous transformation by A=[[2,1],[0,1]], and show that det(A)=2 and the final signed area is +2. Make the formula and labels clearly readable.",
+    "max_frames": 48,
+    "expected_selected_frames": 48
+  },
+  {
+    "id": "softmax-correct-repeat",
+    "video": "work/videoscore-validation-v1/softmax-correct/video.mp4",
+    "video_sha256": "e0db020d84744b4b2a8f81bcef968ba8374e47a80617917ad07aed6288038fa6",
+    "prompt": "Explain Softmax for z=[-1,0.7,1.3]. Show the original logits, then exponentiation with bar lengths proportional to exp(z), then normalization p_i=exp(z_i)/sum_j exp(z_j). Make the formula and labels clearly readable.",
+    "max_frames": 48,
+    "expected_selected_frames": 48
+  },
+  {
+    "id": "residual-correct-repeat",
+    "video": "work/videoscore-validation-v1/residual-correct/video.mp4",
+    "video_sha256": "d74dab8f3e9e8428d5ca176a23239cb043c413dba44e65f4924d4de4cf5d727d",
+    "prompt": "Explain a residual connection y=x+f(x), with x=[0.7,-0.4,0.2] and f(x)=[-0.2,0.15,-0.3]. Show input arrows, then join correction arrows at their heads, then show the componentwise output [0.5,-0.25,-0.1]. Make the formula and labels clearly readable.",
+    "max_frames": 48,
+    "expected_selected_frames": 48
+  }
+]
