@@ -23,6 +23,8 @@
 | [Manimator](https://github.com/HyperCluster-Tech/manimator/tree/928b8b2331791bd46f1ad14676893be7528309d8) | 原requirements安装；官方Codex替换传输执行原分镜/代码两阶段，原Manim0.18.1渲染498帧；202进度值独立几何核对、六帧模型定位；另接一次局部模型补丁，新版444帧/29.6秒 | 首版33.2秒超限保留；检查器误报修正后同候选才重渲染；图例歧义/小字仍在；有人选择票据/保护与保留，不是原模型、完整应用/原反馈流程或论文成绩复现 | [首版](../evaluation/2026-10-06/manimator-port-v1/REPORT.md)、[局部修改](../evaluation/2026-10-06/manimator-revision-v2/REPORT.md) |
 | [EditBoard](https://github.com/Samchen2003/EditBoard/tree/089075afe9abeabb781286455d8281b4d7eadf75) | 未改原CLI执行发布样例和3个真实编码控制的两项光流维度；5项原标量边界、两次单帧CLI | 原全安装缺Rust失败；Python3.12/局部依赖不是原3.9全环境；零流β=1、无有效像素α非有限、单帧除零；其余7维度与论文对照未跑。这是视频编辑评价，先前图像类别更正 | [结果](../evaluation/2026-10-06/editboard-native-flow-v1/REPORT.md) |
 
+| [VideoScore v1.1](https://github.com/TIGER-AI-Lab/VideoScore/tree/f87faf4647e637066bcb74721670cd579e0f4349) | 固定官方约8B权重、原Mantis实现和处理器；三个本地实际前向完成 | GPU/CPU分配与缓存明确改编；官方例子数值不完全相同；没有论文相关性或概念评分可靠性验证，不合并v2 | [原推理](../evaluation/2026-10-06/videoscore-native-v1/REPORT.md)、[缺陷验证设计](../evaluation/2026-10-07/videoscore-validation-v1/DESIGN.md) |
+
 TEA 和 PhyEduVideo 的原函数从固定源码中抽取后执行，绕开会加载权重、访问服务的顶层代码。源码本身没有改写。这是**原函数的局部执行**，不能叫整套程序已经跑通。
 
 ## 其余参考：仍缺实际完整流程
@@ -35,7 +37,6 @@ TEA 和 PhyEduVideo 的原函数从固定源码中抽取后执行，绕开会加
 | [VisualEDU](https://github.com/UchihaIchigo/VisualEDU) | 固定源码、论文核查 | 安装、生成和学习评价未跑 |
 | [ManimTrainer / ManimAgent](https://github.com/SuienS/manim-trainer) | 固定源码、题集规模核查 | 本地 HF/CUDA 推理与训练未跑；417 项中 317/100 为作者划分，不是本项目结果 |
 | [InternSVG / SArena](https://github.com/hmwang2002/InternSVG) | 固定源码、论文核查 | 权重、生成及原评分未跑；SVG 静态任务与动画有边界 |
-| [VideoScore v1/v1.1](https://github.com/TIGER-AI-Lab/VideoScore) | 固定源码、论文核查 | 权重推理未跑；v2 未核查，不能合并 |
 | [HKUDS VideoAgent / VideoEdit](https://github.com/HKUDS/VideoAgent) | 固定源码、论文核查 | 评价标签/资产完整性未确认；provider 和媒体工具未执行 |
 | [HeyGen Code2Video](https://www.kaggle.com/datasets/heygen/code2video-public) | 公开 v5 的 50 任务/409 文件及服务器预览核查 | 未下载/运行；原评分需要 HeyGen 服务与 GCS 配置，未授权购买；与 ShowLab 分开 |
 | [Animation2Code](https://arxiv.org/abs/2606.28593) | 论文与项目页核查；2026-10-05再核对官方页 | 官方页仍标Code soon / Dataset soon；未取得核心代码/数据，演示站不代替原评价器 |
@@ -74,3 +75,5 @@ python3 tools/fetch_reference_sources.py --verify-only
 同日局部修改及复核新增2次后，累计58次（54完成、4无结果），余38。保留时长与TARGET文字修正，同时保留检查器误报和新发现的原图例歧义；未见任务和稳定表达收益仍未验证。
 
 EditBoard原两项入口及控制执行后，上表16项部分实际执行，另14项仍缺完整流程；仍不是完成率或论文质量复现成绩，调用账不变。
+
+2026-10-07：VideoScore官方权重三例归档后，上表17项有部分实际执行，另13项仍缺完整流程；不改变原30项完整复现目标，也不是质量完成率。概念缺陷敏感性验证按事前设计另行执行，本地前向不占官方Codex账。

@@ -1,0 +1,19 @@
+{
+  "attempts": [
+    {
+      "log": "work/videoscore-validation-v1/inference-preflight-failure.log",
+      "stage": "before model import",
+      "error": "missing freeze manifest",
+      "forward_calls": 0
+    },
+    {
+      "log": "work/videoscore-validation-v1/inference-v2.log",
+      "stage": "CUDA preflight before model load",
+      "error": "GPU unavailable inside restricted sandbox",
+      "forward_calls": 0
+    }
+  ],
+  "host_gpu_verified": "NVIDIA GeForce RTX 5070 Ti Laptop GPU, 12227 MiB, 717 MiB used",
+  "action": "same immutable inputs/runner using approved host GPU execution",
+  "official_codex_calls": 0
+}
