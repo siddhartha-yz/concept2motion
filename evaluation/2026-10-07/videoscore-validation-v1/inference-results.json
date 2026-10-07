@@ -1,0 +1,72 @@
+{
+  "rows": [
+    {
+      "id": "determinant-correct",
+      "status": "failed",
+      "error_type": "FileExistsError",
+      "error": "[Errno 17] File exists: '/home/yang-zhi/\u6587\u6863/ChatGPT/concept2motion/work/videoscore-validation-v1/determinant-correct'",
+      "wall_s": 0.11273067100046319
+    }
+  ],
+  "unexecuted": [
+    "determinant-wrong-formula",
+    "determinant-wrong-geometry",
+    "determinant-missing-step",
+    "determinant-tiny-text",
+    "determinant-flicker",
+    "determinant-blank",
+    "softmax-correct",
+    "softmax-wrong-formula",
+    "softmax-wrong-geometry",
+    "softmax-missing-step",
+    "softmax-tiny-text",
+    "softmax-flicker",
+    "softmax-blank",
+    "residual-correct",
+    "residual-wrong-formula",
+    "residual-wrong-geometry",
+    "residual-missing-step",
+    "residual-tiny-text",
+    "residual-flicker",
+    "residual-blank",
+    "legacy-Q7",
+    "legacy-T2",
+    "legacy-H9",
+    "legacy-L4",
+    "legacy-B8",
+    "legacy-D3",
+    "legacy-K6",
+    "legacy-M1",
+    "legacy-S3",
+    "legacy-V6",
+    "manimator-before",
+    "manimator-after",
+    "determinant-mismatched-prompt",
+    "softmax-mismatched-prompt",
+    "residual-mismatched-prompt"
+  ],
+  "model_revision": "0731e98e15f8c06a3e3b4dc6c7a4b8d866f22a89",
+  "aspects": [
+    "visual_quality",
+    "temporal_consistency",
+    "dynamic_degree",
+    "text_to_video_alignment",
+    "factual_consistency"
+  ],
+  "author_published_example_reference": [
+    2.328,
+    2.484,
+    2.562,
+    1.969,
+    2.594
+  ],
+  "original_protocol_changes": [
+    "auto GPU/CPU weight placement",
+    "disable single-forward KV cache",
+    "fixed local files/version",
+    "PyAV13.1 after14.4 install failure"
+  ],
+  "official_codex_calls": 0,
+  "weight_updates": 0,
+  "limits": "Controlled defect sensitivity; hand-authored mathematical truths, no human overall quality or paper correlation replication."
+}
