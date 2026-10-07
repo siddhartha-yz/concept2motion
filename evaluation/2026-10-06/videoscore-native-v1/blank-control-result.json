@@ -1,0 +1,105 @@
+{
+  "id": "blank-control",
+  "status": "completed",
+  "total_video_frames": 8,
+  "sample_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "sampled_frame_hashes": [
+    {
+      "index": 0,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "index": 1,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "index": 2,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "index": 3,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "index": 4,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "index": 5,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "index": 6,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    },
+    {
+      "index": 7,
+      "sha256": "9a95f4de5e4fe8046820f6ad7f38da822cedf3c379752cfa2b62599ad2d3f6e5"
+    }
+  ],
+  "processed_input_tensors": {
+    "input_ids": {
+      "shape": [
+        1,
+        851
+      ],
+      "dtype": "torch.int64",
+      "sha256": "de7b58e83fc375d09ca7bf47f4a88d2eca6e37e9ef8e0c6e69797a685746de5d"
+    },
+    "attention_mask": {
+      "shape": [
+        1,
+        851
+      ],
+      "dtype": "torch.int64",
+      "sha256": "f16655154572b41cc23c15f2c087cbffdfee766a7d3d55a2924ecf248277d6dc"
+    },
+    "pixel_values": {
+      "shape": [
+        1,
+        8,
+        3,
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "sha256": "8049102d91dcda0593e73aa7830673f134ba1791f8192cc5a8dd8f0102a204d9"
+    },
+    "pixel_attention_mask": {
+      "shape": [
+        1,
+        8,
+        512,
+        512
+      ],
+      "dtype": "torch.int64",
+      "sha256": "1752af48cf1f1d60a03b662ef85ced805b1d7fb937fd90a2654c6c5fcd93c59e"
+    }
+  },
+  "logits": [
+    2.390625,
+    2.53125,
+    2.453125,
+    1.9375,
+    2.609375
+  ],
+  "rounded_aspect_scores": [
+    2.391,
+    2.531,
+    2.453,
+    1.938,
+    2.609
+  ],
+  "wall_s": 6.48715105500014,
+  "GPU_peak_allocated_bytes": 4134984192,
+  "GPU_peak_reserved_bytes": 4731174912
+}
