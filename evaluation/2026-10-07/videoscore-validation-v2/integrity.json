@@ -1,0 +1,185 @@
+{
+  "completed_first": 36,
+  "completed_reloaded_repeat": 3,
+  "frozen_file_checks": 18,
+  "video_hash_checks": 39,
+  "stimulus_files": 21,
+  "unique_synthetic_video_hashes": 19,
+  "full_synthetic_frames_decoded": 1344,
+  "encoded_video_specs": [
+    {
+      "id": "determinant-correct",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "determinant-wrong-formula",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "determinant-wrong-geometry",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "determinant-missing-step",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "determinant-tiny-text",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "determinant-flicker",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "determinant-blank",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "softmax-correct",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "softmax-wrong-formula",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "softmax-wrong-geometry",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "softmax-missing-step",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "softmax-tiny-text",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "softmax-flicker",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "softmax-blank",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "residual-correct",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "residual-wrong-formula",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "residual-wrong-geometry",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "residual-missing-step",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "residual-tiny-text",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "residual-flicker",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    },
+    {
+      "id": "residual-blank",
+      "width": 854,
+      "height": 480,
+      "fps": 8.0,
+      "frames": 64
+    }
+  ],
+  "condition_isolation": [
+    {
+      "concept": "determinant",
+      "same_prompt_for_seven_versions": true,
+      "wrong_formula_changes_model_pixels": true,
+      "mismatched_prompt_same_model_pixels": true,
+      "mismatched_prompt_different_text_tokens": true
+    },
+    {
+      "concept": "softmax",
+      "same_prompt_for_seven_versions": true,
+      "wrong_formula_changes_model_pixels": true,
+      "mismatched_prompt_same_model_pixels": true,
+      "mismatched_prompt_different_text_tokens": true
+    },
+    {
+      "concept": "residual",
+      "same_prompt_for_seven_versions": true,
+      "wrong_formula_changes_model_pixels": true,
+      "mismatched_prompt_same_model_pixels": true,
+      "mismatched_prompt_different_text_tokens": true
+    }
+  ],
+  "weight_updates": 0,
+  "official_codex_calls": 0,
+  "forward_failures": 0,
+  "limits": "Identity and technical ground truths only; no human quality labels or whole-paper correlation."
+}

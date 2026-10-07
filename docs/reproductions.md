@@ -22,8 +22,7 @@
 | [SVGEditBench V2](https://github.com/mti-lab/SVGEditBenchV2/tree/7e7879a700e839bd382462a6aa5642ae53b4b6e6) | [全部1683题原恢复、两组原MSE、三题原轮廓与四项控制实际执行](../evaluation/2026-10-05/svg-editbench-v2-native-v1/REPORT.md) | 模型生成、CLIP/DINO及完整四指标未执行；空白失败、颜色盲区和中心旋转错误保留 | [结果](../evaluation/2026-10-05/svg-editbench-v2-native-v1/REPORT.md) |
 | [Manimator](https://github.com/HyperCluster-Tech/manimator/tree/928b8b2331791bd46f1ad14676893be7528309d8) | 原requirements安装；官方Codex替换传输执行原分镜/代码两阶段，原Manim0.18.1渲染498帧；202进度值独立几何核对、六帧模型定位；另接一次局部模型补丁，新版444帧/29.6秒 | 首版33.2秒超限保留；检查器误报修正后同候选才重渲染；图例歧义/小字仍在；有人选择票据/保护与保留，不是原模型、完整应用/原反馈流程或论文成绩复现 | [首版](../evaluation/2026-10-06/manimator-port-v1/REPORT.md)、[局部修改](../evaluation/2026-10-06/manimator-revision-v2/REPORT.md) |
 | [EditBoard](https://github.com/Samchen2003/EditBoard/tree/089075afe9abeabb781286455d8281b4d7eadf75) | 未改原CLI执行发布样例和3个真实编码控制的两项光流维度；5项原标量边界、两次单帧CLI | 原全安装缺Rust失败；Python3.12/局部依赖不是原3.9全环境；零流β=1、无有效像素α非有限、单帧除零；其余7维度与论文对照未跑。这是视频编辑评价，先前图像类别更正 | [结果](../evaluation/2026-10-06/editboard-native-flow-v1/REPORT.md) |
-
-| [VideoScore v1.1](https://github.com/TIGER-AI-Lab/VideoScore/tree/f87faf4647e637066bcb74721670cd579e0f4349) | 固定官方约8B权重、原Mantis实现和处理器；三个本地实际前向完成 | GPU/CPU分配与缓存明确改编；官方例子数值不完全相同；没有论文相关性或概念评分可靠性验证，不合并v2 | [原推理](../evaluation/2026-10-06/videoscore-native-v1/REPORT.md)、[缺陷验证设计](../evaluation/2026-10-07/videoscore-validation-v1/DESIGN.md) |
+| [VideoScore v1.1](https://github.com/TIGER-AI-Lab/VideoScore/tree/f87faf4647e637066bcb74721670cd579e0f4349) | 固定官方约8B权重、原Mantis实现和处理器；三个本地实际前向完成；另39次三概念控制/重载评分完成 | 错几何0/3方向吻合、缺步骤0/3；空白/错配各3/3；不采用为核心裁判，未复现人类相关性，不合并上游VideoScore2 | [原推理](../evaluation/2026-10-06/videoscore-native-v1/REPORT.md)、[缺陷实测](../evaluation/2026-10-07/videoscore-validation-v2/REPORT.md) |
 
 TEA 和 PhyEduVideo 的原函数从固定源码中抽取后执行，绕开会加载权重、访问服务的顶层代码。源码本身没有改写。这是**原函数的局部执行**，不能叫整套程序已经跑通。
 
@@ -77,3 +76,5 @@ python3 tools/fetch_reference_sources.py --verify-only
 EditBoard原两项入口及控制执行后，上表16项部分实际执行，另14项仍缺完整流程；仍不是完成率或论文质量复现成绩，调用账不变。
 
 2026-10-07：VideoScore官方权重三例归档后，上表17项有部分实际执行，另13项仍缺完整流程；不改变原30项完整复现目标，也不是质量完成率。概念缺陷敏感性验证按事前设计另行执行，本地前向不占官方Codex账。
+
+同日VideoScore适用性实测39/39完成（36首次、3重载重复），只涉及三个概念，分组结果和反例已冻结；不是39个人类质量判断或原论文成绩复现。核心数学/讲解裁判角色不予采用，原复现范围与调用账不变。

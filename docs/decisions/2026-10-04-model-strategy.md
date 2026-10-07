@@ -36,3 +36,7 @@
 ## 2026-10-05硬件实测补充
 
 旧段落保留当时驱动检查失败。后续[实际GPU检查](../../evaluation/2026-10-04/full-reproduction-v1/torch-gpu-smoke-v1.json)确认RTX5070 Ti Laptop、驱动显示12227MiB，PyTorch2.7.1+cu128执行矩阵乘和反向求导成功。随后固定CLIP权重的局部推理使用CPU，不能把它叫GPU模型测速。没有QLoRA训练、训练吞吐或成本结果，后训练仍是候选。
+
+## 2026-10-07：真实8B权重前向与裁判限制
+
+[VideoScore本地推理](../../evaluation/2026-10-06/videoscore-native-v1/REPORT.md)使用官方8,271,704,309参数BF16权重，GPU/CPU分担；不是完整GPU装载，也没有训练。另[39次固定适用性评分](../../evaluation/2026-10-07/videoscore-validation-v2/REPORT.md)完成，细微数学几何与步骤缺陷未被稳定区分。该权重不采用为训练奖励或自动取舍依据。GPU可以运行这一特定卸载配置，不提供3–4B QLoRA训练吞吐、费用或成效承诺；先建立可信标签和修改数据的决策保持。

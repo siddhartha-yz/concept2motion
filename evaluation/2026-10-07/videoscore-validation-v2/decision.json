@@ -1,0 +1,17 @@
+{
+  "model": "TIGER-Lab/VideoScore-v1.1",
+  "revision": "0731e98e15f8c06a3e3b4dc6c7a4b8d866f22a89",
+  "status": "not_accepted_as_core_evaluator",
+  "allowed_roles": [
+    "exploratory_research_comparison"
+  ],
+  "rejected_roles": [
+    "mathematical_acceptance",
+    "teaching_completeness_gate",
+    "automatic_keep_or_rollback",
+    "training_reward"
+  ],
+  "evidence": "analysis.json",
+  "grounding": "Three synthetic geometry pairs:0 expected,1 tie,2 reverse; missing steps:0 expected,2 ties,1 reverse; repeat3 stable.",
+  "limits": "Project-specific stress controls; no global claim or human correlation replication"
+}
