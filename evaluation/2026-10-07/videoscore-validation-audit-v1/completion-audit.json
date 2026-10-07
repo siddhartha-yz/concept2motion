@@ -1,0 +1,49 @@
+{
+  "objective": "Validate VideoScore suitability for Concept2Motion",
+  "requirements": [
+    {
+      "requirement": "fixed model/version/input/comparison before scoring",
+      "evidence": "v1 design/preflight freezes and v2 runner freeze",
+      "verified": true
+    },
+    {
+      "requirement": "actual controlled renders and independent mathematical truths",
+      "evidence": "21 inputs,1344 decoded frames,preflight-v2 and integrity",
+      "verified": true
+    },
+    {
+      "requirement": "all planned36 first and3 reloaded forwards",
+      "evidence": "both inference-results and integrity; completed39,unexecuted0",
+      "verified": true
+    },
+    {
+      "requirement": "pre-specified per-defect comparisons and no hidden ties/failures",
+      "evidence": "analysis.json,legacy_pairs,REPORT.md,v1 failure report",
+      "verified": true
+    },
+    {
+      "requirement": "prompt isolation and repeat input identity",
+      "evidence": "pixel/text hashes in integrity; repeated frames/tensors verified",
+      "verified": true
+    },
+    {
+      "requirement": "limits and actionable project decision",
+      "evidence": "decision.json rejects core gates/reward; report no human correlation claim",
+      "verified": true
+    },
+    {
+      "requirement": "freeze results and maintain research map/index",
+      "evidence": "55 result hashes verified;4 documents reference result report",
+      "verified": true
+    }
+  ],
+  "not_claimed": [
+    "whole paper benchmark reproduction",
+    "general quality guarantee",
+    "human learning or artistic quality",
+    "training performance"
+  ],
+  "completed_forward_calls": 39,
+  "official_codex_calls": 0,
+  "frozen_result_checks": 55
+}
