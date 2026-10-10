@@ -8,7 +8,22 @@ export const operations = C.operations;
 export const computeMath = C.compute;
 
 if (process.argv[1] === import.meta.filename) {
-  if (process.argv[2] === "describe") {
+  if (process.argv[2] === "list") {
+    console.log(
+      JSON.stringify(
+        Object.fromEntries(
+          Object.entries(operations).map(([operation, spec]) => [
+            operation,
+            {
+              inputs: spec.keys,
+              required: spec.required,
+              outputs: spec.outputs,
+            },
+          ]),
+        ),
+      ),
+    );
+  } else if (process.argv[2] === "describe") {
     const operation = process.argv[3],
       spec = operations[operation];
     if (!spec) throw Error("Unknown calculation");

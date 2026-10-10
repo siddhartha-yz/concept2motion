@@ -8,7 +8,86 @@
     typeof module !== "undefined" && module.exports
       ? require("./neural.cjs")
       : global.VisualBookNeural;
+  const R =
+    typeof module !== "undefined" && module.exports
+      ? require("./program.cjs")
+      : global.VisualBookProgram;
   const operations = {
+    "array-view": {
+      keys: [
+        "buffer",
+        "shape",
+        "elementStrides",
+        "offset",
+        "itemSize",
+        "index",
+      ],
+      required: ["buffer", "shape"],
+      outputs: [
+        "shape",
+        "elementStrides",
+        "byteStrides",
+        "offset",
+        "itemSize",
+        "indices",
+        "addresses",
+        "byteOffsets",
+        "flat",
+        "matrix",
+        "selectedAddress",
+        "selectedValue",
+        "aliases",
+        "logicalBytes",
+        "bufferBytes",
+        "convention",
+      ],
+      run: ({ buffer, shape, ...options }) =>
+        R.arrayView(buffer, shape, options),
+    },
+    broadcast: {
+      keys: [
+        "leftValues",
+        "leftShape",
+        "rightValues",
+        "rightShape",
+        "operation",
+      ],
+      required: ["leftValues", "leftShape", "rightValues", "rightShape"],
+      outputs: [
+        "shape",
+        "values",
+        "matrix",
+        "indices",
+        "leftIndexMap",
+        "rightIndexMap",
+        "leftAlignedShape",
+        "rightAlignedShape",
+        "operation",
+        "convention",
+      ],
+      run: ({ leftValues, leftShape, rightValues, rightShape, ...options }) =>
+        R.broadcast(leftValues, leftShape, rightValues, rightShape, options),
+    },
+    "task-schedule": {
+      keys: ["tasks"],
+      required: ["tasks"],
+      outputs: ["records", "lanes", "span", "busy", "idle", "convention"],
+      run: ({ tasks }) => R.schedule(tasks),
+    },
+    "memory-trace": {
+      keys: ["instructions"],
+      required: ["instructions"],
+      outputs: [
+        "history",
+        "locals",
+        "objects",
+        "objectIds",
+        "variableIds",
+        "steps",
+        "convention",
+      ],
+      run: ({ instructions }) => R.memoryTrace(instructions),
+    },
     "normal-cdf": {
       outputs: ["value", "absoluteErrorBound"],
       keys: ["x"],

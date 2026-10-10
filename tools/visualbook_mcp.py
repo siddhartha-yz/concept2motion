@@ -9,6 +9,7 @@ import base64
 import hashlib
 import json
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -28,6 +29,7 @@ def main():
         "designs"
     ]
     components = json.loads((ROOT / "packages/visualbook/components.json").read_text())["components"]
+    calculation_metadata = json.loads(subprocess.check_output(['node',str(ROOT/'tools/visualbook_math.mjs'),'list'],text=True,timeout=30)) if not args.direct else {}
 
     def inside(name):
         path = (workspace / name).resolve()
@@ -76,7 +78,7 @@ def main():
             {
                 "name":"compute_math",
                 "description":"Call the same canonical probability/learning numerical kernels used by drawings; no DOM, network or model calls. This helps inspect values but is not independent math review. Allowed input keys are returned on error.",
-                "inputSchema":{"type":"object","properties":{"operation":{"type":"string","enum":["normal-cdf","binomial","histogram","bayes","regression","regression-optimum","pca","matmul","softmax","attention","normalization","dense","dense-backward","dropout","squared-loss","softmax-loss"]},"inputs":{"type":"object"}},"required":["operation","inputs"],"additionalProperties":False},
+                "inputSchema":{"type":"object","properties":{"operation":{"type":"string","enum":list(calculation_metadata)},"inputs":{"type":"object"}},"required":["operation","inputs"],"additionalProperties":False},
             },
             {
                 'name':'describe_calculation',
@@ -155,7 +157,7 @@ def main():
     def tool_fingerprint():
         library=ROOT/'packages/visualbook'
         modules=json.loads((library/'bundle.json').read_text())['modules']
-        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/visualbook_math.mjs']
+        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/visualbook_math.mjs',ROOT/'tools/visualbook_inspection.mjs']
         return hashlib.sha256(json.dumps({str(p.relative_to(ROOT)):digest(p) for p in files},sort_keys=True).encode()).hexdigest()
 
     def build_inputs():
@@ -168,6 +170,18 @@ def main():
         if record.get('status') != 'success' or any(record.get(k)!=v for k,v in build_inputs().items()) or record.get('html_sha256')!=digest(inside('book.html')):
             raise ValueError('Current source/plan/tools do not match a successful build; build_book first. An older HTML is not the revised candidate')
         return record
+
+    def snapshot_build(receipt):
+        builds=inside('builds')
+        builds.mkdir(exist_ok=True)
+        index=1
+        while (builds/f'build-{index:03d}').exists():index+=1
+        snapshot=builds/f'build-{index:03d}'
+        snapshot.mkdir()
+        for name in ['source.json','book.json']:shutil.copyfile(inside(name),snapshot/name)
+        receipt['snapshot']=str(snapshot.relative_to(workspace))
+        (snapshot/'receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+        return snapshot
 
     def latest_preview():
         require_current_build()
@@ -309,7 +323,7 @@ def main():
             out = inside("design-" + design["id"])
             if (
                 not out.exists()
-                and len(list(workspace.glob("design-*/catalog-record.json"))) >= 2
+                and len([p for p in workspace.glob("design-*") if p.is_dir()]) >= 2
             ):
                 raise ValueError("Two different design examples reached")
             if not (out / "catalog-record.json").exists():
@@ -336,6 +350,7 @@ def main():
         else:
             if name == "build_book":
                 receipt={**build_inputs(),'status':'building'}
+                snapshot=snapshot_build(receipt)
                 inside('build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
                 command = [
                     "node",
@@ -366,17 +381,25 @@ def main():
                     str(inside("book.html")),
                     str(out),
                 ]
-            process = subprocess.run(
-                command, cwd=workspace, capture_output=True, text=True, timeout=180
-            )
+            try:
+                process = subprocess.run(command, cwd=workspace, capture_output=True, text=True, timeout=180)
+            except Exception as error:
+                if name=='build_book':
+                    failed={**receipt,'status':'failed','error':str(error)}
+                    for destination in [inside('build-receipt.json'),snapshot/'receipt.json']:destination.write_text(json.dumps(failed,indent=2)+'\n')
+                raise
+            if name=='build_book':
+                (snapshot/'stdout.txt').write_text(process.stdout)
+                (snapshot/'stderr.txt').write_text(process.stderr)
             if process.returncode:
                 if name == 'build_book':
-                    inside('build-receipt.json').write_text(json.dumps({**receipt,'status':'failed'},indent=2)+'\n')
+                    for destination in [inside('build-receipt.json'),snapshot/'receipt.json']:destination.write_text(json.dumps({**receipt,'status':'failed'},indent=2)+'\n')
                 raise ValueError(process.stderr[-6000:] or process.stdout[-6000:])
             result = json.loads(process.stdout.splitlines()[-1])
             if name == 'build_book':
                 receipt={**receipt,'status':'success','html_sha256':digest(inside('book.html'))}
-                inside('build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+                shutil.copyfile(inside('book.html'),snapshot/'book.html')
+                for destination in [inside('build-receipt.json'),snapshot/'receipt.json']:destination.write_text(json.dumps(receipt,indent=2)+'\n')
                 result['buildReceipt']=receipt
         content = [{"type": "text", "text": json.dumps(result, ensure_ascii=False)}]
         if name in ["preview_book", "show_design", "inspect_frame"]:
@@ -440,7 +463,7 @@ def main():
                         "protocolVersion", "2024-11-05"
                     ),
                     "capabilities": {"tools": {}},
-                    "serverInfo": {"name": "visualbook-local", "version": "0.5.0"},
+                    "serverInfo": {"name": "visualbook-local", "version": "0.6.0"},
                 }
             elif method == "ping":
                 result = {}

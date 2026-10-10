@@ -20,8 +20,8 @@
     return v;
   };
   const textCanvas = document.createElement("canvas").getContext("2d");
-  function measure(text, size = 15) {
-    textCanvas.font = `${size}px system-ui, sans-serif`;
+  function measure(text, size = 15, family = "system-ui, sans-serif") {
+    textCanvas.font = `${size}px ${family}`;
     return textCanvas.measureText(String(text)).width;
   }
   function lines(text, width, size = 15) {
@@ -80,6 +80,11 @@
       for (const [name, value] of Object.entries(attrs)) {
         if (typeof value === "number") finite(value);
         const textValue = String(value);
+        if (
+          ["d", "points", "transform", "viewBox"].includes(name) &&
+          /(?:NaN|Infinity|undefined|null)/.test(textValue)
+        )
+          throw Error("Invalid SVG geometry in " + id + "." + name);
         if (node.getAttribute(name) !== textValue)
           node.setAttribute(name, textValue);
       }
@@ -197,6 +202,7 @@
         opacity = 1,
         weight = 400,
         halo = true,
+        family = "system-ui, sans-serif",
       } = {},
     ) {
       return this.mark(
@@ -210,7 +216,7 @@
           "text-anchor": anchor,
           "font-weight": weight,
           opacity,
-          "font-family": "system-ui, sans-serif",
+          "font-family": family,
           "paint-order": "stroke fill",
           stroke: halo ? palette.paper : "none",
           "stroke-width": halo ? 2 : 0,
@@ -267,6 +273,16 @@
       points,
       { color = palette.blue, width = 2.5, opacity = 1, closed = false } = {},
     ) {
+      if (
+        !Array.isArray(points) ||
+        points.some(
+          (p) =>
+            !Array.isArray(p) || p.length !== 2 || !p.every(Number.isFinite),
+        )
+      )
+        throw Error(
+          "Board.path needs finite [x,y] coordinate arrays; use svgPath for an SVG d string",
+        );
       const d = global.d3.line()(points) + (closed ? "Z" : "");
       return this.mark(id, "path", {
         d: d || "",
@@ -276,6 +292,34 @@
         opacity,
         "stroke-linejoin": "round",
         "stroke-linecap": "round",
+      });
+    }
+    svgPath(
+      id,
+      d,
+      {
+        color = palette.blue,
+        width = 2.5,
+        opacity = 1,
+        dash = null,
+        fill = "none",
+      } = {},
+    ) {
+      if (
+        typeof d !== "string" ||
+        d.length > 16000 ||
+        /(?:NaN|Infinity|undefined|null)/.test(d)
+      )
+        throw Error("Finite bounded SVG path string required");
+      return this.mark(id, "path", {
+        d,
+        fill,
+        stroke: color,
+        "stroke-width": width,
+        opacity,
+        "stroke-linejoin": "round",
+        "stroke-linecap": "round",
+        ...(dash ? { "stroke-dasharray": dash } : {}),
       });
     }
     axes(

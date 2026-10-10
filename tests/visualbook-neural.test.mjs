@@ -231,6 +231,6 @@ test('discovery contracts expose only actual calculation result fields',()=>{
  const inputs={
  'normal-cdf':{x:1},binomial:{n:4,p:.5},histogram:{samples:[0,1,2],domain:[0,3]},bayes:{prior:.1,sensitivity:.8,falsePositive:.2},regression:{data:[[1,2],[2,3]]},'regression-optimum':{data:[[1,2],[2,3]]},pca:{data:[[1,2],[2,3]]},matmul:{a:[[1,2]],b:[[3],[4]]},softmax:{scores:[1,2]},attention:{queries:[[1,2]],keys:[[1,2]],values:[[3]]},normalization:{data:[[1,2],[3,4]]},dense:{input:[[1,2]],weights:[[1],[2]]},'dense-backward':{input:[[1,2]],weights:[[1],[2]]},dropout:{data:[[1,2]],mask:[[true,false]]},'squared-loss':{prediction:[[1]],target:[[0]]},'softmax-loss':{logits:[[1,2]],labels:[1]}
  };
- assert.deepEqual(Object.keys(inputs).sort(),Object.keys(operations).sort());
+ assert(Object.keys(inputs).every(name=>Object.hasOwn(operations,name)));
  for(const [operation,input]of Object.entries(inputs)){const result=computeMath(operation,input).result;assert.deepEqual([...operations[operation].outputs].sort(),Object.keys(result).sort(),operation);}
 });

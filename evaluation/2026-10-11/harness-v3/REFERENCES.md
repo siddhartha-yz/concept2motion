@@ -28,3 +28,5 @@
 进一步参考：[Setosa PCA](https://setosa.io/ev/principal-component-analysis/)实际看图并拖动数据点，借鉴同一批点跨坐标系保持身份和颜色；没有复制图像或代码。[Python Tutor](https://pythontutor.com/visualize.html)阅读其逐步执行说明并打开交互页面，正在检查引用与复制的运行示例。
 
 [Augmented RNNs](https://distill.pub/2016/augmented-rnns/)、[Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)、[Matrix Calculus](https://explained.ai/matrix-calculus/)已读网页文本，尚未逐图复核，不记为已完成视觉参考。[NumPy strides](https://numpy.org/doc/2.1/reference/generated/numpy.ndarray.strides.html)与[broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting)提供索引/形状规则原始文档，编程积木拟借鉴这些关系，不复制正文或成品资产。
+
+Python Tutor已实际运行维护者输入的四行allocate/alias/copy/write示例，并使用Last查看共享引用与复制的最终图。借鉴对象身份、逐步查看和代码对应，不复制其源码/界面资产，也不沿用其全文左右栏布局。

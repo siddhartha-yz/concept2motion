@@ -2340,6 +2340,349 @@
         }
       },
       "keywords": "MLP backprop compose chain rule calculation layered network 多层 网络 链式法则 反向传播 拼接"
+    },
+    {
+      "id": "array-strides",
+      "title": "点选逻辑索引，查看转置视图的地址",
+      "topic": "编程 / 数组",
+      "limits": "给定6值缓冲区，3×2视图按步长[1,3]读取；字节大小是示例假设",
+      "height": 360,
+      "mobileHeight": 380,
+      "interaction": "parameters",
+      "state": {
+        "index": [
+          1,
+          1
+        ]
+      },
+      "scene": {
+        "id": "view",
+        "type": "array-view",
+        "props": {
+          "buffer": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "shape": [
+            3,
+            2
+          ],
+          "elementStrides": [
+            1,
+            3
+          ],
+          "index": {
+            "$state": "index"
+          },
+          "stateKey": "index"
+        }
+      },
+      "keywords": "array stride transpose view index 索引 步长 视图 转置"
+    },
+    {
+      "id": "broadcast-axes",
+      "title": "改变一项，看两条广播轴怎样共同决定输出",
+      "topic": "编程 / 张量",
+      "limits": "2×1加1×3；数值来自实际广播索引，不暗示底层复制或内存测量",
+      "height": 250,
+      "mobileHeight": 550,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "a",
+          "label": "第一项 a",
+          "min": -5,
+          "max": 5,
+          "step": 0.5,
+          "value": 0
+        }
+      ],
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "sum",
+            "operation": "broadcast",
+            "inputs": {
+              "leftValues": [
+                {
+                  "$param": "a"
+                },
+                10
+              ],
+              "leftShape": [
+                2,
+                1
+              ],
+              "rightValues": [
+                1,
+                2,
+                3
+              ],
+              "rightShape": [
+                1,
+                3
+              ]
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "gap": 14,
+            "minColumnWidth": 190
+          },
+          "children": [
+            {
+              "type": "tensor",
+              "props": {
+                "values": [
+                  [
+                    {
+                      "$param": "a"
+                    }
+                  ],
+                  [
+                    10
+                  ]
+                ],
+                "title": "A：2 × 1",
+                "encoding": "neutral"
+              }
+            },
+            {
+              "type": "tensor",
+              "props": {
+                "values": [
+                  [
+                    1,
+                    2,
+                    3
+                  ]
+                ],
+                "title": "B：1 × 3",
+                "encoding": "neutral"
+              }
+            },
+            {
+              "type": "tensor",
+              "props": {
+                "values": {
+                  "$result": "sum.matrix"
+                },
+                "title": "A + B：2 × 3",
+                "encoding": "neutral"
+              }
+            }
+          ]
+        }
+      },
+      "keywords": "broadcast shape trailing axes 广播 形状 张量 数组"
+    },
+    {
+      "id": "async-schedule",
+      "title": "同样的任务，等待位置决定何时继续提交",
+      "topic": "编程 / 异步",
+      "limits": "两图使用相同时间轴与任务颜色；CPU小块表示提交A/B和最后读取。持续时间手选，不是GPU实测",
+      "height": 300,
+      "mobileHeight": 550,
+      "stages": [
+        "开始",
+        "仍在执行",
+        "读取结果"
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 20
+        },
+        "children": [
+          {
+            "id": "async",
+            "type": "task-schedule",
+            "props": {
+              "tasks": [
+                {
+                  "id": "sendA",
+                  "lane": "CPU",
+                  "duration": 0.4,
+                  "label": "A"
+                },
+                {
+                  "id": "sendB",
+                  "lane": "CPU",
+                  "duration": 0.4,
+                  "label": "B"
+                },
+                {
+                  "id": "A",
+                  "lane": "GPU",
+                  "duration": 2,
+                  "dependencies": [
+                    "sendA"
+                  ],
+                  "label": "计算 A"
+                },
+                {
+                  "id": "B",
+                  "lane": "GPU",
+                  "duration": 2,
+                  "dependencies": [
+                    "sendB",
+                    "A"
+                  ],
+                  "label": "计算 B"
+                },
+                {
+                  "id": "read",
+                  "lane": "CPU",
+                  "duration": 0.4,
+                  "dependencies": [
+                    "B"
+                  ],
+                  "label": "读"
+                }
+              ],
+              "domain": [
+                0,
+                6
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "title": "先提交，再等待结果"
+            }
+          },
+          {
+            "id": "sync",
+            "type": "task-schedule",
+            "props": {
+              "tasks": [
+                {
+                  "id": "sendA",
+                  "lane": "CPU",
+                  "duration": 0.4,
+                  "label": "A"
+                },
+                {
+                  "id": "sendB",
+                  "lane": "CPU",
+                  "duration": 0.4,
+                  "label": "B",
+                  "dependencies": [
+                    "A"
+                  ]
+                },
+                {
+                  "id": "A",
+                  "lane": "GPU",
+                  "duration": 2,
+                  "dependencies": [
+                    "sendA"
+                  ],
+                  "label": "计算 A"
+                },
+                {
+                  "id": "B",
+                  "lane": "GPU",
+                  "duration": 2,
+                  "dependencies": [
+                    "sendB",
+                    "A"
+                  ],
+                  "label": "计算 B"
+                },
+                {
+                  "id": "read",
+                  "lane": "CPU",
+                  "duration": 0.4,
+                  "dependencies": [
+                    "B"
+                  ],
+                  "label": "读"
+                }
+              ],
+              "domain": [
+                0,
+                6
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "title": "每次计算后再提交下一项"
+            }
+          }
+        ]
+      },
+      "keywords": "async synchronize CPU GPU timing wait dependency 异步 同步 等待 任务 依赖"
+    },
+    {
+      "id": "memory-alias",
+      "title": "共享引用和复制：自己逐句查看",
+      "topic": "编程 / 对象",
+      "limits": "执行有限内存演示指令；代码是对应展示，不是完整Python解释器；颜色按对象身份",
+      "height": 320,
+      "mobileHeight": 460,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "step",
+          "label": "已执行语句",
+          "kind": "stepper",
+          "min": 0,
+          "max": 4,
+          "step": 1,
+          "value": 4
+        }
+      ],
+      "scene": {
+        "type": "memory-trace",
+        "props": {
+          "instructions": [
+            {
+              "op": "allocate",
+              "name": "a",
+              "id": "buf",
+              "values": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "op": "alias",
+              "name": "b",
+              "from": "a"
+            },
+            {
+              "op": "copy",
+              "name": "c",
+              "from": "a",
+              "id": "copy"
+            },
+            {
+              "op": "write",
+              "name": "b",
+              "index": 1,
+              "value": 9
+            }
+          ],
+          "lines": [
+            "a = [1, 2, 3]",
+            "b = a",
+            "c = a[:]",
+            "b[1] = 9"
+          ],
+          "step": {
+            "$param": "step"
+          }
+        }
+      },
+      "keywords": "memory alias copy trace mutate object reference 内存 对象 赋值 引用 复制"
     }
   ]
 }

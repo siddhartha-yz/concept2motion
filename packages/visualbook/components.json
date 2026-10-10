@@ -849,6 +849,154 @@
       ],
       "limits": "显式固定掩码；不声称随机采样，无推理时丢弃",
       "keywords": "dropout mask training inference 掩码 暂退法 训练 推理"
+    },
+    {
+      "id": "array-view",
+      "title": "索引到共享缓冲区",
+      "props": {
+        "buffer": "Finite numeric buffer, up to 16 drawn cells",
+        "shape": "One or two dimensions, each ≤6",
+        "elementStrides": "One signed integer element stride per dimension; default row-major",
+        "offset": "Element offset in buffer",
+        "itemSize": "Declared illustrative bytes per value (1..16), not measured memory",
+        "index": "Selected logical index vector",
+        "stateKey": "Shared state vector updated by click or keyboard selection",
+        "title": "Optional short title"
+      },
+      "required": [
+        "buffer",
+        "shape"
+      ],
+      "outputs": [
+        "shape",
+        "elementStrides",
+        "byteStrides",
+        "offset",
+        "itemSize",
+        "indices",
+        "addresses",
+        "byteOffsets",
+        "flat",
+        "matrix",
+        "selectedAddress",
+        "selectedValue",
+        "aliases",
+        "logicalBytes",
+        "bufferBytes",
+        "convention"
+      ],
+      "examples": [
+        "array-strides"
+      ],
+      "limits": "显示1/2维视图及≤16值的缓冲区；允许负步长、零步长和别名，但地址必须在缓冲区内。",
+      "keywords": "stride index transpose alias view slice array buffer 内存 数组 张量 索引 步长 转置 视图"
+    },
+    {
+      "id": "task-schedule",
+      "title": "任务、依赖和等待",
+      "props": {
+        "tasks": "id/lane/duration/dependencies/release/label records; same lane serialized in input order",
+        "progress": "Reader-controlled fraction of the displayed domain; equal domains mean equal example time across views",
+        "title": "Optional short title",
+        "domain": "[0,max] containing the entire schedule; use same domain to compare schedules"
+      },
+      "required": [
+        "tasks"
+      ],
+      "outputs": [
+        "records",
+        "lanes",
+        "span",
+        "busy",
+        "idle",
+        "convention",
+        "time",
+        "current",
+        "completed"
+      ],
+      "examples": [
+        "async-schedule"
+      ],
+      "limits": "≤16任务、≤4行；时间是给定示例单位，非CPU/GPU实测。依赖和同行顺序形成环时拒绝。",
+      "keywords": "async synchronize dependency GPU CPU queue wait timing 异步 同步 调度 等待 依赖 时间"
+    },
+    {
+      "id": "code-lines",
+      "title": "局部代码与当前语句",
+      "props": {
+        "lines": "1..12 strings fitting at 13px monospaced font; shorten examples instead of shrinking",
+        "activeLine": "Supplied displayed line, optional fractional caret movement; no source execution",
+        "startLine": "First displayed source line (integer ≥1)",
+        "title": "Optional short title",
+        "highlights": "Identifier to palette name or hex color; ≤16 identifiers"
+      },
+      "required": [
+        "lines"
+      ],
+      "outputs": [
+        "activeLine",
+        "visibleLines",
+        "convention"
+      ],
+      "examples": [
+        "memory-alias"
+      ],
+      "limits": "只显示局部代码和给定状态，不执行任意Python。等宽字体实际测量，过长拒绝。",
+      "keywords": "code line trace statement 编程 源码 执行 语句 跟踪"
+    },
+    {
+      "id": "memory-objects",
+      "title": "变量指向同一对象",
+      "props": {
+        "snapshot": "{locals:{name:{ref:id}},objects:{id:[finite numbers]}}",
+        "objectIds": "Stable object drawing order, including not-yet-created objects",
+        "variableIds": "Stable variable drawing order",
+        "title": "Optional short title"
+      },
+      "required": [
+        "snapshot"
+      ],
+      "outputs": [
+        "snapshot",
+        "objectIds",
+        "variableIds",
+        "convention"
+      ],
+      "examples": [
+        "memory-alias"
+      ],
+      "limits": "≤4对象、≤6变量、每对象≤8值；颜色按对象身份，不代表物理地址或自动垃圾回收。",
+      "keywords": "memory reference object alias copy heap 内存 变量 引用 对象 复制 别名"
+    },
+    {
+      "id": "memory-trace",
+      "title": "逐句执行有限内存演示",
+      "props": {
+        "instructions": "1..32 bounded allocate/alias/copy/write/delete instructions, optional displayed line",
+        "lines": "Matching local source strings; this is a display, not a Python interpreter",
+        "step": "Integer executed instruction count including step0 initial state",
+        "title": "Optional local code title"
+      },
+      "required": [
+        "instructions",
+        "lines"
+      ],
+      "outputs": [
+        "history",
+        "locals",
+        "objects",
+        "objectIds",
+        "variableIds",
+        "steps",
+        "convention",
+        "snapshot",
+        "step"
+      ],
+      "examples": [
+        "memory-alias"
+      ],
+      "limits": "真实执行有限指令语义，再拼接代码和对象组件；不能声称执行了任意源码。",
+      "keywords": "trace allocation alias copy mutate assignment Python array view 代码 赋值 复制 引用 改写 数组"
     }
   ]
 }

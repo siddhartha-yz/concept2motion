@@ -112,3 +112,13 @@ compute_math另支持matmul、softmax、attention、normalization、dense、dens
 dense-backward的seeds形状必须与输出相同，返回inputGradient/weightGradient/biasGradient。它计算输出加权和的导数，不自动对批次平均；把损失实际导数作为seeds连接，可展示完整链式法则。给定权重不代表训练结果。squared-loss默认half-squared的mean除以全部标量个数，softmax-loss的mean按样本数平均，不能混用分母。
 
 构建记录绑定原文、计划、工具和HTML。失败构建、修改原文/计划或改变HTML后，MCP拒绝沿用旧画面。修订必须成功build_book再preview_book。导出拒绝已经发现的渲染问题；关闭JavaScript时使用实际渲染的SVG初始帧，隐藏没有作用的控制器。
+
+## 编程关系与逐步观察
+
+array-view把逻辑索引与共享缓冲区地址连接，支持显式elementStrides/offset和点击索引；task-schedule按照任务依赖和同行顺序计算示例调度。两者的字节大小和时间均由输入给定，不代表JS、CPU或GPU实测。code-lines与memory-objects可以独立拼接，也可由memory-trace执行有限allocate/alias/copy/write/delete指令后组合。代码字符串只用于显示，不宣称执行了任意Python；颜色按对象身份对应，不按变量名分配。
+
+离散步骤可使用参数`{"key":"step","label":"已执行语句","kind":"stepper","min":0,"max":4,"step":1,"value":0}`，有原生滑块和前后按钮，边界自动禁用。不用时间插值制造不存在的中间程序状态。
+
+Board.path只接受有限二维坐标数组；SVG路径字符串使用`board.svgPath(id,d,{color,width,opacity,dash,fill})`。渲染检查同时检测非法几何属性和浏览器控制台错误。Board.text支持family，measure第三参数使用相同字体；局部代码不压到13px以下。
+
+每次MCP构建都会保存不可覆盖的builds/build-NNN输入计划、原文、结果和构建记录，包括失败。每次预览保存attempt、实际渲染及错误记录；失败也占三轮次数。设计目录保存原始源码、原始HTML、渲染报告和另行导出的HTML，不用导出文件覆盖待复核的原始渲染输入。

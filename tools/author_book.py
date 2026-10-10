@@ -88,6 +88,7 @@ def main():
         ROOT / "tools/audit_visualbook_parameters.mjs",
         ROOT / "tools/build_visualbook_catalog.mjs",
         ROOT / "tools/visualbook_math.mjs",
+        ROOT / "tools/visualbook_inspection.mjs",
     ]
     env = dict(os.environ)
     for key in ["OPENAI_API_KEY", "CODEX_API_KEY"]:

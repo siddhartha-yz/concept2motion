@@ -111,6 +111,14 @@
       }
       if (previousButton) previousButton.disabled = progress <= 0;
       if (nextButton) nextButton.disabled = progress >= 1;
+      for (const button of element.querySelectorAll("[data-param-step]")) {
+        const key = button.dataset.paramStep,
+          spec = parameterSpecs[key];
+        button.disabled =
+          Number(button.dataset.direction) < 0
+            ? params[key] <= spec.min
+            : params[key] >= spec.max;
+      }
     }
     function pause() {
       if (raf !== null) cancelAnimationFrame(raf);
@@ -141,6 +149,8 @@
             board,
           }) ?? {};
         if (board) board.end();
+        const role = svg.querySelector('[tabindex="0"]') ? "group" : "img";
+        if (svg.getAttribute("role") !== role) svg.setAttribute("role", role);
         instance.error = null;
         delete element.dataset.failed;
       } catch (error) {
@@ -248,7 +258,10 @@
           !spec ||
           (spec.kind === "select"
             ? !spec.options.some((o) => o.value === value)
-            : !Number.isFinite(value) || value < spec.min || value > spec.max)
+            : !Number.isFinite(value) ||
+              value < spec.min ||
+              value > spec.max) ||
+          (spec?.kind === "stepper" && !Number.isSafeInteger(value))
         )
           throw Error("Invalid parameter " + key);
         pause();
@@ -276,6 +289,18 @@
         ),
       );
     }
+    for (const button of element.querySelectorAll("[data-param-step]"))
+      button.addEventListener("click", () => {
+        const key = button.dataset.paramStep,
+          spec = parameterSpecs[key];
+        instance.setParam(
+          key,
+          Math.max(
+            spec.min,
+            Math.min(spec.max, params[key] + Number(button.dataset.direction)),
+          ),
+        );
+      });
     playButton?.addEventListener("click", () => (playing ? pause() : play()));
     previousButton?.addEventListener("click", () => step(-1));
     nextButton?.addEventListener("click", () => step(1));

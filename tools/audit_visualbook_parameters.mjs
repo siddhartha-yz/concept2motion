@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
+import { invalidGeometry } from "./visualbook_inspection.mjs";
 const root = path.resolve(import.meta.dirname, ".."),
   hash = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 export async function auditParameters(file, out) {
@@ -34,6 +35,9 @@ export async function auditParameters(file, out) {
     for (const width of [1280, 375]) {
       const page = await browser.newPage({ viewport: { width, height: 900 } });
       await page.addInitScript(() => (window.__VH_SNAPSHOT = true));
+      await page.addInitScript({
+        content: "window.__VH_INVALID_GEOMETRY=" + invalidGeometry.toString(),
+      });
       await page.goto(pathToFileURL(path.resolve(file)).href);
       await page.waitForFunction(() => document.fonts.status === "loaded");
       const figures = await page.evaluate(() =>
@@ -201,6 +205,7 @@ export async function auditParameters(file, out) {
                   ),
                   tiny: texts.filter((n) => n.size < 12),
                   overlaps,
+                  invalidGeometry: window.__VH_INVALID_GEOMETRY(svg),
                 };
               },
               { id: figure.id, values: c.values, progress },
@@ -220,7 +225,8 @@ export async function auditParameters(file, out) {
               state.error ||
               state.outside.length ||
               state.tiny.length ||
-              state.overlaps.length
+              state.overlaps.length ||
+              state.invalidGeometry.length
             ) {
               report.findings.push({ ...record, facts: undefined });
               await page.locator("#figure-" + figure.id).screenshot({

@@ -28,6 +28,31 @@ const base = {
 };
 const cases = [
   {
+    id: "raw-svg-invalid",
+    direct: true,
+    figure: {
+      ...base,
+      code: "function draw({svg,progress}){let n=svg.querySelector('path');if(!n){n=document.createElementNS('http://www.w3.org/2000/svg','path');svg.append(n);}n.setAttribute('d','MNaN,20 L40,30');n.setAttribute('stroke','#337a98');return {progress};}",
+    },
+    check: (r) =>
+      assert(
+        r.findings.some(
+          (f) => f.kind === "figure-layout" && f.invalidGeometry?.length,
+        ),
+      ),
+  },
+  {
+    id: "wrong-path-api",
+    figure: {
+      ...base,
+      code: "function draw({board}){board.path('bad','M20,30 L40,50');return {}; }",
+    },
+    check: (r) => {
+      assert.equal(r.status, "failed");
+      assert(r.findings.some((f) => f.error?.includes("Board.path needs")));
+    },
+  },
+  {
     id: "draw-error",
     figure: {
       ...base,
@@ -89,7 +114,14 @@ const records = [];
 for (const sample of cases) {
   const file = path.join(out, sample.id + ".html"),
     dir = path.join(out, sample.id);
-  fs.writeFileSync(file, build(source, { figures: [sample.figure] }));
+  fs.writeFileSync(
+    file,
+    build(
+      source,
+      { figures: [sample.figure] },
+      { direct: sample.direct ?? false },
+    ),
+  );
   const report = await preview(file, dir);
   sample.check(report);
   assert.throws(

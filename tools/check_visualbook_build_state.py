@@ -35,4 +35,12 @@ with (out/'protocol-stderr.txt').open('w') as err:
   process.stdin.close();process.wait(timeout=10)
 write('control.json',{'kind':'actual MCP protocol stale-build controls; no model and no browser rendering','modelCalls':0,'calls':records,'passed':True})
 assert not list(out.glob('preview-*')),'A rejected stale candidate must not consume a preview'
+snapshots=sorted((out/'builds').glob('build-*'))
+assert len(snapshots)==4
+states=[json.loads((s/'receipt.json').read_text()) for s in snapshots]
+assert [s['status'] for s in states]==['success','failed','success','success']
+assert json.loads((snapshots[0]/'book.json').read_text())['figures'][0]['title']=='构建状态'
+assert json.loads((snapshots[1]/'book.json').read_text())['figures'][0]['height']==900
+assert not (snapshots[1]/'book.html').exists()
+assert all((s/'book.html').exists() for s,state in zip(snapshots,states) if state['status']=='success')
 print(json.dumps({'passed':True,'protocolCalls':len(records),'browserRenders':0,'modelCalls':0}))

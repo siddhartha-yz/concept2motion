@@ -5,6 +5,7 @@ import crypto from "node:crypto";
 import { operations as calculations } from "./visualbook_math.mjs";
 import { pathToFileURL } from "node:url";
 import { auditParameters } from "./audit_visualbook_parameters.mjs";
+import { invalidGeometry } from "./visualbook_inspection.mjs";
 const root = path.resolve(import.meta.dirname, "..");
 const runtime = path.join(root, "work/visualbook/runtime/node_modules");
 const lib = path.join(root, "packages/visualbook");
@@ -279,7 +280,7 @@ export function validatePlan(book, plan) {
         typeof c.label !== "string" ||
         !c.label.trim() ||
         c.label.length > 40 ||
-        !["range", "select"].includes(c.kind ?? "range")
+        !["range", "select", "stepper"].includes(c.kind ?? "range")
       )
         throw Error("Bad control " + c.key);
       if (c.kind === "select") {
@@ -313,6 +314,11 @@ export function validatePlan(book, plan) {
         c.value > c.max
       )
         throw Error("Bad range " + c.key);
+      if (
+        c.kind === "stepper" &&
+        (![c.min, c.max, c.value].every(Number.isSafeInteger) || c.step !== 1)
+      )
+        throw Error("Stepper needs integer bounds/value and step=1 " + c.key);
     }
     if (scopes.some((s) => start <= s.end && end >= s.start))
       throw Error("Overlapping scopes");
@@ -335,7 +341,7 @@ export function build(book, plan, { direct = false } = {}) {
   const parameter = (c) =>
     c.kind === "select"
       ? `<label>${esc(c.label)}<select data-param="${c.key}" aria-label="${esc(c.label)}">${c.options.map((o, i) => `<option value="${i}"${o.value === c.value ? " selected" : ""}>${esc(o.label)}</option>`).join("")}</select></label>`
-      : `<label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>`;
+      : `<div class="vh-param-row${c.kind === "stepper" ? " vh-stepper" : ""}"><label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>${c.kind === "stepper" ? `<button type="button" data-param-step="${c.key}" data-direction="-1" aria-label="${esc(c.label)}：上一步">←</button><button type="button" data-param-step="${c.key}" data-direction="1" aria-label="${esc(c.label)}：下一步">→</button>` : ""}</div>`;
   const figure = (f) =>
     `<figure class="vh-figure" id="figure-${f.id}" data-viz-id="${f.id}" data-interaction="${f.interaction ?? "timeline"}"><h3>${esc(f.title)}</h3><div class="vh-canvas"><svg role="img" aria-label="${esc(f.summary ?? f.title)}"><title>${esc(f.title)}</title></svg></div><div class="vh-toolbar"><div class="vh-bar"><input class="vh-progress" type="range" min="0" max="1" step="0.001" value="${f.initialProgress ?? 0}" aria-label="${esc(f.title)}：连续演示进度"><span class="vh-status"></span></div><div class="vh-transport"><button type="button" class="vh-prev" aria-label="${esc(f.title)}：上一步">←</button><button type="button" class="vh-play" aria-label="${esc(f.title)}：播放演示" aria-pressed="false">播放</button><button type="button" class="vh-next" aria-label="${esc(f.title)}：下一步">→</button><button type="button" class="vh-reset" aria-label="${esc(f.title)}：重置进度与参数">重置</button></div></div><div class="vh-params">${(f.params ?? []).map(parameter).join("")}</div>${f.summary ? `<p class="vh-caption">${esc(f.summary)}</p>` : ""}</figure>`;
   const renderFigure = (f) => {
@@ -439,12 +445,19 @@ export async function preview(file, out) {
       activePage = page;
       pose = { width };
       const errors = [];
+      const consoleErrors = [];
       page.on("pageerror", (e) => errors.push(String(e)));
+      page.on("console", (m) => {
+        if (m.type() === "error") consoleErrors.push(m.text().slice(0, 1000));
+      });
       page.on("request", (r) => {
         if (/^https?:/.test(r.url()))
           report.findings.push({ kind: "external-request", url: r.url() });
       });
       await page.addInitScript(() => (window.__VH_SNAPSHOT = true));
+      await page.addInitScript({
+        content: "window.__VH_INVALID_GEOMETRY=" + invalidGeometry.toString(),
+      });
       await page.goto(pathToFileURL(path.resolve(file)).href);
       await page.waitForFunction(() => document.fonts.status === "loaded");
       const math = await page.evaluate(() => ({
@@ -576,13 +589,15 @@ export async function preview(file, out) {
               ),
               tiny: text.filter((t) => t.size < 12),
               overlaps,
+              invalidGeometry: window.__VH_INVALID_GEOMETRY(svg),
             };
           }, id);
           if (
             state.error ||
             state.outside.length ||
             state.tiny.length ||
-            state.overlaps.length
+            state.overlaps.length ||
+            state.invalidGeometry.length
           )
             report.findings.push({
               width,
@@ -593,6 +608,7 @@ export async function preview(file, out) {
               outside: state.outside,
               tiny: state.tiny,
               overlaps: state.overlaps,
+              invalidGeometry: state.invalidGeometry,
             });
           frames.push({ ...state, svgHash: hash(state.svg), svg: undefined });
           if (progress === 0) {
@@ -638,6 +654,12 @@ export async function preview(file, out) {
       await page.screenshot({ path: filename, fullPage: true });
       report.screenshots.push(path.resolve(filename));
       report.viewports.push({ width, math, shapes });
+      if (consoleErrors.length)
+        report.findings.push({
+          width,
+          kind: "browser-console-error",
+          errors: [...new Set(consoleErrors)],
+        });
       if (
         errors.length &&
         !report.findings.some(
@@ -669,14 +691,12 @@ export async function preview(file, out) {
     }
   } finally {
     if (browser)
-      await browser
-        .close()
-        .catch((error) =>
-          report.findings.push({
-            kind: "browser-close-error",
-            error: String(error),
-          }),
-        );
+      await browser.close().catch((error) =>
+        report.findings.push({
+          kind: "browser-close-error",
+          error: String(error),
+        }),
+      );
     saveReport();
   }
   if (report.status === "failed") return report;
