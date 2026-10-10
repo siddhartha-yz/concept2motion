@@ -76,6 +76,8 @@ def main():
     parser.add_argument("manifest", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--timeout", type=int, default=1200)
+    parser.add_argument("--model", help="Optional explicit official CLI model")
+    parser.add_argument("--reasoning-effort", choices=["low", "medium", "high", "xhigh", "max", "ultra"])
     parser.add_argument(
         "--max-chapters",
         type=int,
@@ -99,7 +101,7 @@ def main():
     )
     args = parser.parse_args()
     output = args.output.resolve()
-    work = ROOT / "work"
+    work = (ROOT / "work").resolve()
     if not output.is_relative_to(work):
         raise SystemExit(
             "Raw generation output must be in ignored work/ to keep provider logs out of Git"
@@ -184,7 +186,15 @@ def main():
                 "--timeout",
                 str(args.timeout),
                 "--mcp",
+                "--campaign",
+                str(output),
+                "--attempt-limit",
+                str(args.max_chapters),
             ]
+            if args.model:
+                command += ["--model", args.model]
+            if args.reasoning_effort:
+                command += ["--reasoning-effort", args.reasoning_effort]
             p = subprocess.run(command, cwd=ROOT)
             if p.returncode and not (job / "result.json").exists():
                 records.append(

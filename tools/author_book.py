@@ -25,6 +25,10 @@ def main():
     p.add_argument("--source", type=Path)
     p.add_argument("--job", type=Path)
     p.add_argument("--timeout", type=int, default=1200)
+    p.add_argument("--model", help="Pin the official CLI model for a reproducible comparison")
+    p.add_argument("--reasoning-effort", choices=["low", "medium", "high", "xhigh", "max", "ultra"])
+    p.add_argument("--campaign", type=Path, help="Ignored campaign directory containing bounded session attempts")
+    p.add_argument("--attempt-limit", type=int, default=16)
     args = p.parse_args()
     if not re.fullmatch(r"[a-z][a-z0-9-]*", args.section):
         raise SystemExit("Invalid chapter id")
@@ -32,6 +36,10 @@ def main():
         raise SystemExit("--source and --job must be supplied together")
     if not 60 <= args.timeout <= 1800:
         raise SystemExit("Timeout must be 60..1800 seconds")
+    if args.model and not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9._:/-]*", args.model):
+        raise SystemExit("Invalid model name")
+    if not 1 <= args.attempt_limit <= 32:
+        raise SystemExit("Attempt limit must be 1..32")
     if args.source is None and args.section not in [
         "geometry",
         "optimization",
@@ -47,8 +55,12 @@ def main():
         else BASE
         / (args.section + "-" + args.arm + ("-" + args.attempt if args.attempt else ""))
     )
-    if not job.is_relative_to(ROOT / "work"):
+    work_root = (ROOT / "work").resolve()
+    if not job.is_relative_to(work_root):
         raise SystemExit("Raw authoring output must stay in ignored work/")
+    campaign = args.campaign.resolve() if args.campaign else None
+    if campaign and (not campaign.is_relative_to(work_root) or not job.is_relative_to(campaign)):
+        raise SystemExit("Campaign and its sessions must stay inside ignored work/")
     if job.exists():
         raise SystemExit("Refuse to overwrite a session")
     source = (
@@ -93,11 +105,13 @@ def main():
     ).strip()
     with (ROOT / "work/visualbook/codex-serial.lock").open("w") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        if campaign and len(list(campaign.rglob("invocation.json"))) >= args.attempt_limit:
+            raise SystemExit("Campaign startup attempt limit reached; failures count too")
         if args.source is None and len(list(BASE.glob("*/invocation.json"))) >= 8:
             raise SystemExit(
                 "Eight attempt scope reached, including launch failures and pilot"
             )
-        previous = sorted(BASE.glob("*/result.json"), key=lambda f: f.stat().st_mtime)
+        previous = sorted((campaign.rglob("result.json") if campaign else BASE.glob("*/result.json")), key=lambda f: f.stat().st_mtime)
         if len(previous) >= 3 and all(
             json.loads(f.read_text())["exit_code"] != 0 for f in previous[-3:]
         ):
@@ -150,6 +164,11 @@ def main():
                 "prompt_sha256": sha(job / "prompt.md"),
                 "tool_hashes": before,
                 "cliVersion": version,
+                "requested_model": args.model,
+                "requested_reasoning_effort": args.reasoning_effort,
+                "configuration_note": "Explicit CLI overrides when supplied; otherwise existing user configuration. Requested settings are not independent verification of provider model identity.",
+                "campaign": str(campaign) if campaign else None,
+                "attempt_limit": args.attempt_limit if campaign else None,
                 "timeout_s": args.timeout,
                 "auth": "official existing ChatGPT login",
             },
@@ -169,6 +188,12 @@ def main():
             str(job / "last-message.md"),
             "-",
         ]
+        overrides = []
+        if args.model:
+            overrides += ["--model", args.model]
+        if args.reasoning_effort:
+            overrides += ["-c", "model_reasoning_effort=" + json.dumps(args.reasoning_effort)]
+        cmd = cmd[:-1] + overrides + ["-"]
         if args.mcp:
             server_args = [
                 str(ROOT / "tools/visualbook_mcp.py"),
@@ -254,6 +279,8 @@ def main():
                 if c["tool"] in ["preview_book", "inspect_frame"]
             ),
             "mcp_enabled": args.mcp,
+            "requested_model": args.model,
+            "requested_reasoning_effort": args.reasoning_effort,
             "auth": "official existing ChatGPT login",
         }
         write(job / "result.json", result)
