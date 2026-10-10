@@ -325,11 +325,26 @@
       draggable = false,
       stateKey = null,
       title = null,
+      view = "projection",
+      pointColors = null,
     } = {},
     context = {},
   ) {
     points(data);
     if (data.length > 60) throw Error("Drawn PCA supports at most 60 points");
+    if (!["projection", "coordinates"].includes(view))
+      throw Error("PCA view is projection or coordinates");
+    if (view === "coordinates" && draggable)
+      throw Error(
+        "Drag original points, then share data with a PCA coordinate view",
+      );
+    if (
+      pointColors !== null &&
+      (!Array.isArray(pointColors) ||
+        pointColors.length !== data.length ||
+        pointColors.some((c) => !Object.hasOwn(P, c)))
+    )
+      throw Error("One known palette color per PCA point required");
     const facts = pca2d(data),
       f = V.plotFrame(board, "axes", {
         xDomain,
@@ -344,12 +359,20 @@
     board.curve(
       "principal",
       f,
-      [-1, 1].map((t) => facts.mean.map((v, j) => v + t * length * axis[j])),
+      [-1, 1].map((t) =>
+        view === "coordinates"
+          ? [t * length, 0]
+          : facts.mean.map((v, j) => v + t * length * axis[j]),
+      ),
       { color: P.orange, width: 2.5 },
     );
-    board.circle("mean", f.x(facts.mean[0]), f.y(facts.mean[1]), 4, P.ink);
+    const mean = view === "coordinates" ? [0, 0] : facts.mean;
+    board.circle("mean", f.x(mean[0]), f.y(mean[1]), 4, P.ink);
     data.forEach((p, i) => {
-      const q = facts.reconstructed[i],
+      const q =
+          view === "coordinates"
+            ? facts.coordinates[i]
+            : facts.reconstructed[i],
         at = p.map((v, j) => V.mix(v, q[j], phase));
       const line = board.line(
         "residual-" + i,
@@ -359,15 +382,16 @@
         f.y(q[1]),
         P.muted,
         1,
-        0.25,
+        view === "projection" ? 0.25 : 0,
       );
       line.setAttribute("clip-path", f.clip);
-      board.circle("point-" + i, f.x(at[0]), f.y(at[1]), 4, P.blue);
+      const color = pointColors ? P[pointColors[i]] : P.blue;
+      board.circle("point-" + i, f.x(at[0]), f.y(at[1]), 4, color);
       if (draggable) {
         if (!stateKey) throw Error("PCA dragging needs shared data state");
         board.handle("handle-" + i, f, p, {
-          color: P.blue,
-          label: "移动数据点 " + (i + 1),
+          color,
+          ariaLabel: "移动数据点 " + (i + 1),
           onChange: (value) =>
             context.controls.setState(
               stateKey,

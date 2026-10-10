@@ -51,11 +51,24 @@ export async function auditParameters(file, out) {
             ),
           },
         ];
+        const endpoints = (p) =>
+          p.kind === "select"
+            ? [p.options[0].value, p.options.at(-1).value]
+            : [p.min, p.max];
         for (const param of figure.params)
-          for (const [name, value] of [
-            ["min", param.min],
-            ["max", param.max],
-          ])
+          for (const [name, value] of param.kind === "select"
+            ? param.options.map((o, i) => [
+                i === 0
+                  ? "min"
+                  : i === param.options.length - 1
+                    ? "max"
+                    : "option-" + i,
+                o.value,
+              ])
+            : [
+                ["min", param.min],
+                ["max", param.max],
+              ])
             cases.push({
               name: param.key + "-" + name,
               values: { ...cases[0].values, [param.key]: value },
@@ -64,13 +77,13 @@ export async function auditParameters(file, out) {
           cases.push({
             name: "all-min",
             values: Object.fromEntries(
-              figure.params.map((p) => [p.key, p.min]),
+              figure.params.map((p) => [p.key, endpoints(p)[0]]),
             ),
           });
           cases.push({
             name: "all-max",
             values: Object.fromEntries(
-              figure.params.map((p) => [p.key, p.max]),
+              figure.params.map((p) => [p.key, endpoints(p)[1]]),
             ),
           });
         }
@@ -222,7 +235,7 @@ export async function auditParameters(file, out) {
           const samples = report.cases.filter(
             (c) => c.width === width && c.id === figure.id,
           );
-          const unchanged = [0.5, 1].every((progress) => {
+          let unchanged = [0.5, 1].every((progress) => {
             const low = samples.find(
               (c) =>
                 c.control === param.key + "-min" && c.progress === progress,
@@ -239,13 +252,84 @@ export async function auditParameters(file, out) {
               low.svgHash === high.svgHash
             );
           });
+          // A periodic parameter can have equal endpoints. A forward input can
+          // affect early poses while its final gradient is constant. Probe the
+          // middle and early poses before calling the control inert.
+          if (unchanged) {
+            const values =
+              param.kind === "select"
+                ? param.options.map((o) => o.value)
+                : [
+                    param.min,
+                    Math.min(
+                      param.max,
+                      param.min +
+                        Math.round((param.max - param.min) / (2 * param.step)) *
+                          param.step,
+                    ),
+                    param.max,
+                  ];
+            for (const progress of [0, 0.25, 0.5, 1]) {
+              const hashes = [];
+              for (const value of values) {
+                const probe = await page.evaluate(
+                  ({ id, key, value, defaults, progress }) => {
+                    const instance = VisualBookRuntime.instances.find(
+                      (i) => i.id === id,
+                    );
+                    try {
+                      instance.reset();
+                      for (const [k, v] of Object.entries(defaults))
+                        instance.setParam(k, v);
+                      instance.setParam(key, value);
+                      instance.setProgress(progress);
+                      return {
+                        svg: instance.svg.outerHTML,
+                        error: instance.error,
+                      };
+                    } catch (error) {
+                      return { error: String(error) };
+                    }
+                  },
+                  {
+                    id: figure.id,
+                    key: param.key,
+                    value,
+                    defaults: cases[0].values,
+                    progress,
+                  },
+                );
+                hashes.push(
+                  probe.error ? "error:" + probe.error : hash(probe.svg),
+                );
+                if (probe.error)
+                  report.findings.push({
+                    width,
+                    id: figure.id,
+                    control: param.key,
+                    value,
+                    progress,
+                    kind: "parameter-runtime-error",
+                    error: probe.error,
+                    probe: "adaptive early/middle pose",
+                  });
+              }
+              if (
+                new Set(hashes).size > 1 ||
+                hashes.some((h) => h.startsWith("error:"))
+              ) {
+                unchanged = false;
+                break;
+              }
+            }
+          }
           if (unchanged)
             report.findings.push({
               width,
               id: figure.id,
               control: param.key,
               kind: "parameter-no-visual-effect",
-              note: "Both tested endpoints produce identical SVG at both tested poses",
+              note: "Endpoint, middle/options and early/final pose probes produce identical SVG; this is a bounded check",
             });
         }
       }

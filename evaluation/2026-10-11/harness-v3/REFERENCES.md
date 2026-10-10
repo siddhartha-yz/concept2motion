@@ -24,3 +24,7 @@
 - [Distill 感受野](https://distill.pub/2019/computing-receptive-fields/) 与 [Red Blob 网格关系](https://www.redblobgames.com/grids/parts/)：阅读结构化参数、对象关系与输入域边界设计；未复制代码或资产。
 - [Abramowitz–Stegun p299](https://personal.math.ubc.ca/~cbm/aands/page_299.htm)：公式7.1.26的扫描原书参考；已在浏览器直接读取扫描图，核实五个系数、p及erf误差≤1.5×10^-7；单点CDF界取其一半，区间概率取两端误差之和。不把文本索引本身当公式证据。
 - [Prettier 3.6.2](https://github.com/prettier/prettier/tree/7a8b05f41574633fd3af5298f3eeaf33567ad3d3)：开发格式化器，MIT LICENSE已读。包来自npmmirror固定版本，镜像SHA512与实际lock一致；未核实官方npm元数据，源码标签commit和打包gitHead不能混为一谈。仅保留在忽略work目录。
+
+进一步参考：[Setosa PCA](https://setosa.io/ev/principal-component-analysis/)实际看图并拖动数据点，借鉴同一批点跨坐标系保持身份和颜色；没有复制图像或代码。[Python Tutor](https://pythontutor.com/visualize.html)阅读其逐步执行说明并打开交互页面，正在检查引用与复制的运行示例。
+
+[Augmented RNNs](https://distill.pub/2016/augmented-rnns/)、[Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)、[Matrix Calculus](https://explained.ai/matrix-calculus/)已读网页文本，尚未逐图复核，不记为已完成视觉参考。[NumPy strides](https://numpy.org/doc/2.1/reference/generated/numpy.ndarray.strides.html)与[broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting)提供索引/形状规则原始文档，编程积木拟借鉴这些关系，不复制正文或成品资产。

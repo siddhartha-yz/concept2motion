@@ -48,19 +48,19 @@ figure 中可设 `state:{"v":[1.5,1]}`。拖动向量会更新同一份状态，
 
 源码组合也支持 `board.region(id,{x,y,width,height},localBoard=>...)`，所有坐标变成该区域的局部坐标，原有矩阵、曲线等方法可直接复用。`board.layout(count,options)` 返回局部排布。`draw` 额外收到 `state` 和 `controls`：setState(key,value)、setParam(key,value)、setProgress(value)、pause()。不要改状态后忘记刷新，使用这些共享方法。
 
-`board.handle(id,frame,[x,y],{onChange,label,color,axis,step,bounds,constrain})` 提供稳定的鼠标/触摸把手、方向键与边界约束，默认双轴移动，axis 可为 x 或 y，bounds 为 `{x:[最小,最大],y:[最小,最大]}`。拖动时暂停演示。`board.selectable(node,{label,selected,onSelect})` 让已有图元能用点击、Enter、空格选择。
+`board.handle(id,frame,[x,y],{onChange,label,ariaLabel,color,axis,step,bounds,constrain})` 提供稳定的鼠标/触摸把手、方向键与边界约束，默认双轴移动，axis 可为 x 或 y，bounds 为 `{x:[最小,最大],y:[最小,最大]}`。label是可见的短标记，ariaLabel是辅助阅读说明，多把手不要堆叠说明文字。拖动时暂停演示。`board.selectable(node,{label,selected,onSelect})` 让已有图元能用点击、Enter、空格选择。
 
 新增概率/学习组件：distribution、histogram、bayes、regression、loss-curve、decision-boundary、pca，可和下列基础组件用共享状态和 $result 拼接。用 describe_component 查询完整字段。
 
 当前基础组件：projection（vector、onto、progress，可拖动）、linear-transform（2×2 matrix、vector、progress）、plot（xDomain/yDomain 与 curve/points/vector/area/handle 图层）、readout（短 label/value 数值列表）。数学组件：function-plot（function、x、derivative）、derivative（function、x、h）、integral（function、a、b、count、rule、progress）、unit-circle（angle）。函数 function 是数据：polynomial + 低次到高次 coefficients，或 sin/cos/exp/log/sigmoid/tanh/relu/gaussian；gaussian 支持 mean/sigma。范围需要覆盖教材例子，工具不会把画外数据伪装成画内结果。用目录的真实图片选择合适设计，完整示例和限制随目录提供。
 
-独立核对：`VisualBook.project(v,onto)`、`scalarFunction(spec).f(x)/df(x)`、`riemannSum(spec,a,b,{count,rule})`。ReLU在0处不可导，显示0只是选择的次梯度；`h=0` 显示解析导数，不执行0/0；数值积分和精确积分分开返回。
+查看共享数学内核：`VisualBook.project(v,onto)`、`scalarFunction(spec).f(x)/df(x)`、`riemannSum(spec,a,b,{count,rule})`。ReLU在0处不可导，显示0只是选择的次梯度；`h=0` 显示解析导数，不执行0/0；数值积分和精确积分分开返回。
 
 ## 张量与卷积设计
 
 - `board.reshape(id,values,rows,{progress})`：保持行优先顺序和元素数量，让同一批稳定对象移动到新形状；不是转置。最多36值、每维最多8，过密会拒绝。新行数必须整除元素总数。
 - `board.convolution(id,input,kernel,{stride,padding,progress})`：实际计算深度学习中的互相关、输出尺寸、当前窗口的乘积求和；核不翻转。支持输入最多6×6、核最多3×3、零填充最多1。连续窗口移动是阅读演示，输出只取实际离散位置。手机需选择小例子，建议height330/mobileHeight430。
-- `VisualBook.correlate2d(input,kernel,{stride,padding})`：独立数值结果，检查核、步幅与填充形状，不假装测量硬件执行。
+- `VisualBook.correlate2d(input,kernel,{stride,padding})`：无DOM数值结果，检查核、步幅与填充形状，不假装测量硬件执行。
 
 本地MCP的 `search_designs({query})` 按概念检索最多六个组件；`describe_component({id})` 返回实际输入字段、输出、限制与示例。目录是积木的展示方式，不要把整份源码读进上下文。概率/学习组件的 `compute_math({operation,inputs})` 调用同一无DOM计算内核，支持normal-cdf、binomial、histogram、bayes、regression、regression-optimum、pca；这是核对实际使用数值的便利工具，不是独立数学验收。
 
@@ -94,3 +94,21 @@ trace要求有限向量、同形有限梯度、eta≥0、epsilon>0、0≤rho<1�
 最终检查：用inspect_frame({id,width,progress})查看最后预览的每幅图在1280/375下的0/1端点，图片直接返回，不消耗新预览。随后调用finalize_book({issues:[],mathCheckNote:"实际核对方式",limits:"未验证范围"})。issues必须如实记录所有已知未解决遮挡/数学/教学问题，不给自己打分。没有最终记录、记录过期或仍有已知问题，流水线停止导出。这个机制只能挡住已经被发现的问题，不能证明模型审美判断正确。
 
 计算图 autograd 使用标量节点，支持多输出与反传 seeds 计算 Jᵀv；detach 保持前向值并截断梯度。g 表示目标加权和对该节点的导数。多次使用同一输入须分别累计，零贡献的反向边不显示传播标记。traceGraph 的 seededValue 是加权目标，value 仍是原始输出（多个输出时为数组）。
+
+## 选择器和神经网络积木
+
+参数支持原有数字范围，以及 `{"key":"mode","label":"模式","kind":"select","value":"batch","options":[{"value":"batch","label":"当前批次"},{"value":"running","label":"给定历史统计"}]}`。原生下拉列表保留string/number/boolean值，不用0/1冒充文字模式。每个选择器2..8项，检查遍历全部选项。
+
+新增tensor（矩阵与热力图，颜色和数值分开）、attention（Q/K/V实际计算，输出可接tensor）、normalization（样本×特征，axis0/1，epsilon在sqrt内，gamma/beta按特征）、dense-layer（给定权重的仿射和激活，点选输出）、dropout（显式固定掩码，inverted缩放，推理恒等）。原有product/reshape/convolution/optimizer/probabilities/sequence也已注册为scene组件，能通过$result拼接。pca支持projection与coordinates两种表示，可共享数据和pointColors。输入输出及限度用describe_component查，避免猜字段。
+
+compute_math另支持matmul、softmax、attention、normalization、dense、dense-backward、dropout、squared-loss、softmax-loss，全部使用同一无DOM内核，不是独立验收。describe_calculation返回必填字段、支持字段和真实输出，先查后接。输出的convention说明尺度、统计分母与手选权重等限制。实际训练和硬件时间不在这些工具的证明范围。
+
+需要中间计算时，可用compose连接最多16步受限计算，再绘图。不是eval表达式语言。每一步的$result只能引用前面的真实结果，编译时拒绝未定义输出和向前引用。例如：
+
+```json
+{"type":"compose","calculations":[{"id":"forward","operation":"dense","inputs":{"input":[[1,2]],"weights":[[0.5],[1]],"activation":"linear"}},{"id":"loss","operation":"squared-loss","inputs":{"prediction":{"$result":"forward.output"},"target":[[2]]}}],"visual":{"id":"numbers","type":"readout","props":{"items":[{"label":"输出","value":{"$result":"forward.output"}},{"label":"损失","value":{"$result":"loss.loss"}}]}}}
+```
+
+dense-backward的seeds形状必须与输出相同，返回inputGradient/weightGradient/biasGradient。它计算输出加权和的导数，不自动对批次平均；把损失实际导数作为seeds连接，可展示完整链式法则。给定权重不代表训练结果。squared-loss默认half-squared的mean除以全部标量个数，softmax-loss的mean按样本数平均，不能混用分母。
+
+构建记录绑定原文、计划、工具和HTML。失败构建、修改原文/计划或改变HTML后，MCP拒绝沿用旧画面。修订必须成功build_book再preview_book。导出拒绝已经发现的渲染问题；关闭JavaScript时使用实际渲染的SVG初始帧，隐藏没有作用的控制器。

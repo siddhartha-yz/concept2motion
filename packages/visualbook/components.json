@@ -437,7 +437,9 @@
         "yDomain": "Increasing finite [min,max] displayed output interval",
         "draggable": "See executable example and numeric limits",
         "stateKey": "Name in figure.state; use $state to read it and shared controls to update it",
-        "title": "Optional short title; omit if figure heading already names the idea"
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "view": "projection moves points to their orthogonal reconstruction; coordinates maps to centered PC1/PC2; dragging only original projection view",
+        "pointColors": "One palette name per point, shared across views for object identity"
       },
       "required": [
         "data"
@@ -450,13 +452,403 @@
         "projections",
         "reconstructed",
         "explained",
-        "degenerate"
+        "degenerate",
+        "coordinates",
+        "secondAxis"
       ],
       "examples": [
-        "pca-projection"
+        "pca-projection",
+        "pca-coordinates"
       ],
       "limits": "总体协方差分母N；重复特征值不确定方向；<=60可见点",
       "keywords": "principal component analysis variance 主成分 方差 降维"
+    },
+    {
+      "id": "tensor",
+      "title": "矩阵、切片和热力图",
+      "props": {
+        "values": "Nonempty rectangular finite matrix; draw at most 8×8",
+        "title": "Short optional heading",
+        "encoding": "neutral/sequential/diverging",
+        "domain": "Explicit increasing color bounds; diverging straddles zero",
+        "showValues": "boolean; disable when detailed numbers cannot fit",
+        "rowLabels": "One short string per row",
+        "columnLabels": "One short string per column",
+        "selected": "[row,column] or null",
+        "stateKey": "Shared state receiving a selected [row,column]",
+        "precision": "Integer 0..5"
+      },
+      "required": [
+        "values"
+      ],
+      "outputs": [
+        "values",
+        "shape",
+        "minimum",
+        "maximum",
+        "domain",
+        "selected",
+        "value",
+        "row",
+        "column",
+        "convention"
+      ],
+      "examples": [
+        "matrix-selection",
+        "attention-compose",
+        "dense-compose"
+      ],
+      "limits": "最多8×8，格子至少30px；色域与数值分开，越界颜色裁剪不改变数值",
+      "keywords": "matrix heatmap tensor attention values 矩阵 热力图 张量 选择"
+    },
+    {
+      "id": "matrix-product",
+      "title": "矩阵乘法",
+      "props": {
+        "a": "Finite left matrix",
+        "b": "Finite right matrix",
+        "progress": "Illustrative contribution marker 0..1",
+        "row": "Valid output row integer",
+        "col": "Valid output column integer"
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "outputs": [
+        "a",
+        "b",
+        "c",
+        "row",
+        "col",
+        "terms",
+        "sum",
+        "term",
+        "phase",
+        "assumption"
+      ],
+      "examples": [
+        "matrix-product"
+      ],
+      "limits": "最多5行/列/内积维；不是GPU执行",
+      "keywords": "matrix multiplication matmul 矩阵乘法"
+    },
+    {
+      "id": "reshape",
+      "title": "张量重排",
+      "props": {
+        "values": "Finite rectangular matrix",
+        "rows": "Target rows dividing element count",
+        "progress": "Position interpolation 0..1"
+      },
+      "required": [
+        "values",
+        "rows"
+      ],
+      "outputs": [
+        "values",
+        "output",
+        "inputShape",
+        "outputShape",
+        "count",
+        "progress",
+        "order"
+      ],
+      "examples": [
+        "reshape"
+      ],
+      "limits": "最多36值，每维≤8；行优先顺序保持，不是转置",
+      "keywords": "tensor reshape shape 张量 形状 重排"
+    },
+    {
+      "id": "convolution",
+      "title": "滑动核与输出",
+      "props": {
+        "input": "See executable design and stated numeric limits",
+        "kernel": "See executable design and stated numeric limits",
+        "stride": "See executable design and stated numeric limits",
+        "padding": "See executable design and stated numeric limits",
+        "progress": "See executable design and stated numeric limits"
+      },
+      "required": [
+        "input",
+        "kernel"
+      ],
+      "outputs": [
+        "input",
+        "kernel",
+        "output",
+        "stride",
+        "padding",
+        "inputShape",
+        "outputShape",
+        "row",
+        "col",
+        "terms",
+        "sum",
+        "window",
+        "progress",
+        "convention"
+      ],
+      "examples": [
+        "convolution"
+      ],
+      "limits": "输入每维≤6、核≤3、填充≤1；互相关不翻转核",
+      "keywords": "convolution cross correlation stride padding kernel 卷积 互相关 核 步幅 填充"
+    },
+    {
+      "id": "optimizer",
+      "title": "相同目标上的更新路线",
+      "props": {
+        "a": "See executable design and stated numeric limits",
+        "b": "See executable design and stated numeric limits",
+        "start": "See executable design and stated numeric limits",
+        "kind": "See executable design and stated numeric limits",
+        "eta": "See executable design and stated numeric limits",
+        "rho": "See executable design and stated numeric limits",
+        "epsilon": "See executable design and stated numeric limits",
+        "steps": "See executable design and stated numeric limits",
+        "progress": "See executable design and stated numeric limits",
+        "compare": "See executable design and stated numeric limits",
+        "xDomain": "See executable design and stated numeric limits",
+        "yDomain": "See executable design and stated numeric limits"
+      },
+      "required": [],
+      "outputs": [
+        "objective",
+        "kind",
+        "eta",
+        "rho",
+        "epsilon",
+        "steps",
+        "trace",
+        "current",
+        "unitX",
+        "unitY",
+        "interpolation"
+      ],
+      "examples": [
+        "optimizer"
+      ],
+      "limits": "二维二次目标；SGD/RMSProp等可复现更新，不是网络训练成绩",
+      "keywords": "optimization gradient descent SGD RMSProp 梯度下降 优化"
+    },
+    {
+      "id": "probabilities",
+      "title": "分数与概率",
+      "props": {
+        "scores": "See executable design and stated numeric limits",
+        "temperature": "See executable design and stated numeric limits",
+        "progress": "See executable design and stated numeric limits",
+        "labels": "See executable design and stated numeric limits"
+      },
+      "required": [
+        "scores"
+      ],
+      "outputs": [
+        "scores",
+        "temperature",
+        "probabilities",
+        "sum",
+        "progress"
+      ],
+      "examples": [
+        "probabilities"
+      ],
+      "limits": "最多10项，正温度；均匀到目标的插值不是训练",
+      "keywords": "probability logits softmax temperature 概率 温度 分数"
+    },
+    {
+      "id": "sequence",
+      "title": "流程连接",
+      "props": {
+        "nodes": "See executable design and stated numeric limits",
+        "active": "See executable design and stated numeric limits",
+        "x": "See executable design and stated numeric limits",
+        "y": "See executable design and stated numeric limits",
+        "width": "See executable design and stated numeric limits",
+        "height": "See executable design and stated numeric limits"
+      },
+      "required": [
+        "nodes"
+      ],
+      "outputs": [
+        "boxes"
+      ],
+      "examples": [
+        "data-flow"
+      ],
+      "limits": "顺序流程；动态分支需计算图或程序轨迹，不声称执行时间",
+      "keywords": "flow program stages sequence 流程 程序 阶段"
+    },
+    {
+      "id": "attention",
+      "title": "注意力权重和加权汇总",
+      "props": {
+        "queries": "Finite Q [queries,key dimension]",
+        "keys": "Finite K [keys,key dimension]",
+        "values": "Finite V [keys,value dimension]",
+        "temperature": "Positive finite temperature",
+        "scaled": "Boolean; divide dot scores by sqrt(key dimension)",
+        "mask": "Boolean [queries,keys], true means allowed; reject all-masked rows",
+        "selected": "Valid integer query index",
+        "title": "Short optional heading",
+        "view": "weights: one composable weight matrix (default); summary: matrix plus selected weighted sum"
+      },
+      "required": [
+        "queries",
+        "keys",
+        "values"
+      ],
+      "outputs": [
+        "queries",
+        "keys",
+        "values",
+        "queryShape",
+        "keyShape",
+        "valueShape",
+        "scores",
+        "weights",
+        "output",
+        "scale",
+        "temperature",
+        "mask",
+        "convention",
+        "selected",
+        "selectedWeights",
+        "selectedOutput"
+      ],
+      "examples": [
+        "attention-compose"
+      ],
+      "limits": "≤6查询/键，≤4值维；Q/K/V给定，无训练投影、多头或随机采样声明",
+      "keywords": "attention query key value mask Q K V softmax 注意力 查询 键 值 掩码"
+    },
+    {
+      "id": "normalization",
+      "title": "按统计范围进行中心化和缩放",
+      "props": {
+        "data": "Finite [examples,features]",
+        "axis": "0 over examples for each feature; 1 over features for each example",
+        "epsilon": "Positive finite epsilon inside sqrt",
+        "gamma": "Scalar or one affine gain per feature, for either statistics axis",
+        "beta": "Scalar or one offset per feature, for either statistics axis",
+        "mode": "batch or running; running only axis0",
+        "runningMean": "Supplied per-feature means for running mode",
+        "runningVariance": "Supplied nonnegative per-feature variances",
+        "progress": "0 input, .5 centered, 1 normalized affine output",
+        "valueDomain": "Optional finite increasing visible numeric bounds",
+        "title": "Short heading"
+      },
+      "required": [
+        "data"
+      ],
+      "outputs": [
+        "input",
+        "shape",
+        "axis",
+        "mode",
+        "mean",
+        "variance",
+        "batchMean",
+        "batchVariance",
+        "centered",
+        "standardized",
+        "output",
+        "epsilon",
+        "gamma",
+        "beta",
+        "current",
+        "progress",
+        "stage",
+        "convention"
+      ],
+      "examples": [
+        "normalization-axes",
+        "normalization-running"
+      ],
+      "limits": "≤8样本、6特征；总体方差除N，running统计由调用方给定，不更新",
+      "keywords": "batch normalization layer norm normalization feature sample 批量归一化 层归一化 统计范围 均值 方差"
+    },
+    {
+      "id": "dense-layer",
+      "title": "一个有数值的全连接层",
+      "props": {
+        "input": "Single row finite input",
+        "weights": "Finite [input,output] supplied weights",
+        "bias": "Scalar or one per output",
+        "activation": "linear/relu/sigmoid/tanh",
+        "selected": "Valid integer output index",
+        "progress": "Highlight contribution paths, 0..1",
+        "stateKey": "Shared state receiving output index when a node is selected",
+        "title": "Optional output heading",
+        "mode": "forward or backward; backward shows gradients of the seeded output sum",
+        "seeds": "Finite [1,outputs]; defaults to a one-hot selected output"
+      },
+      "required": [
+        "input",
+        "weights"
+      ],
+      "outputs": [
+        "input",
+        "weights",
+        "bias",
+        "activation",
+        "preactivation",
+        "output",
+        "inputShape",
+        "weightShape",
+        "outputShape",
+        "convention",
+        "selected",
+        "terms",
+        "preactivationSelected",
+        "outputSelected",
+        "outputGradient",
+        "preactivationGradient",
+        "inputGradient",
+        "weightGradient",
+        "biasGradient",
+        "seededValue"
+      ],
+      "examples": [
+        "dense-compose",
+        "dense-backward"
+      ],
+      "limits": "一份输入、≤6输入/输出；给定权重，无训练声明",
+      "keywords": "dense linear layer affine weights neuron MLP 全连接 仿射 层 权重 神经元 backprop backward chain rule VJP 反传 反向传播 链式法则 梯度"
+    },
+    {
+      "id": "dropout",
+      "title": "固定掩码的训练与推理",
+      "props": {
+        "data": "Finite tensor",
+        "mask": "Boolean tensor matching data; true means kept",
+        "rate": "Finite [0,1), inverted dropout rescales kept entries",
+        "training": "Boolean: true uses mask, false is identity",
+        "progress": "Illustrative interpolation input→masked/scaled output",
+        "title": "Optional heading"
+      },
+      "required": [
+        "data",
+        "mask"
+      ],
+      "outputs": [
+        "input",
+        "mask",
+        "rate",
+        "training",
+        "output",
+        "scale",
+        "current",
+        "progress",
+        "convention"
+      ],
+      "examples": [
+        "dropout-mask"
+      ],
+      "limits": "显式固定掩码；不声称随机采样，无推理时丢弃",
+      "keywords": "dropout mask training inference 掩码 暂退法 训练 推理"
     }
   ]
 }

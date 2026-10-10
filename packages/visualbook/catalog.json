@@ -1475,6 +1475,871 @@
           }
         ]
       }
+    },
+    {
+      "id": "matrix-selection",
+      "title": "选择一个格子，同时看行、列和数值",
+      "topic": "数学 / 编程",
+      "limits": "2×3示例；可鼠标或键盘选择；状态驱动联动读数",
+      "height": 360,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 20,
+          "weights": [
+            1,
+            1
+          ]
+        },
+        "children": [
+          {
+            "type": "tensor",
+            "props": {
+              "values": [
+                [
+                  1,
+                  2,
+                  3
+                ],
+                [
+                  4,
+                  5,
+                  6
+                ]
+              ],
+              "selected": {
+                "$state": "cell"
+              },
+              "stateKey": "cell",
+              "rowLabels": [
+                "r0",
+                "r1"
+              ],
+              "columnLabels": [
+                "c0",
+                "c1",
+                "c2"
+              ]
+            },
+            "id": "matrix"
+          },
+          {
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "这个格子",
+                  "value": {
+                    "$result": "matrix.value"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "所在行",
+                  "value": {
+                    "$result": "matrix.row"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "所在列",
+                  "value": {
+                    "$result": "matrix.column"
+                  },
+                  "color": "violet"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "interaction": "parameters",
+      "state": {
+        "cell": [
+          0,
+          1
+        ]
+      },
+      "keywords": "index array matrix row column indexing 数组 矩阵 索引 行 列"
+    },
+    {
+      "id": "attention-compose",
+      "title": "调温度，权重和加权输出一起改变",
+      "topic": "深度学习 / 组合",
+      "limits": "给定Q/K/V；缩放点积；数值结果直接传入输出矩阵，无训练声明",
+      "height": 360,
+      "mobileHeight": 430,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 20,
+          "weights": [
+            1,
+            1
+          ]
+        },
+        "children": [
+          {
+            "type": "attention",
+            "props": {
+              "queries": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "keys": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ]
+              ],
+              "values": [
+                [
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  -2,
+                  4
+                ]
+              ],
+              "temperature": {
+                "$param": "temperature"
+              },
+              "selected": {
+                "$param": "query"
+              }
+            },
+            "id": "att"
+          },
+          {
+            "type": "tensor",
+            "props": {
+              "values": [
+                {
+                  "$result": "att.selectedOutput"
+                }
+              ],
+              "title": "所选查询的输出",
+              "encoding": "diverging",
+              "domain": [
+                -4,
+                4
+              ],
+              "columnLabels": [
+                "v0",
+                "v1"
+              ]
+            }
+          }
+        ]
+      },
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "temperature",
+          "label": "温度",
+          "min": 0.2,
+          "max": 2,
+          "step": 0.05,
+          "value": 1
+        },
+        {
+          "key": "query",
+          "label": "选择查询",
+          "kind": "select",
+          "options": [
+            {
+              "value": 0,
+              "label": "q0"
+            },
+            {
+              "value": 1,
+              "label": "q1"
+            }
+          ],
+          "value": 0
+        }
+      ],
+      "keywords": "attention query key value softmax temperature weighted sum 注意力 加权 温度 查询"
+    },
+    {
+      "id": "normalization-axes",
+      "title": "改统计范围，看看哪些点一起移动",
+      "topic": "深度学习 / 归一化",
+      "limits": "二维样本×特征；总体方差除N；插值是中心化/缩放解释",
+      "height": 330,
+      "mobileHeight": 360,
+      "scene": {
+        "type": "normalization",
+        "props": {
+          "data": [
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              1,
+              6
+            ]
+          ],
+          "axis": {
+            "$param": "axis"
+          },
+          "progress": {
+            "$progress": true
+          }
+        }
+      },
+      "params": [
+        {
+          "key": "axis",
+          "label": "统计范围",
+          "kind": "select",
+          "options": [
+            {
+              "value": 0,
+              "label": "每个特征，跨样本"
+            },
+            {
+              "value": 1,
+              "label": "每个样本，跨特征"
+            }
+          ],
+          "value": 0
+        }
+      ],
+      "stages": [
+        "原始输入",
+        "减去均值",
+        "缩放与仿射"
+      ],
+      "keywords": "batch normalization layer norm axes batchnorm layernorm 批量归一化 层归一化 统计范围"
+    },
+    {
+      "id": "normalization-running",
+      "title": "当前批次和给定历史统计会得到不同结果",
+      "topic": "深度学习 / 归一化",
+      "limits": "历史均值/方差给定；不假装进行训练更新；gamma/beta按特征",
+      "height": 330,
+      "mobileHeight": 360,
+      "scene": {
+        "type": "normalization",
+        "props": {
+          "data": [
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              1,
+              6
+            ]
+          ],
+          "axis": 0,
+          "mode": {
+            "$param": "mode"
+          },
+          "runningMean": [
+            0,
+            1,
+            2
+          ],
+          "runningVariance": [
+            1,
+            2,
+            3
+          ],
+          "progress": 1
+        }
+      },
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "mode",
+          "label": "使用的统计",
+          "kind": "select",
+          "options": [
+            {
+              "value": "batch",
+              "label": "当前批次"
+            },
+            {
+              "value": "running",
+              "label": "给定历史统计"
+            }
+          ],
+          "value": "batch"
+        }
+      ],
+      "keywords": "batchnorm running mean variance train inference 批量归一化 历史 均值 方差 训练 推理"
+    },
+    {
+      "id": "dense-compose",
+      "title": "一个层的输出，接到下一块积木",
+      "topic": "深度学习 / 组合",
+      "limits": "给定权重；激活可选择；前一组件实际输出直接驱动张量视图",
+      "height": 480,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "stack",
+        "layout": {
+          "gap": 16,
+          "weights": [
+            2.4,
+            1
+          ]
+        },
+        "children": [
+          {
+            "type": "dense-layer",
+            "props": {
+              "input": [
+                [
+                  1,
+                  2,
+                  -1
+                ]
+              ],
+              "weights": [
+                [
+                  1,
+                  -2
+                ],
+                [
+                  0.5,
+                  1
+                ],
+                [
+                  2,
+                  -1
+                ]
+              ],
+              "bias": [
+                0.2,
+                0
+              ],
+              "activation": {
+                "$param": "activation"
+              },
+              "selected": {
+                "$state": "output"
+              },
+              "stateKey": "output",
+              "progress": 1
+            },
+            "id": "layer"
+          },
+          {
+            "type": "tensor",
+            "props": {
+              "values": {
+                "$result": "layer.output"
+              },
+              "title": "这一层的输出",
+              "encoding": "diverging",
+              "domain": [
+                -4,
+                4
+              ]
+            }
+          }
+        ]
+      },
+      "interaction": "parameters",
+      "state": {
+        "output": 0
+      },
+      "params": [
+        {
+          "key": "activation",
+          "label": "激活",
+          "kind": "select",
+          "options": [
+            {
+              "value": "linear",
+              "label": "恒等"
+            },
+            {
+              "value": "relu",
+              "label": "ReLU"
+            },
+            {
+              "value": "sigmoid",
+              "label": "Sigmoid"
+            },
+            {
+              "value": "tanh",
+              "label": "tanh"
+            }
+          ],
+          "value": "relu"
+        }
+      ],
+      "keywords": "dense network relu sigmoid tanh layers matrix affine 全连接 神经网络 激活 层"
+    },
+    {
+      "id": "dropout-mask",
+      "title": "同一张量，训练和推理的处理不同",
+      "topic": "深度学习 / 掩码",
+      "limits": "固定说明掩码，非随机采样；保留项除以1-rate；推理恒等",
+      "height": 310,
+      "mobileHeight": 340,
+      "scene": {
+        "type": "dropout",
+        "props": {
+          "data": [
+            [
+              1,
+              -2,
+              3
+            ],
+            [
+              4,
+              2,
+              -1
+            ]
+          ],
+          "mask": [
+            [
+              true,
+              false,
+              true
+            ],
+            [
+              false,
+              true,
+              true
+            ]
+          ],
+          "rate": {
+            "$param": "rate"
+          },
+          "training": {
+            "$param": "training"
+          },
+          "progress": {
+            "$progress": true
+          }
+        }
+      },
+      "params": [
+        {
+          "key": "rate",
+          "label": "丢弃比例",
+          "min": 0.1,
+          "max": 0.8,
+          "step": 0.05,
+          "value": 0.5
+        },
+        {
+          "key": "training",
+          "label": "模式",
+          "kind": "select",
+          "options": [
+            {
+              "value": true,
+              "label": "训练"
+            },
+            {
+              "value": false,
+              "label": "推理"
+            }
+          ],
+          "value": true
+        }
+      ],
+      "stages": [
+        "输入",
+        "应用固定掩码",
+        "保留项放大"
+      ],
+      "keywords": "dropout inverted mask train inference 暂退法 掩码 训练 推理"
+    },
+    {
+      "id": "pca-coordinates",
+      "title": "拖动原始点，主成分坐标立即重算",
+      "topic": "数学 / 机器学习",
+      "limits": "两图共享数据和每个点的颜色；特征值重复时主方向不唯一",
+      "height": 340,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 20,
+          "weights": [
+            1,
+            1
+          ]
+        },
+        "children": [
+          {
+            "type": "pca",
+            "props": {
+              "data": {
+                "$state": "data"
+              },
+              "title": "原始坐标与主方向",
+              "draggable": true,
+              "stateKey": "data",
+              "progress": 0,
+              "pointColors": [
+                "blue",
+                "orange",
+                "violet",
+                "green",
+                "gold"
+              ]
+            }
+          },
+          {
+            "type": "pca",
+            "props": {
+              "data": {
+                "$state": "data"
+              },
+              "title": "主成分坐标 PC1 / PC2",
+              "view": "coordinates",
+              "progress": 1,
+              "pointColors": [
+                "blue",
+                "orange",
+                "violet",
+                "green",
+                "gold"
+              ]
+            }
+          }
+        ]
+      },
+      "interaction": "parameters",
+      "state": {
+        "data": [
+          [
+            -2,
+            -1.1
+          ],
+          [
+            -1,
+            -0.9
+          ],
+          [
+            0,
+            0.2
+          ],
+          [
+            1,
+            0.8
+          ],
+          [
+            2,
+            1.3
+          ]
+        ]
+      },
+      "keywords": "PCA principal component coordinate projection drag 主成分 坐标 投影 拖动"
+    },
+    {
+      "id": "dense-backward",
+      "title": "改变输入，看反传种子怎样变成两种梯度",
+      "topic": "深度学习 / 反向传播",
+      "limits": "单行输入、给定权重；g是输出种子加权和的梯度，不是训练；ReLU零处选次梯度0",
+      "height": 480,
+      "mobileHeight": 520,
+      "params": [
+        {
+          "key": "x",
+          "label": "输入 x₀",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "stages": [
+        "输出种子",
+        "穿过激活和权重",
+        "输入梯度"
+      ],
+      "scene": {
+        "type": "stack",
+        "layout": {
+          "gap": 16,
+          "weights": [
+            1,
+            1
+          ]
+        },
+        "children": [
+          {
+            "type": "dense-layer",
+            "id": "back",
+            "props": {
+              "input": [
+                [
+                  {
+                    "$param": "x"
+                  },
+                  2,
+                  -1
+                ]
+              ],
+              "weights": [
+                [
+                  1,
+                  -2
+                ],
+                [
+                  0.5,
+                  1
+                ],
+                [
+                  2,
+                  -1
+                ]
+              ],
+              "bias": [
+                0.2,
+                0
+              ],
+              "activation": "tanh",
+              "mode": "backward",
+              "progress": {
+                "$progress": true
+              },
+              "selected": 0
+            }
+          },
+          {
+            "type": "tensor",
+            "props": {
+              "values": {
+                "$result": "back.weightGradient"
+              },
+              "title": "权重梯度：输入 × 激活处梯度",
+              "encoding": "diverging",
+              "domain": [
+                -2,
+                2
+              ],
+              "precision": 2
+            }
+          }
+        ]
+      },
+      "keywords": "backprop backward chain rule dense gradients weight input 反向传播 链式法则 梯度 权重"
+    },
+    {
+      "id": "two-layer-gradient",
+      "title": "两层网络：前向值与反传梯度由同一份输入联动",
+      "topic": "深度学习 / 计算与画面组合",
+      "limits": "5个有界计算步骤，给定权重与单样本半平方损失；不是训练；隐藏层tanh",
+      "height": 360,
+      "mobileHeight": 400,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "x",
+          "label": "第一输入分量",
+          "min": -1.5,
+          "max": 1.5,
+          "step": 0.1,
+          "value": 0.7
+        }
+      ],
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "hidden",
+            "operation": "dense",
+            "inputs": {
+              "input": [
+                [
+                  {
+                    "$param": "x"
+                  },
+                  0.5
+                ]
+              ],
+              "weights": [
+                [
+                  0.8,
+                  -0.3
+                ],
+                [
+                  0.4,
+                  0.7
+                ]
+              ],
+              "activation": "tanh"
+            }
+          },
+          {
+            "id": "output",
+            "operation": "dense",
+            "inputs": {
+              "input": {
+                "$result": "hidden.output"
+              },
+              "weights": [
+                [
+                  1
+                ],
+                [
+                  -0.5
+                ]
+              ]
+            }
+          },
+          {
+            "id": "loss",
+            "operation": "squared-loss",
+            "inputs": {
+              "prediction": {
+                "$result": "output.output"
+              },
+              "target": [
+                [
+                  0.2
+                ]
+              ]
+            }
+          },
+          {
+            "id": "back-output",
+            "operation": "dense-backward",
+            "inputs": {
+              "input": {
+                "$result": "hidden.output"
+              },
+              "weights": [
+                [
+                  1
+                ],
+                [
+                  -0.5
+                ]
+              ],
+              "seeds": {
+                "$result": "loss.gradient"
+              }
+            }
+          },
+          {
+            "id": "back-hidden",
+            "operation": "dense-backward",
+            "inputs": {
+              "input": [
+                [
+                  {
+                    "$param": "x"
+                  },
+                  0.5
+                ]
+              ],
+              "weights": [
+                [
+                  0.8,
+                  -0.3
+                ],
+                [
+                  0.4,
+                  0.7
+                ]
+              ],
+              "activation": "tanh",
+              "seeds": {
+                "$result": "back-output.inputGradient"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "gap": 20
+          },
+          "children": [
+            {
+              "type": "tensor",
+              "props": {
+                "values": {
+                  "$result": "back-hidden.weightGradient"
+                },
+                "title": "第一层权重梯度",
+                "encoding": "diverging",
+                "domain": [
+                  -1,
+                  1
+                ],
+                "precision": 2
+              }
+            },
+            {
+              "type": "readout",
+              "props": {
+                "items": [
+                  {
+                    "label": "隐藏层输出",
+                    "value": {
+                      "$result": "hidden.output.0"
+                    },
+                    "color": "blue"
+                  },
+                  {
+                    "label": "最终预测",
+                    "value": {
+                      "$result": "output.output.0"
+                    },
+                    "color": "orange"
+                  },
+                  {
+                    "label": "半平方损失",
+                    "value": {
+                      "$result": "loss.loss"
+                    },
+                    "color": "violet"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "keywords": "MLP backprop compose chain rule calculation layered network 多层 网络 链式法则 反向传播 拼接"
     }
   ]
 }

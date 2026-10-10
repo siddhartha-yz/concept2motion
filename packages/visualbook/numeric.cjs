@@ -190,6 +190,8 @@
       axis = [Math.cos(angle), Math.sin(angle)];
     values.forEach(finite);
     const projections = centered.map((p) => V.dot(p, axis)),
+      secondAxis = [-axis[1], axis[0]],
+      coordinates = centered.map((p) => [V.dot(p, axis), V.dot(p, secondAxis)]),
       reconstructed = projections.map((t) => [
         mean[0] + t * axis[0],
         mean[1] + t * axis[1],
@@ -203,6 +205,8 @@
       ],
       eigenvalues: values,
       axis,
+      secondAxis,
+      coordinates,
       projections,
       reconstructed,
       explained: total === 0 ? null : values[0] / total,

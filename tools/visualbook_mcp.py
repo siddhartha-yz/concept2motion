@@ -76,7 +76,12 @@ def main():
             {
                 "name":"compute_math",
                 "description":"Call the same canonical probability/learning numerical kernels used by drawings; no DOM, network or model calls. This helps inspect values but is not independent math review. Allowed input keys are returned on error.",
-                "inputSchema":{"type":"object","properties":{"operation":{"type":"string","enum":["normal-cdf","binomial","histogram","bayes","regression","regression-optimum","pca"]},"inputs":{"type":"object"}},"required":["operation","inputs"],"additionalProperties":False},
+                "inputSchema":{"type":"object","properties":{"operation":{"type":"string","enum":["normal-cdf","binomial","histogram","bayes","regression","regression-optimum","pca","matmul","softmax","attention","normalization","dense","dense-backward","dropout","squared-loss","softmax-loss"]},"inputs":{"type":"object"}},"required":["operation","inputs"],"additionalProperties":False},
+            },
+            {
+                'name':'describe_calculation',
+                'description':'Inspect allowed input keys, required fields and actual output fields of one canonical calculation. Use compose.calculations to wire its results into visual components without custom drawing code.',
+                'inputSchema':{'type':'object','properties':{'operation':{'type':'string'}},'required':['operation'],'additionalProperties':False}
             },
             {
                 "name": "list_designs",
@@ -144,7 +149,28 @@ def main():
         },
     ]
 
+    def digest(path):
+        return hashlib.sha256(path.read_bytes()).hexdigest()
+
+    def tool_fingerprint():
+        library=ROOT/'packages/visualbook'
+        modules=json.loads((library/'bundle.json').read_text())['modules']
+        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/visualbook_math.mjs']
+        return hashlib.sha256(json.dumps({str(p.relative_to(ROOT)):digest(p) for p in files},sort_keys=True).encode()).hexdigest()
+
+    def build_inputs():
+        return {'source_sha256':digest(inside('source.json')),'plan_sha256':digest(inside('book.json')),'tools_sha256':tool_fingerprint(),'arm':'direct' if args.direct else 'harness'}
+
+    def require_current_build():
+        receipt=inside('build-receipt.json')
+        if not receipt.exists():raise ValueError('Build the current plan successfully before preview or review')
+        record=json.loads(receipt.read_text())
+        if record.get('status') != 'success' or any(record.get(k)!=v for k,v in build_inputs().items()) or record.get('html_sha256')!=digest(inside('book.html')):
+            raise ValueError('Current source/plan/tools do not match a successful build; build_book first. An older HTML is not the revised candidate')
+        return record
+
     def latest_preview():
+        require_current_build()
         reports = sorted(
             workspace.glob("preview-*/report.json"), key=lambda p: p.stat().st_mtime
         )
@@ -197,6 +223,11 @@ def main():
         elif name == "describe_component":
             result=next((entry for entry in components if entry["id"]==arguments.get("id")),None)
             if result is None:raise ValueError("Unknown component")
+        elif name == 'describe_calculation':
+            operation=arguments.get('operation')
+            process=subprocess.run(['node',str(ROOT/'tools/visualbook_math.mjs'),'describe',str(operation)],capture_output=True,text=True,timeout=30,cwd=workspace)
+            if process.returncode:raise ValueError(process.stderr[-3000:])
+            result=json.loads(process.stdout)
         elif name == "compute_math":
             request=json.dumps({"operation":arguments.get("operation"),"inputs":arguments.get("inputs")})
             if len(request.encode())>65536:raise ValueError("Numeric input exceeds 64 KiB")
@@ -304,6 +335,8 @@ def main():
             }
         else:
             if name == "build_book":
+                receipt={**build_inputs(),'status':'building'}
+                inside('build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
                 command = [
                     "node",
                     str(tool),
@@ -315,10 +348,11 @@ def main():
                 if args.direct:
                     command.append("--direct")
             else:
+                require_current_build()
                 label = arguments.get("label", "")
                 if not re.fullmatch(r"[a-z][a-z0-9-]{0,40}", label):
                     raise ValueError("Invalid preview label")
-                if len(list(workspace.glob("preview-*/report.json"))) >= 3:
+                if len([p for p in workspace.glob("preview-*") if p.is_dir()]) >= 3:
                     raise ValueError(
                         "Three-preview budget reached; retain final issues"
                     )
@@ -336,8 +370,14 @@ def main():
                 command, cwd=workspace, capture_output=True, text=True, timeout=180
             )
             if process.returncode:
+                if name == 'build_book':
+                    inside('build-receipt.json').write_text(json.dumps({**receipt,'status':'failed'},indent=2)+'\n')
                 raise ValueError(process.stderr[-6000:] or process.stdout[-6000:])
             result = json.loads(process.stdout.splitlines()[-1])
+            if name == 'build_book':
+                receipt={**receipt,'status':'success','html_sha256':digest(inside('book.html'))}
+                inside('build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
+                result['buildReceipt']=receipt
         content = [{"type": "text", "text": json.dumps(result, ensure_ascii=False)}]
         if name in ["preview_book", "show_design", "inspect_frame"]:
             screenshots = result["screenshots"]
@@ -400,7 +440,7 @@ def main():
                         "protocolVersion", "2024-11-05"
                     ),
                     "capabilities": {"tools": {}},
-                    "serverInfo": {"name": "visualbook-local", "version": "0.4.0"},
+                    "serverInfo": {"name": "visualbook-local", "version": "0.5.0"},
                 }
             elif method == "ping":
                 result = {}

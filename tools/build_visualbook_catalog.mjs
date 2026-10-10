@@ -39,7 +39,7 @@ export async function buildCatalog(out, { ids = null } = {}) {
     fs.writeFileSync(file, html);
     const evidence = path.join(out, "evidence", design.id),
       report = await preview(file, evidence);
-    staticExport(file, evidence, file);
+    if (!report.findings.length) staticExport(file, evidence, file);
     records.push({ ...design, file, evidence, findings: report.findings });
   }
   fs.writeFileSync(

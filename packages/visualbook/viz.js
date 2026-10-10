@@ -196,6 +196,7 @@
         anchor = "start",
         opacity = 1,
         weight = 400,
+        halo = true,
       } = {},
     ) {
       return this.mark(
@@ -211,8 +212,8 @@
           opacity,
           "font-family": "system-ui, sans-serif",
           "paint-order": "stroke fill",
-          stroke: palette.paper,
-          "stroke-width": 2,
+          stroke: halo ? palette.paper : "none",
+          "stroke-width": halo ? 2 : 0,
         },
         text,
       );

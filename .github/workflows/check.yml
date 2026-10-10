@@ -25,12 +25,15 @@ jobs:
         run: python3 experiments/visualbook/check-frozen.py
       - name: Verify reusable tools and ordinary Markdown import
         run: |
-          node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs tests/visualbook-numeric.test.mjs
+          node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs tests/visualbook-numeric.test.mjs tests/visualbook-neural.test.mjs
           node tools/check_visualbook.mjs work/visualbook/ci-tools
           node tools/check_visualbook_controls.mjs work/visualbook/ci-reader-controls
           node tools/check_visualbook_composition.mjs work/visualbook/ci-composition
           node tools/check_visualbook_domain.mjs work/visualbook/ci-domain
           node tools/check_visualbook_modes.mjs work/visualbook/ci-modes
+          node tools/check_visualbook_choices.mjs work/visualbook/ci-choices
+          python3 tools/check_visualbook_build_state.py work/visualbook/ci-build-state
+          node tools/check_visualbook_failures.mjs work/visualbook/ci-failures
           node tools/build_visualbook_catalog.mjs work/visualbook/ci-designs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -45,6 +48,9 @@ jobs:
             work/visualbook/ci-composition
             work/visualbook/ci-domain
             work/visualbook/ci-modes
+            work/visualbook/ci-choices
+            work/visualbook/ci-build-state
+            work/visualbook/ci-failures
             work/visualbook/ci-designs
   check:
     runs-on: ubuntu-latest

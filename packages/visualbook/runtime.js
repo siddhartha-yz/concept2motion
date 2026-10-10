@@ -204,7 +204,10 @@
         params[key] = spec.value;
         const input = element.querySelector(`[data-param="${key}"]`);
         if (input) {
-          input.value = spec.value;
+          input.value =
+            spec.kind === "select"
+              ? spec.options.findIndex((o) => o.value === spec.value)
+              : spec.value;
           if (input.nextElementSibling)
             input.nextElementSibling.value = spec.value;
         }
@@ -243,26 +246,36 @@
         const spec = parameterSpecs[key];
         if (
           !spec ||
-          !Number.isFinite(value) ||
-          value < spec.min ||
-          value > spec.max
+          (spec.kind === "select"
+            ? !spec.options.some((o) => o.value === value)
+            : !Number.isFinite(value) || value < spec.min || value > spec.max)
         )
           throw Error("Invalid parameter " + key);
         pause();
         params[key] = value;
         const input = element.querySelector(`[data-param="${key}"]`);
         if (input) {
-          input.value = value;
+          input.value =
+            spec.kind === "select"
+              ? spec.options.findIndex((o) => o.value === value)
+              : value;
           if (input.nextElementSibling) input.nextElementSibling.value = value;
         }
         paint(progress);
       },
     };
     range?.addEventListener("input", () => setProgress(+range.value));
-    for (const input of element.querySelectorAll("[data-param]"))
+    for (const input of element.querySelectorAll("[data-param]")) {
+      const spec = parameterSpecs[input.dataset.param];
       input.addEventListener("input", () =>
-        instance.setParam(input.dataset.param, +input.value),
+        instance.setParam(
+          input.dataset.param,
+          spec.kind === "select"
+            ? spec.options[Number(input.value)].value
+            : +input.value,
+        ),
       );
+    }
     playButton?.addEventListener("click", () => (playing ? pause() : play()));
     previousButton?.addEventListener("click", () => step(-1));
     nextButton?.addEventListener("click", () => step(1));

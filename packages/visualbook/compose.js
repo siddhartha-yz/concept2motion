@@ -97,6 +97,7 @@
     {
       color = P.orange,
       label = null,
+      ariaLabel = null,
       axis = "both",
       step = 0.1,
       bounds = null,
@@ -139,7 +140,7 @@
       fill: "transparent",
       tabindex: 0,
       role: "button",
-      "aria-label": (label ?? "可拖动点") + "；方向键移动",
+      "aria-label": (ariaLabel ?? label ?? "可拖动点") + "；方向键移动",
       "aria-valuetext": value.map((v) => v.toFixed(2)).join(", "),
       class: "vh-handle",
       style: "touch-action:none;cursor:grab",
@@ -311,6 +312,32 @@
         throw Error("Scene node needs a type");
       if (node.id !== undefined && !/^[a-z][a-z0-9-]*$/.test(node.id))
         throw Error("Scene ids use lowercase letters, digits and hyphens");
+      if (node.type === "compose") {
+        if (
+          !Array.isArray(node.calculations) ||
+          node.calculations.length > 16 ||
+          !node.visual
+        )
+          throw Error(
+            "Compose needs up to 16 bounded calculations and a visual tree",
+          );
+        for (const calculation of node.calculations) {
+          if (
+            ++count > 64 ||
+            !/^[a-z][a-z0-9-]*$/.test(calculation.id) ||
+            Object.hasOwn(current.results, calculation.id)
+          )
+            throw Error(
+              "Unique calculation id required within scene size limit",
+            );
+          current.results[calculation.id] =
+            global.VisualBookCalculations.compute(
+              calculation.operation,
+              resolve(calculation.inputs, current),
+            ).result;
+        }
+        return visit(b, node.visual, depth + 1);
+      }
       if (["columns", "stack", "grid", "overlay"].includes(node.type)) {
         if (!Array.isArray(node.children) || !node.children.length)
           throw Error("Layout needs children");

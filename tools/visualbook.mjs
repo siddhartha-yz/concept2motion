@@ -2,6 +2,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
+import { operations as calculations } from "./visualbook_math.mjs";
 import { pathToFileURL } from "node:url";
 import { auditParameters } from "./audit_visualbook_parameters.mjs";
 const root = path.resolve(import.meta.dirname, "..");
@@ -61,6 +62,50 @@ export function validateScene(scene, figure = {}) {
       if (!/^[a-z][a-z0-9-]*$/.test(node.id) || seen.has(node.id))
         throw Error("Unique valid scene ids required");
       seen.add(node.id);
+    }
+    if (node.type === "compose") {
+      if (
+        Object.keys(node).some(
+          (k) => !["id", "type", "calculations", "visual"].includes(k),
+        ) ||
+        !Array.isArray(node.calculations) ||
+        node.calculations.length > 16 ||
+        !node.visual
+      )
+        throw Error("Compose needs bounded calculations and a visual tree");
+      for (const calculation of node.calculations) {
+        if (
+          ++count > 64 ||
+          !calculation ||
+          !/^[a-z][a-z0-9-]*$/.test(calculation.id) ||
+          seen.has(calculation.id) ||
+          Object.keys(calculation).some(
+            (k) => !["id", "operation", "inputs"].includes(k),
+          )
+        )
+          throw Error("Unique valid calculation id and fields required");
+        seen.add(calculation.id);
+        const spec = calculations[calculation.operation],
+          inputs = calculation.inputs;
+        if (!spec) throw Error("Unknown calculation " + calculation.operation);
+        if (
+          !inputs ||
+          typeof inputs !== "object" ||
+          Array.isArray(inputs) ||
+          Object.keys(inputs).some((k) => !spec.keys.includes(k)) ||
+          spec.required.some((k) => !Object.hasOwn(inputs, k))
+        )
+          throw Error(
+            "Calculation inputs: " +
+              spec.keys.join(", ") +
+              "; required: " +
+              spec.required.join(", "),
+          );
+        bindings(inputs);
+        results.set(calculation.id, spec.outputs);
+      }
+      visit(node.visual, depth + 1);
+      return;
     }
     const layout = ["columns", "stack", "grid", "overlay"].includes(node.type),
       allowed = layout
@@ -228,16 +273,47 @@ export function validatePlan(book, plan) {
       (f.mobileHeight ?? f.height ?? 320) > 560
     )
       throw Error("Figure too tall " + f.id);
-    for (const c of f.params ?? [])
+    for (const c of f.params ?? []) {
       if (
         !/^[a-z][a-zA-Z0-9]*$/.test(c.key) ||
+        typeof c.label !== "string" ||
+        !c.label.trim() ||
+        c.label.length > 40 ||
+        !["range", "select"].includes(c.kind ?? "range")
+      )
+        throw Error("Bad control " + c.key);
+      if (c.kind === "select") {
+        if (
+          !Array.isArray(c.options) ||
+          c.options.length < 2 ||
+          c.options.length > 8 ||
+          c.options.some(
+            (o) =>
+              !o ||
+              typeof o.label !== "string" ||
+              !o.label.trim() ||
+              o.label.length > 32 ||
+              !["string", "number", "boolean"].includes(typeof o.value) ||
+              (typeof o.value === "number" && !Number.isFinite(o.value)) ||
+              (typeof o.value === "string" && o.value.length > 80),
+          ) ||
+          new Set(c.options.map((o) => JSON.stringify(o.value))).size !==
+            c.options.length ||
+          !c.options.some((o) => o.value === c.value)
+        )
+          throw Error(
+            "Select needs 2..8 unique scalar options and a matching value " +
+              c.key,
+          );
+      } else if (
         ![c.min, c.max, c.step, c.value].every(Number.isFinite) ||
         c.min >= c.max ||
         c.step <= 0 ||
         c.value < c.min ||
         c.value > c.max
       )
-        throw Error("Bad control " + c.key);
+        throw Error("Bad range " + c.key);
+    }
     if (scopes.some((s) => start <= s.end && end >= s.start))
       throw Error("Overlapping scopes");
     scopes.push({ start, end, f });
@@ -256,8 +332,12 @@ export function build(book, plan, { direct = false } = {}) {
   const cover = hasCover ? block(first) : `<h1>${esc(book.title)}</h1>`;
   const scopes = validatePlan(book, plan),
     mathExpected = book.blocks.reduce((s, b) => s + (b.math?.expected ?? 0), 0);
+  const parameter = (c) =>
+    c.kind === "select"
+      ? `<label>${esc(c.label)}<select data-param="${c.key}" aria-label="${esc(c.label)}">${c.options.map((o, i) => `<option value="${i}"${o.value === c.value ? " selected" : ""}>${esc(o.label)}</option>`).join("")}</select></label>`
+      : `<label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>`;
   const figure = (f) =>
-    `<figure class="vh-figure" id="figure-${f.id}" data-viz-id="${f.id}" data-interaction="${f.interaction ?? "timeline"}"><h3>${esc(f.title)}</h3><div class="vh-canvas"><svg role="img" aria-label="${esc(f.summary ?? f.title)}"><title>${esc(f.title)}</title></svg></div><div class="vh-toolbar"><div class="vh-bar"><input class="vh-progress" type="range" min="0" max="1" step="0.001" value="${f.initialProgress ?? 0}" aria-label="${esc(f.title)}：连续演示进度"><span class="vh-status"></span></div><div class="vh-transport"><button type="button" class="vh-prev" aria-label="${esc(f.title)}：上一步">←</button><button type="button" class="vh-play" aria-label="${esc(f.title)}：播放演示" aria-pressed="false">播放</button><button type="button" class="vh-next" aria-label="${esc(f.title)}：下一步">→</button><button type="button" class="vh-reset" aria-label="${esc(f.title)}：重置进度与参数">重置</button></div></div><div class="vh-params">${(f.params ?? []).map((c) => `<label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>`).join("")}</div>${f.summary ? `<p class="vh-caption">${esc(f.summary)}</p>` : ""}</figure>`;
+    `<figure class="vh-figure" id="figure-${f.id}" data-viz-id="${f.id}" data-interaction="${f.interaction ?? "timeline"}"><h3>${esc(f.title)}</h3><div class="vh-canvas"><svg role="img" aria-label="${esc(f.summary ?? f.title)}"><title>${esc(f.title)}</title></svg></div><div class="vh-toolbar"><div class="vh-bar"><input class="vh-progress" type="range" min="0" max="1" step="0.001" value="${f.initialProgress ?? 0}" aria-label="${esc(f.title)}：连续演示进度"><span class="vh-status"></span></div><div class="vh-transport"><button type="button" class="vh-prev" aria-label="${esc(f.title)}：上一步">←</button><button type="button" class="vh-play" aria-label="${esc(f.title)}：播放演示" aria-pressed="false">播放</button><button type="button" class="vh-next" aria-label="${esc(f.title)}：下一步">→</button><button type="button" class="vh-reset" aria-label="${esc(f.title)}：重置进度与参数">重置</button></div></div><div class="vh-params">${(f.params ?? []).map(parameter).join("")}</div>${f.summary ? `<p class="vh-caption">${esc(f.summary)}</p>` : ""}</figure>`;
   const renderFigure = (f) => {
     let html = figure(f);
     if (f.interaction === "static")
@@ -314,26 +394,50 @@ export async function preview(file, out) {
   if (fs.existsSync(out))
     throw Error("Preview directory exists; use a new directory");
   fs.mkdirSync(out, { recursive: true });
-  const { chromium } = await import(
-    pathToFileURL(path.join(runtime, "playwright-core/index.mjs"))
-  );
-  const browser = await chromium.launch({
-    headless: true,
-    executablePath: process.env.CHROMIUM_PATH ?? chromium.executablePath(),
-  });
   const report = {
     file: path.resolve(file),
     sha256: hash(fs.readFileSync(file)),
     viewports: [],
     findings: [],
     screenshots: [],
+    status: "running",
   };
+  let browser,
+    activePage,
+    pose = {};
+  const saveReport = () =>
+    fs.writeFileSync(
+      path.join(out, "report.json"),
+      JSON.stringify(report, null, 2) + "\n",
+    );
+  // An attempted render consumes a preview even if Chromium or a draw call fails.
+  fs.writeFileSync(
+    path.join(out, "attempt.json"),
+    JSON.stringify(
+      {
+        file: report.file,
+        sha256: report.sha256,
+        startedAt: new Date().toISOString(),
+      },
+      null,
+      2,
+    ) + "\n",
+  );
   try {
+    const { chromium } = await import(
+      pathToFileURL(path.join(runtime, "playwright-core/index.mjs"))
+    );
+    browser = await chromium.launch({
+      headless: true,
+      executablePath: process.env.CHROMIUM_PATH ?? chromium.executablePath(),
+    });
     for (const width of [1280, 375]) {
       const page = await browser.newPage({
         viewport: { width, height: 900 },
         deviceScaleFactor: 1,
       });
+      activePage = page;
+      pose = { width };
       const errors = [];
       page.on("pageerror", (e) => errors.push(String(e)));
       page.on("request", (r) => {
@@ -383,6 +487,7 @@ export async function preview(file, out) {
         );
         const frames = [];
         for (const progress of [0, 0.25, 0.26, 0.5, 1]) {
+          pose = { width, id, progress };
           await page.evaluate(
             ({ id, progress }) => {
               const i = VisualBookRuntime.instances.find((i) => i.id === id);
@@ -533,12 +638,60 @@ export async function preview(file, out) {
       await page.screenshot({ path: filename, fullPage: true });
       report.screenshots.push(path.resolve(filename));
       report.viewports.push({ width, math, shapes });
+      if (
+        errors.length &&
+        !report.findings.some(
+          (f) => f.kind === "javascript" && f.width === width,
+        )
+      )
+        report.findings.push({ width, kind: "javascript", errors });
       await page.close();
+      activePage = null;
+    }
+  } catch (error) {
+    report.status = "failed";
+    report.findings.push({
+      ...pose,
+      kind: "render-runtime-error",
+      error: String(error),
+    });
+    if (activePage && !activePage.isClosed()) {
+      try {
+        const filename = path.join(out, "failed-render.png");
+        await activePage.screenshot({ path: filename });
+        report.screenshots.push(path.resolve(filename));
+      } catch (captureError) {
+        report.findings.push({
+          kind: "failure-screenshot-error",
+          error: String(captureError),
+        });
+      }
     }
   } finally {
-    await browser.close();
+    if (browser)
+      await browser
+        .close()
+        .catch((error) =>
+          report.findings.push({
+            kind: "browser-close-error",
+            error: String(error),
+          }),
+        );
+    saveReport();
   }
-  const parameters = await auditParameters(file, path.join(out, "parameters"));
+  if (report.status === "failed") return report;
+  let parameters;
+  try {
+    parameters = await auditParameters(file, path.join(out, "parameters"));
+  } catch (error) {
+    report.status = "failed";
+    report.findings.push({
+      kind: "parameter-audit-runtime-error",
+      error: String(error),
+    });
+    saveReport();
+    return report;
+  }
   report.parameterAudit = {
     cases: parameters.cases.length,
     scope: parameters.scope,
@@ -568,16 +721,16 @@ export async function preview(file, out) {
           id: shape.id,
           note: "Parameter exploration has no rendered handles or parameter controls",
         });
-  fs.writeFileSync(
-    path.join(out, "report.json"),
-    JSON.stringify(report, null, 2) + "\n",
-  );
+  report.status = "completed";
+  saveReport();
   return report;
 }
 export function staticExport(file, previewDir, out) {
   const report = json(path.join(previewDir, "report.json"));
   if (report.sha256 !== hash(fs.readFileSync(file)))
     throw Error("Preview is stale; render this HTML before export");
+  if (report.findings.length)
+    throw Error("Known render findings stop static export");
   let html = fs.readFileSync(file, "utf8");
   for (const shape of report.viewports[0].shapes) {
     const picture = [1280, 375]
@@ -599,10 +752,12 @@ export function staticExport(file, previewDir, out) {
         );
       });
     const fallback = `<div class="vh-static"><picture><source media="(max-width:600px)" srcset="${picture[1]}"><img src="${picture[0]}" alt="图解初始状态：${esc(shape.id)}"></picture></div>`;
-    html = html.replace(
-      `id="figure-${shape.id}" data-viz-id="${shape.id}">`,
-      `id="figure-${shape.id}" data-viz-id="${shape.id}">${fallback}`,
+    const marker = new RegExp(
+      `(<figure\\b[^>]*\\bid="figure-${shape.id}"[^>]*>)`,
     );
+    if (!marker.test(html))
+      throw Error("Static fallback figure is missing: " + shape.id);
+    html = html.replace(marker, (_, opening) => opening + fallback);
   }
   html = html
     .replace('<html lang="zh-CN">', '<html lang="zh-CN" class="no-js">')
@@ -622,7 +777,11 @@ export function staticExport(file, previewDir, out) {
     ],
   ];
   for (const [name, src] of licenses)
-    if (name !== "D2L-LICENSE.txt" || html.includes('data-source-name="D2L"'))
+    if (
+      name !== "D2L-LICENSE.txt" ||
+      html.includes('data-source-name="D2L"') ||
+      /href="https:\/\/zh\.d2l\.ai\//.test(html)
+    )
       fs.copyFileSync(src, path.join(path.dirname(out), name));
   return {
     file: path.resolve(out),
