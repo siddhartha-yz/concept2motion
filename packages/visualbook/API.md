@@ -12,6 +12,12 @@
 
 figure 可声明 `interaction:"timeline"`（默认）、`"parameters"` 或 `"static"`。参数探索适合直接拖动点或调参数：不显示播放/进度条，必须提供实际有效的参数或共享状态把手。静态图没有交互控件。预览仅对 timeline 要求连续进度改变图形；参数检查仍检查两个端点的真实画面，声明但没有视觉效果的参数会报错。不要为了检查加入没有意义的运动。
 
+## 按名字直接复用设计
+
+figure可以声明 `design:"gradient-contributions"`，编译器展开已实现的设计，不必把它的scene或绘图源码复制进book.json。id、afterAnchor和必要的例子条件由作者填写。数据不同就用 `overrides:[{"path":"/scene/props/terms/0/value","value":[-2,3]}]` 替换真实存在的输入。使用JSON pointer；拼错字段、越界路径、非法参数或连接会被拒绝。也可以整体替换已有 `/params`、`/state`。不得同时提供design和scene/code。
+
+先用 `describe_design_inputs({id})` 查询可替换路径和默认参数；需要看设计效果时用show_design。修改数据后仍须检查颜色、轴范围、条件和真实PNG。默认示例不能被当作原文自己的实验结果。复杂新关系可用scene自由拼接，或写自定义draw。`node tools/visualbook.mjs resolve-plan book.json expanded.json`保存实际展开结果，已有expanded文件不会被覆盖。
+
 ## Board：共享绘图、布局与稳定对象
 
 draw每次收到同一个board；工具负责begin/end、尺寸和键值复用。每个图形使用固定id，不要自己清空svg。纯数值计算使用JavaScript；工具不替你选择教学内容。以下颜色在`VisualBook.palette`中：ink、muted、blue、orange、faint、paper。
@@ -122,3 +128,13 @@ array-view把逻辑索引与共享缓冲区地址连接，支持显式elementStr
 Board.path只接受有限二维坐标数组；SVG路径字符串使用`board.svgPath(id,d,{color,width,opacity,dash,fill})`。渲染检查同时检测非法几何属性和浏览器控制台错误。Board.text支持family，measure第三参数使用相同字体；局部代码不压到13px以下。
 
 每次MCP构建都会保存不可覆盖的builds/build-NNN输入计划、原文、结果和构建记录，包括失败。每次预览保存attempt、实际渲染及错误记录；失败也占三轮次数。设计目录保存原始源码、原始HTML、渲染报告和另行导出的HTML，不用导出文件覆盖待复核的原始渲染输入。
+
+## 贡献、区间和固定帧导出
+
+`contributions` 接收带 `id,label,value,weight` 的项，value为标量或同维向量。每项保留正负号，输出完整向量sum/visibleSum/partialSums。可把梯度的两条路径、期望的概率加权项、线性组合接到同一组件；它不替作者推导梯度。显示最多6项的一个坐标，progress是逐项加入的连续解释构造。
+
+`lifetimes` 接收 `{id,label,start,end,size}` 区间，采用 `[start,end)`：结束点已释放。输出真实activeSize/peakSize和事件阶梯数据；绘图显示最多8条区间和同时存活量。所有大小、时间来自输入，不声称真实框架内存或硬件测量。时间域可以共用，使多图对照同一时刻。
+
+MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","mp4"]})`，必须先完成同一份计划的图片审阅和finalize。参数图需要 `sweep:{key,from,to}` 指定一个实际数字参数；整数stepper只生成整数状态。每次最多300帧、两次尝试。GIF只播放一遍；不会替教材加入自动播放。工具保存每帧PNG/SVG/facts、重放一致性检查、编码日志及解码抽样图。不动的图或已知错误会停止导出。
+
+本地命令：`node tools/export_visualbook_motion.mjs book.html preview-directory work/fresh-output motion.json`。需要已有FFmpeg，工具不自动安装；中间帧与视频留在ignored work。输出文件可另行交付，不能把导出成功当作审美或教学认证。

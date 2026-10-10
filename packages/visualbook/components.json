@@ -997,6 +997,73 @@
       ],
       "limits": "真实执行有限指令语义，再拼接代码和对象组件；不能声称执行了任意源码。",
       "keywords": "trace allocation alias copy mutate assignment Python array view 代码 赋值 复制 引用 改写 数组"
+    },
+    {
+      "id": "contributions",
+      "title": "带正负号的贡献与合计",
+      "props": {
+        "terms": "1..6 records {id,label,value:scalar/vector,weight?:number}; shared canonical weighted sum",
+        "dimension": "Integer vector coordinate to display, default 0",
+        "progress": "0..1 adds each term continuously, explanatory construction",
+        "domain": "Optional increasing range containing zero, every term and sum",
+        "title": "Optional short title",
+        "sumLabel": "Short final row label, default 合计"
+      },
+      "required": [
+        "terms"
+      ],
+      "outputs": [
+        "records",
+        "dimension",
+        "prefix",
+        "sum",
+        "visibleSum",
+        "partialSums",
+        "convention",
+        "selectedDimension",
+        "domain"
+      ],
+      "examples": [
+        "gradient-contributions",
+        "weighted-expectation"
+      ],
+      "limits": "最多6项；显示一个坐标，数值仍保留完整向量；连续加入是解释过程",
+      "keywords": "gradient chain rule sum expectation loss 梯度 汇合 合计 链式法则 期望 损失 正则"
+    },
+    {
+      "id": "lifetimes",
+      "title": "区间、缓存与同时存活量",
+      "props": {
+        "intervals": "1..8 records {id,label,start,end,size?}; half-open [start,end)",
+        "progress": "0..1 maps common time domain; use time for explicit state",
+        "time": "Optional explicit finite time, overrides progress",
+        "domain": "Optional increasing [start,end] enclosing all lifetimes",
+        "sizeUnit": "Short supplied-size unit label",
+        "title": "Optional short title"
+      },
+      "required": [
+        "intervals"
+      ],
+      "outputs": [
+        "records",
+        "time",
+        "start",
+        "end",
+        "active",
+        "activeCount",
+        "activeSize",
+        "peakSize",
+        "peakCount",
+        "eventTimes",
+        "series",
+        "convention",
+        "domain"
+      ],
+      "examples": [
+        "cache-lifetimes"
+      ],
+      "limits": "最多8个半开区间，大小和生存时间由输入指定；不是分配器或硬件测量",
+      "keywords": "backprop cache lifetime intervals memory 缓存 内存 反向传播 生存 区间 同时存活"
     }
   ]
 }

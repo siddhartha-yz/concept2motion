@@ -2683,6 +2683,185 @@
         }
       },
       "keywords": "memory alias copy trace mutate object reference 内存 对象 赋值 引用 复制"
+    },
+    {
+      "id": "gradient-contributions",
+      "title": "两条路径的梯度怎样汇合",
+      "topic": "数学 / 机器学习 / 深度学习",
+      "keywords": "gradient chain rule sum 梯度 汇合 正则",
+      "limits": "给定同一坐标的贡献；不从图中自动推导梯度。连续加入是解释构造。",
+      "height": 280,
+      "mobileHeight": 310,
+      "interaction": "timeline",
+      "params": [
+        {
+          "key": "lambda",
+          "label": "正则强度",
+          "min": 0,
+          "max": 1,
+          "step": 0.1,
+          "value": 0.5
+        }
+      ],
+      "scene": {
+        "type": "contributions",
+        "props": {
+          "terms": [
+            {
+              "id": "data",
+              "label": "数据项",
+              "value": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "regularizer",
+              "label": "正则项",
+              "value": [
+                2,
+                1
+              ],
+              "weight": {
+                "$param": "lambda"
+              }
+            }
+          ],
+          "progress": {
+            "$progress": true
+          },
+          "domain": [
+            -3,
+            3
+          ],
+          "title": "同一坐标，保留正负方向"
+        }
+      },
+      "initialProgress": 1
+    },
+    {
+      "id": "weighted-expectation",
+      "title": "概率乘取值，贡献相加",
+      "topic": "数学 / 机器学习",
+      "keywords": "expectation probability sum 期望 概率 加权",
+      "limits": "固定三个事件概率0.2/0.5/0.3和取值；不是概率密度或抽样过程。",
+      "height": 300,
+      "mobileHeight": 330,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            3,
+            1
+          ],
+          "gap": 12
+        },
+        "children": [
+          {
+            "id": "contributions",
+            "type": "contributions",
+            "props": {
+              "terms": [
+                {
+                  "id": "loss",
+                  "label": "亏损",
+                  "value": -2,
+                  "weight": 0.2
+                },
+                {
+                  "id": "flat",
+                  "label": "持平",
+                  "value": 0,
+                  "weight": 0.5
+                },
+                {
+                  "id": "gain",
+                  "label": "收益",
+                  "value": 3,
+                  "weight": 0.3
+                }
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "domain": [
+                -1,
+                1
+              ],
+              "sumLabel": "期望"
+            }
+          },
+          {
+            "id": "readout",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "当前合计",
+                  "value": {
+                    "$result": "contributions.visibleSum"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "initialProgress": 1
+    },
+    {
+      "id": "cache-lifetimes",
+      "title": "哪些缓存同时活着",
+      "topic": "深度学习 / 编程",
+      "keywords": "backprop memory cache lifetime 反向传播 缓存 内存 区间",
+      "limits": "四个指定的半开生存区间，各1单位；示意图，不声称真实框架的内存峰值。",
+      "height": 340,
+      "mobileHeight": 360,
+      "scene": {
+        "type": "lifetimes",
+        "props": {
+          "intervals": [
+            {
+              "id": "input",
+              "label": "x",
+              "start": 0,
+              "end": 6,
+              "size": 1
+            },
+            {
+              "id": "hidden",
+              "label": "h",
+              "start": 1,
+              "end": 5,
+              "size": 1
+            },
+            {
+              "id": "output",
+              "label": "y",
+              "start": 2,
+              "end": 4,
+              "size": 1
+            },
+            {
+              "id": "gradient",
+              "label": "∂h",
+              "start": 3,
+              "end": 5,
+              "size": 1
+            }
+          ],
+          "progress": {
+            "$progress": true
+          },
+          "domain": [
+            0,
+            6
+          ],
+          "title": "结束点释放；看下方的同时存活量",
+          "sizeUnit": "单位"
+        }
+      }
     }
   ]
 }

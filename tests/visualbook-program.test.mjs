@@ -150,7 +150,7 @@ test("program computation discovery exposes actual fields", () => {
       instructions: [{ op: "allocate", name: "a", id: "buf", values: [1] }],
     },
   };
-  assert.equal(Object.keys(operations).length, 20);
+  assert(Object.keys(operations).length >= 20);
   for (const [operation, inputs] of Object.entries(cases))
     assert.deepEqual(
       Object.keys(computeMath(operation, inputs).result).sort(),

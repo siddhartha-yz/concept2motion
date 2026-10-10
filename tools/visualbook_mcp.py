@@ -66,6 +66,11 @@ def main():
     if not args.direct:
         definitions += [
             {
+                "name":"describe_design_inputs",
+                "description":"Inspect the actual replaceable scene data and default controls of one named design, without drawing or copying its code. Use figure.design and explicit overrides to reuse its implementation. Replacements must exist; still review math/teaching fit and actual PNGs.",
+                "inputSchema":{"type":"object","properties":{"id":{"type":"string","enum":[d['id'] for d in catalog]}},"required":["id"],"additionalProperties":False},
+            },
+            {
                 "name":"search_designs",
                 "description":"Search reusable designs and composable components by concept in Chinese or English. Returns at most six matching entries with limits, not all source code.",
                 "inputSchema":{"type":"object","properties":{"query":{"type":"string","maxLength":120}},"required":["query"],"additionalProperties":False},
@@ -109,6 +114,23 @@ def main():
         ]
 
     definitions += [
+        {
+            "name": "export_motion",
+            "description": "Optional GIF/MP4 of a reviewed figure, with fixed-progress frames, repeat checks and actual decode verification. Requires matching final review. No automatic playback in the book. Two motion attempts per session, including failed captures; frames stay in ignored work.",
+            "inputSchema": {
+                "type":"object", "properties": {
+                    "label":{"type":"string"}, "id":{"type":"string"},
+                    "width":{"type":"integer","enum":[375,1280]},
+                    "fps":{"type":"integer","enum":[5,10,20,25]},
+                    "duration":{"type":"integer","minimum":1,"maximum":20},
+                    "formats":{"type":"array","items":{"type":"string","enum":["gif","mp4"]},"minItems":1,"maxItems":2,"uniqueItems":True},
+                    "params":{"type":"object"},
+                    "sweep":{"type":"object","properties":{"key":{"type":"string"},"from":{"type":"number"},"to":{"type":"number"}},"required":["key","from","to"],"additionalProperties":False},
+                    "from":{"type":"number","minimum":0,"maximum":1},
+                    "to":{"type":"number","minimum":0,"maximum":1},
+                }, "required":["label","id"], "additionalProperties":False,
+            },
+        },
         {
             "name": "inspect_frame",
             "description": "Return one real start/end PNG from the latest matching candidate preview. Review both widths for every figure before finalizing; it reuses rendered frames and does not spend a new preview.",
@@ -157,7 +179,7 @@ def main():
     def tool_fingerprint():
         library=ROOT/'packages/visualbook'
         modules=json.loads((library/'bundle.json').read_text())['modules']
-        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/visualbook_math.mjs',ROOT/'tools/visualbook_inspection.mjs']
+        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json','catalog.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/visualbook_math.mjs',ROOT/'tools/visualbook_inspection.mjs',ROOT/'tools/export_visualbook_motion.mjs',ROOT/'tools/build_visualbook_catalog.mjs']
         return hashlib.sha256(json.dumps({str(p.relative_to(ROOT)):digest(p) for p in files},sort_keys=True).encode()).hexdigest()
 
     def build_inputs():
@@ -213,6 +235,20 @@ def main():
             result = [
                 {k: d[k] for k in ["id", "title", "topic", "limits"]} for d in catalog
             ]
+        elif name == "describe_design_inputs":
+            design=next((d for d in catalog if d['id']==arguments.get('id')),None)
+            if design is None:raise ValueError('Unknown design')
+            slots=[]
+            def collect(node,pointer):
+                for key,value in node.get('props',{}).items():
+                    slots.append({'path':pointer+'/props/'+key,'currentValue':value})
+                for index,calculation in enumerate(node.get('calculations',[])):
+                    for key,value in calculation['inputs'].items():
+                        slots.append({'path':pointer+'/calculations/'+str(index)+'/inputs/'+key,'currentValue':value})
+                for index,child in enumerate(node.get('children',[])):collect(child,pointer+'/children/'+str(index))
+                if node.get('visual'):collect(node['visual'],pointer+'/visual')
+            if design.get('scene'):collect(design['scene'],'/scene')
+            result={'id':design['id'],'title':design['title'],'limits':design['limits'],'params':design.get('params',[]),'state':design.get('state',{}),'slots':slots[:64],'truncated':len(slots)>64,'usesCode':bool(design.get('code')),'usage':{'design':design['id'],'id':'your-figure-id','afterAnchor':'a-real-source-anchor','overrides':[]},'scope':'Existing data replacement paths only; not a suitability or quality verdict'}
         elif name == "search_designs":
             query=arguments.get("query")
             if not isinstance(query,str) or not query.strip() or len(query)>120:
@@ -267,6 +303,26 @@ def main():
                 "findings": [],
                 "candidateSha256": report["sha256"],
             }
+        elif name == "export_motion":
+            directory, report = latest_preview()
+            label = arguments.get('label','')
+            if not re.fullmatch(r'[a-z][a-z0-9-]{0,40}',label):
+                raise ValueError('Use a fresh short motion label')
+            review_file=inside('review.json')
+            if not review_file.exists():raise ValueError('Finalize the inspected candidate first')
+            review=json.loads(review_file.read_text())
+            if not review.get('ready_for_export') or review.get('issues') or review.get('html_sha256')!=digest(inside('book.html')) or review.get('plan_sha256')!=digest(inside('book.json')):
+                raise ValueError('Matching issue-free final review required')
+            if len([p for p in workspace.glob('motion-*') if p.is_dir()])>=2:
+                raise ValueError('Two motion attempts reached; retain failures')
+            out=inside('motion-'+label)
+            request=inside('motion-request-'+label+'.json')
+            if out.exists() or request.exists():raise ValueError('Motion label already used')
+            request.write_text(json.dumps({k:v for k,v in arguments.items() if k!='label'},ensure_ascii=False,indent=2)+'\n')
+            process=subprocess.run(['node',str(ROOT/'tools/export_visualbook_motion.mjs'),str(inside('book.html')),str(directory),str(out),str(request)],cwd=workspace,capture_output=True,text=True,timeout=180)
+            if not (out/'report.json').exists():raise ValueError(process.stderr[-6000:] or process.stdout[-6000:])
+            motion=json.loads((out/'report.json').read_text())
+            result={'status':motion['status'],'report':str(out/'report.json'),'outputs':motion['outputs'],'findings':motion['findings'],'candidateSha256':report['sha256'],'screenshots':[s['file'] for s in motion['outputs'][0]['sampledFrames']] if motion['outputs'] else []}
         elif name == "finalize_book":
             directory, report = latest_preview()
             issues = arguments.get("issues")
@@ -399,10 +455,13 @@ def main():
             if name == 'build_book':
                 receipt={**receipt,'status':'success','html_sha256':digest(inside('book.html'))}
                 shutil.copyfile(inside('book.html'),snapshot/'book.html')
+                if inside('resolved-plan.json').exists():
+                    shutil.copyfile(inside('resolved-plan.json'),snapshot/'resolved-plan.json')
+                    receipt['resolved_plan_sha256']=digest(inside('resolved-plan.json'))
                 for destination in [inside('build-receipt.json'),snapshot/'receipt.json']:destination.write_text(json.dumps(receipt,indent=2)+'\n')
                 result['buildReceipt']=receipt
         content = [{"type": "text", "text": json.dumps(result, ensure_ascii=False)}]
-        if name in ["preview_book", "show_design", "inspect_frame"]:
+        if name in ["preview_book", "show_design", "inspect_frame", "export_motion"]:
             screenshots = result["screenshots"]
             selected = [
                 p
@@ -446,7 +505,7 @@ def main():
         }
         with (workspace / "mcp-evidence.jsonl").open("a") as stream:
             stream.write(json.dumps(entry, ensure_ascii=False) + "\n")
-        return {"content": content, "isError": False}
+        return {"content": content, "isError": name == "export_motion" and result.get("status") != "completed"}
 
     for line in sys.stdin:
         ident = None
@@ -463,7 +522,7 @@ def main():
                         "protocolVersion", "2024-11-05"
                     ),
                     "capabilities": {"tools": {}},
-                    "serverInfo": {"name": "visualbook-local", "version": "0.6.0"},
+                    "serverInfo": {"name": "visualbook-local", "version": "0.7.0"},
                 }
             elif method == "ping":
                 result = {}

@@ -45,6 +45,8 @@ def inspect(job):
         reasons.append("no-preview")
     else:
         latest = json.loads(reports[-1].read_text())
+        if latest.get("status") != "completed":
+            reasons.append("preview-incomplete")
         if not html.exists() or digest(html) != latest["sha256"]:
             reasons.append("preview-is-stale")
         if latest["findings"]:
@@ -78,6 +80,9 @@ def main():
     parser.add_argument("--timeout", type=int, default=1200)
     parser.add_argument("--model", help="Optional explicit official CLI model")
     parser.add_argument("--reasoning-effort", choices=["low", "medium", "high", "xhigh", "max", "ultra"])
+    parser.add_argument("--campaign", type=Path, help="Optional shared ignored parent campaign; includes this output and earlier startup attempts")
+    parser.add_argument("--attempt-limit", type=int, default=16, help="Global startup limit when --campaign is supplied; failures count")
+    parser.add_argument("--keep-going", action="store_true", help="Evaluate later chapters after a chapter gate fails; still refuse book export if any chapter fails")
     parser.add_argument(
         "--max-chapters",
         type=int,
@@ -106,6 +111,11 @@ def main():
         raise SystemExit(
             "Raw generation output must be in ignored work/ to keep provider logs out of Git"
         )
+    campaign = args.campaign.resolve() if args.campaign else output
+    if not campaign.is_relative_to(work) or not output.is_relative_to(campaign):
+        raise SystemExit("Campaign must be an ignored parent of this output")
+    if not 1 <= args.max_chapters <= 32 or not 1 <= args.attempt_limit <= 32:
+        raise SystemExit("Chapter/startup limits must be 1..32")
     if output.exists() and not args.resume:
         raise SystemExit("Output exists; use a fresh directory or --resume")
     output.mkdir(parents=True, exist_ok=True)
@@ -187,9 +197,9 @@ def main():
                 str(args.timeout),
                 "--mcp",
                 "--campaign",
-                str(output),
+                str(campaign),
                 "--attempt-limit",
-                str(args.max_chapters),
+                str(args.attempt_limit if args.campaign else args.max_chapters),
             ]
             if args.model:
                 command += ["--model", args.model]
@@ -204,6 +214,8 @@ def main():
                         "exit_code": p.returncode,
                     }
                 )
+                if args.keep_going:
+                    continue
                 break
         gate = inspect(job)
         if (job / "source.json").exists() and digest(source) != digest(
@@ -217,18 +229,25 @@ def main():
                 "id": chapter_id,
                 "source": str(source),
                 "plan": str(job / "book.json"),
+                "html": str(job / "book.html"),
+                "preview": gate["latest_preview"],
+                "review": str(job / "review.json"),
                 "arm": "harness",
                 "gate": gate,
             }
         )
         if not gate["ready_for_export"]:
-            break
+            if not args.keep_going:
+                break
     save(
         output / "pipeline-record.json",
         {
             "chapters": records,
             "wall_s": round(time.monotonic() - started, 3),
             "max_chapters": args.max_chapters,
+            "campaign": str(campaign),
+            "attempt_limit": args.attempt_limit if args.campaign else args.max_chapters,
+            "keep_going": args.keep_going,
             "automatic_user_feedback": 0,
             "ready_chapters": sum(
                 r.get("gate", {}).get("ready_for_export", False) for r in records
@@ -249,7 +268,7 @@ def main():
             "title": manifest.get("title", "VisualBook"),
             "description": manifest.get("description"),
             "chapters": [
-                {k: r[k] for k in ["id", "source", "plan", "arm"]} for r in records
+                {k: r[k] for k in ["id", "source", "plan", "arm", "html", "preview", "review"]} for r in records
             ],
         },
     )

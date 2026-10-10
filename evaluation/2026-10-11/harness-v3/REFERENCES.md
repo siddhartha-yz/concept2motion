@@ -30,3 +30,9 @@
 [Augmented RNNs](https://distill.pub/2016/augmented-rnns/)、[Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)、[Matrix Calculus](https://explained.ai/matrix-calculus/)已读网页文本，尚未逐图复核，不记为已完成视觉参考。[NumPy strides](https://numpy.org/doc/2.1/reference/generated/numpy.ndarray.strides.html)与[broadcasting](https://numpy.org/doc/stable/user/basics.broadcasting)提供索引/形状规则原始文档，编程积木拟借鉴这些关系，不复制正文或成品资产。
 
 Python Tutor已实际运行维护者输入的四行allocate/alias/copy/write示例，并使用Last查看共享引用与复制的最终图。借鉴对象身份、逐步查看和代码对应，不复制其源码/界面资产，也不沿用其全文左右栏布局。
+
+### FFmpeg：固定帧动画文件
+
+- https://ffmpeg.org/ffmpeg-filters.html#palettegen — 实际阅读palettegen/reserve_transparent与paletteuse段；用整段帧生成调色板。
+- https://ffmpeg.org/ffmpeg-formats.html#gif-2 — 官方GIF muxer文档与本机实际help都确认loop=-1表示不重复。
+- 本机已有FFmpeg 7.0.2-static，没有下载媒体或新的二进制。使用已有CLI，不复制FFmpeg源码。工具完整解码并抽样检查导出的GIF/MP4。

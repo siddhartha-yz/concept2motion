@@ -79,6 +79,7 @@ def main():
             "theme.css",
             "math.mjs",
             "API.md",
+            "DIRECT_API.md",
             "catalog.json",
             "components.json",
         ]
@@ -89,6 +90,7 @@ def main():
         ROOT / "tools/build_visualbook_catalog.mjs",
         ROOT / "tools/visualbook_math.mjs",
         ROOT / "tools/visualbook_inspection.mjs",
+        ROOT / "tools/export_visualbook_motion.mjs",
     ]
     env = dict(os.environ)
     for key in ["OPENAI_API_KEY", "CODEX_API_KEY"]:
@@ -143,10 +145,7 @@ def main():
 """
         interface = api.read_text()
         if args.arm == "direct":
-            interface = (
-                interface.split("## Board")[0]
-                + interface[interface.index("## 命令行工作流程") :]
-            )
+            interface = (ROOT / "packages/visualbook/DIRECT_API.md").read_text()
         prompt += "\n" + interface
         if args.mcp:
             prompt += "\n本轮有本地 visualbook MCP 工具。可以先用list_designs和show_design查看适合章节的可复用设计与真实图片。必须用 build_book 构建，再用 preview_book 预览；它直接返回真实桌面/手机PNG图片内容，不能仅凭文件路径或数值报告声称看过画面。观察图片后自行修订。Python脚本使用python3，环境未提供python别名。可用search_designs按概念寻找积木，describe_component核对真实输入输出，再用scene的$result或共享状态拼接；不必把全部目录读进上下文。CLI命令只用于读取原文和写book.json，不用shell替代图片预览。最多3次预览，不要更改工具源码。最后必须用inspect_frame检查每幅图在1280和375下的起点/终点，并用finalize_book记录数学核对、已知未解决问题与限制。不要因为数值报告零发现就隐瞒遮挡、错误解释或其它问题；有问题就记录，工具会停止导出。\n"

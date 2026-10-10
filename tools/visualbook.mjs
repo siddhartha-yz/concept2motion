@@ -17,6 +17,101 @@ const esc = (s) =>
     .replaceAll('"', "&quot;");
 const json = (filename) => JSON.parse(fs.readFileSync(filename, "utf8"));
 const hash = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
+export function resolvePlan(plan) {
+  if (!Array.isArray(plan?.figures) || plan.figures.length > 4)
+    throw Error("Expected zero to four figures");
+  const catalogBytes = fs.readFileSync(path.join(lib, "catalog.json"));
+  const designs = JSON.parse(catalogBytes).designs;
+  return {
+    ...structuredClone(plan),
+    figures: plan.figures.map((figure) => {
+      if (!figure.design) {
+        if (figure.overrides !== undefined)
+          throw Error("Overrides require a named design");
+        return structuredClone(figure);
+      }
+      const design = designs.find((d) => d.id === figure.design);
+      if (!design) throw Error("Unknown named design " + figure.design);
+      if (figure.code !== undefined || figure.scene !== undefined)
+        throw Error("Choose design, scene or code once");
+      const keys = [
+        "title",
+        "height",
+        "mobileHeight",
+        "stages",
+        "params",
+        "state",
+        "interaction",
+        "initialProgress",
+        "durationMs",
+        "checkpoints",
+        "scene",
+        "code",
+      ];
+      const base = Object.fromEntries(
+        keys
+          .filter((key) => Object.hasOwn(design, key))
+          .map((key) => [key, structuredClone(design[key])]),
+      );
+      const overrides = figure.overrides ?? [];
+      if (!Array.isArray(overrides) || overrides.length > 32)
+        throw Error("At most 32 explicit design replacements");
+      for (const patch of overrides) {
+        if (
+          !patch ||
+          Object.keys(patch).some((key) => !["path", "value"].includes(key)) ||
+          !Object.hasOwn(patch, "value") ||
+          typeof patch.path !== "string" ||
+          patch.path.length > 240 ||
+          !/^\/(scene|params|state)(\/|$)/.test(patch.path) ||
+          /~(?![01])/.test(patch.path)
+        )
+          throw Error(
+            "Use an existing scene/params/state JSON pointer and value",
+          );
+        const parts = patch.path
+          .slice(1)
+          .split("/")
+          .map((part) => part.replaceAll("~1", "/").replaceAll("~0", "~"));
+        if (
+          parts.some((part) =>
+            ["__proto__", "prototype", "constructor"].includes(part),
+          )
+        )
+          throw Error("Unsafe design path");
+        let parent = base;
+        for (const part of parts.slice(0, -1)) {
+          if (
+            !parent ||
+            typeof parent !== "object" ||
+            !Object.hasOwn(parent, part)
+          )
+            throw Error("Design path does not exist: " + patch.path);
+          parent = parent[part];
+        }
+        const last = parts.at(-1);
+        if (
+          !parent ||
+          typeof parent !== "object" ||
+          !Object.hasOwn(parent, last)
+        )
+          throw Error("Design path does not exist: " + patch.path);
+        parent[last] = structuredClone(patch.value);
+      }
+      const { design: ignored, overrides: replaced, ...fields } = figure;
+      return {
+        ...base,
+        summary: design.limits,
+        ...structuredClone(fields),
+        designRef: {
+          id: design.id,
+          catalogSha256: hash(catalogBytes),
+          overrides: structuredClone(overrides),
+        },
+      };
+    }),
+  };
+}
 export function validateScene(scene, figure = {}) {
   const registry = new Map(
     json(path.join(lib, "components.json")).components.map((c) => [c.id, c]),
@@ -168,12 +263,17 @@ function katexCss() {
     });
 }
 export function validatePlan(book, plan) {
+  plan = resolvePlan(plan);
   if (!Array.isArray(plan.figures) || plan.figures.length > 4)
     throw Error("Expected zero to four figures");
   const ids = new Set(),
     scopes = [];
   for (const f of plan.figures) {
-    if (!/^[a-z][a-z0-9-]*$/.test(f.id) || ids.has(f.id))
+    if (
+      typeof f.id !== "string" ||
+      !/^[a-z][a-z0-9-]*$/.test(f.id) ||
+      ids.has(f.id)
+    )
       throw Error("Bad/duplicate figure id");
     ids.add(f.id);
     if (typeof f.title !== "string" || !f.title.trim() || f.title.length > 80)
@@ -269,13 +369,19 @@ export function validatePlan(book, plan) {
     )
       throw Error("Expected function draw(input) " + f.id);
     if (
+      !Number.isInteger(f.height ?? 320) ||
+      !Number.isInteger(f.mobileHeight ?? f.height ?? 320) ||
       (f.height ?? 320) < 180 ||
       (f.height ?? 320) > 480 ||
+      (f.mobileHeight ?? f.height ?? 320) < 180 ||
       (f.mobileHeight ?? f.height ?? 320) > 560
     )
-      throw Error("Figure too tall " + f.id);
+      throw Error(
+        "Figure height must be integer 180..480, mobile 180..560: " + f.id,
+      );
     for (const c of f.params ?? []) {
       if (
+        typeof c.key !== "string" ||
         !/^[a-z][a-zA-Z0-9]*$/.test(c.key) ||
         typeof c.label !== "string" ||
         !c.label.trim() ||
@@ -327,6 +433,9 @@ export function validatePlan(book, plan) {
   return scopes;
 }
 export function build(book, plan, { direct = false } = {}) {
+  if (direct && plan.figures.some((f) => f.design))
+    throw Error("Direct arm does not use named designs");
+  plan = resolvePlan(plan);
   if (direct && plan.figures.some((f) => f.scene))
     throw Error("Direct arm does not use scene components");
   const sourceName =
@@ -498,8 +607,16 @@ export async function preview(file, out) {
               .svg.querySelectorAll('[tabindex="0"]').length,
           id,
         );
+        const initialProgress = await page.evaluate(
+          (id) =>
+            VisualBookRuntime.instances.find((i) => i.id === id).figure
+              .initialProgress ?? 0,
+          id,
+        );
         const frames = [];
-        for (const progress of [0, 0.25, 0.26, 0.5, 1]) {
+        for (const progress of [
+          ...new Set([0, 0.25, 0.26, 0.5, 1, initialProgress]),
+        ].sort((a, b) => a - b)) {
           pose = { width, id, progress };
           await page.evaluate(
             ({ id, progress }) => {
@@ -611,7 +728,7 @@ export async function preview(file, out) {
               invalidGeometry: state.invalidGeometry,
             });
           frames.push({ ...state, svgHash: hash(state.svg), svg: undefined });
-          if (progress === 0) {
+          if (progress === initialProgress) {
             const dir = path.join(out, "static");
             fs.mkdirSync(dir, { recursive: true });
             fs.writeFileSync(path.join(dir, `${width}-${id}.svg`), state.svg);
@@ -639,8 +756,9 @@ export async function preview(file, out) {
           }
         }
         if (
-          frames[1].svgHash === frames[2].svgHash &&
-          interaction === "timeline"
+          interaction === "timeline" &&
+          frames.find((f) => f.progress === 0.25).svgHash ===
+            frames.find((f) => f.progress === 0.26).svgHash
         )
           report.findings.push({
             width,
@@ -648,7 +766,13 @@ export async function preview(file, out) {
             kind: "no-fractional-change",
             note: "0.25 and 0.26 produced identical SVG; review whether this is intentional",
           });
-        shapes.push({ id, interaction, interactiveTargets, frames });
+        shapes.push({
+          id,
+          interaction,
+          initialProgress,
+          interactiveTargets,
+          frames,
+        });
       }
       const filename = path.join(out, `${width}-page.png`);
       await page.screenshot({ path: filename, fullPage: true });
@@ -815,6 +939,20 @@ async function main() {
     console.log(fs.readFileSync(path.join(lib, "API.md"), "utf8"));
     return;
   }
+  if (command === "resolve-plan") {
+    if (fs.existsSync(args[1])) throw Error("Expanded plan output exists");
+    fs.writeFileSync(
+      args[1],
+      JSON.stringify(resolvePlan(json(args[0])), null, 2) + "\n",
+    );
+    console.log(
+      JSON.stringify({
+        file: path.resolve(args[1]),
+        kind: "deterministic named-design expansion; no model or render",
+      }),
+    );
+    return;
+  }
   if (command === "gallery") {
     const blocks = [
       "共享坐标让向量的角度和长度可以直接比较。",
@@ -861,15 +999,26 @@ async function main() {
   if (command === "build") {
     const [source, plan, out] = args;
     fs.mkdirSync(path.dirname(path.resolve(out)), { recursive: true });
+    const resolved = resolvePlan(json(plan));
     const html = build(json(source), json(plan), {
       direct: args.includes("--direct"),
     });
     fs.writeFileSync(out, html);
+    const resolvedFile = path.join(
+      path.dirname(path.resolve(out)),
+      "resolved-plan.json",
+    );
+    fs.writeFileSync(resolvedFile, JSON.stringify(resolved, null, 2) + "\n");
     console.log(
       JSON.stringify({
         html: path.resolve(out),
         sha256: hash(html),
         figures: json(plan).figures.length,
+        resolvedPlan: resolvedFile,
+        resolvedPlanSha256: hash(fs.readFileSync(resolvedFile)),
+        namedDesigns: json(plan)
+          .figures.filter((f) => f.design)
+          .map((f) => f.design),
       }),
     );
     return;

@@ -12,7 +12,44 @@
     typeof module !== "undefined" && module.exports
       ? require("./program.cjs")
       : global.VisualBookProgram;
+  const L =
+    typeof module !== "undefined" && module.exports
+      ? require("./relations.cjs")
+      : global.VisualBookRelations;
   const operations = {
+    contributions: {
+      keys: ["terms", "prefix"],
+      required: ["terms"],
+      outputs: [
+        "records",
+        "dimension",
+        "prefix",
+        "sum",
+        "visibleSum",
+        "partialSums",
+        "convention",
+      ],
+      run: ({ terms, ...options }) => L.contributions(terms, options),
+    },
+    lifetimes: {
+      keys: ["intervals", "time"],
+      required: ["intervals"],
+      outputs: [
+        "records",
+        "time",
+        "start",
+        "end",
+        "active",
+        "activeCount",
+        "activeSize",
+        "peakSize",
+        "peakCount",
+        "eventTimes",
+        "series",
+        "convention",
+      ],
+      run: ({ intervals, ...options }) => L.lifetimes(intervals, options),
+    },
     "array-view": {
       keys: [
         "buffer",
