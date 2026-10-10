@@ -440,16 +440,17 @@
         y2 = frame.y(to[1]);
       this.line(id, x1, y1, x2, y2, color, 2.5);
       const a = Math.atan2(y2 - y1, x2 - x1),
-        s = 9;
-      this.path(
-        id + "-head",
-        [
-          [x2 - s * Math.cos(a - 0.45), y2 - s * Math.sin(a - 0.45)],
-          [x2, y2],
-          [x2 - s * Math.cos(a + 0.45), y2 - s * Math.sin(a + 0.45)],
-        ],
-        { color, width: 2.5 },
-      );
+        s = Math.min(9, Math.hypot(x2 - x1, y2 - y1) * 0.4);
+      if (s > 0)
+        this.path(
+          id + "-head",
+          [
+            [x2 - s * Math.cos(a - 0.45), y2 - s * Math.sin(a - 0.45)],
+            [x2, y2],
+            [x2 - s * Math.cos(a + 0.45), y2 - s * Math.sin(a + 0.45)],
+          ],
+          { color, width: 2.5 },
+        );
       if (label)
         this.label(id + "-label", label, x2 + 8, y2 - 8, {
           color,

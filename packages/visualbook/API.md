@@ -3,8 +3,10 @@
 先读取 source.md 的完整正文与锚点（source-map.json是结构，source.json是编译器内部数据），选择原书没有说明清楚的联系。输出 book.json：
 
 ```json
-{"figures":[{"id":"one-idea","title":"短图名","afterAnchor":"章节-001","endAnchor":"章节-004","height":320,"mobileHeight":360,"summary":"最多一句必要的例子条件，不复制正文","stages":["观察","改变","比较"],"params":[{"key":"eta","label":"学习率","min":0.01,"max":0.3,"step":0.01,"value":0.1}],"code":"function draw({svg,board,width,height,progress,params}) { /* 绘图，返回实际数值 facts */ return {}; }"}]}
+{"figures":[{"id":"gradient-example","design":"gradient-contributions","afterAnchor":"章节-001","endAnchor":"章节-004","title":"两条路径合成梯度","summary":"先确认示例条件与原文一致；这是手选例子。","overrides":[{"path":"/scene/props/terms/0/value","value":[-2,3]}]}]}
 ```
+
+上例直接复用已经实现的设计。先查询适合当前概念的设计和输入路径；不适合时用scene拼接，仍不合适才写自定义draw。不要为了复用把错误的示例条件接到原文。
 
 最多4图，推荐1–3图，也可合理跳过。每幅覆盖最多8个正文块，不交叠。height稳定，手机可用不同高度。progress 是读者控制的连续0–1，不能只Math.floor后切换整张画面；移动、展开、计算步骤需要适合原文的解释。参数应有因果意义。默认停在初始画面，读者可以拖动、单步或主动播放一次；滚动只会暂停，不推进图解。原文不要重写，图片和公式已经导入。
 
@@ -17,6 +19,8 @@ figure 可声明 `interaction:"timeline"`（默认）、`"parameters"` 或 `"sta
 figure可以声明 `design:"gradient-contributions"`，编译器展开已实现的设计，不必把它的scene或绘图源码复制进book.json。id、afterAnchor和必要的例子条件由作者填写。数据不同就用 `overrides:[{"path":"/scene/props/terms/0/value","value":[-2,3]}]` 替换真实存在的输入。使用JSON pointer；拼错字段、越界路径、非法参数或连接会被拒绝。也可以整体替换已有 `/params`、`/state`。不得同时提供design和scene/code。
 
 先用 `describe_design_inputs({id})` 查询可替换路径和默认参数；需要看设计效果时用show_design。修改数据后仍须检查颜色、轴范围、条件和真实PNG。默认示例不能被当作原文自己的实验结果。复杂新关系可用scene自由拼接，或写自定义draw。`node tools/visualbook.mjs resolve-plan book.json expanded.json`保存实际展开结果，已有expanded文件不会被覆盖。
+
+也可以直接调用 `put_design({id,design,afterAnchor,overrides})`：它把一幅设计接入当前教材并构建，保存修改前后计划和构建证据。修改已有图需要显式 `replace:true`，不会默默覆盖同名图。一次会话最多32次设计写入，失败也计数；构建失败的当前计划仍保留，旧HTML不能代替新候选。之后照常preview、inspect和finalize。这个入口调用已实现的设计，不生成另一份绘图代码。
 
 ## Board：共享绘图、布局与稳定对象
 
@@ -71,6 +75,10 @@ figure 中可设 `state:{"v":[1.5,1]}`。拖动向量会更新同一份状态，
 本地MCP的 `search_designs({query})` 按概念检索最多六个组件；`describe_component({id})` 返回实际输入字段、输出、限制与示例。目录是积木的展示方式，不要把整份源码读进上下文。概率/学习组件的 `compute_math({operation,inputs})` 调用同一无DOM计算内核，支持normal-cdf、binomial、histogram、bayes、regression、regression-optimum、pca；这是核对实际使用数值的便利工具，不是独立数学验收。
 
 本地MCP的`list_designs`给出目录与限制，`show_design({id})`返回某种设计的执行示例及真实桌面/手机PNG。每次会话最多查看两种不同设计；查看示例不修改候选教材，也不占候选的三轮预览。
+
+卷积/加权回归新增 `receptive-field` 和 `kernel-regression` 组件。前者保留膨胀空洞、补零边界、步长和多层实际输入索引；图上点的位置只是关系排布，不是原始空间坐标。后者直接拖动查询点，彩色圆面积与归一化高斯权重成正比；给定样本不代表训练结果。两者也有无DOM的 `receptive-field`、`gaussian-weights` canonical计算，输出能通过compose接到其它画面。
+
+自定义图可用 `VisualBook.plotFrame(board,id,{xDomain,yDomain,title,grid,footerHeight})`；footerHeight额外保留0–80px给短图例，避免占用坐标刻度。它仍须给绘图区留下至少160px高度。
 
 ## 可检查的数学计算
 
@@ -138,3 +146,5 @@ Board.path只接受有限二维坐标数组；SVG路径字符串使用`board.svg
 MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","mp4"]})`，必须先完成同一份计划的图片审阅和finalize。参数图需要 `sweep:{key,from,to}` 指定一个实际数字参数；整数stepper只生成整数状态。每次最多300帧、两次尝试。GIF只播放一遍；不会替教材加入自动播放。工具保存每帧PNG/SVG/facts、重放一致性检查、编码日志及解码抽样图。不动的图或已知错误会停止导出。
 
 本地命令：`node tools/export_visualbook_motion.mjs book.html preview-directory work/fresh-output motion.json`。需要已有FFmpeg，工具不自动安装；中间帧与视频留在ignored work。输出文件可另行交付，不能把导出成功当作审美或教学认证。
+
+二维贡献可以用 `vector-sum`：给定1–4个二维加权项、共同起点与完整坐标域，返回vertices/currentEndpoint/endpoint。共享箭头对零向量不画假箭头，短向量的箭头头部也随长度收缩。默认示例含数据/惩罚两项；它不替模型推导梯度。

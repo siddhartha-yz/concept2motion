@@ -1064,6 +1064,120 @@
       ],
       "limits": "最多8个半开区间，大小和生存时间由输入指定；不是分配器或硬件测量",
       "keywords": "backprop cache lifetime intervals memory 缓存 内存 反向传播 生存 区间 同时存活"
+    },
+    {
+      "id": "receptive-field",
+      "title": "局部层的实际输入依赖",
+      "props": {
+        "inputLength": "Integer 1..24 input positions",
+        "layers": "1..4 local layers {kernel:1..7,stride:1..4,dilation:1..4,padding:valid/same/[left,right],label:short string}; output at each layer ≤24",
+        "index": "Integer selected output; drawing explicitly clamps after parameter shape changes, canonical math rejects out-of-range",
+        "stateKey": "Optional shared scalar integer state for mouse/Enter selection of output nodes",
+        "title": "Optional short title"
+      },
+      "required": [
+        "inputLength",
+        "layers"
+      ],
+      "outputs": [
+        "inputLength",
+        "layers",
+        "index",
+        "outputLength",
+        "selectedByLayer",
+        "inputIndices",
+        "span",
+        "jump",
+        "center",
+        "extent",
+        "convention",
+        "requestedIndex",
+        "selectionClamped"
+      ],
+      "examples": [
+        "receptive-field",
+        "dilation-holes"
+      ],
+      "limits": "单路径局部层；准确保留膨胀空洞与补零边界；结构依赖不是非零梯度或真实空间坐标",
+      "keywords": "convolution receptive field dilation stride pooling CNN 卷积 感受野 膨胀 空洞 步长 池化"
+    },
+    {
+      "id": "kernel-regression",
+      "title": "拖动查询点的加权回归",
+      "props": {
+        "data": "2..24 finite [x,y] observations",
+        "query": "Finite scalar inside xDomain",
+        "bandwidth": "Gaussian distance bandwidth ≥1e-6",
+        "xDomain": "Optional enclosing [min,max]",
+        "yDomain": "Optional enclosing [min,max]",
+        "draggable": "Enable query handle; requires stateKey",
+        "stateKey": "Shared scalar query state",
+        "title": "Optional short title"
+      },
+      "required": [
+        "data"
+      ],
+      "outputs": [
+        "query",
+        "keys",
+        "values",
+        "bandwidth",
+        "squaredDistances",
+        "relativeScores",
+        "weights",
+        "output",
+        "weightSum",
+        "convention",
+        "data",
+        "queryScalar",
+        "response",
+        "curve",
+        "xDomain",
+        "yDomain"
+      ],
+      "examples": [
+        "kernel-regression",
+        "kernel-weight-composition"
+      ],
+      "limits": "给定样本，未训练；彩色圆面积与归一化权重成正比；101点连线仅为显示采样",
+      "keywords": "Gaussian Nadaraya Watson kernel regression attention weights 核回归 加权 权重 查询 平滑"
+    },
+    {
+      "id": "vector-sum",
+      "title": "二维向量逐项相加",
+      "props": {
+        "terms": "1..4 terms {id,label,value:[x,y],weight?}; no trained-weight claim",
+        "start": "Finite 2D start point, default origin",
+        "progress": "Continuous explanatory prefix 0..1, not extra gradient updates",
+        "xDomain": "Increasing domain enclosing every complete vertex",
+        "yDomain": "Increasing domain enclosing every complete vertex",
+        "title": "Optional short title",
+        "sumLabel": "Short resultant label"
+      },
+      "required": [
+        "terms"
+      ],
+      "outputs": [
+        "records",
+        "dimension",
+        "prefix",
+        "sum",
+        "visibleSum",
+        "partialSums",
+        "convention",
+        "start",
+        "vertices",
+        "currentEndpoint",
+        "endpoint",
+        "xDomain",
+        "yDomain"
+      ],
+      "examples": [
+        "gradient-vectors",
+        "vector-addition"
+      ],
+      "limits": "最多4个二维贡献；相同坐标比例；全域包含全部顶点，不掩盖出界；插值只是解释构造",
+      "keywords": "vector sum gradient regularization linear combination embedding 向量 合成 梯度 正则化 线性组合"
     }
   ]
 }

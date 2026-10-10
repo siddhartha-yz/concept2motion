@@ -241,5 +241,120 @@
     });
     return { ...facts, domain: limits };
   }
-  Object.assign(V.components, { contributions, lifetimes });
+  function vectorSum(
+    board,
+    {
+      terms,
+      start = [0, 0],
+      progress = 1,
+      xDomain = [-3, 3],
+      yDomain = [-1, 5],
+      title = null,
+      sumLabel = "合向量",
+    } = {},
+  ) {
+    const facts = N.contributions(terms, {
+      prefix: V.clamp(progress, 0, 1) * terms.length,
+    });
+    if (
+      facts.dimension !== 2 ||
+      terms.length > 4 ||
+      !Array.isArray(start) ||
+      start.length !== 2 ||
+      !start.every(Number.isFinite)
+    )
+      throw Error("Vector sum needs 1..4 finite 2D terms and start");
+    const vertices = facts.partialSums.map((v) =>
+      v.map((x, j) => x + start[j]),
+    );
+    if (
+      !Array.isArray(xDomain) ||
+      !Array.isArray(yDomain) ||
+      xDomain.length !== 2 ||
+      yDomain.length !== 2 ||
+      ![...xDomain, ...yDomain].every(Number.isFinite) ||
+      xDomain[0] >= xDomain[1] ||
+      yDomain[0] >= yDomain[1] ||
+      vertices.some(
+        ([x, y]) =>
+          x < xDomain[0] || x > xDomain[1] || y < yDomain[0] || y > yDomain[1],
+      )
+    )
+      throw Error("Vector domains must enclose all complete vertices");
+    const termColors = [P.blue, P.orange, P.green, P.gold];
+    const footer = 20 * Math.ceil(terms.length / 2),
+      f = V.plotFrame(board, "axes", {
+        xDomain,
+        yDomain,
+        title,
+        equalUnits: true,
+        grid: false,
+        footerHeight: footer,
+      });
+    facts.records.forEach((record, i) => {
+      const from = vertices[i],
+        end = record.visibleValue.map((x, j) => x + from[j]),
+        active = record.fraction > 0;
+      board.curve("reference-" + record.id, f, [from, vertices[i + 1]], {
+        color: P.muted,
+        width: 1,
+        opacity: 0.25,
+      });
+      if (active)
+        board.vector("term-" + record.id, f, from, end, {
+          color: termColors[i % termColors.length],
+        });
+      board.circle("vertex-" + i, f.x(from[0]), f.y(from[1]), 2, P.muted);
+      const x = 16 + (i % 2) * (board.width / 2),
+        y =
+          board.height -
+          10 -
+          (Math.ceil(terms.length / 2) - 1 - Math.floor(i / 2)) * 20;
+      board.line(
+        "key-" + i,
+        x,
+        y - 4,
+        x + 12,
+        y - 4,
+        termColors[i % termColors.length],
+        2.5,
+      );
+      label(board, "legend-" + i, String(record.label), x + 18, y, {
+        maxWidth: board.width / 2 - 40,
+        color: termColors[i % termColors.length],
+        size: 12,
+      });
+    });
+    const currentEndpoint = facts.visibleSum.map((v, j) => v + start[j]),
+      endpoint = facts.sum.map((v, j) => v + start[j]);
+    board.vector("sum", f, start, currentEndpoint, { color: P.violet });
+    board.circle(
+      "current-end",
+      f.x(currentEndpoint[0]),
+      f.y(currentEndpoint[1]),
+      4,
+      P.violet,
+    );
+    const text =
+      String(sumLabel) + " [" + facts.visibleSum.map(fmt).join(", ") + "]";
+    label(board, "sum-value", text, f.right, f.top + 14, {
+      maxWidth: f.right - f.left,
+      color: P.violet,
+      anchor: "end",
+    });
+    return {
+      ...facts,
+      start: start.slice(),
+      vertices,
+      currentEndpoint,
+      endpoint,
+      xDomain,
+      yDomain,
+    };
+  }
+  Object.assign(V.components, {
+    contributions,
+    lifetimes,
+    "vector-sum": vectorSum,
+  });
 })(window);

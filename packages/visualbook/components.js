@@ -23,10 +23,18 @@
       equalUnits = false,
       title = null,
       grid = true,
+      footerHeight = 0,
     } = {},
   ) {
     if (board.width < 160 || board.height < 160)
       throw Error("Plot region must be at least 160×160");
+    if (
+      !Number.isFinite(footerHeight) ||
+      footerHeight < 0 ||
+      footerHeight > 80 ||
+      board.height - footerHeight < 160
+    )
+      throw Error("Plot footer must reserve 0..80px and leave 160px of height");
     if (title)
       board.label(id + "-title", title, 16, 20, {
         maxWidth: board.width - 32,
@@ -40,7 +48,12 @@
       grid,
       xLabel: "",
       yLabel: "",
-      box: [42, title ? 40 : 25, board.width - 18, board.height - 36],
+      box: [
+        42,
+        title ? 40 : 25,
+        board.width - 18,
+        board.height - 36 - footerHeight,
+      ],
     });
     f.clip = board.clip(id, f);
     if (xDomain[0] <= 0 && xDomain[1] >= 0)

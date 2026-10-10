@@ -36,3 +36,9 @@ Python Tutor已实际运行维护者输入的四行allocate/alias/copy/write示�
 - https://ffmpeg.org/ffmpeg-filters.html#palettegen — 实际阅读palettegen/reserve_transparent与paletteuse段；用整段帧生成调色板。
 - https://ffmpeg.org/ffmpeg-formats.html#gif-2 — 官方GIF muxer文档与本机实际help都确认loop=-1表示不重复。
 - 本机已有FFmpeg 7.0.2-static，没有下载媒体或新的二进制。使用已有CLI，不复制FFmpeg源码。工具完整解码并抽样检查导出的GIF/MP4。
+
+### 局部依赖与加权查询
+
+[Distill Computing Receptive Fields](https://distill.pub/2019/computing-receptive-fields/)已阅读递推关系，并实际在浏览器把第一层kernel滑块从3改为2，查看连线变化。新实现独立计算单路径结构依赖，保留膨胀空洞、补零与步长；图形仅借鉴局部连线和在原对象上改变参数的组织方式。未复制源码或图像，不支持论文中的任意多路径网络。
+
+[D2L Nadaraya-Watson](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)提供归一化核加权回归的教材条件；新组件按给定样本、指定带宽计算，曲线101点显示采样，未训练。圆面积而非半径与权重成正比，同一份权重可以接到矩阵。D2L源码与Apache2许可证仍使用本轮已固定的上游commit。网页读取不替代源码固定。

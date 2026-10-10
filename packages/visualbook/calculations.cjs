@@ -16,7 +16,48 @@
     typeof module !== "undefined" && module.exports
       ? require("./relations.cjs")
       : global.VisualBookRelations;
+  const S =
+    typeof module !== "undefined" && module.exports
+      ? require("./spatial.cjs")
+      : global.VisualBookSpatial;
   const operations = {
+    "receptive-field": {
+      keys: ["inputLength", "layers", "index"],
+      required: ["inputLength", "layers"],
+      outputs: [
+        "inputLength",
+        "layers",
+        "index",
+        "outputLength",
+        "selectedByLayer",
+        "inputIndices",
+        "span",
+        "jump",
+        "center",
+        "extent",
+        "convention",
+      ],
+      run: ({ inputLength, layers, ...options }) =>
+        S.receptiveField(inputLength, layers, options),
+    },
+    "gaussian-weights": {
+      keys: ["query", "keys", "values", "bandwidth"],
+      required: ["query", "keys", "values"],
+      outputs: [
+        "query",
+        "keys",
+        "values",
+        "bandwidth",
+        "squaredDistances",
+        "relativeScores",
+        "weights",
+        "output",
+        "weightSum",
+        "convention",
+      ],
+      run: ({ query, keys, values, ...options }) =>
+        S.gaussianWeights(query, keys, values, options),
+    },
     contributions: {
       keys: ["terms", "prefix"],
       required: ["terms"],

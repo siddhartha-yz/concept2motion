@@ -66,6 +66,18 @@ def main():
     if not args.direct:
         definitions += [
             {
+                "name": "put_design",
+                "description": "Insert one named reusable design into the current book and build it, without writing drawing code. Supply real source anchor, optional existing data replacements, and explicit replace=true only to replace an existing figure id. Saves before/after plan and build evidence; still preview and inspect the candidate. Failed build leaves a failed current proposal, never an older ready candidate.",
+                "inputSchema": {"type":"object","properties":{
+                    "id":{"type":"string","pattern":"^[a-z][a-z0-9-]*$"},
+                    "design":{"type":"string","enum":[d['id'] for d in catalog]},
+                    "afterAnchor":{"type":"string"},"endAnchor":{"type":"string"},
+                    "title":{"type":"string","maxLength":80},"summary":{"type":"string","maxLength":180},
+                    "overrides":{"type":"array","maxItems":32,"items":{"type":"object","properties":{"path":{"type":"string","maxLength":240},"value":{}},"required":["path","value"],"additionalProperties":False}},
+                    "replace":{"type":"boolean"}
+                },"required":["id","design","afterAnchor"],"additionalProperties":False},
+            },
+            {
                 "name":"describe_design_inputs",
                 "description":"Inspect the actual replaceable scene data and default controls of one named design, without drawing or copying its code. Use figure.design and explicit overrides to reuse its implementation. Replacements must exist; still review math/teaching fit and actual PNGs.",
                 "inputSchema":{"type":"object","properties":{"id":{"type":"string","enum":[d['id'] for d in catalog]}},"required":["id"],"additionalProperties":False},
@@ -231,6 +243,33 @@ def main():
         if any(k not in required for k in arguments):
             raise ValueError("Unknown argument")
         result = None
+        is_build = name in ["build_book", "put_design"]
+        if name == "put_design":
+            if not all(isinstance(arguments.get(k),str) and arguments[k] for k in ['id','design','afterAnchor']):
+                raise ValueError('Design, figure id and real source anchor required')
+            if not re.fullmatch(r'[a-z][a-z0-9-]*',arguments['id']) or arguments['design'] not in [d['id'] for d in catalog]:
+                raise ValueError('Unknown design or invalid figure id')
+            if not isinstance(arguments.get('replace',False),bool):raise ValueError('replace must be an explicit boolean')
+            if len(json.dumps(arguments).encode())>65536:raise ValueError('Design input exceeds 64 KiB')
+            previous=inside('book.json').read_bytes()
+            plan=json.loads(previous)
+            if not isinstance(plan.get('figures'),list) or len(plan['figures'])>4:raise ValueError('Book needs zero to four figures')
+            matches=[i for i,f in enumerate(plan['figures']) if f.get('id')==arguments['id']]
+            if matches and not arguments.get('replace',False):raise ValueError('Figure id exists; use explicit replace=true')
+            if len(matches)>1:raise ValueError('Duplicate figure id in current plan')
+            if not matches and arguments.get('replace',False):raise ValueError('Cannot replace a missing figure')
+            if not matches and len(plan['figures'])>=4:raise ValueError('Four-figure limit reached')
+            figure={k:v for k,v in arguments.items() if k!='replace'}
+            if matches:plan['figures'][matches[0]]=figure
+            else:plan['figures'].append(figure)
+            edits=inside('plan-edits');edits.mkdir(exist_ok=True)
+            if len(list(edits.glob('edit-*')))>=32:raise ValueError('Thirty-two design edits reached; retain failures')
+            directory=edits/f'edit-{len(list(edits.glob("edit-*")))+1:03d}';directory.mkdir()
+            (directory/'before.json').write_bytes(previous)
+            (directory/'request.json').write_text(json.dumps(arguments,ensure_ascii=False,indent=2)+'\n')
+            proposal=json.dumps(plan,ensure_ascii=False,indent=2)+'\n'
+            (directory/'after.json').write_text(proposal)
+            inside('book.json').write_text(proposal)
         if name == "list_designs":
             result = [
                 {k: d[k] for k in ["id", "title", "topic", "limits"]} for d in catalog
@@ -404,7 +443,7 @@ def main():
                 "kind": "maintenance-authored reusable design, not your generated textbook",
             }
         else:
-            if name == "build_book":
+            if is_build:
                 receipt={**build_inputs(),'status':'building'}
                 snapshot=snapshot_build(receipt)
                 inside('build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
@@ -440,19 +479,19 @@ def main():
             try:
                 process = subprocess.run(command, cwd=workspace, capture_output=True, text=True, timeout=180)
             except Exception as error:
-                if name=='build_book':
+                if is_build:
                     failed={**receipt,'status':'failed','error':str(error)}
                     for destination in [inside('build-receipt.json'),snapshot/'receipt.json']:destination.write_text(json.dumps(failed,indent=2)+'\n')
                 raise
-            if name=='build_book':
+            if is_build:
                 (snapshot/'stdout.txt').write_text(process.stdout)
                 (snapshot/'stderr.txt').write_text(process.stderr)
             if process.returncode:
-                if name == 'build_book':
+                if is_build:
                     for destination in [inside('build-receipt.json'),snapshot/'receipt.json']:destination.write_text(json.dumps({**receipt,'status':'failed'},indent=2)+'\n')
                 raise ValueError(process.stderr[-6000:] or process.stdout[-6000:])
             result = json.loads(process.stdout.splitlines()[-1])
-            if name == 'build_book':
+            if is_build:
                 receipt={**receipt,'status':'success','html_sha256':digest(inside('book.html'))}
                 shutil.copyfile(inside('book.html'),snapshot/'book.html')
                 if inside('resolved-plan.json').exists():

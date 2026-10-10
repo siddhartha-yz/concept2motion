@@ -2862,6 +2862,389 @@
           "sizeUnit": "单位"
         }
       }
+    },
+    {
+      "id": "receptive-field",
+      "title": "点选输出，看两层依赖如何汇合",
+      "topic": "深度学习 / 卷积",
+      "keywords": "convolution receptive field pooling stride 卷积 感受野 池化 步长",
+      "limits": "8个输入，卷积后池化；只显示结构依赖，补零位置不计为实际输入；图上横向间距不是空间坐标。",
+      "height": 350,
+      "mobileHeight": 350,
+      "interaction": "parameters",
+      "state": {
+        "index": 1
+      },
+      "params": [
+        {
+          "key": "dilation",
+          "kind": "select",
+          "label": "卷积间隔",
+          "options": [
+            {
+              "label": "相邻",
+              "value": 1
+            },
+            {
+              "label": "隔一个",
+              "value": 2
+            },
+            {
+              "label": "隔两个",
+              "value": 3
+            }
+          ],
+          "value": 1
+        }
+      ],
+      "scene": {
+        "type": "receptive-field",
+        "props": {
+          "inputLength": 8,
+          "layers": [
+            {
+              "kernel": 3,
+              "padding": "same",
+              "dilation": {
+                "$param": "dilation"
+              },
+              "label": "卷积"
+            },
+            {
+              "kernel": 2,
+              "stride": 2,
+              "label": "池化"
+            }
+          ],
+          "index": {
+            "$state": "index"
+          },
+          "stateKey": "index"
+        }
+      }
+    },
+    {
+      "id": "dilation-holes",
+      "title": "跨度变大，实际采样点仍有空洞",
+      "topic": "深度学习 / 卷积",
+      "keywords": "dilation receptive field convolution 膨胀卷积 空洞 感受野",
+      "limits": "15个输入、3点卷积；跨度包含空洞，实际输入数不随间隔增加。形状缩小时选中位置会明确截到最后一个输出。",
+      "height": 260,
+      "mobileHeight": 260,
+      "interaction": "parameters",
+      "state": {
+        "index": 4
+      },
+      "params": [
+        {
+          "key": "dilation",
+          "kind": "select",
+          "label": "卷积间隔",
+          "options": [
+            {
+              "label": "相邻",
+              "value": 1
+            },
+            {
+              "label": "隔一个",
+              "value": 2
+            },
+            {
+              "label": "隔两个",
+              "value": 3
+            }
+          ],
+          "value": 1
+        }
+      ],
+      "scene": {
+        "type": "receptive-field",
+        "props": {
+          "inputLength": 15,
+          "layers": [
+            {
+              "kernel": 3,
+              "dilation": {
+                "$param": "dilation"
+              },
+              "label": "卷积"
+            }
+          ],
+          "index": {
+            "$state": "index"
+          },
+          "stateKey": "index"
+        }
+      }
+    },
+    {
+      "id": "kernel-regression",
+      "title": "拖动橙点，看哪些样本参与估计",
+      "topic": "机器学习 / 回归",
+      "keywords": "Gaussian kernel regression attention Nadaraya Watson 核回归 平滑 权重 查询",
+      "limits": "给定7个样本；橙点为加权均值，彩色圆面积为权重。曲线是101点采样连线，不声称训练过模型。",
+      "height": 330,
+      "mobileHeight": 340,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "bandwidth",
+          "label": "影响范围",
+          "min": 0.2,
+          "max": 2,
+          "step": 0.1,
+          "value": 0.7
+        }
+      ],
+      "state": {
+        "query": 0.5
+      },
+      "scene": {
+        "id": "kernel",
+        "type": "kernel-regression",
+        "props": {
+          "data": [
+            [
+              -3,
+              -0.3
+            ],
+            [
+              -2,
+              -1
+            ],
+            [
+              -1,
+              -0.5
+            ],
+            [
+              0,
+              0.8
+            ],
+            [
+              1,
+              1.2
+            ],
+            [
+              2,
+              0.6
+            ],
+            [
+              3,
+              1.5
+            ]
+          ],
+          "query": {
+            "$state": "query"
+          },
+          "bandwidth": {
+            "$param": "bandwidth"
+          },
+          "xDomain": [
+            -3.5,
+            3.5
+          ],
+          "yDomain": [
+            -1.5,
+            2
+          ],
+          "draggable": true,
+          "stateKey": "query"
+        }
+      }
+    },
+    {
+      "id": "kernel-weight-composition",
+      "title": "同一份权重同时驱动画面和矩阵",
+      "topic": "机器学习 / 组合",
+      "keywords": "kernel regression composition weights matrix 核回归 权重 矩阵 拼接",
+      "limits": "4个给定样本；矩阵直接读取左图的计算结果，没有另一份手写权重公式。",
+      "height": 330,
+      "mobileHeight": 520,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "bandwidth",
+          "label": "影响范围",
+          "min": 0.2,
+          "max": 2,
+          "step": 0.1,
+          "value": 0.7
+        }
+      ],
+      "state": {
+        "query": 0.5
+      },
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 12,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "kernel",
+            "type": "kernel-regression",
+            "props": {
+              "data": [
+                [
+                  -2,
+                  -0.8
+                ],
+                [
+                  -1,
+                  0.2
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  0.4
+                ]
+              ],
+              "query": {
+                "$state": "query"
+              },
+              "bandwidth": {
+                "$param": "bandwidth"
+              },
+              "xDomain": [
+                -2.5,
+                2.5
+              ],
+              "yDomain": [
+                -1.5,
+                1.5
+              ],
+              "draggable": true,
+              "stateKey": "query"
+            }
+          },
+          {
+            "type": "tensor",
+            "props": {
+              "values": [
+                {
+                  "$result": "kernel.weights"
+                }
+              ],
+              "encoding": "sequential",
+              "domain": [
+                0,
+                1
+              ],
+              "precision": 2,
+              "title": "归一化权重"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "gradient-vectors",
+      "title": "两个来源，合成同一个梯度",
+      "topic": "机器学习 / 组合",
+      "keywords": "gradient regularization vector sum weight decay 梯度 正则化 向量合成 权重衰减",
+      "limits": "手选数据梯度[-1,2]与惩罚梯度λ[2,1]，同一比例的二维坐标；不是训练轨迹。",
+      "height": 350,
+      "mobileHeight": 350,
+      "initialProgress": 1,
+      "params": [
+        {
+          "key": "lambda",
+          "label": "惩罚强度 λ",
+          "min": 0,
+          "max": 1.5,
+          "step": 0.05,
+          "value": 0.5
+        }
+      ],
+      "scene": {
+        "type": "vector-sum",
+        "props": {
+          "terms": [
+            {
+              "id": "data",
+              "label": "数据梯度",
+              "value": [
+                -1,
+                2
+              ]
+            },
+            {
+              "id": "penalty",
+              "label": "惩罚梯度",
+              "value": [
+                2,
+                1
+              ],
+              "weight": {
+                "$param": "lambda"
+              }
+            }
+          ],
+          "progress": {
+            "$progress": true
+          },
+          "xDomain": [
+            -3,
+            3
+          ],
+          "yDomain": [
+            -1,
+            5
+          ],
+          "sumLabel": "总梯度"
+        }
+      }
+    },
+    {
+      "id": "vector-addition",
+      "title": "保持对象，逐项走到合向量",
+      "topic": "数学 / 线性代数",
+      "keywords": "vector addition linear combination sum 向量 加法 线性组合",
+      "limits": "给定二维向量[2,1]与[-1,2]；逐项展开只是解释，不是物体运动。",
+      "height": 330,
+      "mobileHeight": 330,
+      "initialProgress": 1,
+      "scene": {
+        "type": "vector-sum",
+        "props": {
+          "terms": [
+            {
+              "id": "a",
+              "label": "a",
+              "value": [
+                2,
+                1
+              ]
+            },
+            {
+              "id": "b",
+              "label": "b",
+              "value": [
+                -1,
+                2
+              ]
+            }
+          ],
+          "progress": {
+            "$progress": true
+          },
+          "xDomain": [
+            -1,
+            4
+          ],
+          "yDomain": [
+            -1,
+            4
+          ]
+        }
+      }
     }
   ]
 }
