@@ -31,7 +31,7 @@ book.json 为 {"figures":[...],"annotations":[...]}。每章最多四幅图、�
 
 组合图声明 id/title/afterAnchor/height/mobileHeight/interaction/params/state/scene；不要同时写code。height桌面180..480，mobileHeight180..560。
 
-scene的type可以是组件id，或rows/columns/overlay/compose。布局用layout:{weights:[...],gap:14,minColumnWidth:260}。children里的每个组件可带唯一id。compose使用calculations数组和visual画面。每个计算为{id,operation,inputs}，调用无DOM数学内核。最多64节点、8层、16计算。
+scene的type可以是组件id，或stack/columns/grid/overlay/compose。布局用layout:{weights:[...],gap:14,minColumnWidth:260}。children里的每个组件可带唯一id。compose使用calculations数组和visual画面。每个计算为{id,operation,inputs}，调用无DOM数学内核。最多64节点、8层、16计算。
 
 绑定：{"$param":"key"}、{"$state":"point"}、{"$progress":true}、{"$result":"此前计算或组件id.字段.索引"}。结果只引用前面已完成的计算；不存在的路径会拒绝。参数与共享状态用于真实交互，同一输入可以驱动多个图。板内拖动控件用组件自己的stateKey，而非在图外重复写说明。
 
@@ -40,6 +40,10 @@ params最多8个：range用key/label/min/max/step/value；stepper再加kind:"ste
 interaction:"parameters"用于直接改变输入；"timeline"用于真实连续演示，有可拖进度、单步、播放/暂停；"static"用于本来就是静态的关系。不要把连续进度取整成几张图片。
 
 compute_math({operation,inputs,fields:["需要的输出"]}) 可以只取最多八个实际字段，完整结果保存在当前工作区。它与画图使用相同内核，只是核对便利，不是独立数学审查。sample-grid可以接dense，然后接scalar-map；polynomial-fit可以接plot与readout。具体字段以describe返回为准。
+
+检索结果还说明scene/code、可控参数数量和已有计算。关键字同分时优先可改数据的scene，不能把这个顺序当品质排名。optimizer-landscape/adam-bias复用optimizer-trace，softmax-competition/softmax-gradient-step接softmax-loss与gradient-step，head-reindex接四维索引映射。它们的例子条件仍需要替换或澄清。
+
+紧凑组合可用aligned-points的compact:true（不缩小字号），tensor默认auto使单行/单列向量允许矩形格、普通矩阵保持方格；可显式cellAspect:square/free。仍有最低尺寸，不要堆太多视图。
 
 ## 原文与缺口
 

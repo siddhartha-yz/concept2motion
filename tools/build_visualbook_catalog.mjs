@@ -131,7 +131,7 @@ export async function buildCatalog(out, { ids = null } = {}) {
 }
 if (process.argv[1] === import.meta.filename) {
   const records = await buildCatalog(path.resolve(process.argv[2]), {
-    ids: process.argv[3] ? [process.argv[3]] : null,
+    ids: process.argv.length > 3 ? process.argv.slice(3) : null,
   });
   console.log(
     JSON.stringify(

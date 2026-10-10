@@ -14,6 +14,8 @@
       statistics = true,
       title = null,
       pointColors = null,
+      compact = false,
+      itemLabels = null,
     } = {},
     context = {},
   ) {
@@ -57,13 +59,39 @@
         pointColors.some((c) => typeof c !== "string" || !P[c]))
     )
       throw Error("Use one known palette color per item");
+    if (typeof compact !== "boolean")
+      throw Error("Aligned compact must be boolean");
+    if (
+      itemLabels !== null &&
+      (!Array.isArray(itemLabels) ||
+        itemLabels.length !== n ||
+        new Set(itemLabels).size !== n ||
+        itemLabels.some(
+          (label) =>
+            typeof label !== "string" || !label.trim() || label.length > 12,
+        ))
+    )
+      throw Error("One distinct short label per aligned item required");
+    const legendHeight = itemLabels
+      ? V.legend(
+          board,
+          "item-legend",
+          itemLabels.map((label, i) => ({
+            label,
+            color: pointColors ? P[pointColors[i]] : colors[i % colors.length],
+          })),
+          { y: title ? 46 : 20 },
+        ) + 8
+      : 0;
     const left = 36,
       right = board.width - 24,
-      top = title ? 54 : 36,
+      top = (title ? 54 : 36) + legendHeight,
       bottom = board.height - 50,
       rowHeight = (bottom - top) / rows.length;
-    if (board.width < 260 || rowHeight < 68)
-      throw Error("Aligned points need 260px width and 68px per numeric row");
+    if (board.width < 260 || rowHeight < (compact ? 50 : 68))
+      throw Error(
+        "Aligned points need260px width and50px compact/68px comfortable per numeric row",
+      );
     const x = global.d3.scaleLinear(domain, [left, right]);
     const y = (r) => top + (r + 0.5) * rowHeight;
     const summary = rows.map((r) => {
@@ -177,6 +205,8 @@
       });
     return {
       rows: summary,
+      compact,
+      itemLabels,
       domain,
       selected,
       selectedValues: summary.map((r) => r.selectedValue),

@@ -32,7 +32,94 @@
     typeof module !== "undefined" && module.exports
       ? require("./polynomial.cjs")
       : global.VisualBookPolynomial;
+  const O =
+    typeof module !== "undefined" && module.exports
+      ? require("./optimizers.cjs")
+      : global.VisualBookOptimizers;
+  const U =
+    typeof module !== "undefined" && module.exports
+      ? require("./updates.cjs")
+      : global.VisualBookUpdates;
+  const I =
+    typeof module !== "undefined" && module.exports
+      ? require("./reindex.cjs")
+      : global.VisualBookReindex;
   const operations = {
+    "tensor-reindex": {
+      keys: [
+        "values",
+        "shape",
+        "order",
+        "reshape",
+        "inputColumns",
+        "outputColumns",
+        "inputCell",
+      ],
+      required: ["values", "shape", "order"],
+      outputs: [
+        "values",
+        "inputShape",
+        "order",
+        "permutedShape",
+        "outputShape",
+        "output",
+        "inputMatrix",
+        "outputMatrix",
+        "mapping",
+        "selected",
+        "convention",
+      ],
+      run: I.tensorReindex,
+    },
+    "gradient-step": {
+      keys: ["values", "gradient", "eta"],
+      required: ["values", "gradient"],
+      outputs: [
+        "before",
+        "gradient",
+        "eta",
+        "update",
+        "after",
+        "shape",
+        "convention",
+      ],
+      run: U.gradientStep,
+    },
+    "optimizer-trace": {
+      keys: [
+        "kind",
+        "start",
+        "field",
+        "gradients",
+        "steps",
+        "selectedStep",
+        "eta",
+        "rho",
+        "beta1",
+        "beta2",
+        "epsilon",
+      ],
+      required: [],
+      outputs: [
+        "kind",
+        "eta",
+        "rho",
+        "beta1",
+        "beta2",
+        "epsilon",
+        "steps",
+        "selectedStep",
+        "field",
+        "start",
+        "points",
+        "visiblePoints",
+        "lossCurve",
+        "records",
+        "selected",
+        "convention",
+      ],
+      run: O.optimizerTrace,
+    },
     "sample-grid": {
       keys: ["xDomain", "yDomain", "resolution", "field"],
       required: [],

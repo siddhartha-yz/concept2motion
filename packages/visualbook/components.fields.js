@@ -16,10 +16,44 @@
       arrowLength = 0.65,
       stateKey = null,
       title = null,
+      paths = [],
     } = {},
     context = {},
   ) {
     const facts = N.scalarField(field, point);
+    if (!Array.isArray(paths) || paths.length > 3)
+      throw Error("At most three explicit contour paths");
+    if (paths.length && title)
+      throw Error(
+        "Traced contours use the figure heading; leave component title empty for the legend",
+      );
+    const pathIds = new Set();
+    let legendWidth = 0;
+    for (const path of paths) {
+      if (
+        !path ||
+        typeof path.id !== "string" ||
+        !/^[-a-z0-9]+$/.test(path.id) ||
+        pathIds.has(path.id) ||
+        typeof path.label !== "string" ||
+        !path.label.trim() ||
+        path.label.length > 24 ||
+        !Array.isArray(path.points) ||
+        !path.points.length ||
+        path.points.length > 101 ||
+        path.points.some(
+          (p) =>
+            !Array.isArray(p) || p.length !== 2 || !p.every(Number.isFinite),
+        )
+      )
+        throw Error(
+          "Unique path ids, short labels and one to101 finite 2D positions required",
+        );
+      pathIds.add(path.id);
+      legendWidth += V.measure(path.label, 13) + 46;
+    }
+    if (legendWidth > board.width - 32)
+      throw Error("Shorten contour path legend labels");
     if (
       !Array.isArray(levels) ||
       !levels.length ||
@@ -58,6 +92,7 @@
       grid: false,
       equalUnits: true,
       footerHeight: 24,
+      headerHeight: paths.length ? 26 : 0,
     });
     const values = [],
       n = resolution;
@@ -96,6 +131,49 @@
             fill: "none",
           })
           .setAttribute("clip-path", clip);
+    });
+    let legendX = 16;
+    const pathFacts = paths.map((path) => {
+      const color = P[path.color] ?? path.color ?? P.orange;
+      board.line(
+        "path-legend-" + path.id,
+        legendX,
+        14,
+        legendX + 18,
+        14,
+        color,
+        2.5,
+      );
+      board.text("path-label-" + path.id, path.label, legendX + 26, 18, {
+        size: 13,
+        color: P.muted,
+      });
+      legendX += V.measure(path.label, 13) + 46;
+      board.curve("path-" + path.id, f, path.points, { color, width: 2.5 });
+      path.points.forEach((p, i) =>
+        board.circle(
+          "path-" + path.id + "-" + i,
+          f.x(p[0]),
+          f.y(p[1]),
+          2,
+          color,
+          { "clip-path": f.clip },
+        ),
+      );
+      const clippedPoints = path.points.filter(
+        (p) =>
+          p[0] < xDomain[0] ||
+          p[0] > xDomain[1] ||
+          p[1] < yDomain[0] ||
+          p[1] > yDomain[1],
+      ).length;
+      return {
+        id: path.id,
+        label: path.label,
+        points: path.points,
+        clippedPoints,
+        connections: path.points.length - 1,
+      };
     });
     const norm = Math.hypot(...facts.gradient),
       sign = direction === "descent" ? -1 : 1;
@@ -140,6 +218,9 @@
     );
     return {
       ...facts,
+      paths: pathFacts,
+      pathConvention:
+        "Polylines connect supplied discrete positions; no continuous-time or convergence claim. Marks outside the displayed domain are clipped and counted.",
       levels,
       resolution,
       direction,

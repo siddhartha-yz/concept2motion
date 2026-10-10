@@ -71,7 +71,10 @@
         "type": "columns",
         "layout": {
           "gap": 18,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -80,9 +83,15 @@
             "props": {
               "vector": {
                 "$state": "v",
-                "fallback": [1.5, 1]
+                "fallback": [
+                  1.5,
+                  1
+                ]
               },
-              "onto": [1, 0],
+              "onto": [
+                1,
+                0
+              ],
               "progress": {
                 "$progress": true
               },
@@ -116,7 +125,10 @@
         ]
       },
       "state": {
-        "v": [1.5, 1]
+        "v": [
+          1.5,
+          1
+        ]
       }
     },
     {
@@ -130,7 +142,10 @@
         "type": "columns",
         "layout": {
           "gap": 18,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -138,10 +153,19 @@
             "type": "linear-transform",
             "props": {
               "matrix": [
-                [1, 0.5],
-                [0, 1]
+                [
+                  1,
+                  0.5
+                ],
+                [
+                  0,
+                  1
+                ]
               ],
-              "vector": [1, 1],
+              "vector": [
+                1,
+                1
+              ],
               "progress": {
                 "$progress": true
               },
@@ -184,7 +208,10 @@
         "type": "columns",
         "layout": {
           "gap": 18,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -193,14 +220,24 @@
             "props": {
               "function": {
                 "kind": "polynomial",
-                "coefficients": [0, 0, 0.5]
+                "coefficients": [
+                  0,
+                  0,
+                  0.5
+                ]
               },
               "x": 1,
               "h": {
                 "$param": "h"
               },
-              "xDomain": [-2, 3],
-              "yDomain": [-1, 5]
+              "xDomain": [
+                -2,
+                3
+              ],
+              "yDomain": [
+                -1,
+                5
+              ]
             }
           },
           {
@@ -258,7 +295,10 @@
         "type": "columns",
         "layout": {
           "gap": 18,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -267,7 +307,11 @@
             "props": {
               "function": {
                 "kind": "polynomial",
-                "coefficients": [0, 0, 1]
+                "coefficients": [
+                  0,
+                  0,
+                  1
+                ]
               },
               "a": 0,
               "b": 2,
@@ -332,7 +376,10 @@
         "type": "columns",
         "layout": {
           "gap": 18,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -399,7 +446,10 @@
         "type": "columns",
         "layout": {
           "gap": 18,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -413,8 +463,14 @@
               "x": {
                 "$state": "x"
               },
-              "xDomain": [-5, 5],
-              "yDomain": [-0.1, 1.2],
+              "xDomain": [
+                -5,
+                5
+              ],
+              "yDomain": [
+                -0.1,
+                1.2
+              ],
               "title": "蓝：sigmoid · 橙：导数",
               "stateKey": "x"
             }
@@ -466,8 +522,14 @@
       "scene": {
         "type": "plot",
         "props": {
-          "xDomain": [-3, 3],
-          "yDomain": [-2, 3],
+          "xDomain": [
+            -3,
+            3
+          ],
+          "yDomain": [
+            -2,
+            3
+          ],
           "title": "曲线、点和向量在同一坐标中",
           "layers": [
             {
@@ -476,18 +538,48 @@
               "points": {
                 "$lerp": [
                   [
-                    [-2, 0],
-                    [-1, 1],
-                    [0, 0],
-                    [1, 1],
-                    [2, 0]
+                    [
+                      -2,
+                      0
+                    ],
+                    [
+                      -1,
+                      1
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      1
+                    ],
+                    [
+                      2,
+                      0
+                    ]
                   ],
                   [
-                    [-2, 1],
-                    [-1, 0],
-                    [0, 2],
-                    [1, 0],
-                    [2, 1]
+                    [
+                      -2,
+                      1
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      2,
+                      1
+                    ]
                   ]
                 ]
               },
@@ -498,8 +590,14 @@
               "type": "vector",
               "to": {
                 "$lerp": [
-                  [1, 1],
-                  [2, 2]
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    2
+                  ]
                 ]
               },
               "color": "orange",
@@ -530,7 +628,10 @@
         "type": "columns",
         "layout": {
           "gap": 18,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -556,13 +657,19 @@
                   "id": "square",
                   "label": "x²",
                   "op": "mul",
-                  "inputs": ["x", "x"]
+                  "inputs": [
+                    "x",
+                    "x"
+                  ]
                 },
                 {
                   "id": "output",
                   "label": "2x²",
                   "op": "mul",
-                  "inputs": ["two", "square"]
+                  "inputs": [
+                    "two",
+                    "square"
+                  ]
                 }
               ],
               "progress": {
@@ -595,7 +702,10 @@
           }
         ]
       },
-      "stages": ["前向数值", "反向梯度"],
+      "stages": [
+        "前向数值",
+        "反向梯度"
+      ],
       "summary": "g 是输出对当前节点的导数；同一输入的两次使用分别贡献梯度。"
     },
     {
@@ -673,7 +783,10 @@
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "gap": 18
         },
         "children": [
@@ -685,8 +798,14 @@
               "sigma": {
                 "$param": "sigma"
               },
-              "interval": [-1, 1],
-              "xDomain": [-4, 4]
+              "interval": [
+                -1,
+                1
+              ],
+              "xDomain": [
+                -4,
+                4
+              ]
             }
           },
           {
@@ -735,7 +854,10 @@
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "gap": 18
         },
         "children": [
@@ -748,7 +870,10 @@
               "p": {
                 "$param": "chance"
               },
-              "interval": [4, 7]
+              "interval": [
+                4,
+                7
+              ]
             }
           },
           {
@@ -783,7 +908,10 @@
       "limits": "示意概率；观察结果概率为0时后验未定义；转换中面积不作为概率",
       "height": 360,
       "mobileHeight": 540,
-      "stages": ["全体人群", "观察结果内"],
+      "stages": [
+        "全体人群",
+        "观察结果内"
+      ],
       "params": [
         {
           "key": "prior",
@@ -797,7 +925,10 @@
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "gap": 18
         },
         "children": [
@@ -862,10 +993,35 @@
         "type": "histogram",
         "props": {
           "samples": [
-            -2.1, -1.6, -1.3, -1.1, -0.9, -0.7, -0.6, -0.4, -0.3, -0.2, -0.1, 0,
-            0.1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.7, 0.8, 1, 1.2, 1.7, 2.3
+            -2.1,
+            -1.6,
+            -1.3,
+            -1.1,
+            -0.9,
+            -0.7,
+            -0.6,
+            -0.4,
+            -0.3,
+            -0.2,
+            -0.1,
+            0,
+            0.1,
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.7,
+            0.8,
+            1,
+            1.2,
+            1.7,
+            2.3
           ],
-          "domain": [-3, 3],
+          "domain": [
+            -3,
+            3
+          ],
           "count": {
             "$param": "bins"
           }
@@ -901,7 +1057,10 @@
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "gap": 18
         },
         "children": [
@@ -910,14 +1069,38 @@
             "type": "regression",
             "props": {
               "data": [
-                [-2, -1.8],
-                [-1.5, -1.5],
-                [-1, -0.3],
-                [-0.5, -0.8],
-                [0.2, 0.7],
-                [0.8, 0.3],
-                [1.2, 1.7],
-                [2, 1.5]
+                [
+                  -2,
+                  -1.8
+                ],
+                [
+                  -1.5,
+                  -1.5
+                ],
+                [
+                  -1,
+                  -0.3
+                ],
+                [
+                  -0.5,
+                  -0.8
+                ],
+                [
+                  0.2,
+                  0.7
+                ],
+                [
+                  0.8,
+                  0.3
+                ],
+                [
+                  1.2,
+                  1.7
+                ],
+                [
+                  2,
+                  1.5
+                ]
               ],
               "weight": {
                 "$param": "weight"
@@ -925,8 +1108,14 @@
               "bias": {
                 "$param": "bias"
               },
-              "xDomain": [-2.5, 2.5],
-              "yDomain": [-4.5, 4.5]
+              "xDomain": [
+                -2.5,
+                2.5
+              ],
+              "yDomain": [
+                -4.5,
+                4.5
+              ]
             }
           },
           {
@@ -983,7 +1172,10 @@
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "gap": 18
         },
         "children": [
@@ -992,14 +1184,38 @@
             "type": "loss-curve",
             "props": {
               "data": [
-                [-2, -1.8],
-                [-1.5, -1.5],
-                [-1, -0.3],
-                [-0.5, -0.8],
-                [0.2, 0.7],
-                [0.8, 0.3],
-                [1.2, 1.7],
-                [2, 1.5]
+                [
+                  -2,
+                  -1.8
+                ],
+                [
+                  -1.5,
+                  -1.5
+                ],
+                [
+                  -1,
+                  -0.3
+                ],
+                [
+                  -0.5,
+                  -0.8
+                ],
+                [
+                  0.2,
+                  0.7
+                ],
+                [
+                  0.8,
+                  0.3
+                ],
+                [
+                  1.2,
+                  1.7
+                ],
+                [
+                  2,
+                  1.5
+                ]
               ],
               "bias": 0,
               "lambda": {
@@ -1008,8 +1224,14 @@
               "weight": {
                 "$param": "weight"
               },
-              "xDomain": [-0.5, 1.5],
-              "yDomain": [0, 5]
+              "xDomain": [
+                -0.5,
+                1.5
+              ],
+              "yDomain": [
+                0,
+                5
+              ]
             }
           },
           {
@@ -1067,7 +1289,10 @@
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "gap": 18
         },
         "children": [
@@ -1076,15 +1301,43 @@
             "type": "decision-boundary",
             "props": {
               "data": [
-                [-2, -1],
-                [-1, 1],
-                [0, -1],
-                [1, 1],
-                [2, 0],
-                [1, -2]
+                [
+                  -2,
+                  -1
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  0,
+                  -1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  1,
+                  -2
+                ]
               ],
-              "labels": [0, 0, 0, 1, 1, 0],
-              "weights": [1, 1],
+              "labels": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                0
+              ],
+              "weights": [
+                1,
+                1
+              ],
               "bias": {
                 "$param": "bias"
               },
@@ -1092,8 +1345,14 @@
               "selected": {
                 "$state": "selected"
               },
-              "xDomain": [-3, 3],
-              "yDomain": [-3, 3]
+              "xDomain": [
+                -3,
+                3
+              ],
+              "yDomain": [
+                -3,
+                3
+              ]
             }
           },
           {
@@ -1127,11 +1386,17 @@
       "limits": "二维固定数据；总体协方差分母N；相等特征值不能确定唯一方向",
       "height": 360,
       "mobileHeight": 540,
-      "stages": ["原始数据", "投影到主方向"],
+      "stages": [
+        "原始数据",
+        "投影到主方向"
+      ],
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "gap": 18
         },
         "children": [
@@ -1140,20 +1405,50 @@
             "type": "pca",
             "props": {
               "data": [
-                [-2, -1.8],
-                [-1.5, -1.5],
-                [-1, -0.3],
-                [-0.5, -0.8],
-                [0.2, 0.7],
-                [0.8, 0.3],
-                [1.2, 1.7],
-                [2, 1.5]
+                [
+                  -2,
+                  -1.8
+                ],
+                [
+                  -1.5,
+                  -1.5
+                ],
+                [
+                  -1,
+                  -0.3
+                ],
+                [
+                  -0.5,
+                  -0.8
+                ],
+                [
+                  0.2,
+                  0.7
+                ],
+                [
+                  0.8,
+                  0.3
+                ],
+                [
+                  1.2,
+                  1.7
+                ],
+                [
+                  2,
+                  1.5
+                ]
               ],
               "progress": {
                 "$progress": true
               },
-              "xDomain": [-3, 3],
-              "yDomain": [-3, 3]
+              "xDomain": [
+                -3,
+                3
+              ],
+              "yDomain": [
+                -3,
+                3
+              ]
             }
           },
           {
@@ -1192,22 +1487,40 @@
         "type": "columns",
         "layout": {
           "gap": 20,
-          "weights": [1, 1]
+          "weights": [
+            1,
+            1
+          ]
         },
         "children": [
           {
             "type": "tensor",
             "props": {
               "values": [
-                [1, 2, 3],
-                [4, 5, 6]
+                [
+                  1,
+                  2,
+                  3
+                ],
+                [
+                  4,
+                  5,
+                  6
+                ]
               ],
               "selected": {
                 "$state": "cell"
               },
               "stateKey": "cell",
-              "rowLabels": ["r0", "r1"],
-              "columnLabels": ["c0", "c1", "c2"]
+              "rowLabels": [
+                "r0",
+                "r1"
+              ],
+              "columnLabels": [
+                "c0",
+                "c1",
+                "c2"
+              ]
             },
             "id": "matrix"
           },
@@ -1243,7 +1556,10 @@
       },
       "interaction": "parameters",
       "state": {
-        "cell": [0, 1]
+        "cell": [
+          0,
+          1
+        ]
       },
       "keywords": "index array matrix row column indexing 数组 矩阵 索引 行 列"
     },
@@ -1258,25 +1574,52 @@
         "type": "columns",
         "layout": {
           "gap": 20,
-          "weights": [1, 1]
+          "weights": [
+            1,
+            1
+          ]
         },
         "children": [
           {
             "type": "attention",
             "props": {
               "queries": [
-                [1, 0],
-                [0, 1]
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ]
               ],
               "keys": [
-                [1, 0],
-                [0, 1],
-                [-1, 1]
+                [
+                  1,
+                  0
+                ],
+                [
+                  0,
+                  1
+                ],
+                [
+                  -1,
+                  1
+                ]
               ],
               "values": [
-                [2, 1],
-                [0, 3],
-                [-2, 4]
+                [
+                  2,
+                  1
+                ],
+                [
+                  0,
+                  3
+                ],
+                [
+                  -2,
+                  4
+                ]
               ],
               "temperature": {
                 "$param": "temperature"
@@ -1297,8 +1640,14 @@
               ],
               "title": "所选查询的输出",
               "encoding": "diverging",
-              "domain": [-4, 4],
-              "columnLabels": ["v0", "v1"]
+              "domain": [
+                -4,
+                4
+              ],
+              "columnLabels": [
+                "v0",
+                "v1"
+              ]
             }
           }
         ]
@@ -1343,9 +1692,21 @@
         "type": "normalization",
         "props": {
           "data": [
-            [1, 2, 3],
-            [3, 4, 5],
-            [2, 1, 6]
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              1,
+              6
+            ]
           ],
           "axis": {
             "$param": "axis"
@@ -1373,7 +1734,11 @@
           "value": 0
         }
       ],
-      "stages": ["原始输入", "减去均值", "缩放与仿射"],
+      "stages": [
+        "原始输入",
+        "减去均值",
+        "缩放与仿射"
+      ],
       "keywords": "batch normalization layer norm axes batchnorm layernorm 批量归一化 层归一化 统计范围"
     },
     {
@@ -1387,16 +1752,36 @@
         "type": "normalization",
         "props": {
           "data": [
-            [1, 2, 3],
-            [3, 4, 5],
-            [2, 1, 6]
+            [
+              1,
+              2,
+              3
+            ],
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              2,
+              1,
+              6
+            ]
           ],
           "axis": 0,
           "mode": {
             "$param": "mode"
           },
-          "runningMean": [0, 1, 2],
-          "runningVariance": [1, 2, 3],
+          "runningMean": [
+            0,
+            1,
+            2
+          ],
+          "runningVariance": [
+            1,
+            2,
+            3
+          ],
           "progress": 1
         }
       },
@@ -1432,19 +1817,40 @@
         "type": "stack",
         "layout": {
           "gap": 16,
-          "weights": [2.4, 1]
+          "weights": [
+            2.4,
+            1
+          ]
         },
         "children": [
           {
             "type": "dense-layer",
             "props": {
-              "input": [[1, 2, -1]],
-              "weights": [
-                [1, -2],
-                [0.5, 1],
-                [2, -1]
+              "input": [
+                [
+                  1,
+                  2,
+                  -1
+                ]
               ],
-              "bias": [0.2, 0],
+              "weights": [
+                [
+                  1,
+                  -2
+                ],
+                [
+                  0.5,
+                  1
+                ],
+                [
+                  2,
+                  -1
+                ]
+              ],
+              "bias": [
+                0.2,
+                0
+              ],
               "activation": {
                 "$param": "activation"
               },
@@ -1464,7 +1870,10 @@
               },
               "title": "这一层的输出",
               "encoding": "diverging",
-              "domain": [-4, 4]
+              "domain": [
+                -4,
+                4
+              ]
             }
           }
         ]
@@ -1512,12 +1921,28 @@
         "type": "dropout",
         "props": {
           "data": [
-            [1, -2, 3],
-            [4, 2, -1]
+            [
+              1,
+              -2,
+              3
+            ],
+            [
+              4,
+              2,
+              -1
+            ]
           ],
           "mask": [
-            [true, false, true],
-            [false, true, true]
+            [
+              true,
+              false,
+              true
+            ],
+            [
+              false,
+              true,
+              true
+            ]
           ],
           "rate": {
             "$param": "rate"
@@ -1556,7 +1981,11 @@
           "value": true
         }
       ],
-      "stages": ["输入", "应用固定掩码", "保留项放大"],
+      "stages": [
+        "输入",
+        "应用固定掩码",
+        "保留项放大"
+      ],
       "keywords": "dropout inverted mask train inference 暂退法 掩码 训练 推理"
     },
     {
@@ -1570,7 +1999,10 @@
         "type": "columns",
         "layout": {
           "gap": 20,
-          "weights": [1, 1]
+          "weights": [
+            1,
+            1
+          ]
         },
         "children": [
           {
@@ -1583,7 +2015,13 @@
               "draggable": true,
               "stateKey": "data",
               "progress": 0,
-              "pointColors": ["blue", "orange", "violet", "green", "gold"]
+              "pointColors": [
+                "blue",
+                "orange",
+                "violet",
+                "green",
+                "gold"
+              ]
             }
           },
           {
@@ -1595,7 +2033,13 @@
               "title": "主成分坐标 PC1 / PC2",
               "view": "coordinates",
               "progress": 1,
-              "pointColors": ["blue", "orange", "violet", "green", "gold"]
+              "pointColors": [
+                "blue",
+                "orange",
+                "violet",
+                "green",
+                "gold"
+              ]
             }
           }
         ]
@@ -1603,11 +2047,26 @@
       "interaction": "parameters",
       "state": {
         "data": [
-          [-2, -1.1],
-          [-1, -0.9],
-          [0, 0.2],
-          [1, 0.8],
-          [2, 1.3]
+          [
+            -2,
+            -1.1
+          ],
+          [
+            -1,
+            -0.9
+          ],
+          [
+            0,
+            0.2
+          ],
+          [
+            1,
+            0.8
+          ],
+          [
+            2,
+            1.3
+          ]
         ]
       },
       "keywords": "PCA principal component coordinate projection drag 主成分 坐标 投影 拖动"
@@ -1629,12 +2088,19 @@
           "value": 1
         }
       ],
-      "stages": ["输出种子", "穿过激活和权重", "输入梯度"],
+      "stages": [
+        "输出种子",
+        "穿过激活和权重",
+        "输入梯度"
+      ],
       "scene": {
         "type": "stack",
         "layout": {
           "gap": 16,
-          "weights": [1, 1]
+          "weights": [
+            1,
+            1
+          ]
         },
         "children": [
           {
@@ -1651,11 +2117,23 @@
                 ]
               ],
               "weights": [
-                [1, -2],
-                [0.5, 1],
-                [2, -1]
+                [
+                  1,
+                  -2
+                ],
+                [
+                  0.5,
+                  1
+                ],
+                [
+                  2,
+                  -1
+                ]
               ],
-              "bias": [0.2, 0],
+              "bias": [
+                0.2,
+                0
+              ],
               "activation": "tanh",
               "mode": "backward",
               "progress": {
@@ -1672,7 +2150,10 @@
               },
               "title": "权重梯度：输入 × 激活处梯度",
               "encoding": "diverging",
-              "domain": [-2, 2],
+              "domain": [
+                -2,
+                2
+              ],
               "precision": 2
             }
           }
@@ -1714,8 +2195,14 @@
                 ]
               ],
               "weights": [
-                [0.8, -0.3],
-                [0.4, 0.7]
+                [
+                  0.8,
+                  -0.3
+                ],
+                [
+                  0.4,
+                  0.7
+                ]
               ],
               "activation": "tanh"
             }
@@ -1727,7 +2214,14 @@
               "input": {
                 "$result": "hidden.output"
               },
-              "weights": [[1], [-0.5]]
+              "weights": [
+                [
+                  1
+                ],
+                [
+                  -0.5
+                ]
+              ]
             }
           },
           {
@@ -1737,7 +2231,11 @@
               "prediction": {
                 "$result": "output.output"
               },
-              "target": [[0.2]]
+              "target": [
+                [
+                  0.2
+                ]
+              ]
             }
           },
           {
@@ -1747,7 +2245,14 @@
               "input": {
                 "$result": "hidden.output"
               },
-              "weights": [[1], [-0.5]],
+              "weights": [
+                [
+                  1
+                ],
+                [
+                  -0.5
+                ]
+              ],
               "seeds": {
                 "$result": "loss.gradient"
               }
@@ -1766,8 +2271,14 @@
                 ]
               ],
               "weights": [
-                [0.8, -0.3],
-                [0.4, 0.7]
+                [
+                  0.8,
+                  -0.3
+                ],
+                [
+                  0.4,
+                  0.7
+                ]
               ],
               "activation": "tanh",
               "seeds": {
@@ -1790,7 +2301,10 @@
                 },
                 "title": "第一层权重梯度",
                 "encoding": "diverging",
-                "domain": [-1, 1],
+                "domain": [
+                  -1,
+                  1
+                ],
                 "precision": 2
               }
             },
@@ -1836,15 +2350,31 @@
       "mobileHeight": 380,
       "interaction": "parameters",
       "state": {
-        "index": [1, 1]
+        "index": [
+          1,
+          1
+        ]
       },
       "scene": {
         "id": "view",
         "type": "array-view",
         "props": {
-          "buffer": [0, 1, 2, 3, 4, 5],
-          "shape": [3, 2],
-          "elementStrides": [1, 3],
+          "buffer": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "shape": [
+            3,
+            2
+          ],
+          "elementStrides": [
+            1,
+            3
+          ],
           "index": {
             "$state": "index"
           },
@@ -1884,9 +2414,19 @@
                 },
                 10
               ],
-              "leftShape": [2, 1],
-              "rightValues": [1, 2, 3],
-              "rightShape": [1, 3]
+              "leftShape": [
+                2,
+                1
+              ],
+              "rightValues": [
+                1,
+                2,
+                3
+              ],
+              "rightShape": [
+                1,
+                3
+              ]
             }
           }
         ],
@@ -1906,7 +2446,9 @@
                       "$param": "a"
                     }
                   ],
-                  [10]
+                  [
+                    10
+                  ]
                 ],
                 "title": "A：2 × 1",
                 "encoding": "neutral"
@@ -1915,7 +2457,13 @@
             {
               "type": "tensor",
               "props": {
-                "values": [[1, 2, 3]],
+                "values": [
+                  [
+                    1,
+                    2,
+                    3
+                  ]
+                ],
                 "title": "B：1 × 3",
                 "encoding": "neutral"
               }
@@ -1942,7 +2490,11 @@
       "limits": "两图使用相同时间轴与任务颜色；CPU小块表示提交A/B和最后读取。持续时间手选，不是GPU实测",
       "height": 300,
       "mobileHeight": 550,
-      "stages": ["开始", "仍在执行", "读取结果"],
+      "stages": [
+        "开始",
+        "仍在执行",
+        "读取结果"
+      ],
       "scene": {
         "type": "columns",
         "layout": {
@@ -1970,25 +2522,35 @@
                   "id": "A",
                   "lane": "GPU",
                   "duration": 2,
-                  "dependencies": ["sendA"],
+                  "dependencies": [
+                    "sendA"
+                  ],
                   "label": "计算 A"
                 },
                 {
                   "id": "B",
                   "lane": "GPU",
                   "duration": 2,
-                  "dependencies": ["sendB", "A"],
+                  "dependencies": [
+                    "sendB",
+                    "A"
+                  ],
                   "label": "计算 B"
                 },
                 {
                   "id": "read",
                   "lane": "CPU",
                   "duration": 0.4,
-                  "dependencies": ["B"],
+                  "dependencies": [
+                    "B"
+                  ],
                   "label": "读"
                 }
               ],
-              "domain": [0, 6],
+              "domain": [
+                0,
+                6
+              ],
               "progress": {
                 "$progress": true
               },
@@ -2011,31 +2573,43 @@
                   "lane": "CPU",
                   "duration": 0.4,
                   "label": "B",
-                  "dependencies": ["A"]
+                  "dependencies": [
+                    "A"
+                  ]
                 },
                 {
                   "id": "A",
                   "lane": "GPU",
                   "duration": 2,
-                  "dependencies": ["sendA"],
+                  "dependencies": [
+                    "sendA"
+                  ],
                   "label": "计算 A"
                 },
                 {
                   "id": "B",
                   "lane": "GPU",
                   "duration": 2,
-                  "dependencies": ["sendB", "A"],
+                  "dependencies": [
+                    "sendB",
+                    "A"
+                  ],
                   "label": "计算 B"
                 },
                 {
                   "id": "read",
                   "lane": "CPU",
                   "duration": 0.4,
-                  "dependencies": ["B"],
+                  "dependencies": [
+                    "B"
+                  ],
                   "label": "读"
                 }
               ],
-              "domain": [0, 6],
+              "domain": [
+                0,
+                6
+              ],
               "progress": {
                 "$progress": true
               },
@@ -2073,7 +2647,11 @@
               "op": "allocate",
               "name": "a",
               "id": "buf",
-              "values": [1, 2, 3]
+              "values": [
+                1,
+                2,
+                3
+              ]
             },
             {
               "op": "alias",
@@ -2093,7 +2671,12 @@
               "value": 9
             }
           ],
-          "lines": ["a = [1, 2, 3]", "b = a", "c = a[:]", "b[1] = 9"],
+          "lines": [
+            "a = [1, 2, 3]",
+            "b = a",
+            "c = a[:]",
+            "b[1] = 9"
+          ],
           "step": {
             "$param": "step"
           }
@@ -2127,12 +2710,18 @@
             {
               "id": "data",
               "label": "数据项",
-              "value": [-1, 2]
+              "value": [
+                -1,
+                2
+              ]
             },
             {
               "id": "regularizer",
               "label": "正则项",
-              "value": [2, 1],
+              "value": [
+                2,
+                1
+              ],
               "weight": {
                 "$param": "lambda"
               }
@@ -2141,7 +2730,10 @@
           "progress": {
             "$progress": true
           },
-          "domain": [-3, 3],
+          "domain": [
+            -3,
+            3
+          ],
           "title": "同一坐标，保留正负方向"
         }
       },
@@ -2158,7 +2750,10 @@
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [3, 1],
+          "weights": [
+            3,
+            1
+          ],
           "gap": 12
         },
         "children": [
@@ -2189,7 +2784,10 @@
               "progress": {
                 "$progress": true
               },
-              "domain": [-1, 1],
+              "domain": [
+                -1,
+                1
+              ],
               "sumLabel": "期望"
             }
           },
@@ -2256,7 +2854,10 @@
           "progress": {
             "$progress": true
           },
-          "domain": [0, 6],
+          "domain": [
+            0,
+            6
+          ],
           "title": "结束点释放；看下方的同时存活量",
           "sizeUnit": "单位"
         }
@@ -2403,13 +3004,34 @@
         "type": "kernel-regression",
         "props": {
           "data": [
-            [-3, -0.3],
-            [-2, -1],
-            [-1, -0.5],
-            [0, 0.8],
-            [1, 1.2],
-            [2, 0.6],
-            [3, 1.5]
+            [
+              -3,
+              -0.3
+            ],
+            [
+              -2,
+              -1
+            ],
+            [
+              -1,
+              -0.5
+            ],
+            [
+              0,
+              0.8
+            ],
+            [
+              1,
+              1.2
+            ],
+            [
+              2,
+              0.6
+            ],
+            [
+              3,
+              1.5
+            ]
           ],
           "query": {
             "$state": "query"
@@ -2417,8 +3039,14 @@
           "bandwidth": {
             "$param": "bandwidth"
           },
-          "xDomain": [-3.5, 3.5],
-          "yDomain": [-1.5, 2],
+          "xDomain": [
+            -3.5,
+            3.5
+          ],
+          "yDomain": [
+            -1.5,
+            2
+          ],
           "draggable": true,
           "stateKey": "query"
         }
@@ -2450,7 +3078,10 @@
         "type": "columns",
         "layout": {
           "gap": 12,
-          "weights": [2, 1]
+          "weights": [
+            2,
+            1
+          ]
         },
         "children": [
           {
@@ -2458,10 +3089,22 @@
             "type": "kernel-regression",
             "props": {
               "data": [
-                [-2, -0.8],
-                [-1, 0.2],
-                [1, 1],
-                [2, 0.4]
+                [
+                  -2,
+                  -0.8
+                ],
+                [
+                  -1,
+                  0.2
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  0.4
+                ]
               ],
               "query": {
                 "$state": "query"
@@ -2469,8 +3112,14 @@
               "bandwidth": {
                 "$param": "bandwidth"
               },
-              "xDomain": [-2.5, 2.5],
-              "yDomain": [-1.5, 1.5],
+              "xDomain": [
+                -2.5,
+                2.5
+              ],
+              "yDomain": [
+                -1.5,
+                1.5
+              ],
               "draggable": true,
               "stateKey": "query"
             }
@@ -2484,7 +3133,10 @@
                 }
               ],
               "encoding": "sequential",
-              "domain": [0, 1],
+              "domain": [
+                0,
+                1
+              ],
               "precision": 2,
               "title": "归一化权重"
             }
@@ -2518,12 +3170,18 @@
             {
               "id": "data",
               "label": "数据梯度",
-              "value": [-1, 2]
+              "value": [
+                -1,
+                2
+              ]
             },
             {
               "id": "penalty",
               "label": "惩罚梯度",
-              "value": [2, 1],
+              "value": [
+                2,
+                1
+              ],
               "weight": {
                 "$param": "lambda"
               }
@@ -2532,8 +3190,14 @@
           "progress": {
             "$progress": true
           },
-          "xDomain": [-3, 3],
-          "yDomain": [-1, 5],
+          "xDomain": [
+            -3,
+            3
+          ],
+          "yDomain": [
+            -1,
+            5
+          ],
           "sumLabel": "总梯度"
         }
       }
@@ -2554,19 +3218,31 @@
             {
               "id": "a",
               "label": "a",
-              "value": [2, 1]
+              "value": [
+                2,
+                1
+              ]
             },
             {
               "id": "b",
               "label": "b",
-              "value": [-1, 2]
+              "value": [
+                -1,
+                2
+              ]
             }
           ],
           "progress": {
             "$progress": true
           },
-          "xDomain": [-1, 4],
-          "yDomain": [-1, 4]
+          "xDomain": [
+            -1,
+            4
+          ],
+          "yDomain": [
+            -1,
+            4
+          ]
         }
       }
     },
@@ -2580,12 +3256,18 @@
       "height": 390,
       "mobileHeight": 530,
       "state": {
-        "point": [1.1, 0.8]
+        "point": [
+          1.1,
+          0.8
+        ]
       },
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "minColumnWidth": 260,
           "gap": 14
         },
@@ -2597,18 +3279,40 @@
               "field": {
                 "type": "quadratic",
                 "matrix": [
-                  [3, 1],
-                  [1, 1]
+                  [
+                    3,
+                    1
+                  ],
+                  [
+                    1,
+                    1
+                  ]
                 ],
-                "center": [0, 0]
+                "center": [
+                  0,
+                  0
+                ]
               },
               "point": {
                 "$state": "point"
               },
               "stateKey": "point",
-              "xDomain": [-2, 2],
-              "yDomain": [-2, 2],
-              "levels": [0.25, 0.5, 1, 2, 4, 8],
+              "xDomain": [
+                -2,
+                2
+              ],
+              "yDomain": [
+                -2,
+                2
+              ],
+              "levels": [
+                0.25,
+                0.5,
+                1,
+                2,
+                4,
+                8
+              ],
               "arrowLength": 0.55,
               "title": "拖动黑点"
             }
@@ -2653,12 +3357,18 @@
       "height": 390,
       "mobileHeight": 530,
       "state": {
-        "point": [-0.5, 1]
+        "point": [
+          -0.5,
+          1
+        ]
       },
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "minColumnWidth": 260,
           "gap": 14
         },
@@ -2676,9 +3386,24 @@
                 "$state": "point"
               },
               "stateKey": "point",
-              "xDomain": [-1.5, 1.5],
-              "yDomain": [-0.5, 2],
-              "levels": [0.25, 0.5, 1, 2, 4, 8, 16, 32],
+              "xDomain": [
+                -1.5,
+                1.5
+              ],
+              "yDomain": [
+                -0.5,
+                2
+              ],
+              "levels": [
+                0.25,
+                0.5,
+                1,
+                2,
+                4,
+                8,
+                16,
+                32
+              ],
               "arrowLength": 0.55,
               "title": "拖动黑点"
             }
@@ -2723,12 +3448,18 @@
       "height": 390,
       "mobileHeight": 530,
       "state": {
-        "point": [0.8, 0.7]
+        "point": [
+          0.8,
+          0.7
+        ]
       },
       "scene": {
         "type": "columns",
         "layout": {
-          "weights": [2, 1],
+          "weights": [
+            2,
+            1
+          ],
           "minColumnWidth": 260,
           "gap": 14
         },
@@ -2740,18 +3471,41 @@
               "field": {
                 "type": "quadratic",
                 "matrix": [
-                  [2, 0],
-                  [0, -2]
+                  [
+                    2,
+                    0
+                  ],
+                  [
+                    0,
+                    -2
+                  ]
                 ],
-                "center": [0, 0]
+                "center": [
+                  0,
+                  0
+                ]
               },
               "point": {
                 "$state": "point"
               },
               "stateKey": "point",
-              "xDomain": [-2, 2],
-              "yDomain": [-2, 2],
-              "levels": [-3, -2, -1, 0, 1, 2, 3],
+              "xDomain": [
+                -2,
+                2
+              ],
+              "yDomain": [
+                -2,
+                2
+              ],
+              "levels": [
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3
+              ],
               "arrowLength": 0.55,
               "title": "拖动黑点"
             }
@@ -2823,7 +3577,20 @@
             "id": "norm",
             "operation": "normalization",
             "inputs": {
-              "data": [[1], [2], [4], [5]],
+              "data": [
+                [
+                  1
+                ],
+                [
+                  2
+                ],
+                [
+                  4
+                ],
+                [
+                  5
+                ]
+              ],
               "axis": 0,
               "epsilon": 0.01,
               "gamma": {
@@ -2885,12 +3652,20 @@
                 }
               }
             ],
-            "domain": [-4, 6],
+            "domain": [
+              -4,
+              6
+            ],
             "selected": {
               "$state": "selected"
             },
             "stateKey": "selected",
-            "pointColors": ["blue", "violet", "gold", "orange"]
+            "pointColors": [
+              "blue",
+              "violet",
+              "gold",
+              "orange"
+            ]
           }
         }
       }
@@ -2913,14 +3688,27 @@
           "rows": [
             {
               "label": "第一组",
-              "values": [1, 2, 4, 5]
+              "values": [
+                1,
+                2,
+                4,
+                5
+              ]
             },
             {
               "label": "第二组",
-              "values": [2, 4, 3, 6]
+              "values": [
+                2,
+                4,
+                3,
+                6
+              ]
             }
           ],
-          "domain": [0, 7],
+          "domain": [
+            0,
+            7
+          ],
           "selected": {
             "$state": "selected"
           },
@@ -2939,7 +3727,10 @@
       "height": 260,
       "mobileHeight": 410,
       "state": {
-        "index": [1, 0]
+        "index": [
+          1,
+          0
+        ]
       },
       "scene": {
         "type": "compose",
@@ -2949,9 +3740,18 @@
             "operation": "transpose",
             "inputs": {
               "input": [
-                [1, 2],
-                [3, 4],
-                [5, 6]
+                [
+                  1,
+                  2
+                ],
+                [
+                  3,
+                  4
+                ],
+                [
+                  5,
+                  6
+                ]
               ],
               "index": {
                 "$state": "index"
@@ -3056,7 +3856,10 @@
         }
       ],
       "state": {
-        "point": [0, 0]
+        "point": [
+          0,
+          0
+        ]
       },
       "scene": {
         "type": "compose",
@@ -3066,8 +3869,14 @@
             "operation": "sample-grid",
             "inputs": {
               "resolution": 21,
-              "xDomain": [-2, 2],
-              "yDomain": [-2, 2]
+              "xDomain": [
+                -2,
+                2
+              ],
+              "yDomain": [
+                -2,
+                2
+              ]
             }
           },
           {
@@ -3078,8 +3887,14 @@
                 "$result": "grid.points"
               },
               "weights": [
-                [1, -1],
-                [1, 1]
+                [
+                  1,
+                  -1
+                ],
+                [
+                  1,
+                  1
+                ]
               ],
               "bias": [
                 {
@@ -3105,7 +3920,9 @@
                     "$param": "mix"
                   }
                 ],
-                [1]
+                [
+                  1
+                ]
               ],
               "activation": "sigmoid"
             }
@@ -3128,7 +3945,10 @@
                 "values": {
                   "$result": "hidden.output"
                 },
-                "colorDomain": [-1, 1],
+                "colorDomain": [
+                  -1,
+                  1
+                ],
                 "channel": {
                   "$param": "channel"
                 },
@@ -3150,7 +3970,10 @@
                 "values": {
                   "$result": "output.output"
                 },
-                "colorDomain": [0, 1],
+                "colorDomain": [
+                  0,
+                  1
+                ],
                 "channel": 0,
                 "point": {
                   "$state": "point"
@@ -3200,7 +4023,10 @@
         }
       ],
       "state": {
-        "point": [0, 0]
+        "point": [
+          0,
+          0
+        ]
       },
       "scene": {
         "type": "compose",
@@ -3210,8 +4036,14 @@
             "operation": "sample-grid",
             "inputs": {
               "resolution": 21,
-              "xDomain": [-2, 2],
-              "yDomain": [-2, 2]
+              "xDomain": [
+                -2,
+                2
+              ],
+              "yDomain": [
+                -2,
+                2
+              ]
             }
           },
           {
@@ -3252,7 +4084,10 @@
             "values": {
               "$result": "response.output"
             },
-            "colorDomain": [0, 1],
+            "colorDomain": [
+              0,
+              1
+            ],
             "channel": 0,
             "point": {
               "$state": "point"
@@ -3275,7 +4110,10 @@
       "mobileHeight": 560,
       "params": [],
       "state": {
-        "point": [1, 0.7]
+        "point": [
+          1,
+          0.7
+        ]
       },
       "scene": {
         "type": "compose",
@@ -3287,14 +4125,29 @@
               "field": {
                 "type": "quadratic",
                 "matrix": [
-                  [3, 1],
-                  [1, 1]
+                  [
+                    3,
+                    1
+                  ],
+                  [
+                    1,
+                    1
+                  ]
                 ],
-                "center": [0, 0]
+                "center": [
+                  0,
+                  0
+                ]
               },
               "resolution": 21,
-              "xDomain": [-2, 2],
-              "yDomain": [-2, 2]
+              "xDomain": [
+                -2,
+                2
+              ],
+              "yDomain": [
+                -2,
+                2
+              ]
             }
           }
         ],
@@ -3315,7 +4168,10 @@
                 "values": {
                   "$result": "grid.values"
                 },
-                "colorDomain": [0, 12],
+                "colorDomain": [
+                  0,
+                  12
+                ],
                 "channel": 0,
                 "point": {
                   "$state": "point"
@@ -3332,18 +4188,39 @@
                 "field": {
                   "type": "quadratic",
                   "matrix": [
-                    [3, 1],
-                    [1, 1]
+                    [
+                      3,
+                      1
+                    ],
+                    [
+                      1,
+                      1
+                    ]
                   ],
-                  "center": [0, 0]
+                  "center": [
+                    0,
+                    0
+                  ]
                 },
                 "point": {
                   "$state": "point"
                 },
                 "stateKey": "point",
-                "xDomain": [-2, 2],
-                "yDomain": [-2, 2],
-                "levels": [0.5, 1, 2, 4, 8],
+                "xDomain": [
+                  -2,
+                  2
+                ],
+                "yDomain": [
+                  -2,
+                  2
+                ],
+                "levels": [
+                  0.5,
+                  1,
+                  2,
+                  4,
+                  8
+                ],
                 "direction": "none",
                 "title": "解析函数的等高线"
               }
@@ -3389,15 +4266,42 @@
             "operation": "polynomial-fit",
             "inputs": {
               "data": [
-                [-1.0, -1.0],
-                [-0.75, -0.421875],
-                [-0.5, -0.125],
-                [-0.25, -0.015625],
-                [0.0, 0.2],
-                [0.25, 0.015625],
-                [0.5, 0.125],
-                [0.75, 0.421875],
-                [1.0, 1.0]
+                [
+                  -1.0,
+                  -1.0
+                ],
+                [
+                  -0.75,
+                  -0.421875
+                ],
+                [
+                  -0.5,
+                  -0.125
+                ],
+                [
+                  -0.25,
+                  -0.015625
+                ],
+                [
+                  0.0,
+                  0.2
+                ],
+                [
+                  0.25,
+                  0.015625
+                ],
+                [
+                  0.5,
+                  0.125
+                ],
+                [
+                  0.75,
+                  0.421875
+                ],
+                [
+                  1.0,
+                  1.0
+                ]
               ],
               "degree": {
                 "$param": "degree"
@@ -3405,14 +4309,20 @@
               "lambda": {
                 "$param": "lambda"
               },
-              "xDomain": [-1, 1]
+              "xDomain": [
+                -1,
+                1
+              ]
             }
           }
         ],
         "visual": {
           "type": "columns",
           "layout": {
-            "weights": [2.5, 1],
+            "weights": [
+              2.5,
+              1
+            ],
             "minColumnWidth": 290,
             "gap": 20
           },
@@ -3421,8 +4331,14 @@
               "id": "plot",
               "type": "plot",
               "props": {
-                "xDomain": [-1.1, 1.1],
-                "yDomain": [-1.6, 1.6],
+                "xDomain": [
+                  -1.1,
+                  1.1
+                ],
+                "yDomain": [
+                  -1.6,
+                  1.6
+                ],
                 "legend": true,
                 "layers": [
                   {
@@ -3465,6 +4381,848 @@
                     },
                     "color": "orange"
                   }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "optimizer-landscape",
+      "title": "同一个目标，更新路线为什么不同",
+      "topic": "数学 / 机器学习",
+      "keywords": "optimizer Adam momentum SGD RMSprop Adagrad 优化 等高线 轨迹",
+      "limits": "二维解析二次函数上的真实离散更新；没有神经网络训练。灰色SGD参照使用相同起点与步长。线只连接实际迭代位置，不是连续时间解；自适应分母为sqrt(v)+ε，momentum采用ρv+g。",
+      "interaction": "parameters",
+      "height": 390,
+      "mobileHeight": 560,
+      "params": [
+        {
+          "key": "step",
+          "label": "已完成更新",
+          "kind": "stepper",
+          "min": 1,
+          "max": 20,
+          "step": 1,
+          "value": 8
+        },
+        {
+          "key": "eta",
+          "label": "步长",
+          "min": 0.01,
+          "max": 0.25,
+          "step": 0.01,
+          "value": 0.1
+        },
+        {
+          "key": "kind",
+          "label": "算法",
+          "kind": "select",
+          "options": [
+            {
+              "value": "sgd",
+              "label": "sgd"
+            },
+            {
+              "value": "momentum",
+              "label": "momentum"
+            },
+            {
+              "value": "adagrad",
+              "label": "adagrad"
+            },
+            {
+              "value": "rmsprop",
+              "label": "rmsprop"
+            },
+            {
+              "value": "adam",
+              "label": "adam"
+            }
+          ],
+          "value": "adam"
+        }
+      ],
+      "state": {},
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "run",
+            "operation": "optimizer-trace",
+            "inputs": {
+              "kind": {
+                "$param": "kind"
+              },
+              "start": [
+                1.5,
+                1
+              ],
+              "eta": {
+                "$param": "eta"
+              },
+              "steps": 20,
+              "selectedStep": {
+                "$param": "step"
+              },
+              "field": {
+                "type": "quadratic",
+                "matrix": [
+                  [
+                    3,
+                    1
+                  ],
+                  [
+                    1,
+                    1
+                  ]
+                ]
+              }
+            }
+          },
+          {
+            "id": "reference",
+            "operation": "optimizer-trace",
+            "inputs": {
+              "kind": "sgd",
+              "start": [
+                1.5,
+                1
+              ],
+              "eta": {
+                "$param": "eta"
+              },
+              "steps": 20,
+              "selectedStep": {
+                "$param": "step"
+              },
+              "field": {
+                "$result": "run.field"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "weights": [
+              2,
+              1
+            ],
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "contours",
+              "type": "level-set",
+              "props": {
+                "field": {
+                  "$result": "run.field"
+                },
+                "point": {
+                  "$result": "run.selected.point"
+                },
+                "xDomain": [
+                  -2,
+                  2
+                ],
+                "yDomain": [
+                  -2,
+                  2
+                ],
+                "levels": [
+                  0.1,
+                  0.3,
+                  0.7,
+                  1.5,
+                  3,
+                  6
+                ],
+                "direction": "none",
+                "paths": [
+                  {
+                    "id": "chosen",
+                    "label": "当前",
+                    "color": "orange",
+                    "points": {
+                      "$result": "run.visiblePoints"
+                    }
+                  },
+                  {
+                    "id": "reference",
+                    "label": "SGD参照",
+                    "color": "muted",
+                    "points": {
+                      "$result": "reference.visiblePoints"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "id": "readout",
+              "type": "readout",
+              "props": {
+                "items": [
+                  {
+                    "label": "更新后位置",
+                    "value": {
+                      "$result": "run.selected.point"
+                    },
+                    "color": "ink"
+                  },
+                  {
+                    "label": "函数值",
+                    "value": {
+                      "$result": "run.selected.value"
+                    },
+                    "color": "orange"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "adam-bias",
+      "title": "从零开始，矩估计为什么偏小",
+      "topic": "机器学习 / 深度学习",
+      "keywords": "Adam bias correction moment 偏差校正 矩 梯度",
+      "limits": "恒定手设梯度[2,−3]，不是训练数据。颜色始终区分两维；每行采用相同数值轴。t从1开始，校正分母为1−β^t；这个例子说明零初始化的权重缺口，不证明非平稳梯度下估计总是无偏。",
+      "interaction": "parameters",
+      "height": 330,
+      "mobileHeight": 560,
+      "params": [
+        {
+          "key": "step",
+          "label": "更新次数",
+          "kind": "stepper",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "value": 3
+        },
+        {
+          "key": "beta1",
+          "label": "β₁",
+          "min": 0,
+          "max": 0.95,
+          "step": 0.05,
+          "value": 0.9
+        },
+        {
+          "key": "beta2",
+          "label": "β₂",
+          "min": 0,
+          "max": 0.99,
+          "step": 0.01,
+          "value": 0.99
+        }
+      ],
+      "state": {},
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "run",
+            "operation": "optimizer-trace",
+            "inputs": {
+              "kind": "adam",
+              "start": [
+                0,
+                0
+              ],
+              "gradients": [
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ]
+              ],
+              "selectedStep": {
+                "$param": "step"
+              },
+              "beta1": {
+                "$param": "beta1"
+              },
+              "beta2": {
+                "$param": "beta2"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "mean",
+              "type": "aligned-points",
+              "props": {
+                "title": "一阶矩",
+                "rows": [
+                  {
+                    "label": "梯度 g",
+                    "values": {
+                      "$result": "run.selected.gradient"
+                    }
+                  },
+                  {
+                    "label": "原始 m",
+                    "values": {
+                      "$result": "run.selected.firstMoment"
+                    }
+                  },
+                  {
+                    "label": "校正 m̂",
+                    "values": {
+                      "$result": "run.selected.correctedFirst"
+                    }
+                  }
+                ],
+                "domain": [
+                  -4,
+                  4
+                ],
+                "selected": 0,
+                "connect": true,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange"
+                ],
+                "compact": true
+              }
+            },
+            {
+              "id": "square",
+              "type": "aligned-points",
+              "props": {
+                "title": "二阶矩",
+                "rows": [
+                  {
+                    "label": "梯度平方",
+                    "values": {
+                      "$result": "run.selected.squareGradient"
+                    }
+                  },
+                  {
+                    "label": "原始 v",
+                    "values": {
+                      "$result": "run.selected.squareMoment"
+                    }
+                  },
+                  {
+                    "label": "校正 v̂",
+                    "values": {
+                      "$result": "run.selected.correctedSecond"
+                    }
+                  }
+                ],
+                "domain": [
+                  -1,
+                  10
+                ],
+                "selected": 0,
+                "connect": true,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange"
+                ],
+                "compact": true
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "softmax-competition",
+      "title": "只改一类分数，概率一起变化",
+      "topic": "机器学习 / 深度学习",
+      "keywords": "softmax logits classification shift competition 分类 竞争 分数 概率 平移",
+      "limits": "三类手设分数，不是训练。蓝/橙/绿始终对应同一类；上下轴单位不同。共同平移改变分数，但softmax概率不变；分数不是概率。",
+      "interaction": "parameters",
+      "height": 300,
+      "mobileHeight": 430,
+      "params": [
+        {
+          "key": "score",
+          "label": "第2类分数",
+          "min": -3,
+          "max": 3,
+          "step": 0.1,
+          "value": 0
+        },
+        {
+          "key": "shift",
+          "label": "共同平移",
+          "min": -5,
+          "max": 5,
+          "step": 0.1,
+          "value": 0
+        }
+      ],
+      "state": {
+        "selected": 1
+      },
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "scores",
+            "operation": "dense",
+            "inputs": {
+              "input": [
+                [
+                  {
+                    "$param": "shift"
+                  }
+                ]
+              ],
+              "weights": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ],
+              "bias": [
+                -1,
+                {
+                  "$param": "score"
+                },
+                1
+              ]
+            }
+          },
+          {
+            "id": "weights",
+            "operation": "softmax",
+            "inputs": {
+              "scores": {
+                "$result": "scores.output.0"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "score-view",
+              "type": "aligned-points",
+              "props": {
+                "title": "分数 o",
+                "rows": [
+                  {
+                    "label": "三类分数",
+                    "values": {
+                      "$result": "scores.output.0"
+                    }
+                  }
+                ],
+                "domain": [
+                  -8,
+                  8
+                ],
+                "selected": {
+                  "$state": "selected"
+                },
+                "stateKey": "selected",
+                "connect": false,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "第1类",
+                  "第2类",
+                  "第3类"
+                ]
+              }
+            },
+            {
+              "id": "probabilities",
+              "type": "aligned-points",
+              "props": {
+                "title": "概率 p",
+                "rows": [
+                  {
+                    "label": "三类概率",
+                    "values": {
+                      "$result": "weights.weights"
+                    }
+                  }
+                ],
+                "domain": [
+                  0,
+                  1
+                ],
+                "selected": {
+                  "$state": "selected"
+                },
+                "stateKey": "selected",
+                "connect": false,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "第1类",
+                  "第2类",
+                  "第3类"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "softmax-gradient-step",
+      "title": "一步更新，分数和损失一起重算",
+      "topic": "机器学习 / 深度学习",
+      "keywords": "softmax gradient step cross entropy 梯度 交叉熵 一步 更新",
+      "limits": "一个样本、三类手设分数。用真实交叉熵梯度p−onehot(y)更新logits，不是更新网络权重。每次从同一起点独立做一步；不保证任意步长降低损失。颜色始终对应类别。",
+      "interaction": "parameters",
+      "height": 330,
+      "mobileHeight": 560,
+      "params": [
+        {
+          "key": "target",
+          "label": "正确类别",
+          "kind": "select",
+          "options": [
+            {
+              "label": "第1类",
+              "value": 0
+            },
+            {
+              "label": "第2类",
+              "value": 1
+            },
+            {
+              "label": "第3类",
+              "value": 2
+            }
+          ],
+          "value": 1
+        },
+        {
+          "key": "eta",
+          "label": "步长",
+          "min": 0,
+          "max": 3,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "state": {},
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "before",
+            "operation": "softmax-loss",
+            "inputs": {
+              "logits": [
+                [
+                  -1,
+                  0,
+                  1
+                ]
+              ],
+              "labels": [
+                {
+                  "$param": "target"
+                }
+              ]
+            }
+          },
+          {
+            "id": "step",
+            "operation": "gradient-step",
+            "inputs": {
+              "values": {
+                "$result": "before.logits"
+              },
+              "gradient": {
+                "$result": "before.gradient"
+              },
+              "eta": {
+                "$param": "eta"
+              }
+            }
+          },
+          {
+            "id": "after",
+            "operation": "softmax-loss",
+            "inputs": {
+              "logits": {
+                "$result": "step.after"
+              },
+              "labels": {
+                "$result": "before.labels"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "weights": [
+              2,
+              1.5
+            ],
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "probabilities",
+              "type": "aligned-points",
+              "props": {
+                "rows": [
+                  {
+                    "label": "更新前概率",
+                    "values": {
+                      "$result": "before.probabilities.0"
+                    }
+                  },
+                  {
+                    "label": "更新后概率",
+                    "values": {
+                      "$result": "after.probabilities.0"
+                    }
+                  }
+                ],
+                "domain": [
+                  0,
+                  1
+                ],
+                "selected": {
+                  "$param": "target"
+                },
+                "connect": true,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "第1类",
+                  "第2类",
+                  "第3类"
+                ]
+              }
+            },
+            {
+              "id": "readout",
+              "type": "readout",
+              "props": {
+                "items": [
+                  {
+                    "label": "梯度 p−y",
+                    "value": {
+                      "$result": "before.gradient.0"
+                    },
+                    "color": "ink"
+                  },
+                  {
+                    "label": "更新前损失",
+                    "value": {
+                      "$result": "before.loss"
+                    },
+                    "color": "blue"
+                  },
+                  {
+                    "label": "更新后损失",
+                    "value": {
+                      "$result": "after.loss"
+                    },
+                    "color": "orange"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "head-reindex",
+      "title": "拆头时，追踪同一个元素的位置",
+      "topic": "编程 / 深度学习",
+      "keywords": "multihead attention transpose permutation reshape batch tensor 多头 注意力 拆头 转置 四维 批次 索引",
+      "limits": "B=N=H=d=2，编号0..15代表同一元素。先[B,N,H,d]→[B,H,N,d]，再逻辑合并BH；两格子按各自列标签展开。点击左图联动右图；只解释索引，没有训练或零拷贝宣称。",
+      "interaction": "parameters",
+      "height": 330,
+      "mobileHeight": 560,
+      "params": [],
+      "state": {
+        "selected": [
+          0,
+          0
+        ]
+      },
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "map",
+            "operation": "tensor-reindex",
+            "inputs": {
+              "values": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15
+              ],
+              "shape": [
+                2,
+                2,
+                2,
+                2
+              ],
+              "order": [
+                0,
+                2,
+                1,
+                3
+              ],
+              "reshape": [
+                4,
+                2,
+                2
+              ],
+              "inputColumns": 4,
+              "outputColumns": 4,
+              "inputCell": {
+                "$state": "selected"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "before",
+              "type": "tensor",
+              "props": {
+                "title": "按 B、N 分行",
+                "values": {
+                  "$result": "map.inputMatrix"
+                },
+                "selected": {
+                  "$result": "map.selected.inputCell"
+                },
+                "stateKey": "selected",
+                "rowLabels": [
+                  "b0n0",
+                  "b0n1",
+                  "b1n0",
+                  "b1n1"
+                ],
+                "columnLabels": [
+                  "h0d0",
+                  "h0d1",
+                  "h1d0",
+                  "h1d1"
+                ]
+              }
+            },
+            {
+              "id": "after",
+              "type": "tensor",
+              "props": {
+                "title": "按 B、H 分行",
+                "values": {
+                  "$result": "map.outputMatrix"
+                },
+                "selected": {
+                  "$result": "map.selected.outputCell"
+                },
+                "rowLabels": [
+                  "b0h0",
+                  "b0h1",
+                  "b1h0",
+                  "b1h1"
+                ],
+                "columnLabels": [
+                  "n0d0",
+                  "n0d1",
+                  "n1d0",
+                  "n1d1"
                 ]
               }
             }

@@ -53,3 +53,10 @@ Python Tutor已实际运行维护者输入的四行allocate/alias/copy/write示�
 [TensorFlow Playground](https://playground.tensorflow.org/)：实际打开并查看其输入、隐藏层响应和输出的组织。参考仓库 tensorflow/playground 固定为 `02469bd3751764b20486015d4202b792af5362a6`，核对 Apache-2.0 许可证；没有检出或复制源码、图像、模型权重或界面资产。新增响应图是独立实现的 Canvas 颜色采样 + SVG 坐标与共享拖动控件，默认权重手动给定，不是训练复现。
 
 [LAPACK QR with column pivoting](https://www.netlib.org/lapack/lug/node42.html)：核对最小二乘中列主元 QR 与秩的用途，不复制 LAPACK 源码，也不把本项目的简单秩阈值等同于 LAPACK 的完整秩估计。新拟合内核独立实现，另用现有 NumPy 2.2.6 的 SVD 和 SciPy gelsy 对24种配置核对。系数基底和非截距惩罚明确；训练误差不代表泛化误差。
+
+### 根据生成缺口补的数值与阅读层
+
+- [D2L Adam](https://zh.d2l.ai/chapter_optimization/adam.html)、[Adam论文](https://arxiv.org/abs/1412.6980)、[PyTorch 2.7 Adam](https://docs.pytorch.org/docs/2.7/generated/torch.optim.Adam.html)：核对整数步矩估计与偏差校正、平方根外ε约定。新实现独立编写，实际用已有PyTorch 2.7.1 CPU/float64做600步数值对照；没有神经网络训练、代码复制或学习有效性评价。
+- [D2L Softmax](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)：原文解释分类分数、交叉熵与梯度。新gradient-step可接softmax-loss；96个配置另用真实PyTorch autograd和SGD核对，并保留手设分数/一步更新边界。
+- [D2L Multihead Attention](https://zh.d2l.ai/chapter_attention-mechanisms/multihead-attention.html)：依据原文拆头和转置顺序，新增通用逻辑tensor-reindex，另用NumPy的transpose/reshape核对124配置1984元素映射。没有复制上游实现，也不声称零拷贝或GPU测量。
+- [MDN overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/overflow)、[KaTeX Common Issues](https://katex.org/docs/issues.html)：核对局部滚动、焦点与完整公式显示。长公式保持内容与字号，开脚本时显式实现方向键/Home/End；禁用脚本保留局部CSS滚动。没有复制教程界面资产。

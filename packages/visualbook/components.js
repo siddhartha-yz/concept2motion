@@ -24,6 +24,7 @@
       title = null,
       grid = true,
       footerHeight = 0,
+      headerHeight = 0,
     } = {},
   ) {
     if (board.width < 160 || board.height < 160)
@@ -35,6 +36,15 @@
       board.height - footerHeight < 160
     )
       throw Error("Plot footer must reserve 0..80px and leave 160px of height");
+    if (
+      !Number.isFinite(headerHeight) ||
+      headerHeight < 0 ||
+      headerHeight > 96 ||
+      board.height - footerHeight - headerHeight < 160
+    )
+      throw Error(
+        "Plot header must reserve 0..96px and leave 160px drawing height",
+      );
     if (title)
       board.label(id + "-title", title, 16, 20, {
         maxWidth: board.width - 32,
@@ -50,7 +60,7 @@
       yLabel: "",
       box: [
         42,
-        title ? 40 : 25,
+        (title ? 40 : 25) + headerHeight,
         board.width - 18,
         board.height - 36 - footerHeight,
       ],

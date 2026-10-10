@@ -241,6 +241,15 @@ def main():
             raise ValueError("Candidate changed after preview; preview it again")
         return reports[-1].parent, report
 
+    def design_summary(design):
+        operations=[]
+        def walk(node):
+            operations.extend(c["operation"] for c in node.get("calculations",[]))
+            for child in node.get("children",[]):walk(child)
+            if node.get("visual"):walk(node["visual"])
+        if design.get("scene"):walk(design["scene"])
+        return {**{k:design[k] for k in ["id","title","topic","limits"]},"composition":"scene" if design.get("scene") else "code","controls":len(design.get("params",[])),"calculations":list(dict.fromkeys(operations)),"dataSlots":bool(design.get("scene"))}
+
     def call(name, arguments):
         started = time.monotonic()
         image_metadata = []
@@ -320,9 +329,7 @@ def main():
         elif name == "declare_drawing_gap":
             pass
         elif name == "list_designs":
-            result = [
-                {k: d[k] for k in ["id", "title", "topic", "limits"]} for d in catalog
-            ]
+            result = [design_summary(d) for d in catalog]
         elif name == "describe_design_inputs":
             design=next((d for d in catalog if d['id']==arguments.get('id')),None)
             if design is None:raise ValueError('Unknown design')
@@ -354,10 +361,10 @@ def main():
             designs=[]
             for design in catalog:
                 text=" ".join(str(design.get(k,"")) for k in ["id","title","topic","limits","keywords"]).lower()
-                score=sum(term in text for term in terms)+(1 if design["id"] in example_ids else 0)
-                if score:designs.append((score,{k:design[k] for k in ["id","title","topic","limits"]}))
-            designs.sort(key=lambda item:(-item[0],item[1]["id"]))
-            result={"components":selected,"designs":[item[1] for item in designs[:6]],"scope":"Simple deterministic keyword lookup; no embedding model or quality ranking"}
+                score=sum(term in text for term in terms)+(0.1 if design["id"] in example_ids else 0)
+                if score:designs.append((score,design_summary(design)))
+            designs.sort(key=lambda item:(-item[0],item[1]["composition"] != "scene",-item[1]["controls"],item[1]["id"]))
+            result={"components":selected,"designs":[item[1] for item in designs[:6]],"scope":"Deterministic keyword lookup; ties prefer data-composable scenes and controls. Capability metadata, not a quality ranking"}
         elif name == "describe_component":
             result=next((entry for entry in components if entry["id"]==arguments.get("id")),None)
             if result is None:raise ValueError("Unknown component")

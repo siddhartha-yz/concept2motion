@@ -17,6 +17,7 @@
       selected = null,
       stateKey = null,
       precision = 2,
+      cellAspect = "auto",
     } = {},
     context = {},
   ) {
@@ -74,17 +75,21 @@
     const left = rowLabels ? 54 : 20,
       top = title || columnLabels ? 52 : 28,
       bottom = encoding === "neutral" ? 24 : 52;
-    const cell = Math.min(
-      50,
-      (board.width - left - 20) / cols,
-      (board.height - top - bottom) / rows,
-    );
-    if (cell < 30)
+    if (!["auto", "square", "free"].includes(cellAspect))
+      throw Error("Tensor cell aspect is auto/square/free");
+    const availableX = Math.min(50, (board.width - left - 20) / cols),
+      availableY = Math.min(50, (board.height - top - bottom) / rows),
+      square =
+        cellAspect === "square" ||
+        (cellAspect === "auto" && rows > 1 && cols > 1),
+      cellX = square ? Math.min(availableX, availableY) : availableX,
+      cellY = square ? Math.min(availableX, availableY) : availableY;
+    if (Math.min(cellX, cellY) < 30)
       throw Error(
-        "Tensor cells need at least 30px; reduce shape or allocate more space",
+        "Tensor cells need at least30px in each direction; reduce shape or allocate more space",
       );
-    const x = left + (board.width - left - 20 - cols * cell) / 2,
-      y = top + (board.height - top - bottom - rows * cell) / 2;
+    const x = left + (board.width - left - 20 - cols * cellX) / 2,
+      y = top + (board.height - top - bottom - rows * cellY) / 2;
     const fill = (v) =>
       encoding === "neutral"
         ? P.faint
@@ -105,19 +110,19 @@
         const color = fill(v),
           node = board.rect(
             "cell-" + r + "-" + c,
-            x + c * cell,
-            y + r * cell,
-            cell - 3,
-            cell - 3,
+            x + c * cellX,
+            y + r * cellY,
+            cellX - 3,
+            cellY - 3,
             color,
             { rx: 3, stroke: active ? P.ink : "none", "stroke-width": 2 },
           );
         if (stateKey) {
           const hit = board.mark("select-" + r + "-" + c, "rect", {
-            x: x + c * cell - 2,
-            y: y + r * cell - 2,
-            width: cell + 1,
-            height: cell + 1,
+            x: x + c * cellX - 2,
+            y: y + r * cellY - 2,
+            width: cellX + 1,
+            height: cellY + 1,
             fill: "transparent",
             "aria-label": `选择单元 ${r}, ${c}，值 ${fmt(v, precision)}`,
           });
@@ -136,16 +141,16 @@
                 : P.ink;
           const display = V.fitNumber(v, {
             precision,
-            maxWidth: cell - 7,
-            size: Math.max(12, Math.min(16, cell * 0.38)),
+            maxWidth: cellX - 7,
+            size: Math.max(12, Math.min(16, Math.min(cellX, cellY) * 0.38)),
           });
           displayValues[r][c] = display.text;
           displayPrecisions[r][c] = display.precision;
           board.text(
             "value-" + r + "-" + c,
             display.text,
-            x + (c + 0.5) * cell - 1.5,
-            y + (r + 0.5) * cell + 4,
+            x + (c + 0.5) * cellX - 1.5,
+            y + (r + 0.5) * cellY + 4,
             {
               anchor: "middle",
               size: display.size,
@@ -165,7 +170,7 @@
       });
     if (rowLabels)
       rowLabels.forEach((s, r) =>
-        board.label("row-" + r, s, x - 9, y + (r + 0.5) * cell + 4, {
+        board.label("row-" + r, s, x - 9, y + (r + 0.5) * cellY + 4, {
           anchor: "end",
           maxWidth: 44,
           size: 12,
@@ -174,9 +179,9 @@
       );
     if (columnLabels)
       columnLabels.forEach((s, c) =>
-        board.label("column-" + c, s, x + (c + 0.5) * cell - 1.5, y - 12, {
+        board.label("column-" + c, s, x + (c + 0.5) * cellX - 1.5, y - 12, {
           anchor: "middle",
-          maxWidth: cell - 4,
+          maxWidth: cellX - 4,
           size: 12,
           avoid: false,
         }),
@@ -210,6 +215,9 @@
     return {
       values,
       shape: [rows, cols],
+      cellWidth: cellX,
+      cellHeight: cellY,
+      cellAspect,
       displayValues,
       displayPrecisions,
       minimum,

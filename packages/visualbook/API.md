@@ -170,3 +170,15 @@ MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","m
 `inspect_source`查真实邻接；图和补充不能拆开冒号引导句与紧跟公式/代码/列表/表格。`put_annotation`可追加明确标注的condition/clarification/correction和可选TeX；原文和哈希不变。补充公式实际编译并另计显示覆盖，不能拿补充代替原公式。
 
 默认生成入口是`prefer-library`，使用较短的AUTHOR_API.md和实际MCP构建约束：design/scene优先，自写code需要`declare_drawing_gap`说明实际检查过的设计与缺口，声明绑定当前代码哈希，代码改后重新声明。最多十二次含失败；不是安全隔离、证明缺口真实或品质保证。明确`--composition-policy open`保留开放绘图研究路径；不同政策的结果不能混作公平同方法对照。
+
+## 状态更新与高维索引
+
+`optimizer-trace`从解析场或显式梯度序列二选一计算SGD、momentum、Adagrad、RMSProp、Adam，保留每步更新前位置/梯度和更新后位置/函数值。Adam整数步偏差校正；新的自适应分母为sqrt(v)+ε，和旧VisualBook.trace的sqrt(v+ε)不同。可把visiblePoints接level-set.paths，把selected接readout；不是训练或收敛保证。
+
+`gradient-step`对相同形状的小矩阵算values−ηgradient；可接softmax-loss的梯度再重新计算概率/损失，但不自动证明梯度对应某个目标。`tensor-reindex`保存每个逻辑元素的原索引、轴置换后索引、reshape后索引及两种显示格子；最多四轴64值，没有零拷贝或硬件宣称。
+
+检索设计会说明是否scene、有多少参数、哪些canonical计算。同关键字分数优先scene数据接口，不是品质排名。新增optimizer-landscape、adam-bias、softmax-competition、softmax-gradient-step、head-reindex均可替换数据并接现有组件。
+
+张量cellAspect:auto默认使单行/单列向量可以是矩形格，矩阵保持方格；square/free显式选择。aligned-points的compact:true允许50px行间隔，comfortable默认68px，字号仍12..13px。列/堆叠权重与总高度仍需安排，任意复杂场景不保证自动适配。
+
+长公式不缩小到难读的字号：行内及展示公式在自己的区域横向查看，保持整页宽度；只有实际超宽公式获得焦点和长公式标签，左右/Home/End在该区域操作。禁用脚本仍保留局部滚动的CSS和完整公式。

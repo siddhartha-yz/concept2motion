@@ -11,6 +11,8 @@ with (out/'stderr.log').open('w') as err:
  try:
   def call(n,a={}):
    p.stdin.write(json.dumps({'jsonrpc':'2.0','id':len(calls)+1,'method':'tools/call','params':{'name':n,'arguments':a}})+'\n');p.stdin.flush();r=json.loads(p.stdout.readline())['result'];calls.append({'name':n,'arguments':a,'result':r});return r
+  for query,expected in [('Adam bias correction','adam-bias'),('softmax common shift','softmax-competition'),('multihead transpose permutation','head-reindex')]:
+   found=call('search_designs',{'query':query});assert not found['isError'];designs=json.loads(found['content'][0]['text'])['designs'];assert designs[0]['id']==expected,(query,designs);assert designs[0]['composition']=='scene' and designs[0]['dataSlots']
   r=call('inspect_source',{'anchors':['intro','formula']});assert not r['isError'];contexts=json.loads(r['content'][0]['text']);assert contexts[0]['recommendedAnchor']=='formula';assert contexts[1]['safeToInsertAfter']
   bad={'id':'f','design':'derivative','afterAnchor':'intro'};assert call('put_design',bad)['isError'];assert json.loads((out/'build-receipt.json').read_text())['status']=='failed'
   assert call('preview_book',{'label':'stale'})['isError'];assert not list(out.glob('preview-*'))
