@@ -200,6 +200,12 @@ try {
   });
   await nojs.goto(pathToFileURL(exported).href);
   assert.equal(await nojs.locator(".vh-static img:visible").count(), 3);
+  const decoded = await nojs.evaluate(async () => {
+    const images = [...document.querySelectorAll(".vh-static img")];
+    for (const image of images) await image.decode();
+    return images.every((image) => image.complete && image.naturalWidth > 0);
+  });
+  assert.equal(decoded, true, "Static SVG fallback must actually decode");
   await nojs.close();
 } finally {
   await browser.close();
@@ -215,6 +221,7 @@ fs.writeFileSync(
         0,
       ),
       noJavascriptStaticFigures: 3,
+      noJavascriptStaticImagesDecoded: true,
       modelCalls: 0,
       scope: "tool controls, not independent generation or artistic acceptance",
     },

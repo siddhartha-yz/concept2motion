@@ -1,12 +1,12 @@
 {
   "scanner": "Gitleaks 8.30.1",
   "scope": {
-    "intended_files": 2568,
-    "history": "main only, pre-final 86 commits; final commit rescan follows",
+    "intended_files": 2570,
+    "history": "main through 92d14ed, 87 commits; final documentation delta will be scanned before push",
     "public_snapshot": {
-      "nonexpired_artifacts": 17,
-      "runs_with_downloaded_logs": 15,
-      "zip_archives": 32,
+      "nonexpired_artifacts": 19,
+      "runs_with_downloaded_logs": 16,
+      "zip_archives": 35,
       "release_assets": 0,
       "archive_depth": 3,
       "surfaces": {
@@ -44,11 +44,11 @@
         },
         "artifacts": {
           "status": 0,
-          "items": 17
+          "items": 19
         },
         "runs": {
           "status": 0,
-          "items": 15
+          "items": 16
         },
         "pages": {
           "status": 1,
@@ -204,5 +204,15 @@
     }
   ],
   "exception": "Only four exact SHA256 values, recomputed from public source blobs or exact frozen API prompt segments. No broad file/rule suppression. Original reports retained in ignored work.",
-  "limits": "Pattern audit and accessible snapshot only; expired/deleted archives, internal checkpoint refs and inaccessible external surfaces are outside scope."
+  "limits": "Pattern audit and accessible snapshot only; expired/deleted archives, internal checkpoint refs and inaccessible external surfaces are outside scope.",
+  "post_push_ci": {
+    "run_id": 38068852694,
+    "head_sha": "92d14eda9a72b5ad7ef2ff0548078c2398eff833",
+    "conclusion": "success",
+    "jobs": [
+      "check",
+      "scene-smoke",
+      "visualbook"
+    ]
+  }
 }

@@ -243,7 +243,7 @@ export async function preview(file, out) {
               progress: i.progress,
               facts: i.facts,
               error: i.error ?? null,
-              svg: svg.outerHTML,
+              svg: new XMLSerializer().serializeToString(svg),
               outside: text.filter(
                 (t) =>
                   t.x < -2 ||
@@ -343,7 +343,13 @@ export function staticExport(file, previewDir, out) {
           path.join(previewDir, "static", `${w}-${shape.id}.svg`),
         ),
       )
-      .map((bytes) => "data:image/svg+xml;base64," + bytes.toString("base64"));
+      .map((bytes) => {
+        // Earlier snapshots used HTML serialization without an SVG namespace.
+        let svg = bytes.toString("utf8");
+        if (!/<svg\b[^>]*\bxmlns=/.test(svg))
+          svg = svg.replace(/<svg\b/, '<svg xmlns="http://www.w3.org/2000/svg"');
+        return "data:image/svg+xml;base64," + Buffer.from(svg).toString("base64");
+      });
     const fallback = `<div class="vh-static"><picture><source media="(max-width:600px)" srcset="${picture[1]}"><img src="${picture[0]}" alt="图解初始状态：${esc(shape.id)}"></picture></div>`;
     html = html.replace(
       `id="figure-${shape.id}" data-viz-id="${shape.id}">`,
