@@ -1,0 +1,38 @@
+{
+  "seed": "10350496937194430684",
+  "algorithm": "random.Random(seed).choice once per preregistered domain pool; no reselection after generation",
+  "upstream_commit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sections": [
+    {
+      "stratum": "geometry",
+      "pool": [
+        "chapter_convolutional-neural-networks/conv-layer.md",
+        "chapter_convolutional-neural-networks/channels.md",
+        "chapter_preliminaries/linear-algebra.md"
+      ],
+      "selected": "chapter_preliminaries/linear-algebra.md",
+      "source_sha256": "ee341ac1c6c050238360e8f0ac3f592209e52497792cd0dec669d79edee8f6ef"
+    },
+    {
+      "stratum": "optimization",
+      "pool": [
+        "chapter_optimization/momentum.md",
+        "chapter_optimization/adagrad.md",
+        "chapter_optimization/rmsprop.md"
+      ],
+      "selected": "chapter_optimization/rmsprop.md",
+      "source_sha256": "6abe8d4f989c6c86e644c8fd3d386c01c0d150c06a1d951efc3ff0327ba7c3d8"
+    },
+    {
+      "stratum": "programming",
+      "pool": [
+        "chapter_computational-performance/async-computation.md",
+        "chapter_computational-performance/auto-parallelism.md",
+        "chapter_deep-learning-computation/model-construction.md"
+      ],
+      "selected": "chapter_deep-learning-computation/model-construction.md",
+      "source_sha256": "f7093eb2a5eec4924e23d4ac82ed24431d8164a93f055198c79a05384d83fd9b"
+    }
+  ],
+  "comparison": "same source, task and CLI config; direct HTML/SVG plus generic preview versus same preview plus reusable visualbook tools. Two arms for first two strata; third is exploratory transfer."
+}
