@@ -399,8 +399,35 @@
         "Cross entropy from unnormalized logits; mean divides by sample count; stable logsumexp, not log of an underflowed probability",
     };
   }
+  function transpose(input, { index = [0, 0] } = {}) {
+    const [rows, cols] = matrix(input);
+    if (
+      !Array.isArray(index) ||
+      index.length !== 2 ||
+      !index.every(Number.isInteger) ||
+      index[0] < 0 ||
+      index[0] >= rows ||
+      index[1] < 0 ||
+      index[1] >= cols
+    )
+      throw Error("Transpose input index outside shape");
+    return {
+      input,
+      output: Array.from({ length: cols }, (_, c) =>
+        input.map((row) => row[c]),
+      ),
+      inputShape: [rows, cols],
+      outputShape: [cols, rows],
+      selectedInput: [...index],
+      selectedOutput: [index[1], index[0]],
+      selectedValue: input[index[0]][index[1]],
+      convention:
+        "Numeric transpose output, not a framework storage/view or physical copying measurement.",
+    };
+  }
   const api = {
     matrix,
+    transpose,
     matmul,
     softmax,
     attention,

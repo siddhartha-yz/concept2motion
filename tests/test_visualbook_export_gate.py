@@ -33,7 +33,7 @@ class ExportGateTests(unittest.TestCase):
         preview = job / "preview-final"
         preview.mkdir()
         (preview / "report.json").write_text(
-            json.dumps({"sha256": runner.digest(job / "book.html"), "findings": []})
+            json.dumps({"status": "completed", "sha256": runner.digest(job / "book.html"), "findings": []})
         )
         (job / "review.json").write_text(
             json.dumps(

@@ -36,19 +36,24 @@ python3 tools/run_visualbook.py work/new-sources/programming.source.json work/pr
 
 每章一次独立会话，最长1200秒，最多3轮候选预览；模型可以自己写计划、调用绘图工具、看真实桌面与手机PNG、修改后重试。没有用户逐轮反馈。共享设计负责稳定对象、坐标、字体测量、矩阵等布局；选什么关系、怎么解释仍需要模型判断。
 
-输入可为普通Markdown、单章source.json、多章manifest：
+输入可为普通Markdown、单章source.json、多章manifest。manifest各章可以直接引用.md，不必先手动导入：
 
 ```json
-{"title":"我的教材","chapters":[{"id":"chapter-one","source":"chapter-one.source.json"},{"id":"chapter-two","source":"chapter-two.source.json"}]}
+{"title":"我的教材","chapters":[{"id":"chapter-one","source":"chapter-one.md"},{"id":"chapter-two","source":"chapter-two.md"}]}
 ```
 
 ```bash
 python3 tools/run_visualbook.py chapters.json work/my-book --max-chapters 3
+# 可先准备整本输入，不启动模型；之后--resume继续同一本：
+python3 tools/run_visualbook.py chapters.json work/prepared-book --prepare-only
+python3 tools/run_visualbook.py chapters.json work/prepared-book --resume
 ```
 
 最后预览与最终问题记录必须匹配最终HTML和绘图计划哈希，公式完整，源文件和工具未被改动，图片确实返回给模型、起点终点已通过工具查看、最终问题记录没有已知遗留问题，渲染没有待处理问题，否则停止导出并保存 export-gate.json。停在诊断不等于教材完成；通过这些检查也不证明美观、严谨、易学。
 
 成功后 book/index.html、各章HTML和许可证可以离线阅读。禁用脚本时显示真实渲染的初始图，控制检查要求图片实际解码；它不能替代全部交互状态。完整正文保留，图解可以拖动、单步或主动播放一次，滚动页面会暂停演示。默认最多3章，显式调整 --max-chapters 才扩大调用范围；目前不支持直接输入PDF/EPUB。
+
+所有章节先完成导入并封存输入，再启动第一场模型会话。后面章节的坏公式或缺图会在消耗模型额度前停止。封存也包含本地图片内容；只改图片不改Markdown，--resume同样会拒绝旧输入。每次准备的成功与失败留在preparation/，不覆盖旧快照。
 
 --resume只复用已有会话，不覆盖、不因为不满意而偷偷重复调用；原文改变必须另起目录。输入身份、调用用量、真实图片反馈、预览发现、失败和修订都留在会话目录。
 
@@ -63,4 +68,4 @@ node tools/build_visualbook_catalog.mjs work/design-gallery
 
 [接口和设计限制](API.md)给出完整方法。[本轮报告](../../evaluation/2026-10-10/harness-v2/REPORT.md)区分编译、实际渲染、模型生成、维护者复核和未做的用户审评。
 
-迁移说明：v03–v05旧会话没有新的review.json。保留它们作证据或用单独组装工具复查，不会在--resume中默默赋予新的最终检查资格。当前v06协议/故障控制通过，新增最终检查尚待下一轮真实模型生成检验。
+迁移说明：v03–v05旧会话没有新的review.json。保留它们作证据或用单独组装工具复查，不会在--resume中默默赋予新的最终检查资格。当前最终检查已在真实会话中使用，已知问题确实阻止两次候选导出；这仍不能保证未知审美或教学问题会自动发现。

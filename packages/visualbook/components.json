@@ -1009,6 +1009,25 @@
       ],
       "limits": "仅二维解析二次型与Rosenbrock；等高线为采样近似；箭头只表示方向，不宣称训练轨迹",
       "keywords": "contour level set gradient loss landscape saddle 等高线 梯度 损失 鞍点"
+    },
+    {
+      "id": "aligned-points",
+      "title": "同一批数字在多行中的对应关系",
+      "required": ["rows"],
+      "props": {
+        "rows": "1..5 {label,values} rows, same 1..12 items each; numeric x coordinates",
+        "domain": "Shared finite increasing x range enclosing every value",
+        "selected": "Integer item index, default0",
+        "stateKey": "Shared state receiving selected item index",
+        "connect": "Show corresponding item links; boolean",
+        "statistics": "Mean and population variance per row; boolean",
+        "title": "Optional short heading",
+        "pointColors": "Optional one known palette key per item"
+      },
+      "outputs": ["rows", "domain", "selected", "selectedValues", "convention"],
+      "examples": ["normalization-points", "paired-points"],
+      "limits": "行数最多5、每行12点；对应不代表因果/时间，同一数字刻度不保证物理单位相同；重复值只在非定量纵向轻微错开",
+      "keywords": "paired samples normalization affine transformed points 批量规范化 标准化 同一数据 变换 均值 方差"
     }
   ]
 }

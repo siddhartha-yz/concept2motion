@@ -6,12 +6,19 @@ import { pathToFileURL } from "node:url";
 import { invalidGeometry } from "./visualbook_inspection.mjs";
 const root = path.resolve(import.meta.dirname, ".."),
   sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
-export async function auditInteractions(file, out) {
+export async function auditInteractions(
+  file,
+  out,
+  { engine = "chromium" } = {},
+) {
+  if (!["chromium", "firefox", "webkit"].includes(engine))
+    throw Error("Unsupported browser engine");
   if (fs.existsSync(out))
     throw Error("Interaction evidence exists; choose fresh directory");
   fs.mkdirSync(out, { recursive: true });
   const report = {
     file: path.resolve(file),
+    engine,
     sha256: sha(fs.readFileSync(file)),
     status: "running",
     cases: [],
@@ -29,7 +36,7 @@ export async function auditInteractions(file, out) {
   save();
   let browser;
   try {
-    const { chromium } = await import(
+    const browsers = await import(
       pathToFileURL(
         path.join(
           root,
@@ -37,10 +44,13 @@ export async function auditInteractions(file, out) {
         ),
       )
     );
-    browser = await chromium.launch({
+    const type = browsers[engine];
+    browser = await type.launch({
       headless: true,
-      executablePath: process.env.CHROMIUM_PATH ?? chromium.executablePath(),
+      executablePath:
+        process.env[engine.toUpperCase() + "_PATH"] ?? type.executablePath(),
     });
+    report.browserVersion = browser.version();
     for (const width of [1280, 375]) {
       const page = await browser.newPage({ viewport: { width, height: 900 } }),
         consoleErrors = [];

@@ -25,6 +25,21 @@
       ? require("./fields.cjs")
       : global.VisualBookFields;
   const operations = {
+    transpose: {
+      keys: ["input", "index"],
+      required: ["input"],
+      outputs: [
+        "input",
+        "output",
+        "inputShape",
+        "outputShape",
+        "selectedInput",
+        "selectedOutput",
+        "selectedValue",
+        "convention",
+      ],
+      run: ({ input, ...options }) => T.transpose(input, options),
+    },
     "scalar-field": {
       keys: ["spec", "point"],
       required: ["spec", "point"],

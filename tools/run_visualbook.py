@@ -1,6 +1,6 @@
 """One-command serial VisualBook authoring; uses official signed-in Codex only.
 
-A manifest is a list of already imported source JSON chapters. Every chapter gets
+A manifest accepts ordinary Markdown or imported source JSON chapters. Every chapter gets
 one independent model session, shared executable designs, real PNG feedback and
 up to three internal revisions. Failed chapters stay diagnostic; they are not
 quietly published as ready books. Raw provider output remains in ignored work/.
@@ -10,6 +10,11 @@ import argparse, hashlib, json, os, re, subprocess, sys, time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+# Also works when loaded for gate checks with importlib, without changing sys.path.
+import importlib.util
+_preparation_spec = importlib.util.spec_from_file_location("visualbook_preparation", ROOT / "tools/prepare_visualbook.py")
+_preparation = importlib.util.module_from_spec(_preparation_spec)
+_preparation_spec.loader.exec_module(_preparation)
 
 
 def digest(path):
@@ -82,6 +87,7 @@ def main():
     parser.add_argument("--reasoning-effort", choices=["low", "medium", "high", "xhigh", "max", "ultra"])
     parser.add_argument("--campaign", type=Path, help="Optional shared ignored parent campaign; includes this output and earlier startup attempts")
     parser.add_argument("--attempt-limit", type=int, default=16, help="Global startup limit when --campaign is supplied; failures count")
+    parser.add_argument("--prepare-only", action="store_true", help="Import and freeze every chapter without starting any model session")
     parser.add_argument("--keep-going", action="store_true", help="Evaluate later chapters after a chapter gate fails; still refuse book export if any chapter fails")
     parser.add_argument(
         "--max-chapters",
@@ -128,43 +134,13 @@ def main():
     if identity_path.exists() and json.loads(identity_path.read_text()) != identity:
         raise SystemExit("Resume input changed; use a fresh run")
     save(identity_path, identity)
-    if args.manifest.suffix.lower() == ".md":
-        source = output / "imported.source.json"
-        if not source.exists():
-            options = json.dumps(
-                {
-                    "id": "chapter",
-                    "sourceUrl": args.source_url,
-                    "sourceName": args.source_name,
-                },
-                ensure_ascii=False,
-            )
-            p = subprocess.run(
-                [
-                    "node",
-                    str(ROOT / "packages/visualbook/import.mjs"),
-                    str(args.manifest.resolve()),
-                    str(source),
-                    options,
-                ],
-                cwd=ROOT,
-            )
-            if p.returncode:
-                raise SystemExit(p.returncode)
-        imported = json.loads(source.read_text())
-        manifest = {
-            "title": imported["title"],
-            "chapters": [{"id": imported["id"], "source": str(source)}],
-        }
-    else:
-        manifest = json.loads(args.manifest.read_text())
-        if "blocks" in manifest:
-            manifest = {
-                "title": manifest["title"],
-                "chapters": [
-                    {"id": manifest["id"], "source": str(args.manifest.resolve())}
-                ],
-            }
+    try:
+        manifest = _preparation.prepare(args.manifest, output, max_chapters=args.max_chapters, source_url=args.source_url, source_name=args.source_name)
+    except Exception as error:
+        raise SystemExit(str(error))
+    if args.prepare_only:
+        print("Prepared without model calls: " + str(output / "prepared-manifest.json"))
+        return
     chapters = manifest.get("chapters", [])
     if not 1 <= len(chapters) <= args.max_chapters:
         raise SystemExit("Chapter count outside explicit batch budget")

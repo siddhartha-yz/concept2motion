@@ -156,3 +156,7 @@ MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","m
 `VisualBook.formatNumber(value,{precision:3})`只改变显示，极小的非零值使用科学计数，精确facts保持不变。`fitNumber(value,{maxWidth,precision,size,minSize})`使用实际字体测量，先尝试所需精度，必要时减少显示位数，字号至少12px；仍放不下就拒绝。tensor返回displayValues/displayPrecisions说明实际显示内容，不能拿显示舍入值代替运算值。
 
 正式preview会实际操作注册的图内把手和选中点，检查键盘/指针输入是否改变画面、是否报错以及无输入重画是否一致。最多16个注册控件/图、两个尺寸、首次可用姿态；没有穷举所有状态、自定义DOM控件或物理触摸设备。无作用的把手、输入后错误和随机重画进入正式发现，失败截图返回模型，阻止导出。数值正确与图形美观仍须分别审阅。
+
+`aligned-points`把同一批项目在1–5行数值中的位置连起来：每行`{label,values}`，数量一致，共同数字刻度，均值与总体方差可选。点选一个项目会用共享状态同时强调所有行的同一项；重复值只在非定量纵向轻微错开，不改真实x值。它能接规范化/仿射输出、成对观测或其它一一对应数据。连线不代表因果、时间或训练轨迹，数字同刻度也不意味着物理单位相同。
+
+`compute_math({operation:"transpose",inputs:{input,index}})`返回转置数值、前后形状与交换后的选中索引。可以把标准化的N×1结果转成一行送给点图，或者把矩阵的同一元素连接到另一幅图。这里不推断真实框架是否复制了存储。
