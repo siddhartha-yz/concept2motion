@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "seed": "16735797085957599960",
+  "algorithm": "Python random.Random(seed).sample; first selected, second reserved",
+  "upstream_commit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "upstream_url": "https://github.com/d2l-ai/d2l-zh",
+  "baseline": "Original prose, formulas, figures and PyTorch code; no execution output fabricated",
+  "sections": [
+    {
+      "stratum": "spatial",
+      "reason": "卷积中的空间计算",
+      "pool": [
+        "chapter_convolutional-neural-networks/conv-layer.md",
+        "chapter_convolutional-neural-networks/padding-and-strides.md",
+        "chapter_convolutional-neural-networks/pooling.md",
+        "chapter_convolutional-neural-networks/channels.md"
+      ],
+      "selected": "chapter_convolutional-neural-networks/pooling.md",
+      "holdout": "chapter_convolutional-neural-networks/padding-and-strides.md",
+      "source_sha256": "cb9f621cce7fec12fe4f12ab208b972f3ffa25bc4c1b0458a028f7d303a65192"
+    },
+    {
+      "stratum": "iteration",
+      "reason": "优化中的逐步变化",
+      "pool": [
+        "chapter_optimization/gd.md",
+        "chapter_optimization/momentum.md",
+        "chapter_optimization/adagrad.md",
+        "chapter_optimization/sgd.md"
+      ],
+      "selected": "chapter_optimization/sgd.md",
+      "holdout": "chapter_optimization/gd.md",
+      "source_sha256": "c8ba8de987c1352df4972b89359baa888fe42c4cdf97368dad774ccaf48adc11"
+    },
+    {
+      "stratum": "routing",
+      "reason": "网络中的信息流",
+      "pool": [
+        "chapter_attention-mechanisms/multihead-attention.md",
+        "chapter_attention-mechanisms/attention-scoring-functions.md",
+        "chapter_recurrent-neural-networks/rnn.md",
+        "chapter_recurrent-neural-networks/bptt.md"
+      ],
+      "selected": "chapter_attention-mechanisms/attention-scoring-functions.md",
+      "holdout": "chapter_recurrent-neural-networks/rnn.md",
+      "source_sha256": "7c864b6d8c42d6d512beadc3cd74eead80eac19e37a5ef9adadea350ae6e1f64"
+    },
+    {
+      "stratum": "execution",
+      "reason": "系统中的执行流程",
+      "pool": [
+        "chapter_computational-performance/async-computation.md",
+        "chapter_computational-performance/auto-parallelism.md",
+        "chapter_computational-performance/multiple-gpus.md",
+        "chapter_computational-performance/parameterserver.md"
+      ],
+      "selected": "chapter_computational-performance/multiple-gpus.md",
+      "holdout": "chapter_computational-performance/parameterserver.md",
+      "source_sha256": "86ccd820ae065982c6c3f4c97511d23c3575e7e1dbbd746836cbc49263fe54ce"
+    }
+  ]
+}
