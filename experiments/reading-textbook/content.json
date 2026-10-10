@@ -1,0 +1,215 @@
+{
+  "schema": 1,
+  "title": "让图跟着理解走",
+  "subtitle": "CS336 · 三个可以慢慢读的例子",
+  "authorship": "本页讲解由当前 Codex 会话编写；依据固定提交的 Video2Book 教材选段，并单独核对数学。不是重新听课生成的教材。",
+  "units": [
+    {
+      "id": "tensor",
+      "number": "01",
+      "title": "换一个看法，数据并没有变多",
+      "intro": "先别记维度编号。想象你有三张卡，每张卡记着八个数。把每张卡分成两组，每组四个数，就是把一个长度为 8 的轴拆成 2 × 4。",
+      "source": {
+        "glob": "textbooks/模块01*",
+        "start": 814,
+        "end": 834
+      },
+      "formula": "[3,8] \\longrightarrow [3,2,4] \\longrightarrow [2,3,4]",
+      "states": [
+        {
+          "name": "三张卡，每张八个数",
+          "time": 0,
+          "caption": "输入是 3 × 8，一共 24 个数。数字是元素身份，颜色区分两个头。"
+        },
+        {
+          "name": "每张卡分成两个头",
+          "time": 1,
+          "caption": "现在按 batch → head → feature 分组：3 × 2 × 4，仍然是原来的 24 个数。"
+        },
+        {
+          "name": "把相同的头放在一起看",
+          "time": 2,
+          "caption": "交换前两根轴，按 head → batch → feature 看：2 × 3 × 4。图上的分组变了。"
+        },
+        {
+          "name": "图的排列不等于内存搬家",
+          "time": 3,
+          "caption": "下方地址条不动：逻辑换轴可以只改 shape 和 stride。是否复制，取决于输入布局和具体操作。"
+        }
+      ],
+      "paragraphs": [
+        {
+          "id": "tensor-input",
+          "state": 0,
+          "text": "从这三张卡开始：每行是一份输入，八个格子是八个特征。图中的 1 到 24 只是给元素编号，方便你追踪它们，并不代表模型的权重。此时形状是 [3, 8]。"
+        },
+        {
+          "id": "tensor-split",
+          "state": 1,
+          "text": "读到“两个头，每头四个特征”时，图把每张卡分成上下两组。因为 8 = 2 × 4，所以形状变为 [3, 2, 4]。没有插入新元素，没有丢掉元素；只是把原来的一个轴解释为两个轴。"
+        },
+        {
+          "id": "tensor-swap",
+          "state": 2,
+          "text": "接着交换 batch 和 head 的位置。现在先看同一个头，再看三份输入，得到 [2, 3, 4]。例如元素 9 仍来自第二份输入的第一个头，身份没有改变；改变的是你用哪一组坐标去访问它。"
+        },
+        {
+          "id": "tensor-memory",
+          "state": 3,
+          "text": "最后看下面的地址条。图为了让你看懂分组而移动格子，不代表显存真的搬动了这些数。连续输入先拆轴再换轴，可以得到共享存储的非连续视图；要求连续布局时才可能复制。rearrange 也不保证所有结果都连续。"
+        }
+      ],
+      "correction": "核对说明：选段原文把 einops 的逻辑顺序描述为能保证内存连续性。这里修正为“可能返回视图，也可能复制”。本图展示的是索引关系，不是 GPU 实测。",
+      "references": [
+        {
+          "label": "原课程：Stanford CS336",
+          "url": "https://cs336.stanford.edu/"
+        },
+        {
+          "label": "PyTorch：Tensor Views",
+          "url": "https://docs.pytorch.org/docs/stable/tensor_view.html"
+        },
+        {
+          "label": "einops：rearrange",
+          "url": "https://einops.rocks/api/rearrange/"
+        }
+      ],
+      "question": "交换 batch 和 head 两个轴后，元素总数会改变吗？用哪三个坐标找到原来的元素 9？",
+      "answer": "总数仍为 24。原先的 [batch=1, head=0, feature=0]（从 0 开始）在换轴后变为 [head=0, batch=1, feature=0]。元素身份没有改变。"
+    },
+    {
+      "id": "softmax",
+      "number": "02",
+      "title": "一个数变大，为什么其他概率也会变",
+      "intro": "Softmax 不是给每个数独立换个名字。它先把一组分数转为正数，再除以同一个总和。正因为大家共用分母，一个分数的变化会牵动整组概率。",
+      "source": {
+        "glob": "textbooks/模块04*",
+        "start": 453,
+        "end": 463
+      },
+      "formula": "p_i=\\frac{e^{z_i-\\max(z)}}{\\sum_j e^{z_j-\\max(z)}}",
+      "states": [
+        {
+          "name": "原始分数",
+          "time": 0,
+          "caption": "分数 z = [1, 2, 3]。三根柱子展示同一组里的三个候选。"
+        },
+        {
+          "name": "减去最大值，再取指数",
+          "time": 1,
+          "caption": "exp(z − max(z)) = [0.1353, 0.3679, 1]。这样算更稳定，比例不变。"
+        },
+        {
+          "name": "大家除以同一个总和",
+          "time": 2,
+          "caption": "总和为 1.5032。概率约为 [0.0900, 0.2447, 0.6652]，总和为 1。"
+        },
+        {
+          "name": "只增加第一个分数",
+          "time": 3,
+          "caption": "把分数改为 [3, 2, 3]，概率变为 [0.4223, 0.1554, 0.4223]。另外两项也会改变。"
+        }
+      ],
+      "paragraphs": [
+        {
+          "id": "softmax-logits",
+          "state": 0,
+          "text": "先看分数 [1, 2, 3]。它们可以是模型对三个候选的打分，但还不是概率：加起来不是 1，也没有“总共只有一份”的约束。这里始终只画同一行，不把不同样本混在一起。"
+        },
+        {
+          "id": "softmax-exp",
+          "state": 1,
+          "text": "先减去这一行的最大值 3，得到 [−2, −1, 0]，再取指数。结果大约是 [0.1353, 0.3679, 1]。减去同一个数不会改变最终概率，却可以避免直接计算很大的指数。"
+        },
+        {
+          "id": "softmax-normalize",
+          "state": 2,
+          "text": "把这三个正数加起来，得到约 1.5032。每一项都除以这个相同的总和，得到 [0.0900, 0.2447, 0.6652]。它们的和是 1，这才把“各自的分数”变成了“共享一份总量的比例”。"
+        },
+        {
+          "id": "softmax-change",
+          "state": 3,
+          "text": "现在只把第一个分数从 1 加到 3，其余分数不动。第一个概率上升，另外两个概率都会下降，因为大家仍然共用分母。这是“一个输入牵动整个分布”，不是三个彼此独立的开关。"
+        }
+      ],
+      "correction": "读图约定：每个阶段都写出单位。原始分数、指数值、概率不是同一种量，切换阶段时不能拿柱高直接比较大小。",
+      "references": [
+        {
+          "label": "原课程：Stanford CS336",
+          "url": "https://cs336.stanford.edu/"
+        },
+        {
+          "label": "PyTorch：Softmax",
+          "url": "https://docs.pytorch.org/docs/stable/generated/torch.nn.Softmax.html"
+        }
+      ],
+      "question": "如果给三个原始分数都加 100，概率会改变吗？如果只给第一个加 100 呢？",
+      "answer": "全部加同一个常数，概率不变；只增加第一个，通常会改变三个概率。这是两种不同的操作。数值计算仍应减去行最大值，避免指数溢出。"
+    },
+    {
+      "id": "intensity",
+      "number": "03",
+      "title": "是算得慢，还是搬得慢",
+      "intro": "想象一间厨房：一边搬食材，一边做菜。厨师再快，如果一直等食材，也快不起来。算术强度问的就是：每搬进一个字节，能做多少次浮点运算？",
+      "source": {
+        "glob": "textbooks/模块04*",
+        "start": 578,
+        "end": 582
+      },
+      "formula": "I=\\frac{\\mathrm{FLOPs}}{\\mathrm{Bytes}},\\quad T\\approx\\max(\\frac{F}{P},\\frac{B}{W})",
+      "states": [
+        {
+          "name": "先把单位写清",
+          "time": 0,
+          "caption": "假设任务需要 1000 FLOPs，搬 1000 Bytes；I = 1 FLOP/Byte。示意机器：100 FLOP/ms、10 Byte/ms。"
+        },
+        {
+          "name": "分别估计两种时间",
+          "time": 1,
+          "caption": "计算时间 10 ms，搬运时间 100 ms。在两者可充分重叠的简化模型里，总时间取较大者 100 ms。"
+        },
+        {
+          "name": "复用数据，少搬十倍",
+          "time": 2,
+          "caption": "保持 1000 FLOPs，但只搬 100 Bytes；I = 10 FLOP/Byte。两种时间都约 10 ms。"
+        },
+        {
+          "name": "再减少搬运，收益有上限",
+          "time": 3,
+          "caption": "只搬 50 Bytes，搬运约 5 ms；计算仍约 10 ms。总时间约 10 ms，开始由计算限制。"
+        }
+      ],
+      "paragraphs": [
+        {
+          "id": "intensity-units",
+          "state": 0,
+          "text": "先设一个很小的示意任务：要做 1000 次浮点运算，搬运 1000 字节的数据。算术强度就是 1000 ÷ 1000 = 1 FLOP/Byte。它描述每字节对应多少计算，不是越大就必然越快，也不是显卡的速度。"
+        },
+        {
+          "id": "intensity-bound",
+          "state": 1,
+          "text": "再假设机器每毫秒能做 100 FLOPs、搬 10 Bytes。单看计算需要 10 ms，单看搬运需要 100 ms。如果两者能充分重叠，这个简化估计取较大的 100 ms；如果没有重叠，就不能这样直接取最大值。"
+        },
+        {
+          "id": "intensity-reuse",
+          "state": 2,
+          "text": "现在让数据多用几次，把搬运量降到 100 Bytes，而计算量仍是 1000 FLOPs。算术强度升到 10 FLOP/Byte。计算和搬运都约 10 ms，瓶颈开始发生变化。注意：这要求真的减少所统计内存层的搬运，不能只在纸上改数字。"
+        },
+        {
+          "id": "intensity-limit",
+          "state": 3,
+          "text": "如果进一步只搬 50 Bytes，搬运约 5 ms，计算仍需要 10 ms。简化总时间停在约 10 ms。少搬运的方向仍有价值，但它不会让计算时间消失；实际内核还受启动开销、缓存、并行度和访存方式等影响。"
+        }
+      ],
+      "correction": "这是帮助理解的假想机器和简化模型，不是 H100、任何真实 GPU 或 CS336 作业的性能测量。",
+      "references": [
+        {
+          "label": "原课程：Stanford CS336",
+          "url": "https://cs336.stanford.edu/"
+        }
+      ],
+      "question": "如果搬运量不变，只把计算量翻倍，算术强度会提高。这就说明任务一定更快了吗？",
+      "answer": "不说明。强度会提高，但你也增加了工作量。必须同时看 FLOPs、Bytes、机器吞吐和实际测量；单独比较强度不能证明加速。"
+    }
+  ]
+}

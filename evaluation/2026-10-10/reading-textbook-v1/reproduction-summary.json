@@ -1,0 +1,83 @@
+{
+  "reader": {
+    "commit": "f5a15e0c8346003b688722afa7100597de258d4e",
+    "local_path": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/reading-textbook/upstreams/video2book-reader",
+    "tracked_source_modified": false
+  },
+  "tools": {
+    "typst": {
+      "version": "0.15.1",
+      "url": "https://github.com/typst/typst/releases/download/v0.15.1/typst-x86_64-unknown-linux-musl.tar.xz",
+      "archive_sha256": "a6d077d0a95eed5a2eba715b2dae06be954f624ccbf85758a03f389ded33118c",
+      "binary_sha256": "29273eaa04f6d00edd0c2bec578f565fc9c65be856bfbffc894567c68ed0b237"
+    },
+    "zig": "0.16.0",
+    "python_freeze_sha256": "d92cc6c6371492d31e895b3649bf576f3e419ff4992dc3b251e07456b4ed8e2e",
+    "npm_lock_sha256": "624134bd23dbb225506d15c5096695f84a3b19053b3814bdf3063362424fa9fc"
+  },
+  "results": {
+    "video2book_selfcheck": "pass",
+    "video2book_tests_sandbox": {
+      "passed": 706,
+      "failed": 1,
+      "reason": "signing code unmocked nav request, sandbox DNS"
+    },
+    "video2book_tests_host": {
+      "passed": 707,
+      "failed": 0
+    },
+    "video2book_real_pipeline": {
+      "selected_episode": "P02",
+      "minutes": 55.6,
+      "audio_bytes": 13854741,
+      "transcript": false,
+      "new_article": false,
+      "full_pipeline_complete": false,
+      "reason": "no SESSDATA configured, no native audio tool mounted"
+    },
+    "zanim_web_test_files": 12,
+    "zanim_wasm_build": "pass",
+    "zanim_native_build": "pass",
+    "zanim_zig_tests": "pass",
+    "zanim_python_tests": {
+      "passed": 307,
+      "subtests": 25,
+      "failed": 0
+    },
+    "reader_web_build": "pass",
+    "reader_derive": "pass",
+    "reader_bookshelf": "pass",
+    "reader_zip": "not runnable: Windows PowerShell not available",
+    "reader_cs336_split": {
+      "documents": 21,
+      "textbooks": 9,
+      "notes": 12,
+      "textbook_chapters": 37,
+      "notes_chapters": 91,
+      "warnings": 0,
+      "math_guards": 5
+    },
+    "browser_revisions": [
+      {
+        "version": 1,
+        "passed": 15,
+        "total": 20
+      },
+      {
+        "version": 2,
+        "passed": 19,
+        "total": 20
+      },
+      {
+        "version": 3,
+        "passed": 20,
+        "total": 20
+      }
+    ]
+  },
+  "model_scope": {
+    "author": "current signed-in Codex conversation",
+    "extra_model_calls": 0,
+    "human_learning_study": false
+  }
+}
