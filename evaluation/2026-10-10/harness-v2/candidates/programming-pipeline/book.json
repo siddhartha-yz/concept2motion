@@ -1,0 +1,79 @@
+{
+  "figures": [
+    {
+      "id": "width-and-shape",
+      "title": "宽度变了，什么跟着变？",
+      "afterAnchor": "programming-011",
+      "endAnchor": "programming-014",
+      "height": 310,
+      "mobileHeight": 400,
+      "summary": "批量固定为2；参数量包含偏置，h=256对应原书的隐藏层。",
+      "stages": [
+        "输入",
+        "隐藏表示",
+        "输出"
+      ],
+      "params": [
+        {
+          "key": "h",
+          "label": "隐藏宽度 h",
+          "min": 16,
+          "max": 256,
+          "step": 16,
+          "value": 256
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n  const P=VisualBook.palette, h=params.h, mobile=width<500;\n  const shapes=['2 × 20','2 × '+h,'2 × '+h,'2 × 10'];\n  const names=['输入','Linear 1','ReLU · 参数0','Linear 2'];\n  const nodes=names.map((name,i)=>({x:mobile?75:50+i*(width-100)/3,y:mobile?28+i*44:47}));\n  for(let i=0;i<4;i++) {\n    const n=nodes[i];\n    if(i<3) board.line('edge-'+i,n.x,n.y,nodes[i+1].x,nodes[i+1].y,P.muted,1,0.35);\n    board.circle('node-'+i,n.x,n.y,5,P.blue);\n    board.text('name-'+i,names[i],mobile?96:n.x,mobile?n.y-6:n.y-21,{size:14,anchor:mobile?'start':'middle'});\n    board.text('shape-'+i,shapes[i],mobile?width-25:n.x,mobile?n.y+14:n.y+28,{size:15,anchor:mobile?'end':'middle',color:P.ink});\n  }\n  const f=progress*3, j=Math.min(2,Math.floor(f)), t=f-j;\n  board.circle('packet',nodes[j].x+(nodes[j+1].x-nodes[j].x)*t,nodes[j].y+(nodes[j+1].y-nodes[j].y)*t,6,P.orange);\n  const left=80,right=width-28,top=mobile?235:151,bottom=mobile?337:253;\n  const xx=v=>left+(right-left)*v/6000;\n  const counts=[21*h,10*h+10], yy=[top+12,top+56];\n  for(let i=0;i<2;i++) {\n    board.text('bar-label-'+i,'Linear '+(i+1),left-10,yy[i]+5,{size:13,anchor:'end'});\n    board.rect('bar-'+i,left,yy[i]-10,xx(counts[i])-left,19,i?P.orange:P.blue,{'opacity':0.72});\n    board.text('bar-count-'+i,''+counts[i],Math.min(right,xx(counts[i])+8),yy[i]-16,{size:14,anchor:xx(counts[i])+45>right?'end':'start'});\n  }\n  board.line('axis',left,bottom,right,bottom,P.muted,1);\n  for(let tick=0;tick<=6000;tick+=2000) {\n    board.line('tick-'+tick,xx(tick),bottom,xx(tick),bottom+4,P.muted,1);\n    board.text('tick-label-'+tick,''+tick,xx(tick),bottom+19,{size:12,anchor:'middle',color:P.muted});\n  }\n  board.text('units','参数个数',right,bottom+37,{size:13,anchor:'end',color:P.muted});\n  board.text('total','总参数 = 31h + 10 = '+(31*h+10),mobile?12:20,height-9,{size:15});\n  return {batch:2,h,shapes:[[2,20],[2,h],[2,h],[2,10]],hiddenParameters:counts[0],outputParameters:counts[1],reluParameters:0,totalParameters:31*h+10,packetSegment:f};\n}"
+    },
+    {
+      "id": "one-weight-two-calls",
+      "title": "调用两次，权重仍是一份",
+      "afterAnchor": "programming-034",
+      "endAnchor": "programming-035",
+      "height": 340,
+      "mobileHeight": 350,
+      "summary": "标量缩小例：x=1、偏置=0、固定乘数=2，只展示while之前的计算；w为手选权重。",
+      "stages": [
+        "第一次调用",
+        "固定运算",
+        "第二次调用"
+      ],
+      "params": [
+        {
+          "key": "w",
+          "label": "共享权重 w",
+          "min": -1.5,
+          "max": 1.5,
+          "step": 0.05,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n  const P=VisualBook.palette, w=params.w, x=[48,width/2,width-48], y=65;\n  const hidden=w, activation=Math.max(2*w+1,0), output=w*activation;\n  const format=n=>Math.abs(n)<0.00001?'0.000':n.toFixed(3);\n  board.text('shared','同一份 w = '+w.toFixed(2),width/2,17,{size:15,anchor:'middle'});\n  board.line('store',x[0],29,x[2],29,P.blue,1.4);\n  [0,2].forEach(i=>{\n    board.line('tie-'+i,x[i],29,x[i],44,P.blue,1.4);\n    board.mark('tie-head-'+i,'path',{d:'M '+(x[i]-3)+' 39 L '+x[i]+' 44 L '+(x[i]+3)+' 39',fill:'none',stroke:P.blue,'stroke-width':1.4});\n  });\n  const labels=['Linear ①','×2 +1, ReLU','Linear ②'],values=[hidden,activation,output];\n  for(let i=0;i<3;i++) {\n    board.text('op-'+i,labels[i],x[i],y,{size:width<500?12:15,anchor:'middle'});\n    board.text('value-'+i,format(values[i]),x[i],y+40,{size:15,anchor:'middle'});\n    board.circle('n-'+i,x[i],y+15,4,P.blue);\n    if(i<2)board.line('edge-'+i,x[i],y+15,x[i+1],y+15,P.faint,2);\n  }\n  const q=2*progress,i=Math.min(1,Math.floor(q)),t=q-i;\n  board.circle('packet',x[i]+t*(x[i+1]-x[i]),y+15,6,P.orange);\n  const frame=board.axes('response',{xDomain:[-1.5,1.5],yDomain:[-0.4,6.2],xLabel:'',yLabel:'',box:[49,164,width-28,height-44],grid:true});\n  const curve=Array.from({length:121},(_,i)=>{const u=-1.5+3*i/120;return [u,u*Math.max(2*u+1,0)];});\n  board.curve('response-line',frame,curve,{color:P.blue,width:2});\n  board.line('guide',frame.x(w),frame.y(0),frame.x(w),frame.y(output),P.orange,1,0.5);\n  board.circle('selected',frame.x(w),frame.y(output),5,P.orange);\n  board.text('equation','y = w · max(2w + 1, 0)',width/2,134,{size:15,anchor:'middle'});\n  board.text('ylabel','输出 y',49,155,{size:13});\n  board.text('xlabel','w',width-28,height-4,{size:13,anchor:'end'});\n  return {input:1,sharedWeight:w,fixedMultiplier:2,fixedOffset:1,bias:0,firstCall:hidden,reluOutput:activation,secondCall:output,uniqueWeightScalars:1,linearCalls:2,packetSegment:q};\n}"
+    },
+    {
+      "id": "halving-and-return",
+      "title": "折半是离散的，终值会跳变",
+      "afterAnchor": "programming-036",
+      "endAnchor": "programming-037",
+      "height": 320,
+      "mobileHeight": 460,
+      "summary": "循环入口取 X=s·(0.6, −0.4)；实心点是实际迭代，移动箭头仅作相邻迭代的阅读插值。",
+      "stages": [
+        "循环入口",
+        "逐次折半",
+        "返回求和"
+      ],
+      "params": [
+        {
+          "key": "s",
+          "label": "入口 L₁范数 s",
+          "min": 0,
+          "max": 8,
+          "step": 0.05,
+          "value": 3.2
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n  const P=VisualBook.palette,s=params.s,mobile=width<500;\n  const actual=[[0.6*s,-0.4*s]];let norm=s,k=0;\n  while(norm>1){norm/=2;k++;actual.push([actual[k-1][0]/2,actual[k-1][1]/2]);}\n  const p=progress*k,idx=Math.min(Math.max(0,k-1),Math.floor(p)),t=k?p-idx:0;\n  const current=k?[actual[idx][0]*(1-t)+actual[idx+1][0]*t,actual[idx][1]*(1-t)+actual[idx+1][1]*t]:actual[0];\n  const b1=mobile?[45,62,width-23,180]:[48,69,width/2-28,222];\n  const b2=mobile?[45,271,width-23,365]:[width/2+44,69,width-24,222];\n  board.text('title-1','逐次折半',mobile?12:20,22,{size:15});\n  board.text('title-2','终值随入口变化',mobile?12:width/2+15,mobile?235:22,{size:15});\n  const a=board.axes('vector-axis',{xDomain:[-1.2,5.2],yDomain:[-3.7,1.3],equalUnits:true,xLabel:'',yLabel:'',box:b1,grid:false});\n  board.text('x1-label','x₁',a.right,a.bottom+44,{size:13,anchor:'end'});\n  board.text('x2-label','x₂',a.left,a.top-12,{size:13});\n  board.curve('boundary',a,[[1,0],[0,1],[-1,0],[0,-1],[1,0]],{color:P.muted,width:1.2});\n  board.text('boundary-label','L₁ = 1',a.x(0.5),a.y(1)+2,{size:12,anchor:'start',color:P.muted});\n  board.curve('ray',a,[[0,0],actual[0]],{color:P.faint,width:2});\n  actual.forEach((v,i)=>board.circle('iteration-'+i,a.x(v[0]),a.y(v[1]),3,P.blue));\n  board.vector('current',a,[0,0],current,{color:P.orange});\n  board.circle('current-dot',a.x(current[0]),a.y(current[1]),4,P.orange);\n  const z=board.axes('return-axis',{xDomain:[0,8.3],yDomain:[0,0.24],xLabel:'',yLabel:'',box:b2,grid:false});\n  board.text('s-label','入口 s',z.right,z.bottom+44,{size:13,anchor:'end'});\n  board.text('sum-label','sum',z.left,z.top-12,{size:13});\n  board.text('open-key','空心不取',width-24,mobile?235:22,{size:12,anchor:'end',color:P.muted});\n  const limits=[0,1,2,4,8];\n  for(let j=0;j<4;j++) {\n    const lo=limits[j],hi=limits[j+1],div=Math.pow(2,j);\n    board.curve('piece-'+j,z,[[lo,0.2*lo/div],[hi,0.2*hi/div]],{color:P.blue,width:2});\n    board.circle('closed-'+j,z.x(hi),z.y(0.2),3,P.blue);\n    if(j>0)board.mark('open-'+j,'circle',{cx:z.x(lo),cy:z.y(0.2*lo/div),r:3,fill:P.paper,stroke:P.blue,'stroke-width':1.5});\n  }\n  const finalSum=actual[k][0]+actual[k][1];\n  board.circle('final',z.x(s),z.y(finalSum),5,P.orange);\n  board.text('count','实际折半 '+k+' 次',mobile?12:20,mobile?421:height-37,{size:15});\n  board.text('return','最终 L₁ = '+norm.toFixed(3)+'；sum = '+finalSum.toFixed(3),mobile?12:20,height-11,{size:15});\n  return {initialVector:actual[0],initialL1:s,iterations:k,actualIterates:actual,readingPosition:p,interpolatedVector:current,finalVector:actual[k],finalL1:norm,returnSum:finalSum,condition:'L1 > 1'};\n}"
+    }
+  ]
+}

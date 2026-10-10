@@ -85,6 +85,63 @@ def main():
             },
         ]
 
+    definitions += [
+        {
+            "name": "inspect_frame",
+            "description": "Return one real start/end PNG from the latest matching candidate preview. Review both widths for every figure before finalizing; it reuses rendered frames and does not spend a new preview.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "id": {"type": "string"},
+                    "width": {"type": "integer", "enum": [375, 1280]},
+                    "progress": {"type": "number", "enum": [0, 0.5, 1]},
+                },
+                "required": ["id", "width", "progress"],
+                "additionalProperties": False,
+            },
+        },
+        {
+            "name": "finalize_book",
+            "description": "Record unresolved visual/math/teaching issues after actually inspecting endpoints. Known issues stop export; this is not a quality score. Does not modify candidate source.",
+            "inputSchema": {
+                "type": "object",
+                "properties": {
+                    "issues": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "figureId": {"type": "string"},
+                                "condition": {"type": "string"},
+                                "description": {"type": "string"},
+                            },
+                            "required": ["figureId", "condition", "description"],
+                            "additionalProperties": False,
+                        },
+                    },
+                    "mathCheckNote": {"type": "string"},
+                    "limits": {"type": "string"},
+                },
+                "required": ["issues", "mathCheckNote", "limits"],
+                "additionalProperties": False,
+            },
+        },
+    ]
+
+    def latest_preview():
+        reports = sorted(
+            workspace.glob("preview-*/report.json"), key=lambda p: p.stat().st_mtime
+        )
+        if not reports:
+            raise ValueError("No candidate preview")
+        report = json.loads(reports[-1].read_text())
+        if (
+            hashlib.sha256(inside("book.html").read_bytes()).hexdigest()
+            != report["sha256"]
+        ):
+            raise ValueError("Candidate changed after preview; preview it again")
+        return reports[-1].parent, report
+
     def call(name, arguments):
         started = time.monotonic()
         image_metadata = []
@@ -100,6 +157,74 @@ def main():
             result = [
                 {k: d[k] for k in ["id", "title", "topic", "limits"]} for d in catalog
             ]
+        elif name == "inspect_frame":
+            directory, report = latest_preview()
+            ident = arguments.get("id")
+            width = arguments.get("width")
+            progress = arguments.get("progress")
+            plan = json.loads(inside("book.json").read_text())
+            if (
+                ident not in [f["id"] for f in plan["figures"]]
+                or width not in [375, 1280]
+                or progress not in [0, 0.5, 1]
+            ):
+                raise ValueError("Unknown figure or frame")
+            filename = directory / f"{width}-{ident}-{progress:g}.png"
+            result = {
+                "screenshots": [str(filename)],
+                "frame": arguments,
+                "findings": [],
+                "candidateSha256": report["sha256"],
+            }
+        elif name == "finalize_book":
+            directory, report = latest_preview()
+            issues = arguments.get("issues")
+            if not isinstance(issues, list) or any(
+                not isinstance(i, dict)
+                or set(i) != {"figureId", "condition", "description"}
+                or not all(isinstance(v, str) and v for v in i.values())
+                for i in issues
+            ):
+                raise ValueError("Describe every known unresolved issue")
+            if not all(
+                isinstance(arguments.get(k), str) for k in ["mathCheckNote", "limits"]
+            ):
+                raise ValueError("Missing final review notes")
+            plan = json.loads(inside("book.json").read_text())
+            seen = set()
+            evidence = inside("mcp-evidence.jsonl")
+            if evidence.exists():
+                for line in evidence.read_text().splitlines():
+                    item = json.loads(line)
+                    if (
+                        item["tool"] == "inspect_frame"
+                        and item.get("candidateSha256") == report["sha256"]
+                    ):
+                        a = item["arguments"]
+                        seen.add((a["id"], a["width"], a["progress"]))
+            missing = [
+                {"id": f["id"], "width": w, "progress": p}
+                for f in plan["figures"]
+                for w in [1280, 375]
+                for p in [0, 1]
+                if (f["id"], w, p) not in seen
+            ]
+            if missing:
+                raise ValueError(
+                    "Inspect actual endpoint PNGs first: " + json.dumps(missing)
+                )
+            result = {
+                **arguments,
+                "html_sha256": report["sha256"],
+                "plan_sha256": hashlib.sha256(
+                    inside("book.json").read_bytes()
+                ).hexdigest(),
+                "ready_for_export": not issues and not report["findings"],
+                "scope": "Known-issue review plus render gate; no independent artistic certification.",
+            }
+            inside("review.json").write_text(
+                json.dumps(result, ensure_ascii=False, indent=2) + "\n"
+            )
         elif name == "show_design":
             design = next((d for d in catalog if d["id"] == arguments.get("id")), None)
             if design is None:
@@ -168,11 +293,16 @@ def main():
                 raise ValueError(process.stderr[-6000:] or process.stdout[-6000:])
             result = json.loads(process.stdout.splitlines()[-1])
         content = [{"type": "text", "text": json.dumps(result, ensure_ascii=False)}]
-        if name in ["preview_book", "show_design"]:
+        if name in ["preview_book", "show_design", "inspect_frame"]:
             screenshots = result["screenshots"]
-            selected = [p for p in screenshots if Path(p).name.endswith("-0.5.png")]
+            selected = [
+                p
+                for p in screenshots
+                if Path(p).name.endswith("-0.5.png")
+                or Path(p).name.endswith("-context.png")
+            ]
             if not selected:
-                selected = screenshots[:1]
+                selected = screenshots
             for path in selected:
                 file = Path(path).resolve()
                 if not file.is_relative_to(workspace):
@@ -201,6 +331,9 @@ def main():
             "images": image_metadata,
             "findings": result.get("findings", []) if isinstance(result, dict) else [],
             "arm": "direct" if args.direct else "harness",
+            "candidateSha256": (
+                result.get("candidateSha256") if isinstance(result, dict) else None
+            ),
         }
         with (workspace / "mcp-evidence.jsonl").open("a") as stream:
             stream.write(json.dumps(entry, ensure_ascii=False) + "\n")

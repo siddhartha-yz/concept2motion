@@ -1,0 +1,54 @@
+{
+  "figures": [
+    {
+      "id": "sum-and-stack",
+      "title": "输入求和，输出堆叠",
+      "afterAnchor": "chapter-016",
+      "endAnchor": "chapter-022",
+      "height": 360,
+      "mobileHeight": 440,
+      "summary": "使用原例左上窗口；核组为 K、K+δ、K+2δ，圆点只演示数据流。",
+      "stages": [
+        "共享窗口",
+        "通道贡献",
+        "求和并堆叠"
+      ],
+      "params": [
+        {
+          "key": "delta",
+          "label": "核增量 δ",
+          "min": 0,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n  const P=VisualBook.palette, narrow=width<520, d=params.delta;\n  const X=[[[0,1],[3,4]],[[1,2],[4,5]]], K=[[[0,1],[2,3]],[[1,2],[3,4]]];\n  const partial=[], terms=[], Y=[];\n  for(let m=0;m<3;m++) {\n    terms[m]=X.map((a,c)=>a.flat().map((v,j)=>v*(K[c].flat()[j]+m*d)));\n    partial[m]=terms[m].map(t=>t.reduce((a,b)=>a+b,0));\n    Y[m]=partial[m][0]+partial[m][1];\n  }\n  const cell=narrow?29:32, inputY=42;\n  const inputXs=narrow?[width*.20-cell,width*.65-cell]:[24,132];\n  X.forEach((a,c)=>board.matrix('input-'+c,a,{x:inputXs[c],y:inputY,cell,label:'X'+c+' · 2×2',color:c?P.orange:P.blue,precision:0}));\n  const top=narrow?176:85, dy=narrow?65:66;\n  const labelX=narrow?13:width*.37, c0=narrow?width*.34:width*.51, c1=narrow?width*.58:width*.69, out=narrow?width*.86:width*.90;\n  const fmt=v=>Number(v.toFixed(2)).toString();\n  board.text('axis0','输入0',c0,top-24,{anchor:'middle',color:P.blue,size:13});\n  board.text('axis1','输入1',c1,top-24,{anchor:'middle',color:P.orange,size:13});\n  board.text('axisout','输出 m',out,top-24,{anchor:'middle',size:13});\n  for(let m=0;m<3;m++) {\n    const y=top+m*dy;\n    board.text('kernel-'+m,m===0?'K':'K + '+(m===1?'δ':'2δ'),labelX,y+5,{size:14});\n    board.line('sumline-'+m,c0-15,y+21,out,y+21,P.faint,1);\n    board.text('a-'+m,fmt(partial[m][0]),c0,y+5,{anchor:'middle',color:P.blue,size:19});\n    board.text('plus-'+m,'+', (c0+c1)/2,y+5,{anchor:'middle',color:P.muted,size:14});\n    board.text('b-'+m,fmt(partial[m][1]),c1,y+5,{anchor:'middle',color:P.orange,size:19});\n    board.text('equal-'+m,'=',(c1+out)/2-4,y+5,{anchor:'middle',color:P.muted,size:14});\n    board.rect('output-box-'+m,out-24,y-17,48,36,P.paper,{stroke:P.ink,'stroke-width':1,'rx':3});\n    board.text('value-'+m,fmt(Y[m]),out,y+6,{anchor:'middle',size:19});\n    for(let c=0;c<2;c++) {\n      const start=[inputXs[c]+cell,inputY+2*cell+8];\n      const mid=[c?c1:c0,y+21], end=[out,y+21];\n      const t=progress<.55?progress/.55:(progress-.55)/.45;\n      const a=progress<.55?start:mid,b=progress<.55?mid:end;\n      const q=a.map((v,j)=>v+(b[j]-v)*t);\n      board.path('route-'+m+'-'+c,[start,mid,end],{color:P.faint,width:1,opacity:.7});\n      board.circle('signal-'+m+'-'+c,q[0],q[1],3.5,c?P.orange:P.blue);\n    }\n  }\n  board.line('stack-axis',out+29,top-17,out+29,top+2*dy+19,P.ink,1);\n  board.text('stack-shape','Y[:,0,0] · 3个输出',width/2,narrow?395:313,{anchor:'middle',size:14});\n  board.text('delta-effect','δ = '+fmt(d)+'   每组都读取两个输入通道',width/2,narrow?421:340,{anchor:'middle',color:P.muted,size:13});\n  return {selectedInputPatch:X,kernelBase:K,delta:d,terms,partial,selectedOutput:Y,fullInputShape:[2,3,3],patchShape:[2,2,2],kernelShape:[3,2,2,2],selectedPixel:[0,0],readingProgress:progress};\n}"
+    },
+    {
+      "id": "pointwise-columns",
+      "title": "一个像素，就是一列",
+      "afterAnchor": "chapter-029",
+      "endAnchor": "chapter-033",
+      "height": 370,
+      "mobileHeight": 510,
+      "summary": "手选 3→2 通道、2×2 输入，无偏置；蓝框跟踪像素 (1,0)。",
+      "stages": [
+        "取同位通道",
+        "线性组合",
+        "还原位置"
+      ],
+      "params": [
+        {
+          "key": "beta",
+          "label": "权重 K[0,1] = β",
+          "min": 0,
+          "max": 2,
+          "step": 0.25,
+          "value": 1
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n  const P=VisualBook.palette, mobile=width<520, beta=params.beta;\n  const K=[[1,beta,-1],[0,1,1]], X=[[1,2,3,4],[0,1,2,3],[2,0,1,2]], Y=VisualBook.matmul(K,X);\n  const cell=mobile?29:32;\n  const kx=mobile?12:24, ky=40, xx=mobile?width-4*cell-12:width*.32, xy=40;\n  const yx=mobile?width/2-2*cell:width*.70, yy=mobile?250:40;\n  board.matrix('kernel',K,{x:kx,y:ky,cell,label:'K · 2×3',activeRow:0,color:P.blue,precision:2});\n  board.matrix('flat-input',X,{x:xx,y:xy,cell,label:'X_flat · 3×4',activeCol:2,color:P.orange,precision:0});\n  board.matrix('flat-output',Y,{x:yx,y:yy,cell,label:'Y_flat · 2×4',precision:2});\n  board.rect('selected-output',yx+2*cell,yy,cell-2,cell-2,'none',{stroke:P.blue,'stroke-width':2,'rx':2});\n  const cols=['00','01','10','11'];\n  cols.forEach((s,i)=>{\n    board.text('x-pos-'+i,s,xx+(i+.5)*cell,xy+3*cell+23,{anchor:'middle',size:12,color:P.muted});\n    board.text('y-pos-'+i,s,yx+(i+.5)*cell,yy+2*cell+23,{anchor:'middle',size:12,color:P.muted});\n  });\n  board.text('position-axis','列 → 像素 (h,w)',xx+2*cell,mobile?170:178,{anchor:'middle',size:13,color:P.muted});\n  const sy=mobile?387:253, s0=mobile?width*.25-cell:width*.32, s1=mobile?width*.75-cell:width*.70;\n  const maps=Y.map(r=>[r.slice(0,2),r.slice(2,4)]);\n  maps.forEach((m,c)=>board.matrix('spatial-'+c,m,{x:c?s1:s0,y:sy,cell,label:'Y'+c+' · 2×2',color:c?P.orange:P.blue,precision:2}));\n  board.rect('spatial-selected',s0,sy+cell,cell-2,cell-2,'none',{stroke:P.blue,'stroke-width':2,'rx':2});\n  const eqY=mobile?201:207;\n  const termX=[width/2-110,width/2-30,width/2+50];\n  ['3 × 1','2 × '+Number(beta.toFixed(2)),'− 1'].forEach((v,i)=>board.text('term-text-'+i,v,termX[i],eqY,{anchor:'middle',size:16,color:i===1?P.orange:P.ink}));\n  board.text('term-plus','+',width/2-70,eqY,{anchor:'middle',size:15,color:P.muted});\n  board.text('term-sum','= '+Number(Y[0][2].toFixed(2)),width/2+113,eqY,{anchor:'middle',size:16,color:P.blue});\n  board.text('restore','按原列序还原',width/2,mobile?351:236,{anchor:'middle',size:13,color:P.muted});\n  const terms=[3,2*beta,-1];\n  for(let i=0;i<3;i++) {\n    const start=[xx+2.5*cell,xy+(i+.5)*cell];\n    const mid=[termX[i],eqY+11];\n    const sum=[yx+2.5*cell,yy+cell*.5];\n    const dest=[s0+cell*.5,sy+1.5*cell];\n    let a,b,t;\n    if(progress<.4){a=start;b=mid;t=progress/.4;}\n    else if(progress<.72){a=mid;b=sum;t=(progress-.4)/.32;}\n    else{a=sum;b=dest;t=(progress-.72)/.28;}\n    const q=a.map((v,j)=>v+(b[j]-v)*t);\n    board.circle('term-signal-'+i,q[0],q[1],3.5,i===1?P.orange:P.blue);\n  }\n  board.text('shared','同一 β 跨位置复用 · 不混合相邻像素',width/2,mobile?488:350,{anchor:'middle',size:12,color:P.muted});\n  return {kernel:K,flattenedInput:X,flattenedOutput:Y,spatialOutput:maps,terms,selectedPixel:[1,0],selectedOutput:Y[0][2],inputShape:[3,2,2],outputShape:[2,2,2],beta,readingProgress:progress};\n}"
+    }
+  ]
+}

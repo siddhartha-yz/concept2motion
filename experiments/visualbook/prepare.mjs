@@ -31,6 +31,7 @@ const { unified } = await get("unified"),
   { default: gfm } = await get("remark-gfm"),
   { default: math } = await get("remark-math");
 const { toHast } = await get("mdast-util-to-hast"),
+  { VFile } = await get("vfile"),
   { toHtml } = await get("hast-util-to-html"),
   { default: katex } = await get("rehype-katex");
 const parser = unified().use(parse).use(gfm).use(math);
@@ -281,7 +282,9 @@ export function prepare() {
           report.figureCaptions = (report.figureCaptions ?? 0) + 1;
         }
       }
-      unified().use(katex, { trust: false, strict: "ignore" }).runSync(hast);
+      const diagnostics = new VFile();
+      unified().use(katex, { trust: false, strict: "ignore" }).runSync(hast, diagnostics);
+      if (diagnostics.messages.length) throw Error("KaTeX diagnostic in " + sample.selected + ": " + diagnostics.messages.map(m => m.cause?.message ?? m.reason).join("; "));
       const coverage = inspectMath(hast, countMath(renderedNode));
       stats.mathExpected += coverage.expected;
       stats.mathRendered += coverage.rendered;

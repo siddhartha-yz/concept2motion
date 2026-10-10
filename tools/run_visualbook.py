@@ -37,6 +37,9 @@ def inspect(job):
         reasons.append("shared-tools-were-modified")
     if not result.get("returned_candidate_png_count", result.get("returned_png_count")):
         reasons.append("no-image-feedback")
+    plan = job / "book.json"
+    if not plan.exists() or digest(plan) != result.get("plan_sha256"):
+        reasons.append("plan-was-modified-after-authoring")
     latest = None
     if not reports:
         reasons.append("no-preview")
@@ -46,6 +49,19 @@ def inspect(job):
             reasons.append("preview-is-stale")
         if latest["findings"]:
             reasons.append("unresolved-render-findings")
+    review_file = job / "review.json"
+    if not review_file.exists():
+        reasons.append("no-final-issue-review")
+    else:
+        review = json.loads(review_file.read_text())
+        if review.get("issues") or not review.get("ready_for_export"):
+            reasons.append("known-unresolved-issues")
+        if (
+            not html.exists()
+            or review.get("html_sha256") != digest(html)
+            or review.get("plan_sha256") != result.get("plan_sha256")
+        ):
+            reasons.append("final-review-is-stale")
     return {
         "ready_for_export": not reasons,
         "reasons": reasons,
@@ -76,6 +92,11 @@ def main():
         default="",
         help="Original textbook URL for ordinary Markdown input.",
     )
+    parser.add_argument(
+        "--source-name",
+        default="输入教材",
+        help="Attribution name for ordinary Markdown.",
+    )
     args = parser.parse_args()
     output = args.output.resolve()
     work = ROOT / "work"
@@ -86,7 +107,11 @@ def main():
     if output.exists() and not args.resume:
         raise SystemExit("Output exists; use a fresh directory or --resume")
     output.mkdir(parents=True, exist_ok=True)
-    identity = {"input_sha256": digest(args.manifest), "source_url": args.source_url}
+    identity = {
+        "input_sha256": digest(args.manifest),
+        "source_url": args.source_url,
+        "source_name": args.source_name,
+    }
     identity_path = output / "input-identity.json"
     if identity_path.exists() and json.loads(identity_path.read_text()) != identity:
         raise SystemExit("Resume input changed; use a fresh run")
@@ -95,7 +120,12 @@ def main():
         source = output / "imported.source.json"
         if not source.exists():
             options = json.dumps(
-                {"id": "chapter", "sourceUrl": args.source_url}, ensure_ascii=False
+                {
+                    "id": "chapter",
+                    "sourceUrl": args.source_url,
+                    "sourceName": args.source_name,
+                },
+                ensure_ascii=False,
             )
             p = subprocess.run(
                 [
@@ -214,6 +244,14 @@ def main():
         },
     )
     if (output / "book/index.html").exists() and args.resume:
+        built = json.loads((output / "book/build-record.json").read_text())
+        if built.get("indexSha256") != digest(output / "book/index.html") or any(
+            r.get("finalHtmlSha256") != digest(output / "book" / r["file"])
+            for r in built["records"]
+        ):
+            raise SystemExit(
+                "Assembled book identity changed or predates export hashes; rebuild into a fresh directory"
+            )
         print("Existing book: " + str(output / "book/index.html"))
         return
     p = subprocess.run(

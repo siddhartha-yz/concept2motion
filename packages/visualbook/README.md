@@ -46,7 +46,7 @@ python3 tools/run_visualbook.py work/new-sources/programming.source.json work/pr
 python3 tools/run_visualbook.py chapters.json work/my-book --max-chapters 3
 ```
 
-最后预览必须匹配最终HTML哈希，公式完整，源文件和工具未被改动，图片确实返回给模型，渲染没有待处理问题，否则停止导出并保存 export-gate.json。停在诊断不等于教材完成；通过这些检查也不证明美观、严谨、易学。
+最后预览与最终问题记录必须匹配最终HTML和绘图计划哈希，公式完整，源文件和工具未被改动，图片确实返回给模型、起点终点已通过工具查看、最终问题记录没有已知遗留问题，渲染没有待处理问题，否则停止导出并保存 export-gate.json。停在诊断不等于教材完成；通过这些检查也不证明美观、严谨、易学。
 
 成功后 book/index.html、各章HTML和许可证可以离线阅读。禁用脚本时显示真实渲染的初始图；它不能替代全部交互状态。完整正文保留，图按阅读位置或参数连续变化，不自动播放。默认最多3章，显式调整 --max-chapters 才扩大调用范围；目前不支持直接输入PDF/EPUB。
 
@@ -62,3 +62,5 @@ node tools/build_visualbook_catalog.mjs work/design-gallery
 ```
 
 [接口和设计限制](API.md)给出完整方法。[本轮报告](../../evaluation/2026-10-10/harness-v2/REPORT.md)区分编译、实际渲染、模型生成、维护者复核和未做的用户审评。
+
+迁移说明：v03–v05旧会话没有新的review.json。保留它们作证据或用单独组装工具复查，不会在--resume中默默赋予新的最终检查资格。当前v06协议/故障控制通过，新增最终检查尚待下一轮真实模型生成检验。

@@ -1,5 +1,7 @@
 // Assemble already-generated chapters. No model call, no authored-source rewrite.
 import fs from "node:fs";
+import crypto from "node:crypto";
+const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
 import path from "node:path";
 import { build, preview, staticExport } from "./visualbook.mjs";
 const esc = (s) =>
@@ -26,6 +28,17 @@ for (const c of manifest.chapters) {
   fs.writeFileSync(file, build(source, plan, { direct: c.arm === "direct" }));
   const previewDir = path.join(out, "evidence", c.id);
   const report = await preview(file, previewDir);
+  if (report.findings.length) {
+    fs.writeFileSync(
+      path.join(out, "build-failure.json"),
+      JSON.stringify({ id: c.id, findings: report.findings }, null, 2),
+    );
+    throw Error(
+      "Assembly found unresolved render issues in " +
+        c.id +
+        "; diagnostics retained",
+    );
+  }
   staticExport(file, previewDir, file);
   records.push({
     id: c.id,
@@ -34,6 +47,9 @@ for (const c of manifest.chapters) {
     figures: plan.figures.length,
     sourceSha256: source.sourceSha256,
     arm: c.arm,
+    finalHtmlSha256: sha(fs.readFileSync(file)),
+    sourceJsonSha256: sha(fs.readFileSync(c.source)),
+    planSha256: sha(fs.readFileSync(c.plan)),
     renderFindings: report.findings,
     preview: previewDir,
   });
@@ -50,6 +66,7 @@ fs.writeFileSync(
     {
       records,
       modelCalls: 0,
+      indexSha256: sha(Buffer.from(html)),
       quality:
         "rendered chapters; artistic acceptance requires separate review",
     },

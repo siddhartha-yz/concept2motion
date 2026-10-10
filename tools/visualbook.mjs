@@ -277,6 +277,22 @@ export async function preview(file, out) {
             fs.mkdirSync(dir, { recursive: true });
             fs.writeFileSync(path.join(dir, `${width}-${id}.svg`), state.svg);
           }
+          if (progress === 0.5 && id === instances[0]) {
+            await page
+              .locator("#figure-" + id)
+              .evaluate((n) =>
+                window.scrollTo(
+                  0,
+                  Math.max(
+                    0,
+                    n.getBoundingClientRect().top + window.scrollY - 150,
+                  ),
+                ),
+              );
+            const contextFile = path.join(out, `${width}-${id}-context.png`);
+            await page.screenshot({ path: contextFile });
+            report.screenshots.push(path.resolve(contextFile));
+          }
           if ([0, 0.5, 1].includes(progress)) {
             const filename = path.join(out, `${width}-${id}-${progress}.png`);
             await page.locator("#figure-" + id).screenshot({ path: filename });

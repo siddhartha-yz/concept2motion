@@ -1,0 +1,36 @@
+{
+  "original": {
+    "seed": 17325292863923410000,
+    "pool": [
+      "chapter_convolutional-neural-networks/conv-layer.md",
+      "chapter_convolutional-neural-networks/padding-and-strides.md",
+      "chapter_convolutional-neural-networks/pooling.md",
+      "chapter_convolutional-neural-networks/channels.md",
+      "chapter_convolutional-neural-networks/lenet.md"
+    ],
+    "selected": "chapter_convolutional-neural-networks/channels.md",
+    "source_sha256": "3073268e0fcd19e24c064d9b27cca8bc5be0a111df46a1d237a13fe736f4685f",
+    "upstream_commit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+    "scope": "Additional ordinary Markdown end-to-end transfer; mechanically adapt D2L markup and local asset links, no new paired comparison. Freeze before running the model."
+  },
+  "adaptation": {
+    "excludedTabBlocks": 3,
+    "excludedCodeBlocks": 4,
+    "keptCodeBlocks": 9,
+    "removedDirectives": 3
+  },
+  "assets": [
+    {
+      "source": "img/conv-multi-in.svg",
+      "file": "assets/conv-multi-in.svg",
+      "sha256": "2e5ae9148766ff486b0ea90ae64c7542241a7d5904b0c8e65aab40c0b2616aa9"
+    },
+    {
+      "source": "img/conv-1x1.svg",
+      "file": "assets/conv-1x1.svg",
+      "sha256": "e36cd08c12451d354cfac99750872be97dd4ffe58e62dbf3e107f516af9ccdd2"
+    }
+  ],
+  "adapted_sha256": "7780653818ba3401d27d764618c767398fc30f17d79324b2257a917017d39311",
+  "changes": "D2L tab/math delimiters/directives via existing adapter; local image link rewrite only. No model or maintainer rewrote the prose."
+}

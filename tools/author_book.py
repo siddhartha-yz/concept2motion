@@ -133,7 +133,7 @@ def main():
             )
         prompt += "\n" + interface
         if args.mcp:
-            prompt += "\n本轮有本地 visualbook MCP 工具。可以先用list_designs和show_design查看适合章节的可复用设计与真实图片。必须用 build_book 构建，再用 preview_book 预览；它直接返回真实桌面/手机PNG图片内容，不能仅凭文件路径或数值报告声称看过画面。观察图片后自行修订。CLI命令只用于读取原文和写book.json，不用shell替代图片预览。最多3次预览，不要更改工具源码。\n"
+            prompt += "\n本轮有本地 visualbook MCP 工具。可以先用list_designs和show_design查看适合章节的可复用设计与真实图片。必须用 build_book 构建，再用 preview_book 预览；它直接返回真实桌面/手机PNG图片内容，不能仅凭文件路径或数值报告声称看过画面。观察图片后自行修订。CLI命令只用于读取原文和写book.json，不用shell替代图片预览。最多3次预览，不要更改工具源码。最后必须用inspect_frame检查每幅图在1280和375下的起点/终点，并用finalize_book记录数学核对、已知未解决问题与限制。不要因为数值报告零发现就隐瞒遮挡、错误解释或其它问题；有问题就记录，工具会停止导出。\n"
         (job / "prompt.md").write_text(prompt)
         before = {str(f.relative_to(ROOT)): sha(f) for f in libfiles}
         write(
@@ -245,7 +245,9 @@ def main():
             "preview_count": len(list(job.glob("preview-*/report.json"))),
             "returned_png_count": sum(len(c["images"]) for c in image_calls),
             "returned_candidate_png_count": sum(
-                len(c["images"]) for c in image_calls if c["tool"] == "preview_book"
+                len(c["images"])
+                for c in image_calls
+                if c["tool"] in ["preview_book", "inspect_frame"]
             ),
             "mcp_enabled": args.mcp,
             "auth": "official existing ChatGPT login",

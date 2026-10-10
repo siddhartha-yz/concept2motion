@@ -76,6 +76,9 @@
           node.remove();
           this.nodes.delete(id);
         }
+      // Keep readable labels above moving geometry, without replacing nodes.
+      for (const node of this.nodes.values())
+        if (node.tagName === "text") this.svg.append(node);
     }
     line(id, x1, y1, x2, y2, color = palette.ink, width = 2, opacity = 1) {
       return this.mark(id, "line", {
@@ -128,6 +131,9 @@
           "font-weight": weight,
           opacity,
           "font-family": "system-ui, sans-serif",
+          "paint-order": "stroke fill",
+          stroke: palette.paper,
+          "stroke-width": 2,
         },
         text,
       );
@@ -451,15 +457,26 @@
             x2 = vertical ? next.x + next.w / 2 : next.x,
             y2 = vertical ? next.y : next.y + next.h / 2;
           this.line(`${id}-link-${i}`, x1, y1, x2, y2, palette.faint, 2);
-          if (active >= i + 1 && active <= i + 2)
-            this.circle(
-              `${id}-flow-${i}`,
-              mix(x1, x2, clamp(active - i - 1, 0, 1)),
-              mix(y1, y2, clamp(active - i - 1, 0, 1)),
-              3.5,
-              palette.orange,
-            );
         }
+      }
+      if (n) {
+        const at = clamp(active - 1, 0, n - 1),
+          first = Math.floor(at),
+          next = Math.min(n - 1, first + 1),
+          phase = at - first;
+        const point = (b) =>
+          vertical
+            ? [b.x + b.w - 12, b.y + b.h / 2]
+            : [b.x + b.w / 2, b.y + b.h - 12];
+        const from = point(boxes[first]),
+          to = point(boxes[next]);
+        this.circle(
+          `${id}-signal`,
+          mix(from[0], to[0], phase),
+          mix(from[1], to[1], phase),
+          4,
+          palette.orange,
+        );
       }
       return boxes;
     }
@@ -716,12 +733,26 @@
       };
     }
   }
+  function vectorShape(values) {
+    return Array.isArray(values) && values.every(Number.isFinite);
+  }
+  function matrixShape(values) {
+    return (
+      Array.isArray(values) &&
+      values.length &&
+      Array.isArray(values[0]) &&
+      values[0].length &&
+      values.every((row) => vectorShape(row) && row.length === values[0].length)
+    );
+  }
   function dot(a, b) {
+    if (!vectorShape(a) || !vectorShape(b))
+      throw Error("Finite vectors required");
     if (a.length !== b.length) throw Error("Vector shapes differ");
     return a.reduce((s, v, i) => s + v * b[i], 0);
   }
   function matmul(a, b) {
-    if (!a.length || !b.length || a[0].length !== b.length)
+    if (!matrixShape(a) || !matrixShape(b) || a[0].length !== b.length)
       throw Error("Matrix shapes differ");
     return a.map((row) =>
       b[0].map((_, j) =>
@@ -738,6 +769,29 @@
     start,
     { eta = 0.1, rho = 0.9, epsilon = 1e-8, steps = 30 } = {},
   ) {
+    if (!["sgd", "rmsprop", "adagrad", "momentum"].includes(kind))
+      throw Error("Unknown optimizer " + kind);
+    if (
+      !vectorShape(start) ||
+      !start.length ||
+      !Number.isFinite(eta) ||
+      eta < 0 ||
+      !Number.isFinite(epsilon) ||
+      epsilon <= 0 ||
+      !Number.isInteger(steps) ||
+      steps < 0 ||
+      steps > 1000 ||
+      !Number.isFinite(rho) ||
+      rho < 0 ||
+      rho >= 1
+    )
+      throw Error("Invalid optimizer conditions");
+    const evaluate = (theta) => {
+      const g = gradient([...theta]);
+      if (!vectorShape(g) || g.length !== theta.length)
+        throw Error("Finite gradient with matching shape required");
+      return g;
+    };
     let theta = [...start],
       square = theta.map(() => 0),
       velocity = theta.map(() => 0);
@@ -745,12 +799,12 @@
       {
         theta: [...theta],
         square: [...square],
-        gradient: gradient(theta),
+        gradient: evaluate(theta),
         step: 0,
       },
     ];
     for (let t = 1; t <= steps; t++) {
-      const g = gradient(theta);
+      const g = evaluate(theta);
       if (g.length !== theta.length) throw Error("Gradient shape differs");
       theta = theta.map((v, i) => {
         if (kind === "rmsprop") {

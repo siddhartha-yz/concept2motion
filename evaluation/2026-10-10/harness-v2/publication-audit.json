@@ -1,0 +1,208 @@
+{
+  "scanner": "Gitleaks 8.30.1",
+  "scope": {
+    "intended_files": 2568,
+    "history": "main only, pre-final 86 commits; final commit rescan follows",
+    "public_snapshot": {
+      "nonexpired_artifacts": 17,
+      "runs_with_downloaded_logs": 15,
+      "zip_archives": 32,
+      "release_assets": 0,
+      "archive_depth": 3,
+      "surfaces": {
+        "issues": {
+          "status": 0,
+          "items": 0
+        },
+        "issue-comments": {
+          "status": 0,
+          "items": 0
+        },
+        "review-comments": {
+          "status": 0,
+          "items": 0
+        },
+        "commit-comments": {
+          "status": 0,
+          "items": 0
+        },
+        "releases": {
+          "status": 0,
+          "items": 0
+        },
+        "tags": {
+          "status": 0,
+          "items": 0
+        },
+        "branches": {
+          "status": 0,
+          "items": 1
+        },
+        "deployments": {
+          "status": 0,
+          "items": 0
+        },
+        "artifacts": {
+          "status": 0,
+          "items": 17
+        },
+        "runs": {
+          "status": 0,
+          "items": 15
+        },
+        "pages": {
+          "status": 1,
+          "items": 0
+        }
+      }
+    }
+  },
+  "default_pattern_findings": {
+    "files": 12,
+    "history": 8
+  },
+  "classified_findings": [
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/optimization-harness-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/geometry-direct-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/geometry-harness-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/optimization-direct-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/markdown-pipeline/invocation.json",
+      "line": 13,
+      "verified_public_source_hash": "1b480c00db9eedd0841dccb531f998e0ee236072782822a199d3d7a45748f066",
+      "proof": "exact API segment from markdown-pipeline/sessions/chapter"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/programming-pipeline/invocation.json",
+      "line": 13,
+      "verified_public_source_hash": "e31bf8b00a1cfc640b86fb4d82d5d94ab2cc1e3590df81070fa0b4b4ec30612b",
+      "proof": "exact API segment from programming-pipeline/sessions/programming"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-01.json",
+      "line": 8,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-03.json",
+      "line": 9,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-04.json",
+      "line": 10,
+      "verified_public_source_hash": "e31bf8b00a1cfc640b86fb4d82d5d94ab2cc1e3590df81070fa0b4b4ec30612b",
+      "proof": "exact API segment from programming-pipeline/sessions/programming"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-05.json",
+      "line": 9,
+      "verified_public_source_hash": "1b480c00db9eedd0841dccb531f998e0ee236072782822a199d3d7a45748f066",
+      "proof": "exact API segment from markdown-pipeline/sessions/chapter"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-06.json",
+      "line": 12,
+      "verified_public_source_hash": "7077b88a120848e58fed330c375fd926c14f3c21de87ba7b9b6bbd3e9d29403b",
+      "proof": "current API.md"
+    },
+    {
+      "scan": "files",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-02.json",
+      "line": 8,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/optimization-direct-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/geometry-harness-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/geometry-direct-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/candidates/optimization-harness-paired/invocation.json",
+      "line": 11,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-03.json",
+      "line": 9,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-01.json",
+      "line": 8,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-04.json",
+      "line": 10,
+      "verified_public_source_hash": "e31bf8b00a1cfc640b86fb4d82d5d94ab2cc1e3590df81070fa0b4b4ec30612b",
+      "proof": "exact API segment from programming-pipeline/sessions/programming"
+    },
+    {
+      "scan": "history",
+      "file": "evaluation/2026-10-10/harness-v2/tool-version-02.json",
+      "line": 8,
+      "verified_public_source_hash": "33feae3433ccdfafefe3da7a9443c1d636e927a83c59307d8bf5cfc9df18f980",
+      "proof": "git blob ad1eb7e61"
+    }
+  ],
+  "exception": "Only four exact SHA256 values, recomputed from public source blobs or exact frozen API prompt segments. No broad file/rule suppression. Original reports retained in ignored work.",
+  "limits": "Pattern audit and accessible snapshot only; expired/deleted archives, internal checkpoint refs and inaccessible external surfaces are outside scope."
+}
