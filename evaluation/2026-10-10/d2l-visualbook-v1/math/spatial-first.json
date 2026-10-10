@@ -1,0 +1,66 @@
+{
+  "section": "spatial",
+  "attempt": "first",
+  "scope": "Independent numeric recomputation for reviewed frozen examples; not trained weights, runtime measurements or artistic acceptance",
+  "checks": [
+    {
+      "figure": "pooling-local-shift",
+      "state": "local",
+      "params": {
+        "shift": 1
+      },
+      "pass": true,
+      "assertions": 3
+    },
+    {
+      "figure": "pooling-local-shift",
+      "state": "local",
+      "params": {
+        "shift": 0
+      },
+      "pass": true,
+      "assertions": 3
+    },
+    {
+      "figure": "pooling-local-shift",
+      "state": "local",
+      "params": {
+        "shift": 1
+      },
+      "pass": true,
+      "assertions": 3
+    },
+    {
+      "figure": "pooling-local-shift",
+      "state": "local",
+      "params": {
+        "shift": 2
+      },
+      "pass": true,
+      "assertions": 3
+    },
+    {
+      "figure": "pooling-padding-stride",
+      "state": "default",
+      "params": {},
+      "pass": true,
+      "assertions": 3
+    },
+    {
+      "figure": "pooling-padding-stride",
+      "state": "padded",
+      "params": {},
+      "pass": true,
+      "assertions": 3
+    },
+    {
+      "figure": "pooling-padding-stride",
+      "state": "rectangular",
+      "params": {},
+      "pass": true,
+      "assertions": 3
+    }
+  ],
+  "passed": 7,
+  "total": 7
+}

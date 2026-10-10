@@ -1,0 +1,59 @@
+{
+  "figures": [
+    {
+      "id": "pooling-local-shift",
+      "title": "局部稳定与整体变化",
+      "purpose": "补充平移敏感性段落：同时显示一个固定汇聚窗口的输出和完整输出，区分局部响应保持与整个张量保持。",
+      "alt": "两个手选的二维响应图，仅将竖直响应向右移动。蓝框标出相同的二维窗口，橙色标出对应输出。窗口内移动可以保持该输出，但其他输出仍可能改变。",
+      "afterAnchor": "spatial-013",
+      "states": [
+        {
+          "key": "local",
+          "label": "固定窗口",
+          "anchor": "spatial-013"
+        }
+      ],
+      "controls": [
+        {
+          "key": "shift",
+          "label": "向右移动的格数",
+          "min": 0,
+          "max": 2,
+          "step": 1,
+          "value": 1
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  const w = Math.max(320, Math.min(760, Number.isFinite(width) ? width : 560));\n  const raw = params && Number.isFinite(params.shift) ? params.shift : 1;\n  const shift = Math.max(0, Math.min(2, Math.round(raw)));\n  const narrow = w < 560;\n  const h = 242;\n  const cell = narrow ? 26 : 34;\n  const ink = '#292824', muted = '#77736b', blue = '#356d9b', orange = '#b96a27';\n  const source = col => Array.from({length:2}, () => Array.from({length:5}, (_,j) => j === col ? 1 : 0));\n  const pool = a => Array.from({length:4}, (_,j) => Math.max(a[0][j],a[0][j+1],a[1][j],a[1][j+1]));\n  const inputs = [source(1),source(1+shift)];\n  const outputs = inputs.map(pool);\n  const changes = outputs[0].reduce((n,v,j) => n + (v !== outputs[1][j] ? 1 : 0), 0);\n  let parts = [];\n  const text = (x,y,s,size=14,anchor='middle',color=ink) => parts.push('<text x=\"'+x+'\" y=\"'+y+'\" font-size=\"'+size+'\" text-anchor=\"'+anchor+'\" fill=\"'+color+'\">'+s+'</text>');\n  const rect = (x,y,rw,rh,fill,stroke,sw=1) => parts.push('<rect x=\"'+x+'\" y=\"'+y+'\" width=\"'+rw+'\" height=\"'+rh+'\" fill=\"'+fill+'\" stroke=\"'+stroke+'\" stroke-width=\"'+sw+'\"/>');\n  const arrow = (x1,y1,x2,y2) => {\n    parts.push('<path d=\"M '+x1+' '+y1+' L '+x2+' '+y2+'\" fill=\"none\" stroke=\"'+muted+'\" stroke-width=\"1.4\"/>');\n    const vertical = x1 === x2;\n    parts.push('<path d=\"'+(vertical ? 'M '+(x2-4)+' '+(y2-6)+' L '+x2+' '+y2+' L '+(x2+4)+' '+(y2-6) : 'M '+(x2-6)+' '+(y2-4)+' L '+x2+' '+y2+' L '+(x2-6)+' '+(y2+4))+'\" fill=\"none\" stroke=\"'+muted+'\" stroke-width=\"1.4\"/>');\n  };\n  const geometry = [];\n  for (let k=0;k<2;k++) {\n    let ix,iy,ox,oy;\n    if (narrow) {\n      const center = k === 0 ? w/4 : 3*w/4;\n      ix = center-5*cell/2; iy=40;\n      ox = center-4*cell/2; oy=144;\n      text(center,24,k === 0 ? '原位 X' : '平移 +'+shift+' · X');\n      arrow(center,101,center,123);\n      text(center,138,'Y');\n    } else {\n      ix = (w-378)/2; iy = k === 0 ? 45 : 133;\n      ox = ix+5*cell+72; oy = iy+cell/2;\n      text(16,iy+cell+5,k === 0 ? '原位' : '平移 +'+shift,14,'start');\n      arrow(ix+5*cell+14,iy+cell,ox-14,iy+cell);\n    }\n    for (let r=0;r<2;r++) for (let c=0;c<5;c++) {\n      const active = c === 1 || c === 2;\n      rect(ix+c*cell,iy+r*cell,cell,cell,active ? '#e8f0f5' : '#fffdf8','#d9d5cc');\n      text(ix+(c+.5)*cell,iy+(r+.5)*cell+5,inputs[k][r][c],16);\n    }\n    rect(ix+cell,iy,2*cell,2*cell,'none',blue,2);\n    for (let c=0;c<4;c++) {\n      rect(ox+c*cell,oy,cell,cell,c === 1 ? '#f5e6d6' : '#fffdf8',c === 1 ? orange : '#d9d5cc',c === 1 ? 2 : 1);\n      text(ox+(c+.5)*cell,oy+cell/2+5,outputs[k][c],16);\n    }\n    geometry.push({input:{x:ix,y:iy,rows:2,columns:5,cell},output:{x:ox,y:oy,rows:1,columns:4,cell},selectedWindow:{row:0,column:1,height:2,width:2},selectedOutput:[0,1]});\n  }\n  if (!narrow) {\n    const ix=(w-378)/2;\n    text(ix+5*cell/2,25,'X：2×5');\n    text(ix+5*cell+72+2*cell,25,'Y：1×4');\n  }\n  text(w/2,222,'Y[0,1]：'+outputs[0][1]+' → '+outputs[1][1]+'　Δ单元：'+changes);\n  const svg='<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+w+'\" height=\"'+h+'\" viewBox=\"0 0 '+w+' '+h+'\" role=\"img\"><title>局部稳定与整体变化</title><desc>手选二值响应，二维最大汇聚窗口为2乘2，步幅为1，无填充。蓝框对应输出下标0、1，橙色标出该输出。向右移动'+shift+'格后，该值由'+outputs[0][1]+'变为'+outputs[1][1]+'，完整输出有'+changes+'个单元改变。</desc><rect width=\"'+w+'\" height=\"'+h+'\" fill=\"#faf8f2\"/><g font-family=\"sans-serif\">'+parts.join('')+'</g></svg>';\n  return {svg,facts:{state:'local',shift,inputShape:[2,5],inputResponseColumns:[1,1+shift],inputs,window:[2,2],stride:[1,1],padding:[0,0],outputs,outputShape:[1,4],selectedOutput:[0,1],selectedValues:[outputs[0][1],outputs[1][1]],changedOutputCount:changes,updateSteps:['将手选竖直响应从列1移动至列1+shift','逐列计算四个2×2窗口的最大值','比较固定输出与完整输出'],geometry,width:w,height:h}};\n}",
+      "assumptions": "使用手选二值响应图，不模拟真实图像、卷积训练或实验。窗口为2×2，步幅1，无填充；蓝色始终表示被关注的输入窗口，橙色始终表示其输出。仅展示有限例子，不将局部保持推广为整个输出的平移不变性。",
+      "checks": "复算移动0、1、2格时的输出，分别应为[1,1,0,0]、[0,1,1,0]、[0,0,1,1]；关注下标[0,1]的值应为1、1、0；完整输出相对原位的变化单元数应为0、2、4。检查320与760像素及窄屏切换处，标签至少14px、蓝框覆盖固定四格、橙框下标始终一致。"
+    },
+    {
+      "id": "pooling-padding-stride",
+      "title": "窗口、填充与输出形状",
+      "purpose": "将相邻三段代码的空间计算对应起来，显示边界填充值、首个窗口覆盖范围以及实际输出尺寸，帮助读者辨认默认步幅和矩形参数的区别。",
+      "alt": "同一个4×4输入在三组最大汇聚参数下的计算。填充格显示负无穷，蓝框标出首个窗口，橙色标出其输出；阅读推进切换参数和输出形状。",
+      "afterAnchor": "spatial-025",
+      "states": [
+        {
+          "key": "default",
+          "label": "默认步幅",
+          "anchor": "spatial-025"
+        },
+        {
+          "key": "padded",
+          "label": "填充与步幅",
+          "anchor": "spatial-027"
+        },
+        {
+          "key": "rectangular",
+          "label": "矩形窗口",
+          "anchor": "spatial-029"
+        }
+      ],
+      "controls": [],
+      "code": "function render({width,state,params}) {\n  const w=Math.max(320,Math.min(760,Number.isFinite(width)?width:560));\n  const key=state==='padded'||state==='rectangular'?state:'default';\n  const settings={default:{kernel:[3,3],stride:[3,3],padding:[0,0]},padded:{kernel:[3,3],stride:[2,2],padding:[1,1]},rectangular:{kernel:[2,3],stride:[2,3],padding:[0,1]}};\n  const cfg=settings[key];\n  const kh=cfg.kernel[0],kw=cfg.kernel[1],sh=cfg.stride[0],sw=cfg.stride[1],ph=cfg.padding[0],pw=cfg.padding[1];\n  const input=Array.from({length:4},(_,r)=>Array.from({length:4},(_,c)=>4*r+c));\n  const oh=Math.floor((4+2*ph-kh)/sh)+1,ow=Math.floor((4+2*pw-kw)/sw)+1;\n  const rows=4+2*ph,cols=4+2*pw;\n  const output=[],windows=[];\n  for(let r=0;r<oh;r++) {\n    const line=[];\n    for(let c=0;c<ow;c++) {\n      const origin=[r*sh-ph,c*sw-pw];\n      const members=[];\n      let maximum=-Infinity;\n      for(let a=0;a<kh;a++) for(let b=0;b<kw;b++) {\n        const ir=origin[0]+a,ic=origin[1]+b;\n        const padded=ir<0||ir>=4||ic<0||ic>=4;\n        const value=padded?-Infinity:input[ir][ic];\n        maximum=Math.max(maximum,value);\n        members.push({inputCoordinate:[ir,ic],padded,value:padded?'-Infinity':value});\n      }\n      line.push(maximum);\n      windows.push({outputCoordinate:[r,c],inputOrigin:origin,members,maximum});\n    }\n    output.push(line);\n  }\n  const narrow=w<520;\n  const cell=narrow?24:30,outCell=narrow?30:36;\n  let ix,iy,ox,oy,h;\n  if(narrow) {\n    ix=(w-cols*cell)/2;iy=68;\n    ox=(w-ow*outCell)/2;oy=iy+rows*cell+34;\n    h=oy+oh*outCell+18;\n  } else {\n    const total=cols*cell+82+ow*outCell;\n    ix=(w-total)/2;iy=54;\n    ox=ix+cols*cell+82;oy=iy+(rows*cell-oh*outCell)/2;\n    h=270;\n  }\n  const ink='#292824',muted='#77736b',blue='#356d9b',orange='#b96a27';\n  let parts=[];\n  const text=(x,y,s,size=14,anchor='middle',color=ink)=>parts.push('<text x=\"'+x+'\" y=\"'+y+'\" font-size=\"'+size+'\" text-anchor=\"'+anchor+'\" fill=\"'+color+'\">'+s+'</text>');\n  const rect=(x,y,rw,rh,fill,stroke,width=1,dash='')=>parts.push('<rect x=\"'+x+'\" y=\"'+y+'\" width=\"'+rw+'\" height=\"'+rh+'\" fill=\"'+fill+'\" stroke=\"'+stroke+'\" stroke-width=\"'+width+'\"'+(dash?' stroke-dasharray=\"'+dash+'\"':'')+'/>');\n  const configLabel='窗口 '+kh+'×'+kw+'　步幅 '+sh+'×'+sw;\n  text(w/2,22,narrow?configLabel:configLabel+'　填充 '+ph+'×'+pw);\n  if(narrow) text(w/2,42,'填充 '+ph+'×'+pw);\n  text(ix+cols*cell/2,iy-9,'X：4×4');\n  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) {\n    const ir=r-ph,ic=c-pw;\n    const padded=ir<0||ir>=4||ic<0||ic>=4;\n    const selected=r<kh&&c<kw;\n    rect(ix+c*cell,iy+r*cell,cell,cell,selected?'#e8f0f5':padded?'#efede6':'#fffdf8','#d9d5cc');\n    text(ix+(c+.5)*cell,iy+(r+.5)*cell+5,padded?'−∞':input[ir][ic],14,'middle',padded?muted:ink);\n  }\n  if(ph||pw) rect(ix+pw*cell,iy+ph*cell,4*cell,4*cell,'none','#969188',1,'3 3');\n  rect(ix,iy,kw*cell,kh*cell,'none',blue,2);\n  if(narrow) {\n    const cy=iy+rows*cell;\n    parts.push('<path d=\"M '+w/2+' '+(cy+7)+' L '+w/2+' '+(oy-8)+' M '+(w/2-4)+' '+(oy-14)+' L '+w/2+' '+(oy-8)+' L '+(w/2+4)+' '+(oy-14)+'\" fill=\"none\" stroke=\"'+muted+'\" stroke-width=\"1.4\"/>');\n    text(16,oy+oh*outCell/2+5,'Y：'+oh+'×'+ow,14,'start');\n  } else {\n    const cy=iy+rows*cell/2;\n    parts.push('<path d=\"M '+(ix+cols*cell+14)+' '+cy+' L '+(ox-14)+' '+cy+' M '+(ox-20)+' '+(cy-4)+' L '+(ox-14)+' '+cy+' L '+(ox-20)+' '+(cy+4)+'\" fill=\"none\" stroke=\"'+muted+'\" stroke-width=\"1.4\"/>');\n    text(ox+ow*outCell/2,oy-10,'Y：'+oh+'×'+ow);\n  }\n  for(let r=0;r<oh;r++) for(let c=0;c<ow;c++) {\n    const selected=r===0&&c===0;\n    rect(ox+c*outCell,oy+r*outCell,outCell,outCell,selected?'#f5e6d6':'#fffdf8',selected?orange:'#d9d5cc',selected?2:1);\n    text(ox+(c+.5)*outCell,oy+(r+.5)*outCell+5,output[r][c],16);\n  }\n  const svg='<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+w+'\" height=\"'+h+'\" viewBox=\"0 0 '+w+' '+h+'\" role=\"img\"><title>窗口、填充与输出形状</title><desc>输入为按行排列的0至15。最大汇聚窗口'+kh+'乘'+kw+'，步幅'+sh+'乘'+sw+'，填充'+ph+'乘'+pw+'，输出为'+oh+'乘'+ow+'。填充使用负无穷。蓝框为第一个窗口，橙色输出为'+output[0][0]+'。</desc><rect width=\"'+w+'\" height=\"'+h+'\" fill=\"#faf8f2\"/><g font-family=\"sans-serif\">'+parts.join('')+'</g></svg>';\n  return {svg,facts:{state:key,input,inputShape:[1,1,4,4],kernel:cfg.kernel,stride:cfg.stride,padding:cfg.padding,paddingValue:'-Infinity',dilation:[1,1],ceilMode:false,paddedSpatialShape:[rows,cols],output,outputShape:[1,1,oh,ow],shapeCalculation:{height:{numerator:4+2*ph-kh,stride:sh,result:oh},width:{numerator:4+2*pw-kw,stride:sw,result:ow}},windows,selectedOutput:[0,0],updateSteps:['按参数在输入边界添加负无穷','按步幅列举完整窗口','计算每个窗口最大值并写入对应输出'],geometry:{input:{x:ix,y:iy,rows,columns:cols,cell},output:{x:ox,y:oy,rows:oh,columns:ow,cell:outCell}},width:w,height:h}};\n}",
+      "assumptions": "仅对应所给三个MaxPool2d代码示例，采用膨胀率1、向下取整的输出尺寸规则。最大汇聚的隐式填充按负无穷表示；不是零填充。样本和通道维度均为1。蓝色始终表示首个输入窗口，橙色始终表示其输出。",
+      "checks": "独立复算三种状态：default输出[[10]]、形状1×1；padded与rectangular均输出[[5,7],[13,15]]、形状2×2，但窗口覆盖范围不同。复核每个窗口的原始坐标、边界成员、负无穷填充和形状公式。检查未知状态回退、320/519/520/760像素布局，窄屏应改为上下排列；最大高度不超过330px，重要标签至少14px，SVG宽度和viewBox宽度一致。"
+    }
+  ]
+}
