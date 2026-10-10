@@ -1,0 +1,919 @@
+{
+  "id": "calculus",
+  "title": "微积分",
+  "source": "chapter_preliminaries/calculus.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_preliminaries/calculus.html",
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "afbb49d0908ae9d23f12572e83044ed736d6aa4fc4a6754d76c183f24334a87d",
+  "adaptedSha256": "82fb74d070603239e83d15210f7dc073dbf54102ad9edfe4a119f0a1ebbc09f3",
+  "adaptation": {
+    "excludedTabBlocks": 3,
+    "excludedCodeBlocks": 3,
+    "keptCodeBlocks": 7,
+    "removedDirectives": 4,
+    "figureCaptions": 1,
+    "oneLineDisplayMath": 9,
+    "images": 1,
+    "mathErrors": 0,
+    "mathExpected": 103,
+    "mathRendered": 103
+  },
+  "blocks": [
+    {
+      "id": "calculus-001",
+      "sha256": "73b1bb95b9a0e455d9e4900cb2d903dd282c47e4759519847f7dc7d51b5a70d4",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 微积分",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-002",
+      "sha256": "86c6d4a82d751b103ebd1fb01c12f25dcd8dbd8a3e181cf918b543fd92076b7a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "在2500年前，古希腊人把一个多边形分成三角形，并把它们的面积相加，才找到计算多边形面积的方法。\n为了求出曲线形状（比如圆）的面积，古希腊人在这样的形状上刻内接多边形。\n如 [原文引用：fig_circle_area](https://zh.d2l.ai/chapter_preliminaries/calculus.html)所示，内接多边形的等长边越多，就越接近圆。\n这个过程也被称为*逼近法*（method of exhaustion）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-003",
+      "sha256": "806d4627779e14bc8349f5a394d672e577bf7676b92d06824fa3de1c00c7f521",
+      "type": "paragraph",
+      "depth": null,
+      "line": 8,
+      "raw": "![用逼近法求圆的面积](../img/polygon-circle.svg)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-004",
+      "sha256": "c692ec700ca068996b691758440f75a65a4a5b2be62b498b0871d6b074e0cf64",
+      "type": "paragraph",
+      "depth": null,
+      "line": 10,
+      "raw": "事实上，逼近法就是*积分*（integral calculus）的起源。\n2000多年后，微积分的另一支，*微分*（differential calculus）被发明出来。\n在微分学最重要的应用是优化问题，即考虑如何把事情做到最好。\n正如在 [原文引用：subsec_norms_and_objectives](https://zh.d2l.ai/chapter_preliminaries/calculus.html)中讨论的那样，\n这种问题在深度学习中是无处不在的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-005",
+      "sha256": "2df72f30a520a2ced200219bf7c6c89b9c5caa7847ea4dd8c6588af776062765",
+      "type": "paragraph",
+      "depth": null,
+      "line": 16,
+      "raw": "在深度学习中，我们“训练”模型，不断更新它们，使它们在看到越来越多的数据时变得越来越好。\n通常情况下，变得更好意味着最小化一个*损失函数*（loss function），\n即一个衡量“模型有多糟糕”这个问题的分数。\n最终，我们真正关心的是生成一个模型，它能够在从未见过的数据上表现良好。\n但“训练”模型只能将模型与我们实际能看到的数据相拟合。\n因此，我们可以将拟合模型的任务分解为两个关键问题：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-006",
+      "sha256": "459cd3035c01edc6705d8468db0d033b067023dc4967484ec76c04488d7f58dc",
+      "type": "list",
+      "depth": null,
+      "line": 23,
+      "raw": "* *优化*（optimization）：用模型拟合观测数据的过程；\n* *泛化*（generalization）：数学原理和实践者的智慧，能够指导我们生成出有效性超出用于训练的数据集本身的模型。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-007",
+      "sha256": "6faa3fe5954fc32787cb163bdaff14d5a3052599af9b7021b5cc34b0819c07fe",
+      "type": "paragraph",
+      "depth": null,
+      "line": 26,
+      "raw": "为了帮助读者在后面的章节中更好地理解优化问题和方法，\n本节提供了一个非常简短的入门教程，帮助读者快速掌握深度学习中常用的微分知识。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-008",
+      "sha256": "aaed6afbd859a443ebeebf7ed5f971f7d87fa8f0492cc6abec5e9fea63448996",
+      "type": "heading",
+      "depth": 2,
+      "line": 29,
+      "raw": "## 导数和微分",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-009",
+      "sha256": "a78b3b773b178a5fabcb7b65f2886d44042f8a9b053463de4f87d64f549fac38",
+      "type": "paragraph",
+      "depth": null,
+      "line": 31,
+      "raw": "我们首先讨论导数的计算，这是几乎所有深度学习优化算法的关键步骤。\n在深度学习中，我们通常选择对于模型参数可微的损失函数。\n简而言之，对于每个参数，\n如果我们把这个参数*增加*或*减少*一个无穷小的量，可以知道损失会以多快的速度增加或减少，",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-010",
+      "sha256": "31e37ed769bdfdf6edc531a42bc2ea563ab34a3787f96287c6e8af7fdc35cd90",
+      "type": "paragraph",
+      "depth": null,
+      "line": 36,
+      "raw": "假设我们有一个函数$f: \\mathbb{R} \\rightarrow \\mathbb{R}$，其输入和输出都是标量。\n**如果$f$的*导数*存在，这个极限被定义为**",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-011",
+      "sha256": "7fb5a98de31c3af9ea1009f85cb5269734a9d8f62fa773fb6fd2a34f01e6fe4c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 39,
+      "raw": "**$$f'(x) = \\lim_{h \\rightarrow 0} \\frac{f(x+h) - f(x)}{h}.$$**",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-012",
+      "sha256": "3ee16121aa2e2bc7a595da750fbd180aad4a4226003f28253ecba78f77463204",
+      "type": "paragraph",
+      "depth": null,
+      "line": 41,
+      "raw": "如果$f'(a)$存在，则称$f$在$a$处是*可微*（differentiable）的。\n如果$f$在一个区间内的每个数上都是可微的，则此函数在此区间中是可微的。\n我们可以将 [原文引用：eq_derivative](https://zh.d2l.ai/chapter_preliminaries/calculus.html)中的导数$f'(x)$解释为$f(x)$相对于$x$的*瞬时*（instantaneous）变化率。\n所谓的瞬时变化率是基于$x$中的变化$h$，且$h$接近$0$。",
+      "math": {
+        "expected": 11,
+        "rendered": 11,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-013",
+      "sha256": "29299d9eeb9fb63dfd463d7125e6f0137ed3bb42911dd22f5ec203e095916ee7",
+      "type": "paragraph",
+      "depth": null,
+      "line": 46,
+      "raw": "为了更好地解释导数，让我们做一个实验。\n**定义$u=f(x)=3x^2-4x$**如下：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-014",
+      "sha256": "13f9a0422aba93e93c4739bb2a9e9af9ae23372ee20fe055d9c4d6f2cd49c744",
+      "type": "code",
+      "depth": null,
+      "line": 60,
+      "raw": "```python\n%matplotlib inline\nfrom d2l import torch as d2l\nfrom matplotlib_inline import backend_inline\nimport numpy as np\n\ndef f(x):\n    return 3 * x ** 2 - 4 * x\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-015",
+      "sha256": "ff152f05043b67c9d0de662d7b1e2ed70723d8dbbf47a0c981cf026cc6a70db6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 92,
+      "raw": "**通过令$x=1$并让$h$接近$0$，** [原文引用：eq_derivative](https://zh.d2l.ai/chapter_preliminaries/calculus.html)中**$\\frac{f(x+h)-f(x)}{h}$的数值结果接近$2$**。\n虽然这个实验不是一个数学证明，但稍后会看到，当$x=1$时，导数$u'$是$2$。",
+      "math": {
+        "expected": 8,
+        "rendered": 8,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-016",
+      "sha256": "04ddaf9a40a5e2861468e0c09fffe1b29e593e927eb9b65e144a61964dbd2665",
+      "type": "code",
+      "depth": null,
+      "line": 95,
+      "raw": "```python\ndef numerical_lim(f, x, h):\n    return (f(x + h) - f(x)) / h\n\nh = 0.1\nfor i in range(5):\n    print(f'h={h:.5f}, numerical limit={numerical_lim(f, 1, h):.5f}')\n    h *= 0.1\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-017",
+      "sha256": "8c45e4ad800cb22e26d0ff54b3e8fcd0151569cc7295bb35e721fc96f1de6afb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 105,
+      "raw": "让我们熟悉一下导数的几个等价符号。\n给定$y=f(x)$，其中$x$和$y$分别是函数$f$的自变量和因变量。以下表达式是等价的：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-018",
+      "sha256": "6b01f6d060a4fd152a677403682dabec9066721893565b4578a3302f03f84448",
+      "type": "paragraph",
+      "depth": null,
+      "line": 108,
+      "raw": "$$f'(x) = y' = \\frac{dy}{dx} = \\frac{df}{dx} = \\frac{d}{dx} f(x) = Df(x) = D_x f(x),$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-019",
+      "sha256": "f1e7dfae21f514ee5fbda548b26f0a7f3062a319c037bee83a2026eb6a85c5f6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 110,
+      "raw": "其中符号$\\frac{d}{dx}$和$D$是*微分运算符*，表示*微分*操作。\n我们可以使用以下规则来对常见函数求微分：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-020",
+      "sha256": "4964d3f563c966c7092d0891021bda19511f9f5ab516ce526305273778da3a4f",
+      "type": "list",
+      "depth": null,
+      "line": 113,
+      "raw": "* $DC = 0$（$C$是一个常数）\n* $Dx^n = nx^{n-1}$（*幂律*（power rule），$n$是任意实数）\n* $De^x = e^x$\n* $D\\ln(x) = 1/x$",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-021",
+      "sha256": "aaebb9dff17b3c89bdd7053a2f44d3ae8401859ec09cc23311270d463a47851c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 118,
+      "raw": "为了微分一个由一些常见函数组成的函数，下面的一些法则方便使用。\n假设函数$f$和$g$都是可微的，$C$是一个常数，则：",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-022",
+      "sha256": "be724730996dd7a79bb9a30390168c8443fb6d10c98ed09f946fa64d78633754",
+      "type": "paragraph",
+      "depth": null,
+      "line": 121,
+      "raw": "*常数相乘法则*\n$$\\frac{d}{dx} [Cf(x)] = C \\frac{d}{dx} f(x),$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-023",
+      "sha256": "f2f88b191ba10a6d0fd0ec7854b1246b92d90f66d4a3a85fe56ec55fffccfafd",
+      "type": "paragraph",
+      "depth": null,
+      "line": 124,
+      "raw": "*加法法则*",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-024",
+      "sha256": "74557b0c56ca2564ef51ffde36e503c5239701c8a7e3e5b8eb4f55633f8ef393",
+      "type": "paragraph",
+      "depth": null,
+      "line": 126,
+      "raw": "$$\\frac{d}{dx} [f(x) + g(x)] = \\frac{d}{dx} f(x) + \\frac{d}{dx} g(x),$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-025",
+      "sha256": "bc0705359f479127a5aef8bf3bc19eb8407541b49a0f7f0324107c006bffe178",
+      "type": "paragraph",
+      "depth": null,
+      "line": 128,
+      "raw": "*乘法法则*",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-026",
+      "sha256": "ef80f45fa6144a9bde85345a100f82b4a99e05345d7e1d2489af7bd5cd3968b0",
+      "type": "paragraph",
+      "depth": null,
+      "line": 130,
+      "raw": "$$\\frac{d}{dx} [f(x)g(x)] = f(x) \\frac{d}{dx} [g(x)] + g(x) \\frac{d}{dx} [f(x)],$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-027",
+      "sha256": "18e8d630108cc12ccbb263513e5afe996d674fb322cc7f4fb9182d6d22954468",
+      "type": "paragraph",
+      "depth": null,
+      "line": 132,
+      "raw": "*除法法则*",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-028",
+      "sha256": "2806ab15bc2c5c150dc9cc20feee31315ce6cef3ff2834ee37d6ad6c819e13d0",
+      "type": "paragraph",
+      "depth": null,
+      "line": 134,
+      "raw": "$$\\frac{d}{dx} \\left[\\frac{f(x)}{g(x)}\\right] = \\frac{g(x) \\frac{d}{dx} [f(x)] - f(x) \\frac{d}{dx} [g(x)]}{[g(x)]^2}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-029",
+      "sha256": "0319234c809fd9a2dc5472265f9bfedc20c0000f5d0b8e3df7d63bbcf729cc9e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 136,
+      "raw": "现在我们可以应用上述几个法则来计算$u'=f'(x)=3\\frac{d}{dx}x^2-4\\frac{d}{dx}x=6x-4$。\n令$x=1$，我们有$u'=2$：在这个实验中，数值结果接近$2$，\n这一点得到了在本节前面的实验的支持。\n当$x=1$时，此导数也是曲线$u=f(x)$切线的斜率。",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-030",
+      "sha256": "5d9dbf6afca68c76386d4731f6707384c620e26e72a0c58bb21f61c372e1924a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 141,
+      "raw": "**为了对导数的这种解释进行可视化，我们将使用`matplotlib`**，\n这是一个Python中流行的绘图库。\n要配置`matplotlib`生成图形的属性，我们需要**定义几个函数**。\n在下面，`use_svg_display`函数指定`matplotlib`软件包输出svg图表以获得更清晰的图像。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-031",
+      "sha256": "6176dcce47b927f5157a867132695e722e4933ae748d89e1f9eb269ca9f04dca",
+      "type": "paragraph",
+      "depth": null,
+      "line": 146,
+      "raw": "注意，注释`#@save`是一个特殊的标记，会将对应的函数、类或语句保存在`d2l`包中。\n因此，以后无须重新定义就可以直接调用它们（例如，`d2l.use_svg_display()`）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-032",
+      "sha256": "462e84799667a4891903c51b9dd99ef17d305d7894a21d8c8f45f5c1054068b5",
+      "type": "code",
+      "depth": null,
+      "line": 149,
+      "raw": "```python\ndef use_svg_display():  #@save\n    \"\"\"使用svg格式在Jupyter中显示绘图\"\"\"\n    backend_inline.set_matplotlib_formats('svg')\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-033",
+      "sha256": "4d87139952720b140a171df36335d6fa8c567cc2e8fe968334dd69f21de9d0d3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 155,
+      "raw": "我们定义`set_figsize`函数来设置图表大小。\n注意，这里可以直接使用`d2l.plt`，因为导入语句\n`from matplotlib import pyplot as plt`已标记为保存到`d2l`包中。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-034",
+      "sha256": "f906bd4c6c06b514e0aa3eb3de7f8eda8a3a49a403d37002cac8fd4813fe3089",
+      "type": "code",
+      "depth": null,
+      "line": 159,
+      "raw": "```python\ndef set_figsize(figsize=(3.5, 2.5)):  #@save\n    \"\"\"设置matplotlib的图表大小\"\"\"\n    use_svg_display()\n    d2l.plt.rcParams['figure.figsize'] = figsize\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-035",
+      "sha256": "c661be3ee773c7d59918772551a42a760dc4969f9f5fabbb3b50525e4a63ef20",
+      "type": "paragraph",
+      "depth": null,
+      "line": 166,
+      "raw": "下面的`set_axes`函数用于设置由`matplotlib`生成图表的轴的属性。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-036",
+      "sha256": "2564f618f618088ad76ea88ad58a8aa6ec7c8246544838231ce2022c1ed44b27",
+      "type": "code",
+      "depth": null,
+      "line": 168,
+      "raw": "```python\ndef set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend):\n    \"\"\"设置matplotlib的轴\"\"\"\n    axes.set_xlabel(xlabel)\n    axes.set_ylabel(ylabel)\n    axes.set_xscale(xscale)\n    axes.set_yscale(yscale)\n    axes.set_xlim(xlim)\n    axes.set_ylim(ylim)\n    if legend:\n        axes.legend(legend)\n    axes.grid()\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-037",
+      "sha256": "b6b36404c2186b9aa45854f442b5f691f262a12262f35e4c146e297b77b2ba9a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 182,
+      "raw": "通过这三个用于图形配置的函数，定义一个`plot`函数来简洁地绘制多条曲线，\n因为我们需要在整个书中可视化许多曲线。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-038",
+      "sha256": "5d90071faf006a7395f768a21a50880697b4fdac6b3d5426cc448ec51796ed47",
+      "type": "code",
+      "depth": null,
+      "line": 185,
+      "raw": "```python\ndef plot(X, Y=None, xlabel=None, ylabel=None, legend=None, xlim=None,\n         ylim=None, xscale='linear', yscale='linear',\n         fmts=('-', 'm--', 'g-.', 'r:'), figsize=(3.5, 2.5), axes=None):\n    \"\"\"绘制数据点\"\"\"\n    if legend is None:\n        legend = []\n\n    set_figsize(figsize)\n    axes = axes if axes else d2l.plt.gca()\n\n    # 如果X有一个轴，输出True\n    def has_one_axis(X):\n        return (hasattr(X, \"ndim\") and X.ndim == 1 or isinstance(X, list)\n                and not hasattr(X[0], \"__len__\"))\n\n    if has_one_axis(X):\n        X = [X]\n    if Y is None:\n        X, Y = [[]] * len(X), X\n    elif has_one_axis(Y):\n        Y = [Y]\n    if len(X) != len(Y):\n        X = X * len(Y)\n    axes.cla()\n    for x, y, fmt in zip(X, Y, fmts):\n        if len(x):\n            axes.plot(x, y, fmt)\n        else:\n            axes.plot(y, fmt)\n    set_axes(axes, xlabel, ylabel, xlim, ylim, xscale, yscale, legend)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-039",
+      "sha256": "0da72e22b8ee991e1347d48214eb0c0c049a89ceda318c12cebd8c1e1b51f248",
+      "type": "paragraph",
+      "depth": null,
+      "line": 218,
+      "raw": "现在我们可以**绘制函数$u=f(x)$及其在$x=1$处的切线$y=2x-3$**，\n其中系数$2$是切线的斜率。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-040",
+      "sha256": "0a5e2d53a79ce7564099bd0d596877420a914122e2ed848dd73962d21a2fd5e6",
+      "type": "code",
+      "depth": null,
+      "line": 221,
+      "raw": "```python\nx = np.arange(0, 3, 0.1)\nplot(x, [f(x), 2 * x - 3], 'x', 'f(x)', legend=['f(x)', 'Tangent line (x=1)'])\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-041",
+      "sha256": "30d151f50512ec96e7afaf135da231086c6cd0c501db0ebb78c73531ab93facf",
+      "type": "heading",
+      "depth": 2,
+      "line": 226,
+      "raw": "## 偏导数",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-042",
+      "sha256": "cb7840586d79e03f24ea092328ca6cc63824d86b96a0de1d3abd48634196bb02",
+      "type": "paragraph",
+      "depth": null,
+      "line": 228,
+      "raw": "到目前为止，我们只讨论了仅含一个变量的函数的微分。\n在深度学习中，函数通常依赖于许多变量。\n因此，我们需要将微分的思想推广到*多元函数*（multivariate function）上。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-043",
+      "sha256": "0f245ea0214dd9b1c2a202a1f8a2b45a9c2ac733b1fc8d7f9a36adae23497e3e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 232,
+      "raw": "设$y = f(x_1, x_2, \\ldots, x_n)$是一个具有$n$个变量的函数。\n$y$关于第$i$个参数$x_i$的*偏导数*（partial derivative）为：",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-044",
+      "sha256": "4546552a6e9f0e23ee87c8cc5ff3ffc1263cbd0efbc14386570b2536c13d09c8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 235,
+      "raw": "$$ \\frac{\\partial y}{\\partial x_i} = \\lim_{h \\rightarrow 0} \\frac{f(x_1, \\ldots, x_{i-1}, x_i+h, x_{i+1}, \\ldots, x_n) - f(x_1, \\ldots, x_i, \\ldots, x_n)}{h}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-045",
+      "sha256": "d47a267c626b4252046270a0e4f091c1f859f7dbe715bf02e8a9a4acedc54304",
+      "type": "paragraph",
+      "depth": null,
+      "line": 237,
+      "raw": "为了计算$\\frac{\\partial y}{\\partial x_i}$，\n我们可以简单地将$x_1, \\ldots, x_{i-1}, x_{i+1}, \\ldots, x_n$看作常数，\n并计算$y$关于$x_i$的导数。\n对于偏导数的表示，以下是等价的：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-046",
+      "sha256": "7f7f1f01af548c16ba1dbece53eb29be6ea140e4178a87c45a851518c4049cca",
+      "type": "paragraph",
+      "depth": null,
+      "line": 242,
+      "raw": "$$\\frac{\\partial y}{\\partial x_i} = \\frac{\\partial f}{\\partial x_i} = f_{x_i} = f_i = D_i f = D_{x_i} f.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-047",
+      "sha256": "c1b267e9cace43aa9a7232a23297a3eb78397e1ca2efc948e75ada0b9864aa41",
+      "type": "heading",
+      "depth": 2,
+      "line": 244,
+      "raw": "## 梯度",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-048",
+      "sha256": "3056e292eb89bc4fdd41ab28e4e53c262e964d5781f4b9f3854bc6c2fd95c809",
+      "type": "paragraph",
+      "depth": null,
+      "line": 246,
+      "raw": "我们可以连结一个多元函数对其所有变量的偏导数，以得到该函数的*梯度*（gradient）向量。\n具体而言，设函数$f:\\mathbb{R}^n\\rightarrow\\mathbb{R}$的输入是\n一个$n$维向量$\\mathbf{x}=[x_1,x_2,\\ldots,x_n]^\\top$，并且输出是一个标量。\n函数$f(\\mathbf{x})$相对于$\\mathbf{x}$的梯度是一个包含$n$个偏导数的向量:",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-049",
+      "sha256": "b9ac0e7b8ed022077bebb71269977ea741e80d37be46b74d26a850c629eadde5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 251,
+      "raw": "$$\\nabla_{\\mathbf{x}} f(\\mathbf{x}) = \\bigg[\\frac{\\partial f(\\mathbf{x})}{\\partial x_1}, \\frac{\\partial f(\\mathbf{x})}{\\partial x_2}, \\ldots, \\frac{\\partial f(\\mathbf{x})}{\\partial x_n}\\bigg]^\\top,$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-050",
+      "sha256": "7c9982d0c4e732cae5149812dcbffd8dd7ca05407f36cfbfa1024c1568aafb86",
+      "type": "paragraph",
+      "depth": null,
+      "line": 253,
+      "raw": "其中$\\nabla_{\\mathbf{x}} f(\\mathbf{x})$通常在没有歧义时被$\\nabla f(\\mathbf{x})$取代。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-051",
+      "sha256": "2874977a6d685965ae9611391fd853c4a738d3a876bde1204171e823269a58e4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 255,
+      "raw": "假设$\\mathbf{x}$为$n$维向量，在微分多元函数时经常使用以下规则:",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-052",
+      "sha256": "e266bcf1f16bad45119251317633db482fadc9efe69963e4be9d5d942acd3a99",
+      "type": "list",
+      "depth": null,
+      "line": 257,
+      "raw": "* 对于所有$\\mathbf{A} \\in \\mathbb{R}^{m \\times n}$，都有$\\nabla_{\\mathbf{x}} \\mathbf{A} \\mathbf{x} = \\mathbf{A}^\\top$\n* 对于所有$\\mathbf{A} \\in \\mathbb{R}^{n \\times m}$，都有$\\nabla_{\\mathbf{x}} \\mathbf{x}^\\top \\mathbf{A}  = \\mathbf{A}$\n* 对于所有$\\mathbf{A} \\in \\mathbb{R}^{n \\times n}$，都有$\\nabla_{\\mathbf{x}} \\mathbf{x}^\\top \\mathbf{A} \\mathbf{x}  = (\\mathbf{A} + \\mathbf{A}^\\top)\\mathbf{x}$\n* $\\nabla_{\\mathbf{x}} \\|\\mathbf{x} \\|^2 = \\nabla_{\\mathbf{x}} \\mathbf{x}^\\top \\mathbf{x} = 2\\mathbf{x}$",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-053",
+      "sha256": "88198f7f0707eb90fdfd7911ce062bf18742ad75ac97894d8214742b048ae095",
+      "type": "paragraph",
+      "depth": null,
+      "line": 262,
+      "raw": "同样，对于任何矩阵$\\mathbf{X}$，都有$\\nabla_{\\mathbf{X}} \\|\\mathbf{X} \\|_F^2 = 2\\mathbf{X}$。\n正如我们之后将看到的，梯度对于设计深度学习中的优化算法有很大用处。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-054",
+      "sha256": "fa4459986dde1f9f6783eb39f7106c53088c3342838b6cff615ec7dd3b6ce4e3",
+      "type": "heading",
+      "depth": 2,
+      "line": 265,
+      "raw": "## 链式法则",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-055",
+      "sha256": "1cb11f13343a0259cef1bbb8f278dac7586252280891a6631bedd98a90cf0863",
+      "type": "paragraph",
+      "depth": null,
+      "line": 267,
+      "raw": "然而，上面方法可能很难找到梯度。\n这是因为在深度学习中，多元函数通常是*复合*（composite）的，\n所以难以应用上述任何规则来微分这些函数。\n幸运的是，链式法则可以被用来微分复合函数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-056",
+      "sha256": "0c470d25eaaecc9d216897fd64b2a10ed97032bd456a010c646c111a789cfcfc",
+      "type": "paragraph",
+      "depth": null,
+      "line": 272,
+      "raw": "让我们先考虑单变量函数。假设函数$y=f(u)$和$u=g(x)$都是可微的，根据链式法则：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-057",
+      "sha256": "5690ae88fe6944ab2934e3e00cb9176f1670f7d6d0175fc7090324afc0a7693a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 274,
+      "raw": "$$\\frac{dy}{dx} = \\frac{dy}{du} \\frac{du}{dx}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-058",
+      "sha256": "2444f0e850322adb651c80598f8292733612248da8d5e901005b05e6fb7a6094",
+      "type": "paragraph",
+      "depth": null,
+      "line": 276,
+      "raw": "现在考虑一个更一般的场景，即函数具有任意数量的变量的情况。\n假设可微分函数$y$有变量$u_1, u_2, \\ldots, u_m$，其中每个可微分函数$u_i$都有变量$x_1, x_2, \\ldots, x_n$。\n注意，$y$是$x_1, x_2， \\ldots, x_n$的函数。\n对于任意$i = 1, 2, \\ldots, n$，链式法则给出：",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-059",
+      "sha256": "f3b06c056d65943c484ab524467e3bd2ac52f47e0a9e4d65081e5d4c70a3b5e0",
+      "type": "paragraph",
+      "depth": null,
+      "line": 281,
+      "raw": "$$\\frac{\\partial y}{\\partial x_i} = \\frac{\\partial y}{\\partial u_1} \\frac{\\partial u_1}{\\partial x_i} + \\frac{\\partial y}{\\partial u_2} \\frac{\\partial u_2}{\\partial x_i} + \\cdots + \\frac{\\partial y}{\\partial u_m} \\frac{\\partial u_m}{\\partial x_i}$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-060",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 283,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-061",
+      "sha256": "c411f0a9a27dcfe3e87ffcc631ed351e8d96bc64846b8437767ad494ffeb24d0",
+      "type": "list",
+      "depth": null,
+      "line": 285,
+      "raw": "* 微分和积分是微积分的两个分支，前者可以应用于深度学习中的优化问题。\n* 导数可以被解释为函数相对于其变量的瞬时变化率，它也是函数曲线的切线的斜率。\n* 梯度是一个向量，其分量是多变量函数相对于其所有变量的偏导数。\n* 链式法则可以用来微分复合函数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-062",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 290,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-063",
+      "sha256": "f259496360e4db2688c43776c03f4158c9381bf5b258d3ba93b706b0447b9221",
+      "type": "list",
+      "depth": null,
+      "line": 292,
+      "raw": "1. 绘制函数$y = f(x) = x^3 - \\frac{1}{x}$和其在$x = 1$处切线的图像。\n1. 求函数$f(\\mathbf{x}) = 3x_1^2 + 5e^{x_2}$的梯度。\n1. 函数$f(\\mathbf{x}) = \\|\\mathbf{x}\\|_2$的梯度是什么？\n1. 尝试写出函数$u = f(x, y, z)$，其中$x = x(a, b)$，$y = y(a, b)$，$z = z(a, b)$的链式法则。",
+      "math": {
+        "expected": 8,
+        "rendered": 8,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "calculus-064",
+      "sha256": "5a6089aabffb53391e0d679c7a946062807d23c54986e4a3328fc040ed7f8f0b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 301,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1756)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

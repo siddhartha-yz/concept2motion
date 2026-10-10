@@ -1,0 +1,52 @@
+{
+  "figures": [
+    {
+      "id": "queued-clock",
+      "title": "计时停了，计算还在继续",
+      "afterAnchor": "async-computation-009",
+      "endAnchor": "async-computation-010",
+      "height": 320,
+      "mobileHeight": 330,
+      "summary": "空队列起步：连续提交 3 个任务，每次提交 0.4、计算 2 个示例时间单位。",
+      "stages": [
+        "开始",
+        "提交完",
+        "计算中",
+        "计算完"
+      ],
+      "initialProgress": 0,
+      "durationMs": 10000,
+      "checkpoints": [
+        0,
+        0.17142857142857143,
+        0.5,
+        0.9142857142857144,
+        1
+      ],
+      "interaction": "timeline",
+      "params": [],
+      "code": "function draw({board,width,height,progress}) {\n const p=VisualBook.palette;\n const L=width<500?48:74,R=width-22, top=62, bottom=height-78;\n const x=t=>L+(R-L)*t/7, now=progress*7;\n const cy=94,gy=162;\n const axisY=220;\n board.line('axis',L,axisY,R,axisY,p.muted,1);\n [0,2,4,6,7].forEach((t,i)=>{board.line('tick-'+i,x(t),axisY,x(t),axisY+4,p.muted,1);board.text('tick-label-'+i,String(t),x(t),axisY+22,{size:13,anchor:'middle',color:p.muted});});\n board.text('unit','示例时间单位',R,height-16,{size:13,color:p.muted,anchor:'end'});\n const submissions=[0,.4,.8].map((s,i)=>({id:i+1,start:s,end:s+.4}));\n const jobs=[.4,2.4,4.4].map((s,i)=>({id:i+1,start:s,end:s+2}));\n board.text('cpu','提交',L-10,cy+5,{anchor:'end',color:p.muted,size:14});\n board.text('gpu','GPU',L-10,gy+5,{anchor:'end',color:p.muted,size:14});\n for(const [lane,records,y,color] of [['send',submissions,cy,p.blue],['job',jobs,gy,p.orange]]) {\n  board.line(lane+'-baseline',L,y,R,y,p.faint,1);\n  records.forEach((v,i)=>{\n   const a=x(v.start),b=x(v.end),done=Math.max(0,Math.min(now,v.end)-v.start);\n   board.rect(lane+'-'+i,a,y-12,b-a,24,color,{opacity:.16,rx:2});\n   board.rect(lane+'-done-'+i,a,y-12,Math.max(0,x(v.start+done)-a),24,color,{rx:2});\n   if(i>0)board.line(lane+'-divider-'+i,a,y-12,a,y+12,p.paper,1,.7);\n   if(lane==='job') board.text(lane+'-number-'+i,String(v.id),(a+b)/2,y+5,{anchor:'middle',size:14,color:p.ink});\n  });\n }\n board.text('send-end','提交完 1.2',L,32,{color:p.blue,size:15});\n board.text('compute-end','计算完 6.4',R,32,{anchor:'end',color:p.orange,size:15});\n board.line('send-marker',x(1.2),50,x(1.2),190,p.blue,1,.45);\n board.line('finish-marker',x(6.4),50,x(6.4),190,p.orange,1,.45);\n board.line('clock',x(now),52,x(now),196,p.ink,1.5,.85);\n board.text('clock-label','t = '+now.toFixed(2),L,height-44,{size:15,color:p.ink});\n const sent=submissions.filter(v=>now>=v.end-1e-9).length;\n const completed=jobs.filter(v=>now>=v.end-1e-9).length;\n board.text('status','已提交 '+sent+' / 完成 '+completed,R,height-44,{anchor:'end',size:14,color:p.muted});\n return {submissionDuration:.4,computeDuration:2,submissions,jobs,submissionEnd:1.2,completionEnd:6.4,time:now,submitted:sent,completed,unfinishedSubmitted:sent-completed,convention:'单GPU串行；初始无积压；给定时间单位，不是测速。同步结束时刻为6.4，不含同步调用额外开销。'};\n}"
+    },
+    {
+      "id": "pipeline-bottleneck",
+      "title": "重叠能省多少，取决于较慢的一段",
+      "afterAnchor": "async-computation-021",
+      "endAnchor": "async-computation-021",
+      "height": 390,
+      "mobileHeight": 390,
+      "summary": "4 个独立任务；单计算线程，每次计算 t₂ = 2，返回 t₃ = 0.5。",
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "submit",
+          "label": "每次提交 t₁",
+          "min": 0.5,
+          "max": 3,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const p=VisualBook.palette,t1=params.submit,t2=2,t3=.5,N=4;\n const L=width<500?48:74,R=width-18,x=t=>L+(R-L)*t/24;\n const ys=[96,170,244],barH=22;\n const async=[],serial=[];let end=0;\n for(let i=0;i<N;i++) {\n  const send={start:i*t1,end:(i+1)*t1};\n  const start=Math.max(send.end,end);end=start+t2;\n  async.push({id:i+1,submit:send,compute:{start,end}});\n  const s=i*(t1+t2+t3);serial.push({id:i+1,submit:{start:s,end:s+t1},compute:{start:s+t1,end:s+t1+t2},read:{start:s+t1+t2,end:s+t1+t2+t3}});\n }\n const asyncEnd=end+t3,syncEnd=N*(t1+t2+t3);\n board.text('async-total','异步 '+asyncEnd.toFixed(1),L,28,{color:p.ink,size:18});\n board.text('sync-total','同步 '+syncEnd.toFixed(1),R,28,{anchor:'end',color:p.muted,size:18});\n board.text('bottleneck',t1<=t2?'计算较慢 · 提交可被覆盖':'提交较慢 · GPU 出现空档',L,54,{size:14,color:t1<=t2?p.orange:p.blue});\n const rowNames=['同步','提交','GPU'];\n ys.forEach((y,i)=>{board.text('row-'+i,rowNames[i],L-10,y+5,{size:14,color:p.muted,anchor:'end'});board.line('base-'+i,L,y,R,y,p.faint,1);});\n function block(id,v,y,color,label) {\n  board.rect(id,x(v.start),y-barH/2,x(v.end)-x(v.start),barH,color,{rx:1,opacity:.85});\n  if(label)board.text(id+'-n',label,(x(v.start)+x(v.end))/2,y+5,{size:14,anchor:'middle',color:p.paper});\n }\n serial.forEach((r,i)=>{block('serial-send-'+i,r.submit,ys[0],p.blue);block('serial-gpu-'+i,r.compute,ys[0],p.orange,String(r.id));block('serial-read-'+i,r.read,ys[0],p.ink);});\n async.forEach((r,i)=>{block('async-send-'+i,r.submit,ys[1],p.blue);if(i>0)board.line('submit-divider-'+i,x(r.submit.start),ys[1]-11,x(r.submit.start),ys[1]+11,p.paper,1,.7);block('async-gpu-'+i,r.compute,ys[2],p.orange,String(r.id));if(i>0)board.line('gpu-divider-'+i,x(r.compute.start),ys[2]-11,x(r.compute.start),ys[2]+11,p.paper,1,.7);board.line('ready-'+i,x(r.submit.end),ys[1]+14,x(r.compute.start),ys[2]-14,p.muted,1,.35);});\n block('final-return',{start:end,end:asyncEnd},ys[2],p.ink);\n // 固定横轴，让参数变化真正改变间隔，不改变尺子。\n const axisY=290;\n board.line('axis',L,axisY,R,axisY,p.muted,1);\n [0,6,12,18,24].forEach((t,i)=>{board.line('tick-'+i,x(t),axisY,x(t),axisY+4,p.muted,1);board.text('tick-label-'+i,String(t),x(t),axisY+22,{size:13,anchor:'middle',color:p.muted});});\n board.text('unit','示例时间单位',R,axisY+46,{size:13,color:p.muted,anchor:'end'});\n const legendY=height-22,spacing=(R-L)/3;\n [['提交',p.blue],['计算',p.orange],['返回',p.ink]].forEach(([s,c],i)=>{const a=L+i*spacing;board.rect('legend-chip-'+i,a,legendY-10,9,9,c,{rx:1});board.text('legend-'+i,s,a+15,legendY,{size:14,color:p.muted});});\n return {N,t1,t2,t3,async,serial,asynchronousTotal:asyncEnd,synchronousTotal:syncEnd,exactPipeline:t1+t2+(N-1)*Math.max(t1,t2)+t3,textbookExpression:t1+N*t2+t3,submitBottleneck:t1>t2,convention:'单提交线程、单计算线程；任务独立且同行串行；同步每次返回，异步只在最后返回；时间手选。'};\n}"
+    }
+  ]
+}

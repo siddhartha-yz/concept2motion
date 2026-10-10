@@ -1,0 +1,809 @@
+{
+  "kind": "Initial sixteen attempts; different phase freezes, not one fixed comparison",
+  "records": [
+    {
+      "id": "async-computation-direct-phase4",
+      "phase": 4,
+      "frozenToolCommit": "44e8e99",
+      "source": "https://zh.d2l.ai/chapter_computational-performance/async-computation.html",
+      "sourceSha256": "56e8b5cc95dcf4ac258775a943dbf27e0b8a26cc91aef86980f30333e29240dd",
+      "sourceJsonSha256": "a44244ed6c92a2909aacd92d29ef0cebaad9b52fe18b5300f9baf005784cf26c",
+      "planSha256": "a3d044e2ef961b80cf4176f5e1fd45da7a96e2ca5b12d092c8d5267cb642805b",
+      "htmlSha256": "49def53805e7125d3cd76947a30da66d23fcb65d084b390fbb341e657bbcbd90",
+      "figures": 2,
+      "codeCharacters": 6852,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": false,
+      "modelKnownIssues": [
+        {
+          "figureId": "timing-boundary",
+          "condition": "width=375, progress=0（默认参数）",
+          "description": "最终真实起点 PNG 中，游标中段经过 GPU · 执行 标签所在高度并贴着标签左缘，造成视觉干扰。第三次预览后发现，预览次数已达上限，未修订；需要避开手机行标题区域后重新构建预览。"
+        }
+      ],
+      "renderFindings": 0,
+      "previewFindings": [
+        5,
+        0,
+        0
+      ],
+      "wallSeconds": 345.536,
+      "usage": [
+        {
+          "input_tokens": 502801,
+          "cached_input_tokens": 454528,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 13908,
+          "reasoning_output_tokens": 4973
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 26,
+        "returned_candidate_png_count": 26
+      },
+      "mcpCallCounts": {
+        "build_book": 3,
+        "preview_book": 3,
+        "inspect_frame": 8,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "async-computation-harness-phase4",
+      "phase": 4,
+      "frozenToolCommit": "44e8e99",
+      "source": "https://zh.d2l.ai/chapter_computational-performance/async-computation.html",
+      "sourceSha256": "56e8b5cc95dcf4ac258775a943dbf27e0b8a26cc91aef86980f30333e29240dd",
+      "sourceJsonSha256": "a44244ed6c92a2909aacd92d29ef0cebaad9b52fe18b5300f9baf005784cf26c",
+      "planSha256": "4db2144e7a42f9b9ddf049a04b6c3d5bc7194b0a5207bd788166a2c526e12eec",
+      "htmlSha256": "9d19a342b78190d54a724f24b207114dd9a10fed57e9c4f3427e4ce60f3e97a7",
+      "figures": 2,
+      "codeCharacters": 5080,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        7,
+        0
+      ],
+      "wallSeconds": 327.688,
+      "usage": [
+        {
+          "input_tokens": 810145,
+          "cached_input_tokens": 755456,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 10704,
+          "reasoning_output_tokens": 3359
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 24,
+        "returned_candidate_png_count": 20
+      },
+      "mcpCallCounts": {
+        "search_designs": 1,
+        "describe_component": 1,
+        "show_design": 1,
+        "build_book": 2,
+        "preview_book": 2,
+        "inspect_frame": 8,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "autograd-direct-phase1",
+      "phase": 1,
+      "frozenToolCommit": "d9cd692",
+      "source": "https://zh.d2l.ai/chapter_preliminaries/autograd.html",
+      "sourceSha256": "d61240262675a21453f1619c7691731f527dfac43b59fb61bddea57e655185fd",
+      "sourceJsonSha256": "31f4fd5507d544f519afe73a482579f20fe172597340067fdd6baa270588c48b",
+      "planSha256": "e23563ebccd1fe03aa630c4fc5aa6f27bdccfce2384d66aafbe28acf50f04b3d",
+      "htmlSha256": "1ac3c86957ade0c707ae8faf71edf895fe7f6111b71c2d6e5dd195d14d4e2045",
+      "figures": 3,
+      "codeCharacters": 9896,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        55,
+        0,
+        0
+      ],
+      "wallSeconds": 481.635,
+      "usage": [
+        {
+          "input_tokens": 850165,
+          "cached_input_tokens": 766080,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 15714,
+          "reasoning_output_tokens": 5984
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 36,
+        "returned_candidate_png_count": 36
+      },
+      "mcpCallCounts": {
+        "build_book": 4,
+        "preview_book": 3,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "autograd-harness-phase1",
+      "phase": 1,
+      "frozenToolCommit": "d9cd692",
+      "source": "https://zh.d2l.ai/chapter_preliminaries/autograd.html",
+      "sourceSha256": "d61240262675a21453f1619c7691731f527dfac43b59fb61bddea57e655185fd",
+      "sourceJsonSha256": "31f4fd5507d544f519afe73a482579f20fe172597340067fdd6baa270588c48b",
+      "planSha256": "1fefef043ee094156c20c8d977dd421ea5399576b5d049a4067a847d404352b5",
+      "htmlSha256": "1d7cdb399b47fdd1fc329520220d9aa8d439a182a19a8c90d863a14441aee722",
+      "figures": 3,
+      "codeCharacters": 6784,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        1,
+        0,
+        0
+      ],
+      "wallSeconds": 512.022,
+      "usage": [
+        {
+          "input_tokens": 1024716,
+          "cached_input_tokens": 957312,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 16837,
+          "reasoning_output_tokens": 7286
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 40,
+        "returned_candidate_png_count": 36
+      },
+      "mcpCallCounts": {
+        "list_designs": 1,
+        "show_design": 1,
+        "build_book": 4,
+        "preview_book": 3,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "backprop-direct-phase3",
+      "phase": 3,
+      "frozenToolCommit": "a789b37",
+      "source": "https://zh.d2l.ai/chapter_multilayer-perceptrons/backprop.html",
+      "sourceSha256": "d71d5b8e916a1bc5ecdb99e7266bbf026456c3ae9da5cbfc1fbb79d59ecc80e6",
+      "sourceJsonSha256": "dada73594625c91610d361b0047e4b3d3d971308fcf94b7877379a4e8ac86888",
+      "planSha256": "bdf0cdfae3e9812a2b1344e053bf32796ca055a505f373c1a5c4439fd751b1c8",
+      "htmlSha256": "79cda7ae5c9d608bcb48c5c6217c8b5040aba41ddc1649e4f5ef9a3a8b3558dc",
+      "figures": 3,
+      "codeCharacters": 8036,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        98,
+        0,
+        0
+      ],
+      "wallSeconds": 408.421,
+      "usage": [
+        {
+          "input_tokens": 795798,
+          "cached_input_tokens": 724480,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 13420,
+          "reasoning_output_tokens": 3307
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 36,
+        "returned_candidate_png_count": 36
+      },
+      "mcpCallCounts": {
+        "build_book": 3,
+        "preview_book": 3,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "backprop-harness-phase3",
+      "phase": 3,
+      "frozenToolCommit": "a789b37",
+      "source": "https://zh.d2l.ai/chapter_multilayer-perceptrons/backprop.html",
+      "sourceSha256": "d71d5b8e916a1bc5ecdb99e7266bbf026456c3ae9da5cbfc1fbb79d59ecc80e6",
+      "sourceJsonSha256": "dada73594625c91610d361b0047e4b3d3d971308fcf94b7877379a4e8ac86888",
+      "planSha256": "96d493d7eb0ad146510f23adaccd10274f3bf00aa4b23a717e5c137184e5cdc6",
+      "htmlSha256": "c696380ee00b039466308ce279736621648d512e81ba482083494a1965bd5442",
+      "figures": 2,
+      "codeCharacters": 5138,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        0,
+        0,
+        0
+      ],
+      "wallSeconds": 408.171,
+      "usage": [
+        {
+          "input_tokens": 994910,
+          "cached_input_tokens": 907136,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 14168,
+          "reasoning_output_tokens": 6452
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 34,
+        "returned_candidate_png_count": 34
+      },
+      "mcpCallCounts": {
+        "search_designs": 1,
+        "describe_component": 2,
+        "build_book": 3,
+        "preview_book": 3,
+        "inspect_frame": 16,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "linear-regression-direct-phase2",
+      "phase": 2,
+      "frozenToolCommit": "67f2f27",
+      "source": "https://zh.d2l.ai/chapter_linear-networks/linear-regression.html",
+      "sourceSha256": "778cfb8dfab0bb6407be2882883ecccc8bf5fa988895fc1b0d5c9af8b2283bed",
+      "sourceJsonSha256": "5f3739d5ac4c23ae387e93cd93ec9b7450f4168c5707fd2cbe7e0ac3a32aa8b5",
+      "planSha256": "70c16e5de5f4d77e21d9d38e104ed358d3bb905fb34fa29b96bf761906fade26",
+      "htmlSha256": "22885c987f3fc75522f03b518b1753ca20eaf1cf3a55a9b1777b2600d83e2b89",
+      "figures": 2,
+      "codeCharacters": 11398,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        49,
+        0,
+        0
+      ],
+      "wallSeconds": 514.576,
+      "usage": [
+        {
+          "input_tokens": 1194584,
+          "cached_input_tokens": 1113088,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 17308,
+          "reasoning_output_tokens": 5903
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 34,
+        "returned_candidate_png_count": 34
+      },
+      "mcpCallCounts": {
+        "build_book": 3,
+        "preview_book": 3,
+        "inspect_frame": 16,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "linear-regression-harness-phase2",
+      "phase": 2,
+      "frozenToolCommit": "67f2f27",
+      "source": "https://zh.d2l.ai/chapter_linear-networks/linear-regression.html",
+      "sourceSha256": "778cfb8dfab0bb6407be2882883ecccc8bf5fa988895fc1b0d5c9af8b2283bed",
+      "sourceJsonSha256": "5f3739d5ac4c23ae387e93cd93ec9b7450f4168c5707fd2cbe7e0ac3a32aa8b5",
+      "planSha256": "a9e14605a19ba9b4557b3de0ba1fcf7a7a51b6226abf2f9c2c529b15543aef75",
+      "htmlSha256": "034bab299598034ae24e0726011cfe864bb9f191d2b815ad7bba3b01a573e575",
+      "figures": 3,
+      "codeCharacters": 7833,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        82,
+        82,
+        0
+      ],
+      "wallSeconds": 411.191,
+      "usage": [
+        {
+          "input_tokens": 1282528,
+          "cached_input_tokens": 1174016,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 15106,
+          "reasoning_output_tokens": 5031
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 40,
+        "returned_candidate_png_count": 36
+      },
+      "mcpCallCounts": {
+        "search_designs": 1,
+        "describe_component": 2,
+        "show_design": 1,
+        "build_book": 2,
+        "preview_book": 3,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "batch-norm-harness-phase5",
+      "phase": 5,
+      "frozenToolCommit": "371450d",
+      "source": "https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html",
+      "sourceSha256": "1dc3213674783ccc7dca33cfd349ab4f4777da4b0c166887a26846d617227bc4",
+      "sourceJsonSha256": "e0777d16e6adc025c2ec9a4b3a67a2ea25abe8c8c0a3c67704074217985d54ba",
+      "planSha256": "c67bfd9c1b12555b0cb4c508cd79baca4aee7283ad2f26b773020a2ce0a28a1d",
+      "htmlSha256": "b6d6d08aff9411dc27097774b72d954c66f39f88bc89e95d0109b669ff4f42c5",
+      "figures": 3,
+      "codeCharacters": 7083,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        41,
+        0
+      ],
+      "wallSeconds": 323.149,
+      "usage": [
+        {
+          "input_tokens": 734526,
+          "cached_input_tokens": 668672,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 13405,
+          "reasoning_output_tokens": 4214
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 28,
+        "returned_candidate_png_count": 28
+      },
+      "mcpCallCounts": {
+        "describe_component": 1,
+        "describe_design_inputs": 2,
+        "build_book": 2,
+        "preview_book": 2,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "ndarray-harness-phase5",
+      "phase": 5,
+      "frozenToolCommit": "371450d",
+      "source": "https://zh.d2l.ai/chapter_preliminaries/ndarray.html",
+      "sourceSha256": "de933633ba5fdb5088f233e123e71ce0695ca98046d1a2d03862a52614323d1c",
+      "sourceJsonSha256": "bca59bbc91e5a64a7840f0b80ce80b38b2d3d69edf19fb41dc5b1702febd5020",
+      "planSha256": "c07b54c2642321bf416a9567973b405dae83081f7178def969283377eb7daab6",
+      "htmlSha256": "356ab769f74f0e86a384941bd9f58f081d1ce1524d0880094b147e31b810e7d3",
+      "figures": 3,
+      "codeCharacters": 6059,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        23,
+        0,
+        0
+      ],
+      "wallSeconds": 359.755,
+      "usage": [
+        {
+          "input_tokens": 1145785,
+          "cached_input_tokens": 1072640,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 12650,
+          "reasoning_output_tokens": 4384
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 40,
+        "returned_candidate_png_count": 36
+      },
+      "mcpCallCounts": {
+        "describe_component": 3,
+        "describe_design_inputs": 2,
+        "show_design": 1,
+        "build_book": 3,
+        "preview_book": 3,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "probability-harness-phase5",
+      "phase": 5,
+      "frozenToolCommit": "371450d",
+      "source": "https://zh.d2l.ai/chapter_preliminaries/probability.html",
+      "sourceSha256": "669b310c2a32b101deec4fa99c244ece45661b7761732ff4635baf22b85fc114",
+      "sourceJsonSha256": "136665d44c2628cecba0e065ea081daa5c568681f646bf7910e0b266f75e7dca",
+      "planSha256": "90c9f044b4c05cf612bb076c6f69b7a7ad08726547f846c01d5500b21e75a95a",
+      "htmlSha256": "79b70b8c8b20f623ab19fe1ae7d54cb007b88f0cdcaf3158f1b14db839c29219",
+      "figures": 3,
+      "codeCharacters": 5844,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        11,
+        0
+      ],
+      "wallSeconds": 320.199,
+      "usage": [
+        {
+          "input_tokens": 624865,
+          "cached_input_tokens": 565120,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 11837,
+          "reasoning_output_tokens": 3858
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 28,
+        "returned_candidate_png_count": 28
+      },
+      "mcpCallCounts": {
+        "describe_component": 1,
+        "describe_design_inputs": 1,
+        "build_book": 2,
+        "preview_book": 2,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "weight-decay-harness-phase5",
+      "phase": 5,
+      "frozenToolCommit": "371450d",
+      "source": "https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html",
+      "sourceSha256": "4d697ad4b725c9636874695b41bb0f37a7701f579e8c0ccb554108a51fb899ab",
+      "sourceJsonSha256": "82671e68b6c82cb6903107564635e4c8cabf0bca7f40d025191ed58cf1424d53",
+      "planSha256": "29e56b9bde5e9a4474db7844b959a108323e6ae810dc9f099cb45ee7046ff91c",
+      "htmlSha256": "6ba2f58fd3af00fe881756503e0160c32ed8a9db17a7f8d9d7d89e3de47ed3b8",
+      "figures": 2,
+      "codeCharacters": 3947,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        60,
+        0
+      ],
+      "wallSeconds": 275.526,
+      "usage": [
+        {
+          "input_tokens": 676418,
+          "cached_input_tokens": 615936,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 10332,
+          "reasoning_output_tokens": 3388
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 24,
+        "returned_candidate_png_count": 20
+      },
+      "mcpCallCounts": {
+        "search_designs": 1,
+        "describe_component": 1,
+        "describe_design_inputs": 1,
+        "show_design": 1,
+        "build_book": 2,
+        "preview_book": 2,
+        "inspect_frame": 8,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "autograd-direct-phase6",
+      "phase": 6,
+      "frozenToolCommit": "1bdf312",
+      "source": "https://zh.d2l.ai/chapter_preliminaries/autograd.html",
+      "sourceSha256": "d61240262675a21453f1619c7691731f527dfac43b59fb61bddea57e655185fd",
+      "sourceJsonSha256": "31f4fd5507d544f519afe73a482579f20fe172597340067fdd6baa270588c48b",
+      "planSha256": "1ca69434e8cf1cdbdfd4e578ee4ea159b2bdf3d37e1bbe13a8ee3bfac33ce515",
+      "htmlSha256": "273449f75a3a619da6799ac9d9efa8ea27f685c783d848a8df0fc502002dab26",
+      "figures": 3,
+      "codeCharacters": 10065,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        38,
+        0
+      ],
+      "wallSeconds": 323.908,
+      "usage": [
+        {
+          "input_tokens": 678557,
+          "cached_input_tokens": 619008,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 12212,
+          "reasoning_output_tokens": 3081
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 28,
+        "returned_candidate_png_count": 28
+      },
+      "mcpCallCounts": {
+        "build_book": 2,
+        "preview_book": 2,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "autograd-harness-phase6",
+      "phase": 6,
+      "frozenToolCommit": "1bdf312",
+      "source": "https://zh.d2l.ai/chapter_preliminaries/autograd.html",
+      "sourceSha256": "d61240262675a21453f1619c7691731f527dfac43b59fb61bddea57e655185fd",
+      "sourceJsonSha256": "31f4fd5507d544f519afe73a482579f20fe172597340067fdd6baa270588c48b",
+      "planSha256": "6c1885985a6fc4595d9e838155467cffbdfc35fd8a7c3991b77c50c425583546",
+      "htmlSha256": "ebc2ca8950b38cbb48e83d47b765926e497ec402b01dc75ffa1c3b0e814ee41e",
+      "figures": 3,
+      "codeCharacters": 4605,
+      "sceneFigures": 1,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        22,
+        0
+      ],
+      "wallSeconds": 369.525,
+      "usage": [
+        {
+          "input_tokens": 1535821,
+          "cached_input_tokens": 1442944,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 13642,
+          "reasoning_output_tokens": 5309
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 36,
+        "returned_candidate_png_count": 28
+      },
+      "mcpCallCounts": {
+        "search_designs": 1,
+        "describe_design_inputs": 2,
+        "describe_component": 3,
+        "show_design": 2,
+        "build_book": 2,
+        "preview_book": 2,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "linear-regression-direct-phase6",
+      "phase": 6,
+      "frozenToolCommit": "1bdf312",
+      "source": "https://zh.d2l.ai/chapter_linear-networks/linear-regression.html",
+      "sourceSha256": "778cfb8dfab0bb6407be2882883ecccc8bf5fa988895fc1b0d5c9af8b2283bed",
+      "sourceJsonSha256": "5f3739d5ac4c23ae387e93cd93ec9b7450f4168c5707fd2cbe7e0ac3a32aa8b5",
+      "planSha256": "1e3d039ace80378a61ec9d93020857cc728e686d4f035f4e0488125456cf0348",
+      "htmlSha256": "e4782d93d558ccd774f6418b087c1dba47889224ba6a6ea5107aef937edb839f",
+      "figures": 3,
+      "codeCharacters": 14726,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": false,
+      "modelKnownIssues": [
+        {
+          "figureId": "one-gradient-step",
+          "condition": "将原文 linear-regression-033、047 的唯一极小点说法推广到任意设计矩阵时",
+          "description": "原文没有明确唯一参数解需要增广设计矩阵满列秩；本图的三点例子满足该条件，但未按保留原文要求修订教材的普遍断言。此项属于原文教学限制，并非本图三点计算错误。"
+        }
+      ],
+      "renderFindings": 0,
+      "previewFindings": [
+        80,
+        0,
+        0
+      ],
+      "wallSeconds": 367.928,
+      "usage": [
+        {
+          "input_tokens": 995980,
+          "cached_input_tokens": 913408,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 15220,
+          "reasoning_output_tokens": 4489
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 36,
+        "returned_candidate_png_count": 36
+      },
+      "mcpCallCounts": {
+        "build_book": 3,
+        "preview_book": 3,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    },
+    {
+      "id": "linear-regression-harness-phase6",
+      "phase": 6,
+      "frozenToolCommit": "1bdf312",
+      "source": "https://zh.d2l.ai/chapter_linear-networks/linear-regression.html",
+      "sourceSha256": "778cfb8dfab0bb6407be2882883ecccc8bf5fa988895fc1b0d5c9af8b2283bed",
+      "sourceJsonSha256": "5f3739d5ac4c23ae387e93cd93ec9b7450f4168c5707fd2cbe7e0ac3a32aa8b5",
+      "planSha256": "1c7a29cca8e80298bbbd347ddb754779ebd34d013fb928bc4b1381a1d080f0af",
+      "htmlSha256": "e0e6468aa45e778277c5772c1f1f0df11ed85a7acfd419be48c2997750adf462",
+      "figures": 3,
+      "codeCharacters": 7711,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "modelReviewReady": true,
+      "modelKnownIssues": [],
+      "renderFindings": 0,
+      "previewFindings": [
+        98,
+        11,
+        0
+      ],
+      "wallSeconds": 464.757,
+      "usage": [
+        {
+          "input_tokens": 1725445,
+          "cached_input_tokens": 1618048,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 17408,
+          "reasoning_output_tokens": 6996
+        }
+      ],
+      "result": {
+        "exit_code": 0,
+        "timed_out": false,
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "returned_png_count": 40,
+        "returned_candidate_png_count": 36
+      },
+      "mcpCallCounts": {
+        "search_designs": 1,
+        "describe_design_inputs": 3,
+        "describe_component": 5,
+        "show_design": 1,
+        "describe_calculation": 1,
+        "build_book": 3,
+        "preview_book": 3,
+        "inspect_frame": 12,
+        "finalize_book": 1
+      },
+      "toolSnapshot": "invocation.json records individual hashes; no generation logs published",
+      "maintainerChangedCandidateCode": false
+    }
+  ]
+}

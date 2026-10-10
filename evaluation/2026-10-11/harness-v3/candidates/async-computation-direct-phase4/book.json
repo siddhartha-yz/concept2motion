@@ -1,0 +1,66 @@
+{
+  "figures": [
+    {
+      "id": "timing-boundary",
+      "title": "计时停了，计算呢？",
+      "afterAnchor": "async-computation-009",
+      "endAnchor": "async-computation-010",
+      "height": 320,
+      "mobileHeight": 390,
+      "summary": "三次提交各耗时 1；同一 GPU 队列顺序执行，时间均为示例值。",
+      "stages": [
+        "开始提交",
+        "观察提交与执行",
+        "等待计算",
+        "同步完成"
+      ],
+      "checkpoints": [
+        0,
+        0.3,
+        0.7,
+        1
+      ],
+      "durationMs": 10000,
+      "params": [
+        {
+          "key": "gpuTime",
+          "label": "单次 GPU 耗时",
+          "min": 2,
+          "max": 5,
+          "step": 0.5,
+          "value": 3
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n  const ns='http://www.w3.org/2000/svg';\n  svg.replaceChildren(); svg.setAttribute('viewBox',`0 0 ${width} ${height}`);\n  const C={ink:'#263b45',muted:'#66777b',line:'#d8dfde',cpu:'#498e9a',gpu:'#b27947',wait:'#e8ecea',paper:'#fafbf8'};\n  const el=(tag,a={},s)=>{const e=document.createElementNS(ns,tag); for(const [k,v] of Object.entries(a))e.setAttribute(k,v);if(s!==undefined)e.textContent=s;svg.appendChild(e);return e;};\n  const txt=(x,y,s,a={})=>el('text',{x,y,fill:C.ink,'font-size':14,'font-family':'system-ui, sans-serif',...a},s);\n  const line=(x1,y1,x2,y2,a={})=>el('line',{x1,y1,x2,y2,stroke:C.line,'stroke-width':1,...a});\n  const box=(x,y,w,h,fill,a={})=>el('rect',{x,y,width:Math.max(0,w),height:h,rx:3,fill,...a});\n  const m=width<520,L=m?26:104,R=width-24;\n  const d=Number(params.gpuTime),end=1+3*d,now=progress*end,X=t=>L+t/end*(R-L);\n  const cy=m?112:96,gy=m?224:184,bh=28,axis=m?278:238;\n  el('title',{},'提交计时与同步计时：三次提交，一条 GPU 队列');\n  box(0,0,width,height,C.paper);\n  txt(L,29,`观察时刻 ${now.toFixed(1)}`,{'font-size':16,'font-weight':600});\n  txt(R,29,'示例时间',{'text-anchor':'end',fill:C.muted,'font-size':13});\n  if(m){txt(L,cy-25,'Python · 提交');txt(L,gy-25,'GPU · 执行');}\n  else{txt(12,cy+18,'Python');txt(12,gy+18,'GPU');}\n  box(X(3),cy,R-X(3),bh,C.wait);\n  const waitRun=Math.max(0,Math.min(now,end)-3);\n  if(waitRun>0)box(X(3),cy,X(3+waitRun)-X(3),bh,'#d1dbd7');\n  txt((X(3)+R)/2,cy+19,'同步等待',{'text-anchor':'middle',fill:C.muted,'font-size':13});\n  const starts=[];\n  for(let i=0;i<3;i++){\n    const s=1+i*d;starts.push(s);\n    box(X(i),cy,X(i+1)-X(i)-2,bh,C.cpu,{opacity:0.17});\n    const pc=Math.max(0,Math.min(1,now-i));\n    if(pc>0)box(X(i),cy,Math.max(0,X(i+pc)-X(i)-2),bh,C.cpu);\n    txt((X(i)+X(i+1))/2,cy-7,String(i+1),{'text-anchor':'middle','font-size':13,fill:C.muted});\n    box(X(s),gy,X(s+d)-X(s)-2,bh,C.gpu,{opacity:0.17});\n    const pg=Math.max(0,Math.min(d,now-s));\n    if(pg>0)box(X(s),gy,Math.max(0,X(s+pg)-X(s)-2),bh,C.gpu);\n    txt((X(s)+X(s+d))/2,gy+19,`任务 ${i+1}`,{'text-anchor':'middle','font-size':13});\n  }\n  line(X(3),cy-39,X(3),cy+bh+8,{stroke:C.cpu,'stroke-dasharray':'3 4'});\n  txt(X(3),cy-44,'提交完',{'text-anchor':'middle',fill:C.cpu,'font-size':13});\n  line(R,gy-49,R,gy+bh+8,{stroke:C.gpu,'stroke-dasharray':'3 4'});\n  txt(R,gy-55,'计算完',{'text-anchor':'end',fill:C.gpu,'font-size':13});\n  line(L,axis,R,axis);\n  for(const t of [0,3,end]){line(X(t),axis-4,X(t),axis+4);txt(X(t),axis+22,String(t),{'text-anchor':t===end?'end':'middle','font-size':13,fill:C.muted});}\n  for(const [y1,y2] of [[cy-12,cy],[cy+bh,gy],[gy+bh,gy+bh+9]])\n    line(X(now),y1,X(now),y2,{stroke:'#39515a','stroke-width':1.5});\n  el('circle',{cx:X(now),cy:cy-14,r:3.5,fill:C.ink});\n  const by=m?335:285;\n  txt(L,by,'未同步计时',{'font-size':13,fill:C.muted});\n  txt(L+91,by,'3',{'font-size':18,'font-weight':600,fill:C.cpu});\n  if(m){txt(L,by+32,'同步后计时',{'font-size':13,fill:C.muted});txt(L+91,by+32,end.toFixed(1),{'font-size':18,'font-weight':600,fill:C.gpu});txt(R,by+32,`多等 ${end-3}`,{'text-anchor':'end',fill:C.muted,'font-size':13});}\n  else{txt(width/2,by,'同步后计时',{'font-size':13,fill:C.muted});txt(width/2+91,by,end.toFixed(1),{'font-size':18,'font-weight':600,fill:C.gpu});txt(R,by,`多等 ${end-3}`,{'text-anchor':'end',fill:C.muted,'font-size':13});}\n  return {enqueueDuration:1,gpuDuration:d,taskCount:3,gpuStarts:starts,enqueueEnd:3,completion:end,synchronizationWait:end-3,observedTime:now,completedTasks:starts.filter(s=>now>=s+d).length};\n}\n"
+    },
+    {
+      "id": "pipeline-bottleneck",
+      "title": "谁更慢，谁决定节奏",
+      "afterAnchor": "async-computation-021",
+      "endAnchor": "async-computation-021",
+      "height": 385,
+      "mobileHeight": 410,
+      "interaction": "parameters",
+      "summary": "四个互相独立的任务；每个阶段占用独立执行资源，返回耗时固定为 1。",
+      "params": [
+        {
+          "key": "t1",
+          "label": "提交耗时 t₁",
+          "min": 0.5,
+          "max": 3,
+          "step": 0.5,
+          "value": 1
+        },
+        {
+          "key": "t2",
+          "label": "计算耗时 t₂",
+          "min": 0.5,
+          "max": 3,
+          "step": 0.5,
+          "value": 2
+        }
+      ],
+      "code": "function draw({svg,width,height,params}) {\n  const ns='http://www.w3.org/2000/svg';svg.replaceChildren();svg.setAttribute('viewBox',`0 0 ${width} ${height}`);\n  const C={ink:'#263b45',muted:'#66777b',line:'#d8dfde',cpu:'#498e9a',gpu:'#b27947',ret:'#6b747c',paper:'#fafbf8'};\n  const el=(tag,a={},s)=>{const e=document.createElementNS(ns,tag);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);if(s!==undefined)e.textContent=s;svg.appendChild(e);return e;};\n  const txt=(x,y,s,a={})=>el('text',{x,y,fill:C.ink,'font-size':14,'font-family':'system-ui, sans-serif',...a},s);\n  const line=(x1,y1,x2,y2,a={})=>el('line',{x1,y1,x2,y2,stroke:C.line,'stroke-width':1,...a});\n  const box=(x,y,w,h,fill,a={})=>el('rect',{x,y,width:Math.max(0,w),height:h,fill,rx:2,...a});\n  const a=Number(params.t1),b=Number(params.t2),c=1,N=4;\n  const starts=[],ends=[];let previous=0;\n  for(let i=0;i<N;i++){const s=Math.max((i+1)*a,previous);starts.push(s);previous=s+b;ends.push(previous);}\n  const sync=N*(a+b+c),async=previous+c,L=26,R=width-26,X=t=>L+t/sync*(R-L),m=width<520;\n  const sy=82,cy=m?177:173,gy=m?262:253,axis=m?312:301;\n  el('title',{},'四个独立任务的逐次等待与流水线调度');\n  box(0,0,width,height,C.paper);\n  const legend=[['提交 t₁',C.cpu],['计算 t₂',C.gpu],['返回 1',C.ret]];\n  legend.forEach(([s,c],i)=>{const x=L+i*(m?96:145);box(x,16,10,10,c);txt(x+16,26,s,{'font-size':13});});\n  txt(L,sy-15,'逐次等待');txt(R,sy-15,`总时长 ${sync.toFixed(1)}`,{'text-anchor':'end','font-size':13,fill:C.muted});\n  for(let i=0;i<N;i++){\n    const s=i*(a+b+c);\n    box(X(s),sy,X(s+a)-X(s),26,C.cpu);\n    box(X(s+a),sy,X(s+a+b)-X(s+a),26,C.gpu);\n    box(X(s+a+b),sy,X(s+a+b+c)-X(s+a+b),26,C.ret);\n    txt(X(s+(a+b+c)/2),sy+45,String(i+1),{'text-anchor':'middle','font-size':13,fill:C.muted});\n    if(i>0)line(X(s),sy,X(s),sy+26,{stroke:C.paper,'stroke-width':2});\n  }\n  txt(L,cy-16,'异步 · 四次提交');\n  txt(R,cy-16,`提交完 ${N*a}`,{'text-anchor':'end','font-size':13,fill:C.muted});\n  box(L,cy,X(N*a)-L,26,C.cpu,{opacity:0.15});\n  for(let i=0;i<N;i++){\n    box(X(i*a),cy,Math.max(0,X((i+1)*a)-X(i*a)-1),26,C.cpu);\n  }\n  txt(L,gy-16,'异步 · 后端');txt(R,gy-16,`总时长 ${async.toFixed(1)}`,{'text-anchor':'end','font-size':13,fill:C.muted});\n  for(let i=0;i<N;i++){\n    line(X((i+1)*a),cy+27,X(starts[i]),gy-4,{stroke:C.cpu,'stroke-dasharray':'2 4',opacity:0.5});\n    box(X(starts[i]),gy,Math.max(0,X(ends[i])-X(starts[i])-1),26,C.gpu);\n    if(starts[i]>(i===0?0:ends[i-1]))line(X(i===0?0:ends[i-1]),gy+13,X(starts[i]),gy+13,{stroke:C.line,'stroke-width':3});\n  }\n  box(X(previous),gy,X(async)-X(previous),26,C.ret);\n  line(X(async),gy+27,X(async),axis-6,{stroke:C.ret,'stroke-dasharray':'3 3'});\n  line(L,axis,R,axis);\n  [0,sync/4,sync/2,3*sync/4,sync].forEach(t=>{line(X(t),axis-4,X(t),axis+4);txt(X(t),axis+21,String(t),{'text-anchor':'middle','font-size':13,fill:C.muted});});\n  txt(R,axis+43,'时间 / 示例单位',{'text-anchor':'end','font-size':13,fill:C.muted});\n  const note=a<=b?'后端较慢 · T = t₁ + 4t₂ + 1':'前端较慢 · T = 4t₁ + t₂ + 1';\n  txt(L,height-15,note,{'font-size':14,fill:C.ink});\n  return {taskCount:N,t1:a,t2:b,t3:c,enqueueEnds:Array.from({length:N},(_,i)=>(i+1)*a),backendStarts:starts,backendEnds:ends,synchronous:sync,asynchronous:async,exactFormula:a+b+(N-1)*Math.max(a,b)+c,backendIdle:starts.reduce((v,s,i)=>v+Math.max(0,s-(i?ends[i-1]:0)),0),bottleneck:a>b?'front':'back'};\n}\n"
+    }
+  ]
+}

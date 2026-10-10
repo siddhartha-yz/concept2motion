@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "用独立 Python Fraction 有理数计算与第二轮浏览器实际返回 facts 比较：36 个参数预览案例、2160 个标量比较；检查两次测试联合分布四格非负、归一、边际固定；q=0.03 得 0.8307196745，首次阳性得 0.1306051371；检查 E[X]=3、Var[X]=4s 及二阶矩恒等式。记录见 checks/math-check.json。已实际查看三图在1280/375、progress=0/1的12张最终PNG，以及第二轮中间帧与段落上下文。",
+  "limits": "三图均为 parameters，progress端点保持默认参数画面；预览检查参数默认值和边界，未穷举全部参数。图1人数为概率模型期望人数；图2改变条件误报重现率q的构造模型，保持两次误报边际特性，不声称真实测试条件独立；q范围仅为0.03至1。没有真实采样、临床验证、读者实验、训练或性能测量。审美为实际PNG观察，布局零发现并不证明教学效果；未审阅其它浏览器和屏幕尺寸。",
+  "html_sha256": "79b70b8c8b20f623ab19fe1ae7d54cb007b88f0cdcaf3158f1b14db839c29219",
+  "plan_sha256": "90c9f044b4c05cf612bb076c6f69b7a7ad08726547f846c01d5500b21e75a95a",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

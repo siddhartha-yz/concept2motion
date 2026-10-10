@@ -1,0 +1,99 @@
+{
+  "figures": [
+    {
+      "id": "weighted-backward",
+      "title": "反传权重决定哪一项有影响",
+      "afterAnchor": "autograd-020",
+      "endAnchor": "autograd-020",
+      "height": 370,
+      "mobileHeight": 400,
+      "summary": "固定 x = [0,1,2,3]；反传种子为 [1,1,w,1]。",
+      "stages": [
+        "原点",
+        "小扰动",
+        "有限变化"
+      ],
+      "checkpoints": [
+        0,
+        0.1,
+        0.5,
+        1
+      ],
+      "durationMs": 9000,
+      "params": [
+        {
+          "key": "w",
+          "label": "y₂ 的权重 w",
+          "min": -1,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n\nconst W=width,H=height, p=Math.max(0,Math.min(1,progress));\nconst C={ink:'#243b47',muted:'#677982',grid:'#dce4e7',teal:'#237d79',rust:'#b86040',pale:'#edf4f3'};\nsvg.replaceChildren(); svg.setAttribute('viewBox',`0 0 ${W} ${H}`);\nfunction el(tag,attrs={},txt){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(txt!==undefined)n.textContent=txt;svg.appendChild(n);return n;}\nfunction text(x,y,s,opts={}){return el('text',{x,y,fill:C.ink,'font-size':13,'font-family':'system-ui, sans-serif',...opts},s);}\nfunction line(x1,y1,x2,y2,color=C.grid,opts={}){return el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':1,...opts});}\nfunction path(d,color=C.teal,opts={}){return el('path',{d,fill:'none',stroke:color,'stroke-width':2.3,...opts});}\nfunction dot(x,y,color=C.teal,r=5,opts={}){return el('circle',{cx:x,cy:y,r,fill:color,...opts});}\nfunction fmt(n){return Number(n.toFixed(2)).toString();}\nfunction clamp(n){return Math.max(0,Math.min(1,n));}\n\nconst w=params.w,delta=p,grad=[0,2,4*w,6];\ntext(18,24,'L = y₀ + y₁ + w·y₂ + y₃',{'font-size':15});\ntext(18,49,`起点梯度：[0, 2, ${fmt(4*w)}, 6]`,{fill:C.teal,'font-size':15});\ntext(18,72,`x₂：2 → ${fmt(2+delta)}（δ = ${fmt(delta)}）`,{fill:C.muted});\nconst left=55,right=W-23,top=98,bottom=H-100;\nconst X=d=>left+d*(right-left), Y=v=>bottom-(v+5)/15*(bottom-top);\nfor(const v of [-5,0,5,10]){line(left,Y(v),right,Y(v));text(left-10,Y(v)+4,String(v),{'text-anchor':'end','font-size':12,fill:C.muted});}\nfor(const d of [0,.5,1]){line(X(d),bottom,X(d),top,C.grid,{'stroke-dasharray':'2 5'});text(X(d),bottom+20,String(d),{'text-anchor':'middle','font-size':12,fill:C.muted});}\nline(left,bottom,right,bottom,C.muted);text(left,top-9,'ΔL',{fill:C.muted,'font-size':12});text(right,bottom+36,'δ',{'text-anchor':'end',fill:C.muted});\nconst exact=d=>w*(4*d+d*d),linear=d=>4*w*d;\nlet d='';for(let i=0;i<=80;i++){const q=i/80;d+=`${i?'L':'M'}${X(q)},${Y(exact(q))} `;}path(d);\npath(`M${X(0)},${Y(0)} L${X(1)},${Y(linear(1))}`,C.rust,{'stroke-dasharray':'6 4'});\nline(X(delta),Y(exact(delta)),X(delta),Y(linear(delta)),C.muted,{'stroke-width':1.5});\nconst tx=X(delta),ty=Y(linear(delta)); el('polygon',{points:`${tx},${ty-6} ${tx+6},${ty} ${tx},${ty+6} ${tx-6},${ty}`,fill:'none',stroke:C.rust,'stroke-width':1.8}); dot(X(delta),Y(exact(delta)),C.teal,3.5);\nline(18,H-48,40,H-48,C.teal,{'stroke-width':2.5});text(47,H-44,`实际 ΔL = ${fmt(exact(delta))}${w===0?'（忽略 y₂）':''}`);\nline(18,H-23,40,H-23,C.rust,{'stroke-width':2.5,'stroke-dasharray':'5 3'});text(47,H-19,`切线估计 = ${fmt(linear(delta))} · 斜率 ${fmt(4*w)}`,{fill:C.rust});\n\nreturn {x:[0,1,2,3],seed:[1,1,w,1],gradient:grad,delta,exactDeltaL:exact(delta),tangentDeltaL:linear(delta),tangentSlope:4*w};\n\n}"
+    },
+    {
+      "id": "detach-paths",
+      "title": "同一个前向值，两种回传路径",
+      "afterAnchor": "autograd-024",
+      "endAnchor": "autograd-026",
+      "height": 325,
+      "mobileHeight": 465,
+      "summary": "取一个分量观察；拖动进度，追踪两条回传路径。",
+      "stages": [
+        "从 z 出发",
+        "到达中间量",
+        "回到 x"
+      ],
+      "checkpoints": [
+        0,
+        0.5,
+        1
+      ],
+      "durationMs": 8000,
+      "params": [
+        {
+          "key": "x",
+          "label": "分量 x",
+          "min": -2,
+          "max": 3,
+          "step": 0.1,
+          "value": 2
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n\nconst W=width,H=height, p=Math.max(0,Math.min(1,progress));\nconst C={ink:'#243b47',muted:'#677982',grid:'#dce4e7',teal:'#237d79',rust:'#b86040',pale:'#edf4f3'};\nsvg.replaceChildren(); svg.setAttribute('viewBox',`0 0 ${W} ${H}`);\nfunction el(tag,attrs={},txt){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(txt!==undefined)n.textContent=txt;svg.appendChild(n);return n;}\nfunction text(x,y,s,opts={}){return el('text',{x,y,fill:C.ink,'font-size':13,'font-family':'system-ui, sans-serif',...opts},s);}\nfunction line(x1,y1,x2,y2,color=C.grid,opts={}){return el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':1,...opts});}\nfunction path(d,color=C.teal,opts={}){return el('path',{d,fill:'none',stroke:color,'stroke-width':2.3,...opts});}\nfunction dot(x,y,color=C.teal,r=5,opts={}){return el('circle',{cx:x,cy:y,r,fill:color,...opts});}\nfunction fmt(n){return Number(n.toFixed(2)).toString();}\nfunction clamp(n){return Math.max(0,Math.min(1,n));}\n\nconst x=params.x,u=x*x,z=u*x, small=W<620;\ntext(18,24,`前向相同：x = ${fmt(x)}，z = ${fmt(z)}`,{'font-size':15});\nconst pw=small?W:W/2,ph=small?198:228,start=small?52:62;\nfunction panel(offsetX,offsetY,detached){\nconst l=offsetX+30,r=offsetX+pw-28,m=offsetX+pw/2,yt=offsetY+48,yb=offsetY+95,cy=offsetY+157;\ntext(l,offsetY+6,detached?'detach 后':'保留路径',{fill:detached?C.teal:C.ink,'font-size':15});\n// All arrowheads point in the direction of gradient propagation.\nconst suffix=detached?'cut':'full';\nconst defs=el('defs');const mark=document.createElementNS('http://www.w3.org/2000/svg','marker');for(const [k,v]of Object.entries({id:'arrow-'+suffix,viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:5,markerHeight:5,orient:'auto-start-reverse'}))mark.setAttribute(k,v);const tri=document.createElementNS('http://www.w3.org/2000/svg','path');tri.setAttribute('d','M0 0 L10 5 L0 10z');tri.setAttribute('fill',C.muted);mark.appendChild(tri);defs.appendChild(mark);\npath(`M${r},${yb-8} L${m+10},${yt+6}`,C.rust,{'marker-end':'url(#arrow-'+suffix+')'});\npath(`M${m-10},${yt+6} L${l},${yb-8}`,detached?C.grid:C.rust,{'stroke-dasharray':detached?'4 5':'none','marker-end':detached?'none':'url(#arrow-'+suffix+')'});\nconst direct=`M${r},${yb+7} Q${m},${cy} ${l},${yb+7}`;\npath(direct,C.teal,{'marker-end':'url(#arrow-'+suffix+')'});\ndot(l,yb,C.ink,4);dot(m,yt,C.ink,4);dot(r,yb,C.ink,4);\ntext(l,yb-18,'x',{'text-anchor':'middle','font-size':16});text(m,yt-12,detached?`u = ${fmt(u)}（常量）`:`y = x² = ${fmt(u)}`,{'text-anchor':'middle'});text(r,yb-18,'z',{'text-anchor':'middle','font-size':16});\ntext(m,offsetY+77,detached?'停止回传':`x × 2x = ${fmt(2*u)}`,{'text-anchor':'middle',fill:detached?C.muted:C.rust,'font-size':12});\ntext(m,offsetY+152,`直接路径：${fmt(u)}`,{'text-anchor':'middle',fill:C.teal,'font-size':12});\nconst t=p;\nconst dx=(1-t)*(1-t)*r+2*(1-t)*t*m+t*t*l;\nconst dy=(1-t)*(1-t)*(yb+7)+2*(1-t)*t*cy+t*t*(yb+7);\ndot(dx,dy,C.teal,5);\nconst q=detached?Math.min(p,.5):p;\nconst ax=q<=.5?r+(m-r)*q*2:m+(l-m)*(q-.5)*2;\nconst ay=q<=.5?yb+(yt-yb)*q*2:yt+(yb-yt)*(q-.5)*2;\ndot(ax,ay,detached?C.muted:C.rust,3.5);\nif(detached){line(m-6,yt+4,m+6,yt+16,C.rust,{'stroke-width':2});line(m+6,yt+4,m-6,yt+16,C.rust,{'stroke-width':2});}\ntext(m,offsetY+182,`回传到 x = ${fmt(detached?u:3*u)}`,{'text-anchor':'middle','font-size':15,fill:C.teal});\n}\npanel(0,start,false);panel(small?0:pw,small?start+ph:start,true);\ntext(18,H-12,'进度沿箭头回传；上路被截断，下路仍保留。',{fill:C.muted,'font-size':12});\nreturn {x,y:u,u,z,fullGradient:3*u,detachedGradient:u,directContribution:u,indirectContribution:2*u,progress:p,fullIndirectSignalProgress:p,detachedIndirectSignalProgress:Math.min(p,.5)};\n\n}"
+    },
+    {
+      "id": "executed-branch",
+      "title": "回传沿当前分支，跨阈值会换图",
+      "afterAnchor": "autograd-033",
+      "endAnchor": "autograd-033",
+      "height": 380,
+      "mobileHeight": 420,
+      "summary": "只看正标量；进度将输入从 a 连续移到 a + 30。",
+      "stages": [
+        "当前输入",
+        "局部移动",
+        "重跑比较"
+      ],
+      "checkpoints": [
+        0,
+        0.25,
+        0.5,
+        1
+      ],
+      "durationMs": 10000,
+      "params": [
+        {
+          "key": "a",
+          "label": "起点 a",
+          "min": 100,
+          "max": 300,
+          "step": 1,
+          "value": 230
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n\nconst W=width,H=height, p=Math.max(0,Math.min(1,progress));\nconst C={ink:'#243b47',muted:'#677982',grid:'#dce4e7',teal:'#237d79',rust:'#b86040',pale:'#edf4f3'};\nsvg.replaceChildren(); svg.setAttribute('viewBox',`0 0 ${W} ${H}`);\nfunction el(tag,attrs={},txt){const n=document.createElementNS('http://www.w3.org/2000/svg',tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(txt!==undefined)n.textContent=txt;svg.appendChild(n);return n;}\nfunction text(x,y,s,opts={}){return el('text',{x,y,fill:C.ink,'font-size':13,'font-family':'system-ui, sans-serif',...opts},s);}\nfunction line(x1,y1,x2,y2,color=C.grid,opts={}){return el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':1,...opts});}\nfunction path(d,color=C.teal,opts={}){return el('path',{d,fill:'none',stroke:color,'stroke-width':2.3,...opts});}\nfunction dot(x,y,color=C.teal,r=5,opts={}){return el('circle',{cx:x,cy:y,r,fill:color,...opts});}\nfunction fmt(n){return Number(n.toFixed(2)).toString();}\nfunction clamp(n){return Math.max(0,Math.min(1,n));}\n\nconst a=params.a,q=a+30*p;\nfunction run(v){let b=2*v,k=2,n=1;while(Math.abs(b)<1000){b*=2;k*=2;n++;}return {value:b,k,multiplications:n,whileIterations:n-1};}\nconst base=run(a),probe=run(q),boundary=a===125||a===250;\ntext(18,24,`起点 a = ${fmt(a)} · 执行图回传系数 ${base.k}`,{'font-size':W<500?13:15});\ntext(18,47,boundary?'此处函数跳变，通常导数不存在。':`首步与循环合计 ×2：${base.multiplications} 次`,{fill:boundary?C.rust:C.muted,'font-size':12});\nconst left=55,right=W-20,top=83,bottom=H-109;\nconst X=v=>left+(v-100)/230*(right-left),Y=v=>bottom-(v-900)/1700*(bottom-top);\nfor(const v of [1000,1800,2600]){line(left,Y(v),right,Y(v));text(left-9,Y(v)+4,String(v),{'text-anchor':'end',fill:C.muted,'font-size':12});}\nfor(const v of [100,125,250,330]){line(X(v),bottom,X(v),top,C.grid,{'stroke-dasharray':v===125||v===250?'4 4':'none'});text(X(v),bottom+18,String(v),{'text-anchor':'middle','font-size':12,fill:C.muted});}\nline(left,bottom,right,bottom,C.muted);text(left,top-10,'f(a)',{fill:C.muted,'font-size':12});text(right,bottom+34,'a',{'text-anchor':'end',fill:C.muted});\nfor(const [lo,hi,k] of [[100,125,16],[125,250,8],[250,330,4]]){\npath(`M${X(lo)},${Y(lo*k)} L${X(hi)},${Y(hi*k)}`,base.k===k?C.teal:C.muted,{'stroke-width':base.k===k?3:1.8});\nif(hi!==330)dot(X(hi),Y(hi*k),'white',3,{stroke:C.muted,'stroke-width':1.5});\nif(lo!==100)dot(X(lo),Y(lo*k),C.muted,3);\n}\nconst tangent=base.value+base.k*(q-a);\npath(`M${X(a)},${Y(base.value)} L${X(q)},${Y(tangent)}`,C.rust,{'stroke-dasharray':'5 4'});\nline(X(q),Y(probe.value),X(q),Y(tangent),C.grid,{'stroke-width':1.5});\nconst tx=X(q),ty=Y(tangent);el('polygon',{points:`${tx},${ty-6} ${tx+6},${ty} ${tx},${ty+6} ${tx-6},${ty}`,fill:'none',stroke:C.rust,'stroke-width':1.8});dot(X(q),Y(probe.value),C.teal,4);\nline(18,H-67,38,H-67,C.teal,{'stroke-width':2.5});text(45,H-63,`重新执行：${fmt(q)} → ${fmt(probe.value)}，k = ${probe.k}`,{'font-size':12});\nline(18,H-43,38,H-43,C.rust,{'stroke-width':2,'stroke-dasharray':'5 3'});text(45,H-39,`原图延长：${fmt(tangent)}`,{fill:C.rust,'font-size':12});\ntext(18,H-15,'空心端点不取；跨阈值后，执行路径改变。',{fill:C.muted,'font-size':12});\nreturn {a,probeInput:q,base,probe,baseGraphExtrapolation:tangent,atDiscontinuity:boundary,mathematicalDerivative:boundary?null:base.k,probeAtDiscontinuity:q===125||q===250};\n\n}"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "已直接查看最终预览三幅图在1280/375宽度、0/1进度的12个实际PNG。check-math.cjs调用本地draw取得实际facts：861组(w,λ)用中心有限差分ε=1e-6核对数据与正则梯度相加，最大误差7.86e-10；273组上游梯度与z用独立标量加权目标核对W转置与ReLU门，z=0单独核对约定次梯度0；8008组进度与批量核对保留区间和B×64×4字节。共9142组，详见math-check.json。",
+  "limits": "三幅为手选数值与四层同宽网络的教学示例，没有模型训练、GPU实测或读者学习效果实验。缓存仅计保存激活，忽略参数、梯度、优化器状态、临时工作区和分配器；释放策略与序列位置为示意，不是框架通用承诺。转置图给定独立上游梯度；ReLU在0处采用明确约定。真实预览检查1280/375、抽样进度与工具规定参数边界，不穷举浏览器、屏幕或所有联合参数。未发现仍未解决的遮挡、越界、数值或解释错误。",
+  "html_sha256": "79cda7ae5c9d608bcb48c5c6217c8b5040aba41ddc1649e4f5ef9a3a8b3558dc",
+  "plan_sha256": "bdf0cdfae3e9812a2b1344e053bf32796ca055a505f373c1a5c4439fd751b1c8",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

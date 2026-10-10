@@ -1,0 +1,15 @@
+{
+  "issues": [
+    {
+      "figureId": "query-pooling",
+      "condition": "查询靠近起点或终点；某些 α 介于 0 与 0.005",
+      "description": "百分比短标签四舍五入显示 0%，但高斯权重实际严格为正，容易误读为零；条形与返回 facts 仍使用完整精度。三轮预览已用完，尚未改成 <1% 标签。"
+    }
+  ],
+  "mathCheckNote": "独立 Python 直接计算 exp(-((q-k)w)^2/2) 后归一化，与最终真实预览的 16 个 facts 案例比较，权重及预测差 <1e-12；核对权重严格为正、和为1、预测位于值的凸包及 w=0 等权平均。w 的符号不影响 w²；非零时有效核宽度为1/|w|。已通过 inspect_frame 实际查看两图在1280/375的0/1端点；参数图端点相同是因其 interaction=parameters，默认w=3。",
+  "limits": "示例数据、噪声偏移和 w 全部手选，未执行原书 PyTorch 代码、模型训练、泛化或实测性能测试。第二图201个确定查询点连线；有限进度/参数检查不能保证全部状态。微小权重可能低于可见像素，第一图圆点半径只提供定性强调，精确权重应看条形/facts。首轮运行失败和第二轮手机标签拥挤记录保留；第三轮未见其它遮挡，但这不是艺术或教学效果认证。",
+  "html_sha256": "f97c26305b939d7511988e37f845066e5fd2d61689d30fbcb360fe8649f01d61",
+  "plan_sha256": "7c33838cd5a7d8fad12118c4a9960383db18f139aa172b4cd46ae0ef3608728c",
+  "ready_for_export": false,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

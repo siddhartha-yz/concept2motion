@@ -1,0 +1,67 @@
+{
+  "figures": [
+    {
+      "id": "coin-selection",
+      "title": "选了多数类，误差为何显得更低？",
+      "afterAnchor": "underfit-overfit-012",
+      "endAnchor": "underfit-overfit-012",
+      "height": 310,
+      "mobileHeight": 350,
+      "summary": "竖线分别标出平均训练误差与总体误差；橙色短柱是所有可能样本的精确概率。",
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "n",
+          "label": "样本数 n",
+          "kind": "select",
+          "value": 6,
+          "options": [
+            {
+              "value": 6,
+              "label": "6 次"
+            },
+            {
+              "value": 24,
+              "label": "24 次"
+            },
+            {
+              "value": 96,
+              "label": "96 次"
+            }
+          ]
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n\nconst NS='http://www.w3.org/2000/svg';\nfunction el(key,tag,attrs,text,parent=svg){let e=svg.querySelector('[data-key=\"'+key+'\"]');if(!e){e=document.createElementNS(NS,tag);e.setAttribute('data-key',key);parent.appendChild(e);}for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(text!==undefined)e.textContent=text;return e;}\nfunction t(k,x,y,s,fill='#46545e',anchor='start',size=13){return el(k,'text',{x,y,fill,'text-anchor':anchor,'font-size':size,'font-family':'system-ui, sans-serif'},s);}\nfunction line(k,x1,y1,x2,y2,c,dash=''){return el(k,'line',{x1,y1,x2,y2,stroke:c,'stroke-width':1.3,'stroke-dasharray':dash});}\nconst ink='#243c4b',teal='#247a77',orange='#b36b32',grid='#e3e8e8';\n\nconst n=Number(params.n||6), left=45,right=width-26,top=110,bottom=height-55;\nconst X=e=>left+e/.5*(right-left),Y=p=>bottom-p/.55*(bottom-top);\nlet prob=Math.pow(.5,n),masses=[];\nfor(let k=0;k<=n;k++){if(k<=n/2)masses.push({error:k/n,p:prob*(k===n/2?1:2)});prob*= (n-k)/(k+1);}\nconst expected=masses.reduce((s,a)=>s+a.error*a.p,0);\nt('caption',left,18,'每次重新抽样，再选多数类',ink);\nt('train',left,43,'平均训练误差 '+expected.toFixed(3),orange);\nt('true',left,65,'总体误差 0.500',teal);\nt('prob',left,top-12,'概率',ink);\nfor(let i=0;i<3;i++){let p=i*.2;line('gy'+i,left,Y(p),right,Y(p),grid);t('yl'+i,left-8,Y(p)+4,p.toFixed(1),ink,'end',12);}\nfor(let i=0;i<3;i++){let e=i*.25;line('tick'+i,X(e),bottom,X(e),bottom+5,ink);t('xl'+i,X(e),bottom+22,e.toFixed(2),ink,'middle',12);}\nline('axis',left,bottom,right,bottom,ink);\nfor(let i=0;i<61;i++){const a=masses[i];el('stem'+i,'line',{x1:a?X(a.error):0,x2:a?X(a.error):0,y1:bottom,y2:a?Y(a.p):bottom,stroke:orange,'stroke-width':n===6?7:2,opacity:a?0.7:0});}\nt('sample',X(1/3),Y(.46875)-10,n===6?'1/3':'',orange,'middle',12);\nline('expected',X(expected),top,X(expected),bottom,orange,'4 4');\nline('gen',X(.5),top,X(.5),bottom,teal,'3 3');\nt('xname',(left+right)/2,height-9,'训练误差 = 少数类数 / n',ink,'middle');\nreturn {n,model:'从训练样本选择常量多数类；平票任选',condition:'独立公平硬币，无输入特征',distribution:masses,expectedTrainingError:expected,generalizationError:.5,probabilitySum:masses.reduce((s,a)=>s+a.p,0),note:'精确二项概率，非蒙特卡洛；总体误差为期望，不是测试样本误差'};\n}"
+    },
+    {
+      "id": "polynomial-noise",
+      "title": "多出来的自由度，拟合了什么？",
+      "afterAnchor": "underfit-overfit-071",
+      "endAnchor": "underfit-overfit-072",
+      "height": 370,
+      "mobileHeight": 430,
+      "summary": "改变阶数和噪声，比较拟合曲线、生成规律与两组误差；这是独立的合成最小二乘例子。",
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "degree",
+          "label": "多项式阶数 d",
+          "kind": "stepper",
+          "min": 1,
+          "max": 9,
+          "step": 1,
+          "value": 3
+        },
+        {
+          "key": "noise",
+          "label": "噪声标准差 σ",
+          "min": 0,
+          "max": 0.3,
+          "step": 0.01,
+          "value": 0.1
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n\nconst NS='http://www.w3.org/2000/svg';\nfunction el(key,tag,attrs,text,parent=svg){let e=svg.querySelector('[data-key=\"'+key+'\"]');if(!e){e=document.createElementNS(NS,tag);e.setAttribute('data-key',key);parent.appendChild(e);}for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(text!==undefined)e.textContent=text;return e;}\nfunction t(k,x,y,s,fill='#46545e',anchor='start',size=13){return el(k,'text',{x,y,fill,'text-anchor':anchor,'font-size':size,'font-family':'system-ui, sans-serif'},s);}\nfunction line(k,x1,y1,x2,y2,c,dash=''){return el(k,'line',{x1,y1,x2,y2,stroke:c,'stroke-width':1.3,'stroke-dasharray':dash});}\nconst ink='#243c4b',teal='#247a77',orange='#b36b32',grid='#e3e8e8';\n\nconst data={\"x\":[-1.2,-0.9333333333333333,-0.6666666666666666,-0.4,-0.1333333333333333,0.1333333333333333,0.3999999999999999,0.6666666666666667,0.9333333333333333,1.2],\"z\":[-1.7957207107381599,-0.24963070978623944,0.8016517906435565,-0.20317487258880906,0.15769869249343682,-1.552871182840747,-0.25532886129155025,-0.4101694687928629,0.9705992398558583,0.16585945222404008],\"vx\":[-1.185,-1.155,-1.125,-1.095,-1.065,-1.035,-1.005,-0.975,-0.945,-0.9149999999999999,-0.885,-0.855,-0.825,-0.7949999999999999,-0.765,-0.735,-0.705,-0.6749999999999999,-0.645,-0.615,-0.585,-0.5549999999999999,-0.5249999999999999,-0.495,-0.46499999999999997,-0.43500000000000005,-0.405,-0.375,-0.3450000000000001,-0.31499999999999995,-0.2849999999999999,-0.255,-0.22499999999999998,-0.19500000000000006,-0.16500000000000004,-0.135,-0.10499999999999998,-0.07499999999999996,-0.04500000000000015,-0.014999999999999902,0.015000000000000124,0.04499999999999993,0.07499999999999996,0.10499999999999998,0.135,0.16500000000000004,0.19500000000000006,0.2250000000000001,0.2549999999999999,0.2849999999999999,0.31499999999999995,0.345,0.375,0.405,0.43499999999999983,0.46499999999999986,0.4949999999999999,0.5250000000000001,0.5550000000000002,0.5849999999999997,0.615,0.645,0.675,0.7050000000000001,0.7349999999999999,0.7649999999999999,0.7949999999999999,0.825,0.8550000000000002,0.885,0.9149999999999998,0.9450000000000001,0.9749999999999999,1.0050000000000001,1.035,1.0649999999999997,1.095,1.1250000000000002,1.155,1.1849999999999998],\"vz\":[-0.01727370380002401,-0.7625172790413473,-0.8739095227608638,-0.008800458138448795,1.3711804959875948,-1.9818607749912334,-2.930652591828527,2.0848058439262225,1.6921027038120975,0.6970683727975181,0.4052742449115148,-0.40366555152281236,-0.35255663293318573,-1.2298919854772086,0.6595985817277199,-0.19078710298925325,-2.004380533631094,-0.5141454935700915,-0.5533541365625227,-0.6584889551898413,2.063787345976477,1.166255555980337,-3.3043419905793505,0.5425606846624078,1.1514827522633468,1.4208758499691576,0.8714877858435063,-2.0715554512596035,0.9588548093012934,0.10789772522108047,1.5827751057596284,0.5326884322520296,-1.547631415839511,2.0044952850255195,-1.2188853476411143,1.221507159648272,0.49833880617279125,-0.545675589302242,-2.3538670470918093,-0.8779207760161428,-0.930804962932107,-0.1589448502985741,-0.1895426606979613,1.7470050320627704,0.4790778894303085,1.273830247974886,-1.193303511445509,-0.4342494687556659,1.0070021017424442,1.0654311211878618,0.7585830727926358,-0.43884202564341684,-1.0797901026470196,1.9049254373235553,-0.7030820822847818,-0.37705676057313525,1.6698494420747474,0.10256553083942488,-0.6481059298935532,0.9159818588851141,-0.19955670243190737,1.4019699997527075,-0.11337481714911293,-0.853615468829986,2.62083020791894,1.3359982495993847,0.17255991877716267,-0.10944732605621595,-1.3999697111648919,-0.597326335494055,-1.3300294502326744,0.928373317459838,1.2932838309428072,-0.3336588653363996,-0.5125780333104093,0.41557278204342235,-0.005095843833501363,0.571750494318439,0.5313070217370514,0.44183322298120353]};\nconst d=Number(params.degree||3),sigma=Number(params.noise??.1),mobile=width<500;\nconst truth=x=>5+1.2*x-3.4*x*x/2+5.6*x*x*x/6;\nconst basis=x=>{let a=[1];for(let j=1;j<=d;j++)a.push(a[j-1]*x/j);return a;};\nconst y=data.x.map((x,i)=>truth(x)+sigma*data.z[i]);\nconst rows=data.x.map(basis),q=[],R=Array.from({length:d+1},()=>Array(d+1).fill(0));\nfor(let j=0;j<=d;j++){let v=rows.map(r=>r[j]);for(let pass=0;pass<2;pass++){for(let k=0;k<j;k++){let r=v.reduce((s,a,i)=>s+a*q[k][i],0);R[k][j]+=r;v=v.map((a,i)=>a-r*q[k][i]);}}R[j][j]=Math.hypot(...v);q.push(v.map(a=>a/R[j][j]));}\nconst b=q.map(v=>v.reduce((s,a,i)=>s+a*y[i],0)),w=Array(d+1).fill(0);\nfor(let j=d;j>=0;j--){let v=b[j];for(let k=j+1;k<=d;k++)v-=R[j][k]*w[k];w[j]=v/R[j][j];}\nconst predict=x=>basis(x).reduce((s,a,i)=>s+a*w[i],0);\nconst train=y.reduce((s,a,i)=>s+(a-predict(data.x[i]))**2,0)/y.length;\nconst valid=data.vx.reduce((s,x,i)=>s+(truth(x)+sigma*data.vz[i]-predict(x))**2,0)/data.vx.length;\nconst L=45,T=mobile?72:48,B=height-(mobile?110:90),RR=width-22;\nconst X=x=>L+(x+1.2)/2.4*(RR-L),Y=y=>B-(y+4)/14*(B-T);\nconst defs=el('defs','defs',{}),clip=el('clip','clipPath',{id:'poly-clip'},undefined,defs);el('cliprect','rect',{x:L,y:T,width:RR-L,height:B-T},undefined,clip);\nline('legend1',L,17,L+18,17,teal,'4 3');t('legend1t',L+24,21,'生成规律',teal);\nline('legend2',mobile?L:190,mobile?42:17,(mobile?L:190)+18,mobile?42:17,orange);t('legend2t',(mobile?L:190)+24,mobile?46:21,'拟合曲线',orange);\nel('legend3','circle',{cx:mobile?190:338,cy:17,r:3,fill:ink});t('legend3t',mobile?200:348,21,'训练样本',ink);\nt('ylabel',L,T-9,'y',ink);\nfor(let i=0;i<4;i++){let a=-4+i*4;line('grid'+i,L,Y(a),RR,Y(a),grid);t('y'+i,L-8,Y(a)+4,String(a),ink,'end',12);}\nfor(let i=0;i<3;i++){let a=-1.2+i*1.2;line('xtick'+i,X(a),B,X(a),B+5,ink);t('xt'+i,X(a),B+22,a.toFixed(1),ink,'middle',12);}\nline('xaxis',L,B,RR,B,ink);t('xname',RR+10,B+5,'x',ink,'middle',12);\nlet gt='',fit='',clipped=0;\nfor(let i=0;i<=300;i++){const x=-1.2+2.4*i/300,v=predict(x);if(v< -4||v>10)clipped++;gt+=(i?'L':'M')+X(x)+','+Y(truth(x));fit+=(i?'L':'M')+X(x)+','+Y(v);}\nel('truth','path',{d:gt,fill:'none',stroke:teal,'stroke-width':2,'stroke-dasharray':'5 4','clip-path':'url(#poly-clip)'});\nel('fit','path',{d:fit,fill:'none',stroke:orange,'stroke-width':2.4,'clip-path':'url(#poly-clip)'});\nfor(let i=0;i<10;i++){line('res'+i,X(data.x[i]),Y(y[i]),X(data.x[i]),Y(predict(data.x[i])),'#bac5cc');el('dot'+i,'circle',{cx:X(data.x[i]),cy:Y(y[i]),r:3.5,fill:ink,'clip-path':'url(#poly-clip)'});}\nconst fmt=v=>v<.000001?'≈ 0':v.toFixed(4);\nt('trainerr',L,height-(mobile?67:45),'训练 MSE  '+fmt(train),orange);\nt('valerr',mobile?L:Math.max(270,width*.52),height-(mobile?43:45),'验证网格 MSE  '+fmt(valid),teal);\nt('conditions',L,height-15,'10 点拟合 · 80 点验证 · 固定噪声',ink,'start',12);\nt('clipwarn',RR,T+15,clipped?'曲线超出纵轴范围':'',orange,'end',12);\nreturn {degree:d,noiseSigma:sigma,weightsFactorialBasis:w,trainingMSE:train,validationGridMSE:valid,clippedCurveSamples:clipped,condition:'10 个等距训练点，80 个中点验证网格，x∈[-1.2,1.2]；两组独立冻结正态噪声，Python Random 种子17；不是教材100+100高斯x实验',solver:'双次正交化QR最小二乘，特征x^i/i!，未运行SGD',loss:'残差平方的算术平均，不含1/2',truthWeights:[5,1.2,-3.4,5.6],limits:'有限合成网格，不是总体误差或硬件测量；不代表所有高阶模型'};\n}"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "figures": [
+    {
+      "id": "residual-to-loss",
+      "afterAnchor": "linear-regression-029",
+      "endAnchor": "linear-regression-031",
+      "title": "移动直线，同时看损失的位置",
+      "summary": "四个手选样本，无物理单位。调 w 会转动直线；调 b 会平移直线，并整体抬高或降低右侧损失曲线。",
+      "height": 350,
+      "mobileHeight": 560,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "weight",
+          "label": "斜率 w",
+          "min": 0,
+          "max": 2,
+          "step": 0.02,
+          "value": 0.8
+        },
+        {
+          "key": "bias",
+          "label": "截距 b",
+          "min": -1,
+          "max": 1,
+          "step": 0.02,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw(input){\nconst {board,width,height,params,progress}=input;\nconst P=VisualBook.palette;\nconst small=width<600;\nconst gap=small?28:28;\nconst panelW=small?width:(width-gap)/2;\nconst panelH=small?(height-gap)/2:height;\nconst positions=small?[[0,0],[0,panelH+gap]]:[[0,0],[panelW+gap,0]];\nconst fixed=n=>Math.abs(n)<0.0005?'0.000':n.toFixed(3);\nfunction panel(index,fn){const [x,y]=positions[index];board.region('panel-'+index,{x,y,width:panelW,height:panelH},b=>fn(b,panelW,panelH));}\nfunction frame(b,id,w,h,xd,yd,xlabel,ylabel){return b.axes(id,{xDomain:xd,yDomain:yd,xLabel:xlabel,yLabel:ylabel,box:[48,54,w-20,h-78],grid:false});}\n\nconst data=[[-2,-3],[-1,-1],[1,1],[2,3]];\nconst w=params.weight,bias=params.bias;\nconst predictions=data.map(([x])=>w*x+bias);\nconst residuals=data.map(([,y],i)=>predictions[i]-y);\nconst L=residuals.reduce((s,r)=>s+r*r/2,0)/data.length;\nconst gw=residuals.reduce((s,r,i)=>s+data[i][0]*r,0)/data.length;\nconst gb=residuals.reduce((s,r)=>s+r,0)/data.length;\nconst lossAt=u=>data.reduce((s,[x,y])=>s+(u*x+bias-y)**2/2,0)/data.length;\npanel(0,(bb,W,H)=>{\n bb.text('heading','四个手选样本',140,22,{size:16,weight:600});\n const f=frame(bb,'data-axes',W,H,[-2.3,2.3],[-5.7,5.7],'特征 x','标签 y');\n bb.curve('prediction-line',f,[[-2.3,-2.3*w+bias],[2.3,2.3*w+bias]],{color:P.orange,width:2.5});\n data.forEach(([x,y],i)=>{\n  bb.line('residual-'+i,f.x(x),f.y(y),f.x(x),f.y(predictions[i]),P.blue,2,0.55);\n  bb.circle('sample-'+i,f.x(x),f.y(y),4.5,P.blue);\n  bb.mark('prediction-'+i,'circle',{cx:f.x(x),cy:f.y(predictions[i]),r:3.5,fill:P.paper,stroke:P.orange,'stroke-width':1.8});\n });\n bb.text('legend','● 标签   ○ 预测   竖线：残差',18,H-28,{size:14,color:P.muted});\n});\npanel(1,(bb,W,H)=>{\n bb.text('heading','固定 b',190,22,{size:16,weight:600});\n const f=frame(bb,'loss-axes',W,H,[0,2],[0,3.2],'斜率 w','平均损失 L');\n const curve=Array.from({length:101},(_,i)=>{const u=2*i/100;return [u,lossAt(u)];});\n bb.curve('loss-curve',f,curve,{color:P.blue,width:2.5});\n bb.line('minimum-guide',f.x(1.4),f.y(0),f.x(1.4),f.y(3.2),P.faint,1);\n bb.text('minimum-label','w*=1.4',f.x(1.4),f.top+20,{size:14,anchor:'middle',color:P.muted});\n bb.line('loss-guide',f.x(w),f.y(0),f.x(w),f.y(L),P.orange,1,0.6);\n bb.circle('current-loss',f.x(w),f.y(L),5,P.orange);\n bb.text('loss-value','L = '+fixed(L),18,H-28,{size:16,color:P.ink});\n bb.text('gradient-value','∂L/∂w = '+fixed(gw),18,H-5,{size:14,color:P.muted});\n});\nreturn {data,weight:w,bias,predictions,residuals,meanHalfSquaredLoss:L,weightGradient:gw,biasGradient:gb,minimumWeightAtFixedBias:1.4,minimumLossAtFixedBias:lossAt(1.4)};\n}"
+    },
+    {
+      "id": "batch-gradient",
+      "afterAnchor": "linear-regression-044",
+      "endAnchor": "linear-regression-045",
+      "title": "残差符号相反，斜率梯度却同向",
+      "summary": "固定小批量 (−1,−2)、(1,2)，初始 w=1、b=0。左图进度只构造平均梯度，右图显示选定 η 的一次更新；灰线为更新前，橙线为更新后；η=1 恰好一步达到本例最优点。",
+      "height": 370,
+      "mobileHeight": 560,
+      "interaction": "timeline",
+      "durationMs": 8000,
+      "checkpoints": [
+        0,
+        0.5,
+        1
+      ],
+      "params": [
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0,
+          "max": 2.5,
+          "step": 0.05,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw(input){\nconst {board,width,height,params,progress}=input;\nconst P=VisualBook.palette;\nconst small=width<600;\nconst gap=small?28:28;\nconst panelW=small?width:(width-gap)/2;\nconst panelH=small?(height-gap)/2:height;\nconst positions=small?[[0,0],[0,panelH+gap]]:[[0,0],[panelW+gap,0]];\nconst fixed=n=>Math.abs(n)<0.0005?'0.000':n.toFixed(3);\nfunction panel(index,fn){const [x,y]=positions[index];board.region('panel-'+index,{x,y,width:panelW,height:panelH},b=>fn(b,panelW,panelH));}\nfunction frame(b,id,w,h,xd,yd,xlabel,ylabel){return b.axes(id,{xDomain:xd,yDomain:yd,xLabel:xlabel,yLabel:ylabel,box:[48,54,w-20,h-78],grid:false});}\n\nconst eta=params.eta;\nconst p=VisualBook.clamp(progress,0,1);\nconst t1=Math.min(2*p,1),t2=Math.max(2*p-1,0);\nconst first=[-0.5*t1,0.5*t1];\nconst endpoint=[first[0]-0.5*t2,first[1]-0.5*t2];\nconst gradients=[[-1,1],[-1,-1]],mean=[-1,0];\nconst updated=[1+eta,0];\nconst beforeLoss=0.5,afterLoss=0.5*(updated[0]-2)**2;\npanel(0,(bb,W,H)=>{\n bb.text('heading','各除以 2',150,22,{size:16,weight:600});\n const f=bb.axes('gradient-axes',{xDomain:[-1.4,0.4],yDomain:[-0.4,0.8],equalUnits:true,xLabel:'g_w',yLabel:'g_b',box:[48,54,W-24,H-78],grid:false});\n bb.line('first-guide',f.x(0),f.y(0),f.x(-0.5),f.y(0.5),P.faint,2);\n bb.line('second-guide',f.x(-0.5),f.y(0.5),f.x(-1),f.y(0),P.faint,2);\n bb.vector('first-gradient',f,[0,0],first,{color:P.blue});\n bb.vector('second-gradient',f,first,endpoint,{color:P.orange});\n bb.circle('sum-end',f.x(endpoint[0]),f.y(endpoint[1]),4,P.ink);\n bb.text('first-label','x=−1',f.x(-0.18),f.y(0.43),{size:14,color:P.blue});\n bb.text('second-label','x=+1',f.x(-1.14),f.y(0.39),{size:14,color:P.orange});\n bb.text('sum-label','最终平均 (−1, 0)',f.x(-0.7),f.y(-0.2),{size:14,anchor:'middle'});\n bb.text('cancel-label','g_b 相消；g_w 同向',18,H-28,{size:14,color:P.muted});\n});\npanel(1,(bb,W,H)=>{\n bb.text('heading','一次更新',140,22,{size:16,weight:600});\n const f=frame(bb,'update-axes',W,H,[-1.2,1.2],[-4.4,4.4],'特征 x','标签 y');\n bb.curve('before',f,[[-1.2,-1.2],[1.2,1.2]],{color:P.muted,width:1.5});\n bb.curve('after',f,[[-1.2,-1.2*updated[0]],[1.2,1.2*updated[0]]],{color:P.orange,width:2.5});\n [[-1,-2],[1,2]].forEach(([x,y],i)=>bb.circle('target-'+i,f.x(x),f.y(y),4.5,P.blue));\n bb.text('parameters','w：1 → '+fixed(updated[0])+'   b：0 → 0',18,H-28,{size:14});\n bb.text('loss-change','L：0.500 → '+fixed(afterLoss),18,H-5,{size:16,color:P.orange});\n});\nreturn {batch:[[-1,-2],[1,2]],initialParameters:[1,0],residuals:[1,-1],sampleGradients:gradients,averageGradient:mean,eta,update:[eta,0],updatedParameters:updated,beforeLoss,afterLoss,constructionProgress:p,visibleAverage:endpoint,convention:'左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。'};\n}"
+    },
+    {
+      "id": "gaussian-to-square",
+      "afterAnchor": "linear-regression-082",
+      "endAnchor": "linear-regression-082",
+      "title": "噪声尺度改变惩罚大小，不移动最低点",
+      "summary": "固定 σ>0、独立同方差高斯噪声。右图去掉与 w、b 无关的常数，比较单样本平方损失与超额负对数似然。",
+      "height": 350,
+      "mobileHeight": 560,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "residual",
+          "label": "残差 e",
+          "min": -2.5,
+          "max": 2.5,
+          "step": 0.05,
+          "value": 1.5
+        },
+        {
+          "key": "sigma",
+          "label": "噪声标准差 σ",
+          "min": 0.6,
+          "max": 1.8,
+          "step": 0.05,
+          "value": 1.2
+        }
+      ],
+      "code": "function draw(input){\nconst {board,width,height,params,progress}=input;\nconst P=VisualBook.palette;\nconst small=width<600;\nconst gap=small?28:28;\nconst panelW=small?width:(width-gap)/2;\nconst panelH=small?(height-gap)/2:height;\nconst positions=small?[[0,0],[0,panelH+gap]]:[[0,0],[panelW+gap,0]];\nconst fixed=n=>Math.abs(n)<0.0005?'0.000':n.toFixed(3);\nfunction panel(index,fn){const [x,y]=positions[index];board.region('panel-'+index,{x,y,width:panelW,height:panelH},b=>fn(b,panelW,panelH));}\nfunction frame(b,id,w,h,xd,yd,xlabel,ylabel){return b.axes(id,{xDomain:xd,yDomain:yd,xLabel:xlabel,yLabel:ylabel,box:[48,54,w-20,h-78],grid:false});}\n\nconst e=params.residual,sigma=params.sigma;\nconst normal=r=>Math.exp(-r*r/(2*sigma*sigma))/(Math.sqrt(2*Math.PI)*sigma);\nconst extra=r=>r*r/(2*sigma*sigma);\nconst half=r=>r*r/2;\nconst xs=Array.from({length:151},(_,i)=>-2.6+5.2*i/150);\npanel(0,(bb,W,H)=>{\n bb.text('heading','高斯噪声',150,22,{size:16,weight:600});\n const f=frame(bb,'density-axes',W,H,[-2.6,2.6],[0,0.75],'残差 e','密度 p(e)');\n bb.curve('density',f,xs.map(x=>[x,normal(x)]),{color:P.blue,width:2.5});\n bb.line('residual-guide',f.x(e),f.y(0),f.x(e),f.y(normal(e)),P.orange,1.5);\n bb.circle('density-point',f.x(e),f.y(normal(e)),5,P.orange);\n bb.text('density-readout','p(e) = '+normal(e).toPrecision(3),18,H-28,{size:16});\n bb.text('density-note','密度，不是单点概率',18,H-5,{size:14,color:P.muted});\n});\npanel(1,(bb,W,H)=>{\n bb.text('heading','去掉常数',150,22,{size:16,weight:600});\n const f=frame(bb,'penalty-axes',W,H,[-2.6,2.6],[0,9.6],'残差 e','损失项');\n bb.curve('squared-loss',f,xs.map(x=>[x,half(x)]),{color:P.blue,width:2});\n bb.curve('excess-nll',f,xs.map(x=>[x,extra(x)]),{color:P.orange,width:2.5});\n bb.line('nll-guide',f.x(e),f.y(half(e)),f.x(e),f.y(extra(e)),P.muted,1.3,0.7);\n bb.circle('half-point',f.x(e),f.y(half(e)),4,P.blue);\n bb.circle('nll-point',f.x(e),f.y(extra(e)),5,P.orange);\n bb.text('minimum','共同最低点：e=0',f.x(0),f.top+24,{size:14,anchor:'middle',color:P.muted});\n bb.text('half-readout','½e² = '+fixed(half(e)),18,H-28,{size:14,color:P.blue});\n bb.text('nll-readout','½e² / σ² = '+fixed(extra(e)),18,H-5,{size:14,color:P.orange});\n});\nreturn {residual:e,sigma,variance:sigma*sigma,density:normal(e),halfSquaredLoss:half(e),excessNegativeLogLikelihood:extra(e),constant:Math.log(Math.sqrt(2*Math.PI)*sigma),negativeLogLikelihood:-Math.log(normal(e)),minimumResidual:0,convention:'固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。'};\n}"
+    }
+  ]
+}

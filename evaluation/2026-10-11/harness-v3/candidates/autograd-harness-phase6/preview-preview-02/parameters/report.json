@@ -1,0 +1,3301 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase6/book.html",
+  "sha256": "ebc2ca8950b38cbb48e83d47b765926e497ec402b01dc75ffa1c3b0e814ee41e",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c4c236f427375fba74b4ef65576fec7525a7bdedae723d2560e34eb60d7e7fe3"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c23368b03029aaea688833a04053792322d2ac98580174bfa146894561bb55fa"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 0,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "404173535479f6cdcd242c94cf937d6d81903863b3261c6bb3dbae5420d7f554"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 0,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "404173535479f6cdcd242c94cf937d6d81903863b3261c6bb3dbae5420d7f554"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 1,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d6070b2c915ba7bc71f1432444d367bf092079fbc363571f9dd4b4fcc117b40e"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 1,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e506e144e9353a0c0edd6a5de5c5974ad97f28c10b17198660a04412db8e2ef2"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 2,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "eeb53f04777269f869befdfab20875d3417347f610e49d4076ec02078211c633"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 2,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "545f66b966bf791591589b70e3563c81a813fd1aecbc55dc3c9820d440934aac"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c4c236f427375fba74b4ef65576fec7525a7bdedae723d2560e34eb60d7e7fe3"
+    },
+    {
+      "width": 1280,
+      "id": "repeated-input",
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c23368b03029aaea688833a04053792322d2ac98580174bfa146894561bb55fa"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedObjective": 14,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a949c577d24a842b074f77955b54bfd6ee8c146d8ebb62a71cdeb210504b06b3"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedObjective": 14,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a949c577d24a842b074f77955b54bfd6ee8c146d8ebb62a71cdeb210504b06b3"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          -6
+        ],
+        "weightedObjective": -4,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "389febedd7935611db41466541a4034b396b0973a921f2d4117fd6d36a322247"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          -6
+        ],
+        "weightedObjective": -4,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "389febedd7935611db41466541a4034b396b0973a921f2d4117fd6d36a322247"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedObjective": 23,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6f541468eed3f4954ace1b86de4eaf6fdf6b18a048959e9408d55a6446df9aa2"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedObjective": 23,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6f541468eed3f4954ace1b86de4eaf6fdf6b18a048959e9408d55a6446df9aa2"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d0ec6dfdafb7abcb8d92d28d86b6d2c3e79e070b50eddfc3b6a632b13bad8885"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d0ec6dfdafb7abcb8d92d28d86b6d2c3e79e070b50eddfc3b6a632b13bad8885"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d0ec6dfdafb7abcb8d92d28d86b6d2c3e79e070b50eddfc3b6a632b13bad8885"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d0ec6dfdafb7abcb8d92d28d86b6d2c3e79e070b50eddfc3b6a632b13bad8885"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "attached",
+        "directContribution": 9,
+        "viaYContribution": 18,
+        "inputGradient": 27,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "88b41153658e0f1f4d8cc7328caac896935b252501d7e63fc0135aca86f45ddf"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "attached",
+        "directContribution": 9,
+        "viaYContribution": 18,
+        "inputGradient": 27,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "88b41153658e0f1f4d8cc7328caac896935b252501d7e63fc0135aca86f45ddf"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d57359bd086c1bb1a35665a5e8550db0f8ace3c183eead65e2122be0480b890"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f010c0272fb3e971f17e8e38a1c1b9518e7bfd83672d519f9f73af4ab613c351"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 0,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6bb16766f0248dc15301534f38b443014241762684b26cc72075949c44367656"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 0,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6bb16766f0248dc15301534f38b443014241762684b26cc72075949c44367656"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 1,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d272c207c3965f0b35666cce20d1f6000e925888007beb21130fd5e030984b6c"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 1,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8a9c1723b6fe6b9779a334392c79564ab9346828d61ef3d2eebe5595226bb18c"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 2,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee55f168994113a1d5a6648ece8557add1ec79d5fcdb2cfe209f3938c4f84f0b"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 2,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2f495e8a4701e058415d4f838d87dbb1b7fea47b2f12735e6d162b02fe3ce971"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 0,
+            "visibleValue": [
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 1,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d57359bd086c1bb1a35665a5e8550db0f8ace3c183eead65e2122be0480b890"
+    },
+    {
+      "width": 375,
+      "id": "repeated-input",
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "records": [
+          {
+            "id": "left-use",
+            "label": "左侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          },
+          {
+            "id": "right-use",
+            "label": "右侧 xᵢ",
+            "input": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "weight": 1,
+            "value": [
+              0,
+              2,
+              4,
+              6
+            ],
+            "fraction": 1,
+            "visibleValue": [
+              0,
+              2,
+              4,
+              6
+            ]
+          }
+        ],
+        "dimension": 4,
+        "prefix": 2,
+        "sum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "visibleSum": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "partialSums": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            4,
+            6
+          ],
+          [
+            0,
+            4,
+            8,
+            12
+          ]
+        ],
+        "convention": "Weighted scalar/vector sum. Fractional prefix is an explanatory construction, not measured execution or a separately derived gradient.",
+        "selectedDimension": 3,
+        "domain": [
+          -1,
+          13
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f010c0272fb3e971f17e8e38a1c1b9518e7bfd83672d519f9f73af4ab613c351"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedObjective": 14,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e8510835897b1cc88dec29be860094690f7e0953888148f590f047097a6059ca"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedObjective": 14,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e8510835897b1cc88dec29be860094690f7e0953888148f590f047097a6059ca"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          -6
+        ],
+        "weightedObjective": -4,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5d5bf9367545372abe1eb54bb97d9adbe8e033086483eb5e98bbbfe107a98d6b"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          -1
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          -6
+        ],
+        "weightedObjective": -4,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5d5bf9367545372abe1eb54bb97d9adbe8e033086483eb5e98bbbfe107a98d6b"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedObjective": 23,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d927f23c262ca67eeffff299aa82479b6acfcb36749b811a2791ec8be3b90c5"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seeds": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobian": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "inputGradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedObjective": 23,
+        "convention": "固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d927f23c262ca67eeffff299aa82479b6acfcb36749b811a2791ec8be3b90c5"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8b669d858518cd6b2a2812b1fea6de48d15d67140c8351de05d024ba3cdcbc6a"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8b669d858518cd6b2a2812b1fea6de48d15d67140c8351de05d024ba3cdcbc6a"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8b669d858518cd6b2a2812b1fea6de48d15d67140c8351de05d024ba3cdcbc6a"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "detach",
+        "directContribution": 9,
+        "viaYContribution": 0,
+        "inputGradient": 9,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8b669d858518cd6b2a2812b1fea6de48d15d67140c8351de05d024ba3cdcbc6a"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "attached",
+        "directContribution": 9,
+        "viaYContribution": 18,
+        "inputGradient": 27,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7db655c9c9ca1206c5fe607151fcc4a46d375f249356b954cec3517982785bd1"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "mode": "attached",
+        "directContribution": 9,
+        "viaYContribution": 18,
+        "inputGradient": 27,
+        "forwardValuesIdentical": true,
+        "convention": "原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7db655c9c9ca1206c5fe607151fcc4a46d375f249356b954cec3517982785bd1"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

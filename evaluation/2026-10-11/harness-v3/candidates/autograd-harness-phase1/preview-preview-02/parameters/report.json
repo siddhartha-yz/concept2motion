@@ -1,0 +1,1233 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/book.html",
+  "sha256": "ae8730e854fe0b48b236f82f05fe4f4deafa4163a654dda6b6de05fbe7bb3f0c",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedScalar": 14,
+        "markerProgress": 0.5,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "af942747248d590eeb5b5e885647444bdf8ffcd4456d1382876f25ab88080129"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedScalar": 14,
+        "markerProgress": 1,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "f8f8ce13f1305148f755c101cb028bd5acc08f7714cafce361e8b5e9bfb2c3c1"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          0
+        ],
+        "weightedScalar": 5,
+        "markerProgress": 0.5,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1eb608f0eb0c034c3ee9df76cf4cbe2b573837d8e4930b5db62f9af24e160006"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          0
+        ],
+        "weightedScalar": 5,
+        "markerProgress": 1,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "df69f502cd77eb3efce54d71c4569bccad6e946d36ad5fa49bd0a505fd0d0811"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedScalar": 23,
+        "markerProgress": 0.5,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "2618a3ff51c9ffc57c1efdf1259bbb574af1460a85cf61bec8da3cac62c57c0e"
+    },
+    {
+      "width": 1280,
+      "id": "backward-seed",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedScalar": 23,
+        "markerProgress": 1,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "ee31e77e7eac45678bc401482b2de4e276865ef13af8ddc3653d9f286ad7dac0"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "9006f665c4a6639d6d3820b4a8e468f7c3df49415e6c8674eec7cad073a66531"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "ac90334ce624ee7a202d4c676c96f73e30f4e2aaba40be1826a26b83f852b75d"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e9a2264e1ca7c2dcf55ddecc03e8b996c9da14d75584a57aecac6224d8e387f7"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6643bd2176e23e9da434ca4fa092607600af7ced2e61eab971009fa426b23c4b"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "9006f665c4a6639d6d3820b4a8e468f7c3df49415e6c8674eec7cad073a66531"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "ac90334ce624ee7a202d4c676c96f73e30f4e2aaba40be1826a26b83f852b75d"
+    },
+    {
+      "width": 1280,
+      "id": "executed-slope",
+      "control": "default",
+      "params": {
+        "a": 500
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "center": 500,
+        "probe": 500,
+        "probeRange": [
+          480,
+          520
+        ],
+        "output": 1000,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": null,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "a4f3ade2049ce612e5f6c4847c8ef148ca546b4f66d26ace52373472e7c45237"
+    },
+    {
+      "width": 1280,
+      "id": "executed-slope",
+      "control": "default",
+      "params": {
+        "a": 500
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "center": 500,
+        "probe": 520,
+        "probeRange": [
+          480,
+          520
+        ],
+        "output": 1040,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": 2,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "cd0962d48bcccb1275b27babcb95496b83daa7b640b81e536c5e38b5f4241989"
+    },
+    {
+      "width": 1280,
+      "id": "executed-slope",
+      "control": "a-min",
+      "params": {
+        "a": 280
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "center": 280,
+        "probe": 280,
+        "probeRange": [
+          260,
+          300
+        ],
+        "output": 1120,
+        "whileIterations": 1,
+        "recordedSlope": 4,
+        "classicalDerivative": 4,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "8851f7b58f35c3d3216fc3356cb75da3e22060568cf1c51429fdeb58f6e4d939"
+    },
+    {
+      "width": 1280,
+      "id": "executed-slope",
+      "control": "a-min",
+      "params": {
+        "a": 280
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "center": 280,
+        "probe": 300,
+        "probeRange": [
+          260,
+          300
+        ],
+        "output": 1200,
+        "whileIterations": 1,
+        "recordedSlope": 4,
+        "classicalDerivative": 4,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5621e30083652dae6a432fe9bd70a0ef7fc0511028a75a715abac6da9779c723"
+    },
+    {
+      "width": 1280,
+      "id": "executed-slope",
+      "control": "a-max",
+      "params": {
+        "a": 720
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "center": 720,
+        "probe": 720,
+        "probeRange": [
+          700,
+          740
+        ],
+        "output": 1440,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": 2,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "21f705ccf799bf86b357b7b3639dfd70d9115ae6092e92432c1290a7948cc044"
+    },
+    {
+      "width": 1280,
+      "id": "executed-slope",
+      "control": "a-max",
+      "params": {
+        "a": 720
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "center": 720,
+        "probe": 740,
+        "probeRange": [
+          700,
+          740
+        ],
+        "output": 1480,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": 2,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "58dc5b95180f1e6801f447ee1518566f71ac6f59311ddb32729dc0317ff12ae6"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedScalar": 14,
+        "markerProgress": 0.5,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6a827efcce4dbe1b8202e2ebf83bf3be587eee1940b21be762c4cef8d8ccd9ee"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "weightedScalar": 14,
+        "markerProgress": 1,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5e5d3d334f0f74707110c3b5d4f7835fdecd7af37b95f8a14cfac5ce9c13b50e"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          0
+        ],
+        "weightedScalar": 5,
+        "markerProgress": 0.5,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "3a767a7543d385fb91a51fed1c5f06a787637e8060afd0e0861bf7faf84124ab"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          0
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          0
+        ],
+        "weightedScalar": 5,
+        "markerProgress": 1,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e89b23fb462f24a3e373616579cdf1f4bc036bdb1973ae42b401d2d77bc807bd"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedScalar": 23,
+        "markerProgress": 0.5,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "895dc16a0df26a6de45359b23cf0d6c7b5b86828611b14eb38dcb314dd3a3d54"
+    },
+    {
+      "width": 375,
+      "id": "backward-seed",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "jacobianDiagonal": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          12
+        ],
+        "weightedScalar": 23,
+        "markerProgress": 1,
+        "interpretation": "移动的是反传信号；梯度数值不做插值"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "ab1dcb66ddc86b0466fbfb78e9e92728a563bad13b5550ae9f70650881705f53"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "bb34bfce36d1a8fd062da6de9954940e5fee223da45e87929300aa0b535906de"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "faba7a19619e91af90089ac2ed29b2c7b9d05a888ab5aa02d2b148b4a992dc99"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "2958b570078d32e978309f547e29954d413643c7cfb3a48927c500b0b0bff2c2"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "fc16316aef61f61d6d27e8044d17496a5752ad5015542280d61d9568ee854a8f"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "bb34bfce36d1a8fd062da6de9954940e5fee223da45e87929300aa0b535906de"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "viaContribution": 8,
+        "detachedViaContribution": 0,
+        "markerProgress": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "faba7a19619e91af90089ac2ed29b2c7b9d05a888ab5aa02d2b148b4a992dc99"
+    },
+    {
+      "width": 375,
+      "id": "executed-slope",
+      "control": "default",
+      "params": {
+        "a": 500
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "center": 500,
+        "probe": 500,
+        "probeRange": [
+          480,
+          520
+        ],
+        "output": 1000,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": null,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "395eb3c6cc92f2642c49567feec76211c40d5998d4c45ae48fc2eb3be1392efc"
+    },
+    {
+      "width": 375,
+      "id": "executed-slope",
+      "control": "default",
+      "params": {
+        "a": 500
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "center": 500,
+        "probe": 520,
+        "probeRange": [
+          480,
+          520
+        ],
+        "output": 1040,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": 2,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "40fa1c9f90b1eec589c8ec92cd6c4a9d2a867ff6ec12990d300a99b381f3efdb"
+    },
+    {
+      "width": 375,
+      "id": "executed-slope",
+      "control": "a-min",
+      "params": {
+        "a": 280
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "center": 280,
+        "probe": 280,
+        "probeRange": [
+          260,
+          300
+        ],
+        "output": 1120,
+        "whileIterations": 1,
+        "recordedSlope": 4,
+        "classicalDerivative": 4,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "8c3eaa20ff89e081d9bbc135ecda0afebc4b7bc9f81c96ab6d28d934e1e57ca3"
+    },
+    {
+      "width": 375,
+      "id": "executed-slope",
+      "control": "a-min",
+      "params": {
+        "a": 280
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "center": 280,
+        "probe": 300,
+        "probeRange": [
+          260,
+          300
+        ],
+        "output": 1200,
+        "whileIterations": 1,
+        "recordedSlope": 4,
+        "classicalDerivative": 4,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "f5305341cd61283d61b820ec0f41f89f74a68c732f885ff33fe1e5025766068c"
+    },
+    {
+      "width": 375,
+      "id": "executed-slope",
+      "control": "a-max",
+      "params": {
+        "a": 720
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "center": 720,
+        "probe": 720,
+        "probeRange": [
+          700,
+          740
+        ],
+        "output": 1440,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": 2,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6ee9e4840a0d1e86743434071c28a195558093aaae0bdbcc7d2c0123a24ae003"
+    },
+    {
+      "width": 375,
+      "id": "executed-slope",
+      "control": "a-max",
+      "params": {
+        "a": 720
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "center": 720,
+        "probe": 740,
+        "probeRange": [
+          700,
+          740
+        ],
+        "output": 1480,
+        "whileIterations": 0,
+        "recordedSlope": 2,
+        "classicalDerivative": 2,
+        "discontinuity": 500,
+        "positiveScalarSlice": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "65b06dbf5347ffb4047eb4283d9604ee756640adbf3790bd417f71113a37e40c"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

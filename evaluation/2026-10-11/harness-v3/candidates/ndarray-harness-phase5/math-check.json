@@ -1,0 +1,18 @@
+{
+  "method": "Independent Python recomputation compared with actual Chromium parameter facts; no browser or PyTorch execution in this check.",
+  "cases": 36,
+  "perFigure": {
+    "reshape-order": 12,
+    "broadcast-index": 12,
+    "numpy-storage": 12
+  },
+  "checks": [
+    "reshape count, row-major index inverse",
+    "broadcast per-cell sums and shape",
+    "bounded alias/copy/write semantic snapshots"
+  ],
+  "torchRuntimeExecuted": false,
+  "sourceMdSha256": "1beea36b1e9ba49f9ac5f14a8726f7cfe1d6d020dd49cd3557bbb1076719a64e",
+  "htmlSha256": "356ab769f74f0e86a384941bd9f58f081d1ce1524d0880094b147e31b810e7d3",
+  "limits": "Parameter boundary cases and default state only; no learning study, GPU/CPU timing, real addresses, or full PyTorch runtime validation."
+}

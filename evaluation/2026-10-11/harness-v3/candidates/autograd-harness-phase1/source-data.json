@@ -1,0 +1,549 @@
+{
+  "id": "autograd",
+  "title": "自动微分",
+  "sourceName": "《动手学深度学习》",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/inputs/autograd/chapter.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_preliminaries/autograd.html",
+  "sourceSha256": "d61240262675a21453f1619c7691731f527dfac43b59fb61bddea57e655185fd",
+  "adaptedSha256": "d61240262675a21453f1619c7691731f527dfac43b59fb61bddea57e655185fd",
+  "license": "Apache-2.0",
+  "adaptation": {
+    "images": 0,
+    "mathExpected": 14,
+    "mathRendered": 14
+  },
+  "blocks": [
+    {
+      "id": "autograd-001",
+      "sha256": "24c9f850756408a9777a577521f765053d0dffe290d570ce750eff6f0c2cd0b8",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 自动微分",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-002",
+      "sha256": "5903fe0dfd5be2fb352e446be562c2384fb7ff3e04f232c5a3f6006a1a305d4b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "正如 [原文引用：sec_calculus](https://zh.d2l.ai/chapter_preliminaries/autograd.html)中所说，求导是几乎所有深度学习优化算法的关键步骤。\n虽然求导的计算很简单，只需要一些基本的微积分。\n但对于复杂的模型，手工进行更新是一件很痛苦的事情（而且经常容易出错）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-003",
+      "sha256": "ba1cd23bd8f51b65f596a10a9b1241e3cca079e262211041d17dd999a551ac44",
+      "type": "paragraph",
+      "depth": null,
+      "line": 7,
+      "raw": "深度学习框架通过自动计算导数，即*自动微分*（automatic differentiation）来加快求导。\n实际中，根据设计好的模型，系统会构建一个*计算图*（computational graph），\n来跟踪计算是哪些数据通过哪些操作组合起来产生输出。\n自动微分使系统能够随后反向传播梯度。\n这里，*反向传播*（backpropagate）意味着跟踪整个计算图，填充关于每个参数的偏导数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-004",
+      "sha256": "ba1e6cef1c8b3b8efcd5371c364de2e7aab7a48e16be2b863c5bb2391291e3f9",
+      "type": "heading",
+      "depth": 2,
+      "line": 13,
+      "raw": "## 一个简单的例子",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-005",
+      "sha256": "d67de077829ffe7de7d367aa2d65d3509c3e05234704b8e1f340ce14ac2d14bb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 15,
+      "raw": "作为一个演示例子，**假设我们想对函数$y=2\\mathbf{x}^{\\top}\\mathbf{x}$关于列向量$\\mathbf{x}$求导**。\n首先，我们创建变量`x`并为其分配一个初始值。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-006",
+      "sha256": "5138e5b36264e8f5dcdc2d5134b3b6ca24b5dd101da16515bdd7749536b44cfb",
+      "type": "code",
+      "depth": null,
+      "line": 26,
+      "raw": "```python\nimport torch\n\nx = torch.arange(4.0)\nx\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-007",
+      "sha256": "fe5dd749d8698164831326780f0fa4a9fdd7936df029ddc473d36d395b77992f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 51,
+      "raw": "**在我们计算$y$关于$\\mathbf{x}$的梯度之前，需要一个地方来存储梯度。**\n重要的是，我们不会在每次对一个参数求导时都分配新的内存。\n因为我们经常会成千上万次地更新相同的参数，每次都分配新的内存可能很快就会将内存耗尽。\n注意，一个标量函数关于向量$\\mathbf{x}$的梯度是向量，并且与$\\mathbf{x}$具有相同的形状。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-008",
+      "sha256": "07daba806c61c3a62ba4cf50a47fa8654c61260f4c667e24d4924e2c08a30972",
+      "type": "code",
+      "depth": null,
+      "line": 63,
+      "raw": "```python\nx.requires_grad_(True)  # 等价于x=torch.arange(4.0,requires_grad=True)\nx.grad  # 默认值是None\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-009",
+      "sha256": "8efb94f93d2a775f9c19edb7e9d53302c7d341906ad802f17ae08cdaa3c8f621",
+      "type": "paragraph",
+      "depth": null,
+      "line": 79,
+      "raw": "**现在计算$y$。**",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-010",
+      "sha256": "f8656369f3b8217980d7b016ddbbe99acde1c4eeb417326567a83e71f27cee43",
+      "type": "code",
+      "depth": null,
+      "line": 88,
+      "raw": "```python\ny = 2 * torch.dot(x, x)\ny\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-011",
+      "sha256": "fb5cf95571deb3d3174a8a182d1672ce35a6d4da995deec435d10bb3b15484e2",
+      "type": "paragraph",
+      "depth": null,
+      "line": 107,
+      "raw": "`x`是一个长度为4的向量，计算`x`和`x`的点积，得到了我们赋值给`y`的标量输出。\n接下来，**通过调用反向传播函数来自动计算`y`关于`x`每个分量的梯度**，并打印这些梯度。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-012",
+      "sha256": "0fc37b561891d4cb0efb1a94b565950008e464dac412db5205d209f489149d9b",
+      "type": "code",
+      "depth": null,
+      "line": 115,
+      "raw": "```python\ny.backward()\nx.grad\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-013",
+      "sha256": "678a299182243e1a186330730728d918de93f9b8934380db119f18d2d326867f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 132,
+      "raw": "函数$y=2\\mathbf{x}^{\\top}\\mathbf{x}$关于$\\mathbf{x}$的梯度应为$4\\mathbf{x}$。\n让我们快速验证这个梯度是否计算正确。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-014",
+      "sha256": "733d2500f30119ca5297aabd987531a16064bf9d7181a561f1f77b3df3915a9d",
+      "type": "code",
+      "depth": null,
+      "line": 139,
+      "raw": "```python\nx.grad == 4 * x\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-015",
+      "sha256": "7764a7efd70dec08c796329631bc717ded78099c9e4395495dd2eee4b94e838c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 153,
+      "raw": "**现在计算`x`的另一个函数。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-016",
+      "sha256": "6426170c270ba1da6749cd4566f41cc30f5b9835c1bfda20d3098bdb891ae5c7",
+      "type": "code",
+      "depth": null,
+      "line": 162,
+      "raw": "```python\n# 在默认情况下，PyTorch会累积梯度，我们需要清除之前的值\nx.grad.zero_()\ny = x.sum()\ny.backward()\nx.grad\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-017",
+      "sha256": "945f56ee85886eb0dc9e90f2ee4d4deb57a224b28169808a00f3f26304ab6966",
+      "type": "heading",
+      "depth": 2,
+      "line": 186,
+      "raw": "## 非标量变量的反向传播",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-018",
+      "sha256": "90e9efabff32b68ac51277f428e2371705bcef7542da8119397843721b6b39ff",
+      "type": "paragraph",
+      "depth": null,
+      "line": 188,
+      "raw": "当`y`不是标量时，向量`y`关于向量`x`的导数的最自然解释是一个矩阵。\n对于高阶和高维的`y`和`x`，求导的结果可以是一个高阶张量。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-019",
+      "sha256": "6fc7e5657d51d9a2e3628337b79f497ce78016dbaf4e94c6a6245c21fe5459f6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 191,
+      "raw": "然而，虽然这些更奇特的对象确实出现在高级机器学习中（包括**深度学习中**），\n但当调用向量的反向计算时，我们通常会试图计算一批训练样本中每个组成部分的损失函数的导数。\n这里**，我们的目的不是计算微分矩阵，而是单独计算批量中每个样本的偏导数之和。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-020",
+      "sha256": "37401d6c501abbe7eb4c2d77ef5afd26ab1d10c1d77c5a51db2c168f48c22a72",
+      "type": "code",
+      "depth": null,
+      "line": 204,
+      "raw": "```python\n# 对非标量调用backward需要传入一个gradient参数，该参数指定微分函数关于self的梯度。\n# 本例只想求偏导数的和，所以传递一个1的梯度是合适的\nx.grad.zero_()\ny = x * x\n# 等价于y.backward(torch.ones(len(x)))\ny.sum().backward()\nx.grad\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-021",
+      "sha256": "8291182d2659b7be8ed200ef9f52c9a8e147f217b42765b666bea96b7d6d6eef",
+      "type": "heading",
+      "depth": 2,
+      "line": 229,
+      "raw": "## 分离计算",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-022",
+      "sha256": "6a31c3d733eaef2e6d0c0d45aff23675d14857d5bb75b9503e9b899d7306349a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 231,
+      "raw": "有时，我们希望**将某些计算移动到记录的计算图之外**。\n例如，假设`y`是作为`x`的函数计算的，而`z`则是作为`y`和`x`的函数计算的。\n想象一下，我们想计算`z`关于`x`的梯度，但由于某种原因，希望将`y`视为一个常数，\n并且只考虑到`x`在`y`被计算后发挥的作用。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-023",
+      "sha256": "7c93741dceb707cca414eed572d12b0ae1dd016e5d2628da6f5150bd3d2a9494",
+      "type": "paragraph",
+      "depth": null,
+      "line": 236,
+      "raw": "这里可以分离`y`来返回一个新变量`u`，该变量与`y`具有相同的值，\n但丢弃计算图中如何计算`y`的任何信息。\n换句话说，梯度不会向后流经`u`到`x`。\n因此，下面的反向传播函数计算`z=u*x`关于`x`的偏导数，同时将`u`作为常数处理，\n而不是`z=x*x*x`关于`x`的偏导数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-024",
+      "sha256": "3d5f60287e20a85b3e4660eb821fbe9d11912c7735e0ede85587729c4a8b2d03",
+      "type": "code",
+      "depth": null,
+      "line": 251,
+      "raw": "```python\nx.grad.zero_()\ny = x * x\nu = y.detach()\nz = u * x\n\nz.sum().backward()\nx.grad == u\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-025",
+      "sha256": "a0a3d7cc96d7604a9705e0cfecd809f2dca2237854edf83314478bfd9bdb852d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 284,
+      "raw": "由于记录了`y`的计算结果，我们可以随后在`y`上调用反向传播，\n得到`y=x*x`关于的`x`的导数，即`2*x`。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-026",
+      "sha256": "13ccf987f7520db92e99d7936e7e74c43e1f86a1da9ba891d75d18aeda0ff44d",
+      "type": "code",
+      "depth": null,
+      "line": 292,
+      "raw": "```python\nx.grad.zero_()\ny.sum().backward()\nx.grad == 2 * x\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-027",
+      "sha256": "ca3cfcc7a0b7274238feafeb98d3da23a962b372cc9f9fa2e44b487f8e6a9a0b",
+      "type": "heading",
+      "depth": 2,
+      "line": 310,
+      "raw": "## Python控制流的梯度计算",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-028",
+      "sha256": "9a7edc3fa2f9302c6f9e2944f4829ddc4c7a44e6daec7d8692fafa1c6b122677",
+      "type": "paragraph",
+      "depth": null,
+      "line": 312,
+      "raw": "使用自动微分的一个好处是：\n**即使构建函数的计算图需要通过Python控制流（例如，条件、循环或任意函数调用），我们仍然可以计算得到的变量的梯度**。\n在下面的代码中，`while`循环的迭代次数和`if`语句的结果都取决于输入`a`的值。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-029",
+      "sha256": "0a0e7fb37c9af1c2cadcf965f51ecf597bfcfbb226994bedb4981b96ed62df4b",
+      "type": "code",
+      "depth": null,
+      "line": 328,
+      "raw": "```python\ndef f(a):\n    b = a * 2\n    while b.norm() < 1000:\n        b = b * 2\n    if b.sum() > 0:\n        c = b\n    else:\n        c = 100 * b\n    return c\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-030",
+      "sha256": "4fefc758f93374bba748f7012154048b4698c74ed6a41c575ffe568efb8f3b78",
+      "type": "paragraph",
+      "depth": null,
+      "line": 366,
+      "raw": "让我们计算梯度。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-031",
+      "sha256": "f586e4fe040d89e8bf34e2874c8fced83a1a6b234b0faee891ec6e6fba73dc15",
+      "type": "code",
+      "depth": null,
+      "line": 376,
+      "raw": "```python\na = torch.randn(size=(), requires_grad=True)\nd = f(a)\nd.backward()\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-032",
+      "sha256": "557215f72d348c97f7e7e99807cbf802e1b6d0eee5e50ced6ea78a9ccb2ecc8b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 398,
+      "raw": "我们现在可以分析上面定义的`f`函数。\n请注意，它在其输入`a`中是分段线性的。\n换言之，对于任何`a`，存在某个常量标量`k`，使得`f(a)=k*a`，其中`k`的值取决于输入`a`，因此可以用`d/a`验证梯度是否正确。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-033",
+      "sha256": "5c91a246893f9d595b41f4ecf1656c67f60ace0a5acc4922cb8eec58fa16a2f9",
+      "type": "code",
+      "depth": null,
+      "line": 406,
+      "raw": "```python\na.grad == d / a\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-034",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 420,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-035",
+      "sha256": "e9ec700ac55de0f86573db70335d4337cd3bbc09caa4a29f57ffdbd460ca995c",
+      "type": "list",
+      "depth": null,
+      "line": 422,
+      "raw": "* 深度学习框架可以自动计算导数：我们首先将梯度附加到想要对其计算偏导数的变量上，然后记录目标值的计算，执行它的反向传播函数，并访问得到的梯度。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-036",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 424,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-037",
+      "sha256": "81c9f3f00218097cf4fca3873fc30e2cab00475bbb8e928c9640f2ddde070fc3",
+      "type": "list",
+      "depth": null,
+      "line": 426,
+      "raw": "1. 为什么计算二阶导数比一阶导数的开销要更大？\n1. 在运行反向传播函数之后，立即再次运行它，看看会发生什么。\n1. 在控制流的例子中，我们计算`d`关于`a`的导数，如果将变量`a`更改为随机向量或矩阵，会发生什么？\n1. 重新设计一个求控制流梯度的例子，运行并分析结果。\n1. 使$f(x)=\\sin(x)$，绘制$f(x)$和$\\frac{df(x)}{dx}$的图像，其中后者不使用$f'(x)=\\cos(x)$。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "autograd-038",
+      "sha256": "f53a782786c3ae14220682f4b397379b2c43540c9b5343ef561e65989c870fdb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 436,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1759)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

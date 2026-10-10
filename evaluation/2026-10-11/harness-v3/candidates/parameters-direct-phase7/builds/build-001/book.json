@@ -1,0 +1,79 @@
+{
+  "figures": [
+    {
+      "id": "nested-path",
+      "title": "参数名是一条树路径",
+      "afterAnchor": "parameters-027",
+      "height": 380,
+      "mobileHeight": 403,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "block",
+          "label": "子块索引",
+          "kind": "stepper",
+          "min": 0,
+          "max": 3,
+          "step": 1,
+          "value": 1
+        },
+        {
+          "key": "layer",
+          "label": "Linear 层索引",
+          "kind": "select",
+          "value": 0,
+          "options": [
+            {
+              "value": 0,
+              "label": "0 · 4 → 8"
+            },
+            {
+              "value": 2,
+              "label": "2 · 8 → 4"
+            }
+          ]
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const ns='http://www.w3.org/2000/svg', mobile=width<600;\n const ink='#233942', muted='#64777b', teal='#087f83', amber='#b66a25', pale='#dce8e7';\n function el(id,tag,attrs={},value){let n=svg.querySelector('#'+id);if(!n){n=document.createElementNS(ns,tag);n.id=id;svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(value!==undefined)n.textContent=value;return n;}\n function txt(id,x,y,s,size=14,color=ink,anchor='start'){return el(id,'text',{x,y,fill:color,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':anchor},s);}\n function line(id,x1,y1,x2,y2,color=pale,sw=1){return el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':sw});}\n function box(id,x,y,w,h,fill='white',stroke=pale){return el(id,'rect',{x,y,width:w,height:h,rx:5,fill,stroke});}\n svg.setAttribute('viewBox','0 0 '+width+' '+height);\n\n const i=Number(params.block), l=Number(params.layer), cx=mobile?104:width*.34, leaf=mobile?227:width*.64;\n txt('caption',18,25,'选一个分支，沿路径读名字',14,muted);\n txt('root',20,62,'rgnet',17); line('r0',47,69,47,98,teal,2);txt('major',20,120,'[0]',17,teal);\n for(let k=0;k<4;k++){let y=67+k*42,selected=k===i;\n line('branch'+k,50,127,cx,y+4,selected?teal:pale,selected?2:1);\n box('block'+k,cx,y-18,91,31,selected?'#edf7f6':'#f8faf9',selected?teal:pale);\n txt('btext'+k,cx+45,y+3,'block '+k,14,selected?teal:muted,'middle');}\n const y=67+i*42;line('selected',cx+91,y,leaf,y,teal,2);\n box('linear',leaf,y-18,mobile?79:132,31,'#edf7f6',teal);txt('linearlabel',leaf+(mobile?39:66),y+3,'['+l+'] Linear',mobile?12:15,teal,'middle');\n const by=mobile?263:244;\n line('separator',18,by-20,width-18,by-20);\n txt('pathhead',18,by,'索引',12,muted);txt('path',18,by+24,'rgnet[0]['+i+']['+l+'].bias',mobile?16:19);\n txt('namehead',18,by+55,'named_parameters() 的完整名称',12,muted);\n txt('name',18,by+80,'0.block '+i+'.'+l+'.bias',mobile?17:20,teal);\n txt('shape',18,by+110,'bias: ('+(l===0?'8':'4')+',)    weight: '+(l===0?'(8, 4)':'(4, 8)'),14,muted);\n return {blockIndex:i,layerIndex:l,indexPath:'rgnet[0]['+i+']['+l+'].bias',parameterName:'0.block '+i+'.'+l+'.bias',biasShape:[l===0?8:4],weightShape:l===0?[8,4]:[4,8],conditions:'原文 rgnet；ReLU 无参数；省略未选中的层与最外侧输出层。'};\n}"
+    },
+    {
+      "id": "threshold-mass",
+      "title": "中间区间折叠到零",
+      "afterAnchor": "parameters-042",
+      "height": 395,
+      "mobileHeight": 420,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "threshold",
+          "label": "筛零阈值 a",
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "value": 5
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const ns='http://www.w3.org/2000/svg', mobile=width<600;\n const ink='#233942', muted='#64777b', teal='#087f83', amber='#b66a25', pale='#dce8e7';\n function el(id,tag,attrs={},value){let n=svg.querySelector('#'+id);if(!n){n=document.createElementNS(ns,tag);n.id=id;svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(value!==undefined)n.textContent=value;return n;}\n function txt(id,x,y,s,size=14,color=ink,anchor='start'){return el(id,'text',{x,y,fill:color,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':anchor},s);}\n function line(id,x1,y1,x2,y2,color=pale,sw=1){return el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':sw});}\n function box(id,x,y,w,h,fill='white',stroke=pale){return el(id,'rect',{x,y,width:w,height:h,rx:5,fill,stroke});}\n svg.setAttribute('viewBox','0 0 '+width+' '+height);\n\n const a=Number(params.threshold), left=34,right=width-28, span=right-left, X=v=>left+(v+10)*span/20;\n const y1=mobile?95:80,y2=mobile?208:185;\n txt('caption',18,25,'40 个等距分位点 · 非随机抽样',13,muted);\n txt('before',18,y1-26,'筛选前 z',14);txt('after',18,y2-26,'筛选后 w',14);\n line('axis1',left,y1,right,y1,muted);line('axis2',left,y2,right,y2,muted);\n for(const v of [-10,-5,0,5,10]){for(const [r,y]of [[1,y1],[2,y2]]){line('tick'+r+'x'+v,X(v),y-4,X(v),y+4,muted);txt('ticktext'+r+'x'+v,X(v),y+21,String(v),12,muted,'middle');}}\n for(let k=0;k<40;k++){const z=-10+(k+.5)*.5,w=Math.abs(z)>=a?z:0, collapsed=w===0;\n line('map'+k,X(z),y1+5,X(w),y2-6,collapsed?'#dec6ad':'#a5cccc',1);\n el('z'+k,'circle',{cx:X(z),cy:y1,r:2.6,fill:collapsed?amber:teal});\n el('w'+k,'circle',{cx:X(w),cy:y2,r:collapsed?3:2.6,fill:collapsed?amber:teal});}\n for(const v of [-a,a]){const key=v<=0?'minus':'plus';line('cut'+key,X(v),y1-14,X(v),y1+9,amber,2);}\n const by=mobile?292:269, zero=a/10, tail=(10-a)/20;\n txt('probtitle',18,by-20,'概率质量（不是密度）',13,muted);\n const bw=width-36, t=bw*tail,c=bw*zero;\n box('negative',18,by,t,16,teal,teal);box('zero',18+t,by,c,16,amber,amber);box('positive',18+t+c,by,t,16,teal,teal);\n txt('negprob',18,by+41,'负值 '+(tail*100).toFixed(0)+'%',13,teal);\n txt('zeroprob',width/2,by+41,'零 '+(zero*100).toFixed(0)+'%',14,amber,'middle');txt('posprob',width-18,by+41,'正值 '+(tail*100).toFixed(0)+'%',13,teal,'end');\n txt('rule',18,by+73,'|z| < a → 0；其余保持原值',14);\n txt('support',18,by+97,'z ∼ U(−10, 10)；a = '+a.toFixed(1),13,muted);\n return {threshold:a,zeroProbability:zero,negativeProbability:tail,positiveProbability:tail,quantilePoints:Array.from({length:40},(_,k)=>{const z=-10+(k+.5)*.5;return {z,w:Math.abs(z)>=a?z:0};}),conditions:'连续均匀分布，阈值 a∈[0,10]；a=5 对应原文。40 个点是确定性示意，概率由区间长度解析计算，阈值端点的单点概率为零。'};\n}"
+    },
+    {
+      "id": "shared-gradient",
+      "title": "两次使用，一个梯度槽",
+      "afterAnchor": "parameters-048",
+      "height": 430,
+      "mobileHeight": 445,
+      "interaction": "parameters",
+      "summary": "用一个无 ReLU 的标量例子，单独看共享权重的梯度汇合。",
+      "params": [
+        {
+          "key": "sharedWeight",
+          "label": "共享权重 w",
+          "min": -1.5,
+          "max": 1.5,
+          "step": 0.05,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const ns='http://www.w3.org/2000/svg', mobile=width<600;\n const ink='#233942', muted='#64777b', teal='#087f83', amber='#b66a25', pale='#dce8e7';\n function el(id,tag,attrs={},value){let n=svg.querySelector('#'+id);if(!n){n=document.createElementNS(ns,tag);n.id=id;svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(value!==undefined)n.textContent=value;return n;}\n function txt(id,x,y,s,size=14,color=ink,anchor='start'){return el(id,'text',{x,y,fill:color,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':anchor},s);}\n function line(id,x1,y1,x2,y2,color=pale,sw=1){return el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':sw});}\n function box(id,x,y,w,h,fill='white',stroke=pale){return el(id,'rect',{x,y,width:w,height:h,rx:5,fill,stroke});}\n svg.setAttribute('viewBox','0 0 '+width+' '+height);\n\n const w=Number(params.sharedWeight),x=1,b=1,target=2,h=w*x+b,y=w*h+b,e=y-target,g1=e*w*x,g2=e*h,g=g1+g2;\n const fmt=n=>Math.abs(n)<.00005?'0.000':n.toFixed(3);\n txt('caption',18,25,'链式两次使用 · 无 ReLU 的标量例',13,muted);\n const start=mobile?18:width*.12,bw=mobile?81:140,gap=mobile?16:54,yy=62;\n txt('x',start,yy+24,'x = 1',14);\n const u1=start+(mobile?58:95),u2=u1+bw+gap;\n line('xin',start+40,yy+19,u1,yy+19,teal,2);\n box('u1',u1,yy,bw,39,'#edf7f6',teal);box('u2',u2,yy,bw,39,'#edf7f6',teal);\n txt('use1',u1+bw/2,yy+24,'× w + 1',14,teal,'middle');txt('use2',u2+bw/2,yy+24,'× w + 1',14,teal,'middle');line('forward',u1+bw,yy+19,u2,yy+19,teal,2);\n txt('h',u1+bw/2,yy+64,'h = '+fmt(h),13,muted,'middle');txt('y',u2+bw/2,yy+64,'y = '+fmt(y),13,muted,'middle');\n const sx=(u1+u2+bw)/2,sy=mobile?170:164;\n line('tie1',u1+bw/2,yy+40,sx,sy-19,teal);line('tie2',u2+bw/2,yy+40,sx,sy-19,teal);\n box('shared',sx-68,sy-19,136,32,'white',teal);txt('sharedtxt',sx,sy+2,'同一 w = '+w.toFixed(2),14,teal,'middle');\n const by=mobile?224:213;txt('loss',18,by,'L = ½(y − 2)² = '+fmt(.5*e*e),14);\n txt('formula',18,by+26,'g₁ = (y − 2)w     g₂ = (y − 2)h',mobile?13:15,muted);\n const left=mobile?77:170,right=width-(mobile?69:105), zero=(left+right)/2,S=(right-left)/24;\n const top=by+52,dy=34;\n for(let j=0;j<3;j++){const val=[g1,g2,g][j],yy2=top+j*dy;\n txt('glab'+j,18,yy2+5,['第1次','第2次','相加'][j],13,j===2?ink:muted);\n line('base'+j,left,yy2,right,yy2,pale,1);\n const end=zero+val*S;el('bar'+j,'rect',{x:Math.min(zero,end),y:yy2-7,width:Math.max(.8,Math.abs(end-zero)),height:14,fill:j===2?teal:amber,rx:2});\n txt('gval'+j,width-18,yy2+5,fmt(val),13,j===2?teal:amber,'end');}\n line('gzero',zero,top-14,zero,top+dy*2+12,muted,1);\n for(const v of [-12,0,12])txt('gtick'+v,zero+v*S,top+dy*2+30,String(v),12,muted,'middle');\n txt('gaxis',18,top+dy*2+54,'权重梯度 ∂L/∂w = g₁ + g₂',14,teal);\n return {x,bias:b,target,w,h,y,loss:.5*e*e,firstUseGradient:g1,secondUseGradient:g2,totalWeightGradient:g,conditions:'共享标量线性层连续使用两次；x=1，两个固定偏置都为1，目标2；省略 ReLU，固定偏置，仅考察权重的偏导。手选参数，无训练。梯度轴固定 [-12,12]。'};\n}"
+    }
+  ]
+}

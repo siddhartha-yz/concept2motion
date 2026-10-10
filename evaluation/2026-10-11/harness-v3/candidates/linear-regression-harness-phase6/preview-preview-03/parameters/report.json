@@ -1,0 +1,3125 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/linear-regression-harness-phase6/book.html",
+  "sha256": "e0e6468aa45e778277c5772c1f1f0df11ed85a7acfd419be48c2997750adf462",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "default",
+      "params": {
+        "weight": 0.8,
+        "bias": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 0.5,
+        "predictions": [
+          -1.1,
+          -0.30000000000000004,
+          1.3,
+          2.1
+        ],
+        "residuals": [
+          1.9,
+          0.7,
+          0.30000000000000004,
+          -0.8999999999999999
+        ],
+        "meanHalfSquaredLoss": 0.6249999999999999,
+        "weightGradient": -1.5,
+        "biasGradient": 0.4999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "577042d59ccf336c1261188c8ad267dc030f2d418defbaeb083bf2a88f5c5f99"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "default",
+      "params": {
+        "weight": 0.8,
+        "bias": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 0.5,
+        "predictions": [
+          -1.1,
+          -0.30000000000000004,
+          1.3,
+          2.1
+        ],
+        "residuals": [
+          1.9,
+          0.7,
+          0.30000000000000004,
+          -0.8999999999999999
+        ],
+        "meanHalfSquaredLoss": 0.6249999999999999,
+        "weightGradient": -1.5,
+        "biasGradient": 0.4999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "577042d59ccf336c1261188c8ad267dc030f2d418defbaeb083bf2a88f5c5f99"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "weight-min",
+      "params": {
+        "weight": 0,
+        "bias": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": 0.5,
+        "predictions": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "residuals": [
+          3.5,
+          1.5,
+          -0.5,
+          -2.5
+        ],
+        "meanHalfSquaredLoss": 2.625,
+        "weightGradient": -3.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "923f51290525b354e1e6f137af00364864f7f5d4f0bd3d8713717b6cf39c0f10"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "weight-min",
+      "params": {
+        "weight": 0,
+        "bias": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": 0.5,
+        "predictions": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "residuals": [
+          3.5,
+          1.5,
+          -0.5,
+          -2.5
+        ],
+        "meanHalfSquaredLoss": 2.625,
+        "weightGradient": -3.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "923f51290525b354e1e6f137af00364864f7f5d4f0bd3d8713717b6cf39c0f10"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "weight-max",
+      "params": {
+        "weight": 2,
+        "bias": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 0.5,
+        "predictions": [
+          -3.5,
+          -1.5,
+          2.5,
+          4.5
+        ],
+        "residuals": [
+          -0.5,
+          -0.5,
+          1.5,
+          1.5
+        ],
+        "meanHalfSquaredLoss": 0.625,
+        "weightGradient": 1.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4034c84a1666b6ea342bc198c68503cd01c931def8147828b8905a8bb92cdca3"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "weight-max",
+      "params": {
+        "weight": 2,
+        "bias": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 0.5,
+        "predictions": [
+          -3.5,
+          -1.5,
+          2.5,
+          4.5
+        ],
+        "residuals": [
+          -0.5,
+          -0.5,
+          1.5,
+          1.5
+        ],
+        "meanHalfSquaredLoss": 0.625,
+        "weightGradient": 1.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4034c84a1666b6ea342bc198c68503cd01c931def8147828b8905a8bb92cdca3"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "bias-min",
+      "params": {
+        "weight": 0.8,
+        "bias": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": -1,
+        "predictions": [
+          -2.6,
+          -1.8,
+          -0.19999999999999996,
+          0.6000000000000001
+        ],
+        "residuals": [
+          0.3999999999999999,
+          -0.8,
+          -1.2,
+          -2.4
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "27b3ca55514ff4955b073ba4c7ccc2543cab7bfac872fbff728b0c4d579d64e3"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "bias-min",
+      "params": {
+        "weight": 0.8,
+        "bias": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": -1,
+        "predictions": [
+          -2.6,
+          -1.8,
+          -0.19999999999999996,
+          0.6000000000000001
+        ],
+        "residuals": [
+          0.3999999999999999,
+          -0.8,
+          -1.2,
+          -2.4
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "27b3ca55514ff4955b073ba4c7ccc2543cab7bfac872fbff728b0c4d579d64e3"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "bias-max",
+      "params": {
+        "weight": 0.8,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 1,
+        "predictions": [
+          -0.6000000000000001,
+          0.19999999999999996,
+          1.8,
+          2.6
+        ],
+        "residuals": [
+          2.4,
+          1.2,
+          0.8,
+          -0.3999999999999999
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": 0.9999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "682350c6eb1c39d8cfc3851010eff7ca10d3cae3e2352b27c789e8f0ba3c5006"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "bias-max",
+      "params": {
+        "weight": 0.8,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 1,
+        "predictions": [
+          -0.6000000000000001,
+          0.19999999999999996,
+          1.8,
+          2.6
+        ],
+        "residuals": [
+          2.4,
+          1.2,
+          0.8,
+          -0.3999999999999999
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": 0.9999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "682350c6eb1c39d8cfc3851010eff7ca10d3cae3e2352b27c789e8f0ba3c5006"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "all-min",
+      "params": {
+        "weight": 0,
+        "bias": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": -1,
+        "predictions": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "residuals": [
+          2,
+          0,
+          -2,
+          -4
+        ],
+        "meanHalfSquaredLoss": 3,
+        "weightGradient": -3.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b856e1e279a857318d02a1663ccd4c4ea422bbd62c129ced2f90d808053e773c"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "all-min",
+      "params": {
+        "weight": 0,
+        "bias": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": -1,
+        "predictions": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "residuals": [
+          2,
+          0,
+          -2,
+          -4
+        ],
+        "meanHalfSquaredLoss": 3,
+        "weightGradient": -3.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b856e1e279a857318d02a1663ccd4c4ea422bbd62c129ced2f90d808053e773c"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "all-max",
+      "params": {
+        "weight": 2,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          3,
+          5
+        ],
+        "residuals": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": 1.5,
+        "biasGradient": 1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8a8a56258016abdb7429818e3f2ce6878398a6cb12e04de585583800bc28c885"
+    },
+    {
+      "width": 1280,
+      "id": "residual-to-loss",
+      "control": "all-max",
+      "params": {
+        "weight": 2,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          3,
+          5
+        ],
+        "residuals": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": 1.5,
+        "biasGradient": 1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8a8a56258016abdb7429818e3f2ce6878398a6cb12e04de585583800bc28c885"
+    },
+    {
+      "width": 1280,
+      "id": "batch-gradient",
+      "control": "default",
+      "params": {
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0.5,
+        "update": [
+          0.5,
+          0
+        ],
+        "updatedParameters": [
+          1.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.125,
+        "constructionProgress": 0.5,
+        "visibleAverage": [
+          -0.5,
+          0.5
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9a40bd693e6bc9f11d33a1f9bf0ecafae3afdd00ecdfdc09111aaf109d106728"
+    },
+    {
+      "width": 1280,
+      "id": "batch-gradient",
+      "control": "default",
+      "params": {
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0.5,
+        "update": [
+          0.5,
+          0
+        ],
+        "updatedParameters": [
+          1.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.125,
+        "constructionProgress": 1,
+        "visibleAverage": [
+          -1,
+          0
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "347fe9d713085f231c1fad6a72e8c17ac90c1b6b2f08d0dfd19266f6015b589b"
+    },
+    {
+      "width": 1280,
+      "id": "batch-gradient",
+      "control": "eta-min",
+      "params": {
+        "eta": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0,
+        "update": [
+          0,
+          0
+        ],
+        "updatedParameters": [
+          1,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.5,
+        "constructionProgress": 0.5,
+        "visibleAverage": [
+          -0.5,
+          0.5
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4c8ed7734aa71e6b90f745c44e3934b03f5f05b231ffc63d688202e44923325a"
+    },
+    {
+      "width": 1280,
+      "id": "batch-gradient",
+      "control": "eta-min",
+      "params": {
+        "eta": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0,
+        "update": [
+          0,
+          0
+        ],
+        "updatedParameters": [
+          1,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.5,
+        "constructionProgress": 1,
+        "visibleAverage": [
+          -1,
+          0
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "52ce374044986937f9a6d40595f6bce2054c449bce3983820f3c4d2184bde13d"
+    },
+    {
+      "width": 1280,
+      "id": "batch-gradient",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 2.5,
+        "update": [
+          2.5,
+          0
+        ],
+        "updatedParameters": [
+          3.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 1.125,
+        "constructionProgress": 0.5,
+        "visibleAverage": [
+          -0.5,
+          0.5
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7ec4458b51a819d18d1c7d37a33830b7857f7b753b1ead6078b4c33c65756c62"
+    },
+    {
+      "width": 1280,
+      "id": "batch-gradient",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 2.5,
+        "update": [
+          2.5,
+          0
+        ],
+        "updatedParameters": [
+          3.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 1.125,
+        "constructionProgress": 1,
+        "visibleAverage": [
+          -1,
+          0
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "34956cc40ebfe30dc5f0f6cddd468dd538477334a763c40b5940cc54a897302f"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.1522075711575183,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.78125,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 1.8825100899986271,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "24b84964effebd2dd2422b96ae8c5aa3c0b35b31704b3bb4046d97081b3b80fc"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.1522075711575183,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.78125,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 1.8825100899986271,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "24b84964effebd2dd2422b96ae8c5aa3c0b35b31704b3bb4046d97081b3b80fc"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 1.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "38c3ec9975da34475578362cfdfe5b7f1a67529395d3f1e8875e787c93817aa1"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 1.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "38c3ec9975da34475578362cfdfe5b7f1a67529395d3f1e8875e787c93817aa1"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7f9e9d904a3ecc0685a9245c7a03f53c4fb31fc82675cf09ad92e6812ca691de"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7f9e9d904a3ecc0685a9245c7a03f53c4fb31fc82675cf09ad92e6812ca691de"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "residual": 1.5,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.02921383415594757,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 3.125,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 3.5331129094386817,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "28475bc391deb6048d72484c147405598b4b975e739732299176de7db888a329"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "residual": 1.5,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.02921383415594757,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 3.125,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 3.5331129094386817,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "28475bc391deb6048d72484c147405598b4b975e739732299176de7db888a329"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.1566177085612792,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.3472222222222222,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 1.8539474203290138,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "531eb90206d5a4a66cc522f8c6800b7dc39827d9b7c48c8e4fe78498b88af978"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.1566177085612792,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.3472222222222222,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 1.8539474203290138,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "531eb90206d5a4a66cc522f8c6800b7dc39827d9b7c48c8e4fe78498b88af978"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.00011293834981469628,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 8.680555555555555,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 9.088668464994237,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "499dd917ac103b577c4ed68e4b441d3b540fb2750e042eee4724bceb178aec74"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.00011293834981469628,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 8.680555555555555,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 9.088668464994237,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "499dd917ac103b577c4ed68e4b441d3b540fb2750e042eee4724bceb178aec74"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.08448076776430871,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 0.9645061728395061,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 2.4712313709462976,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2ab47bbd5f49878c3925fcd2d9546265470c211bd478da83da49196e2f2e0de3"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.08448076776430871,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 0.9645061728395061,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 2.4712313709462976,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2ab47bbd5f49878c3925fcd2d9546265470c211bd478da83da49196e2f2e0de3"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "default",
+      "params": {
+        "weight": 0.8,
+        "bias": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 0.5,
+        "predictions": [
+          -1.1,
+          -0.30000000000000004,
+          1.3,
+          2.1
+        ],
+        "residuals": [
+          1.9,
+          0.7,
+          0.30000000000000004,
+          -0.8999999999999999
+        ],
+        "meanHalfSquaredLoss": 0.6249999999999999,
+        "weightGradient": -1.5,
+        "biasGradient": 0.4999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c31072622b12f870e4b4ceef97fbacb9e3967d2fe4c3cfff0bc7f6ebcf36c120"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "default",
+      "params": {
+        "weight": 0.8,
+        "bias": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 0.5,
+        "predictions": [
+          -1.1,
+          -0.30000000000000004,
+          1.3,
+          2.1
+        ],
+        "residuals": [
+          1.9,
+          0.7,
+          0.30000000000000004,
+          -0.8999999999999999
+        ],
+        "meanHalfSquaredLoss": 0.6249999999999999,
+        "weightGradient": -1.5,
+        "biasGradient": 0.4999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c31072622b12f870e4b4ceef97fbacb9e3967d2fe4c3cfff0bc7f6ebcf36c120"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "weight-min",
+      "params": {
+        "weight": 0,
+        "bias": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": 0.5,
+        "predictions": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "residuals": [
+          3.5,
+          1.5,
+          -0.5,
+          -2.5
+        ],
+        "meanHalfSquaredLoss": 2.625,
+        "weightGradient": -3.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ff5de70451fe2f484ee4ebbf52e46bfdedff495311d9f95b5b595b2cabb4cbd2"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "weight-min",
+      "params": {
+        "weight": 0,
+        "bias": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": 0.5,
+        "predictions": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "residuals": [
+          3.5,
+          1.5,
+          -0.5,
+          -2.5
+        ],
+        "meanHalfSquaredLoss": 2.625,
+        "weightGradient": -3.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ff5de70451fe2f484ee4ebbf52e46bfdedff495311d9f95b5b595b2cabb4cbd2"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "weight-max",
+      "params": {
+        "weight": 2,
+        "bias": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 0.5,
+        "predictions": [
+          -3.5,
+          -1.5,
+          2.5,
+          4.5
+        ],
+        "residuals": [
+          -0.5,
+          -0.5,
+          1.5,
+          1.5
+        ],
+        "meanHalfSquaredLoss": 0.625,
+        "weightGradient": 1.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c2353608a8655117277b0f1e56397c0bff2f1f0fa07afc60578dcd0e67b36e40"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "weight-max",
+      "params": {
+        "weight": 2,
+        "bias": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 0.5,
+        "predictions": [
+          -3.5,
+          -1.5,
+          2.5,
+          4.5
+        ],
+        "residuals": [
+          -0.5,
+          -0.5,
+          1.5,
+          1.5
+        ],
+        "meanHalfSquaredLoss": 0.625,
+        "weightGradient": 1.5,
+        "biasGradient": 0.5,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.175
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c2353608a8655117277b0f1e56397c0bff2f1f0fa07afc60578dcd0e67b36e40"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "bias-min",
+      "params": {
+        "weight": 0.8,
+        "bias": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": -1,
+        "predictions": [
+          -2.6,
+          -1.8,
+          -0.19999999999999996,
+          0.6000000000000001
+        ],
+        "residuals": [
+          0.3999999999999999,
+          -0.8,
+          -1.2,
+          -2.4
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "52baf6c4b958ccb37fdcab128235ed70a27e57913f856f956e49446b651ee161"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "bias-min",
+      "params": {
+        "weight": 0.8,
+        "bias": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": -1,
+        "predictions": [
+          -2.6,
+          -1.8,
+          -0.19999999999999996,
+          0.6000000000000001
+        ],
+        "residuals": [
+          0.3999999999999999,
+          -0.8,
+          -1.2,
+          -2.4
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "52baf6c4b958ccb37fdcab128235ed70a27e57913f856f956e49446b651ee161"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "bias-max",
+      "params": {
+        "weight": 0.8,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 1,
+        "predictions": [
+          -0.6000000000000001,
+          0.19999999999999996,
+          1.8,
+          2.6
+        ],
+        "residuals": [
+          2.4,
+          1.2,
+          0.8,
+          -0.3999999999999999
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": 0.9999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4eb4eb042e251218a44dde05f77bd626ccf52105f0f8fca2253efe76ff390538"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "bias-max",
+      "params": {
+        "weight": 0.8,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0.8,
+        "bias": 1,
+        "predictions": [
+          -0.6000000000000001,
+          0.19999999999999996,
+          1.8,
+          2.6
+        ],
+        "residuals": [
+          2.4,
+          1.2,
+          0.8,
+          -0.3999999999999999
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": -1.5,
+        "biasGradient": 0.9999999999999999,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4eb4eb042e251218a44dde05f77bd626ccf52105f0f8fca2253efe76ff390538"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "all-min",
+      "params": {
+        "weight": 0,
+        "bias": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": -1,
+        "predictions": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "residuals": [
+          2,
+          0,
+          -2,
+          -4
+        ],
+        "meanHalfSquaredLoss": 3,
+        "weightGradient": -3.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "61b75792e95f430c02bd4f943df71de2d4da2aad0ea05ebc340198a695a0d42b"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "all-min",
+      "params": {
+        "weight": 0,
+        "bias": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 0,
+        "bias": -1,
+        "predictions": [
+          -1,
+          -1,
+          -1,
+          -1
+        ],
+        "residuals": [
+          2,
+          0,
+          -2,
+          -4
+        ],
+        "meanHalfSquaredLoss": 3,
+        "weightGradient": -3.5,
+        "biasGradient": -1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "61b75792e95f430c02bd4f943df71de2d4da2aad0ea05ebc340198a695a0d42b"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "all-max",
+      "params": {
+        "weight": 2,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          3,
+          5
+        ],
+        "residuals": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": 1.5,
+        "biasGradient": 1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cdf1dc0964752fb93edfd3a1900744601c2570e5906de1ca5cc9ffceabfe98db"
+    },
+    {
+      "width": 375,
+      "id": "residual-to-loss",
+      "control": "all-max",
+      "params": {
+        "weight": 2,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -3
+          ],
+          [
+            -1,
+            -1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          3,
+          5
+        ],
+        "residuals": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "meanHalfSquaredLoss": 1,
+        "weightGradient": 1.5,
+        "biasGradient": 1,
+        "minimumWeightAtFixedBias": 1.4,
+        "minimumLossAtFixedBias": 0.55
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cdf1dc0964752fb93edfd3a1900744601c2570e5906de1ca5cc9ffceabfe98db"
+    },
+    {
+      "width": 375,
+      "id": "batch-gradient",
+      "control": "default",
+      "params": {
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0.5,
+        "update": [
+          0.5,
+          0
+        ],
+        "updatedParameters": [
+          1.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.125,
+        "constructionProgress": 0.5,
+        "visibleAverage": [
+          -0.5,
+          0.5
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f37fe8da4e3b274ceaba26a8a15542e6b5ee3b76260c0dd7b639f9c82c274e2b"
+    },
+    {
+      "width": 375,
+      "id": "batch-gradient",
+      "control": "default",
+      "params": {
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0.5,
+        "update": [
+          0.5,
+          0
+        ],
+        "updatedParameters": [
+          1.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.125,
+        "constructionProgress": 1,
+        "visibleAverage": [
+          -1,
+          0
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "68024d34757bd91c215b0131b71e77c4dbcdd7a9c8b5cdb9d1b449da0c23e64a"
+    },
+    {
+      "width": 375,
+      "id": "batch-gradient",
+      "control": "eta-min",
+      "params": {
+        "eta": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0,
+        "update": [
+          0,
+          0
+        ],
+        "updatedParameters": [
+          1,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.5,
+        "constructionProgress": 0.5,
+        "visibleAverage": [
+          -0.5,
+          0.5
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "147949d30d9353eaecd9270768e755420a3f000a84a8fef9e40f5c21196c390c"
+    },
+    {
+      "width": 375,
+      "id": "batch-gradient",
+      "control": "eta-min",
+      "params": {
+        "eta": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 0,
+        "update": [
+          0,
+          0
+        ],
+        "updatedParameters": [
+          1,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 0.5,
+        "constructionProgress": 1,
+        "visibleAverage": [
+          -1,
+          0
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "065cb6df1063871b8fd4d6734a05392540499b6a60734d3971488aabef48679a"
+    },
+    {
+      "width": 375,
+      "id": "batch-gradient",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 2.5,
+        "update": [
+          2.5,
+          0
+        ],
+        "updatedParameters": [
+          3.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 1.125,
+        "constructionProgress": 0.5,
+        "visibleAverage": [
+          -0.5,
+          0.5
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d5aa8e4a02818138f54d80e37ca1d00d5d1cd02924f854ec906ba3e16c5c73ba"
+    },
+    {
+      "width": 375,
+      "id": "batch-gradient",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "batch": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "initialParameters": [
+          1,
+          0
+        ],
+        "residuals": [
+          1,
+          -1
+        ],
+        "sampleGradients": [
+          [
+            -1,
+            1
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "averageGradient": [
+          -1,
+          0
+        ],
+        "eta": 2.5,
+        "update": [
+          2.5,
+          0
+        ],
+        "updatedParameters": [
+          3.5,
+          0
+        ],
+        "beforeLoss": 0.5,
+        "afterLoss": 1.125,
+        "constructionProgress": 1,
+        "visibleAverage": [
+          -1,
+          0
+        ],
+        "convention": "左图连续构造两项平均梯度；右图始终为一次离散更新的最终结果。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b7062076d83a37ca31d02bb6054781c4ff40fecf33d701329012719fa0cd65f6"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.1522075711575183,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.78125,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 1.8825100899986271,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8f5100e893a5511f0a84163245e46179f2a6643bae37631599d78841405dbbe4"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.1522075711575183,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.78125,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 1.8825100899986271,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8f5100e893a5511f0a84163245e46179f2a6643bae37631599d78841405dbbe4"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 1.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b020f2da55049a1afa62b562977b3929218684f887dab34e9e45afb1dc32a64c"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 1.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b020f2da55049a1afa62b562977b3929218684f887dab34e9e45afb1dc32a64c"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6c7b529e30f41624fa1c2f8594eedbd9ad8b4fee87830cf3a48620bacd07136e"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.2,
+        "variance": 1.44,
+        "density": 0.037953294060754664,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 2.170138888888889,
+        "constant": 1.1012600899986273,
+        "negativeLogLikelihood": 3.271398978887516,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6c7b529e30f41624fa1c2f8594eedbd9ad8b4fee87830cf3a48620bacd07136e"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "residual": 1.5,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.02921383415594757,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 3.125,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 3.5331129094386817,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ca0b4fd743b8ea29acf22f1a3cb56193ff70aa9052931338d4ed742a898be600"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "residual": 1.5,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.02921383415594757,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 3.125,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 3.5331129094386817,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ca0b4fd743b8ea29acf22f1a3cb56193ff70aa9052931338d4ed742a898be600"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.1566177085612792,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.3472222222222222,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 1.8539474203290138,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "480264ed68ee1286ccf19599ee532bdcc811517bcaf61c0032a16474ad1a94fe"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "residual": 1.5,
+        "sigma": 1.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 1.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.1566177085612792,
+        "halfSquaredLoss": 1.125,
+        "excessNegativeLogLikelihood": 0.3472222222222222,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 1.8539474203290138,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "480264ed68ee1286ccf19599ee532bdcc811517bcaf61c0032a16474ad1a94fe"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.00011293834981469628,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 8.680555555555555,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 9.088668464994237,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c6cf784903ec6274dea6a920a85314bbbe7d36017ab60ab976e2fb69b4307580"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "residual": -2.5,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": -2.5,
+        "sigma": 0.6,
+        "variance": 0.36,
+        "density": 0.00011293834981469628,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 8.680555555555555,
+        "constant": 0.40811290943868195,
+        "negativeLogLikelihood": 9.088668464994237,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c6cf784903ec6274dea6a920a85314bbbe7d36017ab60ab976e2fb69b4307580"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.08448076776430871,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 0.9645061728395061,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 2.4712313709462976,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "354c4e4868390508f558d30d2ac6284a1a05da05d1738a3487e99fec50f330ac"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "residual": 2.5,
+        "sigma": 1.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "residual": 2.5,
+        "sigma": 1.8,
+        "variance": 3.24,
+        "density": 0.08448076776430871,
+        "halfSquaredLoss": 3.125,
+        "excessNegativeLogLikelihood": 0.9645061728395061,
+        "constant": 1.5067251981067917,
+        "negativeLogLikelihood": 2.4712313709462976,
+        "minimumResidual": 0,
+        "convention": "固定正sigma、独立同方差高斯噪声；右图去除与模型参数无关的对数常数。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "354c4e4868390508f558d30d2ac6284a1a05da05d1738a3487e99fec50f330ac"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

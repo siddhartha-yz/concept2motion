@@ -1,0 +1,15 @@
+{
+  "issues": [
+    {
+      "figureId": "timing-boundary",
+      "condition": "width=375, progress=0（默认参数）",
+      "description": "最终真实起点 PNG 中，游标中段经过 GPU · 执行 标签所在高度并贴着标签左缘，造成视觉干扰。第三次预览后发现，预览次数已达上限，未修订；需要避开手机行标题区域后重新构建预览。"
+    }
+  ],
+  "mathCheckNote": "check-math.mjs 对实际 draw 返回的 facts 核对了全部36组 t1/t2 网格及35组 GPU耗时/进度：闭式总时长、提交前置约束、单后端不重叠、时长守恒与完成计数。流水线 T=t1+t2+3max(t1,t2)+1，逐次 T=4(t1+t2+1)；计时图完成=1+3d，等待=3d−2。检查不替代真实PNG审美，已查看两图1280/375下0/1共8帧。",
+  "limits": "手选示意时间、四个独立任务、单提交资源和单顺序后端；没有真实硬件、框架性能、训练或用户理解评估。实际人工审视默认参数中间帧和起止帧，未逐一人工审视全部参数组合。自动报告无 findings 不能排除人工发现的起点游标问题，已如实记录并停止正式导出。",
+  "html_sha256": "49def53805e7125d3cd76947a30da66d23fcb65d084b390fbb341e657bbcbd90",
+  "plan_sha256": "a3d044e2ef961b80cf4176f5e1fd45da7a96e2ca5b12d092c8d5267cb642805b",
+  "ready_for_export": false,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

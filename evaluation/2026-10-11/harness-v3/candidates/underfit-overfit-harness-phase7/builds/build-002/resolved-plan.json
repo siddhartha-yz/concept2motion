@@ -1,0 +1,82 @@
+{
+  "figures": [
+    {
+      "id": "coin-selection",
+      "afterAnchor": "underfit-overfit-012",
+      "endAnchor": "underfit-overfit-012",
+      "title": "选多数类：训练误差为何偏低？",
+      "summary": "柱高是反复抽取同样大小样本时的精确概率；蓝点是平均训练误差，橙线是公平硬币的泛化误差。增加样本量，观察两者接近。",
+      "interaction": "parameters",
+      "height": 330,
+      "mobileHeight": 370,
+      "params": [
+        {
+          "key": "n",
+          "label": "样本数 n",
+          "kind": "select",
+          "value": 6,
+          "options": [
+            {
+              "value": 6,
+              "label": "6 次"
+            },
+            {
+              "value": 12,
+              "label": "12 次"
+            },
+            {
+              "value": 24,
+              "label": "24 次"
+            },
+            {
+              "value": 36,
+              "label": "36 次"
+            }
+          ]
+        }
+      ],
+      "code": "function draw(input) {\n const {board,width,height,params}=input;\n const P=VisualBook.palette, n=Number(params.n), mass=[];\n let pk=Math.pow(0.5,n), expected=0;\n for(let k=0;k<=n;k++) {\n  const j=Math.min(k,n-k); mass[j]=(mass[j]||0)+pk;\n  if(k<n) pk=pk*(n-k)/(k+1);\n }\n const probabilities=mass.map((p,j)=>{expected+=p*j/n;return {error:j/n,probability:p};});\n const mobile=width<600;\n board.text('mean','平均训练 '+expected.toFixed(3),22,26,{color:P.blue,size:15});\n board.text('risk','泛化 0.500',mobile?22:width-160,mobile?50:26,{color:P.orange,size:15});\n board.text('probability-axis','出现概率',54,mobile?91:59,{size:13,color:P.muted});\n const f=board.axes('distribution',{xDomain:[0,0.55],yDomain:[0,0.55],xLabel:'训练误差',yLabel:'',box:[54,mobile?112:80,width-25,height-76],grid:true});\n probabilities.forEach((v,j)=>{\n  const bw=Math.min(32,f.unitX/n*.68);\n  board.rect('mass-'+j,f.x(v.error)-bw/2,f.y(v.probability),bw,f.y(0)-f.y(v.probability),P.blue,{opacity:0.76});\n });\n board.line('half',f.x(.5),f.top,f.x(.5),f.bottom,P.orange,2,.8);\n board.circle('expected',f.x(expected),f.y(0),4,P.blue);\n\n return {n,probabilities,probabilitySum:mass.reduce((a,b)=>a+b,0),expectedTrainingError:expected,generalizationError:.5,originalExample:{labels:[0,1,1,1,0,1],trainingError:2/6},convention:'Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation.'};\n}"
+    },
+    {
+      "id": "polynomial-sensitivity",
+      "afterAnchor": "underfit-overfit-071",
+      "endAnchor": "underfit-overfit-072",
+      "title": "只改一个标签，整条拟合曲线会怎样？",
+      "summary": "11 个等距输入沿用原文三阶均值，只有橙点加 ε。调 ε，再切换阶数。网格偏差²为 401 点上相对均值的平均平方偏差，不是测试误差。此处直接解最小二乘，不复现原文 SGD。",
+      "interaction": "parameters",
+      "height": 360,
+      "mobileHeight": 420,
+      "params": [
+        {
+          "key": "degree",
+          "label": "多项式阶数 d",
+          "kind": "select",
+          "value": 10,
+          "options": [
+            {
+              "value": 1,
+              "label": "1 阶"
+            },
+            {
+              "value": 3,
+              "label": "3 阶"
+            },
+            {
+              "value": 10,
+              "label": "10 阶"
+            }
+          ]
+        },
+        {
+          "key": "epsilon",
+          "label": "橙点扰动 ε",
+          "min": -0.2,
+          "max": 0.2,
+          "step": 0.01,
+          "value": 0.1
+        }
+      ],
+      "code": "function draw(input) {\n const {board,width,height,params}=input, P=VisualBook.palette;\n const degree=Number(params.degree), epsilon=Number(params.epsilon);\n const xs=Array.from({length:11},(_,i)=>-1+i/5);\n const truth=x=>5+1.2*x-1.7*x*x+(5.6/6)*x*x*x;\n const ys=xs.map((x,i)=>truth(x)+(i===5?epsilon:0));\n const cols=degree+1, Q=[], R=Array.from({length:cols},()=>Array(cols).fill(0));\n for(let j=0;j<cols;j++){\n  let v=xs.map(x=>Math.pow(x,j));\n  for(let pass=0;pass<2;pass++) for(let k=0;k<j;k++){\n   const r=v.reduce((s,a,i)=>s+a*Q[k][i],0);R[k][j]+=r;v=v.map((a,i)=>a-r*Q[k][i]);\n  }\n  R[j][j]=Math.hypot(...v);Q[j]=v.map(a=>a/R[j][j]);\n }\n const c=Q.map(q=>q.reduce((s,a,i)=>s+a*ys[i],0)), w=Array(cols).fill(0);\n for(let j=cols-1;j>=0;j--){let a=c[j];for(let k=j+1;k<cols;k++)a-=R[j][k]*w[k];w[j]=a/R[j][j];}\n const predict=x=>w.reduceRight((s,a)=>s*x+a,0);\n const points=Array.from({length:401},(_,i)=>{const x=-1+i/200;return[x,predict(x)];});\n const mean=points.map(([x])=>[x,truth(x)]);\n const mse=xs.reduce((s,x,i)=>s+Math.pow(predict(x)-ys[i],2),0)/11;\n const gridMSE=points.reduce((s,[x,y])=>s+Math.pow(y-truth(x),2),0)/points.length;\n const mobile=width<600;\n const num=v=>VisualBook.formatNumber(v,{precision:3});\n board.text('train','训练 MSE '+(mse<1e-20?'≈0':num(mse)),22,25,{color:P.blue,size:14});\n board.text('probe','网格偏差² '+num(gridMSE),mobile?22:width-240,mobile?48:25,{color:P.ink,size:14});\n board.text('y-axis','y',48,mobile?69:57,{size:13,color:P.muted});\n const f=board.axes('fit',{xDomain:[-1.08,1.08],yDomain:[0,7],xLabel:'x',yLabel:'',box:[48,mobile?90:78,width-22,height-87],grid:true});\n board.curve('truth',f,mean,{color:P.muted,width:2,opacity:.65});\n board.curve('polynomial',f,points,{color:P.blue,width:2.5});\n xs.forEach((x,i)=>board.circle('sample-'+i,f.x(x),f.y(ys[i]),i===5?5:3.4,i===5?P.orange:P.ink));\n board.line('perturbation',f.x(0),f.y(truth(0)),f.x(0),f.y(ys[5]),P.orange,2,1);\n board.line('legend-fit',22,height-49,42,height-49,P.blue,2.5);\n board.text('legend-fit-label',degree+' 阶最小二乘',49,height-45,{size:13,color:P.blue});\n board.line('legend-truth',mobile?22:width-188,mobile?height-25:height-49,mobile?42:width-168,mobile?height-25:height-49,P.muted,2,.65);\n board.text('legend-truth-label','三阶生成均值',mobile?49:width-161,mobile?height-21:height-45,{size:13,color:P.muted});\n return {degree,epsilon,xs,ys,coefficients:w,trainingMSE:mse,gridMSE,curveRange:[Math.min(...points.map(p=>p[1])),Math.max(...points.map(p=>p[1]))],gridCount:401,gridDomain:[-1,1],convention:'11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error.'};\n}"
+    }
+  ]
+}

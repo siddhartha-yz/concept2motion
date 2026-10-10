@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "独立使用 Python Fraction 精确有理数：组合数聚合公平硬币训练误差概率，核对四个 n 的概率和为1及期望；另解多项式正规方程，与画面所用 JS 两遍重正交 QR 的系数、训练MSE和401点网格偏差核对，容差分别1e-8/1e-12/1e-10。核对3阶数×41个ε刻度的401点曲线范围均在固定y轴[0,7]内。证据 math-check.py/math-check.json。已查看最后预览两图在1280与375的0/1实际PNG。",
+  "limits": "确定性教学例子，不是原文100/100正态采样+SGD的复现，不是训练性能实测。网格偏差仅是[-1,1]上401点相对已知均值的离散平均平方偏差，不是泛化误差；采样点之间及区间外未进行全域界证明。参数图无进度运动，0/1端点相同属预期。正式参数检查52案；未验证所有浏览器、物理触摸或读者学习效果。未发现尚存遮挡或数学/教学错误；零发现不是审美评分。",
+  "html_sha256": "a680a0d823a9d8d492da3c9bd45c99a4d7ef9e555209a23a033ee4c7b431df53",
+  "plan_sha256": "69e268abb5962367b4b043971db206b63708d4d8701263d9f1f1180613b21548",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

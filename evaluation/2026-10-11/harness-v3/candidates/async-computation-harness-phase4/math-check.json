@@ -1,0 +1,147 @@
+{
+  "method": "Python独立重建就绪时刻与完成时刻，逐项核对预览实际facts；另核对全部26个允许的t1取值。不是硬件测试。",
+  "candidateSha256": "9d19a342b78190d54a724f24b207114dd9a10fed57e9c4f3427e4ce60f3e97a7",
+  "cases": [
+    {
+      "figure": "queued-clock",
+      "width": 1280,
+      "control": "default",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "queued-clock",
+      "width": 1280,
+      "control": "default",
+      "progress": 1,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 1280,
+      "control": "default",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 1280,
+      "control": "default",
+      "progress": 1,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 1280,
+      "control": "submit-min",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 1280,
+      "control": "submit-min",
+      "progress": 1,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 1280,
+      "control": "submit-max",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 1280,
+      "control": "submit-max",
+      "progress": 1,
+      "checked": true
+    },
+    {
+      "figure": "queued-clock",
+      "width": 375,
+      "control": "default",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "queued-clock",
+      "width": 375,
+      "control": "default",
+      "progress": 1,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 375,
+      "control": "default",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 375,
+      "control": "default",
+      "progress": 1,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 375,
+      "control": "submit-min",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 375,
+      "control": "submit-min",
+      "progress": 1,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 375,
+      "control": "submit-max",
+      "progress": 0.5,
+      "checked": true
+    },
+    {
+      "figure": "pipeline-bottleneck",
+      "width": 375,
+      "control": "submit-max",
+      "progress": 1,
+      "checked": true
+    }
+  ],
+  "sliderValuesChecked": 26,
+  "knownSourceQualification": "单提交/单计算流水线的t1+N*t2+t3形式需要t1<=t2；源文较弱的总量不等式本身不充分。",
+  "examples": [
+    {
+      "t1": 0.5,
+      "async": 9,
+      "sync": 12
+    },
+    {
+      "t1": 1,
+      "async": 9.5,
+      "sync": 14
+    },
+    {
+      "t1": 2,
+      "async": 10.5,
+      "sync": 18
+    },
+    {
+      "t1": 2.1,
+      "async": 10.9,
+      "sync": 18.4
+    },
+    {
+      "t1": 3,
+      "async": 14.5,
+      "sync": 22
+    }
+  ]
+}

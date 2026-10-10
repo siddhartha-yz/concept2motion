@@ -1,0 +1,689 @@
+{
+  "id": "backprop",
+  "title": "前向传播、反向传播和计算图",
+  "sourceName": "《动手学深度学习》",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/inputs/backprop/chapter.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_multilayer-perceptrons/backprop.html",
+  "sourceSha256": "d71d5b8e916a1bc5ecdb99e7266bbf026456c3ae9da5cbfc1fbb79d59ecc80e6",
+  "adaptedSha256": "d71d5b8e916a1bc5ecdb99e7266bbf026456c3ae9da5cbfc1fbb79d59ecc80e6",
+  "license": "Apache-2.0",
+  "adaptation": {
+    "images": 1,
+    "mathExpected": 60,
+    "mathRendered": 60
+  },
+  "blocks": [
+    {
+      "id": "backprop-001",
+      "sha256": "edb69905ad50ab0f91c53928881e66cca11b2173b6e975f8d03c2ed11433f5f3",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 前向传播、反向传播和计算图",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-002",
+      "sha256": "09670ce341ae30c66be3860193643bea828ebe08e09d6c19862d842224f4319d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "我们已经学习了如何用小批量随机梯度下降训练模型。\n然而当实现该算法时，我们只考虑了通过*前向传播*（forward propagation）所涉及的计算。\n在计算梯度时，我们只调用了深度学习框架提供的反向传播函数，而不知其所以然。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-003",
+      "sha256": "193031b4bf5479594009b24b01a2a7a6318ce2d37b6dd984af2f49765c19d417",
+      "type": "paragraph",
+      "depth": null,
+      "line": 7,
+      "raw": "梯度的自动计算（自动微分）大大简化了深度学习算法的实现。\n在自动微分之前，即使是对复杂模型的微小调整也需要手工重新计算复杂的导数，\n学术论文也不得不分配大量页面来推导更新规则。\n本节将通过一些基本的数学和计算图，\n深入探讨*反向传播*的细节。\n首先，我们将重点放在带权重衰减（$L_2$正则化）的单隐藏层多层感知机上。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-004",
+      "sha256": "7743979b2a5c8cdc465f5e207a3f51f26195e6083e225623629898ba8c33b05c",
+      "type": "heading",
+      "depth": 2,
+      "line": 14,
+      "raw": "## 前向传播",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-005",
+      "sha256": "331b471c1c00db67d2e1585c8cb80431904ff70e78da54af9d9698d4a52cc461",
+      "type": "paragraph",
+      "depth": null,
+      "line": 16,
+      "raw": "*前向传播*（forward propagation或forward pass）\n指的是：按顺序（从输入层到输出层）计算和存储神经网络中每层的结果。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-006",
+      "sha256": "a6949dc13a8c2cf98a42c0ccc9423b3972edebdfd236eb2a8fb6072ce6a3755a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 19,
+      "raw": "我们将一步步研究单隐藏层神经网络的机制，\n为了简单起见，我们假设输入样本是 $\\mathbf{x}\\in \\mathbb{R}^d$，\n并且我们的隐藏层不包括偏置项。\n这里的中间变量是：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-007",
+      "sha256": "0c928121f4b52a2d5f984a27d9ee7df388197c5dfbecb72ae4162d47d0812826",
+      "type": "paragraph",
+      "depth": null,
+      "line": 24,
+      "raw": "$$\\mathbf{z}= \\mathbf{W}^{(1)} \\mathbf{x},$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-008",
+      "sha256": "82b2967dec7f1910cdfd5cc2f364ca75c5a3a9224f2a953a755caf2984b9fc1e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 26,
+      "raw": "其中$\\mathbf{W}^{(1)} \\in \\mathbb{R}^{h \\times d}$\n是隐藏层的权重参数。\n将中间变量$\\mathbf{z}\\in \\mathbb{R}^h$通过激活函数$\\phi$后，\n我们得到长度为$h$的隐藏激活向量：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-009",
+      "sha256": "a6581ac9cb0254baadb6bf94b2c9132eb66414438f3079ef0e3f8f9334158368",
+      "type": "paragraph",
+      "depth": null,
+      "line": 31,
+      "raw": "$$\\mathbf{h}= \\phi (\\mathbf{z}).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-010",
+      "sha256": "c0513b75e9dc4f8af69831a7b0af413fae557d4de33f177dcc415dca16f29e9f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 33,
+      "raw": "隐藏变量$\\mathbf{h}$也是一个中间变量。\n假设输出层的参数只有权重$\\mathbf{W}^{(2)} \\in \\mathbb{R}^{q \\times h}$，\n我们可以得到输出层变量，它是一个长度为$q$的向量：",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-011",
+      "sha256": "22f025d75c65543a9385d2da11e6a0ac19be79d319881824060d3c0e121994af",
+      "type": "paragraph",
+      "depth": null,
+      "line": 37,
+      "raw": "$$\\mathbf{o}= \\mathbf{W}^{(2)} \\mathbf{h}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-012",
+      "sha256": "1c03b33d579db13ab61b65b3ed10887e3c70a5b0fa2017f8452b5da63a3e6f60",
+      "type": "paragraph",
+      "depth": null,
+      "line": 39,
+      "raw": "假设损失函数为$l$，样本标签为$y$，我们可以计算单个数据样本的损失项，",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-013",
+      "sha256": "f0466ed1f191db2764b89e6c09939058a97621734c1e4938c803bb8b6a936c26",
+      "type": "paragraph",
+      "depth": null,
+      "line": 41,
+      "raw": "$$L = l(\\mathbf{o}, y).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-014",
+      "sha256": "290e604691d2e44d07bfe365d254b7a4e467ff82dde671fecba323f50355a907",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43,
+      "raw": "根据$L_2$正则化的定义，给定超参数$\\lambda$，正则化项为",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-015",
+      "sha256": "43ba36f383a2870071f998df3b3f5f972fc2e2975c83dd2b8fc0ad753a64d356",
+      "type": "paragraph",
+      "depth": null,
+      "line": 45,
+      "raw": "$$s = \\frac{\\lambda}{2} \\left(\\|\\mathbf{W}^{(1)}\\|_F^2 + \\|\\mathbf{W}^{(2)}\\|_F^2\\right),$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-016",
+      "sha256": "5776fba673d3a39e25a4c88530e84b03433f0bf04fd1ef4df6afe78dcf735160",
+      "type": "paragraph",
+      "depth": null,
+      "line": 47,
+      "raw": "其中矩阵的Frobenius范数是将矩阵展平为向量后应用的$L_2$范数。\n最后，模型在给定数据样本上的正则化损失为：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-017",
+      "sha256": "f516afebf312f3a60ed2a684e389a6a9acd204f9da2219b93c24458991b51ac5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 50,
+      "raw": "$$J = L + s.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-018",
+      "sha256": "ad4aa4cd387f6c73bfbbe669110574e2ec8b4048bb4a5510a956b717ddc46125",
+      "type": "paragraph",
+      "depth": null,
+      "line": 52,
+      "raw": "在下面的讨论中，我们将$J$称为*目标函数*（objective function）。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-019",
+      "sha256": "98676db6b990a734f4d4e91294fd8f3368683b8873b9c4ea0caf097befd7c774",
+      "type": "heading",
+      "depth": 2,
+      "line": 54,
+      "raw": "## 前向传播计算图",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-020",
+      "sha256": "b5956e83cf1033e32e6d8e7836f1e99afdd318f8b514b4626766a487bd083cc5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 56,
+      "raw": "绘制*计算图*有助于我们可视化计算中操作符和变量的依赖关系。\n [原文引用：fig_forward](https://zh.d2l.ai/chapter_multilayer-perceptrons/backprop.html) 是与上述简单网络相对应的计算图，\n 其中正方形表示变量，圆圈表示操作符。\n 左下角表示输入，右上角表示输出。\n 注意显示数据流的箭头方向主要是向右和向上的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-021",
+      "sha256": "db7a0b5317827ddcb8fc63a627d131534ef76a9b21ab0dbf6442bae73e00c2d9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 62,
+      "raw": "![前向传播的计算图](assets/forward.svg)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-022",
+      "sha256": "00767e5d289d7404ccb66f316c51bf4d211478b0e7d943855d3a6af33fc679b9",
+      "type": "heading",
+      "depth": 2,
+      "line": 64,
+      "raw": "## 反向传播",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-023",
+      "sha256": "dd1e70a4c90648a1ce7677e634e2b18533d39908cba779b86533987d55087231",
+      "type": "paragraph",
+      "depth": null,
+      "line": 66,
+      "raw": "*反向传播*（backward propagation或backpropagation）指的是计算神经网络参数梯度的方法。\n简言之，该方法根据微积分中的*链式规则*，按相反的顺序从输出层到输入层遍历网络。\n该算法存储了计算某些参数梯度时所需的任何中间变量（偏导数）。\n假设我们有函数$\\mathsf{Y}=f(\\mathsf{X})$和$\\mathsf{Z}=g(\\mathsf{Y})$，\n其中输入和输出$\\mathsf{X}, \\mathsf{Y}, \\mathsf{Z}$是任意形状的张量。\n利用链式法则，我们可以计算$\\mathsf{Z}$关于$\\mathsf{X}$的导数",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-024",
+      "sha256": "154c2dc0e64e73891e276495ee04da10de5ca74871d2a8fade3716911f69fd16",
+      "type": "paragraph",
+      "depth": null,
+      "line": 73,
+      "raw": "$$\\frac{\\partial \\mathsf{Z}}{\\partial \\mathsf{X}} = \\text{prod}\\left(\\frac{\\partial \\mathsf{Z}}{\\partial \\mathsf{Y}}, \\frac{\\partial \\mathsf{Y}}{\\partial \\mathsf{X}}\\right).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-025",
+      "sha256": "89b02e11e8cb90ccaf6065c347eb1fd22b85454a6113e9ac3209dc33f04b13eb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 75,
+      "raw": "在这里，我们使用$\\text{prod}$运算符在执行必要的操作（如换位和交换输入位置）后将其参数相乘。\n对于向量，这很简单，它只是矩阵-矩阵乘法。\n对于高维张量，我们使用适当的对应项。\n运算符$\\text{prod}$指代了所有的这些符号。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-026",
+      "sha256": "3df66a81fd6f0b9bdf8ba81b76581ac07720225b4cfd6dfc97f7a1f8f4191948",
+      "type": "paragraph",
+      "depth": null,
+      "line": 80,
+      "raw": "回想一下，在计算图 [原文引用：fig_forward](https://zh.d2l.ai/chapter_multilayer-perceptrons/backprop.html)中的单隐藏层简单网络的参数是\n$\\mathbf{W}^{(1)}$和$\\mathbf{W}^{(2)}$。\n反向传播的目的是计算梯度$\\partial J/\\partial \\mathbf{W}^{(1)}$和\n$\\partial J/\\partial \\mathbf{W}^{(2)}$。\n为此，我们应用链式法则，依次计算每个中间变量和参数的梯度。\n计算的顺序与前向传播中执行的顺序相反，因为我们需要从计算图的结果开始，并朝着参数的方向努力。第一步是计算目标函数$J=L+s$相对于损失项$L$和正则项$s$的梯度。",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-027",
+      "sha256": "c8a8d81447b61cd49b304c5e84da030d34ea7d142099455687e8292073eb6aaf",
+      "type": "paragraph",
+      "depth": null,
+      "line": 87,
+      "raw": "$$\\frac{\\partial J}{\\partial L} = 1 \\; \\text{and} \\; \\frac{\\partial J}{\\partial s} = 1.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-028",
+      "sha256": "fbe8592655b060051f09f6a813961b43309aa3d6d341c1e869d6ebbcc680675d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 89,
+      "raw": "接下来，我们根据链式法则计算目标函数关于输出层变量$\\mathbf{o}$的梯度：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-029",
+      "sha256": "8ae60b92f38735846b132edacae18e837c8db0f16e55c697c6168faee3d3d4c1",
+      "type": "math",
+      "depth": null,
+      "line": 91,
+      "raw": "$$\n\\frac{\\partial J}{\\partial \\mathbf{o}}\n= \\text{prod}\\left(\\frac{\\partial J}{\\partial L}, \\frac{\\partial L}{\\partial \\mathbf{o}}\\right)\n= \\frac{\\partial L}{\\partial \\mathbf{o}}\n\\in \\mathbb{R}^q.\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-030",
+      "sha256": "091655b2557cfb447d4e373615f55a37d3e4a4277dc66449171afd42763fbc03",
+      "type": "paragraph",
+      "depth": null,
+      "line": 98,
+      "raw": "接下来，我们计算正则化项相对于两个参数的梯度：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-031",
+      "sha256": "fb9adcb156682ffb4a2c5c872f444ab4954ce86cecb77d2fa2f2246f2631c78e",
+      "type": "math",
+      "depth": null,
+      "line": 100,
+      "raw": "$$\n\\frac{\\partial s}{\\partial \\mathbf{W}^{(1)}} = \\lambda \\mathbf{W}^{(1)}\n\\; \\text{and} \\;\n\\frac{\\partial s}{\\partial \\mathbf{W}^{(2)}} = \\lambda \\mathbf{W}^{(2)}.\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-032",
+      "sha256": "1ab45a9074171b3204bb6b33c91a0578950645a1ef61f266ecc65920b89ebdb5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 106,
+      "raw": "现在我们可以计算最接近输出层的模型参数的梯度\n$\\partial J/\\partial \\mathbf{W}^{(2)} \\in \\mathbb{R}^{q \\times h}$。\n使用链式法则得出：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-033",
+      "sha256": "570b47e11b18a88f7f18453039f6cfdcab65f89c0adec78cbb31c0ac0199cdcd",
+      "type": "paragraph",
+      "depth": null,
+      "line": 110,
+      "raw": "$$\\frac{\\partial J}{\\partial \\mathbf{W}^{(2)}}= \\text{prod}\\left(\\frac{\\partial J}{\\partial \\mathbf{o}}, \\frac{\\partial \\mathbf{o}}{\\partial \\mathbf{W}^{(2)}}\\right) + \\text{prod}\\left(\\frac{\\partial J}{\\partial s}, \\frac{\\partial s}{\\partial \\mathbf{W}^{(2)}}\\right)= \\frac{\\partial J}{\\partial \\mathbf{o}} \\mathbf{h}^\\top + \\lambda \\mathbf{W}^{(2)}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-034",
+      "sha256": "41ac3085576790542a8f64103eb313e3c20ee1962a8b18e62208a19140a5b50e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 112,
+      "raw": "为了获得关于$\\mathbf{W}^{(1)}$的梯度，我们需要继续沿着输出层到隐藏层反向传播。\n关于隐藏层输出的梯度$\\partial J/\\partial \\mathbf{h} \\in \\mathbb{R}^h$由下式给出：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-035",
+      "sha256": "5baf5341879ac4da64bc1bd7a2b27efe99463d1c95da9ef1b651af19affde1aa",
+      "type": "math",
+      "depth": null,
+      "line": 115,
+      "raw": "$$\n\\frac{\\partial J}{\\partial \\mathbf{h}}\n= \\text{prod}\\left(\\frac{\\partial J}{\\partial \\mathbf{o}}, \\frac{\\partial \\mathbf{o}}{\\partial \\mathbf{h}}\\right)\n= {\\mathbf{W}^{(2)}}^\\top \\frac{\\partial J}{\\partial \\mathbf{o}}.\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-036",
+      "sha256": "583a13b926df08b61da92fc49d85946a0a633240c919c274029a82c5cc10e5a9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 121,
+      "raw": "由于激活函数$\\phi$是按元素计算的，\n计算中间变量$\\mathbf{z}$的梯度$\\partial J/\\partial \\mathbf{z} \\in \\mathbb{R}^h$\n需要使用按元素乘法运算符，我们用$\\odot$表示：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-037",
+      "sha256": "eccf9ffdb507937bbd66b30aae659b6cf609237c0813b818e171daad373dbe67",
+      "type": "math",
+      "depth": null,
+      "line": 125,
+      "raw": "$$\n\\frac{\\partial J}{\\partial \\mathbf{z}}\n= \\text{prod}\\left(\\frac{\\partial J}{\\partial \\mathbf{h}}, \\frac{\\partial \\mathbf{h}}{\\partial \\mathbf{z}}\\right)\n= \\frac{\\partial J}{\\partial \\mathbf{h}} \\odot \\phi'\\left(\\mathbf{z}\\right).\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-038",
+      "sha256": "496630b2b6221f3ac15ea81e9768dc6d5cb5e6567e567d57e5fc1194ca8cf117",
+      "type": "paragraph",
+      "depth": null,
+      "line": 131,
+      "raw": "最后，我们可以得到最接近输入层的模型参数的梯度\n$\\partial J/\\partial \\mathbf{W}^{(1)} \\in \\mathbb{R}^{h \\times d}$。\n根据链式法则，我们得到：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-039",
+      "sha256": "b6d6ea08db5f88298eb6ecb44240636dbea4c81fbf5c285fced76476ecbac255",
+      "type": "math",
+      "depth": null,
+      "line": 135,
+      "raw": "$$\n\\frac{\\partial J}{\\partial \\mathbf{W}^{(1)}}\n= \\text{prod}\\left(\\frac{\\partial J}{\\partial \\mathbf{z}}, \\frac{\\partial \\mathbf{z}}{\\partial \\mathbf{W}^{(1)}}\\right) + \\text{prod}\\left(\\frac{\\partial J}{\\partial s}, \\frac{\\partial s}{\\partial \\mathbf{W}^{(1)}}\\right)\n= \\frac{\\partial J}{\\partial \\mathbf{z}} \\mathbf{x}^\\top + \\lambda \\mathbf{W}^{(1)}.\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-040",
+      "sha256": "4bafaae9c73795c218b55df75d83144bc52b27206c27e9e83a624e8db612292e",
+      "type": "heading",
+      "depth": 2,
+      "line": 141,
+      "raw": "## 训练神经网络",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-041",
+      "sha256": "916b4168e80241d006469da5fd0439e5af25270bc6e55562995e4e416e6dd739",
+      "type": "paragraph",
+      "depth": null,
+      "line": 143,
+      "raw": "在训练神经网络时，前向传播和反向传播相互依赖。\n对于前向传播，我们沿着依赖的方向遍历计算图并计算其路径上的所有变量。\n然后将这些用于反向传播，其中计算顺序与计算图的相反。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-042",
+      "sha256": "b3596b783147e9eee2564ba01f1c3a150ba124a9f821e83fdd8abe9783d3a267",
+      "type": "paragraph",
+      "depth": null,
+      "line": 147,
+      "raw": "以上述简单网络为例：一方面，在前向传播期间计算正则项\n [原文引用：eq_forward-s](https://zh.d2l.ai/chapter_multilayer-perceptrons/backprop.html)取决于模型参数$\\mathbf{W}^{(1)}$和\n$\\mathbf{W}^{(2)}$的当前值。\n它们是由优化算法根据最近迭代的反向传播给出的。\n另一方面，反向传播期间参数 [原文引用：eq_backprop-J-h](https://zh.d2l.ai/chapter_multilayer-perceptrons/backprop.html)的梯度计算，\n取决于由前向传播给出的隐藏变量$\\mathbf{h}$的当前值。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-043",
+      "sha256": "62531985790ff503a40dbefca5b539fe7c9c4e9db4eb87620fa3dc0a9398f8f6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 154,
+      "raw": "因此，在训练神经网络时，在初始化模型参数后，\n我们交替使用前向传播和反向传播，利用反向传播给出的梯度来更新模型参数。\n注意，反向传播重复利用前向传播中存储的中间值，以避免重复计算。\n带来的影响之一是我们需要保留中间值，直到反向传播完成。\n这也是训练比单纯的预测需要更多的内存（显存）的原因之一。\n此外，这些中间值的大小与网络层的数量和批量的大小大致成正比。\n因此，使用更大的批量来训练更深层次的网络更容易导致*内存不足*（out of memory）错误。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-044",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 162,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-045",
+      "sha256": "98b9a500eb274466c3b9d295d7e6772941423ec3cd20d194ac48504ca6a96454",
+      "type": "list",
+      "depth": null,
+      "line": 164,
+      "raw": "* 前向传播在神经网络定义的计算图中按顺序计算和存储中间变量，它的顺序是从输入层到输出层。\n* 反向传播按相反的顺序（从输出层到输入层）计算和存储神经网络的中间变量和参数的梯度。\n* 在训练深度学习模型时，前向传播和反向传播是相互依赖的。\n* 训练比预测需要更多的内存。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-046",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 169,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-047",
+      "sha256": "d0f0b8060716ce16c7398e47b135e426f2a8faf56daf3e3529fd1fc743a3c54a",
+      "type": "list",
+      "depth": null,
+      "line": 171,
+      "raw": "1. 假设一些标量函数$\\mathbf{X}$的输入$\\mathbf{X}$是$n \\times m$矩阵。$f$相对于$\\mathbf{X}$的梯度维数是多少？\n1. 向本节中描述的模型的隐藏层添加偏置项（不需要在正则化项中包含偏置项）。\n    1. 画出相应的计算图。\n    1. 推导正向和反向传播方程。\n1. 计算本节所描述的模型，用于训练和预测的内存占用。\n1. 假设想计算二阶导数。计算图发生了什么？预计计算需要多长时间？\n1. 假设计算图对当前拥有的GPU来说太大了。\n    1. 请试着把它划分到多个GPU上。\n    1. 与小批量训练相比，有哪些优点和缺点？",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "backprop-048",
+      "sha256": "5eac3bc774825fd06b38cbc027e3137854f3024c7301a0d7ce519aed20b98c42",
+      "type": "paragraph",
+      "depth": null,
+      "line": 181,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/5769)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

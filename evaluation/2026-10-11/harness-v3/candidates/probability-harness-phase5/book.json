@@ -1,0 +1,67 @@
+{
+  "figures": [
+    {
+      "id": "positive-denominator",
+      "title": "阳性里的分母",
+      "afterAnchor": "probability-055",
+      "endAnchor": "probability-059",
+      "height": 330,
+      "mobileHeight": 360,
+      "interaction": "parameters",
+      "summary": "沿用测试1：感染者必阳性，未感染者误报率为1%。",
+      "params": [
+        {
+          "key": "prior",
+          "label": "人群感染比例",
+          "min": 0.0001,
+          "max": 0.02,
+          "step": 0.0001,
+          "value": 0.0015
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const C=VisualBook.palette, N=100000, p=params.prior, tp=N*p, fp=N*(1-p)*.01, total=tp+fp, post=tp/total;\n const left=width<500?77:112, right=width-24, span=right-left;\n const fmt=v=>Number(v.toFixed(2)).toLocaleString('en-US');\n board.text('population','每10万人中的阳性人数（期望）',16,24,{size:15,color:C.ink});\n board.text('prior-value','人群感染率 '+(p*100).toFixed(2)+'%',16,49,{size:14,color:C.muted});\n const rows=[{id:'infected',label:'感染',value:tp,color:C.orange,y:89},{id:'uninfected',label:'未感染',value:fp,color:C.blue,y:143}];\n for(const r of rows){\n  board.text(r.id+'-label',r.label,left-12,r.y+6,{anchor:'end',size:14,color:C.ink});\n  board.line(r.id+'-track',left,r.y+18,right,r.y+18,C.faint,1);\n  board.rect(r.id+'-bar',left,r.y,span*r.value/2100,18,r.color);\n  board.text(r.id+'-value',fmt(r.value),right,r.y-9,{anchor:'end',size:14,color:r.color});\n }\n for(const n of [0,1000,2000]){const x=left+span*n/2100;board.line('tick-'+n,x,164,x,169,C.muted,1);board.text('tick-label-'+n,fmt(n),x,187,{size:13,anchor:'middle',color:C.muted});}\n const y=height-111;\n board.text('posterior-label','阳性中感染占比 '+(post*100).toFixed(2)+'%',16,y,{size:16,color:C.orange,weight:600});\n const sx=16, sw=width-32;\n board.rect('positive-true',sx,y+18,sw*post,25,C.orange);\n board.rect('positive-false',sx+sw*post,y+18,sw*(1-post),25,C.blue);\n board.text('denominator',fmt(tp)+' ÷ ('+fmt(tp)+' + '+fmt(fp)+')',width/2,y+71,{size:15,color:C.ink,anchor:'middle'});\n board.text('legend','橙：感染且阳性　蓝：未感染却阳性',width/2,height-14,{size:13,color:C.muted,anchor:'middle'});\n return {population:N,prior:p,sensitivity:1,falsePositiveRate:.01,truePositive:tp,falsePositive:fp,positiveTotal:total,evidence:total/N,posterior:post,barAxisMax:2100};\n}"
+    },
+    {
+      "id": "retest-dependence",
+      "title": "第二次阳性，增加多少证据？",
+      "afterAnchor": "probability-063",
+      "endAnchor": "probability-070",
+      "height": 360,
+      "mobileHeight": 400,
+      "interaction": "parameters",
+      "summary": "保持原文感染比例与两次测试的边际特性；只改变未感染者误报的重现程度。",
+      "params": [
+        {
+          "key": "q",
+          "label": "首次误报后，再次阳性率 q",
+          "min": 0.03,
+          "max": 1,
+          "step": 0.01,
+          "value": 0.03
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const C=VisualBook.palette,p=.0015,q=params.q,t=p*.98;\n const first=p/(p+(1-p)*.01), calc=z=>t/(t+(1-p)*.01*z), posterior=calc(q);\n const left=54,right=width-24,top=82,bottom=height-106;\n const frame={x:v=>left+(v-.03)/.97*(right-left),y:v=>bottom-v*(bottom-top)};\n board.text('second-value','两次阳性后 '+(posterior*100).toFixed(2)+'%',16,25,{size:17,color:C.orange,weight:600});\n board.text('first-value','首次阳性后 '+(first*100).toFixed(2)+'%',16,49,{size:14,color:C.blue});\n board.text('y-axis-label','感染概率',left,top-12,{size:13,color:C.muted});\n for(const y of [0,.5,1]){board.line('grid-y-'+y,left,frame.y(y),right,frame.y(y),C.faint,1);board.text('tick-y-'+y,(100*y)+'%',left-10,frame.y(y)+4,{size:13,color:C.muted,anchor:'end'});}\n board.line('x-axis',left,bottom,right,bottom,C.muted,1);\n board.line('y-axis',left,top,left,bottom,C.muted,1);\n for(const x of [.03,.5,1]){board.line('tick-x-'+x,frame.x(x),bottom,frame.x(x),bottom+5,C.muted,1);board.text('tick-x-label-'+x,(100*x)+'%',frame.x(x),bottom+23,{size:13,color:C.muted,anchor:'middle'});}\n board.text('x-axis-label','再次阳性率 q',width/2,bottom+48,{size:14,color:C.ink,anchor:'middle'});\n board.mark('first-reference','line',{x1:left,y1:frame.y(first),x2:right,y2:frame.y(first),stroke:C.blue,'stroke-width':1.5,'stroke-dasharray':'5 5'});\n const points=Array.from({length:161},(_,i)=>{const z=.03+.97*i/160;return [frame.x(z),frame.y(calc(z))];});\n board.path('posterior-curve',points,{color:C.orange,width:2.5});\n board.line('q-guide',frame.x(q),frame.y(posterior),frame.x(q),bottom,C.orange,1,.5);\n board.circle('current',frame.x(q),frame.y(posterior),5,C.orange);\n board.text('q-value','q = '+(q*100).toFixed(1)+'%',16,height-32,{size:14,color:C.ink});\n board.text('condition',Math.abs(q-.03)<1e-8?'3%：原文的条件独立假设':'误报越易重现，复检增益越小',16,height-10,{size:13,color:C.muted});\n return {prior:p,firstPosterior:first,q,falsePositiveJoint:.01*q,truePositiveJoint:.98,evidence:t+(1-p)*.01*q,posterior,secondFalsePositiveMarginal:.03,secondFalsePositiveGivenFirstNegative:(.03-.01*q)/.99,posteriorCurve:Array.from({length:161},(_,i)=>{const z=.03+.97*i/160;return [z,calc(z)];})};\n}"
+    },
+    {
+      "id": "mean-fixed-variance",
+      "title": "均值不动，方差改变",
+      "afterAnchor": "probability-077",
+      "endAnchor": "probability-079",
+      "height": 330,
+      "mobileHeight": 360,
+      "interaction": "parameters",
+      "summary": "示例只取1、3、5：把中心的概率等量移到两侧。",
+      "params": [
+        {
+          "key": "s",
+          "label": "移到两侧的总概率 s",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const C=VisualBook.palette,s=params.s,xs=[1,3,5],ps=[s/2,1-s,s/2],mu=xs.reduce((a,x,i)=>a+x*ps[i],0),e2=xs.reduce((a,x,i)=>a+x*x*ps[i],0),variance=xs.reduce((a,x,i)=>a+(x-mu)**2*ps[i],0);\n const left=51,right=width-24,top=68,bottom=height-91, span=right-left;\n const x=v=>left+(v-.5)/5*span,y=v=>bottom-v*(bottom-top);\n board.text('mean-value','均值 '+mu.toFixed(2),16,26,{size:17,color:C.orange,weight:600});\n board.text('variance-value','方差 '+variance.toFixed(2),width-16,26,{size:17,color:C.ink,anchor:'end',weight:600});\n board.text('probability-axis-label','概率',left,top-16,{size:13,color:C.muted});\n for(const v of [0,.5,1]){board.line('y-grid-'+v,left,y(v),right,y(v),C.faint,1);board.text('y-tick-'+v,String(v),left-9,y(v)+4,{size:13,color:C.muted,anchor:'end'});}\n board.line('x-axis',left,bottom,right,bottom,C.muted,1);\n board.line('y-axis',left,top,left,bottom,C.muted,1);\n board.mark('mean-line','line',{x1:x(mu),y1:top,x2:x(mu),y2:bottom,stroke:C.orange,'stroke-width':1.5,'stroke-dasharray':'4 4'});\n for(let i=0;i<3;i++){\n  const bw=width<500?27:42;\n  board.rect('mass-'+xs[i],x(xs[i])-bw/2,y(ps[i]),bw,ps[i]*(bottom-top),C.blue);\n  board.text('mass-value-'+xs[i],ps[i].toFixed(2),x(xs[i]),y(ps[i])-9,{size:14,color:C.blue,anchor:'middle'});\n  board.text('x-tick-'+xs[i],String(xs[i]),x(xs[i]),bottom+21,{size:14,color:C.ink,anchor:'middle'});\n  board.text('square-distance-'+xs[i],'('+xs[i]+'−3)²='+String((xs[i]-mu)**2),x(xs[i]),bottom+48,{size:14,color:C.muted,anchor:'middle'});\n }\n board.text('x-name','x',right+7,bottom+21,{size:14,color:C.ink});\n board.text('variance-identity','方差 = 4 × s = '+variance.toFixed(2),width/2,height-13,{size:15,color:C.ink,anchor:'middle'});\n return {values:xs,probabilities:ps,probabilitySum:ps.reduce((a,v)=>a+v,0),mean:mu,secondMoment:e2,variance,varianceByMoments:e2-mu*mu,squaredDistances:xs.map(v=>(v-mu)**2)};\n}"
+    }
+  ]
+}

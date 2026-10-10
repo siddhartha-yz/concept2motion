@@ -1,0 +1,606 @@
+{
+  "title": "线性回归",
+  "sourceSha256": "778cfb8dfab0bb6407be2882883ecccc8bf5fa988895fc1b0d5c9af8b2283bed",
+  "blocks": [
+    {
+      "id": "linear-regression-001",
+      "type": "heading",
+      "depth": 1,
+      "line": 1
+    },
+    {
+      "id": "linear-regression-002",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3
+    },
+    {
+      "id": "linear-regression-003",
+      "type": "paragraph",
+      "depth": null,
+      "line": 6
+    },
+    {
+      "id": "linear-regression-004",
+      "type": "heading",
+      "depth": 2,
+      "line": 13
+    },
+    {
+      "id": "linear-regression-005",
+      "type": "paragraph",
+      "depth": null,
+      "line": 15
+    },
+    {
+      "id": "linear-regression-006",
+      "type": "paragraph",
+      "depth": null,
+      "line": 22
+    },
+    {
+      "id": "linear-regression-007",
+      "type": "paragraph",
+      "depth": null,
+      "line": 33
+    },
+    {
+      "id": "linear-regression-008",
+      "type": "heading",
+      "depth": 3,
+      "line": 37
+    },
+    {
+      "id": "linear-regression-009",
+      "type": "paragraph",
+      "depth": null,
+      "line": 39
+    },
+    {
+      "id": "linear-regression-010",
+      "type": "paragraph",
+      "depth": null,
+      "line": 41
+    },
+    {
+      "id": "linear-regression-011",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43
+    },
+    {
+      "id": "linear-regression-012",
+      "type": "paragraph",
+      "depth": null,
+      "line": 54
+    },
+    {
+      "id": "linear-regression-013",
+      "type": "paragraph",
+      "depth": null,
+      "line": 58
+    },
+    {
+      "id": "linear-regression-014",
+      "type": "paragraph",
+      "depth": null,
+      "line": 62
+    },
+    {
+      "id": "linear-regression-015",
+      "type": "paragraph",
+      "depth": null,
+      "line": 64
+    },
+    {
+      "id": "linear-regression-016",
+      "type": "paragraph",
+      "depth": null,
+      "line": 68
+    },
+    {
+      "id": "linear-regression-017",
+      "type": "paragraph",
+      "depth": null,
+      "line": 70
+    },
+    {
+      "id": "linear-regression-018",
+      "type": "paragraph",
+      "depth": null,
+      "line": 76
+    },
+    {
+      "id": "linear-regression-019",
+      "type": "paragraph",
+      "depth": null,
+      "line": 79
+    },
+    {
+      "id": "linear-regression-020",
+      "type": "paragraph",
+      "depth": null,
+      "line": 81
+    },
+    {
+      "id": "linear-regression-021",
+      "type": "paragraph",
+      "depth": null,
+      "line": 88
+    },
+    {
+      "id": "linear-regression-022",
+      "type": "paragraph",
+      "depth": null,
+      "line": 95
+    },
+    {
+      "id": "linear-regression-023",
+      "type": "heading",
+      "depth": 3,
+      "line": 100
+    },
+    {
+      "id": "linear-regression-024",
+      "type": "paragraph",
+      "depth": null,
+      "line": 102
+    },
+    {
+      "id": "linear-regression-025",
+      "type": "paragraph",
+      "depth": null,
+      "line": 109
+    },
+    {
+      "id": "linear-regression-026",
+      "type": "paragraph",
+      "depth": null,
+      "line": 111
+    },
+    {
+      "id": "linear-regression-027",
+      "type": "paragraph",
+      "depth": null,
+      "line": 117
+    },
+    {
+      "id": "linear-regression-028",
+      "type": "paragraph",
+      "depth": null,
+      "line": 119
+    },
+    {
+      "id": "linear-regression-029",
+      "type": "paragraph",
+      "depth": null,
+      "line": 123
+    },
+    {
+      "id": "linear-regression-030",
+      "type": "paragraph",
+      "depth": null,
+      "line": 125
+    },
+    {
+      "id": "linear-regression-031",
+      "type": "paragraph",
+      "depth": null,
+      "line": 128
+    },
+    {
+      "id": "linear-regression-032",
+      "type": "heading",
+      "depth": 3,
+      "line": 130
+    },
+    {
+      "id": "linear-regression-033",
+      "type": "paragraph",
+      "depth": null,
+      "line": 132
+    },
+    {
+      "id": "linear-regression-034",
+      "type": "paragraph",
+      "depth": null,
+      "line": 140
+    },
+    {
+      "id": "linear-regression-035",
+      "type": "paragraph",
+      "depth": null,
+      "line": 142
+    },
+    {
+      "id": "linear-regression-036",
+      "type": "heading",
+      "depth": 3,
+      "line": 145
+    },
+    {
+      "id": "linear-regression-037",
+      "type": "paragraph",
+      "depth": null,
+      "line": 147
+    },
+    {
+      "id": "linear-regression-038",
+      "type": "paragraph",
+      "depth": null,
+      "line": 151
+    },
+    {
+      "id": "linear-regression-039",
+      "type": "paragraph",
+      "depth": null,
+      "line": 155
+    },
+    {
+      "id": "linear-regression-040",
+      "type": "paragraph",
+      "depth": null,
+      "line": 161
+    },
+    {
+      "id": "linear-regression-041",
+      "type": "paragraph",
+      "depth": null,
+      "line": 166
+    },
+    {
+      "id": "linear-regression-042",
+      "type": "paragraph",
+      "depth": null,
+      "line": 168
+    },
+    {
+      "id": "linear-regression-043",
+      "type": "paragraph",
+      "depth": null,
+      "line": 170
+    },
+    {
+      "id": "linear-regression-044",
+      "type": "paragraph",
+      "depth": null,
+      "line": 175
+    },
+    {
+      "id": "linear-regression-045",
+      "type": "paragraph",
+      "depth": null,
+      "line": 177
+    },
+    {
+      "id": "linear-regression-046",
+      "type": "paragraph",
+      "depth": null,
+      "line": 187
+    },
+    {
+      "id": "linear-regression-047",
+      "type": "paragraph",
+      "depth": null,
+      "line": 192
+    },
+    {
+      "id": "linear-regression-048",
+      "type": "heading",
+      "depth": 3,
+      "line": 198
+    },
+    {
+      "id": "linear-regression-049",
+      "type": "paragraph",
+      "depth": null,
+      "line": 200
+    },
+    {
+      "id": "linear-regression-050",
+      "type": "paragraph",
+      "depth": null,
+      "line": 204
+    },
+    {
+      "id": "linear-regression-051",
+      "type": "heading",
+      "depth": 2,
+      "line": 209
+    },
+    {
+      "id": "linear-regression-052",
+      "type": "paragraph",
+      "depth": null,
+      "line": 211
+    },
+    {
+      "id": "linear-regression-053",
+      "type": "code",
+      "depth": null,
+      "line": 223
+    },
+    {
+      "id": "linear-regression-054",
+      "type": "paragraph",
+      "depth": null,
+      "line": 254
+    },
+    {
+      "id": "linear-regression-055",
+      "type": "code",
+      "depth": null,
+      "line": 259
+    },
+    {
+      "id": "linear-regression-056",
+      "type": "paragraph",
+      "depth": null,
+      "line": 265
+    },
+    {
+      "id": "linear-regression-057",
+      "type": "code",
+      "depth": null,
+      "line": 267
+    },
+    {
+      "id": "linear-regression-058",
+      "type": "paragraph",
+      "depth": null,
+      "line": 296
+    },
+    {
+      "id": "linear-regression-059",
+      "type": "paragraph",
+      "depth": null,
+      "line": 298
+    },
+    {
+      "id": "linear-regression-060",
+      "type": "code",
+      "depth": null,
+      "line": 300
+    },
+    {
+      "id": "linear-regression-061",
+      "type": "paragraph",
+      "depth": null,
+      "line": 326
+    },
+    {
+      "id": "linear-regression-062",
+      "type": "code",
+      "depth": null,
+      "line": 328
+    },
+    {
+      "id": "linear-regression-063",
+      "type": "paragraph",
+      "depth": null,
+      "line": 334
+    },
+    {
+      "id": "linear-regression-064",
+      "type": "heading",
+      "depth": 2,
+      "line": 338
+    },
+    {
+      "id": "linear-regression-065",
+      "type": "paragraph",
+      "depth": null,
+      "line": 340
+    },
+    {
+      "id": "linear-regression-066",
+      "type": "paragraph",
+      "depth": null,
+      "line": 342
+    },
+    {
+      "id": "linear-regression-067",
+      "type": "paragraph",
+      "depth": null,
+      "line": 347
+    },
+    {
+      "id": "linear-regression-068",
+      "type": "paragraph",
+      "depth": null,
+      "line": 349
+    },
+    {
+      "id": "linear-regression-069",
+      "type": "code",
+      "depth": null,
+      "line": 351
+    },
+    {
+      "id": "linear-regression-070",
+      "type": "paragraph",
+      "depth": null,
+      "line": 357
+    },
+    {
+      "id": "linear-regression-071",
+      "type": "code",
+      "depth": null,
+      "line": 370
+    },
+    {
+      "id": "linear-regression-072",
+      "type": "paragraph",
+      "depth": null,
+      "line": 381
+    },
+    {
+      "id": "linear-regression-073",
+      "type": "paragraph",
+      "depth": null,
+      "line": 383
+    },
+    {
+      "id": "linear-regression-074",
+      "type": "paragraph",
+      "depth": null,
+      "line": 387
+    },
+    {
+      "id": "linear-regression-075",
+      "type": "paragraph",
+      "depth": null,
+      "line": 389
+    },
+    {
+      "id": "linear-regression-076",
+      "type": "paragraph",
+      "depth": null,
+      "line": 391
+    },
+    {
+      "id": "linear-regression-077",
+      "type": "paragraph",
+      "depth": null,
+      "line": 393
+    },
+    {
+      "id": "linear-regression-078",
+      "type": "paragraph",
+      "depth": null,
+      "line": 395
+    },
+    {
+      "id": "linear-regression-079",
+      "type": "paragraph",
+      "depth": null,
+      "line": 397
+    },
+    {
+      "id": "linear-regression-080",
+      "type": "paragraph",
+      "depth": null,
+      "line": 399
+    },
+    {
+      "id": "linear-regression-081",
+      "type": "paragraph",
+      "depth": null,
+      "line": 406
+    },
+    {
+      "id": "linear-regression-082",
+      "type": "paragraph",
+      "depth": null,
+      "line": 408
+    },
+    {
+      "id": "linear-regression-083",
+      "type": "heading",
+      "depth": 2,
+      "line": 414
+    },
+    {
+      "id": "linear-regression-084",
+      "type": "paragraph",
+      "depth": null,
+      "line": 416
+    },
+    {
+      "id": "linear-regression-085",
+      "type": "heading",
+      "depth": 3,
+      "line": 421
+    },
+    {
+      "id": "linear-regression-086",
+      "type": "paragraph",
+      "depth": null,
+      "line": 423
+    },
+    {
+      "id": "linear-regression-087",
+      "type": "paragraph",
+      "depth": null,
+      "line": 427
+    },
+    {
+      "id": "linear-regression-088",
+      "type": "paragraph",
+      "depth": null,
+      "line": 429
+    },
+    {
+      "id": "linear-regression-089",
+      "type": "paragraph",
+      "depth": null,
+      "line": 437
+    },
+    {
+      "id": "linear-regression-090",
+      "type": "heading",
+      "depth": 3,
+      "line": 442
+    },
+    {
+      "id": "linear-regression-091",
+      "type": "paragraph",
+      "depth": null,
+      "line": 444
+    },
+    {
+      "id": "linear-regression-092",
+      "type": "paragraph",
+      "depth": null,
+      "line": 453
+    },
+    {
+      "id": "linear-regression-093",
+      "type": "paragraph",
+      "depth": null,
+      "line": 455
+    },
+    {
+      "id": "linear-regression-094",
+      "type": "paragraph",
+      "depth": null,
+      "line": 461
+    },
+    {
+      "id": "linear-regression-095",
+      "type": "paragraph",
+      "depth": null,
+      "line": 465
+    },
+    {
+      "id": "linear-regression-096",
+      "type": "heading",
+      "depth": 2,
+      "line": 471
+    },
+    {
+      "id": "linear-regression-097",
+      "type": "list",
+      "depth": null,
+      "line": 473
+    },
+    {
+      "id": "linear-regression-098",
+      "type": "heading",
+      "depth": 2,
+      "line": 478
+    },
+    {
+      "id": "linear-regression-099",
+      "type": "list",
+      "depth": null,
+      "line": 480
+    },
+    {
+      "id": "linear-regression-100",
+      "type": "paragraph",
+      "depth": null,
+      "line": 497
+    }
+  ]
+}

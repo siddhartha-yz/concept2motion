@@ -1,0 +1,1172 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/book.html",
+  "sha256": "cf718049e7bf327e642e3809d1308f33d49dd59ef25635885207f072edb6c55f",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 60,
+        "rendered": 60,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "gradient-sum",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b20c52c85caf46e7931d3d5ecb98a86d13be2dd09a30dbf48c3ce1de5c9e7563"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b20c52c85caf46e7931d3d5ecb98a86d13be2dd09a30dbf48c3ce1de5c9e7563"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b20c52c85caf46e7931d3d5ecb98a86d13be2dd09a30dbf48c3ce1de5c9e7563"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b20c52c85caf46e7931d3d5ecb98a86d13be2dd09a30dbf48c3ce1de5c9e7563"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b20c52c85caf46e7931d3d5ecb98a86d13be2dd09a30dbf48c3ce1de5c9e7563"
+            }
+          ]
+        },
+        {
+          "id": "reverse-gate",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ead680220da83a0bc7a92a0f4e3240e8769090e13d6d1e6b3eee3191420abb21"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ead680220da83a0bc7a92a0f4e3240e8769090e13d6d1e6b3eee3191420abb21"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ead680220da83a0bc7a92a0f4e3240e8769090e13d6d1e6b3eee3191420abb21"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ead680220da83a0bc7a92a0f4e3240e8769090e13d6d1e6b3eee3191420abb21"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ead680220da83a0bc7a92a0f4e3240e8769090e13d6d1e6b3eee3191420abb21"
+            }
+          ]
+        },
+        {
+          "id": "cache-lifetime",
+          "interaction": "timeline",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "progress": 0,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "retainedCount": 0,
+                "activationBytes": 0,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "617518cde97c1229163546d74772b64dd2923cb26a71f347ab88747353a331f5"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "progress": 0.25,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  true,
+                  true,
+                  false,
+                  false
+                ],
+                "retainedCount": 2,
+                "activationBytes": 16384,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "db2733e394d487679b1e6111ce1e8b3f13531cee81adaed675993c19bc520244"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "progress": 0.26,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  true,
+                  true,
+                  false,
+                  false
+                ],
+                "retainedCount": 2,
+                "activationBytes": 16384,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "aae620aa6912723268f8cae3a457707840b2f66ab5751bc3e90cf0d36f24f8ae"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "progress": 0.5,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "retainedCount": 4,
+                "activationBytes": 32768,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "65e8ee72735236d3ba160fafdcafd0d6ba487a7a6944d687b8fa48f653054746"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "progress": 1,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "retainedCount": 0,
+                "activationBytes": 0,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "03bea2a690d450a5310b671fe4523aa4c4a4da510fc64b21abc1e1c20b1a2851"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 60,
+        "rendered": 60,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "gradient-sum",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "cb86e4738e49e3aefb1cd75e2bbb62206562258a1d1d8bff64f39cb86abfaab3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "cb86e4738e49e3aefb1cd75e2bbb62206562258a1d1d8bff64f39cb86abfaab3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "cb86e4738e49e3aefb1cd75e2bbb62206562258a1d1d8bff64f39cb86abfaab3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "cb86e4738e49e3aefb1cd75e2bbb62206562258a1d1d8bff64f39cb86abfaab3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "w": 0.4,
+                "lambda": 1,
+                "h": 2,
+                "y": 1,
+                "output": 0.8,
+                "dataLoss": 0.01999999999999999,
+                "regularization": 0.08000000000000002,
+                "objective": 0.1,
+                "dataGradient": -0.3999999999999999,
+                "regularizationGradient": 0.4,
+                "totalGradient": 1.1102230246251565e-16
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "cb86e4738e49e3aefb1cd75e2bbb62206562258a1d1d8bff64f39cb86abfaab3"
+            }
+          ]
+        },
+        {
+          "id": "reverse-gate",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "943e48577c07c63f41402224fdd4401280a9ce607345219c9c0a6e4a3873cb98"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "943e48577c07c63f41402224fdd4401280a9ce607345219c9c0a6e4a3873cb98"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "943e48577c07c63f41402224fdd4401280a9ce607345219c9c0a6e4a3873cb98"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "943e48577c07c63f41402224fdd4401280a9ce607345219c9c0a6e4a3873cb98"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "W2": [
+                  [
+                    1,
+                    -2
+                  ],
+                  [
+                    0.5,
+                    1
+                  ]
+                ],
+                "outputGradient": [
+                  1,
+                  1
+                ],
+                "z": [
+                  -0.5,
+                  1
+                ],
+                "activationDerivative": [
+                  0,
+                  1
+                ],
+                "hiddenGradient": [
+                  1.5,
+                  -1
+                ],
+                "preactivationGradient": [
+                  0,
+                  -1
+                ],
+                "contributions": [
+                  [
+                    1,
+                    0.5
+                  ],
+                  [
+                    -2,
+                    1
+                  ]
+                ],
+                "zeroDerivativeConvention": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "943e48577c07c63f41402224fdd4401280a9ce607345219c9c0a6e4a3873cb98"
+            }
+          ]
+        },
+        {
+          "id": "cache-lifetime",
+          "interaction": "timeline",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "progress": 0,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "retainedCount": 0,
+                "activationBytes": 0,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "f7b5135f9258521e0e46e0f79946ef9dcc8751d4329137db5a36bb8a6da1b26c"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "progress": 0.25,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  true,
+                  true,
+                  false,
+                  false
+                ],
+                "retainedCount": 2,
+                "activationBytes": 16384,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b7a3c78f496551a56fbf78b9d0797cea3732e3f0ae46495e4942f670b5e554a6"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "progress": 0.26,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  true,
+                  true,
+                  false,
+                  false
+                ],
+                "retainedCount": 2,
+                "activationBytes": 16384,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "baf0e8e7bfdc787a16c2d3643b36041ff76bdd66f6a0efe2d75a21a185840109"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "progress": 0.5,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                "retainedCount": 4,
+                "activationBytes": 32768,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "d5162afd8c261d84492accc0a7ad69eb34b7639a101a52218326f80bf45c6caa"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "progress": 1,
+                "batch": 32,
+                "features": 64,
+                "bytesPerElement": 4,
+                "birth": [
+                  0.1,
+                  0.2,
+                  0.3,
+                  0.4
+                ],
+                "death": [
+                  0.9,
+                  0.8,
+                  0.7,
+                  0.6
+                ],
+                "retained": [
+                  false,
+                  false,
+                  false,
+                  false
+                ],
+                "retainedCount": 0,
+                "activationBytes": 0,
+                "bytesPerActivation": 8192
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "13215849ec9ed2bfede66b8de85361b45d279a9995a7b751b5c4abc7350a095d"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-gradient-sum-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-gradient-sum-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-gradient-sum-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-gradient-sum-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-reverse-gate-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-reverse-gate-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-reverse-gate-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-cache-lifetime-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-cache-lifetime-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-cache-lifetime-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-gradient-sum-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-gradient-sum-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-gradient-sum-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-gradient-sum-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-reverse-gate-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-reverse-gate-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-reverse-gate-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-cache-lifetime-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-cache-lifetime-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-cache-lifetime-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-direct-phase3/preview-preview-02/375-page.png"
+  ],
+  "status": "completed",
+  "parameterAudit": {
+    "cases": 68,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "method": "Python Fraction exact normal equations + binomial combinatorics; independent of JS QR and Board",
+  "parameterCasesChecked": 10,
+  "allPolynomialSliderTicks": 123,
+  "checks": [
+    {
+      "n": 6,
+      "exactMean": "11/32",
+      "mean": 0.34375
+    },
+    {
+      "n": 12,
+      "exactMean": "793/2048",
+      "mean": 0.38720703125
+    },
+    {
+      "n": 24,
+      "exactMean": "3518265/8388608",
+      "mean": 0.4194098711013794
+    },
+    {
+      "n": 36,
+      "exactMean": "14911085359/34359738368",
+      "mean": 0.4339697002142202
+    },
+    {
+      "degree": 10,
+      "epsilon": 0.1,
+      "exactTrainingMSE": "0",
+      "gridMSE": 0.03575450833140401,
+      "curveRange": [
+        1.1666666666666667,
+        6.015705923045452
+      ]
+    },
+    {
+      "degree": 1,
+      "epsilon": 0.1,
+      "exactTrainingMSE": "95753517/236328125",
+      "gridMSE": 0.29342051189150825,
+      "curveRange": [
+        2.464557575757576,
+        6.193624242424242
+      ]
+    },
+    {
+      "degree": 3,
+      "epsilon": 0.1,
+      "exactTrainingMSE": "17/23595",
+      "gridMSE": 0.00019688829951614042,
+      "curveRange": [
+        1.1582750582750583,
+        5.424941724941725
+      ]
+    },
+    {
+      "degree": 10,
+      "epsilon": -0.2,
+      "exactTrainingMSE": "0",
+      "gridMSE": 0.14301803332561605,
+      "curveRange": [
+        0.3155912318732281,
+        5.548784468198372
+      ]
+    },
+    {
+      "degree": 10,
+      "epsilon": 0.2,
+      "exactTrainingMSE": "0",
+      "gridMSE": 0.14301803332561605,
+      "curveRange": [
+        1.1666666666666667,
+        6.630320112757571
+      ]
+    },
+    {
+      "degree": 1,
+      "epsilon": -0.2,
+      "exactTrainingMSE": "175147659/472656250",
+      "gridMSE": 0.2996957185030785,
+      "curveRange": [
+        2.4372848484848486,
+        6.166351515151515
+      ]
+    }
+  ],
+  "passed": true
+}

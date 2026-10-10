@@ -1,0 +1,71 @@
+{
+  "figures": [
+    {
+      "id": "residual-step",
+      "title": "残差怎样推动参数",
+      "afterAnchor": "linear-regression-040",
+      "endAnchor": "linear-regression-045",
+      "height": 338,
+      "mobileHeight": 466,
+      "interaction": "timeline",
+      "initialProgress": 0,
+      "durationMs": 6500,
+      "checkpoints": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "summary": "合成小批量，固定从 w = 0.5、b = −0.5 出发；进度只展开一次更新。",
+      "stages": [
+        "起点",
+        "展开更新",
+        "更新后"
+      ],
+      "params": [
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0.05,
+          "max": 2.4,
+          "step": 0.05,
+          "value": 0.8
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n\n  const NS='http://www.w3.org/2000/svg';\n  const palette={ink:'#243b48',muted:'#667984',grid:'#e1e8e8',blue:'#166a75',orange:'#bd6136',light:'#edf5f3'};\n  svg.setAttribute('viewBox',`0 0 ${width} ${height}`);\n  svg.setAttribute('role','img');\n  const nodes=svg.__directNodes||(svg.__directNodes=new Map());\n  const used=new Set();\n  function el(key,tag,attrs={},value){\n    used.add(key);let n=nodes.get(key);\n    if(!n){n=document.createElementNS(NS,tag);svg.appendChild(n);nodes.set(key,n);}\n    for(const [a,v] of Object.entries(attrs))n.setAttribute(a,String(v));\n    if(value!==undefined)n.textContent=value;\n    return n;\n  }\n  function text(key,x,y,value,attrs={}){return el(key,'text',{x,y,fill:palette.ink,'font-size':12,'font-family':'system-ui, sans-serif',...attrs},value);}\n  function line(key,x1,y1,x2,y2,attrs={}){return el(key,'line',{x1,y1,x2,y2,stroke:palette.grid,'stroke-width':1,...attrs});}\n  function path(key,d,attrs={}){return el(key,'path',{d,fill:'none',stroke:palette.blue,'stroke-width':2,...attrs});}\n  function dot(key,x,y,r=4,attrs={}){return el(key,'circle',{cx:x,cy:y,r,fill:palette.blue,...attrs});}\n  function panel(key,box,xd,yd,xticks,yticks,xname,yname){\n    const [l,t,w,h]=box;\n    const X=v=>l+(v-xd[0])/(xd[1]-xd[0])*w;\n    const Y=v=>t+h-(v-yd[0])/(yd[1]-yd[0])*h;\n    for(const v of yticks){line(key+'gy'+v,l,Y(v),l+w,Y(v));text(key+'yt'+v,l-8,Y(v)+4,v,{'text-anchor':'end',fill:palette.muted});}\n    for(const v of xticks){line(key+'gx'+v,X(v),t,X(v),t+h,{stroke:palette.grid,'stroke-opacity':0.55});text(key+'xt'+v,X(v),t+h+19,v,{'text-anchor':'middle',fill:palette.muted});}\n    line(key+'ya',l,t,l,t+h,{stroke:palette.muted});line(key+'xa',l,t+h,l+w,t+h,{stroke:palette.muted});\n    text(key+'yl',l,t-14,yname,{'font-size':12});\n    text(key+'xl',l+w,t+h+39,xname,{'text-anchor':'end'});\n    return {X,Y,l,t,w,h};\n  }\n  function curve(key,P,x0,x1,f,attrs={}){let d='';for(let i=0;i<=120;i++){const x=x0+(x1-x0)*i/120;d+=(i?'L':'M')+P.X(x).toFixed(3)+','+P.Y(f(x)).toFixed(3);}path(key,d,attrs);}\n  function end(){for(const [key,n] of nodes){if(!used.has(key)){n.remove();nodes.delete(key);}}}\n  const mobile=width<600;\n  const fmt=v=>(Math.abs(v)<0.0005?0:v).toFixed(3);\n\n  el('title','title',{},'同一小批量的残差、参数移动与损失；展开一次负梯度更新');\n  const eta=Number(params.eta),p=Math.max(0,Math.min(1,progress));\n  const data=[[-1,-1],[0,0.5],[1,2]];\n  const start={w:0.5,b:-0.5};\n  const initialResiduals=data.map(([x,y])=>start.w*x+start.b-y);\n  const gw=data.reduce((s,[x],i)=>s+x*initialResiduals[i],0)/3;\n  const gb=initialResiduals.reduce((s,r)=>s+r,0)/3;\n  const target={w:start.w-eta*gw,b:start.b-eta*gb};\n  const w=start.w+p*(target.w-start.w),b=start.b+p*(target.b-start.b);\n  const residuals=data.map(([x,y])=>w*x+b-y);\n  const loss=residuals.reduce((s,r)=>s+r*r/2,0)/3;\n  const lossAt=(a,c)=>(a-1.5)**2/3+(c-0.5)**2/2;\n  const yTop=mobile?62:64;\n  let A,B;\n  if(mobile){\n    const ph=(height-202)/2;\n    A=panel('fit',[38,52,width-55,ph],[-1.2,1.2],[-2,4.5],[-1,0,1],[-2,0,2,4],'特征 x','标签 / 预测 y');\n    B=panel('param',[38,ph+133,width-55,ph],[-0.1,2.3],[-0.7,2.1],[0,1,2],[0,1,2],'权重 w','偏置 b');\n  }else{\n    const pw=(width-146)/2,ph=height-132;\n    A=panel('fit',[44,yTop,pw,ph],[-1.2,1.2],[-2,4.5],[-1,0,1],[-2,0,2,4],'特征 x','标签 / 预测 y');\n    B=panel('param',[pw+119,yTop,pw,ph],[-0.1,2.3],[-0.7,2.1],[0,1,2],[0,1,2],'权重 w','偏置 b');\n  }\n  text('status',A.l,19,`w ${fmt(w)}   b ${fmt(b)}   L ${fmt(loss)}`,{'font-size':13});\n  text('gradient',B.l,mobile?B.t-31:19,`起点：平均 xr ${fmt(gw)}   平均 r ${fmt(gb)}`,{fill:palette.muted});\n  text('old-label',A.l+A.w,A.t-14,'虚线：起点预测',{'text-anchor':'end',fill:palette.muted});\n  curve('old-fit',A,-1.2,1.2,x=>start.w*x+start.b, {stroke:palette.muted,'stroke-width':1.4,'stroke-dasharray':'4 4'});\n  curve('current-fit',A,-1.2,1.2,x=>w*x+b);\n  data.forEach(([x,y],i)=>{\n    line('res'+i,A.X(x),A.Y(y),A.X(x),A.Y(w*x+b),{stroke:palette.orange,'stroke-width':2.5});\n    dot('pred'+i,A.X(x),A.Y(w*x+b),3,{fill:palette.light,stroke:palette.blue,'stroke-width':1.5});\n    dot('obs'+i,A.X(x),A.Y(y),4,{fill:palette.ink});\n  });\n  // Ellipses are exact level sets of L=(w-1.5)^2/3+(b-0.5)^2/2.\n  const levels=[0.05,0.2,0.5,0.9];\n  levels.forEach((v,i)=>{\n    let d='';let open=false;\n    for(let k=0;k<=240;k++){\n      const a=k/240*Math.PI*2,ww=1.5+Math.sqrt(3*v)*Math.cos(a),bb=0.5+Math.sqrt(2*v)*Math.sin(a);\n      if(ww>=-0.1&&ww<=2.3&&bb>=-0.7&&bb<=2.1){d+=(open?'L':'M')+B.X(ww).toFixed(3)+','+B.Y(bb).toFixed(3);open=true;}else open=false;\n    }\n    path('contour'+i,d,{stroke:'#ccd9d9','stroke-width':1});\n  });\n  line('step',B.X(start.w),B.Y(start.b),B.X(target.w),B.Y(target.b),{stroke:palette.orange,'stroke-width':1.5,'stroke-dasharray':'4 4'});\n  const tx=B.X(target.w),ty=B.Y(target.b),sx=B.X(start.w),sy=B.Y(start.b),ang=Math.atan2(ty-sy,tx-sx);\n  path('arrow',`M ${tx-8*Math.cos(ang-0.45)},${ty-8*Math.sin(ang-0.45)} L ${tx},${ty} L ${tx-8*Math.cos(ang+0.45)},${ty-8*Math.sin(ang+0.45)}`,{stroke:palette.orange,'stroke-width':1.5});\n  dot('start',sx,sy,4,{fill:palette.light,stroke:palette.orange,'stroke-width':1.5});\n  dot('target',tx,ty,3,{fill:palette.orange});\n  dot('current',B.X(w),B.Y(b),5,{fill:palette.blue,stroke:'#ffffff','stroke-width':1.5});\n  // A small cross retains the minimizer when the moving dot reaches it.\n  const ox=B.X(1.5),oy=B.Y(0.5);\n  line('opt-h',ox-5,oy,ox+5,oy,{stroke:palette.ink,'stroke-width':1.6});\n  line('opt-v',ox,oy-5,ox,oy+5,{stroke:palette.ink,'stroke-width':1.6});\n  text('opt-label',ox+9,oy+16,'最小点',{fill:palette.muted});\n  text('step-label',B.l+B.w,B.t-14,'虚线：−ηg',{'text-anchor':'end',fill:palette.orange});\n  const legendY=height-9;\n  if(mobile){\n    text('legend',18,legendY,`● 观测   ○ 预测   橙线：残差 / 更新`,{'font-size':12});\n  }else{\n    text('legend',A.l,legendY,'● 观测   ○ 预测   橙线：残差',{fill:palette.muted});\n    text('levels',B.l,legendY,'等高线：损失相同   × 最小点',{fill:palette.muted});\n  }\n  end();\n  return {eta,progress:p,data,start,initialResiduals,initialGradient:[gw,gb],target,current:[w,b],predictions:data.map(([x])=>w*x+b),residuals,loss,startLoss:lossAt(start.w,start.b),targetLoss:lossAt(target.w,target.b),contourLevels:levels,minimizer:[1.5,0.5],minLoss:0};\n}"
+    },
+    {
+      "id": "gaussian-objective",
+      "title": "密度改变，最小点为何不动",
+      "afterAnchor": "linear-regression-078",
+      "endAnchor": "linear-regression-082",
+      "height": 344,
+      "mobileHeight": 468,
+      "interaction": "parameters",
+      "summary": "合成观测 y = −1、0、1，预测为 b；各观测独立，使用共同且固定的 σ。",
+      "stages": [
+        "比较目标"
+      ],
+      "params": [
+        {
+          "key": "bias",
+          "label": "偏置 b",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "value": 0.65
+        },
+        {
+          "key": "sigma",
+          "label": "噪声标准差 σ",
+          "min": 0.7,
+          "max": 1.4,
+          "step": 0.05,
+          "value": 1
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n\n  const NS='http://www.w3.org/2000/svg';\n  const palette={ink:'#243b48',muted:'#667984',grid:'#e1e8e8',blue:'#166a75',orange:'#bd6136',light:'#edf5f3'};\n  svg.setAttribute('viewBox',`0 0 ${width} ${height}`);\n  svg.setAttribute('role','img');\n  const nodes=svg.__directNodes||(svg.__directNodes=new Map());\n  const used=new Set();\n  function el(key,tag,attrs={},value){\n    used.add(key);let n=nodes.get(key);\n    if(!n){n=document.createElementNS(NS,tag);svg.appendChild(n);nodes.set(key,n);}\n    for(const [a,v] of Object.entries(attrs))n.setAttribute(a,String(v));\n    if(value!==undefined)n.textContent=value;\n    return n;\n  }\n  function text(key,x,y,value,attrs={}){return el(key,'text',{x,y,fill:palette.ink,'font-size':12,'font-family':'system-ui, sans-serif',...attrs},value);}\n  function line(key,x1,y1,x2,y2,attrs={}){return el(key,'line',{x1,y1,x2,y2,stroke:palette.grid,'stroke-width':1,...attrs});}\n  function path(key,d,attrs={}){return el(key,'path',{d,fill:'none',stroke:palette.blue,'stroke-width':2,...attrs});}\n  function dot(key,x,y,r=4,attrs={}){return el(key,'circle',{cx:x,cy:y,r,fill:palette.blue,...attrs});}\n  function panel(key,box,xd,yd,xticks,yticks,xname,yname){\n    const [l,t,w,h]=box;\n    const X=v=>l+(v-xd[0])/(xd[1]-xd[0])*w;\n    const Y=v=>t+h-(v-yd[0])/(yd[1]-yd[0])*h;\n    for(const v of yticks){line(key+'gy'+v,l,Y(v),l+w,Y(v));text(key+'yt'+v,l-8,Y(v)+4,v,{'text-anchor':'end',fill:palette.muted});}\n    for(const v of xticks){line(key+'gx'+v,X(v),t,X(v),t+h,{stroke:palette.grid,'stroke-opacity':0.55});text(key+'xt'+v,X(v),t+h+19,v,{'text-anchor':'middle',fill:palette.muted});}\n    line(key+'ya',l,t,l,t+h,{stroke:palette.muted});line(key+'xa',l,t+h,l+w,t+h,{stroke:palette.muted});\n    text(key+'yl',l,t-14,yname,{'font-size':12});\n    text(key+'xl',l+w,t+h+39,xname,{'text-anchor':'end'});\n    return {X,Y,l,t,w,h};\n  }\n  function curve(key,P,x0,x1,f,attrs={}){let d='';for(let i=0;i<=120;i++){const x=x0+(x1-x0)*i/120;d+=(i?'L':'M')+P.X(x).toFixed(3)+','+P.Y(f(x)).toFixed(3);}path(key,d,attrs);}\n  function end(){for(const [key,n] of nodes){if(!used.has(key)){n.remove();nodes.delete(key);}}}\n  const mobile=width<600;\n  const fmt=v=>(Math.abs(v)<0.0005?0:v).toFixed(3);\n\n  el('title','title',{},'三个固定观测的高斯密度和两种目标；改变偏置与固定噪声尺度');\n  const b=Number(params.bias),sigma=Number(params.sigma),ys=[-1,0,1];\n  const density=y=>Math.exp(-0.5*((y-b)/sigma)**2)/(Math.sqrt(2*Math.PI)*sigma);\n  const L=a=>ys.reduce((s,y)=>s+(a-y)**2/2,0)/3;\n  const C=Math.log(Math.sqrt(2*Math.PI)*sigma);\n  const NLL=a=>C+L(a)/(sigma*sigma);\n  let A,B;\n  if(mobile){\n    const ph=(height-214)/2;\n    A=panel('pdf',[40,55,width-57,ph],[-4,4],[0,0.62],[-3,0,3],[0,0.3,0.6],'观测值 y','概率密度 p(y)');\n    B=panel('cost',[40,ph+140,width-57,ph],[-2.1,2.1],[0,5.7],[-2,0,2],[0,2,4],'候选偏置 b','平均目标值');\n  }else{\n    const pw=(width-146)/2,ph=height-140;\n    A=panel('pdf',[44,67,pw,ph],[-4,4],[0,0.62],[-3,0,3],[0,0.3,0.6],'观测值 y','概率密度 p(y)');\n    B=panel('cost',[pw+119,67,pw,ph],[-2.1,2.1],[0,5.7],[-2,0,2],[0,2,4],'候选偏置 b','平均目标值');\n  }\n  text('status',A.l,19,`b ${b.toFixed(2)}   σ ${sigma.toFixed(2)}`,{'font-size':13});\n  text('values',B.l,mobile?B.t-31:19,`L ${fmt(L(b))}   −log P / n ${fmt(NLL(b))}`,{'font-size':12});\n  let area=`M ${A.X(-4)},${A.Y(0)}`;\n  for(let i=0;i<=160;i++){const y=-4+8*i/160;area+=` L ${A.X(y)},${A.Y(density(y))}`;}\n  area+=` L ${A.X(4)},${A.Y(0)} Z`;\n  path('area',area,{fill:palette.light,stroke:'none'});\n  curve('pdf',A,-4,4,density);\n  ys.forEach((y,i)=>{\n    line('stick'+i,A.X(y),A.Y(0),A.X(y),A.Y(density(y)),{stroke:palette.orange,'stroke-width':1.7});\n    dot('pdf-dot'+i,A.X(y),A.Y(density(y)),3.5,{fill:palette.orange});\n    path('rug'+i,`M ${A.X(y)-3},${A.Y(0)+3} L ${A.X(y)+3},${A.Y(0)+3}`,{stroke:palette.orange,'stroke-width':2.5});\n  });\n  curve('loss',B,-2,2,L);\n  curve('nll',B,-2,2,NLL,{stroke:palette.orange});\n  line('minimum',B.X(0),B.Y(0),B.X(0),B.Y(5.7),{stroke:palette.muted,'stroke-dasharray':'3 4','stroke-opacity':0.6});\n  line('selection',B.X(b),B.Y(0),B.X(b),B.Y(Math.max(L(b),NLL(b))),{stroke:palette.muted,'stroke-width':1});\n  dot('loss-dot',B.X(b),B.Y(L(b)),4.5,{fill:palette.blue});\n  dot('nll-dot',B.X(b),B.Y(NLL(b)),4.5,{fill:palette.orange});\n  text('min-label',B.X(0),B.t+13,'最小点 b = 0',{'text-anchor':'middle',fill:palette.muted,'font-size':12});\n  text('observations',A.l+A.w,A.t-14,'橙点：固定观测',{'text-anchor':'end',fill:palette.orange,'font-size':12});\n  const yy=height-9;\n  const ll=mobile?19:B.l;\n  line('loss-key',ll,yy-4,ll+14,yy-4,{stroke:palette.blue,'stroke-width':2});\n  text('loss-label',ll+20,yy,'平方损失');\n  line('nll-key',ll+91,yy-4,ll+105,yy-4,{stroke:palette.orange,'stroke-width':2});\n  text('nll-label',ll+111,yy,'负对数似然 / n');\n  if(!mobile)text('left-foot',A.l,yy,'每个橙点的高度是对应观测的密度',{fill:palette.muted});\n  end();\n  return {bias:b,sigma,observations:ys,densities:ys.map(density),residuals:ys.map(y=>b-y),meanHalfSquaredLoss:L(b),negativeLogLikelihood:3*NLL(b),meanNegativeLogLikelihood:NLL(b),constantPerSample:C,positiveScale:1/(sigma*sigma),minimizer:0,lossAtMin:L(0),nllAtMin:NLL(0)};\n}"
+    }
+  ]
+}

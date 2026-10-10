@@ -1,0 +1,763 @@
+{
+  "id": "parameters",
+  "title": "参数管理",
+  "source": "chapter_deep-learning-computation/parameters.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_deep-learning-computation/parameters.html",
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "d68788f5e8d53aca6e4180095e7be24ff30e06b5c69fa58af35f4b906b676d73",
+  "adaptedSha256": "62c6966c3d3891bad6c85bd3861d21588ab40f7d1347dcf5849f195c303bf512",
+  "adaptation": {
+    "excludedTabBlocks": 11,
+    "excludedCodeBlocks": 40,
+    "keptCodeBlocks": 15,
+    "removedDirectives": 0,
+    "images": 0,
+    "mathErrors": 0,
+    "mathExpected": 2,
+    "mathRendered": 2
+  },
+  "blocks": [
+    {
+      "id": "parameters-001",
+      "sha256": "26ae230ef777140b638e1be3560432a8b26adef6bb9af3baea95c1c38b5ed71f",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 参数管理",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-002",
+      "sha256": "fbac1b1bfd67aeb284911b90acc6d8539ff8a6d120f57fd222813f93b86ee082",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "在选择了架构并设置了超参数后，我们就进入了训练阶段。\n此时，我们的目标是找到使损失函数最小化的模型参数值。\n经过训练后，我们将需要使用这些参数来做出未来的预测。\n此外，有时我们希望提取参数，以便在其他环境中复用它们，\n将模型保存下来，以便它可以在其他软件中执行，\n或者为了获得科学的理解而进行检查。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-003",
+      "sha256": "ae94a14748655f5a9a4742d9d3e9afee8a5cb9451d8aff9a2ae12bfd40fd71e8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 10,
+      "raw": "之前的介绍中，我们只依靠深度学习框架来完成训练的工作，\n而忽略了操作参数的具体细节。\n本节，我们将介绍以下内容：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-004",
+      "sha256": "416af2bcf7b04b2ff6c23d42989d1737f32462a3d5b552eff0942b74d6901713",
+      "type": "list",
+      "depth": null,
+      "line": 14,
+      "raw": "* 访问参数，用于调试、诊断和可视化；\n* 参数初始化；\n* 在不同模型组件间共享参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-005",
+      "sha256": "ca216109bf9c29d34edd5cd52f2e8702daca000f3a0c7e4bcadcbde88247d62a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 18,
+      "raw": "**我们首先看一下具有单隐藏层的多层感知机。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-006",
+      "sha256": "6cfe3268b815ff2fa0bea0942f89cb99317c7b2f67293942e87c43866b0a53f5",
+      "type": "code",
+      "depth": null,
+      "line": 34,
+      "raw": "```python\nimport torch\nfrom torch import nn\n\nnet = nn.Sequential(nn.Linear(4, 8), nn.ReLU(), nn.Linear(8, 1))\nX = torch.rand(size=(2, 4))\nnet(X)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-007",
+      "sha256": "45b24ff2f1f20a1d4b4886adfe11a444c737b03fec8664d11cfd77ad8d389ca9",
+      "type": "heading",
+      "depth": 2,
+      "line": 69,
+      "raw": "## **参数访问**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-008",
+      "sha256": "d2700a9597dd63c60726408b5a8d233cfa0cc2fe36958147c4f4a4f31da77955",
+      "type": "paragraph",
+      "depth": null,
+      "line": 71,
+      "raw": "我们从已有模型中访问参数。\n当通过`Sequential`类定义模型时，\n我们可以通过索引来访问模型的任意层。\n这就像模型是一个列表一样，每层的参数都在其属性中。\n如下所示，我们可以检查第二个全连接层的参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-009",
+      "sha256": "8f756eada17c92ab667f1657d2dd5b42be12acc3b5d02acd714dca1fbd6efd49",
+      "type": "code",
+      "depth": null,
+      "line": 81,
+      "raw": "```python\nprint(net[2].state_dict())\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-010",
+      "sha256": "e5b3177de49d9d8654e98520eef1a420690ea54e4f30697c7c41b23928bb61e7",
+      "type": "paragraph",
+      "depth": null,
+      "line": 90,
+      "raw": "输出的结果告诉我们一些重要的事情：\n首先，这个全连接层包含两个参数，分别是该层的权重和偏置。\n两者都存储为单精度浮点数（float32）。\n注意，参数名称允许唯一标识每个参数，即使在包含数百个层的网络中也是如此。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-011",
+      "sha256": "497171ca5f30cd20306985a4bd0661eb92106d11d57568f27750ec491d8b763f",
+      "type": "heading",
+      "depth": 3,
+      "line": 95,
+      "raw": "### **目标参数**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-012",
+      "sha256": "3663d5a8c1a44cf45d247ee1bffe610848932ac8ad76e2691662f5a0dc97ccc1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 97,
+      "raw": "注意，每个参数都表示为参数类的一个实例。\n要对参数执行任何操作，首先我们需要访问底层的数值。\n有几种方法可以做到这一点。有些比较简单，而另一些则比较通用。\n下面的代码从第二个全连接层（即第三个神经网络层）提取偏置，\n提取后返回的是一个参数类实例，并进一步访问该参数的值。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-013",
+      "sha256": "be83e57c3df251ec58420b0b09f77dd0d6cb41f753e1e5b95253a23aebb7b527",
+      "type": "code",
+      "depth": null,
+      "line": 109,
+      "raw": "```python\nprint(type(net[2].bias))\nprint(net[2].bias)\nprint(net[2].bias.data)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-014",
+      "sha256": "b7f1ed8efe3b67b19f4b105663cc3fcd02f64d8fb128d5a0a5873efad113f6db",
+      "type": "paragraph",
+      "depth": null,
+      "line": 129,
+      "raw": "参数是复合的对象，包含值、梯度和额外信息。\n这就是我们需要显式参数值的原因。\n除了值之外，我们还可以访问每个参数的梯度。\n在上面这个网络中，由于我们还没有调用反向传播，所以参数的梯度处于初始状态。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-015",
+      "sha256": "54997d846789ebc71be6d5b7bd95560c8cfd42b5ceae7fddfd83a44d39cfa572",
+      "type": "code",
+      "depth": null,
+      "line": 139,
+      "raw": "```python\nnet[2].weight.grad == None\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-016",
+      "sha256": "063e13e448092e71dfc289f276c438a32e6d8f652669cf27909da4de04c401ea",
+      "type": "heading",
+      "depth": 3,
+      "line": 143,
+      "raw": "### **一次性访问所有参数**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-017",
+      "sha256": "c6030587a22ffd7b9fd546b8c5d6589b445f48de2386176650ef614c6996635a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 145,
+      "raw": "当我们需要对所有参数执行操作时，逐个访问它们可能会很麻烦。\n当我们处理更复杂的块（例如，嵌套块）时，情况可能会变得特别复杂，\n因为我们需要递归整个树来提取每个子块的参数。\n下面，我们将通过演示来比较访问第一个全连接层的参数和访问所有层。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-018",
+      "sha256": "4dd1089930ece156485a43451407d16a644b4f1e4fa52900660296e86775a3f6",
+      "type": "code",
+      "depth": null,
+      "line": 155,
+      "raw": "```python\nprint(*[(name, param.shape) for name, param in net[0].named_parameters()])\nprint(*[(name, param.shape) for name, param in net.named_parameters()])\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-019",
+      "sha256": "10f4270c06ab362f275412dd39f27fd8f9ab99fdab7082485f6b7fe51beef584",
+      "type": "paragraph",
+      "depth": null,
+      "line": 166,
+      "raw": "这为我们提供了另一种访问网络参数的方式，如下所示。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-020",
+      "sha256": "293fb6fdf0a12dec063cb1382a02c880152c14f0a23b5d57c03c40b17201163f",
+      "type": "code",
+      "depth": null,
+      "line": 172,
+      "raw": "```python\nnet.state_dict()['2.bias'].data\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-021",
+      "sha256": "85591ea86e3a8392aab43df7e5114ce7eefd2b5064e21854338f46bc8afcb328",
+      "type": "heading",
+      "depth": 3,
+      "line": 186,
+      "raw": "### **从嵌套块收集参数**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-022",
+      "sha256": "d1166ab56dafea4a70d9bc86c875e7e0301de0528832e96034786222d664664e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 188,
+      "raw": "让我们看看，如果我们将多个块相互嵌套，参数命名约定是如何工作的。\n我们首先定义一个生成块的函数（可以说是“块工厂”），然后将这些块组合到更大的块中。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-023",
+      "sha256": "0b634844144b617562cf1f143f1f50c81364b5e7ab68878eb09cb852741746a0",
+      "type": "code",
+      "depth": null,
+      "line": 212,
+      "raw": "```python\ndef block1():\n    return nn.Sequential(nn.Linear(4, 8), nn.ReLU(),\n                         nn.Linear(8, 4), nn.ReLU())\n\ndef block2():\n    net = nn.Sequential()\n    for i in range(4):\n        # 在这里嵌套\n        net.add_module(f'block {i}', block1())\n    return net\n\nrgnet = nn.Sequential(block2(), nn.Linear(4, 1))\nrgnet(X)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-024",
+      "sha256": "d13d7bc59c509c327d486fb84a75156ffc5aaebf41ca85e2e468f15269c791ac",
+      "type": "paragraph",
+      "depth": null,
+      "line": 266,
+      "raw": "**设计了网络后，我们看看它是如何工作的。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-025",
+      "sha256": "43f76ee4df653ff945b87a35c7184d0c3b2c1a64f4ea53409d0da86a294e72e5",
+      "type": "code",
+      "depth": null,
+      "line": 273,
+      "raw": "```python\nprint(rgnet)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-026",
+      "sha256": "3cf7390095d34f77d67e9e0c195b3002b849de56f516bd12bebe30bd8d794125",
+      "type": "paragraph",
+      "depth": null,
+      "line": 282,
+      "raw": "因为层是分层嵌套的，所以我们也可以像通过嵌套列表索引一样访问它们。\n下面，我们访问第一个主要的块中、第二个子块的第一层的偏置项。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-027",
+      "sha256": "2476ca003f7ed7e98593ee7438d0569d7ffb127f1419d051e02e0d9f765c3091",
+      "type": "code",
+      "depth": null,
+      "line": 289,
+      "raw": "```python\nrgnet[0][1][0].bias.data\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-028",
+      "sha256": "ec828f35ec2e4247aa6bdd9f75bb3600999bdee08ee2d67e2125205dc659ff09",
+      "type": "heading",
+      "depth": 2,
+      "line": 303,
+      "raw": "## 参数初始化",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-029",
+      "sha256": "0c1145fd8e622fbba91eff96bf2623f61b5c506823eb1a5c370435c893415940",
+      "type": "paragraph",
+      "depth": null,
+      "line": 305,
+      "raw": "知道了如何访问参数后，现在我们看看如何正确地初始化参数。\n我们在 [原文引用：sec_numerical_stability](https://zh.d2l.ai/chapter_deep-learning-computation/parameters.html)中讨论了良好初始化的必要性。\n深度学习框架提供默认随机初始化，\n也允许我们创建自定义初始化方法，\n满足我们通过其他规则实现初始化权重。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-030",
+      "sha256": "f9248b37fef1dbe1df90927169973110980b244bb542268a5c155c993463a62d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 317,
+      "raw": "默认情况下，PyTorch会根据一个范围均匀地初始化权重和偏置矩阵，\n这个范围是根据输入和输出维度计算出的。\nPyTorch的`nn.init`模块提供了多种预置初始化方法。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-031",
+      "sha256": "f1afe83f697d2a3bd3a768062eae8a4c39467461cbcd61a6c6c184f89abdfc4e",
+      "type": "heading",
+      "depth": 3,
+      "line": 335,
+      "raw": "### **内置初始化**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-032",
+      "sha256": "bcc717005fd826063ad603387ed51f6c49d473bf97524a2d4213c67828d38c0f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 337,
+      "raw": "让我们首先调用内置的初始化器。\n下面的代码将所有权重参数初始化为标准差为0.01的高斯随机变量，\n且将偏置参数设置为0。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-033",
+      "sha256": "a0f2c3b11d98ff046a8cfec0c55c218d79e9f994d097d0f481956c951e07b9b7",
+      "type": "code",
+      "depth": null,
+      "line": 347,
+      "raw": "```python\ndef init_normal(m):\n    if type(m) == nn.Linear:\n        nn.init.normal_(m.weight, mean=0, std=0.01)\n        nn.init.zeros_(m.bias)\nnet.apply(init_normal)\nnet[0].weight.data[0], net[0].bias.data[0]\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-034",
+      "sha256": "bbb5176199b2ff6ffee0c9f678fb40b62dbdaf9677cd3a734b6ee0cb0da68921",
+      "type": "paragraph",
+      "depth": null,
+      "line": 380,
+      "raw": "我们还可以将所有参数初始化为给定的常数，比如初始化为1。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-035",
+      "sha256": "c30d91bd8ec000295381bff330bd4089b727363c21243c09e90e956a2472d011",
+      "type": "code",
+      "depth": null,
+      "line": 387,
+      "raw": "```python\ndef init_constant(m):\n    if type(m) == nn.Linear:\n        nn.init.constant_(m.weight, 1)\n        nn.init.zeros_(m.bias)\nnet.apply(init_constant)\nnet[0].weight.data[0], net[0].bias.data[0]\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-036",
+      "sha256": "7b1e46ce3fa3924351435c0737fde6d4856d7587423f91bd634b314d957006d5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 421,
+      "raw": "我们还可以**对某些块应用不同的初始化方法**。\n例如，下面我们使用Xavier初始化方法初始化第一个神经网络层，\n然后将第三个神经网络层初始化为常量值42。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-037",
+      "sha256": "900faee79ff2ed38fa4c41a5b5fe17acd775fc5541fc418bde0977066d981f8f",
+      "type": "code",
+      "depth": null,
+      "line": 432,
+      "raw": "```python\ndef init_xavier(m):\n    if type(m) == nn.Linear:\n        nn.init.xavier_uniform_(m.weight)\ndef init_42(m):\n    if type(m) == nn.Linear:\n        nn.init.constant_(m.weight, 42)\n\nnet[0].apply(init_xavier)\nnet[2].apply(init_42)\nprint(net[0].weight.data[0])\nprint(net[2].weight.data)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-038",
+      "sha256": "8a196251844cf524cdbdbc554c93c21a8a3721437c3732f97c7eb787cf4d58ff",
+      "type": "heading",
+      "depth": 3,
+      "line": 478,
+      "raw": "### **自定义初始化**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-039",
+      "sha256": "45b09396b2a1cccb784239e9a00af8c21a75b4dbb9f86696327af6c336fbd184",
+      "type": "paragraph",
+      "depth": null,
+      "line": 480,
+      "raw": "有时，深度学习框架没有提供我们需要的初始化方法。\n在下面的例子中，我们使用以下的分布为任意权重参数$w$定义初始化方法：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-040",
+      "sha256": "d68c92630eb794135749355fa7a6422f070ed4af4af82a7521463638fa214266",
+      "type": "math",
+      "depth": null,
+      "line": 483,
+      "raw": "$$\n\\begin{aligned}\n    w \\sim \\begin{cases}\n        U(5, 10) & \\text{ 可能性 } \\frac{1}{4} \\\\\n            0    & \\text{ 可能性 } \\frac{1}{2} \\\\\n        U(-10, -5) & \\text{ 可能性 } \\frac{1}{4}\n    \\end{cases}\n\\end{aligned}\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-041",
+      "sha256": "4a567cc79b0d4aca19df4af04e20f9bc0ef0000dd7d317639f5395131d04ff27",
+      "type": "paragraph",
+      "depth": null,
+      "line": 499,
+      "raw": "同样，我们实现了一个`my_init`函数来应用到`net`。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-042",
+      "sha256": "fcaec0beba76ecb3d556c395ed9f32dbf43848e8717b12a0ee2176f1d509cb83",
+      "type": "code",
+      "depth": null,
+      "line": 523,
+      "raw": "```python\ndef my_init(m):\n    if type(m) == nn.Linear:\n        print(\"Init\", *[(name, param.shape)\n                        for name, param in m.named_parameters()][0])\n        nn.init.uniform_(m.weight, -10, 10)\n        m.weight.data *= m.weight.data.abs() >= 5\n\nnet.apply(my_init)\nnet[0].weight[:2]\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-043",
+      "sha256": "fe91a8d8a3833259a20260fc413414e450aa30791bf811d9745ed30a4b0f79f1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 573,
+      "raw": "注意，我们始终可以直接设置参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-044",
+      "sha256": "098394ee6f99bbe47350fa7059d961f3cadcfbe2b5c6ddae0fa0c46ce47aa578",
+      "type": "code",
+      "depth": null,
+      "line": 581,
+      "raw": "```python\nnet[0].weight.data[:] += 1\nnet[0].weight.data[0, 0] = 42\nnet[0].weight.data[0]\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-045",
+      "sha256": "f91bcd3e5280f40ba9cb9dbe0952b9ef4e3272c19be20d3d4875ca54a8bc6a15",
+      "type": "heading",
+      "depth": 2,
+      "line": 608,
+      "raw": "## **参数绑定**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-046",
+      "sha256": "d8b028a9005b2f4a220ee63e64ffc7caaac4e45d36027a27132371beef758c7d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 610,
+      "raw": "有时我们希望在多个层间共享参数：\n我们可以定义一个稠密层，然后使用它的参数来设置另一个层的参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-047",
+      "sha256": "d9b97bced1c616eb7dc6d55d6e5ed20c6bc2f855df63ae91a0d300e1704f406a",
+      "type": "code",
+      "depth": null,
+      "line": 633,
+      "raw": "```python\n# 我们需要给共享层一个名称，以便可以引用它的参数\nshared = nn.Linear(8, 8)\nnet = nn.Sequential(nn.Linear(4, 8), nn.ReLU(),\n                    shared, nn.ReLU(),\n                    shared, nn.ReLU(),\n                    nn.Linear(8, 1))\nnet(X)\n# 检查参数是否相同\nprint(net[2].weight.data[0] == net[4].weight.data[0])\nnet[2].weight.data[0, 0] = 100\n# 确保它们实际上是同一个对象，而不只是有相同的值\nprint(net[2].weight.data[0] == net[4].weight.data[0])\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-048",
+      "sha256": "05f8b3dd68c9371487982fe2a07dd09026e2010c1f89ee103ef8ce2ce1c9bb55",
+      "type": "paragraph",
+      "depth": null,
+      "line": 686,
+      "raw": "这个例子表明第三个和第五个神经网络层的参数是绑定的。\n它们不仅值相等，而且由相同的张量表示。\n因此，如果我们改变其中一个参数，另一个参数也会改变。\n这里有一个问题：当参数绑定时，梯度会发生什么情况？\n答案是由于模型参数包含梯度，因此在反向传播期间第二个隐藏层\n（即第三个神经网络层）和第三个隐藏层（即第五个神经网络层）的梯度会加在一起。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-049",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 694,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-050",
+      "sha256": "e6b8ce3779e7d48b2ea0d4bd54e64e85baf598ef1dba080733ef9fd4c1c97e80",
+      "type": "list",
+      "depth": null,
+      "line": 696,
+      "raw": "* 我们有几种方法可以访问、初始化和绑定模型参数。\n* 我们可以使用自定义初始化方法。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-051",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 699,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-052",
+      "sha256": "cd400b7b6c00bd1cefc259833bc4b207cede1f9af637ed9d414b2ac7a9e2091e",
+      "type": "list",
+      "depth": null,
+      "line": 701,
+      "raw": "1. 使用 [原文引用：sec_model_construction](https://zh.d2l.ai/chapter_deep-learning-computation/parameters.html) 中定义的`FancyMLP`模型，访问各个层的参数。\n1. 查看初始化模块文档以了解不同的初始化方法。\n1. 构建包含共享参数层的多层感知机并对其进行训练。在训练过程中，观察模型各层的参数和梯度。\n1. 为什么共享参数是个好主意？",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "parameters-053",
+      "sha256": "112a4fd7ecf8ebd132eaca3567dc52c5a170cc708db691f836dcb6bc841e2449",
+      "type": "paragraph",
+      "depth": null,
+      "line": 710,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1829)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

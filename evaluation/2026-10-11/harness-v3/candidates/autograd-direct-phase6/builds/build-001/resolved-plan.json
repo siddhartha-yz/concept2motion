@@ -1,0 +1,91 @@
+{
+  "figures": [
+    {
+      "id": "weighted-backward",
+      "title": "反传向量如何给输出加权",
+      "afterAnchor": "autograd-020",
+      "endAnchor": "autograd-020",
+      "height": 400,
+      "mobileHeight": 370,
+      "interaction": "parameters",
+      "summary": "改变 x₂ 或输出权重 v₂，观察雅可比矩阵与输入梯度的对应变化。",
+      "params": [
+        {
+          "key": "x2",
+          "label": "x₂",
+          "min": 0,
+          "max": 3,
+          "step": 0.1,
+          "value": 2
+        },
+        {
+          "key": "v2",
+          "label": "输出权重 v₂",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n\nconst NS='http://www.w3.org/2000/svg', ink='#223b43', muted='#6b7d80', teal='#227d83', amber='#b85c32', paper='#faf9f5';\nfunction el(id,tag,attrs={},text){let n=svg.querySelector('#'+id);if(!n){n=svg.ownerDocument.createElementNS(NS,tag);n.id=id;svg.appendChild(n);}for(const [k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=String(text);return n;}\nfunction txt(id,x,y,s,size=14,fill=ink,anchor='start'){return el(id,'text',{x,y,fill,'font-size':size,'font-family':'system-ui,sans-serif','text-anchor':anchor},s);}\nfunction line(id,x1,y1,x2,y2,color=muted,dash=''){return el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':1.5,'stroke-dasharray':dash});}\nfunction fmt(n){return Number(n.toFixed(2)).toString();}\nconst mobile=width<600;\nel('paper','rect',{x:0,y:0,width,height,fill:paper});\n\nconst x=[0,1,Number(params.x2),3],v=[1,1,Number(params.v2),1],diag=x.map(t=>2*t),g=diag.map((d,i)=>d*v[i]);\nconst cell=mobile?28:40, m=cell*4, total=m+(mobile?152:240), ox=(width-total)/2, my=mobile?97:88;\nconst sx=ox+m+(mobile?48:75),gx=ox+m+(mobile?116:180);\ntxt('relation',width/2,28,'Jᵀ · v = g',21,ink,'middle');\ntxt('condition',width/2,52,'yᵢ = xᵢ²   ·   x = [0, 1, '+fmt(x[2])+', 3]',mobile?13:14,muted,'middle');\ntxt('jt',ox+m/2,my-32,'Jᵀ  (4 × 4)',13,muted,'middle');\ntxt('seed',sx,my-18,'v',17,teal,'middle');txt('grad',gx,my-18,'g',17,amber,'middle');\nfor(let i=0;i<4;i++){\n txt('col'+i,ox+(i+.5)*cell,my-9,'y'+['₀','₁','₂','₃'][i],12,muted,'middle');\n txt('row'+i,ox-8,my+(i+.5)*cell+5,'x'+['₀','₁','₂','₃'][i],12,muted,'end');\n for(let j=0;j<4;j++){\n const d=i===j?diag[i]:0;\n el('cell'+i+j,'rect',{x:ox+j*cell+1,y:my+i*cell+1,width:cell-2,height:cell-2,rx:3,fill:i===j?(i===2?'#f4d9c9':'#daeaE7'):'#efeee8'});\n txt('number'+i+j,ox+(j+.5)*cell,my+(i+.5)*cell+5,fmt(d),mobile?13:15,i===j?ink:'#a4aaa7','middle');\n }\n el('seedbg'+i,'rect',{x:sx-20,y:my+i*cell+2,width:40,height:cell-4,rx:3,fill:i===2?'#dceeea':'none'});\n el('gradbg'+i,'rect',{x:gx-25,y:my+i*cell+2,width:50,height:cell-4,rx:3,fill:i===2?'#f4d9c9':'none'});\n txt('v'+i,sx,my+(i+.5)*cell+5,fmt(v[i]),16,teal,'middle');\n txt('g'+i,gx,my+(i+.5)*cell+5,fmt(g[i]),16,amber,'middle');\n}\ntxt('multiply',ox+m+(mobile?19:34),my+m/2+5,'×',18,muted,'middle');txt('equals',(sx+gx)/2,my+m/2+5,'=',18,muted,'middle');\nconst y=my+m+35;\ntxt('slabel',sx,y,'输出权重',12,teal,'middle');txt('glabel',gx,y,'输入梯度',12,amber,'middle');\ntxt('detail',width/2,y+33,'g₂ = 2x₂ × v₂ = '+fmt(g[2]),18,amber,'middle');\ntxt('ones',width/2,y+60,'v 全为 1 时，与 y.sum().backward() 一致',mobile?12:13,muted,'middle');\nreturn {example:'elementwise square; column vectors; J_ij=dy_i/dx_j',x,y:x.map(t=>t*t),v,jacobianTranspose:diag.map((d,i)=>diag.map((_,j)=>i===j?d:0)),gradient:g,formula:'g = J^T v = (2x) elementwise v',limits:'Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs.'};\n}"
+    },
+    {
+      "id": "detach-path",
+      "title": "同一个前向值，两种梯度路径",
+      "afterAnchor": "autograd-024",
+      "endAnchor": "autograd-026",
+      "height": 430,
+      "mobileHeight": 455,
+      "interaction": "parameters",
+      "summary": "切换是否分离 u，比较前向数值与两条路径贡献的梯度。",
+      "params": [
+        {
+          "key": "x",
+          "label": "标量 x",
+          "min": -3,
+          "max": 3,
+          "step": 0.1,
+          "value": 2
+        },
+        {
+          "key": "mode",
+          "label": "u 的计算图",
+          "kind": "select",
+          "value": "detach",
+          "options": [
+            {
+              "value": "detach",
+              "label": "分离 u"
+            },
+            {
+              "value": "connected",
+              "label": "保留连接"
+            }
+          ]
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n\nconst NS='http://www.w3.org/2000/svg', ink='#223b43', muted='#6b7d80', teal='#227d83', amber='#b85c32', paper='#faf9f5';\nfunction el(id,tag,attrs={},text){let n=svg.querySelector('#'+id);if(!n){n=svg.ownerDocument.createElementNS(NS,tag);n.id=id;svg.appendChild(n);}for(const [k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=String(text);return n;}\nfunction txt(id,x,y,s,size=14,fill=ink,anchor='start'){return el(id,'text',{x,y,fill,'font-size':size,'font-family':'system-ui,sans-serif','text-anchor':anchor},s);}\nfunction line(id,x1,y1,x2,y2,color=muted,dash=''){return el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':1.5,'stroke-dasharray':dash});}\nfunction fmt(n){return Number(n.toFixed(2)).toString();}\nconst mobile=width<600;\nel('paper','rect',{x:0,y:0,width,height,fill:paper});\n\nconst x=Number(params.x),detached=params.mode==='detach',u=x*x,z=u*x,direct=u,indirect=2*x*x,total=direct+(detached?0:indirect);\nconst W=Math.min(width-36,660),ox=(width-W)/2;\nconst X=ox+30,Y=ox+W/2,Z=ox+W-30,ny=mobile?110:115,lower=ny+78;\ntxt('mode',width/2,28,detached?'数值通过，梯度止步':'两条路径都回传',19,ink,'middle');\ntxt('values',width/2,53,'x = '+fmt(x)+'   ·   u = '+fmt(u)+'   ·   z = '+fmt(z),14,muted,'middle');\nline('forward1',X,ny,Y,ny,muted);line('forward2',Y,ny,Z,ny,muted);\nel('skip','path',{d:`M ${X} ${ny} L ${X} ${lower} L ${Z} ${lower} L ${Z} ${ny}`,fill:'none',stroke:teal,'stroke-width':2});\nfor(const [i,cx,label]of [[0,X,'x'],[1,Y,'u'],[2,Z,'z']]){\nel('node'+i,'circle',{cx,cy:ny,r:19,fill:paper,stroke:i===1?amber:ink,'stroke-width':1.5});txt('nodeLabel'+i,cx,ny+5,label,17,ink,'middle');}\ntxt('square',(X+Y)/2,ny-30,'平方',13,muted,'middle');txt('product',(Y+Z)/2,ny-30,'× x',13,muted,'middle');\nconst backY=ny+31;\nline('upperback',Z-8,backY,X+8,backY,detached?'#c1b6ac':amber,detached?'5 5':'');\nel('upperarrow','path',{d:`M ${X+17} ${backY-5} L ${X+8} ${backY} L ${X+17} ${backY+5}`,fill:'none',stroke:detached?'#c1b6ac':amber,'stroke-width':2});\nline('lowerback',Z-8,lower+17,X+8,lower+17,teal);el('lowerarrow','path',{d:`M ${X+17} ${lower+12} L ${X+8} ${lower+17} L ${X+17} ${lower+22}`,fill:'none',stroke:teal,'stroke-width':2});\nconst stop=(X+Y)/2;\nline('cut',stop,backY-9,stop,backY+9,detached?amber:paper);el('cut','line',{'stroke-width':detached?4:0});\ntxt('uppercontrib',width/2,backY+25,detached?'经 u 的路径：0':'经 u 的路径：2x² = '+fmt(indirect),13,detached?muted:amber,'middle');\ntxt('lowercontrib',width/2,lower+43,'直接路径：u = '+fmt(direct),13,teal,'middle');\nconst gy=mobile?325:305;\ntxt('gradtitle',ox,gy-15,'回到 x 的梯度',13,muted);\nconst barX=ox,barW=W,barY=gy+2,scale=barW/27;\nel('directbar','rect',{x:barX,y:barY,width:direct*scale,height:20,fill:teal,rx:2});\nel('indirectbar','rect',{x:barX+direct*scale,y:barY,width:(detached?0:indirect)*scale,height:20,fill:amber,rx:2});\nline('baraxis',barX,barY+23,barX+barW,barY+23,'#aab7b6');\nfor(const t of [0,9,18,27]){const bx=barX+t*scale;line('tick'+t,bx,barY+23,bx,barY+28,'#aab7b6');txt('ticklabel'+t,bx,barY+44,t,12,muted,t===0?'start':t===27?'end':'middle');}\ntxt('sum',width/2,barY+75,(detached?'梯度 = x² = ':'梯度 = x² + 2x² = ')+fmt(total),mobile?16:18,ink,'middle');\nreturn {x,u,z,detached,forwardSameForBothModes:true,directPathGradient:direct,viaUGradient:detached?0:indirect,gradient:total,formula:detached?'d z/d x holding u constant = u = x^2':'d(x^3)/dx = 3x^2',barAxis:[0,27],limits:'One scalar component of the elementwise example; no memory-sharing claim or trained weights.'};\n}"
+    },
+    {
+      "id": "control-flow",
+      "title": "梯度属于实际走过的分支",
+      "afterAnchor": "autograd-032",
+      "endAnchor": "autograd-033",
+      "height": 475,
+      "mobileHeight": 515,
+      "interaction": "parameters",
+      "summary": "移动 a 跨过 125、250、500，比较循环次数、函数跳点与当前路径的斜率。",
+      "params": [
+        {
+          "key": "a",
+          "label": "正标量 a",
+          "min": 80,
+          "max": 650,
+          "step": 1,
+          "value": 200
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n\nconst NS='http://www.w3.org/2000/svg', ink='#223b43', muted='#6b7d80', teal='#227d83', amber='#b85c32', paper='#faf9f5';\nfunction el(id,tag,attrs={},text){let n=svg.querySelector('#'+id);if(!n){n=svg.ownerDocument.createElementNS(NS,tag);n.id=id;svg.appendChild(n);}for(const [k,v]of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=String(text);return n;}\nfunction txt(id,x,y,s,size=14,fill=ink,anchor='start'){return el(id,'text',{x,y,fill,'font-size':size,'font-family':'system-ui,sans-serif','text-anchor':anchor},s);}\nfunction line(id,x1,y1,x2,y2,color=muted,dash=''){return el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':1.5,'stroke-dasharray':dash});}\nfunction fmt(n){return Number(n.toFixed(2)).toString();}\nconst mobile=width<600;\nel('paper','rect',{x:0,y:0,width,height,fill:paper});\n\nconst a=Number(params.a);let b=2*a,n=0;while(Math.abs(b)<1000&&n<32){b*=2;n++;}const k=2**(n+1),boundary=[125,250,500].includes(a);\nconst L=mobile?48:75,R=width-(mobile?20:50),T=67,B=mobile?287:270;\nconst px=t=>L+(t-80)/570*(R-L),py=t=>B-(t-800)/1400*(B-T);\ntxt('condition',width/2,27,'正标量切片 · a ∈ [80, 650]',14,muted,'middle');\nfor(const q of [1000,1500,2000]){line('grid'+q,L,py(q),R,py(q),'#dddeda',q===1000?'5 4':'');txt('yl'+q,L-8,py(q)+4,q,12,muted,'end');}\nline('yaxis',L,T,L,B,muted);line('xaxis',L,B,R,B,muted);\ntxt('ylabel',L,T-15,'f(a)',14,ink);txt('xlabel',R,B+34,'a',14,ink,'end');\nfor(const q of [125,250,500]){line('xt'+q,px(q),B,px(q),B+5,muted);txt('xl'+q,px(q),B+21,q,12,muted,'middle');}\nconst ranges=[[80,125,16],[125,250,8],[250,500,4],[500,650,2]];\nfor(let i=0;i<ranges.length;i++){const [lo,hi,slope]=ranges[i];line('seg'+i,px(lo),py(lo*slope),px(hi),py(hi*slope),teal);el('seg'+i,'line',{'stroke-width':2.5});\nif(i<3)el('open'+i,'circle',{cx:px(hi),cy:py(hi*slope),r:4,fill:paper,stroke:teal,'stroke-width':1.5});\nif(i>0)el('closed'+i,'circle',{cx:px(lo),cy:py(lo*slope),r:3.5,fill:teal,stroke:paper,'stroke-width':1});}\nline('cursor',px(a),B,px(a),py(b),amber,'3 3');\nconst cur=ranges.find(r=>a>=r[0]&&a<r[1])||ranges[3],da=Math.min(mobile?32:50,a-cur[0],cur[1]-a);\nline('tangent',px(a-da),py((a-da)*k),px(a+da),py((a+da)*k),amber);el('tangent','line',{'stroke-width':4});\nel('point','circle',{cx:px(a),cy:py(b),r:5.5,fill:amber,stroke:paper,'stroke-width':2});\nconst infoY=mobile?346:330;\ntxt('value',L,infoY,'a = '+a+'   →   f(a) = '+fmt(b),17,ink);\ntxt('slope',L,infoY+29,'当前路径斜率 k = '+k+'   ·   while '+n+' 次',mobile?13:15,amber);\nconst chainY=infoY+54,chainW=R-L,unit=chainW/5;\nfor(let i=0;i<5;i++){\nconst active=i<=n;el('chainbox'+i,'circle',{cx:L+unit*(i+.5),cy:chainY+5,r:mobile?14:16,fill:active?'#daEae7':'#efeee8',stroke:active?teal:'#cdd3d0','stroke-width':1});\ntxt('chaintext'+i,L+unit*(i+.5),chainY+9,i===0?'2a':'×2',12,active?teal:'#a0aaa7','middle');\nif(i<4)line('chainline'+i,L+unit*(i+.5)+16,chainY+5,L+unit*(i+1.5)-16,chainY+5,i<n?teal:'#d9dfda');}\ntxt('boundary',L,chainY+42,boundary?'跳点：k 是执行路径梯度；此处无经典导数':'空心端点不取；实心端点属于右侧分支',mobile?12:13,boundary?amber:muted);\nreturn {a,f:b,initialMultiplier:2,whileIterations:n,k,executedPathGradient:k,ratio:b/a,atDiscontinuity:boundary,classicalDerivativeExists:!boundary,positiveBranch:true,displayDomain:[80,650],jumpLocations:[125,250,500],limits:'Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions.'};\n}"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "figures": [
+    {
+      "id": "minimum-shifts",
+      "title": "惩罚怎样移动最低点",
+      "afterAnchor": "weight-decay-011",
+      "endAnchor": "weight-decay-011",
+      "height": 360,
+      "mobileHeight": 390,
+      "interaction": "parameters",
+      "summary": "单样本 x=1、y=2，偏置固定为0；空心点是无惩罚最低点，实心点是当前总目标最低点。",
+      "params": [
+        {
+          "key": "lambda",
+          "label": "惩罚强度 λ",
+          "min": 0,
+          "max": 1.5,
+          "step": 0.05,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n  const C=VisualBook.palette, lam=params.lambda;\n  const data=w=>0.5*(w-2)*(w-2), penalty=w=>0.5*lam*w*w, total=w=>data(w)+penalty(w);\n  const optimum=2/(1+lam), mobile=width<500;\n  const labels=[['data','数据损失',C.blue],['penalty','惩罚',C.orange],['total','总目标',C.ink]];\n  labels.forEach((q,i)=>{let x=mobile?10+i*105:30+i*170;board.line('legend-'+q[0],x,20,x+20,20,q[2],2.5);board.text('legend-text-'+q[0],q[1],x+27,25,{size:14,color:q[2]});});\n  const f=board.axes('loss-axes',{xDomain:[-0.5,2.5],yDomain:[0,5.3],xLabel:'',yLabel:'',box:[48,72,width-25,height-100],grid:false});\n  board.text('y-axis-label','目标值',48,57,{size:14,color:C.muted});\n  board.text('x-axis-label','权重 w',width-25,height-58,{size:14,color:C.muted,anchor:'end'});\n  const xs=Array.from({length:151},(_,i)=>-0.5+3*i/150);\n  board.curve('data-curve',f,xs.map(w=>[w,data(w)]),{color:C.blue,width:2});\n  board.curve('penalty-curve',f,xs.map(w=>[w,penalty(w)]),{color:C.orange,width:2});\n  board.curve('total-curve',f,xs.map(w=>[w,total(w)]),{color:C.ink,width:2.6});\n  board.line('minimum-guide',f.x(optimum),f.y(0),f.x(optimum),f.y(total(optimum)),C.muted,1,0.65);\n  board.mark('unregularized-minimum','circle',{cx:f.x(2),cy:f.y(0),r:4,fill:C.paper,stroke:C.blue,'stroke-width':2});\n  board.circle('regularized-minimum',f.x(optimum),f.y(total(optimum)),5,C.ink);\n  board.text('minimum-value','最优 w = '+optimum.toFixed(2),mobile?12:30,height-25,{size:16,color:C.ink});\n  board.text('minimum-losses','数据 '+data(optimum).toFixed(3)+'  ·  惩罚 '+penalty(optimum).toFixed(3),mobile?12:width-28,mobile?height-3:height-25,{size:14,color:C.muted,anchor:mobile?'start':'end'});\n  return {example:{x:1,y:2,bias:0},lambda:lam,optimum,dataLoss:data(optimum),penalty:penalty(optimum),totalLoss:total(optimum),derivativeAtOptimum:(optimum-2)+lam*optimum,unregularizedOptimum:2};\n}"
+    },
+    {
+      "id": "one-update",
+      "title": "一步更新，两种作用",
+      "afterAnchor": "weight-decay-015",
+      "endAnchor": "weight-decay-016",
+      "height": 370,
+      "mobileHeight": 390,
+      "interaction": "parameters",
+      "summary": "手选旧权重 (2,1)、旧位置的数据梯度 (−1,2)；两支箭头分解同一次 SGD 更新。",
+      "params": [
+        {
+          "key": "lambda",
+          "label": "衰减强度 λ",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "value": 0.5
+        },
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0.1,
+          "max": 0.6,
+          "step": 0.05,
+          "value": 0.4
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n  const C=VisualBook.palette, eta=params.eta,lam=params.lambda;\n  const old=[2,1],g=[-1,2],factor=1-eta*lam;\n  const shrunk=old.map(v=>factor*v),dataStep=g.map(v=>-eta*v),next=shrunk.map((v,i)=>v+dataStep[i]);\n  const mobile=width<500;\n  [['shrink','衰减步',C.orange],['data','数据步',C.blue]].forEach((q,i)=>{const x=mobile?16+i*155:30+i*180;board.line('legend-'+q[0],x,20,x+23,20,q[2],2.5);board.text('legend-label-'+q[0],q[1],x+30,25,{color:q[2],size:14});});\n  const f=board.axes('weight-space',{xDomain:[-0.2,2.9],yDomain:[-0.9,1.45],equalUnits:true,xLabel:'',yLabel:'',box:[45,78,width-27,height-105],grid:false});\n  board.text('y-axis-label','w₂',f.left,61,{size:14,color:C.muted});\n  board.text('x-axis-label','w₁',f.right,f.bottom+44,{size:14,color:C.muted,anchor:'end'});\n  board.line('zero-horizontal',f.x(0),f.y(0),f.right,f.y(0),C.faint,1);\n  board.line('zero-vertical',f.x(0),f.top,f.x(0),f.bottom,C.faint,1);\n  board.vector('old-vector',f,[0,0],old,{color:C.muted});\n  board.vector('shrink-step',f,old,shrunk,{color:C.orange});\n  board.vector('data-step',f,shrunk,next,{color:C.blue});\n  board.mark('old-point','circle',{cx:f.x(old[0]),cy:f.y(old[1]),r:4,fill:C.paper,stroke:C.muted,'stroke-width':2});\n  board.circle('shrunk-point',f.x(shrunk[0]),f.y(shrunk[1]),3,C.orange);\n  board.circle('next-point',f.x(next[0]),f.y(next[1]),5,C.ink);\n  board.text('old-label','旧',f.x(old[0])+10,f.y(old[1])-10,{size:14,color:C.muted});\n  board.text('new-label','新',f.x(next[0])+10,f.y(next[1])+(next[1]<-0.55?-14:20),{size:14,color:C.ink});\n  board.text('factor','收缩系数 '+factor.toFixed(2),mobile?12:30,height-32,{size:15,color:C.orange});\n  board.text('norm','范数 2.236 → '+Math.hypot(...next).toFixed(3),mobile?12:width-28,mobile?height-9:height-32,{size:15,color:C.ink,anchor:mobile?'start':'end'});\n  return {old,dataGradient:g,eta,lambda:lam,shrinkFactor:factor,shrinkStep:old.map(v=>-eta*lam*v),shrunk,dataStep,next,oldNorm:Math.hypot(...old),nextNorm:Math.hypot(...next),convention:'旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化'};\n}"
+    }
+  ]
+}

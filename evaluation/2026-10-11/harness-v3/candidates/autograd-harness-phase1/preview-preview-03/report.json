@@ -1,0 +1,929 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/book.html",
+  "sha256": "1d7cdb399b47fdd1fc329520220d9aa8d439a182a19a8c90d863a14441aee722",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 14,
+        "rendered": 14,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "backward-seed",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "0dfab2850c8a5d44f1fbc2f33bc0ff4c07e6980d8abb396dd7c7d1bd040b5472"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0.25,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "9ccf9d6e4850ccbec104e9afbdbd3668d942d9f730235afcd001b41d6d588c53"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0.26,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "9913ad581ed37bb1341a95cb212ba8eee4dbcd0ee77a4e469b06f570c4d323c9"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0.5,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "08993fa1abbb2688aabc5d9bf85ffec0688ea56e17c2305c44d012e357e94c43"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 1,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "513a5ceb8cb38b32da7e1567451b33cf8f182f4855f6094537fa489e68a1e44b"
+            }
+          ]
+        },
+        {
+          "id": "detach-path",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "9349f1de988041fff6ca341f97c1d619c231d8b3be60b12ea1a84b4cea91b813"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0.25
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "bfcc3b4150507b0f64e150e2433abdc7daca9b7f75d89c1539b740c45af44ffb"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0.26
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "50fa74a5916d2037d18d2df3ca696f3a756d12dff72ebafeb8e0ea6dd4f9b8f5"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0.5
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "f1d7fdfa146f7cd2b872b55c9fbeff4cb20e17f2fe03bb6fd5c37fb9feba29d8"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 1
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "62353660e6f0bd21a9f81730baf8035e537232fe674703ebaab8e022ede628c5"
+            }
+          ]
+        },
+        {
+          "id": "executed-slope",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "center": 500,
+                "probe": 480,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1920,
+                "whileIterations": 1,
+                "recordedSlope": 4,
+                "classicalDerivative": 4,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "afe456dcb6004244774878305a0201703fbf63acef2c1ee0bdfeb34f5745eeef"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "center": 500,
+                "probe": 490,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1960,
+                "whileIterations": 1,
+                "recordedSlope": 4,
+                "classicalDerivative": 4,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "cbb911be96298ede2c12796566d8700f172a9bb4ad9c5a3e0c2deea1f6bff5e6"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "center": 500,
+                "probe": 490.4,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1961.6,
+                "whileIterations": 1,
+                "recordedSlope": 4,
+                "classicalDerivative": 4,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "c68ca68e251a6d3f5d9523133a474284fd034135fd67f09e82f22769b3829127"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "center": 500,
+                "probe": 500,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1000,
+                "whileIterations": 0,
+                "recordedSlope": 2,
+                "classicalDerivative": null,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "21a14776c69bfacfb521a00fb51ea6289a55e44b8a2f09cf65ce42a74887a5ce"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "center": 500,
+                "probe": 520,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1040,
+                "whileIterations": 0,
+                "recordedSlope": 2,
+                "classicalDerivative": 2,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "df87b3f9b99fc12a0943cabd6c07a9186762058953f8449642b0fcb7dddf76a3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 14,
+        "rendered": 14,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "backward-seed",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "90d7c6bb1e3156ccbc73dc574a760d0ffa23dbfc16ebbd14e76d777883154152"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0.25,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ecf6db291b0eb488799866e01d56f6c29f02a567574241cc7001f28a1fc8d6a9"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0.26,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "c1cca95fb7f8834c0ec17c36890ff902fd2ffdbf565ce7c22abf794754e01236"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 0.5,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ec38db7e662185881c73be33ec483a2f9dd7ac8157230ec3760ce63cd91e463f"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianDiagonal": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "weightedScalar": 14,
+                "markerProgress": 1,
+                "interpretation": "移动的是反传信号；梯度数值不做插值"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "c7e632ebadadda46a377a1e3772d988877afcb90de8a0321e7a84d648e8de1f4"
+            }
+          ]
+        },
+        {
+          "id": "detach-path",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "1b6e0922aa0e43a66189afdca2bb7400eed082b5b5bb1b0e6a872900736fdf1e"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0.25
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "9b6b96585b4815b710c53d655d5f85897c571c3ad855ae06c0a12772de586999"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0.26
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "e8f3025d7a20430fe45012617112b3a60a7f96e8b92564b1304ce65266bcc1e3"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 0.5
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "6de54bc310e57428bc1e53ba9d05a9cb77c73885daa34394b0ea269725671568"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "viaContribution": 8,
+                "detachedViaContribution": 0,
+                "markerProgress": 1
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "c1a290a7137d58894c85388dd6fb64663cf48281b62dc816fa5f037a6777326a"
+            }
+          ]
+        },
+        {
+          "id": "executed-slope",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "center": 500,
+                "probe": 480,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1920,
+                "whileIterations": 1,
+                "recordedSlope": 4,
+                "classicalDerivative": 4,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "87933e5da047373501538829085c6a4351da78de34faec9bc4cf86a223ed9d70"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "center": 500,
+                "probe": 490,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1960,
+                "whileIterations": 1,
+                "recordedSlope": 4,
+                "classicalDerivative": 4,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "6054a6a7281e525fcbf3c85ebc46b3d5a239503993cee8a87b8de1235f930d45"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "center": 500,
+                "probe": 490.4,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1961.6,
+                "whileIterations": 1,
+                "recordedSlope": 4,
+                "classicalDerivative": 4,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "322a2fce1e5447b323c8205c9ed98d0135c541d0e4e98131946df5c860d33397"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "center": 500,
+                "probe": 500,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1000,
+                "whileIterations": 0,
+                "recordedSlope": 2,
+                "classicalDerivative": null,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b213f8c0d713858af54bb74fa492d16edcaface33aad9c0a351fa4ce0afff79b"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "center": 500,
+                "probe": 520,
+                "probeRange": [
+                  480,
+                  520
+                ],
+                "output": 1040,
+                "whileIterations": 0,
+                "recordedSlope": 2,
+                "classicalDerivative": 2,
+                "discontinuity": 500,
+                "positiveScalarSlice": true
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "dd0a5c9d0accfe97ac0ed79ecdd57bbb62a7a09a66ffd735f77191477476e589"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-backward-seed-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-backward-seed-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-backward-seed-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-backward-seed-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-detach-path-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-detach-path-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-detach-path-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-executed-slope-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-executed-slope-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-executed-slope-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-backward-seed-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-backward-seed-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-backward-seed-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-backward-seed-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-detach-path-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-detach-path-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-detach-path-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-executed-slope-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-executed-slope-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-executed-slope-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-harness-phase1/preview-preview-03/375-page.png"
+  ],
+  "parameterAudit": {
+    "cases": 36,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  }
+}

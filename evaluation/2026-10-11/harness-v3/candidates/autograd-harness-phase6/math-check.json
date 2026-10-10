@@ -1,0 +1,477 @@
+{
+  "method": "独立 Python 解析导数与中心差分；detach差分固定u=9。非框架运行、非训练、非性能测试。",
+  "epsilon": 1e-05,
+  "tolerance": 1e-07,
+  "renderedParameterCases": 44,
+  "uniqueFigureParameterConfigurations": 9,
+  "scalarExample": {
+    "x": [
+      0.0,
+      1.0,
+      2.0,
+      3.0
+    ],
+    "y": 28,
+    "gradient": [
+      0,
+      4,
+      8,
+      12
+    ],
+    "finiteDifference": [
+      0.0,
+      4.000000000026205,
+      8.00000000005241,
+      12.000000000078613
+    ]
+  },
+  "checks": [
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 1280,
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 1280,
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 1280,
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 1280,
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 1280,
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 1280,
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 1280,
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 1280,
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 1280,
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 1280,
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 1280,
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 1280,
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 1280,
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "default",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-min",
+      "params": {
+        "i": 0
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-option-1",
+      "params": {
+        "i": 1
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-option-2",
+      "params": {
+        "i": 2
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "repeated-input",
+      "width": 375,
+      "control": "i-max",
+      "params": {
+        "i": 3
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 375,
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 375,
+      "control": "default",
+      "params": {
+        "v3": 1
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 375,
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 375,
+      "control": "v3-min",
+      "params": {
+        "v3": -1
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 375,
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "backward-seed",
+      "width": 375,
+      "control": "v3-max",
+      "params": {
+        "v3": 2
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 375,
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 375,
+      "control": "default",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 375,
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 375,
+      "control": "mode-min",
+      "params": {
+        "mode": "detach"
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 375,
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 0.5,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    },
+    {
+      "id": "detach-path",
+      "width": 375,
+      "control": "mode-max",
+      "params": {
+        "mode": "attached"
+      },
+      "progress": 1,
+      "analyticAndFiniteDifferenceChecks": "pass"
+    }
+  ],
+  "hashes": {
+    "source.md": "0a4f8f40fd7dbb673b68ad490a5846dd9e890907e4d733dfcffd7e249ea23ecc",
+    "source-map.json": "452e35b27dd700a7eb3fcc20107336b863bb76652311b4d5510d218901938c2e",
+    "book.json": "6c1885985a6fc4595d9e838155467cffbdfc35fd8a7c3991b77c50c425583546",
+    "book.html": "ebc2ca8950b38cbb48e83d47b765926e497ec402b01dc75ffa1c3b0e814ee41e"
+  },
+  "limits": "未穷举所有连续参数；此例的Jacobian是对角矩阵，不能显示一般非对角Jacobian的混合。"
+}

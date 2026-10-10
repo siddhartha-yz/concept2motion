@@ -1,0 +1,702 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/book.html",
+  "sha256": "49def53805e7125d3cd76947a30da66d23fcb65d084b390fbb341e657bbcbd90",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "timing-boundary",
+          "interaction": "timeline",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 0,
+                "completedTasks": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "591e5254e5d6084c7e36a8dd78c34f0f9bb68816a37cf29323cd7084fb83f62a"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 2.5,
+                "completedTasks": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "fa0487044d6920680fd6eefb8d4f76d681696d698aea94aa0c8b4b62791e2614"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 2.6,
+                "completedTasks": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "78b684be91778d8d33bf1043865cbdaa432b15fddc73c6a9e36c8baf35ec56dc"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 5,
+                "completedTasks": 1
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "7f95de7d8d90a0cfe89a86bf9a19460f33fd4eb86b6906a301bf02d2f45ed9d4"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 10,
+                "completedTasks": 3
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "48898166aaa77ab45d58f8c8da573a14651edb5d119a456d95a2bd1fb6cc9665"
+            }
+          ]
+        },
+        {
+          "id": "pipeline-bottleneck",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "d4f5c00fdf6badb528ad2fedb36778ea520f3e9af3f2f8a5d8964b81d4351f91"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "d4f5c00fdf6badb528ad2fedb36778ea520f3e9af3f2f8a5d8964b81d4351f91"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "d4f5c00fdf6badb528ad2fedb36778ea520f3e9af3f2f8a5d8964b81d4351f91"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "d4f5c00fdf6badb528ad2fedb36778ea520f3e9af3f2f8a5d8964b81d4351f91"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "d4f5c00fdf6badb528ad2fedb36778ea520f3e9af3f2f8a5d8964b81d4351f91"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "timing-boundary",
+          "interaction": "timeline",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 0,
+                "completedTasks": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "5db9d92f59c7f7cfa5efc3a18741547a9a134ba4873928e0d71f94555d846a38"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 2.5,
+                "completedTasks": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "0891f068470b047e5732c3462ebd83e65cfa283e71934be5bb7c56e277287bd5"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 2.6,
+                "completedTasks": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "0d98e8c6525b3b5e78c920dce1e1218c834fcad00dc2dda09c2d5b64460782a2"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 5,
+                "completedTasks": 1
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "ae9f20032ee1c4b00198674180aa373c09a9e4ea791da0b14e827a0cd9a90235"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "enqueueDuration": 1,
+                "gpuDuration": 3,
+                "taskCount": 3,
+                "gpuStarts": [
+                  1,
+                  4,
+                  7
+                ],
+                "enqueueEnd": 3,
+                "completion": 10,
+                "synchronizationWait": 7,
+                "observedTime": 10,
+                "completedTasks": 3
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "b8a270f688856f6ff12ab62573d38274b192a2d84bc056dfd64f99077423a2f9"
+            }
+          ]
+        },
+        {
+          "id": "pipeline-bottleneck",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "88b1823b49155319efe6066f75cb692799fcd47dd8ca425df496ddecefd09f8d"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "88b1823b49155319efe6066f75cb692799fcd47dd8ca425df496ddecefd09f8d"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "88b1823b49155319efe6066f75cb692799fcd47dd8ca425df496ddecefd09f8d"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "88b1823b49155319efe6066f75cb692799fcd47dd8ca425df496ddecefd09f8d"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "taskCount": 4,
+                "t1": 1,
+                "t2": 2,
+                "t3": 1,
+                "enqueueEnds": [
+                  1,
+                  2,
+                  3,
+                  4
+                ],
+                "backendStarts": [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                "backendEnds": [
+                  3,
+                  5,
+                  7,
+                  9
+                ],
+                "synchronous": 16,
+                "asynchronous": 10,
+                "exactFormula": 10,
+                "backendIdle": 1,
+                "bottleneck": "back"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "88b1823b49155319efe6066f75cb692799fcd47dd8ca425df496ddecefd09f8d"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-timing-boundary-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-timing-boundary-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-timing-boundary-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-timing-boundary-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-pipeline-bottleneck-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-pipeline-bottleneck-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-pipeline-bottleneck-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-timing-boundary-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-timing-boundary-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-timing-boundary-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-timing-boundary-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-pipeline-bottleneck-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-pipeline-bottleneck-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-pipeline-bottleneck-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/preview-preview-03/375-page.png"
+  ],
+  "status": "completed",
+  "parameterAudit": {
+    "cases": 40,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  }
+}

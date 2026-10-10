@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "读取最终preview-preview-02/report.json的20个实际帧facts，独立按均匀区间长度/20核对两尾与零点概率，总和为1；默认τ=5得到0.25/0.5/0.25。共享图x=2、h=2w、y=2w²；核对同一w的两条边贡献均为2w，合计4w，并用中心差分ε=1e-5核对dy/dw。两个宽度的0.25/0.26 SVG哈希不同。已逐幅查看1280/375的0/1实际PNG；证据见math-check.json。",
+  "limits": "只补充两处关系。初始化图是解析混合分布，零点圆面积表示概率质量，非密度高度或抽样；共享参数图是无偏置/无激活的标量简例，不是原矩阵网络运行或训练。两轮真实预览，第一轮失败保留；最终图未发现未解决遮挡、数学或教学问题。参数边界检查24个条件，非全部参数/设备穷举；未做真实训练、硬件测量、外部学习效果研究或物理触摸测试。",
+  "html_sha256": "a602dfc52722f278fa98cf07a9b1f3d7827efddc2a15574cad0f2e6e15cc3aac",
+  "plan_sha256": "b026f3e067a9f5fcb2376b3e415a3637f7a8b24fc4660c6792ec55bee3b894cf",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

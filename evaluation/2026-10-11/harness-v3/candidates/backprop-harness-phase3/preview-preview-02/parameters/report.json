@@ -1,0 +1,661 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/book.html",
+  "sha256": "3ba3518dcfc98dfac208db9783f1fc1c6751f726e88069b7e3c60c8bfc494878",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "gradient-branches",
+      "control": "default",
+      "params": {
+        "lambda": 0.25
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0.25
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0.5,
+          0.25
+        ],
+        "totalGradient": [
+          -0.5,
+          2.25
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "912a173854af6688af1e208cba1a7ea0c65d525acf8cfd0a7aa42e424713dd37"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-branches",
+      "control": "default",
+      "params": {
+        "lambda": 0.25
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0.25
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0.5,
+          0.25
+        ],
+        "totalGradient": [
+          -0.5,
+          2.25
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "912a173854af6688af1e208cba1a7ea0c65d525acf8cfd0a7aa42e424713dd37"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-branches",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0,
+          0
+        ],
+        "totalGradient": [
+          -1,
+          2
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "3a92327e30f5984f33a2cbca214a703cc78925b3754c6f3eaa4cada4b326b843"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-branches",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0,
+          0
+        ],
+        "totalGradient": [
+          -1,
+          2
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "3a92327e30f5984f33a2cbca214a703cc78925b3754c6f3eaa4cada4b326b843"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-branches",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 1
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          2,
+          1
+        ],
+        "totalGradient": [
+          1,
+          3
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5c12c8f78c1a456ef9f2775d630b74dd880a932898664fe9738c55d7066c8135"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-branches",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 1
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          2,
+          1
+        ],
+        "totalGradient": [
+          1,
+          3
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5c12c8f78c1a456ef9f2775d630b74dd880a932898664fe9738c55d7066c8135"
+    },
+    {
+      "width": 1280,
+      "id": "activation-lifetimes",
+      "control": "default",
+      "params": {},
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "progress": 0.5,
+        "activationIds": [
+          "a₀",
+          "a₁",
+          "a₂"
+        ],
+        "births": [
+          0,
+          0.15,
+          0.3
+        ],
+        "lastBackwardReads": [
+          0.9,
+          0.75,
+          0.6
+        ],
+        "saved": [
+          true,
+          true,
+          true
+        ],
+        "savedActivationCount": 3,
+        "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1e8aa7a6cd9d74e5e8cf59a848e51a599159854c8576141c0ca1afc0666dbcd7"
+    },
+    {
+      "width": 1280,
+      "id": "activation-lifetimes",
+      "control": "default",
+      "params": {},
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "progress": 1,
+        "activationIds": [
+          "a₀",
+          "a₁",
+          "a₂"
+        ],
+        "births": [
+          0,
+          0.15,
+          0.3
+        ],
+        "lastBackwardReads": [
+          0.9,
+          0.75,
+          0.6
+        ],
+        "saved": [
+          false,
+          false,
+          false
+        ],
+        "savedActivationCount": 0,
+        "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "892e66c74d788cd23a4f480eea46b0898cfbab0e7c81000291a1eaa4a6de007b"
+    },
+    {
+      "width": 375,
+      "id": "gradient-branches",
+      "control": "default",
+      "params": {
+        "lambda": 0.25
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0.25
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0.5,
+          0.25
+        ],
+        "totalGradient": [
+          -0.5,
+          2.25
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e7baa8f7632739f7ebce4d6661f0d6492edb47ef669ecdf51b34f279b496b100"
+    },
+    {
+      "width": 375,
+      "id": "gradient-branches",
+      "control": "default",
+      "params": {
+        "lambda": 0.25
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0.25
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0.5,
+          0.25
+        ],
+        "totalGradient": [
+          -0.5,
+          2.25
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e7baa8f7632739f7ebce4d6661f0d6492edb47ef669ecdf51b34f279b496b100"
+    },
+    {
+      "width": 375,
+      "id": "gradient-branches",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0,
+          0
+        ],
+        "totalGradient": [
+          -1,
+          2
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5bded5f895a66af6a0c9b17ee5d8a1f6a91f155d1f84e8241be7335670dd2676"
+    },
+    {
+      "width": 375,
+      "id": "gradient-branches",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 0
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          0,
+          0
+        ],
+        "totalGradient": [
+          -1,
+          2
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5bded5f895a66af6a0c9b17ee5d8a1f6a91f155d1f84e8241be7335670dd2676"
+    },
+    {
+      "width": 375,
+      "id": "gradient-branches",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 1
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          2,
+          1
+        ],
+        "totalGradient": [
+          1,
+          3
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d2dbf442f3119a88b099513a3b0fdddd188b421a21ab53ce10c7c692a16f82e3"
+    },
+    {
+      "width": 375,
+      "id": "gradient-branches",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "input": {
+          "h": [
+            1,
+            -2
+          ],
+          "w": [
+            2,
+            1
+          ],
+          "y": 1,
+          "lambda": 1
+        },
+        "output": 0,
+        "upstream": -1,
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "regularizationGradient": [
+          2,
+          1
+        ],
+        "totalGradient": [
+          1,
+          3
+        ]
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d2dbf442f3119a88b099513a3b0fdddd188b421a21ab53ce10c7c692a16f82e3"
+    },
+    {
+      "width": 375,
+      "id": "activation-lifetimes",
+      "control": "default",
+      "params": {},
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "progress": 0.5,
+        "activationIds": [
+          "a₀",
+          "a₁",
+          "a₂"
+        ],
+        "births": [
+          0,
+          0.15,
+          0.3
+        ],
+        "lastBackwardReads": [
+          0.9,
+          0.75,
+          0.6
+        ],
+        "saved": [
+          true,
+          true,
+          true
+        ],
+        "savedActivationCount": 3,
+        "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "530475f6a7e7c5499c31519876e01e67709a8e4075b4e9de7130c8d679bf4946"
+    },
+    {
+      "width": 375,
+      "id": "activation-lifetimes",
+      "control": "default",
+      "params": {},
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "progress": 1,
+        "activationIds": [
+          "a₀",
+          "a₁",
+          "a₂"
+        ],
+        "births": [
+          0,
+          0.15,
+          0.3
+        ],
+        "lastBackwardReads": [
+          0.9,
+          0.75,
+          0.6
+        ],
+        "saved": [
+          false,
+          false,
+          false
+        ],
+        "savedActivationCount": 0,
+        "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d3091ba294e59382dff0c2eb614d5d8f333033416e05abc7e30505bfd2a5aaf7"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

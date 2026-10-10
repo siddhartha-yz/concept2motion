@@ -1,0 +1,20 @@
+{
+  "issues": [
+    {
+      "figureId": "query-to-prediction",
+      "condition": "1280 与 375 宽度，所有已预览状态",
+      "description": "Board.axes 在未传 xLabel/yLabel 时仍生成默认 x/y；与手动中文轴标签重复并重叠。手机两组默认 y 还共用顶端位置。"
+    },
+    {
+      "figureId": "w-controls-locality",
+      "condition": "1280 与 375 宽度，默认 w=2 与 ±4 参数端点",
+      "description": "默认 x 与手动查询 x 重复；默认 y 位于图例起点，与橙色图例线发生视觉干扰。三次预览已用完，未修复及重新验证。"
+    }
+  ],
+  "mathCheckNote": "独立 Python 使用原始 exp(-((q-x_i)w)^2/2) 归一化复算四个手选样本，核对56个(q,w)组合的非负性、权重和、输出凸包、w符号对称、w=0等权平均和等距离等权。q=2,w=1的权重显示0.17/0.48/0.33/0.02及输出2.687与实际PNG一致。h=1/|w|直接由指数配方得到，w=0单列；JS绘图公式人工检查。记录在 math-check.json。",
+  "limits": "未执行训练或原书50样本实验；曲线为121/201点采样连线。已查看两图在1280/375的0/1端点及默认中间帧，参数报告仅覆盖默认与±4。正式把手输入审计因布局发现而跳过，拖动的键盘/指针行为尚未由正式检查验证；没有物理手机触摸测试。已知标签问题未解决，不能导出为审阅通过教材。",
+  "html_sha256": "f98c50ef9a407c611b79e465f19bc7ea2e5004e91453d98ddfec88879fd89e5c",
+  "plan_sha256": "115e01f513a246a385bd5f3c97db84c594f845d89b1d30e2a34344bf6bb8bf91",
+  "ready_for_export": false,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

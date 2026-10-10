@@ -1,0 +1,35 @@
+{
+  "issues": [
+    {
+      "figureId": "secant-limit",
+      "condition": "正文 calculus-015；1280/375 上下文 PNG",
+      "description": "上游编译正文的加粗标记 ** 可见。按不修改 source 与保留编译原文要求未修复。"
+    },
+    {
+      "figureId": "secant-limit",
+      "condition": "progress=1，h=0；1280/375",
+      "description": "绘图使用解析极限2并返回 endpointConvention，界面读数仍叫“割线斜率”，未在可见文字中注明此时是极限而不是0/0。"
+    },
+    {
+      "figureId": "gradient-direction",
+      "condition": "afterAnchor=calculus-045",
+      "description": "图解插在“以下是等价的：”与 calculus-046 等价符号公式之间，打断引导句与公式的衔接；三轮后保留为锚点排布问题。"
+    },
+    {
+      "figureId": "chain-paths",
+      "condition": "afterAnchor=calculus-056",
+      "description": "图解插在“根据链式法则：”与 calculus-057 单变量公式之间，先展示两支路实例，原文衔接不够顺畅。"
+    },
+    {
+      "figureId": "chain-paths",
+      "condition": "默认 x=1,a=-2；1280/375",
+      "description": "下支路到 y 的箭头末段贴近 y 的数值 −1.00，线与负号附近视觉距离不足；自动文字重叠检查未报告此线字问题。"
+    }
+  ],
+  "mathCheckNote": "解析核对：f(1+h)−f(1)=2h+3h²，所以非零h的割线斜率=2+3h，h=0绘制解析极限2。f=x₁²+2x₂²，梯度=(2x₁,4x₂)，方向导数=∇f·d，d单位化；梯度、分量及投影按0.4比例显示，投影辅助线与方向垂直。u=x²,v=ax,y=u+v，固定a时两路径贡献2x与a，总导数2x+a。16个非零h/点/参数组合用差分独立抽查，结果见 math-checks.json；不是一般函数证明。",
+  "limits": "已进行3轮真实Chromium预览，查看每轮1280/375图片，最终用inspect_frame查看3图×2宽×0/1共12个端点。后两图是参数探索，0/1不产生时间变化。有限进度与参数抽查不覆盖全部组合；没有真实读者教学效果验证，不自评分。原文矩阵梯度约定、多元一般证明和优化收敛性未扩展；source.md保持原哈希；source.json仅由编译器使用。上述已知问题保留，未导出动图。",
+  "html_sha256": "30e8442451acd1537ab4db16146875655fc7dd560132ea34725654d40f7dddb2",
+  "plan_sha256": "60bcd9aaed2a96d410da6df98ac0baf554565a44598a6bbbaa68e0e092e7f22d",
+  "ready_for_export": false,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

@@ -1,0 +1,1701 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/book.html",
+  "sha256": "6ba2f58fd3af00fe881756503e0160c32ed8a9db17a7f8d9d7d89e3de47ed3b8",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "minimum-shifts",
+      "control": "default",
+      "params": {
+        "lambda": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0.5,
+        "optimum": 1.3333333333333333,
+        "dataLoss": 0.22222222222222227,
+        "penalty": 0.4444444444444444,
+        "totalLoss": 0.6666666666666667,
+        "derivativeAtOptimum": -1.1102230246251565e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9bf9923b68a9da9358ef02b1c11b741296c25709d5eb30afa40b230978158f0a"
+    },
+    {
+      "width": 1280,
+      "id": "minimum-shifts",
+      "control": "default",
+      "params": {
+        "lambda": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0.5,
+        "optimum": 1.3333333333333333,
+        "dataLoss": 0.22222222222222227,
+        "penalty": 0.4444444444444444,
+        "totalLoss": 0.6666666666666667,
+        "derivativeAtOptimum": -1.1102230246251565e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9bf9923b68a9da9358ef02b1c11b741296c25709d5eb30afa40b230978158f0a"
+    },
+    {
+      "width": 1280,
+      "id": "minimum-shifts",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0,
+        "optimum": 2,
+        "dataLoss": 0,
+        "penalty": 0,
+        "totalLoss": 0,
+        "derivativeAtOptimum": 0,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "edf8879be08b6ba29e1afd9d9b2a84ad92915bb540bbbcdc68891a5604a24006"
+    },
+    {
+      "width": 1280,
+      "id": "minimum-shifts",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0,
+        "optimum": 2,
+        "dataLoss": 0,
+        "penalty": 0,
+        "totalLoss": 0,
+        "derivativeAtOptimum": 0,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "edf8879be08b6ba29e1afd9d9b2a84ad92915bb540bbbcdc68891a5604a24006"
+    },
+    {
+      "width": 1280,
+      "id": "minimum-shifts",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 1.5,
+        "optimum": 0.8,
+        "dataLoss": 0.72,
+        "penalty": 0.4800000000000001,
+        "totalLoss": 1.2000000000000002,
+        "derivativeAtOptimum": 2.220446049250313e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "45d6bfdcc490973f5c898ae5901c8fdf9a387cf63e324485bb0999bb569d493a"
+    },
+    {
+      "width": 1280,
+      "id": "minimum-shifts",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 1.5,
+        "optimum": 0.8,
+        "dataLoss": 0.72,
+        "penalty": 0.4800000000000001,
+        "totalLoss": 1.2000000000000002,
+        "derivativeAtOptimum": 2.220446049250313e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "45d6bfdcc490973f5c898ae5901c8fdf9a387cf63e324485bb0999bb569d493a"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "default",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0.5,
+        "shrinkFactor": 0.8,
+        "shrinkStep": [
+          -0.4,
+          -0.2
+        ],
+        "shrunk": [
+          1.6,
+          0.8
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2,
+          0
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3859a972df4b24bfd6c0e358d5db99d7f258c9c31c71645e26107803b5b7477d"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "default",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0.5,
+        "shrinkFactor": 0.8,
+        "shrinkStep": [
+          -0.4,
+          -0.2
+        ],
+        "shrunk": [
+          1.6,
+          0.8
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2,
+          0
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3859a972df4b24bfd6c0e358d5db99d7f258c9c31c71645e26107803b5b7477d"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2.4,
+          0.19999999999999996
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.408318915758459,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f98902d22a11c66ede6d3b3dec74d943fe59cfa8518e87a47570ff76c1874c9f"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2.4,
+          0.19999999999999996
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.408318915758459,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f98902d22a11c66ede6d3b3dec74d943fe59cfa8518e87a47570ff76c1874c9f"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 1,
+        "shrinkFactor": 0.6,
+        "shrinkStep": [
+          -0.8,
+          -0.4
+        ],
+        "shrunk": [
+          1.2,
+          0.6
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          1.6,
+          -0.20000000000000007
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cf3411e26d6dd88d005e212fae62d30250ff2c045833ed5f85e8d63c183ef457"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 1,
+        "shrinkFactor": 0.6,
+        "shrinkStep": [
+          -0.8,
+          -0.4
+        ],
+        "shrunk": [
+          1.2,
+          0.6
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          1.6,
+          -0.20000000000000007
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cf3411e26d6dd88d005e212fae62d30250ff2c045833ed5f85e8d63c183ef457"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "eta-min",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0.5,
+        "shrinkFactor": 0.95,
+        "shrinkStep": [
+          -0.1,
+          -0.05
+        ],
+        "shrunk": [
+          1.9,
+          0.95
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2,
+          0.75
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.1360009363293826,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b44c2be36dc134ec9cd747140acdac5ed866ef7f4387c398e26b4aac82051fab"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "eta-min",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0.5,
+        "shrinkFactor": 0.95,
+        "shrinkStep": [
+          -0.1,
+          -0.05
+        ],
+        "shrunk": [
+          1.9,
+          0.95
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2,
+          0.75
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.1360009363293826,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b44c2be36dc134ec9cd747140acdac5ed866ef7f4387c398e26b4aac82051fab"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "eta-max",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 0.5,
+        "shrinkFactor": 0.7,
+        "shrinkStep": [
+          -0.6,
+          -0.3
+        ],
+        "shrunk": [
+          1.4,
+          0.7
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          2,
+          -0.5
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.0615528128088303,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0a8426f01edc6bb8c54f2c858a8fc4a565a783730cf9ae7e0c284f95fb6d1b6f"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "eta-max",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 0.5,
+        "shrinkFactor": 0.7,
+        "shrinkStep": [
+          -0.6,
+          -0.3
+        ],
+        "shrunk": [
+          1.4,
+          0.7
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          2,
+          -0.5
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.0615528128088303,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0a8426f01edc6bb8c54f2c858a8fc4a565a783730cf9ae7e0c284f95fb6d1b6f"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "all-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2.1,
+          0.8
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.247220505424423,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c4a668a138e511527ce773497af07dab74317b1970f3f19b813230ec3149ce04"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "all-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2.1,
+          0.8
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.247220505424423,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c4a668a138e511527ce773497af07dab74317b1970f3f19b813230ec3149ce04"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "all-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 1,
+        "shrinkFactor": 0.4,
+        "shrinkStep": [
+          -1.2,
+          -0.6
+        ],
+        "shrunk": [
+          0.8,
+          0.4
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          1.4,
+          -0.7999999999999999
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "dd5cbd54ad33650a349d63566d712dfd003dd186a56f8a8e0d42f6cb1e20d021"
+    },
+    {
+      "width": 1280,
+      "id": "one-update",
+      "control": "all-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 1,
+        "shrinkFactor": 0.4,
+        "shrinkStep": [
+          -1.2,
+          -0.6
+        ],
+        "shrunk": [
+          0.8,
+          0.4
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          1.4,
+          -0.7999999999999999
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "dd5cbd54ad33650a349d63566d712dfd003dd186a56f8a8e0d42f6cb1e20d021"
+    },
+    {
+      "width": 375,
+      "id": "minimum-shifts",
+      "control": "default",
+      "params": {
+        "lambda": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0.5,
+        "optimum": 1.3333333333333333,
+        "dataLoss": 0.22222222222222227,
+        "penalty": 0.4444444444444444,
+        "totalLoss": 0.6666666666666667,
+        "derivativeAtOptimum": -1.1102230246251565e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b0b35fcc5e87ba4940a9697a25b44d444e41c5a93abc2a12fba49996b4351217"
+    },
+    {
+      "width": 375,
+      "id": "minimum-shifts",
+      "control": "default",
+      "params": {
+        "lambda": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0.5,
+        "optimum": 1.3333333333333333,
+        "dataLoss": 0.22222222222222227,
+        "penalty": 0.4444444444444444,
+        "totalLoss": 0.6666666666666667,
+        "derivativeAtOptimum": -1.1102230246251565e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b0b35fcc5e87ba4940a9697a25b44d444e41c5a93abc2a12fba49996b4351217"
+    },
+    {
+      "width": 375,
+      "id": "minimum-shifts",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0,
+        "optimum": 2,
+        "dataLoss": 0,
+        "penalty": 0,
+        "totalLoss": 0,
+        "derivativeAtOptimum": 0,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9a6358c9b296238887d7cd3c5f3d4c91c5ba60d49b57d33130af6a5bdf66d14a"
+    },
+    {
+      "width": 375,
+      "id": "minimum-shifts",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 0,
+        "optimum": 2,
+        "dataLoss": 0,
+        "penalty": 0,
+        "totalLoss": 0,
+        "derivativeAtOptimum": 0,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9a6358c9b296238887d7cd3c5f3d4c91c5ba60d49b57d33130af6a5bdf66d14a"
+    },
+    {
+      "width": 375,
+      "id": "minimum-shifts",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 1.5,
+        "optimum": 0.8,
+        "dataLoss": 0.72,
+        "penalty": 0.4800000000000001,
+        "totalLoss": 1.2000000000000002,
+        "derivativeAtOptimum": 2.220446049250313e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "55b98e1a797a805cc8d13715368dd3a23ab99dc8ff77afefd20da668412f42eb"
+    },
+    {
+      "width": 375,
+      "id": "minimum-shifts",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": {
+          "x": 1,
+          "y": 2,
+          "bias": 0
+        },
+        "lambda": 1.5,
+        "optimum": 0.8,
+        "dataLoss": 0.72,
+        "penalty": 0.4800000000000001,
+        "totalLoss": 1.2000000000000002,
+        "derivativeAtOptimum": 2.220446049250313e-16,
+        "unregularizedOptimum": 2
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "55b98e1a797a805cc8d13715368dd3a23ab99dc8ff77afefd20da668412f42eb"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "default",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0.5,
+        "shrinkFactor": 0.8,
+        "shrinkStep": [
+          -0.4,
+          -0.2
+        ],
+        "shrunk": [
+          1.6,
+          0.8
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2,
+          0
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e5408cfef2129f1106392903009fbc7e1abe9310a8c66937f898c1a371ce0d2c"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "default",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0.5,
+        "shrinkFactor": 0.8,
+        "shrinkStep": [
+          -0.4,
+          -0.2
+        ],
+        "shrunk": [
+          1.6,
+          0.8
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2,
+          0
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e5408cfef2129f1106392903009fbc7e1abe9310a8c66937f898c1a371ce0d2c"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2.4,
+          0.19999999999999996
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.408318915758459,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4e0b699887dcadd73f683268bfaf7568efae2e39673789f05f19d46cef748c2a"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "lambda-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          2.4,
+          0.19999999999999996
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.408318915758459,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4e0b699887dcadd73f683268bfaf7568efae2e39673789f05f19d46cef748c2a"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 1,
+        "shrinkFactor": 0.6,
+        "shrinkStep": [
+          -0.8,
+          -0.4
+        ],
+        "shrunk": [
+          1.2,
+          0.6
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          1.6,
+          -0.20000000000000007
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "785be89a883100da997368f2cb4b437b7f919defcbc2930f2f807bd0d6d6a709"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "lambda-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.4,
+        "lambda": 1,
+        "shrinkFactor": 0.6,
+        "shrinkStep": [
+          -0.8,
+          -0.4
+        ],
+        "shrunk": [
+          1.2,
+          0.6
+        ],
+        "dataStep": [
+          0.4,
+          -0.8
+        ],
+        "next": [
+          1.6,
+          -0.20000000000000007
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "785be89a883100da997368f2cb4b437b7f919defcbc2930f2f807bd0d6d6a709"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "eta-min",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0.5,
+        "shrinkFactor": 0.95,
+        "shrinkStep": [
+          -0.1,
+          -0.05
+        ],
+        "shrunk": [
+          1.9,
+          0.95
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2,
+          0.75
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.1360009363293826,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fbc6a9275918e6223da0bad05084558f9daa000b1f8b7963ab8a4e85af580a25"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "eta-min",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0.5,
+        "shrinkFactor": 0.95,
+        "shrinkStep": [
+          -0.1,
+          -0.05
+        ],
+        "shrunk": [
+          1.9,
+          0.95
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2,
+          0.75
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.1360009363293826,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fbc6a9275918e6223da0bad05084558f9daa000b1f8b7963ab8a4e85af580a25"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "eta-max",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 0.5,
+        "shrinkFactor": 0.7,
+        "shrinkStep": [
+          -0.6,
+          -0.3
+        ],
+        "shrunk": [
+          1.4,
+          0.7
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          2,
+          -0.5
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.0615528128088303,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8174d99ea04e47f6ec1587094bb3cc205647c819fbbe5c3b32f6fc4524d7ff8c"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "eta-max",
+      "params": {
+        "lambda": 0.5,
+        "eta": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 0.5,
+        "shrinkFactor": 0.7,
+        "shrinkStep": [
+          -0.6,
+          -0.3
+        ],
+        "shrunk": [
+          1.4,
+          0.7
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          2,
+          -0.5
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.0615528128088303,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8174d99ea04e47f6ec1587094bb3cc205647c819fbbe5c3b32f6fc4524d7ff8c"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "all-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2.1,
+          0.8
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.247220505424423,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2c4d0df40d9b585fc8c0409710d95914d4afd38f1d8ada54c84c1889b10c50cf"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "all-min",
+      "params": {
+        "lambda": 0,
+        "eta": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.1,
+        "lambda": 0,
+        "shrinkFactor": 1,
+        "shrinkStep": [
+          0,
+          0
+        ],
+        "shrunk": [
+          2,
+          1
+        ],
+        "dataStep": [
+          0.1,
+          -0.2
+        ],
+        "next": [
+          2.1,
+          0.8
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 2.247220505424423,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2c4d0df40d9b585fc8c0409710d95914d4afd38f1d8ada54c84c1889b10c50cf"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "all-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 1,
+        "shrinkFactor": 0.4,
+        "shrinkStep": [
+          -1.2,
+          -0.6
+        ],
+        "shrunk": [
+          0.8,
+          0.4
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          1.4,
+          -0.7999999999999999
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a9346b419bc07b631c4f0b4c5faa062bfa6b4bd5bc8db8031e2a452487b0408b"
+    },
+    {
+      "width": 375,
+      "id": "one-update",
+      "control": "all-max",
+      "params": {
+        "lambda": 1,
+        "eta": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "old": [
+          2,
+          1
+        ],
+        "dataGradient": [
+          -1,
+          2
+        ],
+        "eta": 0.6,
+        "lambda": 1,
+        "shrinkFactor": 0.4,
+        "shrinkStep": [
+          -1.2,
+          -0.6
+        ],
+        "shrunk": [
+          0.8,
+          0.4
+        ],
+        "dataStep": [
+          0.6,
+          -1.2
+        ],
+        "next": [
+          1.4,
+          -0.7999999999999999
+        ],
+        "oldNorm": 2.23606797749979,
+        "nextNorm": 1.6124515496597098,
+        "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a9346b419bc07b631c4f0b4c5faa062bfa6b4bd5bc8db8031e2a452487b0408b"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

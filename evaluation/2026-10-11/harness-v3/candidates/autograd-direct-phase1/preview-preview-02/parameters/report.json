@@ -1,0 +1,1197 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/book.html",
+  "sha256": "a7a6b7102482100f17ac53f659fdc7f371520643c50e2f33e30d34528aa1f91b",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 2.25,
+        "tangentDeltaL": 2,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "4859c2731895834e63b26bf1464a58221ff693deeedb92c3ef4f505b6b4e0c87"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "aa3474054f3993029ab6091b9b38cf5af379f490ce6d7af0bf757a20961e463d"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": -2.25,
+        "tangentDeltaL": -2,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "76c483067058da1d9436f7c1ce2c69f9ffe69a76361a6d4cb19a64689e9dae76"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": -5,
+        "tangentDeltaL": -4,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1fd5cafed3872669013e385151756bd1621543daa864661c894930a138c3dc57"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 4.5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e10ced204cf6132dcf48936d8770a84ddf77d7202a710f63890cd9cdcb7e9ee8"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 10,
+        "tangentDeltaL": 8,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "4c540109e8c82b7fa545db8652e350b1b4759447bb777c180b3e2193668a448e"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "fullIndirectSignalProgress": 0.5,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "00b2a8f39d4af91add371ba9b64e97bcbc46de490ed260b437d18773debabc99"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "fullIndirectSignalProgress": 1,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "3e83ce4b345f6ae361bfd0c6cc32dc0f83a808a155b75d39289653f173c52755"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "fullIndirectSignalProgress": 0.5,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "293d728d9f439b4c0a5cd49e12170bf8955b429db3f3db3256b379f07240b654"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "fullIndirectSignalProgress": 1,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "bf38e6219d00063ec86cd32f47af8d5a010430b612249f9d1e17a48067237ec8"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 0.5,
+        "fullIndirectSignalProgress": 0.5,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "ad2d3c00491721d9897045427a38313da2ff7a94f7f43db3bbbffdfac11c7cdb"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 1,
+        "fullIndirectSignalProgress": 1,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "46b0a317f99ebc5c04d204989aa9213d8e5bdb42b69f9c11c90d7cc2f4de837a"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 245,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1960,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 1960,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "2d5b757b075860defa7b71c885aa2b4983f071796da8e42c001d1e2f2b322e12"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 260,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1040,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "887189ceb78733d4679905451efd1d15dd20c8b073ab1fa2eb2aae73a633da21"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 115,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1840,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "baseGraphExtrapolation": 1840,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6e86e6050fd2a93ee39ca590f98c3420f92ed6e102e7e28c626b463527f6031c"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 130,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1040,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "76827426b1744869a039f099a532146b94242d63ccb6be298398f64a8117bb25"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 315,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1260,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1260,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "f29ffcd2122d33b5a66280d95401ede0726692196270553ab4c2d6edd5292e2b"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 330,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1320,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1320,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "9a5732379fab545bfa5af71c7abfc39966113204094bf831332c29e9ebe2d5d4"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 2.25,
+        "tangentDeltaL": 2,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "ffde748a858a9a45d3dde59e9e2026e1ea63f7b15e345a38e7dbf83753c9bdd5"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5772cef279f874c519b7a537f896fccc241ec9db89cde9cc247b7664403b7838"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": -2.25,
+        "tangentDeltaL": -2,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "58915b71e5239acfae64dde787a4c00d9a30ccf62c87744f980559c9b1cbc656"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": -5,
+        "tangentDeltaL": -4,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "331951d7ed70cd3f66f813c61c7edfbea03f0458eabb17caca9e3950127d3353"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 4.5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6ae318574da73e63ed3093af2f5ca12a7aca4de11af3a7bb7ec1ad58604c4d3a"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 10,
+        "tangentDeltaL": 8,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "223a3406136db5cc8d7a23703bbedfc965d36073e0ea14f36231ff367c9831b3"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "fullIndirectSignalProgress": 0.5,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "9b52ce92c2ec21d874724156a64f11d6da75f83c965259487e24aa9a455d555a"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "fullIndirectSignalProgress": 1,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "a669a074d7f301d2f6bc8e0b3ae60f326235743127468b99a49acd51f0449378"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "fullIndirectSignalProgress": 0.5,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "f67fcc2e397811d21b1f3c71b73e685a5437de339bdeb4878603b7651f728017"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "fullIndirectSignalProgress": 1,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "2f2aa940cfdd0eea9cf2ace186fcc0710974791f945df527a6a814d8daa361af"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 0.5,
+        "fullIndirectSignalProgress": 0.5,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "520933f53745b23fe46a4b02d6771314d6c24ae861c81f51b77b42d758776b32"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 1,
+        "fullIndirectSignalProgress": 1,
+        "detachedIndirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "62fdaaeaf3d13974c64cd56615df530424e2c1d58375d7d78b417ac39b838888"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 245,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1960,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 1960,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "14c484b85ead0ee425c41cd6b5a1dd0178f74b2b867a174aeb298ab0cd5299ef"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 260,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1040,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d73f1c7641472535a4447ee65b4048673d0c14c0d41fa74918342c3100e21538"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 115,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1840,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "baseGraphExtrapolation": 1840,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "4bbf8ad28539236aa365925bf50dae857e90acd15aa30653d9ed58f53a319002"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 130,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1040,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "50fcb92ee77f9646c7147c5fdc8c58d0e1944936ad021cdd30b9e93d3ac620c2"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 315,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1260,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1260,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "7bc66276133de85b6b7dd2b2d840999da9e56038fcb9c664b7577c40e2a93a90"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 330,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1320,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1320,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "81bd8263880ad61f9f5ba94e815a683c277918770309795ed98b9604e1ad85ec"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

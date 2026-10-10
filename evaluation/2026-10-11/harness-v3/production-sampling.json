@@ -1,0 +1,51 @@
+{
+  "seed": "8240298716064110624",
+  "algorithm": "random.Random(seed).choice in fixed math/ml/dl/program order; no reselection",
+  "tool_commit": "5ca03d7",
+  "upstream_commit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sections": [
+    {
+      "stratum": "adam",
+      "domain": "math",
+      "pool": [
+        "chapter_optimization/momentum.md",
+        "chapter_optimization/adagrad.md",
+        "chapter_optimization/adadelta.md",
+        "chapter_optimization/adam.md"
+      ],
+      "selected": "chapter_optimization/adam.md",
+      "source_sha256": "03c6a4284da9fc8a513c795dbbfd4d9641dea277ece95d2bc977352da63489f5"
+    },
+    {
+      "stratum": "softmax-regression",
+      "domain": "ml",
+      "pool": [
+        "chapter_linear-networks/softmax-regression.md"
+      ],
+      "selected": "chapter_linear-networks/softmax-regression.md",
+      "source_sha256": "f4cb4e6a80f2de4e76e9ec65d5fd18874f497b6087e07ccf124125a1f952f89d"
+    },
+    {
+      "stratum": "multihead-attention",
+      "domain": "dl",
+      "pool": [
+        "chapter_multilayer-perceptrons/dropout.md",
+        "chapter_attention-mechanisms/multihead-attention.md"
+      ],
+      "selected": "chapter_attention-mechanisms/multihead-attention.md",
+      "source_sha256": "992b15cd04af70c15cc110d2166f553aecdc09b6c752e51ae1804e57e416157d"
+    },
+    {
+      "stratum": "custom-layer",
+      "domain": "program",
+      "pool": [
+        "chapter_deep-learning-computation/custom-layer.md",
+        "chapter_deep-learning-computation/deferred-init.md",
+        "chapter_deep-learning-computation/read-write.md"
+      ],
+      "selected": "chapter_deep-learning-computation/custom-layer.md",
+      "source_sha256": "294224907c991fd7b6dc7d0b9da7b19676071a226af5e7a14a32336f53239990"
+    }
+  ],
+  "limits": "Four new generated chapters, not developer-blind inputs. ML pool has one candidate. New production policy, no paired efficacy claim."
+}

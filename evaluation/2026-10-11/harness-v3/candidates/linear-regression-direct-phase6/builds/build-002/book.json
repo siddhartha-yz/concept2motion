@@ -1,0 +1,119 @@
+{
+  "figures": [
+    {
+      "id": "rows-to-predictions",
+      "title": "矩阵乘法：每行一份预测，偏置逐行相加",
+      "afterAnchor": "linear-regression-020",
+      "endAnchor": "linear-regression-020",
+      "height": 390,
+      "mobileHeight": 390,
+      "interaction": "parameters",
+      "summary": "选择一行或调整权重，观察带符号的贡献如何合成该行的预测。",
+      "params": [
+        {
+          "key": "row",
+          "label": "查看样本",
+          "kind": "select",
+          "value": 0,
+          "options": [
+            {
+              "value": 0,
+              "label": "第 1 行"
+            },
+            {
+              "value": 1,
+              "label": "第 2 行"
+            },
+            {
+              "value": 2,
+              "label": "第 3 行"
+            }
+          ]
+        },
+        {
+          "key": "w1",
+          "label": "权重 w₁",
+          "min": -1,
+          "max": 3,
+          "step": 0.25,
+          "value": 2
+        },
+        {
+          "key": "w2",
+          "label": "权重 w₂",
+          "min": -2,
+          "max": 2,
+          "step": 0.25,
+          "value": -1
+        },
+        {
+          "key": "bias",
+          "label": "偏置 b",
+          "min": -2,
+          "max": 2,
+          "step": 0.25,
+          "value": 1
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const NS='http://www.w3.org/2000/svg';\n const ink='#243743', muted='#617580', grid='#dce5e7', teal='#087f83', orange='#bc602d';\n function el(id,tag,attrs={},txt){let n=svg.querySelector('[data-key=\"'+id+'\"]'); if(!n){n=document.createElementNS(NS,tag); n.setAttribute('data-key',id);svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(txt!==undefined)n.textContent=txt;return n;}\n function text(id,x,y,t,opts={}){return el(id,'text',{x,y,fill:ink,'font-size':14,'font-family':'system-ui, sans-serif',...opts},t);}\n function line(id,x1,y1,x2,y2,opts={}){return el(id,'line',{x1,y1,x2,y2,stroke:grid,'stroke-width':1,...opts});}\n function path(id,d,opts={}){return el(id,'path',{d,fill:'none',stroke:teal,'stroke-width':2,...opts});}\n function dot(id,x,y,r,opts={}){return el(id,'circle',{cx:x,cy:y,r,fill:teal,...opts});}\n function clip(id,x,y,w,h){let defs=el(id+'-defs','defs');let c=defs.querySelector('clipPath');if(!c){c=document.createElementNS(NS,'clipPath');c.id=id;defs.appendChild(c);const r=document.createElementNS(NS,'rect');c.appendChild(r);}let r=c.firstChild;for(const [k,v] of Object.entries({x,y,width:w,height:h}))r.setAttribute(k,v);return 'url(#'+id+')';}\n function axes(id,box,xlim,ylim,xt,yt,xlabel,ylabel){const [x,y,w,h]=box;const X=v=>x+(v-xlim[0])/(xlim[1]-xlim[0])*w,Y=v=>y+h-(v-ylim[0])/(ylim[1]-ylim[0])*h;for(let i=0;i<yt.length;i++){line(id+'yg'+i,x,Y(yt[i]),x+w,Y(yt[i]));text(id+'yt'+i,x-8,Y(yt[i])+4,String(yt[i]),{'text-anchor':'end','font-size':12,fill:muted});}for(let i=0;i<xt.length;i++){line(id+'xg'+i,X(xt[i]),y,X(xt[i]),y+h,{stroke:'#edf1f2'});text(id+'xt'+i,X(xt[i]),y+h+18,String(xt[i]),{'text-anchor':'middle','font-size':12,fill:muted});}line(id+'axis',x,y+h,x+w,y+h,{stroke:muted});text(id+'xl',x+w,y+h+36,xlabel,{'text-anchor':'end','font-size':13,fill:muted});text(id+'yl',x,y-10,ylabel,{'font-size':13,fill:muted});return {X,Y};}\n const mobile=width<600; const f=v=>Math.abs(v)<0.0005?'0.00':v.toFixed(2);\n\n const X=[[1,2],[2,1],[3,0]],w=[Number(params.w1),Number(params.w2)],b=Number(params.bias),row=Number(params.row);\n const preds=X.map(a=>a[0]*w[0]+a[1]*w[1]+b),terms=[X[row][0]*w[0],X[row][1]*w[1],b];\n const top=80, gap=31;\n text('lead',18,23,'同一组权重，作用于每一行',{'font-size':16,'font-weight':600});\n const cols=mobile?[44,74,131,197,270]:[width*.16,width*.23,width*.40,width*.62,width*.83];\n const [a,c,d,e,o]=cols;\n text('Xlab',(a+c)/2,top-26,'X · 3×2',{'text-anchor':'middle',fill:muted,'font-size':12});\n text('wlab',d,top-26,'w · 2×1',{'text-anchor':'middle',fill:muted,'font-size':12});\n text('blab',e,top-26,mobile?'b × 3':'b 广播到三行',{'text-anchor':'middle',fill:muted,'font-size':12});\n text('ylab',o,top-26,'ŷ · 3×1',{'text-anchor':'middle',fill:muted,'font-size':12});\n el('rowbg','rect',{x:mobile?24:a-25,y:top+row*gap-18,width:mobile?width-45:o-a+60,height:26,rx:3,fill:'#e5f1ef'});\n // Existing objects retain their keys; the selection highlight sits behind numbers.\n if(svg.querySelector('[data-key=\"rowbg\"]'))svg.insertBefore(svg.querySelector('[data-key=\"rowbg\"]'),svg.firstChild);\n for(let i=0;i<3;i++){text('x1'+i,a,top+i*gap,X[i][0],{'text-anchor':'middle','font-size':16});text('x2'+i,c,top+i*gap,X[i][1],{'text-anchor':'middle','font-size':16});text('bb'+i,e,top+i*gap,f(b),{'text-anchor':'middle',fill:orange});text('pred'+i,o,top+i*gap,f(preds[i]),{'text-anchor':'middle',fill:teal,'font-weight':600,'font-size':16});}\n text('w1',d,top+10,f(w[0]),{'text-anchor':'middle'});text('w2',d,top+42,f(w[1]),{'text-anchor':'middle'});\n text('multiply',(c+d)/2,top+gap,'×',{'text-anchor':'middle',fill:muted});text('plus',(d+e)/2,top+gap,'+',{'text-anchor':'middle',fill:muted});text('equals',(e+o)/2,top+gap,'=',{'text-anchor':'middle',fill:muted});\n function brackets(id,l,r,y,h){path(id+'l',`M${l+6},${y}h-6v${h}h6`,{stroke:muted,'stroke-width':1.2});path(id+'r',`M${r-6},${y}h6v${h}h-6`,{stroke:muted,'stroke-width':1.2});}\n brackets('mx',a-19,c+19,top-19,84);brackets('mw',d-23,d+23,top-9,62);brackets('mb',e-25,e+25,top-19,84);brackets('my',o-25,o+25,top-19,84);\n const t=190, left=mobile?98:width*.24,right=width-72,bw=right-left;\n text('selected',18,t,'第 '+(row+1)+' 行：带符号的贡献',{'font-weight':600});\n const pos=v=>left+(v+8)/20*bw;\n for(let i=0;i<4;i++){const yy=t+28+i*26;line('base'+i,left,yy,right,yy,{stroke:'#e4eaea'});line('zero'+i,pos(0),yy-11,pos(0),yy+11,{stroke:muted});let v=i<3?terms[i]:preds[row];el('bar'+i,'rect',{x:Math.min(pos(0),pos(v)),y:yy-6,width:Math.max(1,Math.abs(pos(v)-pos(0))),height:12,rx:2,fill:i===3?teal:i===2?orange:'#91b8b8'});text('term'+i,left-10,yy+5,['x₁w₁','x₂w₂','b','合计 ŷ'][i],{'text-anchor':'end','font-size':13});text('val'+i,width-18,yy+4,f(v),{'text-anchor':'end','font-size':12,fill:i===3?teal:ink});}\n for(const v of [-8,0,12])text('tick'+v,pos(v),t+142,String(v),{'text-anchor':'middle','font-size':12,fill:muted});\n text('foot',18,height-12,'合成数字；权重与偏置由读者手选',{'font-size':12,fill:muted});\n return {example:'synthetic n=3,d=2; no trained weights',X,w,b,row,predictions:preds,terms,identity:'predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b',barDomain:[-8,12],scope:'row-wise dot product and scalar broadcast only'};\n}"
+    },
+    {
+      "id": "one-gradient-step",
+      "title": "一次更新：走多远由学习率决定",
+      "afterAnchor": "linear-regression-045",
+      "endAnchor": "linear-regression-045",
+      "height": 425,
+      "mobileHeight": 554,
+      "durationMs": 6000,
+      "initialProgress": 0,
+      "checkpoints": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "summary": "进度只插值展示同一次更新，不代表额外训练迭代。",
+      "params": [
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0.05,
+          "max": 3,
+          "step": 0.05,
+          "value": 1
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const NS='http://www.w3.org/2000/svg';\n const ink='#243743', muted='#617580', grid='#dce5e7', teal='#087f83', orange='#bc602d';\n function el(id,tag,attrs={},txt){let n=svg.querySelector('[data-key=\"'+id+'\"]'); if(!n){n=document.createElementNS(NS,tag); n.setAttribute('data-key',id);svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(txt!==undefined)n.textContent=txt;return n;}\n function text(id,x,y,t,opts={}){return el(id,'text',{x,y,fill:ink,'font-size':14,'font-family':'system-ui, sans-serif',...opts},t);}\n function line(id,x1,y1,x2,y2,opts={}){return el(id,'line',{x1,y1,x2,y2,stroke:grid,'stroke-width':1,...opts});}\n function path(id,d,opts={}){return el(id,'path',{d,fill:'none',stroke:teal,'stroke-width':2,...opts});}\n function dot(id,x,y,r,opts={}){return el(id,'circle',{cx:x,cy:y,r,fill:teal,...opts});}\n function clip(id,x,y,w,h){let defs=el(id+'-defs','defs');let c=defs.querySelector('clipPath');if(!c){c=document.createElementNS(NS,'clipPath');c.id=id;defs.appendChild(c);const r=document.createElementNS(NS,'rect');c.appendChild(r);}let r=c.firstChild;for(const [k,v] of Object.entries({x,y,width:w,height:h}))r.setAttribute(k,v);return 'url(#'+id+')';}\n function axes(id,box,xlim,ylim,xt,yt,xlabel,ylabel){const [x,y,w,h]=box;const X=v=>x+(v-xlim[0])/(xlim[1]-xlim[0])*w,Y=v=>y+h-(v-ylim[0])/(ylim[1]-ylim[0])*h;for(let i=0;i<yt.length;i++){line(id+'yg'+i,x,Y(yt[i]),x+w,Y(yt[i]));text(id+'yt'+i,x-8,Y(yt[i])+4,String(yt[i]),{'text-anchor':'end','font-size':12,fill:muted});}for(let i=0;i<xt.length;i++){line(id+'xg'+i,X(xt[i]),y,X(xt[i]),y+h,{stroke:'#edf1f2'});text(id+'xt'+i,X(xt[i]),y+h+18,String(xt[i]),{'text-anchor':'middle','font-size':12,fill:muted});}line(id+'axis',x,y+h,x+w,y+h,{stroke:muted});text(id+'xl',x+w,y+h+36,xlabel,{'text-anchor':'end','font-size':13,fill:muted});text(id+'yl',x,y-10,ylabel,{'font-size':13,fill:muted});return {X,Y};}\n const mobile=width<600; const f=v=>Math.abs(v)<0.0005?'0.00':v.toFixed(2);\n\n const eta=Number(params.eta),p=Math.max(0,Math.min(1,progress)),data=[[-1,-1],[0,1],[1,3]],start=[0,-1],g=[-4/3,-2],end=[start[0]-eta*g[0],start[1]-eta*g[1]],cur=start.map((v,i)=>v+p*(end[i]-v));\n const loss=(w,b)=>data.reduce((s,[x,y])=>s+(w*x+b-y)**2/2,0)/3;\n text('lead',18,23,'固定三点，只做一次同步更新',{'font-size':16,'font-weight':600});\n const box1=mobile?[44,65,width-66,171]:[52,65,width*.45-60,230];\n const box2=mobile?[44,336,width-66,127]:[width*.54,65,width*.46-28,230];\n const A=axes('param',box1,[-.5,4.5],[-1.5,5.5],[0,2,4],[-1,1,3,5],'权重 w','偏置 b');\n const B=axes('fit',box2,[-1.2,1.2],[-3,10],[-1,0,1],[-1,3,7],'特征 x','标签 / 预测 y');\n const cp=clip('grad-param-clip',...box1),cf=clip('grad-fit-clip',...box2);\n for(let i=0;i<6;i++){const level=[.12,.4,1,2,4,8][i],rx=Math.sqrt(3*level)/(5)*box1[2],ry=Math.sqrt(2*level)/7*box1[3];el('contour'+i,'ellipse',{cx:A.X(2),cy:A.Y(1),rx,ry,fill:'none',stroke:i%2?'#c2d5d7':'#dbe6e7','stroke-width':1,'clip-path':cp});}\n text('contourlabel',box1[0]+box1[2]-5,box1[1]+16,'橙圈：一步终点',{'text-anchor':'end','font-size':12,fill:muted});\n line('route',A.X(start[0]),A.Y(start[1]),A.X(end[0]),A.Y(end[1]),{stroke:orange,'stroke-width':2,'stroke-dasharray':'5 4'});\n dot('start',A.X(0),A.Y(-1),5,{fill:'#fff',stroke:muted,'stroke-width':2});text('startlabel',A.X(0)+9,A.Y(-1)-9,'起点',{'font-size':12,fill:muted});\n dot('end',A.X(end[0]),A.Y(end[1]),6,{fill:'#fff',stroke:orange,'stroke-width':2});\n dot('opt',A.X(2),A.Y(1),3,{fill:ink});text('optlabel',A.X(2)+7,A.Y(1)+17,'最优 (2,1)',{'font-size':12,fill:muted});\n dot('current',A.X(cur[0]),A.Y(cur[1]),6,{fill:teal,stroke:'#fff','stroke-width':2});\n path('oldline',`M${B.X(-1.2)},${B.Y(-1)}L${B.X(1.2)},${B.Y(-1)}`,{stroke:muted,'stroke-width':1.3,'stroke-dasharray':'4 4','clip-path':cf});\n path('newline',`M${B.X(-1.2)},${B.Y(cur[0]*-1.2+cur[1])}L${B.X(1.2)},${B.Y(cur[0]*1.2+cur[1])}`,{'clip-path':cf});\n for(let i=0;i<3;i++){const [x,y]=data[i];line('res'+i,B.X(x),B.Y(y),B.X(x),B.Y(cur[0]*x+cur[1]),{stroke:'#72aaaa','stroke-width':1.5,'clip-path':cf});dot('data'+i,B.X(x),B.Y(y),4,{fill:ink});dot('prediction'+i,B.X(x),B.Y(cur[0]*x+cur[1]),3,{fill:'#fff',stroke:teal,'stroke-width':1.5,'clip-path':cf});}\n const statY=mobile?283:344;\n text('stats',18,statY,`w ${f(cur[0])}   b ${f(cur[1])}   L ${f(loss(...cur))}`,{'font-size':15,'font-weight':600,fill:teal});\n text('gradnote',18,mobile?303:367,`起点梯度 (${f(g[0])}, ${f(g[1])})`,{'font-size':12,fill:muted});\n text('legend',mobile?45:box2[0],mobile?514:357,'● 标签   ○ 预测   虚线：起点模型',{'font-size':12,fill:muted});\n text('change',18,height-12,`一步终点：L ${f(loss(...start))} → ${f(loss(...end))}`,{'font-size':13,fill:loss(...end)>loss(...start)?orange:teal});\n return {example:'synthetic batch; an exact single gradient update, not a fitted model',data,start,gradient:g,eta,end,current:cur,progress:p,currentLoss:loss(...cur),startLoss:loss(...start),endLoss:loss(...end),optimum:[2,1],lossConvention:'L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2',interpolation:'current=start+p*(end-start); gradient always evaluated at start',limits:'fixed full batch of three; no stochastic sampling or generalization claim'};\n}"
+    },
+    {
+      "id": "gaussian-to-square",
+      "title": "从高斯尾部到平方惩罚",
+      "afterAnchor": "linear-regression-082",
+      "endAnchor": "linear-regression-082",
+      "height": 400,
+      "mobileHeight": 552,
+      "interaction": "parameters",
+      "summary": "固定且共享的 σ 下，整批负对数似然等于平方损失的正比例缩放加常数。",
+      "params": [
+        {
+          "key": "sigma",
+          "label": "标准差 σ",
+          "min": 0.6,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        },
+        {
+          "key": "residual",
+          "label": "残差 r",
+          "min": -2.5,
+          "max": 2.5,
+          "step": 0.1,
+          "value": 1.5
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const NS='http://www.w3.org/2000/svg';\n const ink='#243743', muted='#617580', grid='#dce5e7', teal='#087f83', orange='#bc602d';\n function el(id,tag,attrs={},txt){let n=svg.querySelector('[data-key=\"'+id+'\"]'); if(!n){n=document.createElementNS(NS,tag); n.setAttribute('data-key',id);svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(txt!==undefined)n.textContent=txt;return n;}\n function text(id,x,y,t,opts={}){return el(id,'text',{x,y,fill:ink,'font-size':14,'font-family':'system-ui, sans-serif',...opts},t);}\n function line(id,x1,y1,x2,y2,opts={}){return el(id,'line',{x1,y1,x2,y2,stroke:grid,'stroke-width':1,...opts});}\n function path(id,d,opts={}){return el(id,'path',{d,fill:'none',stroke:teal,'stroke-width':2,...opts});}\n function dot(id,x,y,r,opts={}){return el(id,'circle',{cx:x,cy:y,r,fill:teal,...opts});}\n function clip(id,x,y,w,h){let defs=el(id+'-defs','defs');let c=defs.querySelector('clipPath');if(!c){c=document.createElementNS(NS,'clipPath');c.id=id;defs.appendChild(c);const r=document.createElementNS(NS,'rect');c.appendChild(r);}let r=c.firstChild;for(const [k,v] of Object.entries({x,y,width:w,height:h}))r.setAttribute(k,v);return 'url(#'+id+')';}\n function axes(id,box,xlim,ylim,xt,yt,xlabel,ylabel){const [x,y,w,h]=box;const X=v=>x+(v-xlim[0])/(xlim[1]-xlim[0])*w,Y=v=>y+h-(v-ylim[0])/(ylim[1]-ylim[0])*h;for(let i=0;i<yt.length;i++){line(id+'yg'+i,x,Y(yt[i]),x+w,Y(yt[i]));text(id+'yt'+i,x-8,Y(yt[i])+4,String(yt[i]),{'text-anchor':'end','font-size':12,fill:muted});}for(let i=0;i<xt.length;i++){line(id+'xg'+i,X(xt[i]),y,X(xt[i]),y+h,{stroke:'#edf1f2'});text(id+'xt'+i,X(xt[i]),y+h+18,String(xt[i]),{'text-anchor':'middle','font-size':12,fill:muted});}line(id+'axis',x,y+h,x+w,y+h,{stroke:muted});text(id+'xl',x+w,y+h+36,xlabel,{'text-anchor':'end','font-size':13,fill:muted});text(id+'yl',x,y-10,ylabel,{'font-size':13,fill:muted});return {X,Y};}\n const mobile=width<600; const f=v=>Math.abs(v)<0.0005?'0.00':v.toFixed(2);\n\n const sigma=Number(params.sigma),r=Number(params.residual),density=v=>Math.exp(-v*v/(2*sigma*sigma))/(Math.sqrt(2*Math.PI)*sigma),penalty=v=>v*v/(2*sigma*sigma),constant=Math.log(2*Math.PI*sigma*sigma)/2;\n text('lead',18,23,'同一残差，在两个坐标系中',{'font-size':16,'font-weight':600});\n const a=mobile?[44,64,width-66,157]:[54,65,width*.45-62,217],b=mobile?[44,304,width-66,157]:[width*.54,65,width*.46-28,217];\n const A=axes('density',a,[-3,3],[0,.75],[-3,0,3],[0,.3,.6],'残差 r','概率密度 p(r)');\n const B=axes('penalty',b,[-3,3],[0,13],[-3,0,3],[0,6,12],'残差 r','负对数的可变项');\n const ca=clip('gauss-density-clip',...a),cb=clip('gauss-penalty-clip',...b);\n let d1='',d2='';for(let i=0;i<=180;i++){let v=-3+i/30;d1+=(i?'L':'M')+A.X(v)+','+A.Y(density(v));d2+=(i?'L':'M')+B.X(v)+','+B.Y(penalty(v));}\n path('curve1',d1,{'stroke-width':2.5,'clip-path':ca});path('curve2',d2,{stroke:orange,'stroke-width':2.5,'clip-path':cb});\n line('r1',A.X(r),A.Y(0),A.X(r),A.Y(density(r)),{stroke:teal,'stroke-dasharray':'4 3'});line('r2',B.X(r),B.Y(0),B.X(r),B.Y(penalty(r)),{stroke:orange,'stroke-dasharray':'4 3'});\n dot('point1',A.X(r),A.Y(density(r)),5,{stroke:'#fff','stroke-width':1.5});dot('point2',B.X(r),B.Y(penalty(r)),5,{fill:orange,stroke:'#fff','stroke-width':1.5});\n text('pvalue',a[0]+a[2]-5,a[1]+18,'p(r) = '+f(density(r)),{'text-anchor':'end','font-size':13,fill:teal});\n text('nllvalue',b[0]+b[2]-5,b[1]+18,'r² / (2σ²) = '+f(penalty(r)),{'text-anchor':'end','font-size':13,fill:orange});\n const yy=mobile?270:335;\n text('bridge',18,yy,'−log：密度越低，惩罚越大',{'font-weight':600,'font-size':14});\n text('constant',18,mobile?513:360,'已减去常数 ½ log(2πσ²) = '+f(constant),{'font-size':12,fill:muted});\n text('foot',18,height-12,'独立噪声；所有样本共用固定 σ',{'font-size':12,fill:muted});\n return {example:'Gaussian noise illustration; no measured likelihood',sigma,residual:r,density:density(r),excessNLL:penalty(r),constant,negativeLogDensity:-Math.log(density(r)),identity:'-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)',datasetIdentity:'for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2',limits:'equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption'};\n}"
+    }
+  ]
+}

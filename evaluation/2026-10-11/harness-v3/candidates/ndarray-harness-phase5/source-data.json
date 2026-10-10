@@ -1,0 +1,1053 @@
+{
+  "id": "ndarray",
+  "title": "数据操作",
+  "sourceName": "《动手学深度学习》",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/inputs/ndarray/chapter.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_preliminaries/ndarray.html",
+  "sourceSha256": "de933633ba5fdb5088f233e123e71ce0695ca98046d1a2d03862a52614323d1c",
+  "adaptedSha256": "de933633ba5fdb5088f233e123e71ce0695ca98046d1a2d03862a52614323d1c",
+  "license": "Apache-2.0",
+  "adaptation": {
+    "images": 0,
+    "mathExpected": 25,
+    "mathRendered": 25
+  },
+  "blocks": [
+    {
+      "id": "ndarray-001",
+      "sha256": "290ec347428996de7ca9c89c6c465267e29766d55481f44e5d23cc5f5a6ab1fd",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 数据操作",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-002",
+      "sha256": "d6916ef45e465053a8c2ae35147a5cd3508737d2093adb045d23c327d5b896f8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "为了能够完成各种数据操作，我们需要某种方法来存储和操作数据。\n通常，我们需要做两件重要的事：（1）获取数据；（2）将数据读入计算机后对其进行处理。\n如果没有某种方法来存储数据，那么获取数据是没有意义的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-003",
+      "sha256": "7dd25b08243507bee4cbd9d779f6c9905703f9d05da59945cc708a941970347b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 7,
+      "raw": "首先，我们介绍$n$维数组，也称为*张量*（tensor）。\n使用过Python中NumPy计算包的读者会对本部分很熟悉。\n无论使用哪个深度学习框架，它的*张量类*（在MXNet中为`ndarray`，\n在PyTorch和TensorFlow中为`Tensor`）都与Numpy的`ndarray`类似。\n但深度学习框架又比Numpy的`ndarray`多一些重要功能：\n首先，GPU很好地支持加速计算，而NumPy仅支持CPU计算；\n其次，张量类支持自动微分。\n这些功能使得张量类更适合深度学习。\n如果没有特殊说明，本书中所说的张量均指的是张量类的实例。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-004",
+      "sha256": "076e8a9b040b8fd87362b4d83d49fbc31f2d6af9e510b37c4053747e0fd5d934",
+      "type": "heading",
+      "depth": 2,
+      "line": 17,
+      "raw": "## 入门",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-005",
+      "sha256": "3a867ef677a266ba49919d67ca8df8ae6a400937addcb7157b44c52d3b41d835",
+      "type": "paragraph",
+      "depth": null,
+      "line": 19,
+      "raw": "本节的目标是帮助读者了解并运行一些在阅读本书的过程中会用到的基本数值计算工具。\n如果你很难理解一些数学概念或库函数，请不要担心。\n后面的章节将通过一些实际的例子来回顾这些内容。\n如果你已经具有相关经验，想要深入学习数学内容，可以跳过本节。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-006",
+      "sha256": "2e1a6982482fce39ebb59f574494ca65b99b6c0d706496c0c894e2db36ef4e22",
+      "type": "paragraph",
+      "depth": null,
+      "line": 31,
+      "raw": "**首先，我们导入`torch`。请注意，虽然它被称为PyTorch，但是代码中使用`torch`而不是`pytorch`。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-007",
+      "sha256": "1bbbb224134ebe9653a519f83a795dbe9d13a2497395cd6f44ba65e25ea4c40b",
+      "type": "code",
+      "depth": null,
+      "line": 44,
+      "raw": "```python\nimport torch\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-008",
+      "sha256": "c8fec28d18174bfe2c6f097f553e63ccf649dc5dcf181c4b2f7b67d0417e3287",
+      "type": "paragraph",
+      "depth": null,
+      "line": 60,
+      "raw": "**张量表示一个由数值组成的数组，这个数组可能有多个维度**。\n具有一个轴的张量对应数学上的*向量*（vector）；\n具有两个轴的张量对应数学上的*矩阵*（matrix）；\n具有两个轴以上的张量没有特殊的数学名称。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-009",
+      "sha256": "b753da8cb6bec392f3bbce20dad7a24ece15154d3f8a488cb1f3ec124afda57e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 69,
+      "raw": "首先，我们可以使用 `arange` 创建一个行向量 `x`。这个行向量包含以0开始的前12个整数，它们默认创建为整数。也可指定创建类型为浮点数。张量中的每个值都称为张量的 *元素*（element）。例如，张量 `x` 中有 12 个元素。除非额外指定，新的张量将存储在内存中，并采用基于CPU的计算。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-010",
+      "sha256": "4f01d0bc4f9884065592b01f305325dd27625b7196deb7eac8251055f77bdf42",
+      "type": "code",
+      "depth": null,
+      "line": 81,
+      "raw": "```python\nx = torch.arange(12)\nx\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-011",
+      "sha256": "503510e2efd19fff9ab3da60b574fc69f4914752bd1b587c6de0b52e3f2c43b4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 98,
+      "raw": "**可以通过张量的`shape`属性来访问张量（沿每个轴的长度）的*形状***\n(~~和张量中元素的总数~~)。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-012",
+      "sha256": "dbb4376a8503e930f50457a79dcd3652fed5606f6c603b90012e7cd41bd842d9",
+      "type": "code",
+      "depth": null,
+      "line": 101,
+      "raw": "```python\nx.shape\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-013",
+      "sha256": "8a6304ac2e2633e9e98aab0deec0d6ec46a0de1fd6bf321e606132a1174721c3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 105,
+      "raw": "如果只想知道张量中元素的总数，即形状的所有元素乘积，可以检查它的大小（size）。\n因为这里在处理的是一个向量，所以它的`shape`与它的`size`相同。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-014",
+      "sha256": "8645dd4db4813930e4d6e45e428764efcd8374c7a15af212d9ca57e1fe81a497",
+      "type": "code",
+      "depth": null,
+      "line": 112,
+      "raw": "```python\nx.numel()\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-015",
+      "sha256": "eeac62eda1027d951230c85dc24874ba9cb6535309ea32416bfcf1c667628e26",
+      "type": "paragraph",
+      "depth": null,
+      "line": 126,
+      "raw": "**要想改变一个张量的形状而不改变元素数量和元素值，可以调用`reshape`函数。**\n例如，可以把张量`x`从形状为（12,）的行向量转换为形状为（3,4）的矩阵。\n这个新的张量包含与转换前相同的值，但是它被看成一个3行4列的矩阵。\n要重点说明一下，虽然张量的形状发生了改变，但其元素值并没有变。\n注意，通过改变张量的形状，张量的大小不会改变。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-016",
+      "sha256": "22858d824a142f9ead86e484e3625a344713374a159e4afeb8cb3bf4f4ae9cd6",
+      "type": "code",
+      "depth": null,
+      "line": 132,
+      "raw": "```python\nX = x.reshape(3, 4)\nX\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-017",
+      "sha256": "1ca29dae7fef0ff5fe59fefbe1ed8a4efd78863abcecc012f6788553d51993af",
+      "type": "paragraph",
+      "depth": null,
+      "line": 149,
+      "raw": "我们不需要通过手动指定每个维度来改变形状。\n也就是说，如果我们的目标形状是（高度,宽度），\n那么在知道宽度后，高度会被自动计算得出，不必我们自己做除法。\n在上面的例子中，为了获得一个3行的矩阵，我们手动指定了它有3行和4列。\n幸运的是，我们可以通过`-1`来调用此自动计算出维度的功能。\n即我们可以用`x.reshape(-1,4)`或`x.reshape(3,-1)`来取代`x.reshape(3,4)`。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-018",
+      "sha256": "1324cdf9b83126cd7565517cf57052ecd719faa20949e9d1519b508f58c5e7fa",
+      "type": "paragraph",
+      "depth": null,
+      "line": 156,
+      "raw": "有时，我们希望**使用全0、全1、其他常量，或者从特定分布中随机采样的数字**来初始化矩阵。\n我们可以创建一个形状为（2,3,4）的张量，其中所有元素都设置为0。代码如下：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-019",
+      "sha256": "50433ebee5a6322477648437969ea019579facd4de8f9e564429868e5f27228c",
+      "type": "code",
+      "depth": null,
+      "line": 163,
+      "raw": "```python\ntorch.zeros((2, 3, 4))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-020",
+      "sha256": "988d5e9315f9b06dfbc01b034eb13497cab93ad35dd7f778b4e0cd8108430de3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 177,
+      "raw": "同样，我们可以创建一个形状为`(2,3,4)`的张量，其中所有元素都设置为1。代码如下：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-021",
+      "sha256": "329566f046f7e2fd5e0913cb652acef08fefde7bccf86952eea95f8b53909744",
+      "type": "code",
+      "depth": null,
+      "line": 183,
+      "raw": "```python\ntorch.ones((2, 3, 4))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-022",
+      "sha256": "73eb7590eb4c7fc8bcfc83e4f05b472c7dc0a9c4004c4ee35872a93664d400fe",
+      "type": "paragraph",
+      "depth": null,
+      "line": 197,
+      "raw": "有时我们想通过从某个特定的概率分布中随机采样来得到张量中每个元素的值。\n例如，当我们构造数组来作为神经网络中的参数时，我们通常会随机初始化参数的值。\n以下代码创建一个形状为（3,4）的张量。\n其中的每个元素都从均值为0、标准差为1的标准高斯分布（正态分布）中随机采样。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-023",
+      "sha256": "f3657d618135045ace03727e25dec0ac2325b07ef86b9db90c3c3a1898344381",
+      "type": "code",
+      "depth": null,
+      "line": 206,
+      "raw": "```python\ntorch.randn(3, 4)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-024",
+      "sha256": "c1af88b5d657ddb591bc6a96483a6773ff4d9219b484af6f2d1a2294cf469991",
+      "type": "paragraph",
+      "depth": null,
+      "line": 220,
+      "raw": "我们还可以**通过提供包含数值的Python列表（或嵌套列表），来为所需张量中的每个元素赋予确定值**。\n在这里，最外层的列表对应于轴0，内层的列表对应于轴1。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-025",
+      "sha256": "cfed243959324601a857bc52931eac24bb0e1960bef1e39a9b7d3257a20f0465",
+      "type": "code",
+      "depth": null,
+      "line": 227,
+      "raw": "```python\ntorch.tensor([[2, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-026",
+      "sha256": "c197b7db084e0c684309dae97d5bfb5bc32d07e83ccb511cba936e0878449d56",
+      "type": "heading",
+      "depth": 2,
+      "line": 241,
+      "raw": "## 运算符",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-027",
+      "sha256": "972e07cb314385abea02fb21ced94f717bb88a4a17126ee9e325deaf2276a0cb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 243,
+      "raw": "我们的兴趣不仅限于读取数据和写入数据。\n我们想在这些数据上执行数学运算，其中最简单且最有用的操作是*按元素*（elementwise）运算。\n它们将标准标量运算符应用于数组的每个元素。\n对于将两个数组作为输入的函数，按元素运算将二元运算符应用于两个数组中的每对位置对应的元素。\n我们可以基于任何从标量到标量的函数来创建按元素函数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-028",
+      "sha256": "4c604ff5618faa687915a9bcb4abea2a0653e472f60dc8e5a094e2d4f0e14291",
+      "type": "paragraph",
+      "depth": null,
+      "line": 249,
+      "raw": "在数学表示法中，我们将通过符号$f: \\mathbb{R} \\rightarrow \\mathbb{R}$\n来表示*一元*标量运算符（只接收一个输入）。\n这意味着该函数从任何实数（$\\mathbb{R}$）映射到另一个实数。\n同样，我们通过符号$f: \\mathbb{R}, \\mathbb{R} \\rightarrow \\mathbb{R}$\n表示*二元*标量运算符，这意味着该函数接收两个输入，并产生一个输出。\n给定同一形状的任意两个向量$\\mathbf{u}$和$\\mathbf{v}$和二元运算符$f$，\n我们可以得到向量$\\mathbf{c} = F(\\mathbf{u},\\mathbf{v})$。\n具体计算方法是$c_i \\gets f(u_i, v_i)$，\n其中$c_i$、$u_i$和$v_i$分别是向量$\\mathbf{c}$、$\\mathbf{u}$和$\\mathbf{v}$中的元素。\n在这里，我们通过将标量函数升级为按元素向量运算来生成向量值\n$F: \\mathbb{R}^d, \\mathbb{R}^d \\rightarrow \\mathbb{R}^d$。",
+      "math": {
+        "expected": 15,
+        "rendered": 15,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-029",
+      "sha256": "2b9ffb559264d4d771cf00c54e559a90c2556402b3381d96624f1febe992ff6c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 261,
+      "raw": "对于任意具有相同形状的张量，\n**常见的标准算术运算符（`+`、`-`、`*`、`/`和`**`）都可以被升级为按元素运算**。\n我们可以在同一形状的任意两个张量上调用按元素操作。\n在下面的例子中，我们使用逗号来表示一个具有5个元素的元组，其中每个元素都是按元素操作的结果。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-030",
+      "sha256": "babd1cbbac8b844f55269567530af8c021e5b17fcfc99409c5adf06cf6059e4e",
+      "type": "code",
+      "depth": null,
+      "line": 272,
+      "raw": "```python\nx = torch.tensor([1.0, 2, 4, 8])\ny = torch.tensor([2, 2, 2, 2])\nx + y, x - y, x * y, x / y, x ** y  # **运算符是求幂运算\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-031",
+      "sha256": "e51ca416186c92a8a687ee396f51fbe9a7e2a8d79e527e58f9ea3937e267afce",
+      "type": "paragraph",
+      "depth": null,
+      "line": 292,
+      "raw": "**“按元素”方式可以应用更多的计算**，包括像求幂这样的一元运算符。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-032",
+      "sha256": "facfc4681c8e391f2af7152b14d8de219cc633cfe5dec7f3b7d576e3aa788994",
+      "type": "code",
+      "depth": null,
+      "line": 298,
+      "raw": "```python\ntorch.exp(x)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-033",
+      "sha256": "d15f8cdda7bbb8a821e929691da59135a98390cd3133acfa95c0d717b8a45cae",
+      "type": "paragraph",
+      "depth": null,
+      "line": 312,
+      "raw": "除了按元素计算外，我们还可以执行线性代数运算，包括向量点积和矩阵乘法。\n我们将在 [原文引用：sec_linear-algebra](https://zh.d2l.ai/chapter_preliminaries/ndarray.html)中解释线性代数的重点内容。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-034",
+      "sha256": "41fd70f78dba4c98d0e377d8f542a89e62521915fddefc8c77dfd7d808a371d3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 315,
+      "raw": "**我们也可以把多个张量*连结*（concatenate）在一起**，\n把它们端对端地叠起来形成一个更大的张量。\n我们只需要提供张量列表，并给出沿哪个轴连结。\n下面的例子分别演示了当我们沿行（轴-0，形状的第一个元素）\n和按列（轴-1，形状的第二个元素）连结两个矩阵时，会发生什么情况。\n我们可以看到，第一个输出张量的轴-0长度（$6$）是两个输入张量轴-0长度的总和（$3 + 3$）；\n第二个输出张量的轴-1长度（$8$）是两个输入张量轴-1长度的总和（$4 + 4$）。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-035",
+      "sha256": "591b607ef3714bb4285a3b6e610716b5bc6072885dadda3ad2f38549f064824a",
+      "type": "code",
+      "depth": null,
+      "line": 329,
+      "raw": "```python\nX = torch.arange(12, dtype=torch.float32).reshape((3,4))\nY = torch.tensor([[2.0, 1, 4, 3], [1, 2, 3, 4], [4, 3, 2, 1]])\ntorch.cat((X, Y), dim=0), torch.cat((X, Y), dim=1)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-036",
+      "sha256": "39de4060c786e2b0cb4b18ad560faea51441fdd73f5cb40e71226c835491c3cf",
+      "type": "paragraph",
+      "depth": null,
+      "line": 349,
+      "raw": "有时，我们想**通过*逻辑运算符*构建二元张量**。\n以`X == Y`为例：\n对于每个位置，如果`X`和`Y`在该位置相等，则新张量中相应项的值为1。\n这意味着逻辑语句`X == Y`在该位置处为真，否则该位置为0。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-037",
+      "sha256": "0f2dbc7dbfac1033963f2b7448fb724b4d635a831edf066a9edf21686ea5e0ee",
+      "type": "code",
+      "depth": null,
+      "line": 354,
+      "raw": "```python\nX == Y\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-038",
+      "sha256": "4375e2d5005b71c9746b6c9108c64c2c70c20df31519502c13b9bf3b52948f3e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 358,
+      "raw": "**对张量中的所有元素进行求和，会产生一个单元素张量。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-039",
+      "sha256": "c5ebda6f69bc139101d9aa72bcfc07bfe533be501bea6cf0f3aa2a0c2f080697",
+      "type": "code",
+      "depth": null,
+      "line": 360,
+      "raw": "```python\nX.sum()\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-040",
+      "sha256": "e074717852bc732f91c116f5c51ccf4b7a779744565e83a6ed5c4a20aadd5813",
+      "type": "heading",
+      "depth": 2,
+      "line": 369,
+      "raw": "## 广播机制",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-041",
+      "sha256": "78829b40ef1d396c4525fc1956993f6fac1786465de55b5408dee4f3db6faa29",
+      "type": "paragraph",
+      "depth": null,
+      "line": 371,
+      "raw": "在上面的部分中，我们看到了如何在相同形状的两个张量上执行按元素操作。\n在某些情况下，**即使形状不同，我们仍然可以通过调用\n*广播机制*（broadcasting mechanism）来执行按元素操作**。\n这种机制的工作方式如下：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-042",
+      "sha256": "a176c5e8e9b4b1f2556acc26c4fdc8063ec3ca9fa841accd14f0ec99cc65e94e",
+      "type": "list",
+      "depth": null,
+      "line": 376,
+      "raw": "1. 通过适当复制元素来扩展一个或两个数组，以便在转换之后，两个张量具有相同的形状；\n2. 对生成的数组执行按元素操作。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-043",
+      "sha256": "1945932125eb111cfe5cf4ab13fe2ab6c690263b031aaf55f88c3fd786c5497d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 379,
+      "raw": "在大多数情况下，我们将沿着数组中长度为1的轴进行广播，如下例子：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-044",
+      "sha256": "a577ab3e382141f0efad691addf6c75944ec096dee8766dde6501306c16a8860",
+      "type": "code",
+      "depth": null,
+      "line": 387,
+      "raw": "```python\na = torch.arange(3).reshape((3, 1))\nb = torch.arange(2).reshape((1, 2))\na, b\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-045",
+      "sha256": "a89da7064dc8f838cb39915e3c24a9bac2e7b227d72442fb7e1a04430cc4bc62",
+      "type": "paragraph",
+      "depth": null,
+      "line": 407,
+      "raw": "由于`a`和`b`分别是$3\\times1$和$1\\times2$矩阵，如果让它们相加，它们的形状不匹配。\n我们将两个矩阵*广播*为一个更大的$3\\times2$矩阵，如下所示：矩阵`a`将复制列，\n矩阵`b`将复制行，然后再按元素相加。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-046",
+      "sha256": "ad591249cca1eb2da71bd8e204bcf04429b8d416b4ec197e832ad51a48006014",
+      "type": "code",
+      "depth": null,
+      "line": 411,
+      "raw": "```python\na + b\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-047",
+      "sha256": "5f7234f254e51e61d7537232e1e55eefab44a7bfc2f3c9b11af9fafc2900f9fc",
+      "type": "heading",
+      "depth": 2,
+      "line": 415,
+      "raw": "## 索引和切片",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-048",
+      "sha256": "ccc51cc115576c30c8eda1a52efa76bfecd04fa2f7111b2313dea6267fcbef7f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 417,
+      "raw": "就像在任何其他Python数组中一样，张量中的元素可以通过索引访问。\n与任何Python数组一样：第一个元素的索引是0，最后一个元素索引是-1；\n可以指定范围以包含第一个元素和最后一个之前的元素。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-049",
+      "sha256": "f07f6586104cc66ab11db92a0889d2408d41aabe919ef817cabf7813b1b57ae9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 421,
+      "raw": "如下所示，我们**可以用`[-1]`选择最后一个元素，可以用`[1:3]`选择第二个和第三个元素**：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-050",
+      "sha256": "fd2b86f4d2c4acfee46eee485b4149716335c4ea08b4dd02287d79303da91775",
+      "type": "code",
+      "depth": null,
+      "line": 423,
+      "raw": "```python\nX[-1], X[1:3]\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-051",
+      "sha256": "893282fc4ab8328c2468469668012cba9308dcf086fb8691cd65277f1f3b0f8f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 427,
+      "raw": "**除读取外，我们还可以通过指定索引来将元素写入矩阵。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-052",
+      "sha256": "61502aab16dfd427f2dffbd9691c5652b643e47714c5ef941338fb868d722bd0",
+      "type": "code",
+      "depth": null,
+      "line": 438,
+      "raw": "```python\nX[1, 2] = 9\nX\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-053",
+      "sha256": "c0471d4b69657b77e4f0c2b694bda26610c06f218441289640016b8856017886",
+      "type": "paragraph",
+      "depth": null,
+      "line": 450,
+      "raw": "如果我们想**为多个元素赋值相同的值，我们只需要索引所有元素，然后为它们赋值。**\n例如，`[0:2, :]`访问第1行和第2行，其中“:”代表沿轴1（列）的所有元素。\n虽然我们讨论的是矩阵的索引，但这也适用于向量和超过2个维度的张量。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-054",
+      "sha256": "76bc4a0bb94b05aa7e5dc13ccc8af32e3b8c9cd7eafeb9d72f3d42f55afb6184",
+      "type": "code",
+      "depth": null,
+      "line": 454,
+      "raw": "```python\nX[0:2, :] = 12\nX\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-055",
+      "sha256": "9e5ac4550e5afe9417298d83374ed11f4039aabd75d3b10016ce9cd6f25cb1cf",
+      "type": "heading",
+      "depth": 2,
+      "line": 466,
+      "raw": "## 节省内存",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-056",
+      "sha256": "172b8240319694d92caebfbeddc377706506691b253b8321c588a5baf7f4db61",
+      "type": "paragraph",
+      "depth": null,
+      "line": 468,
+      "raw": "**运行一些操作可能会导致为新结果分配内存**。\n例如，如果我们用`Y = X + Y`，我们将取消引用`Y`指向的张量，而是指向新分配的内存处的张量。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-057",
+      "sha256": "3399edc3c4fb31a871c69b4d0d766ee52c0d56c9681f5535a5b47219764a9c09",
+      "type": "paragraph",
+      "depth": null,
+      "line": 471,
+      "raw": "在下面的例子中，我们用Python的`id()`函数演示了这一点，\n它给我们提供了内存中引用对象的确切地址。\n运行`Y = Y + X`后，我们会发现`id(Y)`指向另一个位置。\n这是因为Python首先计算`Y + X`，为结果分配新的内存，然后使`Y`指向内存中的这个新位置。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-058",
+      "sha256": "08130fc358633d3450e9da201c7b9e34cdca89599e041e3fd8e33069994a4a2a",
+      "type": "code",
+      "depth": null,
+      "line": 476,
+      "raw": "```python\nbefore = id(Y)\nY = Y + X\nid(Y) == before\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-059",
+      "sha256": "0392e85fc3cea79dc2fb95d5da997d550e5796475252101741f50ca369d0e9bd",
+      "type": "paragraph",
+      "depth": null,
+      "line": 482,
+      "raw": "这可能是不可取的，原因有两个：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-060",
+      "sha256": "f75d32147a8433971c2ffb601f1dceb452ae174389f453d3affa7e8a1e6c7804",
+      "type": "list",
+      "depth": null,
+      "line": 484,
+      "raw": "1. 首先，我们不想总是不必要地分配内存。在机器学习中，我们可能有数百兆的参数，并且在一秒内多次更新所有参数。通常情况下，我们希望原地执行这些更新；\n2. 如果我们不原地更新，其他引用仍然会指向旧的内存位置，这样我们的某些代码可能会无意中引用旧的参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-061",
+      "sha256": "a88dc77389d44521de7a072f9aa817d8530e924a620e4af0a6f308812ecf0179",
+      "type": "paragraph",
+      "depth": null,
+      "line": 487,
+      "raw": "幸运的是，**执行原地操作**非常简单。\n我们可以使用切片表示法将操作的结果分配给先前分配的数组，例如`Y[:] = <expression>`。\n为了说明这一点，我们首先创建一个新的矩阵`Z`，其形状与另一个`Y`相同，\n使用`zeros_like`来分配一个全$0$的块。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-062",
+      "sha256": "e5dc8a9aac04a19ea13f46e1dcc4da5c6d1e77fce980e3cd7e40e30bc60aa7ef",
+      "type": "code",
+      "depth": null,
+      "line": 507,
+      "raw": "```python\nZ = torch.zeros_like(Y)\nprint('id(Z):', id(Z))\nZ[:] = X + Y\nprint('id(Z):', id(Z))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-063",
+      "sha256": "772ab6cc8affce30522b09e9534560227a22744fe1ed5733ec8c60bd9a06d3bf",
+      "type": "paragraph",
+      "depth": null,
+      "line": 530,
+      "raw": "**如果在后续计算中没有重复使用`X`，\n我们也可以使用`X[:] = X + Y`或`X += Y`来减少操作的内存开销。**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-064",
+      "sha256": "ec5fd4fd4172db51779169aca98dd39d4d606010b9c07b5e6e123f60d285a822",
+      "type": "code",
+      "depth": null,
+      "line": 547,
+      "raw": "```python\nbefore = id(X)\nX += Y\nid(X) == before\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-065",
+      "sha256": "3a8cc901655e2af8640c8b998c379eef05fd527937987f95816a7f89d38d7c5d",
+      "type": "heading",
+      "depth": 2,
+      "line": 566,
+      "raw": "## 转换为其他Python对象",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-066",
+      "sha256": "7bd0efa6e1dfb5169eb56b3a309db2b49cc768ff2285f5ca350e74c2b040d1a1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 574,
+      "raw": "将深度学习框架定义的张量**转换为NumPy张量（`ndarray`）**很容易，反之也同样容易。\ntorch张量和numpy数组将共享它们的底层内存，就地操作更改一个张量也会同时更改另一个张量。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-067",
+      "sha256": "9063f3e8992b05c53c388d8831980872f181135283d1ba00f57e01dce31fafd1",
+      "type": "code",
+      "depth": null,
+      "line": 584,
+      "raw": "```python\nA = X.numpy()\nB = torch.tensor(A)\ntype(A), type(B)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-068",
+      "sha256": "973731c70d8962b011ddcbf61a1ebb999e9674f9148b5900e06238425376517f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 604,
+      "raw": "要**将大小为1的张量转换为Python标量**，我们可以调用`item`函数或Python的内置函数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-069",
+      "sha256": "45572f82b65b1cb70cd093e09adc16b7cacac41683a745b346939dbb577b28bd",
+      "type": "code",
+      "depth": null,
+      "line": 611,
+      "raw": "```python\na = torch.tensor([3.5])\na, a.item(), float(a), int(a)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-070",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 628,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-071",
+      "sha256": "edbd501e471ccb79ffe26da5ab2c97f8eef9762247b59ae5442c398b1d4ad045",
+      "type": "list",
+      "depth": null,
+      "line": 630,
+      "raw": "* 深度学习存储和操作数据的主要接口是张量（$n$维数组）。它提供了各种功能，包括基本数学运算、广播、索引、切片、内存节省和转换其他Python对象。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-072",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 632,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-073",
+      "sha256": "90dd05f811b12043a3e8a41fc819a693cd6e56ff77dffb90d9e861b193737eb4",
+      "type": "list",
+      "depth": null,
+      "line": 634,
+      "raw": "1. 运行本节中的代码。将本节中的条件语句`X == Y`更改为`X < Y`或`X > Y`，然后看看你可以得到什么样的张量。\n1. 用其他形状（例如三维张量）替换广播机制中按元素操作的两个张量。结果是否与预期相同？",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "ndarray-074",
+      "sha256": "7acf5214eb5aaf3949b4d6eb644721fbcec2afd971f73b76cd622b4c4d7e5322",
+      "type": "paragraph",
+      "depth": null,
+      "line": 641,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1747)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

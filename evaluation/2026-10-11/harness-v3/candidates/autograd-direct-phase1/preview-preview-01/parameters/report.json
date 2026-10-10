@@ -1,0 +1,4906 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/book.html",
+  "sha256": "cca7d62843b71a5fa15ceb9e0b6693fd3ace8e8b1e9a927fc40257b8d9c0e519",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 2.25,
+        "tangentDeltaL": 2,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "8af213ff92193daa010cc4c07b6ddd4f000f3607be28bd49a462f2824c703dc5"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "4416a375e17b77b3ac3c05ae10a6aad26992932ee842ba58e5ace8ecd1e06504"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": -2.25,
+        "tangentDeltaL": -2,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "5c4cd6f6442051cdc10724c0bfef6e135f8d222c770be875dc5adacd53b94a87"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": -5,
+        "tangentDeltaL": -4,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "9b5e49f9f4a58979ddf2da59a76bb3f63ecfec15408eb2231e6ce86aa8e48f55"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 4.5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "bd2e0b30d394d1310120cd1c2b56e7c4204949d534471ff65d065646ac64aeaa"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 10,
+        "tangentDeltaL": 8,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "90feee5a209849e9f62b574bd1cb877f53ac022f69c3fc34b14502821d893741"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "505cbb7dfd1d43f363e1ba3f5347fadcf3840cfb4494468a76c5c5dfe0e34961"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "80a9a356f0e819fa906188888e4f5c7b62d7a6010efeeab9b329ccb718a35065"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e0251672fa30d25d12a6fc6967ae330ab1030b5286ab2c3e9d7a7a07dd5a9e3a"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "a086492a05dbba2161344671d06a90c1c12627b1181436e09b82b9c9e6d5a9fa"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 0.5,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "4256d86f1bcc5facfe5173ee60a6b3b4afc19023ab71d23b4145f5a569128e85"
+    },
+    {
+      "width": 1280,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 1,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "becf4dbdd36217d25483567a6ea1cc4400f4046e915db9848025090a46cdb7c5"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 245,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1960,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 1960,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "2b480fef149c3bb97611c25227da3f3ee68d03c9e4a2bf4bc33f667c56c27013"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 260,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1040,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "deebd9c00fc0a8bee87084b1eafb5e72689bedb29b987dcffa836d78c872cbc0"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 115,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1840,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "baseGraphExtrapolation": 1840,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "69662548b13ff8cab07eead45f59489c3a241625cc1ca695fef8906366df72d0"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 130,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1040,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "7191893223b8b6e93ac28ad6eecdb6af6c6902d5740ec1ffa815c20548f1001e"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 315,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1260,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1260,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "cebb460ae78a8894e1d0b03958a98e649bf99fae16a87cb3fa4ca289540fccb0"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 330,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1320,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1320,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "dfbc3558542eb7cf3e707600beec571511e4b0865b200f8ef318480654e73ba7"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 2.25,
+        "tangentDeltaL": 2,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "c289661ab92f3dd3541300a88eaa464683784917479d65c13702bc0238becbf4"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "bf5adaf1661a93fa4bdad4a0610a945a6cfe46affa7067e913634e1daf2fb458"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": -2.25,
+        "tangentDeltaL": -2,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "a8feafdc83fb4b28b567b4cfad691a838fd0021a4dae6b55138b70a878314395"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          -1,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          -4,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": -5,
+        "tangentDeltaL": -4,
+        "tangentSlope": -4
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "9295f8d4806382e3bd4b2ab68d1b86bc3c60cd4a7ec7b2576d256301e3289994"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 0.5,
+        "exactDeltaL": 4.5,
+        "tangentDeltaL": 4,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "b567c14063cdd5a97b1325d4e59a4a5ba2622aa49c05579d7407dd65a651fd91"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "seed": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "delta": 1,
+        "exactDeltaL": 10,
+        "tangentDeltaL": 8,
+        "tangentSlope": 8
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "9bb190b1d6c0386fb59f4293e618e3acd21abce35a08e97fb97884a73a90b614"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "95dde231d03337f8c929ccafc6d82529a4c2ded227c0991ea080f205c6800d7d"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "y": 4,
+        "u": 4,
+        "z": 8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "b4650300423b3d95d9073087f2741d2f0564850847fb18bae2efc7ee36bb292c"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 0.5,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "59cf086188ccb0ee75d1a5ea027453524a08851140d3392ff2457141e1a2fa17"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -2,
+        "y": 4,
+        "u": 4,
+        "z": -8,
+        "fullGradient": 12,
+        "detachedGradient": 4,
+        "directContribution": 4,
+        "indirectContribution": 8,
+        "progress": 1,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "3793cfbda8878ed5d151ab553d68c215d85615b5de47beb93ef8d035ad168579"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 0.5,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "411deba2269dcd55bb90d78bd72f21bc59547df058993ded397414680dbfeaa7"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "y": 9,
+        "u": 9,
+        "z": 27,
+        "fullGradient": 27,
+        "detachedGradient": 9,
+        "directContribution": 9,
+        "indirectContribution": 18,
+        "progress": 1,
+        "indirectSignalProgress": 0.5
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1f2d51b11f7c34ea998c2dfb7a95c34dc930088c21b8089718e2eeb8c0e4366f"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 245,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1960,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 1960,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "f450ac2e6ce19b76882530d0e97d8106d4434a1efd1ea0bdd87ec7d96672eeb0"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 230,
+        "probeInput": 260,
+        "base": {
+          "value": 1840,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "probe": {
+          "value": 1040,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 8,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "946698ee70ceb2bbc0ceff2f06d29ef78145ae42903415f2dba2a6ca6b92cdfe"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 115,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1840,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "baseGraphExtrapolation": 1840,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "e657b48c94f81432b0110e38f99d2f5fea73bb7de0bc011055b402008390207a"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 100,
+        "probeInput": 130,
+        "base": {
+          "value": 1600,
+          "k": 16,
+          "multiplications": 4,
+          "whileIterations": 3
+        },
+        "probe": {
+          "value": 1040,
+          "k": 8,
+          "multiplications": 3,
+          "whileIterations": 2
+        },
+        "baseGraphExtrapolation": 2080,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 16,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "3c7f1a587480dd4465d8a17a8c37f33dd67354503193160b14bcaac079422357"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 315,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1260,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1260,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "851340b1ce5c04c54bd9547622ceb02270a577495bba68eb0400d1b3e87c5cb5"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 300,
+        "probeInput": 330,
+        "base": {
+          "value": 1200,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "probe": {
+          "value": 1320,
+          "k": 4,
+          "multiplications": 2,
+          "whileIterations": 1
+        },
+        "baseGraphExtrapolation": 1320,
+        "atDiscontinuity": false,
+        "mathematicalDerivative": 4,
+        "probeAtDiscontinuity": false
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "34786b0701c40062d7c4fb00f95475054e01d55097fb5f66b86a11f9a5ab2c33"
+    }
+  ],
+  "findings": [
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "8af213ff92193daa010cc4c07b6ddd4f000f3607be28bd49a462f2824c703dc5"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "4416a375e17b77b3ac3c05ae10a6aad26992932ee842ba58e5ace8ecd1e06504"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "5c4cd6f6442051cdc10724c0bfef6e135f8d222c770be875dc5adacd53b94a87"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "9b5e49f9f4a58979ddf2da59a76bb3f63ecfec15408eb2231e6ce86aa8e48f55"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "bd2e0b30d394d1310120cd1c2b56e7c4204949d534471ff65d065646ac64aeaa"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 262,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 204.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 147.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 378.2265625,
+          "y": 278,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 713.8515625,
+          "y": 278,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "90feee5a209849e9f62b574bd1cb877f53ac022f69c3fc34b14502821d893741"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "2b480fef149c3bb97611c25227da3f3ee68d03c9e4a2bf4bc33f667c56c27013"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "deebd9c00fc0a8bee87084b1eafb5e72689bedb29b987dcffa836d78c872cbc0"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "69662548b13ff8cab07eead45f59489c3a241625cc1ca695fef8906366df72d0"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "7191893223b8b6e93ac28ad6eecdb6af6c6902d5740ec1ffa815c20548f1001e"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "cebb460ae78a8894e1d0b03958a98e649bf99fae16a87cb3fa4ca289540fccb0"
+    },
+    {
+      "width": 1280,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 252.941162109375,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 164.4705810546875,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 118.69667053222656,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 480.1097106933594,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 711.4140625,
+          "y": 278,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "dfbc3558542eb7cf3e707600beec571511e4b0865b200f8ef318480654e73ba7"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "c289661ab92f3dd3541300a88eaa464683784917479d65c13702bc0238becbf4"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "w": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "bf5adaf1661a93fa4bdad4a0610a945a6cfe46affa7067e913634e1daf2fb458"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "a8feafdc83fb4b28b567b4cfad691a838fd0021a4dae6b55138b70a878314395"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-min",
+      "params": {
+        "w": -1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "9295f8d4806382e3bd4b2ab68d1b86bc3c60cd4a7ec7b2576d256301e3289994"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "b567c14063cdd5a97b1325d4e59a4a5ba2622aa49c05579d7407dd65a651fd91"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "-5",
+          "x": 35.15625,
+          "y": 292,
+          "w": 9.84375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 38.703125,
+          "y": 224.6666717529297,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "5",
+          "x": 38.703125,
+          "y": 157.3333282470703,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "10",
+          "x": 32.40625,
+          "y": 90,
+          "w": 12.59375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0",
+          "x": 51.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "0.5",
+          "x": 175.7265625,
+          "y": 308,
+          "w": 15.546875,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "1",
+          "x": 308.8515625,
+          "y": 308,
+          "w": 6.296875,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "9bb190b1d6c0386fb59f4293e618e3acd21abce35a08e97fb97884a73a90b614"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "95dde231d03337f8c929ccafc6d82529a4c2ded227c0991ea080f205c6800d7d"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "default",
+      "params": {
+        "x": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "b4650300423b3d95d9073087f2741d2f0564850847fb18bae2efc7ee36bb292c"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "59cf086188ccb0ee75d1a5ea027453524a08851140d3392ff2457141e1a2fa17"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-min",
+      "params": {
+        "x": -2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "3793cfbda8878ed5d151ab553d68c215d85615b5de47beb93ef8d035ad168579"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "411deba2269dcd55bb90d78bd72f21bc59547df058993ded397414680dbfeaa7"
+    },
+    {
+      "width": 375,
+      "id": "detach-paths",
+      "control": "x-max",
+      "params": {
+        "x": 3
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "进度沿箭头回传；上路被截断，下路仍保留。",
+          "x": 18,
+          "y": 441,
+          "w": 220,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1f2d51b11f7c34ea998c2dfb7a95c34dc930088c21b8089718e2eeb8c0e4366f"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "f450ac2e6ce19b76882530d0e97d8106d4434a1efd1ea0bdd87ec7d96672eeb0"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "default",
+      "params": {
+        "a": 230
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "946698ee70ceb2bbc0ceff2f06d29ef78145ae42903415f2dba2a6ca6b92cdfe"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "e657b48c94f81432b0110e38f99d2f5fea73bb7de0bc011055b402008390207a"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-min",
+      "params": {
+        "a": 100
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "3c7f1a587480dd4465d8a17a8c37f33dd67354503193160b14bcaac079422357"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "851340b1ce5c04c54bd9547622ceb02270a577495bba68eb0400d1b3e87c5cb5"
+    },
+    {
+      "width": 375,
+      "id": "executed-branch",
+      "control": "a-max",
+      "params": {
+        "a": 300
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "1000",
+          "x": 23.109375,
+          "y": 290.5882263183594,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "1800",
+          "x": 23.109375,
+          "y": 183.2941131591797,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "2600",
+          "x": 23.109375,
+          "y": 76,
+          "w": 23.160003662109375,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "100",
+          "x": 46.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "125",
+          "x": 74.67493438720703,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "250",
+          "x": 215.97927856445312,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "330",
+          "x": 306.4140625,
+          "y": 318,
+          "w": 17.44000244140625,
+          "h": 14,
+          "size": 10
+        },
+        {
+          "tag": "text",
+          "text": "空心端点不取；跨阈值后，执行路径改变。",
+          "x": 18,
+          "y": 393,
+          "w": 209,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "34786b0701c40062d7c4fb00f95475054e01d55097fb5f66b86a11f9a5ab2c33"
+    }
+  ],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

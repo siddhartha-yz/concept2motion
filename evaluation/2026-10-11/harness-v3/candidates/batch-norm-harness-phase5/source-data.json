@@ -1,0 +1,815 @@
+{
+  "id": "batch-norm",
+  "title": "批量规范化",
+  "sourceName": "《动手学深度学习》",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/inputs/batch-norm/chapter.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html",
+  "sourceSha256": "1dc3213674783ccc7dca33cfd349ab4f4777da4b0c166887a26846d617227bc4",
+  "adaptedSha256": "1dc3213674783ccc7dca33cfd349ab4f4777da4b0c166887a26846d617227bc4",
+  "license": "Apache-2.0",
+  "adaptation": {
+    "images": 0,
+    "mathExpected": 32,
+    "mathRendered": 32
+  },
+  "blocks": [
+    {
+      "id": "batch-norm-001",
+      "sha256": "47b4fd0a63767fc441c7fbf5822c77f5c4d00e92887b517ddfb037b5467409cc",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 批量规范化",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-002",
+      "sha256": "9e02070e80300eab97383a8afdd7f68dbc4ecf103b6af7c91bc45be7331e2873",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "训练深层神经网络是十分困难的，特别是在较短的时间内使他们收敛更加棘手。\n本节将介绍*批量规范化*（batch normalization） [原文引用：Ioffe.Szegedy.2015](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)，这是一种流行且有效的技术，可持续加速深层网络的收敛速度。\n再结合在 [原文引用：sec_resnet](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)中将介绍的残差块，批量规范化使得研究人员能够训练100层以上的网络。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-003",
+      "sha256": "92b0ec87bca89c7b3aed201609d2b4591382a8682274b4917c47cd4b995c55e0",
+      "type": "heading",
+      "depth": 2,
+      "line": 7,
+      "raw": "## 训练深层网络",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-004",
+      "sha256": "3650c8adbd35bcd79101741b1188654a98601c115d839b467f49d51afb00b49e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 9,
+      "raw": "为什么需要批量规范化层呢？让我们来回顾一下训练神经网络时出现的一些实际挑战。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-005",
+      "sha256": "f7cfe7f582c8f9f1a142c9b9b684d63d9efe0d883c46e0dccf2045e1f4334542",
+      "type": "paragraph",
+      "depth": null,
+      "line": 11,
+      "raw": "首先，数据预处理的方式通常会对最终结果产生巨大影响。\n回想一下我们应用多层感知机来预测房价的例子（ [原文引用：sec_kaggle_house](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)）。\n使用真实数据时，我们的第一步是标准化输入特征，使其平均值为0，方差为1。\n直观地说，这种标准化可以很好地与我们的优化器配合使用，因为它可以将参数的量级进行统一。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-006",
+      "sha256": "4e414c7d25589697aa679e072e76cc0246d708a70736e92bf9740b778f88ecf9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 16,
+      "raw": "第二，对于典型的多层感知机或卷积神经网络。当我们训练时，中间层中的变量（例如，多层感知机中的仿射变换输出）可能具有更广的变化范围：不论是沿着从输入到输出的层，跨同一层中的单元，或是随着时间的推移，模型参数的随着训练更新变幻莫测。\n批量规范化的发明者非正式地假设，这些变量分布中的这种偏移可能会阻碍网络的收敛。\n直观地说，我们可能会猜想，如果一个层的可变值是另一层的100倍，这可能需要对学习率进行补偿调整。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-007",
+      "sha256": "9a105d27e18d81d50e8e0ff962431374e0c0d6b41d8f56d04e3a6d09a52606da",
+      "type": "paragraph",
+      "depth": null,
+      "line": 20,
+      "raw": "第三，更深层的网络很复杂，容易过拟合。\n这意味着正则化变得更加重要。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-008",
+      "sha256": "c27e37b06b11e900bd2e0f69408bae6d3851fd35971c283e5cb4065249fb5588",
+      "type": "paragraph",
+      "depth": null,
+      "line": 23,
+      "raw": "批量规范化应用于单个可选层（也可以应用到所有层），其原理如下：在每次训练迭代中，我们首先规范化输入，即通过减去其均值并除以其标准差，其中两者均基于当前小批量处理。\n接下来，我们应用比例系数和比例偏移。\n正是由于这个基于*批量*统计的*标准化*，才有了*批量规范化*的名称。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-009",
+      "sha256": "17bb1b4b35ba1aac02543dc7342c05f12316511844913f1f74269880f7a2100a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 27,
+      "raw": "请注意，如果我们尝试使用大小为1的小批量应用批量规范化，我们将无法学到任何东西。\n这是因为在减去均值之后，每个隐藏单元将为0。\n所以，只有使用足够大的小批量，批量规范化这种方法才是有效且稳定的。\n请注意，在应用批量规范化时，批量大小的选择可能比没有批量规范化时更重要。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-010",
+      "sha256": "938bf744b35c379278ef748dcd3721e5043e9a669d261eb24df69cafae5a2ae4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 32,
+      "raw": "从形式上来说，用$\\mathbf{x} \\in \\mathcal{B}$表示一个来自小批量$\\mathcal{B}$的输入，批量规范化$\\mathrm{BN}$根据以下表达式转换$\\mathbf{x}$：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-011",
+      "sha256": "236e3e2d85d63b5ccc0481155f9b640cdf1560305a8144bcbee4698face7540c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 34,
+      "raw": "$$\\mathrm{BN}(\\mathbf{x}) = \\boldsymbol{\\gamma} \\odot \\frac{\\mathbf{x} - \\hat{\\boldsymbol{\\mu}}_\\mathcal{B}}{\\hat{\\boldsymbol{\\sigma}}_\\mathcal{B}} + \\boldsymbol{\\beta}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-012",
+      "sha256": "b946ff5cbd9c94edc7a8583b6c846c30545b09a3f9e140992f379d647a631f0f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 36,
+      "raw": "在 [原文引用：eq_batchnorm](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)中，$\\hat{\\boldsymbol{\\mu}}_\\mathcal{B}$是小批量$\\mathcal{B}$的样本均值，$\\hat{\\boldsymbol{\\sigma}}_\\mathcal{B}$是小批量$\\mathcal{B}$的样本标准差。\n应用标准化后，生成的小批量的平均值为0和单位方差为1。\n由于单位方差（与其他一些魔法数）是一个主观的选择，因此我们通常包含\n*拉伸参数*（scale）$\\boldsymbol{\\gamma}$和*偏移参数*（shift）$\\boldsymbol{\\beta}$，它们的形状与$\\mathbf{x}$相同。\n请注意，$\\boldsymbol{\\gamma}$和$\\boldsymbol{\\beta}$是需要与其他模型参数一起学习的参数。",
+      "math": {
+        "expected": 9,
+        "rendered": 9,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-013",
+      "sha256": "d6fadd05578c0b2ab40e85c08da448123f0e45be94bc3d97d6a7cf118eadd6b9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 42,
+      "raw": "由于在训练过程中，中间层的变化幅度不能过于剧烈，而批量规范化将每一层主动居中，并将它们重新调整为给定的平均值和大小（通过$\\hat{\\boldsymbol{\\mu}}_\\mathcal{B}$和${\\hat{\\boldsymbol{\\sigma}}_\\mathcal{B}}$）。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-014",
+      "sha256": "65554d100b428711e1ec42c0409dc0de3e68a8fb3ebcfa379190b5bcede93c9c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 44,
+      "raw": "从形式上来看，我们计算出 [原文引用：eq_batchnorm](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)中的$\\hat{\\boldsymbol{\\mu}}_\\mathcal{B}$和${\\hat{\\boldsymbol{\\sigma}}_\\mathcal{B}}$，如下所示：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-015",
+      "sha256": "0e5690fea8ba54e7cfbf0584aa59d7a6cac6c491396502a67e7de329baf4b335",
+      "type": "math",
+      "depth": null,
+      "line": 46,
+      "raw": "$$\n\\begin{aligned} \\hat{\\boldsymbol{\\mu}}_\\mathcal{B} &= \\frac{1}{|\\mathcal{B}|} \\sum_{\\mathbf{x} \\in \\mathcal{B}} \\mathbf{x},\\\\\n\\hat{\\boldsymbol{\\sigma}}_\\mathcal{B}^2 &= \\frac{1}{|\\mathcal{B}|} \\sum_{\\mathbf{x} \\in \\mathcal{B}} (\\mathbf{x} - \\hat{\\boldsymbol{\\mu}}_{\\mathcal{B}})^2 + \\epsilon.\\end{aligned}\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-016",
+      "sha256": "e76a308f98a8f35a4b1ff2cf292a7f600924795e3a7b2e019f0dfb5a3bc98df4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 51,
+      "raw": "请注意，我们在方差估计值中添加一个小的常量$\\epsilon > 0$，以确保我们永远不会尝试除以零，即使在经验方差估计值可能消失的情况下也是如此。估计值$\\hat{\\boldsymbol{\\mu}}_\\mathcal{B}$和${\\hat{\\boldsymbol{\\sigma}}_\\mathcal{B}}$通过使用平均值和方差的噪声（noise）估计来抵消缩放问题。\n乍看起来，这种噪声是一个问题，而事实上它是有益的。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-017",
+      "sha256": "1c42d46bb8eaddd5ad8bee7487039589566b0c3e480bd7a4bf2ceee0aa0208b2",
+      "type": "paragraph",
+      "depth": null,
+      "line": 54,
+      "raw": "事实证明，这是深度学习中一个反复出现的主题。\n由于尚未在理论上明确的原因，优化中的各种噪声源通常会导致更快的训练和较少的过拟合：这种变化似乎是正则化的一种形式。\n在一些初步研究中， [原文引用：Teye.Azizpour.Smith.2018](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)和 [原文引用：Luo.Wang.Shao.ea.2018](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)分别将批量规范化的性质与贝叶斯先验相关联。\n这些理论揭示了为什么批量规范化最适应$50 \\sim 100$范围中的中等批量大小的难题。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-018",
+      "sha256": "f43119225bec6d29447e6093053bef531656935f35c3626235aaef1e41be8bb1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 59,
+      "raw": "另外，批量规范化层在”训练模式“（通过小批量统计数据规范化）和“预测模式”（通过数据集统计规范化）中的功能不同。\n在训练过程中，我们无法得知使用整个数据集来估计平均值和方差，所以只能根据每个小批次的平均值和方差不断训练模型。\n而在预测模式下，可以根据整个数据集精确计算批量规范化所需的平均值和方差。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-019",
+      "sha256": "4709812cbb812a6e5ddb92d085036bf1a532223821fabfbc8006929dcb7a2eb3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 63,
+      "raw": "现在，我们了解一下批量规范化在实践中是如何工作的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-020",
+      "sha256": "adf5b377efea66ae5009764d58a943cd2f3c7cfea9f07e89952217fe887c4721",
+      "type": "heading",
+      "depth": 2,
+      "line": 65,
+      "raw": "## 批量规范化层",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-021",
+      "sha256": "6a5ecdac90ac17e4d8b40df89db368b82edf5623fb4ffebe010a319e61c70c5b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 67,
+      "raw": "回想一下，批量规范化和其他层之间的一个关键区别是，由于批量规范化在完整的小批量上运行，因此我们不能像以前在引入其他层时那样忽略批量大小。\n我们在下面讨论这两种情况：全连接层和卷积层，他们的批量规范化实现略有不同。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-022",
+      "sha256": "b33b57d193b34065233882e0d4463140e1c99df0c613b49cc5fe039380b18d2c",
+      "type": "heading",
+      "depth": 3,
+      "line": 70,
+      "raw": "### 全连接层",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-023",
+      "sha256": "82cda463f09bc54279565f2977c2e013ed1e14dc841d520e2770142bd4554fe1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 72,
+      "raw": "通常，我们将批量规范化层置于全连接层中的仿射变换和激活函数之间。\n设全连接层的输入为x，权重参数和偏置参数分别为$\\mathbf{W}$和$\\mathbf{b}$，激活函数为$\\phi$，批量规范化的运算符为$\\mathrm{BN}$。\n那么，使用批量规范化的全连接层的输出的计算详情如下：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-024",
+      "sha256": "280fe63522e593ca2e4163ac3d3cf8076733d701e4d2194d5155bc96bb507d47",
+      "type": "paragraph",
+      "depth": null,
+      "line": 76,
+      "raw": "$$\\mathbf{h} = \\phi(\\mathrm{BN}(\\mathbf{W}\\mathbf{x} + \\mathbf{b}) ).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-025",
+      "sha256": "f3a6bacab4d6a8d2ec0d36b5f093d90046ca6e1883ab5bf0e3e5e7956da894be",
+      "type": "paragraph",
+      "depth": null,
+      "line": 78,
+      "raw": "回想一下，均值和方差是在应用变换的\"相同\"小批量上计算的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-026",
+      "sha256": "548993e2a8cc9132bebaf20b57ac96169ad5c7b545418a2656c3f1febffaf429",
+      "type": "heading",
+      "depth": 3,
+      "line": 80,
+      "raw": "### 卷积层",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-027",
+      "sha256": "46674a7e6428cf3c7abe8d05553e71ced074adea3257888737418b0705214269",
+      "type": "paragraph",
+      "depth": null,
+      "line": 82,
+      "raw": "同样，对于卷积层，我们可以在卷积层之后和非线性激活函数之前应用批量规范化。\n当卷积有多个输出通道时，我们需要对这些通道的“每个”输出执行批量规范化，每个通道都有自己的拉伸（scale）和偏移（shift）参数，这两个参数都是标量。\n假设我们的小批量包含$m$个样本，并且对于每个通道，卷积的输出具有高度$p$和宽度$q$。\n那么对于卷积层，我们在每个输出通道的$m \\cdot p \\cdot q$个元素上同时执行每个批量规范化。\n因此，在计算平均值和方差时，我们会收集所有空间位置的值，然后在给定通道内应用相同的均值和方差，以便在每个空间位置对值进行规范化。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-028",
+      "sha256": "abada69c8e99d69ed3c101f3e9b2ce8285dc2e20bc97c9a71325711da45373dd",
+      "type": "heading",
+      "depth": 3,
+      "line": 88,
+      "raw": "### 预测过程中的批量规范化",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-029",
+      "sha256": "3d4944f70e302313221f25ac39257df8b63f0af76aff6a113a4336ec5c31a6cb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 90,
+      "raw": "正如我们前面提到的，批量规范化在训练模式和预测模式下的行为通常不同。\n首先，将训练好的模型用于预测时，我们不再需要样本均值中的噪声以及在微批次上估计每个小批次产生的样本方差了。\n其次，例如，我们可能需要使用我们的模型对逐个样本进行预测。\n一种常用的方法是通过移动平均估算整个训练数据集的样本均值和方差，并在预测时使用它们得到确定的输出。\n可见，和暂退法一样，批量规范化层在训练模式和预测模式下的计算结果也是不一样的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-030",
+      "sha256": "ab5aa52428ba67692cfc6f78317884ee341d11e392fa24a42cf05137767be2a0",
+      "type": "heading",
+      "depth": 2,
+      "line": 96,
+      "raw": "## **从零实现**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-031",
+      "sha256": "b82f79341d3dd29dcd706419cb41c403ed0c7f5041871f3b7cc315010d63c0ca",
+      "type": "paragraph",
+      "depth": null,
+      "line": 98,
+      "raw": "下面，我们从头开始实现一个具有张量的批量规范化层。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-032",
+      "sha256": "4ca1e2552c75a99b5d26eafdbafbd253f63af3c44bbe5a51ce2f7d1e3a933613",
+      "type": "code",
+      "depth": null,
+      "line": 131,
+      "raw": "```python\nfrom d2l import torch as d2l\nimport torch\nfrom torch import nn\n\ndef batch_norm(X, gamma, beta, moving_mean, moving_var, eps, momentum):\n    # 通过is_grad_enabled来判断当前模式是训练模式还是预测模式\n    if not torch.is_grad_enabled():\n        # 如果是在预测模式下，直接使用传入的移动平均所得的均值和方差\n        X_hat = (X - moving_mean) / torch.sqrt(moving_var + eps)\n    else:\n        assert len(X.shape) in (2, 4)\n        if len(X.shape) == 2:\n            # 使用全连接层的情况，计算特征维上的均值和方差\n            mean = X.mean(dim=0)\n            var = ((X - mean) ** 2).mean(dim=0)\n        else:\n            # 使用二维卷积层的情况，计算通道维上（axis=1）的均值和方差。\n            # 这里我们需要保持X的形状以便后面可以做广播运算\n            mean = X.mean(dim=(0, 2, 3), keepdim=True)\n            var = ((X - mean) ** 2).mean(dim=(0, 2, 3), keepdim=True)\n        # 训练模式下，用当前的均值和方差做标准化\n        X_hat = (X - mean) / torch.sqrt(var + eps)\n        # 更新移动平均的均值和方差\n        moving_mean = momentum * moving_mean + (1.0 - momentum) * mean\n        moving_var = momentum * moving_var + (1.0 - momentum) * var\n    Y = gamma * X_hat + beta  # 缩放和移位\n    return Y, moving_mean.data, moving_var.data\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-033",
+      "sha256": "9f6427bba7dbf1521ea6907533499d32223f18fe1f19e331c1235012dad9eb56",
+      "type": "paragraph",
+      "depth": null,
+      "line": 208,
+      "raw": "我们现在可以**创建一个正确的`BatchNorm`层**。\n这个层将保持适当的参数：拉伸`gamma`和偏移`beta`,这两个参数将在训练过程中更新。\n此外，我们的层将保存均值和方差的移动平均值，以便在模型预测期间随后使用。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-034",
+      "sha256": "a39c829ec4e33226003964d9d7a6c6a10d303953a352ef10466d1dca3ea54143",
+      "type": "paragraph",
+      "depth": null,
+      "line": 212,
+      "raw": "撇开算法细节，注意我们实现层的基础设计模式。\n通常情况下，我们用一个单独的函数定义其数学原理，比如说`batch_norm`。\n然后，我们将此功能集成到一个自定义层中，其代码主要处理数据移动到训练设备（如GPU）、分配和初始化任何必需的变量、跟踪移动平均线（此处为均值和方差）等问题。\n为了方便起见，我们并不担心在这里自动推断输入形状，因此我们需要指定整个特征的数量。\n不用担心，深度学习框架中的批量规范化API将为我们解决上述问题，我们稍后将展示这一点。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-035",
+      "sha256": "bb5819462436967e20692dbecbb71c5fae8cf19b3f8f7961a53f37373686e024",
+      "type": "code",
+      "depth": null,
+      "line": 248,
+      "raw": "```python\nclass BatchNorm(nn.Module):\n    # num_features：完全连接层的输出数量或卷积层的输出通道数。\n    # num_dims：2表示完全连接层，4表示卷积层\n    def __init__(self, num_features, num_dims):\n        super().__init__()\n        if num_dims == 2:\n            shape = (1, num_features)\n        else:\n            shape = (1, num_features, 1, 1)\n        # 参与求梯度和迭代的拉伸和偏移参数，分别初始化成1和0\n        self.gamma = nn.Parameter(torch.ones(shape))\n        self.beta = nn.Parameter(torch.zeros(shape))\n        # 非模型参数的变量初始化为0和1\n        self.moving_mean = torch.zeros(shape)\n        self.moving_var = torch.ones(shape)\n\n    def forward(self, X):\n        # 如果X不在内存上，将moving_mean和moving_var\n        # 复制到X所在显存上\n        if self.moving_mean.device != X.device:\n            self.moving_mean = self.moving_mean.to(X.device)\n            self.moving_var = self.moving_var.to(X.device)\n        # 保存更新过的moving_mean和moving_var\n        Y, self.moving_mean, self.moving_var = batch_norm(\n            X, self.gamma, self.beta, self.moving_mean,\n            self.moving_var, eps=1e-5, momentum=0.9)\n        return Y\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-036",
+      "sha256": "986a6631c4f27254092594d93a1956cad6b8765d26c716717efe547822357299",
+      "type": "heading",
+      "depth": 2,
+      "line": 361,
+      "raw": "##  使用批量规范化层的 LeNet",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-037",
+      "sha256": "df78f5b5ad865290af99486fc4a4cc0e40be1bcbaa3caa4d823341ce62b1f2a8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 363,
+      "raw": "为了更好理解如何**应用`BatchNorm`**，下面我们将其应用**于LeNet模型**（ [原文引用：sec_lenet](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)）。\n回想一下，批量规范化是在卷积层或全连接层之后、相应的激活函数之前应用的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-038",
+      "sha256": "0129734c528f863d01eeca5f519965b37b12f698199fc19aa84808489859379a",
+      "type": "code",
+      "depth": null,
+      "line": 385,
+      "raw": "```python\nnet = nn.Sequential(\n    nn.Conv2d(1, 6, kernel_size=5), BatchNorm(6, num_dims=4), nn.Sigmoid(),\n    nn.AvgPool2d(kernel_size=2, stride=2),\n    nn.Conv2d(6, 16, kernel_size=5), BatchNorm(16, num_dims=4), nn.Sigmoid(),\n    nn.AvgPool2d(kernel_size=2, stride=2), nn.Flatten(),\n    nn.Linear(16*4*4, 120), BatchNorm(120, num_dims=2), nn.Sigmoid(),\n    nn.Linear(120, 84), BatchNorm(84, num_dims=2), nn.Sigmoid(),\n    nn.Linear(84, 10))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-039",
+      "sha256": "2b7c591781f99c6aea7c777776463e52750b6f81f0bb0e75052ad8a5d48ceb6c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 434,
+      "raw": "和以前一样，我们将**在Fashion-MNIST数据集上训练网络**。\n这个代码与我们第一次训练LeNet（ [原文引用：sec_lenet](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)）时几乎完全相同，主要区别在于学习率大得多。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-040",
+      "sha256": "f6ca2aefc395cb72be83df9ea33cfd7ac4a78fdb45a737cdf22ac2157f00dc49",
+      "type": "code",
+      "depth": null,
+      "line": 437,
+      "raw": "```python\nlr, num_epochs, batch_size = 1.0, 10, 256\ntrain_iter, test_iter = d2l.load_data_fashion_mnist(batch_size)\nd2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-041",
+      "sha256": "a7b5f0dbbc87483c45da0a0b81051aa47f21ba3aa2c7c95272115553f6d7ac50",
+      "type": "paragraph",
+      "depth": null,
+      "line": 450,
+      "raw": "让我们来看看从第一个批量规范化层中学到的**拉伸参数`gamma`和偏移参数`beta`**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-042",
+      "sha256": "7ef1d693c2685123e9869ba7e77b5358bb4aa12007213fdaab00bb9d6ab0b822",
+      "type": "code",
+      "depth": null,
+      "line": 456,
+      "raw": "```python\nnet[1].gamma.reshape((-1,)), net[1].beta.reshape((-1,))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-043",
+      "sha256": "3fea9de1023871223df89fe0f11bf28bf8d936c9f2b3ba1be4a1f8458a306409",
+      "type": "heading",
+      "depth": 2,
+      "line": 472,
+      "raw": "## **简明实现**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-044",
+      "sha256": "f36183c31850b9d7ec4c32d5ca2388d7d10ae1163c3f917395fade958887924c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 474,
+      "raw": "除了使用我们刚刚定义的`BatchNorm`，我们也可以直接使用深度学习框架中定义的`BatchNorm`。\n该代码看起来几乎与我们上面的代码相同。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-045",
+      "sha256": "9c82d1330df8bbcf1e5a3353f43b6869d51711417956fff7fffd9fec055219db",
+      "type": "code",
+      "depth": null,
+      "line": 496,
+      "raw": "```python\nnet = nn.Sequential(\n    nn.Conv2d(1, 6, kernel_size=5), nn.BatchNorm2d(6), nn.Sigmoid(),\n    nn.AvgPool2d(kernel_size=2, stride=2),\n    nn.Conv2d(6, 16, kernel_size=5), nn.BatchNorm2d(16), nn.Sigmoid(),\n    nn.AvgPool2d(kernel_size=2, stride=2), nn.Flatten(),\n    nn.Linear(256, 120), nn.BatchNorm1d(120), nn.Sigmoid(),\n    nn.Linear(120, 84), nn.BatchNorm1d(84), nn.Sigmoid(),\n    nn.Linear(84, 10))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-046",
+      "sha256": "f2f33ac4187ee00e5f63ded92c4c84189b2bda9b2026ae7b72e5ef52c8a54f8c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 544,
+      "raw": "下面，我们**使用相同超参数来训练模型**。\n请注意，通常高级API变体运行速度快得多，因为它的代码已编译为C++或CUDA，而我们的自定义代码由Python实现。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-047",
+      "sha256": "656ee72f6c0816b7c0d51b2e91266dd6b27cccc3e8861cec78b0afd2dbd352f3",
+      "type": "code",
+      "depth": null,
+      "line": 547,
+      "raw": "```python\nd2l.train_ch6(net, train_iter, test_iter, num_epochs, lr, d2l.try_gpu())\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-048",
+      "sha256": "fa2f86edffc9b39240041d96ec69a87588795c51f5931f7a1fef2ae841262e02",
+      "type": "heading",
+      "depth": 2,
+      "line": 551,
+      "raw": "## 争议",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-049",
+      "sha256": "876546d9db365882f1dcce8d760f26cb3153ca4f398f4a47aaf46121b63214ba",
+      "type": "paragraph",
+      "depth": null,
+      "line": 553,
+      "raw": "直观地说，批量规范化被认为可以使优化更加平滑。\n然而，我们必须小心区分直觉和对我们观察到的现象的真实解释。\n回想一下，我们甚至不知道简单的神经网络（多层感知机和传统的卷积神经网络）为什么如此有效。\n即使在暂退法和权重衰减的情况下，它们仍然非常灵活，因此无法通过常规的学习理论泛化保证来解释它们是否能够泛化到看不见的数据。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-050",
+      "sha256": "109ef98ab6636dd1784c48359b779a29b4894ec3ed3b1e98acea91d4f68bca96",
+      "type": "paragraph",
+      "depth": null,
+      "line": 558,
+      "raw": "在提出批量规范化的论文中，作者除了介绍了其应用，还解释了其原理：通过减少*内部协变量偏移*（internal covariate shift）。\n据推测，作者所说的*内部协变量转移*类似于上述的投机直觉，即变量值的分布在训练过程中会发生变化。\n然而，这种解释有两个问题：\n1、这种偏移与严格定义的*协变量偏移*（covariate shift）非常不同，所以这个名字用词不当；\n2、这种解释只提供了一种不明确的直觉，但留下了一个有待后续挖掘的问题：为什么这项技术如此有效？\n本书旨在传达实践者用来发展深层神经网络的直觉。\n然而，重要的是将这些指导性直觉与既定的科学事实区分开来。\n最终，当你掌握了这些方法，并开始撰写自己的研究论文时，你会希望清楚地区分技术和直觉。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-051",
+      "sha256": "58329451db7d064501206c85288d2fd2ac4322a455fd9da5929b101208d810bb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 567,
+      "raw": "随着批量规范化的普及，*内部协变量偏移*的解释反复出现在技术文献的辩论，特别是关于“如何展示机器学习研究”的更广泛的讨论中。\nAli Rahimi在接受2017年NeurIPS大会的“接受时间考验奖”（Test of Time Award）时发表了一篇令人难忘的演讲。他将“内部协变量转移”作为焦点，将现代深度学习的实践比作炼金术。\n他对该示例进行了详细回顾 [原文引用：Lipton.Steinhardt.2018](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)，概述了机器学习中令人不安的趋势。\n此外，一些作者对批量规范化的成功提出了另一种解释：在某些方面，批量规范化的表现出与原始论文 [原文引用：Santurkar.Tsipras.Ilyas.ea.2018](https://zh.d2l.ai/chapter_convolutional-modern/batch-norm.html)中声称的行为是相反的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-052",
+      "sha256": "de0a3f908e37353503befb3a2f6b3c57b4281b74a2e4fc7b65837c0d88579b3d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 572,
+      "raw": "然而，与机器学习文献中成千上万类似模糊的说法相比，内部协变量偏移没有更值得批评。\n很可能，它作为这些辩论的焦点而产生共鸣，要归功于目标受众对它的广泛认可。\n批量规范化已经被证明是一种不可或缺的方法。它适用于几乎所有图像分类器，并在学术界获得了数万引用。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-053",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 576,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-054",
+      "sha256": "f95eab1ebce8192990626e0f2e7f792cbb17cf86debd8205826ebd4da33e032d",
+      "type": "list",
+      "depth": null,
+      "line": 578,
+      "raw": "* 在模型训练过程中，批量规范化利用小批量的均值和标准差，不断调整神经网络的中间输出，使整个神经网络各层的中间输出值更加稳定。\n* 批量规范化在全连接层和卷积层的使用略有不同。\n* 批量规范化层和暂退层一样，在训练模式和预测模式下计算不同。\n* 批量规范化有许多有益的副作用，主要是正则化。另一方面，”减少内部协变量偏移“的原始动机似乎不是一个有效的解释。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-055",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 583,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-056",
+      "sha256": "eed2d66b6f6553b0ffd40622e1b7c808a9c7d0950b3f9e72fa62961b3a9746a3",
+      "type": "list",
+      "depth": null,
+      "line": 585,
+      "raw": "1. 在使用批量规范化之前，我们是否可以从全连接层或卷积层中删除偏置参数？为什么？\n1. 比较LeNet在使用和不使用批量规范化情况下的学习率。\n    1. 绘制训练和测试准确度的提高。\n    1. 学习率有多高？\n1. 我们是否需要在每个层中进行批量规范化？尝试一下？\n1. 可以通过批量规范化来替换暂退法吗？行为会如何改变？\n1. 确定参数`beta`和`gamma`，并观察和分析结果。\n1. 查看高级API中有关`BatchNorm`的在线文档，以查看其他批量规范化的应用。\n1. 研究思路：可以应用的其他“规范化”转换？可以应用概率积分变换吗？全秩协方差估计可以么？",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "batch-norm-057",
+      "sha256": "12d1f470436475023f1eb8b91a00ed2f2e488cba5bc2a68a5ba64253e87095ff",
+      "type": "paragraph",
+      "depth": null,
+      "line": 599,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1874)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

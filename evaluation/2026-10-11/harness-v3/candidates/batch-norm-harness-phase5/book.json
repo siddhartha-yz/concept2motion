@@ -1,0 +1,83 @@
+{
+  "figures": [
+    {
+      "id": "learnable-scale",
+      "title": "标准化不等于固定输出尺度",
+      "afterAnchor": "batch-norm-016",
+      "endAnchor": "batch-norm-016",
+      "height": 320,
+      "mobileHeight": 320,
+      "interaction": "parameters",
+      "summary": "单特征小批量 [1,2,4,5]，ε=0.01；颜色追踪同一项，γ、β 是手动例子。",
+      "params": [
+        {
+          "key": "gamma",
+          "label": "拉伸 γ",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1.5
+        },
+        {
+          "key": "beta",
+          "label": "偏移 β",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n  const P=VisualBook.palette, data=[1,2,4,5], mean=3, variance=2.5, epsilon=0.01;\n  const z=data.map(x=>(x-mean)/Math.sqrt(variance+epsilon));\n  const gamma=params.gamma, beta=params.beta, out=z.map(x=>gamma*x+beta);\n  const colors=[P.blue,'#628fa7','#b98b53',P.orange];\n  const left=36,right=width-24, map=x=>left+(x+6)/12*(right-left);\n  const rows=[{key:'input',name:'输入 x',values:data,mean:mean,stats:'μ = 3.00 · v = 2.50'},\n    {key:'z',name:'标准化 z',values:z,mean:0,stats:'μ = 0.00 · v = '+(variance/(variance+epsilon)).toFixed(3)},\n    {key:'out',name:'输出 y',values:out,mean:beta,stats:'μ = '+beta.toFixed(2)+' · v = '+(gamma*gamma*variance/(variance+epsilon)).toFixed(3)}];\n  const ys=[62,142,222];\n  board.line('zero',map(0),43,map(0),240,P.faint,1);\n  rows.forEach((r,j)=>{\n    const yy=ys[j];\n    board.text(r.key+'-name',r.name,left,yy-22,{size:15,color:P.ink,weight:600});\n    board.text(r.key+'-stats',r.stats,right,yy-22,{size:13,color:P.muted,anchor:'end'});\n    board.line(r.key+'-axis',left,yy,right,yy,P.faint,1.2);\n    [-6,-3,0,3,6].forEach(t=>board.line(r.key+'-tick-'+t,map(t),yy-3,map(t),yy+3,P.faint,1));\n    r.values.forEach((v,i)=>{\n      if(j>0)board.line(r.key+'-link-'+i,map(rows[j-1].values[i]),ys[j-1]+8,map(v),yy-8,colors[i],1,0.22);\n      board.circle(r.key+'-point-'+i,map(v),yy,6,colors[i]);\n      if(j===0)board.text(r.key+'-value-'+i,v.toFixed(0),map(v),yy+22,{size:13,color:colors[i],anchor:'middle'});\n    });\n    board.line(r.key+'-mean',map(r.mean),yy-9,map(r.mean),yy+9,P.ink,1.4);\n    if(j>0)board.text(r.key+'-range',j===2&&gamma===0?'4 项重合于 β':'范围 '+Math.min(...r.values).toFixed(2)+' ～ '+Math.max(...r.values).toFixed(2),left,yy+24,{size:13,color:P.muted});\n  });\n  [-6,-3,0,3,6].forEach(t=>board.text('axis-num-'+t,String(t),map(t),277,{size:13,color:P.muted,anchor:'middle'}));\n  board.text('axis-title','数值 · 三行同一刻度',right,300,{size:13,color:P.muted,anchor:'end'});\n  board.text('mean-legend','短竖线：均值',left,300,{size:13,color:P.muted});\n  return {input:data,mean,variance,epsilon,standardized:z,gamma,beta,output:out,outputMean:beta,outputVariance:gamma*gamma*variance/(variance+epsilon),statisticDenominator:4};\n}"
+    },
+    {
+      "id": "channel-pool",
+      "title": "同通道汇集，跨通道分开",
+      "afterAnchor": "batch-norm-027",
+      "endAnchor": "batch-norm-027",
+      "height": 325,
+      "mobileHeight": 420,
+      "interaction": "parameters",
+      "summary": "给定张量形状为 (N,C,H,W)=(2,2,2,2)，虚线框标出一组统计范围。",
+      "params": [
+        {
+          "key": "channel",
+          "label": "观察通道",
+          "kind": "select",
+          "value": 0,
+          "options": [
+            {
+              "value": 0,
+              "label": "通道 1"
+            },
+            {
+              "value": 1,
+              "label": "通道 2"
+            }
+          ]
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n  const P=VisualBook.palette, mobile=width<560, selected=params.channel;\n  const X=[[[[1,2],[3,4]],[[10,12],[14,16]]],[[[5,6],[7,8]],[[18,20],[22,24]]]];\n  const cell=mobile?31:34, matrixSize=2*cell, gridWidth=mobile?width:width*0.51;\n  const centers=[gridWidth*0.29,gridWidth*0.75], tops=[65,177], accent=selected===0?P.blue:P.orange;\n  for(let c=0;c<2;c++){\n    board.text('channel-'+c,'通道 '+(c+1),centers[c],26,{size:15,color:c===selected?accent:P.muted,anchor:'middle',weight:c===selected?600:400});\n    for(let n=0;n<2;n++){\n      const x=centers[c]-cell,y=tops[n];\n      board.text('sample-'+n+'-'+c,'样本 '+(n+1),centers[c],y-11,{size:13,color:P.muted,anchor:'middle'});\n      X[n][c].forEach((row,i)=>row.forEach((v,j)=>{\n        board.rect('cell-'+n+'-'+c+'-'+i+'-'+j,x+j*cell,y+i*cell,cell-2,cell-2,c===selected?(selected===0?'#e9f0f5':'#f8eee1'):P.faint,{rx:3});\n        board.text('value-'+n+'-'+c+'-'+i+'-'+j,String(v),x+(j+.5)*cell-1,y+(i+.5)*cell+4,{size:14,color:c===selected?accent:P.muted,anchor:'middle'});\n      }));\n    }\n    const active=c===selected;\n    board.rect('scope-'+c,centers[c]-cell-7,40,matrixSize+12,209,'none',{rx:7,stroke:accent,'stroke-width':1.6,'stroke-dasharray':'4 4',opacity:active?1:0});\n  }\n  const values=X.flatMap(sample=>sample[selected].flat()), mean=values.reduce((a,b)=>a+b,0)/values.length;\n  const variance=values.reduce((a,b)=>a+(b-mean)**2,0)/values.length;\n  const stripCell=mobile?30:34;\n  const sx=mobile?(width-4*stripCell)/2:gridWidth+28, sy=mobile?288:68;\n  if(mobile){\n    board.line('connector',centers[selected],251,centers[selected],267,accent,1.5);\n    board.text('group-count','2 样本 × 2 高 × 2 宽 = 8 项',width/2,279,{size:14,color:accent,anchor:'middle'});\n  }else{\n    board.line('connector',gridWidth-5,148,sx-15,148,accent,1.5);\n    board.text('group-count','2 样本 × 2 高 × 2 宽 = 8 项',sx,sy-16,{size:15,color:accent});\n  }\n  const stripY=mobile?300:85;\n  board.matrix('pool', [values.slice(0,4),values.slice(4)],{x:sx,y:stripY,cell:stripCell,color:accent,precision:0});\n  const statY=stripY+2*stripCell+29;\n  board.text('mean-var','μ = '+mean.toFixed(2)+'    v = '+variance.toFixed(2),mobile?width/2:sx,statY,{size:16,color:accent,weight:600,anchor:mobile?'middle':'start'});\n  board.text('shared','共享 γ'+(selected===0?'₁':'₂')+'、β'+(selected===0?'₁':'₂'),mobile?width/2:sx,statY+28,{size:14,color:P.ink,anchor:mobile?'middle':'start'});\n  if(!mobile)board.text('separate','另一通道独立统计',sx,statY+64,{size:14,color:P.muted});\n  return {shape:[2,2,2,2],selectedChannel:selected,collected:values,reductionAxes:[0,2,3],retainedAxis:1,mean,variance,count:values.length,statisticDenominator:8};\n}"
+    },
+    {
+      "id": "batch-dependence",
+      "title": "同一个样本，两种统计来源",
+      "afterAnchor": "batch-norm-029",
+      "endAnchor": "batch-norm-029",
+      "height": 360,
+      "mobileHeight": 400,
+      "interaction": "parameters",
+      "summary": "单特征批次 [2,q−1,q+1]；γ=1、β=0、ε=0.01，预测统计给定 μ=0、v=4。",
+      "params": [
+        {
+          "key": "q",
+          "label": "其余样本中心 q",
+          "min": -2,
+          "max": 6,
+          "step": 0.1,
+          "value": 0
+        }
+      ],
+      "code": "function draw({board,width,height,params,controls}) {\n  const P=VisualBook.palette, q=params.q, eps=0.01, target=2, runningMean=0,runningVariance=4;\n  function calc(t){const xs=[target,t-1,t+1],mu=xs.reduce((a,b)=>a+b,0)/3,v=xs.reduce((a,b)=>a+(b-mu)**2,0)/3;return {xs,mu,v,y:(target-mu)/Math.sqrt(v+eps)};}\n  const r=calc(q), prediction=(target-runningMean)/Math.sqrt(runningVariance+eps);\n  const mobile=width<560, bottom=height-127;\n  const frame=board.axes('response',{xDomain:[-2,6],yDomain:[-1.6,1.6],box:[50,66,width-28,bottom],xLabel:'',yLabel:'',grid:true});\n  const points=Array.from({length:161},(_,i)=>{let t=-2+i*8/160;return [t,calc(t).y];});\n  board.curve('train-response',frame,points,{color:P.blue,width:2.6});\n  board.curve('prediction-response',frame,[[-2,prediction],[6,prediction]],{color:P.orange,width:2});\n  board.text('fixed-input','固定样本 x = 2',width-28,22,{size:15,color:P.ink,weight:600,anchor:'end'});\n  board.text('vertical-label','输出 y',50,48,{size:14,color:P.muted});\n  board.text('horizontal-label','同批其余样本中心 q',width-28,bottom+44,{size:14,color:P.muted,anchor:'end'});\n  board.line('q-guide',frame.x(q),frame.y(-1.6),frame.x(q),frame.y(1.6),P.muted,1,0.35);\n  board.circle('train-point',frame.x(q),frame.y(r.y),6,P.blue);\n  board.circle('prediction-point',frame.x(q),frame.y(prediction),5,P.orange);\n  board.handle('q-handle',frame,[q,r.y],{axis:'x',bounds:{x:[-2,6],y:[-1.6,1.6]},step:0.1,color:P.blue,ariaLabel:'改变同批另外两个样本的中心 q',onChange:v=>controls.setParam('q',v[0])});\n  const readY=bottom+77;\n  board.text('train-read','训练 y = '+r.y.toFixed(3),50,readY,{size:15,color:P.blue,weight:600});\n  board.text('predict-read','预测 y = '+prediction.toFixed(3),width-28,readY,{size:15,color:P.orange,anchor:'end',weight:600});\n  board.text('train-stats','批次 μ = '+r.mu.toFixed(2)+' · v = '+r.v.toFixed(2),50,readY+25,{size:13,color:P.muted});\n  board.text('predict-stats','历史 μ = 0 · v = 4',width-28,readY+25,{size:13,color:P.muted,anchor:'end'});\n  return {input:r.xs,target,q,batchMean:r.mu,batchVariance:r.v,trainingOutput:r.y,predictionOutput:prediction,runningMean,runningVariance,epsilon:eps,gamma:1,beta:0,statisticDenominator:3,curve:points};\n}"
+    }
+  ]
+}

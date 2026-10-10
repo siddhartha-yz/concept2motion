@@ -1,0 +1,862 @@
+{
+  "id": "nadaraya-waston",
+  "title": "注意力汇聚：Nadaraya-Watson 核回归",
+  "source": "chapter_attention-mechanisms/nadaraya-waston.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html",
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "66e0483427bdb9748fb997113d67dade1aaa09ba4e67b5e29835e272ac126301",
+  "adaptedSha256": "c526b57699b28db0050a09a82618bdacd311d9fd364b2a54e5738095b809bd50",
+  "adaptation": {
+    "excludedTabBlocks": 2,
+    "excludedCodeBlocks": 39,
+    "keptCodeBlocks": 14,
+    "removedDirectives": 7,
+    "oneLineDisplayMath": 7,
+    "images": 0,
+    "mathErrors": 0,
+    "mathExpected": 48,
+    "mathRendered": 48
+  },
+  "blocks": [
+    {
+      "id": "nadaraya-waston-001",
+      "sha256": "d86273ee848b7b73d6ad7c1b4769ef4491d86dc347dd7ff9924212f8e45f344b",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 注意力汇聚：Nadaraya-Watson 核回归",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-002",
+      "sha256": "d1e096e7379c0bf6c60579f615e3c91c53afa2e20bb274b9ea96482089ca78f9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "上节介绍了框架下的注意力机制的主要成分 [原文引用：fig_qkv](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)：\n查询（自主提示）和键（非自主提示）之间的交互形成了注意力汇聚；\n注意力汇聚有选择地聚合了值（感官输入）以生成最终的输出。\n本节将介绍注意力汇聚的更多细节，\n以便从宏观上了解注意力机制在实践中的运作方式。\n具体来说，1964年提出的Nadaraya-Watson核回归模型\n是一个简单但完整的例子，可以用于演示具有注意力机制的机器学习。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-003",
+      "sha256": "0d75f59429c6f36cf2330a9bdff500a98b780c1d52e0e734a585b87bb6a4d0d9",
+      "type": "code",
+      "depth": null,
+      "line": 19,
+      "raw": "```python\nfrom d2l import torch as d2l\nimport torch\nfrom torch import nn\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-004",
+      "sha256": "b798e44404f24dc1f3715227954514c49c71f381f4ea3ab0fba41c7521815ddc",
+      "type": "heading",
+      "depth": 2,
+      "line": 41,
+      "raw": "## **生成数据集**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-005",
+      "sha256": "70d8fd362dc2874c9b71336220e5bbb38951a61926f9e08e82c130f31bc99339",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43,
+      "raw": "简单起见，考虑下面这个回归问题：\n给定的成对的“输入－输出”数据集\n$\\{(x_1, y_1), \\ldots, (x_n, y_n)\\}$，\n如何学习$f$来预测任意新输入$x$的输出$\\hat{y} = f(x)$？",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-006",
+      "sha256": "5c47a80cc6d07612d73261d01a3d39ca8cdd19fef3f5a17086a9ca2a5a5b3aeb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 48,
+      "raw": "根据下面的非线性函数生成一个人工数据集，\n其中加入的噪声项为$\\epsilon$：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-007",
+      "sha256": "350b84b85fe6f14d81a0c5d361f55335f1abc501fe8e40b16215aebeb5b61806",
+      "type": "paragraph",
+      "depth": null,
+      "line": 51,
+      "raw": "$$y_i = 2\\sin(x_i) + x_i^{0.8} + \\epsilon,$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-008",
+      "sha256": "deca68f51b2a15eb69e2a2af77284872789cf41b06747616c77e489557ea9954",
+      "type": "paragraph",
+      "depth": null,
+      "line": 53,
+      "raw": "其中$\\epsilon$服从均值为$0$和标准差为$0.5$的正态分布。\n在这里生成了$50$个训练样本和$50$个测试样本。\n为了更好地可视化之后的注意力模式，需要将训练样本进行排序。",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-009",
+      "sha256": "9374e581b5b8cfd409292fb044ef094f068526d48a33747d3f31a11e1b1182fd",
+      "type": "code",
+      "depth": null,
+      "line": 62,
+      "raw": "```python\nn_train = 50  # 训练样本数\nx_train, _ = torch.sort(d2l.rand(n_train) * 5)   # 排序后的训练样本\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-010",
+      "sha256": "50c355098eb5ca48cb6257e7a75fd25b0d7b3ee62a942ba2bd509a7dacabac26",
+      "type": "code",
+      "depth": null,
+      "line": 90,
+      "raw": "```python\ndef f(x):\n    return 2 * d2l.sin(x) + x**0.8\n\ny_train = f(x_train) + d2l.normal(0.0, 0.5, (n_train,))  # 训练样本的输出\nx_test = d2l.arange(0, 5, 0.1)  # 测试样本\ny_truth = f(x_test)  # 测试样本的真实输出\nn_test = len(x_test)  # 测试样本数\nn_test\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-011",
+      "sha256": "779f0b75e3f234541ee9c6690273d711763e8b7f2d2cbd6e829ba29098fb7d87",
+      "type": "paragraph",
+      "depth": null,
+      "line": 125,
+      "raw": "下面的函数将绘制所有的训练样本（样本由圆圈表示），\n不带噪声项的真实数据生成函数$f$（标记为“Truth”），\n以及学习得到的预测函数（标记为“Pred”）。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-012",
+      "sha256": "efe0c6eb4bc76c01d425db3b34a522e10b0ff285d53dc10cc9fe7b7bbe41bc2d",
+      "type": "code",
+      "depth": null,
+      "line": 129,
+      "raw": "```python\ndef plot_kernel_reg(y_hat):\n    d2l.plot(x_test, [y_truth, y_hat], 'x', 'y', legend=['Truth', 'Pred'],\n             xlim=[0, 5], ylim=[-1, 5])\n    d2l.plt.plot(x_train, y_train, 'o', alpha=0.5);\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-013",
+      "sha256": "a77ed561df7ed1ae37e8bfdf01ab621f5e89a9c3996bcf7464033552e3a6268d",
+      "type": "heading",
+      "depth": 2,
+      "line": 136,
+      "raw": "## 平均汇聚",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-014",
+      "sha256": "6937641b077df9cbcc65738569ed39b41bbaf6893420fe3e72d82fa0ecf02120",
+      "type": "paragraph",
+      "depth": null,
+      "line": 138,
+      "raw": "先使用最简单的估计器来解决回归问题。\n基于平均汇聚来计算所有训练样本输出值的平均值：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-015",
+      "sha256": "f363bb99f8e431a30a6887f4e88244167810b81033909c33b7e661416561ded5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 141,
+      "raw": "$$f(x) = \\frac{1}{n}\\sum_{i=1}^n y_i,$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-016",
+      "sha256": "141a0c36985bd15c217978151504e4340b2633048584a40d6ae698255800e553",
+      "type": "paragraph",
+      "depth": null,
+      "line": 143,
+      "raw": "如下图所示，这个估计器确实不够聪明。\n真实函数$f$（“Truth”）和预测函数（“Pred”）相差很大。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-017",
+      "sha256": "c4b65e01dcc319c2c59c8e9f9ecf9bc4e2467e504e9f3473d1a9cb188bde3096",
+      "type": "code",
+      "depth": null,
+      "line": 151,
+      "raw": "```python\ny_hat = torch.repeat_interleave(y_train.mean(), n_test)\nplot_kernel_reg(y_hat)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-018",
+      "sha256": "3dd41cfa7c6a800bb127a6743d761ddd3aa016f1ce7b6669b391f25a9e9b3d12",
+      "type": "heading",
+      "depth": 2,
+      "line": 168,
+      "raw": "## **非参数注意力汇聚**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-019",
+      "sha256": "b4702a233b156e195affae95df209f3b30870936029e6b6e998e8e875d8aba4a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 170,
+      "raw": "显然，平均汇聚忽略了输入$x_i$。\n于是Nadaraya [原文引用：Nadaraya.1964](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)和\nWatson [原文引用：Watson.1964](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)提出了一个更好的想法，\n根据输入的位置对输出$y_i$进行加权：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-020",
+      "sha256": "1ecc05fa670507c234184c7041e32a7fc82e9991508bea48c0e2dc250a1112aa",
+      "type": "paragraph",
+      "depth": null,
+      "line": 175,
+      "raw": "$$f(x) = \\sum_{i=1}^n \\frac{K(x - x_i)}{\\sum_{j=1}^n K(x - x_j)} y_i,$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-021",
+      "sha256": "64e173d315a5bb295f6f88d1b512050d30af8fc9e992b6c2e43cbf218225788b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 177,
+      "raw": "其中$K$是*核*（kernel）。\n公式 [原文引用：eq_nadaraya-watson](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)所描述的估计器被称为\n*Nadaraya-Watson核回归*（Nadaraya-Watson kernel regression）。\n这里不会深入讨论核函数的细节，\n但受此启发，\n我们可以从 [原文引用：fig_qkv](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)中的注意力机制框架的角度\n重写 [原文引用：eq_nadaraya-watson](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)，\n成为一个更加通用的*注意力汇聚*（attention pooling）公式：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-022",
+      "sha256": "dc7fed2e863d34116e45ceb62952a7064d48e866a35f94f82ea4e2fdd187cae4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 186,
+      "raw": "$$f(x) = \\sum_{i=1}^n \\alpha(x, x_i) y_i,$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-023",
+      "sha256": "9f57bf2d1d5fdeabdbf42688dacb941cb9f005a52f0bf08ff6848d20f964c667",
+      "type": "paragraph",
+      "depth": null,
+      "line": 188,
+      "raw": "其中$x$是查询，$(x_i, y_i)$是键值对。\n比较 [原文引用：eq_attn-pooling](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)和 [原文引用：eq_avg-pooling](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)，\n注意力汇聚是$y_i$的加权平均。\n将查询$x$和键$x_i$之间的关系建模为\n*注意力权重*（attention weight）$\\alpha(x, x_i)$，\n如 [原文引用：eq_attn-pooling](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)所示，\n这个权重将被分配给每一个对应值$y_i$。\n对于任何查询，模型在所有键值对注意力权重都是一个有效的概率分布：\n它们是非负的，并且总和为1。",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-024",
+      "sha256": "baf4a655f6baacc7412a731fb3520c606e4772d607af7b194dcaeee7480eedba",
+      "type": "paragraph",
+      "depth": null,
+      "line": 198,
+      "raw": "为了更好地理解注意力汇聚，\n下面考虑一个*高斯核*（Gaussian kernel），其定义为：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-025",
+      "sha256": "01e7a4acb74cc2fef7edba85892771ca61e690143dc67dfcf587bd6c8632908b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 201,
+      "raw": "$$K(u) = \\frac{1}{\\sqrt{2\\pi}} \\exp(-\\frac{u^2}{2}).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-026",
+      "sha256": "a9f8764f45b4a9a16b381013b4522a2777026700f0fe88d082e46d582977bf84",
+      "type": "paragraph",
+      "depth": null,
+      "line": 203,
+      "raw": "将高斯核代入 [原文引用：eq_attn-pooling](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)和\n [原文引用：eq_nadaraya-watson](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)可以得到：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-027",
+      "sha256": "f2980ddf6bbfa340486d8f7a73a2d5ccded6cd1e1703202cd51bb7843f1cd6c9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 206,
+      "raw": "$$\\begin{aligned} f(x) &=\\sum_{i=1}^n \\alpha(x, x_i) y_i\\\\ &= \\sum_{i=1}^n \\frac{\\exp\\left(-\\frac{1}{2}(x - x_i)^2\\right)}{\\sum_{j=1}^n \\exp\\left(-\\frac{1}{2}(x - x_j)^2\\right)} y_i \\\\&= \\sum_{i=1}^n \\mathrm{softmax}\\left(-\\frac{1}{2}(x - x_i)^2\\right) y_i. \\end{aligned}$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-028",
+      "sha256": "06a2ef5153d3bec7e8a7326fe397894b6622f73eb2f0e6c7d698d665187547e9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 208,
+      "raw": "在 [原文引用：eq_nadaraya-watson-gaussian](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)中，\n如果一个键$x_i$越是接近给定的查询$x$，\n那么分配给这个键对应值$y_i$的注意力权重就会越大，\n也就“获得了更多的注意力”。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-029",
+      "sha256": "198842474b5e3f553cbc0f57fc92cb5f284b4c0a5fbeb1b24ddc468db271ae2f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 213,
+      "raw": "值得注意的是，Nadaraya-Watson核回归是一个非参数模型。\n因此， [原文引用：eq_nadaraya-watson-gaussian](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)是\n*非参数的注意力汇聚*（nonparametric attention pooling）模型。\n接下来，我们将基于这个非参数的注意力汇聚模型来绘制预测结果。\n从绘制的结果会发现新的模型预测线是平滑的，并且比平均汇聚的预测更接近真实。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-030",
+      "sha256": "b59783abb0cfeffe7b2a2a304ebd29813ab4307532c1e7104a94c56803a7b1eb",
+      "type": "code",
+      "depth": null,
+      "line": 231,
+      "raw": "```python\n# X_repeat的形状:(n_test,n_train),\n# 每一行都包含着相同的测试输入（例如：同样的查询）\nX_repeat = d2l.reshape(x_test.repeat_interleave(n_train), (-1, n_train))\n# x_train包含着键。attention_weights的形状：(n_test,n_train),\n# 每一行都包含着要在给定的每个查询的值（y_train）之间分配的注意力权重\nattention_weights = nn.functional.softmax(-(X_repeat - x_train)**2 / 2, dim=1)\n# y_hat的每个元素都是值的加权平均值，其中的权重是注意力权重\ny_hat = d2l.matmul(attention_weights, y_train)\nplot_kernel_reg(y_hat)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-031",
+      "sha256": "2eb1d46966139d8ecfdf613c30d4af92c941499bf55d2c9dbaf65c3676a65b72",
+      "type": "paragraph",
+      "depth": null,
+      "line": 269,
+      "raw": "现在来观察注意力的权重。\n这里测试数据的输入相当于查询，而训练数据的输入相当于键。\n因为两个输入都是经过排序的，因此由观察可知“查询-键”对越接近，\n注意力汇聚的**注意力权重**就越高。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-032",
+      "sha256": "eb8b4be7ce68f641495cf97cf5079b45160f72b5ac39bc0e68cc209507590048",
+      "type": "code",
+      "depth": null,
+      "line": 280,
+      "raw": "```python\nd2l.show_heatmaps(attention_weights.unsqueeze(0).unsqueeze(0),\n                  xlabel='Sorted training inputs',\n                  ylabel='Sorted testing inputs')\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-033",
+      "sha256": "b30bdf54d1ef0b1d78ead265a7177fe24e4164065d2bd664b729157f879019cc",
+      "type": "heading",
+      "depth": 2,
+      "line": 301,
+      "raw": "## **带参数注意力汇聚**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-034",
+      "sha256": "eba75b7d63acd854277410ad4cf83b5a2ca3d91811f1163ed9a725a53a571f50",
+      "type": "paragraph",
+      "depth": null,
+      "line": 303,
+      "raw": "非参数的Nadaraya-Watson核回归具有*一致性*（consistency）的优点：\n如果有足够的数据，此模型会收敛到最优结果。\n尽管如此，我们还是可以轻松地将可学习的参数集成到注意力汇聚中。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-035",
+      "sha256": "41629fbdd4c20709b2668b5e064992ffffbf1a18bf47f79f5a0c2b8ca3af5d50",
+      "type": "paragraph",
+      "depth": null,
+      "line": 307,
+      "raw": "例如，与 [原文引用：eq_nadaraya-watson-gaussian](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)略有不同，\n在下面的查询$x$和键$x_i$之间的距离乘以可学习参数$w$：",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-036",
+      "sha256": "d513873d1391e50f5e6cfa9c3746d87c09c14958febab9e70b3e0d70bb2b9163",
+      "type": "paragraph",
+      "depth": null,
+      "line": 310,
+      "raw": "$$\\begin{aligned}f(x) &= \\sum_{i=1}^n \\alpha(x, x_i) y_i \\\\&= \\sum_{i=1}^n \\frac{\\exp\\left(-\\frac{1}{2}((x - x_i)w)^2\\right)}{\\sum_{j=1}^n \\exp\\left(-\\frac{1}{2}((x - x_j)w)^2\\right)} y_i \\\\&= \\sum_{i=1}^n \\mathrm{softmax}\\left(-\\frac{1}{2}((x - x_i)w)^2\\right) y_i.\\end{aligned}$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-037",
+      "sha256": "2dfd6b1452997321be1c6bfc1492958ee1be7fbbaf5e04f4a7a4f54023d6b40d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 312,
+      "raw": "本节的余下部分将通过训练这个模型\n [原文引用：eq_nadaraya-watson-gaussian-para](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)来学习注意力汇聚的参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-038",
+      "sha256": "31cfc74b326a8d987f34de11e1cadd763950f6d09fd79c23cf0f3c58faafcb1c",
+      "type": "heading",
+      "depth": 3,
+      "line": 315,
+      "raw": "### 批量矩阵乘法",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-039",
+      "sha256": "8533b5cf3da126fd0a57874f7657da17c37c91ffb4c49bce9b4ea44b4e20eb4f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 318,
+      "raw": "为了更有效地计算小批量数据的注意力，\n我们可以利用深度学习开发框架中提供的批量矩阵乘法。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-040",
+      "sha256": "de518c14b593c7bae321ce3aeadb3699aed1cffa032cef8bbc9a0d451346b186",
+      "type": "paragraph",
+      "depth": null,
+      "line": 321,
+      "raw": "假设第一个小批量数据包含$n$个矩阵$\\mathbf{X}_1,\\ldots, \\mathbf{X}_n$，\n形状为$a\\times b$，\n第二个小批量包含$n$个矩阵$\\mathbf{Y}_1, \\ldots, \\mathbf{Y}_n$，\n形状为$b\\times c$。\n它们的批量矩阵乘法得到$n$个矩阵\n$\\mathbf{X}_1\\mathbf{Y}_1, \\ldots, \\mathbf{X}_n\\mathbf{Y}_n$，\n形状为$a\\times c$。\n因此，**假定两个张量的形状分别是$(n,a,b)$和$(n,b,c)$，\n它们的批量矩阵乘法输出的形状为$(n,a,c)$**。",
+      "math": {
+        "expected": 12,
+        "rendered": 12,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-041",
+      "sha256": "f1ca139c4e21d09655cf8128ad64e758ef1f70f3519c28b174eaa55f498480ae",
+      "type": "code",
+      "depth": null,
+      "line": 337,
+      "raw": "```python\nX = d2l.ones((2, 1, 4))\nY = d2l.ones((2, 4, 6))\ntorch.bmm(X, Y).shape\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-042",
+      "sha256": "1c15ec59d1adfb3862af1fd142f246cbe1cf8695c8f713e0a9aa72d66da8fcb9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 357,
+      "raw": "在注意力机制的背景中，我们可以**使用小批量矩阵乘法来计算小批量数据中的加权平均值**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-043",
+      "sha256": "017886b7b6fdfcb16f55c3c9c7575f11d973b21983e3fba55caa62a1aa55199e",
+      "type": "code",
+      "depth": null,
+      "line": 365,
+      "raw": "```python\nweights = d2l.ones((2, 10)) * 0.1\nvalues = d2l.reshape(d2l.arange(20.0), (2, 10))\ntorch.bmm(weights.unsqueeze(1), values.unsqueeze(-1))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-044",
+      "sha256": "b48dc25071c6649264c0ff07b4e945e9f6149432e58bb519e0e03c1e04f1fdc8",
+      "type": "heading",
+      "depth": 3,
+      "line": 385,
+      "raw": "### 定义模型",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-045",
+      "sha256": "0924829addccaf85222f9e17df0beaf63db16d0200cdb9b5e5a4c3e71520b0d6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 387,
+      "raw": "基于 [原文引用：eq_nadaraya-watson-gaussian-para](https://zh.d2l.ai/chapter_attention-mechanisms/nadaraya-waston.html)中的\n**带参数的注意力汇聚**，使用小批量矩阵乘法，\n定义Nadaraya-Watson核回归的带参数版本为：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-046",
+      "sha256": "891439c7213cf12b141f632c6d9e8b8de3119e40de64aea4d34237c2b995b069",
+      "type": "code",
+      "depth": null,
+      "line": 408,
+      "raw": "```python\nclass NWKernelRegression(nn.Module):\n    def __init__(self, **kwargs):\n        super().__init__(**kwargs)\n        self.w = nn.Parameter(torch.rand((1,), requires_grad=True))\n\n    def forward(self, queries, keys, values):\n        # queries和attention_weights的形状为(查询个数，“键－值”对个数)\n        queries = d2l.reshape(\n            queries.repeat_interleave(keys.shape[1]), (-1, keys.shape[1]))\n        self.attention_weights = nn.functional.softmax(\n            -((queries - keys) * self.w)**2 / 2, dim=1)\n        # values的形状为(查询个数，“键－值”对个数)\n        return torch.bmm(self.attention_weights.unsqueeze(1),\n                         values.unsqueeze(-1)).reshape(-1)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-047",
+      "sha256": "39d6359fb6873ea54c4a9ec5337021d31f3a1bd6ad010497bb2d55edf1c340c3",
+      "type": "heading",
+      "depth": 3,
+      "line": 460,
+      "raw": "### 训练",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-048",
+      "sha256": "ff74ae03d422fb9b065e6a2d0037637408311be470ae0af340fbb78e9c48487a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 462,
+      "raw": "接下来，**将训练数据集变换为键和值**用于训练注意力模型。\n在带参数的注意力汇聚模型中，\n任何一个训练样本的输入都会和除自己以外的所有训练样本的“键－值”对进行计算，\n从而得到其对应的预测输出。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-049",
+      "sha256": "0f5f8f630311f28649a70da6b2f1c51fd53c06f051490d35feb7d5cd5a1dc479",
+      "type": "code",
+      "depth": null,
+      "line": 480,
+      "raw": "```python\n# X_tile的形状:(n_train，n_train)，每一行都包含着相同的训练输入\nX_tile = x_train.repeat((n_train, 1))\n# Y_tile的形状:(n_train，n_train)，每一行都包含着相同的训练输出\nY_tile = y_train.repeat((n_train, 1))\n# keys的形状:('n_train'，'n_train'-1)\nkeys = d2l.reshape(X_tile[(1 - d2l.eye(n_train)).type(torch.bool)],\n                   (n_train, -1))\n# values的形状:('n_train'，'n_train'-1)\nvalues = d2l.reshape(Y_tile[(1 - d2l.eye(n_train)).type(torch.bool)],\n                     (n_train, -1))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-050",
+      "sha256": "beb15b10fec9c7f06f3491331a85858a27729c3563dfed2d271a80cda8769507",
+      "type": "paragraph",
+      "depth": null,
+      "line": 517,
+      "raw": "**训练带参数的注意力汇聚模型**时，使用平方损失函数和随机梯度下降。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-051",
+      "sha256": "263d2a68a0394c5da72866b48c37f935aa0ecbc3f295de685f05b60d890f3d05",
+      "type": "code",
+      "depth": null,
+      "line": 535,
+      "raw": "```python\nnet = NWKernelRegression()\nloss = nn.MSELoss(reduction='none')\ntrainer = torch.optim.SGD(net.parameters(), lr=0.5)\nanimator = d2l.Animator(xlabel='epoch', ylabel='loss', xlim=[1, 5])\n\nfor epoch in range(5):\n    trainer.zero_grad()\n    l = loss(net(x_train, keys, values), y_train)\n    l.sum().backward()\n    trainer.step()\n    print(f'epoch {epoch + 1}, loss {float(l.sum()):.6f}')\n    animator.add(epoch + 1, float(l.sum()))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-052",
+      "sha256": "6db1e949bc1dd49df0b4a3537eab79b321a288abd3178a61a8abf5f8c05f35a4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 583,
+      "raw": "如下所示，训练完带参数的注意力汇聚模型后可以发现：\n在尝试拟合带噪声的训练数据时，\n**预测结果绘制**的线不如之前非参数模型的平滑。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-053",
+      "sha256": "967cf7f5c855b11e7d1653580989b85cd87da3f6c6c021d7a6799c2e852faa41",
+      "type": "code",
+      "depth": null,
+      "line": 596,
+      "raw": "```python\n# keys的形状:(n_test，n_train)，每一行包含着相同的训练输入（例如，相同的键）\nkeys = x_train.repeat((n_test, 1))\n# value的形状:(n_test，n_train)\nvalues = y_train.repeat((n_test, 1))\ny_hat = net(x_test, keys, values).unsqueeze(1).detach()\nplot_kernel_reg(y_hat)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-054",
+      "sha256": "fc4c826ac5fac631b45c439db2923f56c7ca556e68610817903c9f6252a8aceb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 625,
+      "raw": "为什么新的模型更不平滑了呢？\n下面看一下输出结果的绘制图：\n与非参数的注意力汇聚模型相比，\n带参数的模型加入可学习的参数后，\n**曲线在注意力权重较大的区域变得更不平滑**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-055",
+      "sha256": "64f3eb650f1284e6cd3548f4ce1b103cd0c3c65953b73e3cbd43797373d7ea6f",
+      "type": "code",
+      "depth": null,
+      "line": 638,
+      "raw": "```python\nd2l.show_heatmaps(net.attention_weights.unsqueeze(0).unsqueeze(0),\n                  xlabel='Sorted training inputs',\n                  ylabel='Sorted testing inputs')\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-056",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 659,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-057",
+      "sha256": "7560b05a704b4e7e5217fe163fdff9f028cbc83cb811f9a15bb57a5db731d1d6",
+      "type": "list",
+      "depth": null,
+      "line": 661,
+      "raw": "* Nadaraya-Watson核回归是具有注意力机制的机器学习范例。\n* Nadaraya-Watson核回归的注意力汇聚是对训练数据中输出的加权平均。从注意力的角度来看，分配给每个值的注意力权重取决于将值所对应的键和查询作为输入的函数。\n* 注意力汇聚可以分为非参数型和带参数型。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-058",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 665,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-059",
+      "sha256": "48b1c10b17cfa64c16f33d00a8336cffbde2eb17292552ee58f32bd31219a531",
+      "type": "list",
+      "depth": null,
+      "line": 667,
+      "raw": "1. 增加训练数据的样本数量，能否得到更好的非参数的Nadaraya-Watson核回归模型？\n1. 在带参数的注意力汇聚的实验中学习得到的参数$w$的价值是什么？为什么在可视化注意力权重时，它会使加权区域更加尖锐？\n1. 如何将超参数添加到非参数的Nadaraya-Watson核回归中以实现更好地预测结果？\n1. 为本节的核回归设计一个新的带参数的注意力汇聚模型。训练这个新模型并可视化其注意力权重。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "nadaraya-waston-060",
+      "sha256": "f42639ba2327751eb98f050747c1c09dd7d803acf5570b7413d4d40f8cf268a8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 676,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/5760)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

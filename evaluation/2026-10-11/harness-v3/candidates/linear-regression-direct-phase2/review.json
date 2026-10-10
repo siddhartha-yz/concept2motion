@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "独立样本求和与中心差分验证梯度[-2/3,-1]；303个连续更新位置核对样本平均平方损失与等高线多项式；1215组b/σ直接密度取对数验证NLL/n=log(√(2π)σ)+L/σ²；9组积分检验密度归一化；独立重算真实预览20帧facts。默认更新L:0.833333→0.092593，η=2.4更新后L=1.1。最终两幅图已用inspect_frame查看1280/375、0/1全部八张PNG，最终HTML与preview-03哈希一致。详见math-check.py/json和AUTHOR.md。",
+  "limits": "合成样本及手选起点，未做真实训练、性能基准、独立人类艺术评审或学习效果实验。预览40个参数边界案例非穷举；只人工检查返回的图及上下文PNG和全部八个最终端点，未逐页审查全部原始公式。113/113公式渲染检查不证明逐式排版。未人工测试减少动态效果、滚动暂停或全键盘行为。仅展示一次固定小批量更新；高斯图固定共同σ并假定独立观测，不联合估计σ；密度尾部和等高线超出坐标窗口的部分未显示。前两轮绘图计划未独立快照，PNG及报告保留，修改历史记录在AUTHOR.md。",
+  "html_sha256": "22885c987f3fc75522f03b518b1753ca20eaf1cf3a55a9b1777b2600d83e2b89",
+  "plan_sha256": "70c16e5de5f4d77e21d9d38e104ed358d3bb905fb34fa29b96bf761906fade26",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

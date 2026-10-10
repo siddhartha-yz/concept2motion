@@ -1,0 +1,3337 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/book.html",
+  "sha256": "273449f75a3a619da6799ac9d9efa8ea27f685c783d848a8df0fc502002dab26",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3e2009981add2c4a7d12d70fac6f51cb91b61ffb308b5ced7cca1ce47b8fd207"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3e2009981add2c4a7d12d70fac6f51cb91b61ffb308b5ced7cca1ce47b8fd207"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0e6967e0d8d4d3357372aecce5f62289c8fd53a653702ca026fe1f7f465a3cc7"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0e6967e0d8d4d3357372aecce5f62289c8fd53a653702ca026fe1f7f465a3cc7"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          6,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b29c2020425fcefa01bab6048d057cc5dd0a2511f6be675dd472a4499d008a0e"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          6,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b29c2020425fcefa01bab6048d057cc5dd0a2511f6be675dd472a4499d008a0e"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          -8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a44965b25d2ec8366ec82482eabceeb5b34c501f010d88ff3499feec3110a744"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          -8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a44965b25d2ec8366ec82482eabceeb5b34c501f010d88ff3499feec3110a744"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cecdf18b992361b6d4f0fcfd2917ed1ddd7d646a0638af7fa2c4040d2cbedb6b"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cecdf18b992361b6d4f0fcfd2917ed1ddd7d646a0638af7fa2c4040d2cbedb6b"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3a0a965a6133f15037458797719640d4183f6cb01b191d15bd5303dc1bced633"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3a0a965a6133f15037458797719640d4183f6cb01b191d15bd5303dc1bced633"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          12,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9bf0adf92d8a27cd5820749ea7a67eddf44abd98b67c0908d4981fa759b00bea"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          12,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9bf0adf92d8a27cd5820749ea7a67eddf44abd98b67c0908d4981fa759b00bea"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b18b1de5a60a5f0d7a07991cbe464c3500d65e6dcdae0a9bf9687ce652dd39ed"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b18b1de5a60a5f0d7a07991cbe464c3500d65e6dcdae0a9bf9687ce652dd39ed"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee7e94af5e1af07db532242cf5516451254a357f91f806b9cf4e50c972a8dd5b"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee7e94af5e1af07db532242cf5516451254a357f91f806b9cf4e50c972a8dd5b"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 3,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "799a367138cd133834f234a0cd077f834587db46cdd5371f0fa5d890dafd16f8"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 3,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "799a367138cd133834f234a0cd077f834587db46cdd5371f0fa5d890dafd16f8"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b18b1de5a60a5f0d7a07991cbe464c3500d65e6dcdae0a9bf9687ce652dd39ed"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b18b1de5a60a5f0d7a07991cbe464c3500d65e6dcdae0a9bf9687ce652dd39ed"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "x": 2,
+        "mode": "connected"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 8,
+        "gradient": 12,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d0df2c1d4bc2154f115f23291ddcca9f787bd0abdc15419b2fbd7ce47853e3f"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "x": 2,
+        "mode": "connected"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 8,
+        "gradient": 12,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d0df2c1d4bc2154f115f23291ddcca9f787bd0abdc15419b2fbd7ce47853e3f"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "all-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee7e94af5e1af07db532242cf5516451254a357f91f806b9cf4e50c972a8dd5b"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "all-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee7e94af5e1af07db532242cf5516451254a357f91f806b9cf4e50c972a8dd5b"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "all-max",
+      "params": {
+        "x": 3,
+        "mode": "connected"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 18,
+        "gradient": 27,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c50f9814b21890f129ea19b86aab39df9d69a49a8a57297863b59009f1672e1d"
+    },
+    {
+      "width": 1280,
+      "id": "detach-path",
+      "control": "all-max",
+      "params": {
+        "x": 3,
+        "mode": "connected"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 18,
+        "gradient": 27,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c50f9814b21890f129ea19b86aab39df9d69a49a8a57297863b59009f1672e1d"
+    },
+    {
+      "width": 1280,
+      "id": "control-flow",
+      "control": "default",
+      "params": {
+        "a": 200
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 200,
+        "f": 1600,
+        "initialMultiplier": 2,
+        "whileIterations": 2,
+        "k": 8,
+        "executedPathGradient": 8,
+        "ratio": 8,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b2422c0283b492aec66f76956ce4c97d8fc6d41e3838646b1a22cae2dd320ba7"
+    },
+    {
+      "width": 1280,
+      "id": "control-flow",
+      "control": "default",
+      "params": {
+        "a": 200
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 200,
+        "f": 1600,
+        "initialMultiplier": 2,
+        "whileIterations": 2,
+        "k": 8,
+        "executedPathGradient": 8,
+        "ratio": 8,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b2422c0283b492aec66f76956ce4c97d8fc6d41e3838646b1a22cae2dd320ba7"
+    },
+    {
+      "width": 1280,
+      "id": "control-flow",
+      "control": "a-min",
+      "params": {
+        "a": 80
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 80,
+        "f": 1280,
+        "initialMultiplier": 2,
+        "whileIterations": 3,
+        "k": 16,
+        "executedPathGradient": 16,
+        "ratio": 16,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee4b2ec01c0f5db75b19f3d9a0ac4fe313576e17fe4c2cec3ff086b2a44071bd"
+    },
+    {
+      "width": 1280,
+      "id": "control-flow",
+      "control": "a-min",
+      "params": {
+        "a": 80
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 80,
+        "f": 1280,
+        "initialMultiplier": 2,
+        "whileIterations": 3,
+        "k": 16,
+        "executedPathGradient": 16,
+        "ratio": 16,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee4b2ec01c0f5db75b19f3d9a0ac4fe313576e17fe4c2cec3ff086b2a44071bd"
+    },
+    {
+      "width": 1280,
+      "id": "control-flow",
+      "control": "a-max",
+      "params": {
+        "a": 650
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 650,
+        "f": 1300,
+        "initialMultiplier": 2,
+        "whileIterations": 0,
+        "k": 2,
+        "executedPathGradient": 2,
+        "ratio": 2,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "35f91b478b2934140e0d64eadaf75bfbe2f49bee3b22111f218b5e44cbd95b32"
+    },
+    {
+      "width": 1280,
+      "id": "control-flow",
+      "control": "a-max",
+      "params": {
+        "a": 650
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 650,
+        "f": 1300,
+        "initialMultiplier": 2,
+        "whileIterations": 0,
+        "k": 2,
+        "executedPathGradient": 2,
+        "ratio": 2,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "35f91b478b2934140e0d64eadaf75bfbe2f49bee3b22111f218b5e44cbd95b32"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "accdee2cbada73a63618e8ba8d1fa11073232bd981a75c212e0c5e346f9b964f"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "accdee2cbada73a63618e8ba8d1fa11073232bd981a75c212e0c5e346f9b964f"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "57bfbbf6229a883ade42f644ba0ff1f80c0dcdf9a2e5963557dedd1cd6fae475"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "57bfbbf6229a883ade42f644ba0ff1f80c0dcdf9a2e5963557dedd1cd6fae475"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          6,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cd8602097f9541cf96ea7ce1157d39f33009ee8e14ad077d7cb9ac2fe46035e1"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          6,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cd8602097f9541cf96ea7ce1157d39f33009ee8e14ad077d7cb9ac2fe46035e1"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          -8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6ff3ea4b68922897f4f39c6374228eb281de71a777b87ae2ddfca9e2f824587c"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          -8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6ff3ea4b68922897f4f39c6374228eb281de71a777b87ae2ddfca9e2f824587c"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b23f34fe70ce624926c42af3787838ee3acad677e2756de96b38fd8ca24bd1d4"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          4,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          8,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b23f34fe70ce624926c42af3787838ee3acad677e2756de96b38fd8ca24bd1d4"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "09532e2c81add7b98c71d2b30fe3fa64f3f4961569944c705369869afd129835"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          0,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          0,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          -2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          0,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "09532e2c81add7b98c71d2b30fe3fa64f3f4961569944c705369869afd129835"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          12,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "104c5569ac5442a899897fea5711585b3dd3ea4a69f742deaafbd47e8bafb112"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+        "x": [
+          0,
+          1,
+          3,
+          3
+        ],
+        "y": [
+          0,
+          1,
+          9,
+          9
+        ],
+        "v": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "jacobianTranspose": [
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            6,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            6
+          ]
+        ],
+        "gradient": [
+          0,
+          2,
+          12,
+          6
+        ],
+        "formula": "g = J^T v = (2x) elementwise v",
+        "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "104c5569ac5442a899897fea5711585b3dd3ea4a69f742deaafbd47e8bafb112"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2b3c6e17cc2112699647f13838ef413fe70002581600ba46fd8b8af86c464bc6"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "default",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2b3c6e17cc2112699647f13838ef413fe70002581600ba46fd8b8af86c464bc6"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ea07f45b39e481b1545d45686df935881086a969b595f8df118ad12ce1950f6e"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ea07f45b39e481b1545d45686df935881086a969b595f8df118ad12ce1950f6e"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 3,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c27bf1928c130bffe2f33623eb0717902eff7be2c3a1daa560542b268e6218a6"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "x-max",
+      "params": {
+        "x": 3,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c27bf1928c130bffe2f33623eb0717902eff7be2c3a1daa560542b268e6218a6"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2b3c6e17cc2112699647f13838ef413fe70002581600ba46fd8b8af86c464bc6"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-min",
+      "params": {
+        "x": 2,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 0,
+        "gradient": 4,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2b3c6e17cc2112699647f13838ef413fe70002581600ba46fd8b8af86c464bc6"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "x": 2,
+        "mode": "connected"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 8,
+        "gradient": 12,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d9b5934067b8cf7241a08e79bcd710343158c82cdd7b0917dd34c111536caf04"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "mode-max",
+      "params": {
+        "x": 2,
+        "mode": "connected"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 2,
+        "u": 4,
+        "z": 8,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 4,
+        "viaUGradient": 8,
+        "gradient": 12,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d9b5934067b8cf7241a08e79bcd710343158c82cdd7b0917dd34c111536caf04"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "all-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ea07f45b39e481b1545d45686df935881086a969b595f8df118ad12ce1950f6e"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "all-min",
+      "params": {
+        "x": -3,
+        "mode": "detach"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": -3,
+        "u": 9,
+        "z": -27,
+        "detached": true,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 0,
+        "gradient": 9,
+        "formula": "d z/d x holding u constant = u = x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ea07f45b39e481b1545d45686df935881086a969b595f8df118ad12ce1950f6e"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "all-max",
+      "params": {
+        "x": 3,
+        "mode": "connected"
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 18,
+        "gradient": 27,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4a6906cca0b5abb818eaf03956888b71ef53d54ad2837057ccbed30694175563"
+    },
+    {
+      "width": 375,
+      "id": "detach-path",
+      "control": "all-max",
+      "params": {
+        "x": 3,
+        "mode": "connected"
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "x": 3,
+        "u": 9,
+        "z": 27,
+        "detached": false,
+        "forwardSameForBothModes": true,
+        "directPathGradient": 9,
+        "viaUGradient": 18,
+        "gradient": 27,
+        "formula": "d(x^3)/dx = 3x^2",
+        "barAxis": [
+          0,
+          27
+        ],
+        "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4a6906cca0b5abb818eaf03956888b71ef53d54ad2837057ccbed30694175563"
+    },
+    {
+      "width": 375,
+      "id": "control-flow",
+      "control": "default",
+      "params": {
+        "a": 200
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 200,
+        "f": 1600,
+        "initialMultiplier": 2,
+        "whileIterations": 2,
+        "k": 8,
+        "executedPathGradient": 8,
+        "ratio": 8,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "46c181ce86980d3767834cc1bcbd7fa3cae2620177f373d84c8b0131d3efd73a"
+    },
+    {
+      "width": 375,
+      "id": "control-flow",
+      "control": "default",
+      "params": {
+        "a": 200
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 200,
+        "f": 1600,
+        "initialMultiplier": 2,
+        "whileIterations": 2,
+        "k": 8,
+        "executedPathGradient": 8,
+        "ratio": 8,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "46c181ce86980d3767834cc1bcbd7fa3cae2620177f373d84c8b0131d3efd73a"
+    },
+    {
+      "width": 375,
+      "id": "control-flow",
+      "control": "a-min",
+      "params": {
+        "a": 80
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 80,
+        "f": 1280,
+        "initialMultiplier": 2,
+        "whileIterations": 3,
+        "k": 16,
+        "executedPathGradient": 16,
+        "ratio": 16,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4e55530c3458ad82d3f9751d6a604146486626c9261a36db45353e5d2340b365"
+    },
+    {
+      "width": 375,
+      "id": "control-flow",
+      "control": "a-min",
+      "params": {
+        "a": 80
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 80,
+        "f": 1280,
+        "initialMultiplier": 2,
+        "whileIterations": 3,
+        "k": 16,
+        "executedPathGradient": 16,
+        "ratio": 16,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4e55530c3458ad82d3f9751d6a604146486626c9261a36db45353e5d2340b365"
+    },
+    {
+      "width": 375,
+      "id": "control-flow",
+      "control": "a-max",
+      "params": {
+        "a": 650
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "a": 650,
+        "f": 1300,
+        "initialMultiplier": 2,
+        "whileIterations": 0,
+        "k": 2,
+        "executedPathGradient": 2,
+        "ratio": 2,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ff0e254eea5639077ba89a43e6ef8563b073dd3338f6b7cfa6bf8aa2990a6b26"
+    },
+    {
+      "width": 375,
+      "id": "control-flow",
+      "control": "a-max",
+      "params": {
+        "a": 650
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "a": 650,
+        "f": 1300,
+        "initialMultiplier": 2,
+        "whileIterations": 0,
+        "k": 2,
+        "executedPathGradient": 2,
+        "ratio": 2,
+        "atDiscontinuity": false,
+        "classicalDerivativeExists": true,
+        "positiveBranch": true,
+        "displayDomain": [
+          80,
+          650
+        ],
+        "jumpLocations": [
+          125,
+          250,
+          500
+        ],
+        "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ff0e254eea5639077ba89a43e6ef8563b073dd3338f6b7cfa6bf8aa2990a6b26"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

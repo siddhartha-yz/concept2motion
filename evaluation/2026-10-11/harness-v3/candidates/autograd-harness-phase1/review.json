@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "check_math.py 独立核对：最终 draw 的1070个模拟绘图条件及最终Chromium报告30个实际facts条件；加权平方和/完整立方/冻结u的线性函数用h=1e-5有限差分，容差1e-6，最大差异约1.01e-8；按原控制流复算循环次数和输出，500点明确classicalDerivative=null而路径斜率为2。已实际查看三轮1280/375桌面与手机PNG，并逐图查看最后预览两种宽度0/1端点，共12张。",
+  "limits": "只核对例子与滑杆离散步值以及0/0.25/0.26/0.5/1采样；Chromium另查36个参数边界条件，未穷举连续状态或其它设备。未运行PyTorch或完整人工交互测试。控制流仅正标量260–740，不涵盖负分支、高维、零输入及其它倍增阈值；原代码零输入不终止。无训练、硬件性能、读者理解实验或独立人工艺术评审声明。AUTHOR.md保留首轮越界、命令失败和所有修订。",
+  "html_sha256": "1d7cdb399b47fdd1fc329520220d9aa8d439a182a19a8c90d863a14441aee722",
+  "plan_sha256": "1fefef043ee094156c20c8d977dd421ea5399576b5d049a4067a847d404352b5",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

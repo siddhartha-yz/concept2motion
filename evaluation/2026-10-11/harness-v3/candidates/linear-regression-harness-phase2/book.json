@@ -1,0 +1,88 @@
+{
+  "arm": "harness",
+  "figures": [
+    {
+      "id": "residual-landscape",
+      "title": "残差与损失曲线，随同一个权重联动",
+      "afterAnchor": "linear-regression-029",
+      "endAnchor": "linear-regression-031",
+      "height": 400,
+      "mobileHeight": 560,
+      "summary": "五个示例样本，偏置固定为 1；拖动权重，只查看这一维损失切片。",
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "w",
+          "label": "权重 w",
+          "min": 0,
+          "max": 2,
+          "step": 0.02,
+          "value": 0.4
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const p=VisualBook.palette, mobile=width<600;\n const f=n=>Number(n).toFixed(2);\n function panels(){\n   if(mobile) return [[48,64,width-22,184],[48,332,width-22,458]];\n   return [[50,64,width/2-26,height-108],[width/2+48,64,width-22,height-108]];\n }\n function heading(id,text,box){board.text(id,text,box[0],box[1]-28,{size:14,color:p.ink,weight:600});}\n function dot(id,frame,x,y,color,r=4){board.circle(id,frame.x(x),frame.y(y),r,color);}\n function guide(id,frame,x,y,color){board.line(id,frame.x(x),frame.y(0),frame.x(x),frame.y(y),color,1,0.35);}\n\n const data=[[-2,-1],[-1,0.2],[0,1.4],[1,1.6],[2,3.2]], w=params.w,b=1;\n const predictions=data.map(([x])=>w*x+b), residuals=data.map((d,i)=>predictions[i]-d[1]);\n const loss=residuals.reduce((s,r)=>s+r*r,0)/(2*data.length);\n const lossAt=v=>data.reduce((s,[x,y])=>s+(v*x+b-y)**2,0)/(2*data.length);\n const optimum=data.reduce((s,[x,y])=>s+x*(y-b),0)/data.reduce((s,[x])=>s+x*x,0);\n const [A,B]=panels();\n heading('head-data','样本空间 · 标签 y',A); heading('head-loss','参数空间 · 平均损失 L',B);\n const a=board.axes('samples',{xDomain:[-2.3,2.3],yDomain:[-4,6],box:A,xLabel:'特征 x',yLabel:'',grid:false});\n const z=board.axes('landscape',{xDomain:[0,2],yDomain:[0,1.2],box:B,xLabel:'权重 w',yLabel:'',grid:false});\n board.curve('model',a,[[-2.3,w*(-2.3)+b],[2.3,w*2.3+b]],{color:p.blue,width:2.5});\n data.forEach(([x,y],i)=>{\n   board.line('residual-'+i,a.x(x),a.y(y),a.x(x),a.y(predictions[i]),p.orange,2);\n   dot('obs-'+i,a,x,y,p.ink,4);\n   board.mark('prediction-'+i,'circle',{cx:a.x(x),cy:a.y(predictions[i]),r:3.5,fill:p.paper,stroke:p.blue,'stroke-width':1.8});\n });\n const curve=Array.from({length:101},(_,i)=>[i/50,lossAt(i/50)]);\n board.curve('loss-curve',z,curve,{color:p.orange,width:2.4});\n board.mark('optimum-guide','line',{x1:z.x(optimum),x2:z.x(optimum),y1:z.y(0),y2:z.y(1.2),stroke:p.muted,'stroke-width':1,'stroke-dasharray':'3 5',opacity:0.45});\n guide('current-guide',z,w,loss,p.blue); dot('current',z,w,loss,p.blue,5.5);\n board.text('legend','● 观测   ○ 预测   │ 残差',A[0],A[3]+68,{size:12,color:p.muted});\n board.text('readout','w = '+f(w)+'   L = '+f(loss),B[0],B[3]+68,{size:14,color:p.blue,weight:600});\n board.text('slice-min','虚线：此切片最小点 w = '+f(optimum),B[0],B[3]+90,{size:12,color:p.muted});\n return {data,weight:w,bias:b,predictions,residuals,loss,optimumWeight:optimum,optimumLoss:lossAt(optimum)};\n}"
+    },
+    {
+      "id": "batch-update",
+      "title": "残差如何变成一次参数更新",
+      "afterAnchor": "linear-regression-044",
+      "endAnchor": "linear-regression-046",
+      "height": 400,
+      "mobileHeight": 560,
+      "summary": "固定三个示例样本；进度只插值展示一次更新前后的参数，不增加优化步骤。",
+      "interaction": "timeline",
+      "initialProgress": 0,
+      "durationMs": 7000,
+      "checkpoints": [
+        0,
+        0.5,
+        1
+      ],
+      "stages": [
+        "更新前",
+        "沿负梯度移动",
+        "更新后"
+      ],
+      "params": [
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0.05,
+          "max": 0.9,
+          "step": 0.05,
+          "value": 0.3
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n const p=VisualBook.palette, mobile=width<600;\n const f=n=>Number(n).toFixed(2);\n function panels(){\n   if(mobile) return [[48,64,width-22,184],[48,332,width-22,458]];\n   return [[50,64,width/2-26,height-108],[width/2+48,64,width-22,height-108]];\n }\n function heading(id,text,box){board.text(id,text,box[0],box[1]-28,{size:14,color:p.ink,weight:600});}\n function dot(id,frame,x,y,color,r=4){board.circle(id,frame.x(x),frame.y(y),r,color);}\n function guide(id,frame,x,y,color){board.line(id,frame.x(x),frame.y(0),frame.x(x),frame.y(y),color,1,0.35);}\n\n const data=[[-1,0],[1,2],[2,3]],start=[0.2,0.5], eta=params.eta;\n const residuals=data.map(([x,y])=>start[0]*x+start[1]-y);\n const terms=data.map(([x],i)=>[x*residuals[i],residuals[i]]);\n const gradient=[0,1].map(k=>terms.reduce((s,t)=>s+t[k],0)/3);\n const end=start.map((v,k)=>v-eta*gradient[k]);\n const theta=start.map((v,k)=>v+progress*(end[k]-v));\n const L=t=>data.reduce((s,[x,y])=>s+(t[0]*x+t[1]-y)**2,0)/6;\n const [A,B]=panels();\n heading('head-contribution','更新前 · 每个样本的贡献',A);\n heading('head-model','一次更新 · 标签 y',B);\n const a={left:A[0],right:A[2],top:A[1],bottom:A[3],x:v=>A[0]+(v-0.5)/3*(A[2]-A[0]),y:v=>A[3]-(v+4.8)/5.8*(A[3]-A[1])};\n board.line('bar-y-axis',a.left,a.top,a.left,a.bottom,p.muted,1);\n board.line('bar-zero',a.left,a.y(0),a.right,a.y(0),p.muted,1,0.45);\n [-4,-2,0].forEach(v=>board.text('bar-y-'+v,String(v),a.left-9,a.y(v)+4,{size:12,color:p.muted,anchor:'end'}));\n data.forEach(([x],i)=>board.text('sample-x-'+i,'x = '+x,a.x(i+1),a.bottom+24,{size:12,color:p.muted,anchor:'middle'}));\n board.text('bar-axis-name','梯度贡献',a.right,a.bottom+48,{size:13,color:p.ink,anchor:'end'});\n const z=board.axes('fit',{xDomain:[-1.4,2.4],yDomain:[-1.5,6.5],box:B,xLabel:'特征 x',yLabel:'',grid:false});\n terms.forEach((t,i)=>{\n   const x=i+1;\n   [1,0].forEach((k,j)=>{\n     const xx=a.x(x+(j===0?-0.2:0.2)), y=a.y(t[k]), base=a.y(0), color=k===1?p.orange:p.blue;\n     board.rect('bar-'+i+'-'+k,xx-6,Math.min(y,base),12,Math.max(1,Math.abs(y-base)),color,{opacity:0.8});\n     board.text('term-'+i+'-'+k,f(t[k]),xx,y+(t[k]<0?16:-8),{size:12,color,anchor:'middle'});\n   });\n });\n board.curve('old-model',z,[[-1.4,start[0]*-1.4+start[1]],[2.4,start[0]*2.4+start[1]]],{color:p.muted,width:1.5,opacity:0.45});\n board.curve('new-model',z,[[-1.4,theta[0]*-1.4+theta[1]],[2.4,theta[0]*2.4+theta[1]]],{color:p.blue,width:2.5});\n data.forEach(([x,y],i)=>dot('data-'+i,z,x,y,p.ink,4));\n board.text('gradients','均值：g_b = '+f(gradient[1])+'   g_w = '+f(gradient[0]),A[0],A[3]+68,{size:13,color:p.ink});\n board.text('bar-legend','橙 r → 偏置；蓝 xr → 权重',A[0],A[3]+90,{size:12,color:p.muted});\n board.text('theta','w = '+f(theta[0])+'   b = '+f(theta[1])+'   L = '+f(L(theta)),B[0],B[3]+68,{size:13,color:p.blue,weight:600});\n board.text('loss-change','本批 L：'+f(L(start))+' → '+f(L(end))+(L(end)>L(start)?'  上升':'  下降'),B[0],B[3]+90,{size:12,color:L(end)>L(start)?p.orange:p.muted});\n return {data,start,residuals,terms,gradient,eta,end,current:theta,progress,startLoss:L(start),endLoss:L(end),currentLoss:L(theta),interpolationOnly:true};\n}"
+    },
+    {
+      "id": "gaussian-equivalence",
+      "title": "两种目标，为何停在同一处",
+      "afterAnchor": "linear-regression-082",
+      "endAnchor": "linear-regression-082",
+      "height": 400,
+      "mobileHeight": 560,
+      "summary": "五个独立示例样本共用固定 σ，权重为 1；比较同一偏置下的两种目标。",
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "b",
+          "label": "偏置 b",
+          "min": -1,
+          "max": 3,
+          "step": 0.05,
+          "value": 0.1
+        },
+        {
+          "key": "sigma",
+          "label": "噪声标准差 σ",
+          "min": 0.6,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const p=VisualBook.palette, mobile=width<600;\n const f=n=>Number(n).toFixed(2);\n function panels(){\n   if(mobile) return [[48,64,width-22,184],[48,332,width-22,458]];\n   return [[50,64,width/2-26,height-108],[width/2+48,64,width-22,height-108]];\n }\n function heading(id,text,box){board.text(id,text,box[0],box[1]-28,{size:14,color:p.ink,weight:600});}\n function dot(id,frame,x,y,color,r=4){board.circle(id,frame.x(x),frame.y(y),r,color);}\n function guide(id,frame,x,y,color){board.line(id,frame.x(x),frame.y(0),frame.x(x),frame.y(y),color,1,0.35);}\n\n const data=[[-2,-1],[-1,0],[0,1],[1,2],[2,4]], b=params.b,sigma=params.sigma,n=data.length;\n const lossAt=t=>data.reduce((s,[x,y])=>s+(x+t-y)**2,0)/(2*n);\n const constant=n/2*Math.log(2*Math.PI*sigma*sigma),scale=n/(sigma*sigma);\n const nllAt=t=>constant+scale*lossAt(t), optimum=data.reduce((s,[x,y])=>s+y-x,0)/n;\n const [A,B]=panels();\n heading('head-square','平方损失 L · 固定 w = 1',A); heading('head-nll','负对数似然 NLL',B);\n const a=board.axes('square',{xDomain:[-1,3],yDomain:[0,2.8],box:A,xLabel:'偏置 b',yLabel:'',grid:false});\n const z=board.axes('nll',{xDomain:[-1,3],yDomain:[0,40],box:B,xLabel:'偏置 b',yLabel:'',grid:false});\n [[a,lossAt,'loss',p.blue],[z,nllAt,'likelihood',p.orange]].forEach(([axis,fn,id,color])=>{\n   board.curve(id+'-curve',axis,Array.from({length:121},(_,i)=>{const t=-1+i/30;return [t,fn(t)];}),{color,width:2.4});\n   board.mark(id+'-minimum','line',{x1:axis.x(optimum),x2:axis.x(optimum),y1:axis.top,y2:axis.bottom,stroke:p.muted,'stroke-width':1,'stroke-dasharray':'3 5',opacity:0.5});\n   guide(id+'-current-guide',axis,b,fn(b),color); dot(id+'-current',axis,b,fn(b),color,5.5);\n });\n board.text('loss-number','b = '+f(b)+'   L = '+f(lossAt(b)),A[0],A[3]+68,{size:14,color:p.blue,weight:600});\n board.text('same-min','虚线：同一最小点 b = '+f(optimum),A[0],A[3]+90,{size:12,color:p.muted});\n board.text('nll-number','NLL = '+f(nllAt(b)),B[0],B[3]+68,{size:14,color:p.orange,weight:600});\n board.text('scale','常数 '+f(constant)+'  +  '+f(scale)+' × L',B[0],B[3]+90,{size:12,color:p.muted});\n return {data,weight:1,bias:b,sigma,loss:lossAt(b),nll:nllAt(b),constant,scale,optimumBias:optimum,minimumLoss:lossAt(optimum),minimumNll:nllAt(optimum),fixedSigmaAcrossSamples:true};\n}"
+    }
+  ]
+}

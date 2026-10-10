@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "已查看最终三图在1280/375宽度的0/1共12张端点PNG及第二轮中间状态/context PNG。verify_math.py独立使用前向函数与中心差分核对98条浏览器facts记录（30默认、68参数边界，含重复），最大绝对差1.01e-8；另外核对125/250/500处的函数跳变。J_ij=dy_i/dx_j，列向量反传J^T v；detach固定u时梯度x^2，连接时3x^2；控制流k只代表执行路径，跳点处没有经典导数。原文14个公式在两宽度均渲染，source.md初始哈希未变。未执行PyTorch训练或硬件测量。",
+  "limits": "两轮真实MCP预览；第一轮布局问题和旧版本保留。实际PNG视觉审阅集中于默认参数，极值/选项仅有有限自动几何与数学检查；不是穷尽艺术认证。矩阵仅逐元素平方，detach仅标量分量；控制流仅a∈[80,650]正标量切片，未展示负数分支/张量输入，a=0原循环不终止，跳点的路径梯度不等于经典导数。未做外部读者评审、所有浏览器/辅助技术测试或运动导出。完整取舍、修订与边界在AUTHOR.md。",
+  "html_sha256": "273449f75a3a619da6799ac9d9efa8ea27f685c783d848a8df0fc502002dab26",
+  "plan_sha256": "1ca69434e8cf1cdbdfd4e578ee4ea159b2bdf3d37e1bbe13a8ee3bfac33ce515",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

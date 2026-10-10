@@ -1,0 +1,5046 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/underfit-overfit-harness/book.html",
+  "sha256": "613ed2b62f55f34b63deafb50ec3fdde2cd39b9414ef32a9da724e6f95beac3b",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 12,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.00048828125
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.005859375
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0322265625
+          },
+          {
+            "error": 0.25,
+            "probability": 0.107421875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.24169921875
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.38671875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.2255859375
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.38720703125,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "5b36cf2cc6d4bdba5dbcb354f918157105be1a35bd65fbaf510bf3ce50d19845"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 12,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.00048828125
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.005859375
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0322265625
+          },
+          {
+            "error": 0.25,
+            "probability": 0.107421875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.24169921875
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.38671875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.2255859375
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.38720703125,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "5b36cf2cc6d4bdba5dbcb354f918157105be1a35bd65fbaf510bf3ce50d19845"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 24,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 1.1920928955078125e-7
+          },
+          {
+            "error": 0.041666666666666664,
+            "probability": 0.00000286102294921875
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.000032901763916015625
+          },
+          {
+            "error": 0.125,
+            "probability": 0.00024127960205078125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0012667179107666016
+          },
+          {
+            "error": 0.20833333333333334,
+            "probability": 0.005066871643066406
+          },
+          {
+            "error": 0.25,
+            "probability": 0.016045093536376953
+          },
+          {
+            "error": 0.2916666666666667,
+            "probability": 0.041258811950683594
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.08767497539520264
+          },
+          {
+            "error": 0.375,
+            "probability": 0.1558666229248047
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.23379993438720703
+          },
+          {
+            "error": 0.4583333333333333,
+            "probability": 0.2975635528564453
+          },
+          {
+            "error": 0.5,
+            "probability": 0.1611802577972412
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4194098711013794,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6c1055e3b86511ec5b99cefa2cd8f1e2cee683681f0d15196b45df5819b17d4d"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 24,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 1.1920928955078125e-7
+          },
+          {
+            "error": 0.041666666666666664,
+            "probability": 0.00000286102294921875
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.000032901763916015625
+          },
+          {
+            "error": 0.125,
+            "probability": 0.00024127960205078125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0012667179107666016
+          },
+          {
+            "error": 0.20833333333333334,
+            "probability": 0.005066871643066406
+          },
+          {
+            "error": 0.25,
+            "probability": 0.016045093536376953
+          },
+          {
+            "error": 0.2916666666666667,
+            "probability": 0.041258811950683594
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.08767497539520264
+          },
+          {
+            "error": 0.375,
+            "probability": 0.1558666229248047
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.23379993438720703
+          },
+          {
+            "error": 0.4583333333333333,
+            "probability": 0.2975635528564453
+          },
+          {
+            "error": 0.5,
+            "probability": 0.1611802577972412
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4194098711013794,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6c1055e3b86511ec5b99cefa2cd8f1e2cee683681f0d15196b45df5819b17d4d"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 36,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 2.9103830456733704e-11
+          },
+          {
+            "error": 0.027777777777777776,
+            "probability": 1.0477378964424133e-9
+          },
+          {
+            "error": 0.05555555555555555,
+            "probability": 1.8335413187742233e-8
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 2.0780134946107864e-7
+          },
+          {
+            "error": 0.1111111111111111,
+            "probability": 0.0000017143611330538988
+          },
+          {
+            "error": 0.1388888888888889,
+            "probability": 0.000010971911251544952
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.000056688208132982254
+          },
+          {
+            "error": 0.19444444444444445,
+            "probability": 0.0002429494634270668
+          },
+          {
+            "error": 0.2222222222222222,
+            "probability": 0.0008806918049231172
+          },
+          {
+            "error": 0.25,
+            "probability": 0.002739930059760809
+          },
+          {
+            "error": 0.2777777777777778,
+            "probability": 0.007397811161354184
+          },
+          {
+            "error": 0.3055555555555556,
+            "probability": 0.017485735472291708
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.03642861556727439
+          },
+          {
+            "error": 0.3611111111111111,
+            "probability": 0.06725282873958349
+          },
+          {
+            "error": 0.3888888888888889,
+            "probability": 0.11048679007217288
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.16204729210585356
+          },
+          {
+            "error": 0.4444444444444444,
+            "probability": 0.2126870708889328
+          },
+          {
+            "error": 0.4722222222222222,
+            "probability": 0.25022008339874446
+          },
+          {
+            "error": 0.5,
+            "probability": 0.13206059957155958
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4339697002142202,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33bdd6ec75f0821883d13051377cbed24e36c649f0a1095b7471317c5b5c849e"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 36,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 2.9103830456733704e-11
+          },
+          {
+            "error": 0.027777777777777776,
+            "probability": 1.0477378964424133e-9
+          },
+          {
+            "error": 0.05555555555555555,
+            "probability": 1.8335413187742233e-8
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 2.0780134946107864e-7
+          },
+          {
+            "error": 0.1111111111111111,
+            "probability": 0.0000017143611330538988
+          },
+          {
+            "error": 0.1388888888888889,
+            "probability": 0.000010971911251544952
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.000056688208132982254
+          },
+          {
+            "error": 0.19444444444444445,
+            "probability": 0.0002429494634270668
+          },
+          {
+            "error": 0.2222222222222222,
+            "probability": 0.0008806918049231172
+          },
+          {
+            "error": 0.25,
+            "probability": 0.002739930059760809
+          },
+          {
+            "error": 0.2777777777777778,
+            "probability": 0.007397811161354184
+          },
+          {
+            "error": 0.3055555555555556,
+            "probability": 0.017485735472291708
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.03642861556727439
+          },
+          {
+            "error": 0.3611111111111111,
+            "probability": 0.06725282873958349
+          },
+          {
+            "error": 0.3888888888888889,
+            "probability": 0.11048679007217288
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.16204729210585356
+          },
+          {
+            "error": 0.4444444444444444,
+            "probability": 0.2126870708889328
+          },
+          {
+            "error": 0.4722222222222222,
+            "probability": 0.25022008339874446
+          },
+          {
+            "error": 0.5,
+            "probability": 0.13206059957155958
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4339697002142202,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33bdd6ec75f0821883d13051377cbed24e36c649f0a1095b7471317c5b5c849e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.32909090909091,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.40517190664462815,
+        "gridMSE": 0.293420511891508,
+        "curveRange": [
+          2.464557575757577,
+          6.193624242424243
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "f6a489276b657382a6c481ecb929618c8df0b05cce06e66091d58b098b7d8f1b"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.32909090909091,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.40517190664462815,
+        "gridMSE": 0.293420511891508,
+        "curveRange": [
+          2.464557575757577,
+          6.193624242424243
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "f6a489276b657382a6c481ecb929618c8df0b05cce06e66091d58b098b7d8f1b"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 3,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.020745920745921,
+          1.1999999999999993,
+          -1.7291375291375284,
+          0.9333333333333341
+        ],
+        "trainingMSE": 0.0007204916295825345,
+        "gridMSE": 0.00019688829951614901,
+        "curveRange": [
+          1.1582750582750592,
+          5.424941724941726
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3858b3731d4380f443d02a83aadab92fa0e85138f0b06bcf7578b2db9392a22e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 3,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.020745920745921,
+          1.1999999999999993,
+          -1.7291375291375284,
+          0.9333333333333341
+        ],
+        "trainingMSE": 0.0007204916295825345,
+        "gridMSE": 0.00019688829951614901,
+        "curveRange": [
+          1.1582750582750592,
+          5.424941724941726
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3858b3731d4380f443d02a83aadab92fa0e85138f0b06bcf7578b2db9392a22e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.799999999999989,
+          1.2000000000000093,
+          5.618055555555771,
+          0.9333333333329256,
+          -66.36284722222412,
+          2.1887740128624837e-12,
+          222.00520833334082,
+          -3.6000930632744814e-12,
+          -298.3940972222333,
+          1.80250977902237e-12,
+          135.6336805555609
+        ],
+        "trainingMSE": 5.318715366883304e-28,
+        "gridMSE": 0.14301803332562196,
+        "curveRange": [
+          0.31559123187322946,
+          5.548784468198417
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "b43130dab968085cb67573e65f6c59a1bfa252d4445d955cb401b60f0349244e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.799999999999989,
+          1.2000000000000093,
+          5.618055555555771,
+          0.9333333333329256,
+          -66.36284722222412,
+          2.1887740128624837e-12,
+          222.00520833334082,
+          -3.6000930632744814e-12,
+          -298.3940972222333,
+          1.80250977902237e-12,
+          135.6336805555609
+        ],
+        "trainingMSE": 5.318715366883304e-28,
+        "gridMSE": 0.14301803332562196,
+        "curveRange": [
+          0.31559123187322946,
+          5.548784468198417
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "b43130dab968085cb67573e65f6c59a1bfa252d4445d955cb401b60f0349244e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.301818181818182,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.3705603363966942,
+        "gridMSE": 0.2996957185030784,
+        "curveRange": [
+          2.4372848484848486,
+          6.166351515151515
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ca6a9330e3323d0ba662b775de8cc1e0f7498495105928c8427987b0172709fa"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.301818181818182,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.3705603363966942,
+        "gridMSE": 0.2996957185030784,
+        "curveRange": [
+          2.4372848484848486,
+          6.166351515151515
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ca6a9330e3323d0ba662b775de8cc1e0f7498495105928c8427987b0172709fa"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 6,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.03125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.1875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.46875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.3125
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.34375,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 12,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.00048828125
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.005859375
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0322265625
+          },
+          {
+            "error": 0.25,
+            "probability": 0.107421875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.24169921875
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.38671875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.2255859375
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.38720703125,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "12 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33081cda3eaf4aedf5e02e7629d799881ff014e6adc7dd1a5eb71be7425a1bae"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 12,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 0.00048828125
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.005859375
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0322265625
+          },
+          {
+            "error": 0.25,
+            "probability": 0.107421875
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.24169921875
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.38671875
+          },
+          {
+            "error": 0.5,
+            "probability": 0.2255859375
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.38720703125,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "12 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33081cda3eaf4aedf5e02e7629d799881ff014e6adc7dd1a5eb71be7425a1bae"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 24,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 1.1920928955078125e-7
+          },
+          {
+            "error": 0.041666666666666664,
+            "probability": 0.00000286102294921875
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.000032901763916015625
+          },
+          {
+            "error": 0.125,
+            "probability": 0.00024127960205078125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0012667179107666016
+          },
+          {
+            "error": 0.20833333333333334,
+            "probability": 0.005066871643066406
+          },
+          {
+            "error": 0.25,
+            "probability": 0.016045093536376953
+          },
+          {
+            "error": 0.2916666666666667,
+            "probability": 0.041258811950683594
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.08767497539520264
+          },
+          {
+            "error": 0.375,
+            "probability": 0.1558666229248047
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.23379993438720703
+          },
+          {
+            "error": 0.4583333333333333,
+            "probability": 0.2975635528564453
+          },
+          {
+            "error": 0.5,
+            "probability": 0.1611802577972412
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4194098711013794,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "24 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "477c5110e3fa836980bb0ad5ce8d327de8f26bf54871be9c9d05dd4b41add803"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 24,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 1.1920928955078125e-7
+          },
+          {
+            "error": 0.041666666666666664,
+            "probability": 0.00000286102294921875
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 0.000032901763916015625
+          },
+          {
+            "error": 0.125,
+            "probability": 0.00024127960205078125
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.0012667179107666016
+          },
+          {
+            "error": 0.20833333333333334,
+            "probability": 0.005066871643066406
+          },
+          {
+            "error": 0.25,
+            "probability": 0.016045093536376953
+          },
+          {
+            "error": 0.2916666666666667,
+            "probability": 0.041258811950683594
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.08767497539520264
+          },
+          {
+            "error": 0.375,
+            "probability": 0.1558666229248047
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.23379993438720703
+          },
+          {
+            "error": 0.4583333333333333,
+            "probability": 0.2975635528564453
+          },
+          {
+            "error": 0.5,
+            "probability": 0.1611802577972412
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4194098711013794,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "24 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "477c5110e3fa836980bb0ad5ce8d327de8f26bf54871be9c9d05dd4b41add803"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "n": 36,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 2.9103830456733704e-11
+          },
+          {
+            "error": 0.027777777777777776,
+            "probability": 1.0477378964424133e-9
+          },
+          {
+            "error": 0.05555555555555555,
+            "probability": 1.8335413187742233e-8
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 2.0780134946107864e-7
+          },
+          {
+            "error": 0.1111111111111111,
+            "probability": 0.0000017143611330538988
+          },
+          {
+            "error": 0.1388888888888889,
+            "probability": 0.000010971911251544952
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.000056688208132982254
+          },
+          {
+            "error": 0.19444444444444445,
+            "probability": 0.0002429494634270668
+          },
+          {
+            "error": 0.2222222222222222,
+            "probability": 0.0008806918049231172
+          },
+          {
+            "error": 0.25,
+            "probability": 0.002739930059760809
+          },
+          {
+            "error": 0.2777777777777778,
+            "probability": 0.007397811161354184
+          },
+          {
+            "error": 0.3055555555555556,
+            "probability": 0.017485735472291708
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.03642861556727439
+          },
+          {
+            "error": 0.3611111111111111,
+            "probability": 0.06725282873958349
+          },
+          {
+            "error": 0.3888888888888889,
+            "probability": 0.11048679007217288
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.16204729210585356
+          },
+          {
+            "error": 0.4444444444444444,
+            "probability": 0.2126870708889328
+          },
+          {
+            "error": 0.4722222222222222,
+            "probability": 0.25022008339874446
+          },
+          {
+            "error": 0.5,
+            "probability": 0.13206059957155958
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4339697002142202,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "36 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e03b558595d1b85cc977b22ced03b6e897f14f70b79d02b103eb2d4bf92b1992"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "n": 36,
+        "probabilities": [
+          {
+            "error": 0,
+            "probability": 2.9103830456733704e-11
+          },
+          {
+            "error": 0.027777777777777776,
+            "probability": 1.0477378964424133e-9
+          },
+          {
+            "error": 0.05555555555555555,
+            "probability": 1.8335413187742233e-8
+          },
+          {
+            "error": 0.08333333333333333,
+            "probability": 2.0780134946107864e-7
+          },
+          {
+            "error": 0.1111111111111111,
+            "probability": 0.0000017143611330538988
+          },
+          {
+            "error": 0.1388888888888889,
+            "probability": 0.000010971911251544952
+          },
+          {
+            "error": 0.16666666666666666,
+            "probability": 0.000056688208132982254
+          },
+          {
+            "error": 0.19444444444444445,
+            "probability": 0.0002429494634270668
+          },
+          {
+            "error": 0.2222222222222222,
+            "probability": 0.0008806918049231172
+          },
+          {
+            "error": 0.25,
+            "probability": 0.002739930059760809
+          },
+          {
+            "error": 0.2777777777777778,
+            "probability": 0.007397811161354184
+          },
+          {
+            "error": 0.3055555555555556,
+            "probability": 0.017485735472291708
+          },
+          {
+            "error": 0.3333333333333333,
+            "probability": 0.03642861556727439
+          },
+          {
+            "error": 0.3611111111111111,
+            "probability": 0.06725282873958349
+          },
+          {
+            "error": 0.3888888888888889,
+            "probability": 0.11048679007217288
+          },
+          {
+            "error": 0.4166666666666667,
+            "probability": 0.16204729210585356
+          },
+          {
+            "error": 0.4444444444444444,
+            "probability": 0.2126870708889328
+          },
+          {
+            "error": 0.4722222222222222,
+            "probability": 0.25022008339874446
+          },
+          {
+            "error": 0.5,
+            "probability": 0.13206059957155958
+          }
+        ],
+        "probabilitySum": 1,
+        "expectedTrainingError": 0.4339697002142202,
+        "generalizationError": 0.5,
+        "originalExample": {
+          "labels": [
+            0,
+            1,
+            1,
+            1,
+            0,
+            1
+          ],
+          "trainingError": 0.3333333333333333
+        },
+        "convention": "Exact binomial probabilities aggregated by min(k,n-k)/n; no simulation."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "36 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e03b558595d1b85cc977b22ced03b6e897f14f70b79d02b103eb2d4bf92b1992"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.32909090909091,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.40517190664462815,
+        "gridMSE": 0.293420511891508,
+        "curveRange": [
+          2.464557575757577,
+          6.193624242424243
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e5c66f51137d830e49b4ddea018351aea12fe2b2a752b5ab2909fb7652b6b4a0"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.32909090909091,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.40517190664462815,
+        "gridMSE": 0.293420511891508,
+        "curveRange": [
+          2.464557575757577,
+          6.193624242424243
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e5c66f51137d830e49b4ddea018351aea12fe2b2a752b5ab2909fb7652b6b4a0"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 3,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.020745920745921,
+          1.1999999999999993,
+          -1.7291375291375284,
+          0.9333333333333341
+        ],
+        "trainingMSE": 0.0007204916295825345,
+        "gridMSE": 0.00019688829951614901,
+        "curveRange": [
+          1.1582750582750592,
+          5.424941724941726
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "1e15af39be683417b331918769750ebc65c227bf17de3a6f3ca9a6410583693a"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 3,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.020745920745921,
+          1.1999999999999993,
+          -1.7291375291375284,
+          0.9333333333333341
+        ],
+        "trainingMSE": 0.0007204916295825345,
+        "gridMSE": 0.00019688829951614901,
+        "curveRange": [
+          1.1582750582750592,
+          5.424941724941726
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "1e15af39be683417b331918769750ebc65c227bf17de3a6f3ca9a6410583693a"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.1,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.1,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.100000000000007,
+          1.2000000000000022,
+          -5.359027777777766,
+          0.9333333333334702,
+          33.18142361111085,
+          -8.951634432795023e-13,
+          -111.00260416666616,
+          1.5559494379904304e-12,
+          149.19704861111072,
+          -7.953740009178112e-13,
+          -67.81684027777767
+        ],
+        "trainingMSE": 1.7335218392231734e-28,
+        "gridMSE": 0.03575450833140183,
+        "curveRange": [
+          1.1666666666666465,
+          6.015705923045446
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.799999999999989,
+          1.2000000000000093,
+          5.618055555555771,
+          0.9333333333329256,
+          -66.36284722222412,
+          2.1887740128624837e-12,
+          222.00520833334082,
+          -3.6000930632744814e-12,
+          -298.3940972222333,
+          1.80250977902237e-12,
+          135.6336805555609
+        ],
+        "trainingMSE": 5.318715366883304e-28,
+        "gridMSE": 0.14301803332562196,
+        "curveRange": [
+          0.31559123187322946,
+          5.548784468198417
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6fac89a2393c118e83f708996e375b50077e5051629f0731471d7fbadd56c163"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.799999999999989,
+          1.2000000000000093,
+          5.618055555555771,
+          0.9333333333329256,
+          -66.36284722222412,
+          2.1887740128624837e-12,
+          222.00520833334082,
+          -3.6000930632744814e-12,
+          -298.3940972222333,
+          1.80250977902237e-12,
+          135.6336805555609
+        ],
+        "trainingMSE": 5.318715366883304e-28,
+        "gridMSE": 0.14301803332562196,
+        "curveRange": [
+          0.31559123187322946,
+          5.548784468198417
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6fac89a2393c118e83f708996e375b50077e5051629f0731471d7fbadd56c163"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.301818181818182,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.3705603363966942,
+        "gridMSE": 0.2996957185030784,
+        "curveRange": [
+          2.4372848484848486,
+          6.166351515151515
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "dd46f1fd751cede4c8e4479d6b3215fff68cc6ac73cec98ea382814a4363f7f7"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 1,
+        "epsilon": -0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          4.8,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          4.301818181818182,
+          1.8645333333333332
+        ],
+        "trainingMSE": 0.3705603363966942,
+        "gridMSE": 0.2996957185030784,
+        "curveRange": [
+          2.4372848484848486,
+          6.166351515151515
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "dd46f1fd751cede4c8e4479d6b3215fff68cc6ac73cec98ea382814a4363f7f7"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "degree": 10,
+        "epsilon": 0.2,
+        "xs": [
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.19999999999999996,
+          0,
+          0.19999999999999996,
+          0.3999999999999999,
+          0.6000000000000001,
+          0.8,
+          1
+        ],
+        "ys": [
+          1.1666666666666665,
+          2.4741333333333335,
+          3.4664,
+          4.188266666666666,
+          4.684533333333333,
+          5.2,
+          5.179466666666667,
+          5.267733333333332,
+          5.3096,
+          5.349866666666666,
+          5.433333333333334
+        ],
+        "coefficients": [
+          5.2000000000000055,
+          1.1999999999999995,
+          -9.018055555555547,
+          0.9333333333336433,
+          66.36284722222258,
+          -1.878687229641239e-12,
+          -222.00520833333587,
+          3.198920793958688e-12,
+          298.3940972222265,
+          -1.6220519167241182e-12,
+          -135.6336805555577
+        ],
+        "trainingMSE": 5.731791622708125e-28,
+        "gridMSE": 0.14301803332561303,
+        "curveRange": [
+          1.1666666666666003,
+          6.630320112757602
+        ],
+        "gridCount": 401,
+        "gridDomain": [
+          -1,
+          1
+        ],
+        "convention": "11 fixed inputs, only x=0 label perturbed. QR least squares, not SGD; grid squared bias to known mean is not test/generalization error."
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    }
+  ],
+  "findings": [
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ffddc83e0f05c9a4cc3e6fdb1e1ac92a32a6e0fd713c723f7aa03062cf4e5934"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "5b36cf2cc6d4bdba5dbcb354f918157105be1a35bd65fbaf510bf3ce50d19845"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "5b36cf2cc6d4bdba5dbcb354f918157105be1a35bd65fbaf510bf3ce50d19845"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6c1055e3b86511ec5b99cefa2cd8f1e2cee683681f0d15196b45df5819b17d4d"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6c1055e3b86511ec5b99cefa2cd8f1e2cee683681f0d15196b45df5819b17d4d"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33bdd6ec75f0821883d13051377cbed24e36c649f0a1095b7471317c5b5c849e"
+    },
+    {
+      "width": 1280,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33bdd6ec75f0821883d13051377cbed24e36c649f0a1095b7471317c5b5c849e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "f6a489276b657382a6c481ecb929618c8df0b05cce06e66091d58b098b7d8f1b"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "f6a489276b657382a6c481ecb929618c8df0b05cce06e66091d58b098b7d8f1b"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3858b3731d4380f443d02a83aadab92fa0e85138f0b06bcf7578b2db9392a22e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3858b3731d4380f443d02a83aadab92fa0e85138f0b06bcf7578b2db9392a22e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e9d55e9f336cbf6db9a7b3e4dbb65348c4e4fac8f06937b532afde87b59e3ec1"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "b43130dab968085cb67573e65f6c59a1bfa252d4445d955cb401b60f0349244e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "b43130dab968085cb67573e65f6c59a1bfa252d4445d955cb401b60f0349244e"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ca6a9330e3323d0ba662b775de8cc1e0f7498495105928c8427987b0172709fa"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "ca6a9330e3323d0ba662b775de8cc1e0f7498495105928c8427987b0172709fa"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 1280,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "27ad6085bfa034eedf50db0fa5a121dc5b1f46fb626d08bd985eedbe8db21958"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "default",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-min",
+      "params": {
+        "n": 6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.344",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "6 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "2d1d933e4b4a7a75dac479394779cd7c7257bb98c06cc6976f3c1e2d1aec1aa5"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "12 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33081cda3eaf4aedf5e02e7629d799881ff014e6adc7dd1a5eb71be7425a1bae"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-1",
+      "params": {
+        "n": 12
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.387",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "12 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "33081cda3eaf4aedf5e02e7629d799881ff014e6adc7dd1a5eb71be7425a1bae"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "24 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "477c5110e3fa836980bb0ad5ce8d327de8f26bf54871be9c9d05dd4b41add803"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-option-2",
+      "params": {
+        "n": 24
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.419",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "24 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "477c5110e3fa836980bb0ad5ce8d327de8f26bf54871be9c9d05dd4b41add803"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "36 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e03b558595d1b85cc977b22ced03b6e897f14f70b79d02b103eb2d4bf92b1992"
+    },
+    {
+      "width": 375,
+      "id": "coin-selection",
+      "control": "n-max",
+      "params": {
+        "n": 36
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平均训练 0.434",
+          "出现概率"
+        ],
+        [
+          "训练误差",
+          "36 次独立投掷 · 每次按多数类预测"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e03b558595d1b85cc977b22ced03b6e897f14f70b79d02b103eb2d4bf92b1992"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "default",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e5c66f51137d830e49b4ddea018351aea12fe2b2a752b5ab2909fb7652b6b4a0"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-min",
+      "params": {
+        "degree": 1,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.405",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e5c66f51137d830e49b4ddea018351aea12fe2b2a752b5ab2909fb7652b6b4a0"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "1e15af39be683417b331918769750ebc65c227bf17de3a6f3ca9a6410583693a"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-option-1",
+      "params": {
+        "degree": 3,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 7.205e-4",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "1e15af39be683417b331918769750ebc65c227bf17de3a6f3ca9a6410583693a"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "degree-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 1.734e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "43de5fb1498295ba8ab66bb772668504fdfb1c1eaa7c495492ada0fc8d274358"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6fac89a2393c118e83f708996e375b50077e5051629f0731471d7fbadd56c163"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-min",
+      "params": {
+        "degree": 10,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.319e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6fac89a2393c118e83f708996e375b50077e5051629f0731471d7fbadd56c163"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "epsilon-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "dd46f1fd751cede4c8e4479d6b3215fff68cc6ac73cec98ea382814a4363f7f7"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-min",
+      "params": {
+        "degree": 1,
+        "epsilon": -0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 0.371",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "dd46f1fd751cede4c8e4479d6b3215fff68cc6ac73cec98ea382814a4363f7f7"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    },
+    {
+      "width": 375,
+      "id": "polynomial-sensitivity",
+      "control": "all-max",
+      "params": {
+        "degree": 10,
+        "epsilon": 0.2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "训练 MSE 5.732e-28",
+          "y"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a0cf75957b1823b9f2500c9316daa06d40a25d6b2fe242f79a474dcb3fde0e9f"
+    }
+  ],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

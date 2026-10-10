@@ -1,0 +1,2109 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/linear-regression-direct-phase2/book.html",
+  "sha256": "9faff61c471fdd65b151b7f11eb6d2759b5e2152da7fe99d581be748b74b58e7",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          0.7666666666666666,
+          -0.09999999999999998
+        ],
+        "predictions": [
+          -0.8666666666666666,
+          -0.09999999999999998,
+          0.6666666666666666
+        ],
+        "residuals": [
+          0.13333333333333341,
+          -0.6,
+          -1.3333333333333335
+        ],
+        "loss": 0.35925925925925933,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "589df33670214e97d3344e2caf8744c5838e820d2e5145a67ad5459e8d824454"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          1.0333333333333332,
+          0.30000000000000004
+        ],
+        "predictions": [
+          -0.7333333333333332,
+          0.30000000000000004,
+          1.3333333333333333
+        ],
+        "residuals": [
+          0.26666666666666683,
+          -0.19999999999999996,
+          -0.6666666666666667
+        ],
+        "loss": 0.09259259259259262,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1815c4ca65c6a59644dd7640b942a5bb84a0d884f817cab7363d4a59cbb49d85"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5166666666666666,
+          -0.475
+        ],
+        "predictions": [
+          -0.9916666666666666,
+          -0.475,
+          0.04166666666666663
+        ],
+        "residuals": [
+          0.008333333333333415,
+          -0.975,
+          -1.9583333333333335
+        ],
+        "loss": 0.797627314814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "8742037f2196097a71284aa805c7b9f22cb1eccef0e515204ee288097c053f08"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5333333333333333,
+          -0.45
+        ],
+        "predictions": [
+          -0.9833333333333334,
+          -0.45,
+          0.08333333333333331
+        ],
+        "residuals": [
+          0.016666666666666607,
+          -0.95,
+          -1.9166666666666667
+        ],
+        "loss": 0.7627314814814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "73e914c84548e5d1fa721a616254ccee37bd202f2bc70dd0819592645737bc5e"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          1.2999999999999998,
+          0.7
+        ],
+        "predictions": [
+          -0.5999999999999999,
+          0.7,
+          1.9999999999999998
+        ],
+        "residuals": [
+          0.40000000000000013,
+          0.19999999999999996,
+          -2.220446049250313e-16
+        ],
+        "loss": 0.03333333333333335,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "3908317276dfb203d69b7bb9671c39c6ea59a0ca3652a7709a5d5c86000c1540"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          2.0999999999999996,
+          1.9
+        ],
+        "predictions": [
+          -0.19999999999999973,
+          1.9,
+          3.9999999999999996
+        ],
+        "residuals": [
+          0.8000000000000003,
+          1.4,
+          1.9999999999999996
+        ],
+        "loss": 1.0999999999999996,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1dd3299a3fa25dce9549bcc69d79fe4b6aaf8d426a050499021d0ffb4c8e1db9"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1fb5b0dcd83322271769b56831f76bf177bff90c2b374a81ec56ee3a96e19f01"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1fb5b0dcd83322271769b56831f76bf177bff90c2b374a81ec56ee3a96e19f01"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "7fc7c1efb577b96420376bb2c06c5b4befb312d6a21552e5bafb5663d6dc3648"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "7fc7c1efb577b96420376bb2c06c5b4befb312d6a21552e5bafb5663d6dc3648"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "21ae3c1968ac805f36838f9a63e1dcd0f1ee6068535644788491f9423b9de760"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "21ae3c1968ac805f36838f9a63e1dcd0f1ee6068535644788491f9423b9de760"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5d35900c1b2a5bb7536feb18e312cce5d2318f32b192910b7c8ede7fc1e5793d"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "5d35900c1b2a5bb7536feb18e312cce5d2318f32b192910b7c8ede7fc1e5793d"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6eed2c47fdd4b78c63e2ff364adc47c1f9fdd5f99b556c989abb9984fca9d884"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6eed2c47fdd4b78c63e2ff364adc47c1f9fdd5f99b556c989abb9984fca9d884"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "4f0f2adee40293794699d04e68712c57f75a524fb7c2f07087a9145afb0c0a66"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "4f0f2adee40293794699d04e68712c57f75a524fb7c2f07087a9145afb0c0a66"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "a3f9d362a2c5b52b50422e9ecb034803dc196a41a3326e119741403abcf76281"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "a3f9d362a2c5b52b50422e9ecb034803dc196a41a3326e119741403abcf76281"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          0.7666666666666666,
+          -0.09999999999999998
+        ],
+        "predictions": [
+          -0.8666666666666666,
+          -0.09999999999999998,
+          0.6666666666666666
+        ],
+        "residuals": [
+          0.13333333333333341,
+          -0.6,
+          -1.3333333333333335
+        ],
+        "loss": 0.35925925925925933,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "687367cc565f31a3fb5a306d219c11271e727c2fe10937684583e17e0186df40"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          1.0333333333333332,
+          0.30000000000000004
+        ],
+        "predictions": [
+          -0.7333333333333332,
+          0.30000000000000004,
+          1.3333333333333333
+        ],
+        "residuals": [
+          0.26666666666666683,
+          -0.19999999999999996,
+          -0.6666666666666667
+        ],
+        "loss": 0.09259259259259262,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "4187401b8db925d063fad54a5b545b1477041ea65fd0b2c3177e50bda9de958c"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5166666666666666,
+          -0.475
+        ],
+        "predictions": [
+          -0.9916666666666666,
+          -0.475,
+          0.04166666666666663
+        ],
+        "residuals": [
+          0.008333333333333415,
+          -0.975,
+          -1.9583333333333335
+        ],
+        "loss": 0.797627314814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "823dfb7bb7ce7e9805d55a93c16d4cedf109c70d51b18539d35fb63a85d467b1"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5333333333333333,
+          -0.45
+        ],
+        "predictions": [
+          -0.9833333333333334,
+          -0.45,
+          0.08333333333333331
+        ],
+        "residuals": [
+          0.016666666666666607,
+          -0.95,
+          -1.9166666666666667
+        ],
+        "loss": 0.7627314814814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "cb5363c66f4de8f967e82c94f20e116d1b97ca81bdadfb37f865d84c062e8c23"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          1.2999999999999998,
+          0.7
+        ],
+        "predictions": [
+          -0.5999999999999999,
+          0.7,
+          1.9999999999999998
+        ],
+        "residuals": [
+          0.40000000000000013,
+          0.19999999999999996,
+          -2.220446049250313e-16
+        ],
+        "loss": 0.03333333333333335,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "a6a9990833d4fcec5950261518547ffb29bb23549eb893cba6b40719eac9ed2c"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          2.0999999999999996,
+          1.9
+        ],
+        "predictions": [
+          -0.19999999999999973,
+          1.9,
+          3.9999999999999996
+        ],
+        "residuals": [
+          0.8000000000000003,
+          1.4,
+          1.9999999999999996
+        ],
+        "loss": 1.0999999999999996,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "1b7384e61527a80d238c123cf9608fd48075b1d76af0ebe5efa543ea62056d39"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d59efd529a911f15c53fcd9f13d48d9e443629fbb4d95474ebe96a9900eb8c09"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d59efd529a911f15c53fcd9f13d48d9e443629fbb4d95474ebe96a9900eb8c09"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "fe3fb9dc30942e32e6a93e36405f18a02eae1213e70c41d8ae38a61d85b81c45"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "fe3fb9dc30942e32e6a93e36405f18a02eae1213e70c41d8ae38a61d85b81c45"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "b56d23b35201cb0e6effef5513fabe3c0c4b68b6a3fa76c7098b34002de964da"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "b56d23b35201cb0e6effef5513fabe3c0c4b68b6a3fa76c7098b34002de964da"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d95ff6b84427546dbe23a6ca510466b040da2f6a2ec720be0dde48345d480e04"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d95ff6b84427546dbe23a6ca510466b040da2f6a2ec720be0dde48345d480e04"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d6210d1d81f76083d944a27b768791323906d4b7797ba7b1fa6a511cf2e9664b"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d6210d1d81f76083d944a27b768791323906d4b7797ba7b1fa6a511cf2e9664b"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e56d5f9144851ecaad2ac6b84f3e46257a0f3de69562394d1998338547fdca63"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "e56d5f9144851ecaad2ac6b84f3e46257a0f3de69562394d1998338547fdca63"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d2b50440213f7d31bab9af8e833598cdedc88a2079f8fdbd67a1e7f49f5ecba4"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "d2b50440213f7d31bab9af8e833598cdedc88a2079f8fdbd67a1e7f49f5ecba4"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

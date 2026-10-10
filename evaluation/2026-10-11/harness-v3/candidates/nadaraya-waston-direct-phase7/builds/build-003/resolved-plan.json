@@ -1,0 +1,44 @@
+{
+  "figures": [
+    {
+      "id": "query-pooling",
+      "title": "查询移动，预测为何跟着移动？",
+      "afterAnchor": "nadaraya-waston-027",
+      "endAnchor": "nadaraya-waston-028",
+      "height": 340,
+      "mobileHeight": 480,
+      "summary": "拖动进度让查询连续移动；圆点大小与权重柱使用同一组 α。",
+      "initialProgress": 0,
+      "durationMs": 10000,
+      "checkpoints": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const ns='http://www.w3.org/2000/svg', ink='#293841', muted='#68777d', teal='#007e80', gold='#bc7334', grid='#dde5e6';\n function el(id,tag,attrs,txt){let e=svg.querySelector('[id=\"'+id+'\"]');if(!e){e=document.createElementNS(ns,tag);e.id=id;svg.appendChild(e);} for(const [k,v] of Object.entries(attrs||{}))e.setAttribute(k,v);if(txt!==undefined)e.textContent=txt;return e;}\n function t(id,x,y,txt,color=muted,size=13,anchor='start'){return el(id,'text',{x,y,fill:color,'font-size':size,'font-family':'sans-serif','text-anchor':anchor},txt);}\n function line(id,x1,y1,x2,y2,color=grid,dash=''){el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':1,'stroke-dasharray':dash});}\n const keys=[.4,1.3,2.3,3.5,4.6],values=[.6,3.6,1.1,3.2,.8],q=.3+4.4*progress;\n const raw=keys.map(k=>Math.exp(-.5*(q-k)**2)),z=raw.reduce((a,b)=>a+b,0),a=raw.map(v=>v/z),pred=a.reduce((s,v,i)=>s+v*values[i],0);\n const mobile=width<600, gap=mobile?0:56, left=42, pw=mobile?width-62:(width-112)/2;\n const upper={x:left,y:48,w:pw,h:mobile?142:204};const lower=mobile?{x:left,y:300,w:pw,h:112}:{x:left+pw+gap,y:48,w:pw,h:204};\n const X=v=>upper.x+upper.w*v/5,Y=v=>upper.y+upper.h*(1-v/4);\n t('head',left,22,'键的位置 → 权重 → 值的加权平均',ink,14);\n for(let i=0;i<=4;i++){line('yg'+i,upper.x,Y(i),upper.x+upper.w,Y(i));t('yt'+i,upper.x-10,Y(i)+4,String(i),muted,12,'end');}\n for(let i=0;i<=5;i++){t('xt'+i,X(i),upper.y+upper.h+19,String(i),muted,12,'middle');}\n line('xaxis',upper.x,Y(0),upper.x+upper.w,Y(0),muted);t('ylabel',upper.x-25,upper.y-10,'y',ink,13);t('xlabel',upper.x+upper.w,upper.y+upper.h+37,'位置 x',muted,12,'end');\n line('query',X(q),upper.y,X(q),Y(0),teal,'4 4');line('predguide',upper.x,Y(pred),X(q),Y(pred),teal,'3 4');\n for(let i=0;i<keys.length;i++){\n  el('dot'+i,'circle',{cx:X(keys[i]),cy:Y(values[i]),r:5+10*a[i],fill:gold,'fill-opacity':.3+.7*a[i],stroke:gold,'stroke-width':1.5});\n  t('key'+i,X(keys[i]),Y(values[i])-20,String(i+1),gold,12,'middle');\n }\n el('prediction','path',{d:`M ${X(q)} ${Y(pred)-7} l 7 7 l -7 7 l -7 -7 Z`,fill:teal,stroke:'#fff','stroke-width':1.5});\n t('readout',left, mobile?250:294,`查询 ${q.toFixed(2)}   →   预测 ${pred.toFixed(2)}`,teal,14);\n const BX=v=>lower.x+lower.w*v/5,BY=v=>lower.y+lower.h*(1-v);\n t('weights-title',lower.x,lower.y-12,'注意力 α（按键的位置排列）',ink,13);\n for(let v=0;v<=1;v+=.5){line('wg'+v,lower.x,BY(v),lower.x+lower.w,BY(v));t('wt'+v,lower.x-9,BY(v)+4,v.toFixed(1),muted,12,'end');}\n const bw=Math.min(28,lower.w*.07);\n for(let i=0;i<keys.length;i++){el('bar'+i,'rect',{x:BX(keys[i])-bw/2,y:BY(a[i]),width:bw,height:lower.h*a[i],rx:2,fill:teal});t('barlabel'+i,BX(keys[i]),BY(a[i])-7,(100*a[i]).toFixed(0)+'%',teal,12,'middle');t('keytick'+i,BX(keys[i]),BY(0)+18,String(i+1),gold,12,'middle');}\n t('sum',lower.x+lower.w,lower.y+lower.h+39,'Σα = 1 · 编号对应样本',muted,12,'end');\n return {example:'五个手选键值对；非原书随机样本',keys,values,query:q,rawKernel:raw,weights:a,weightSum:a.reduce((s,v)=>s+v,0),prediction:pred,convention:'w=1；softmax 沿键轴；高斯公共系数在归一化中抵消',range:'仅显示 x∈[0,5]；未执行模型训练'};\n}\n"
+    },
+    {
+      "id": "bandwidth",
+      "title": "同一批样本，只改变 w",
+      "afterAnchor": "nadaraya-waston-036",
+      "endAnchor": "nadaraya-waston-037",
+      "height": 480,
+      "mobileHeight": 465,
+      "summary": "增大 w 会缩窄权重，预测更受邻近样本影响；这里没有运行训练。",
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "w",
+          "label": "距离缩放 w",
+          "min": 0,
+          "max": 6,
+          "step": 0.05,
+          "value": 3
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const ns='http://www.w3.org/2000/svg',ink='#293841',muted='#68777d',teal='#007e80',gold='#bc7334',grid='#dde5e6';\n function el(id,tag,attrs,txt){let e=svg.querySelector('[id=\"'+id+'\"]');if(!e){e=document.createElementNS(ns,tag);e.id=id;svg.appendChild(e);}for(const[k,v]of Object.entries(attrs||{}))e.setAttribute(k,v);if(txt!==undefined)e.textContent=txt;return e;}\n function t(id,x,y,txt,color=muted,size=13,anchor='start'){el(id,'text',{x,y,fill:color,'font-size':size,'font-family':'sans-serif','text-anchor':anchor},txt);}\n function line(id,x1,y1,x2,y2,color=grid,dash=''){el(id,'line',{x1,y1,x2,y2,stroke:color,'stroke-width':1,'stroke-dasharray':dash});}\n const keys=[.3,.85,1.35,1.9,2.45,2.9,3.45,4,4.65],noise=[-.3,.45,-.4,.3,-.5,.45,-.3,.35,-.2],values=keys.map((x,i)=>2*Math.sin(x)+x**.8+noise[i]),w=Number(params.w),q=2.5;\n function weights(x,s){const logits=keys.map(k=>-.5*((x-k)*s)**2),m=Math.max(...logits),r=logits.map(v=>Math.exp(v-m)),z=r.reduce((a,b)=>a+b,0);return r.map(v=>v/z);}\n function predict(x,s){return weights(x,s).reduce((v,a,i)=>v+a*values[i],0);}\n const mobile=width<600, x0=42, cw=width-64, top=57, ph=mobile?158:184, base=top+ph, X=x=>x0+cw*x/5,Y=y=>top+ph*(5-y)/6;\n t('top',x0,20,`手选 w = ${w.toFixed(2)}`,teal,14);\n t('bw',width-22,20,w===0?'等权平均':`有效宽度 1/|w| = ${(1/w).toFixed(2)}`,muted,12,'end');\n t('legend-current',x0,42,'— 当前预测',teal,12);t('legend-ref',x0+106,42,'┄ w = 1',muted,12);t('legend-sample',x0+182,42,'○ 固定样本',gold,12);\n for(let y=-1;y<=5;y++){line('grid'+y,x0,Y(y),x0+cw,Y(y));t('y'+y,x0-10,Y(y)+4,String(y),muted,12,'end');}\n for(let x=0;x<=5;x++)t('x'+x,X(x),base+18,String(x),muted,12,'middle');\n t('ylab',x0-25,top-3,'y',ink);t('xlab',x0+cw,base+35,'位置 x',muted,12,'end');\n const curve=s=>Array.from({length:201},(_,i)=>{const x=i/40;return `${i?'L':'M'}${X(x).toFixed(2)},${Y(predict(x,s)).toFixed(2)}`;}).join(' ');\n el('reference','path',{d:curve(1),fill:'none',stroke:muted,'stroke-width':1.8,'stroke-dasharray':'5 5'});\n el('current','path',{d:curve(w),fill:'none',stroke:teal,'stroke-width':2.7});\n for(let i=0;i<keys.length;i++)el('point'+i,'circle',{cx:X(keys[i]),cy:Y(values[i]),r:4,fill:'#fff',stroke:gold,'stroke-width':1.5});\n const a=weights(q,w),py=predict(q,w);\n line('qline',X(q),top,X(q),base,teal,'3 4');el('out','circle',{cx:X(q),cy:Y(py),r:5,fill:teal});\n const barTop=base+72,bh=mobile?85:92,barBase=barTop+bh,by=v=>barBase-bh*v;\n t('barhead',x0,barTop-17,`同一查询 x = 2.50 · 预测 ${py.toFixed(2)}`,teal,13);\n for(let v=0;v<=1;v+=.5){line('bg'+v,x0,by(v),x0+cw,by(v));t('bt'+v,x0-10,by(v)+4,v.toFixed(1),muted,12,'end');}\n const bw=Math.min(25,cw*.055);\n for(let i=0;i<keys.length;i++)el('weight'+i,'rect',{x:X(keys[i])-bw/2,y:by(a[i]),width:bw,height:bh*a[i],rx:2,fill:teal});\n for(let x=0;x<=5;x++)t('bk'+x,X(x),barBase+17,String(x),muted,12,'middle');\n t('barx',x0+cw,barBase+35,'键的位置 xᵢ',muted,12,'end');t('bara',x0,barBase+35,'α · Σα = 1',muted,12);\n return {example:'九个固定样本；噪声偏移手选，非正态随机抽样',keys,values,noiseOffsets:noise,w,query:q,weights:a,weightSum:a.reduce((s,v)=>s+v,0),prediction:py,effectiveBandwidth:w===0?null:1/Math.abs(w),convention:'exp(-((x-xᵢ)w)²/2)，softmax 沿键轴；w=0 为等权，±w 相同',range:'w∈[0,6]；手选参数未训练；不推断泛化性能'};\n}\n"
+    }
+  ]
+}

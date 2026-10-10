@@ -1,0 +1,4249 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/linear-regression-direct-phase6/book.html",
+  "sha256": "e50ddff0608b077c72799d743526345a8bec57405443b42e0bf6d88c619e4a2c",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "default",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ccf69ff570de37ec70d8df3c9795c38f519a0afa10bb2ec79b4147a369980274"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "default",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ccf69ff570de37ec70d8df3c9795c38f519a0afa10bb2ec79b4147a369980274"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "row-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ccf69ff570de37ec70d8df3c9795c38f519a0afa10bb2ec79b4147a369980274"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "row-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ccf69ff570de37ec70d8df3c9795c38f519a0afa10bb2ec79b4147a369980274"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "row-option-1",
+      "params": {
+        "row": 1,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 1,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          4,
+          -1,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "095b691171010956490cad4a60d02dc9b813663ce2cea74d4189519e694db25a"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "row-option-1",
+      "params": {
+        "row": 1,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 1,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          4,
+          -1,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "095b691171010956490cad4a60d02dc9b813663ce2cea74d4189519e694db25a"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "row-max",
+      "params": {
+        "row": 2,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 2,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          6,
+          0,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "dee947da18a4f1a67fb50bdc89511e28d86e38428077faf107c7ebdf5fc37d25"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "row-max",
+      "params": {
+        "row": 2,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 2,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          6,
+          0,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "dee947da18a4f1a67fb50bdc89511e28d86e38428077faf107c7ebdf5fc37d25"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w1-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -2,
+          -2,
+          -2
+        ],
+        "terms": [
+          -1,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e1c66c7fcfc655142812d12d4983701231bf3cdeb26259967e497e908d02fa32"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w1-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -2,
+          -2,
+          -2
+        ],
+        "terms": [
+          -1,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e1c66c7fcfc655142812d12d4983701231bf3cdeb26259967e497e908d02fa32"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w1-max",
+      "params": {
+        "row": 0,
+        "w1": 3,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          2,
+          6,
+          10
+        ],
+        "terms": [
+          3,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3df10e0f43875415d91bc4c1282787e23357459eaa71c7a142cdb12cd5026705"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w1-max",
+      "params": {
+        "row": 0,
+        "w1": 3,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          2,
+          6,
+          10
+        ],
+        "terms": [
+          3,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3df10e0f43875415d91bc4c1282787e23357459eaa71c7a142cdb12cd5026705"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w2-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -2,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -1,
+          3,
+          7
+        ],
+        "terms": [
+          2,
+          -4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b4f1467b1fa36a9324412d8388c29184a3166ecf4e0f08d8df3ace7763e5c55f"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w2-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -2,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -1,
+          3,
+          7
+        ],
+        "terms": [
+          2,
+          -4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b4f1467b1fa36a9324412d8388c29184a3166ecf4e0f08d8df3ace7763e5c55f"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w2-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": 2,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          7,
+          7,
+          7
+        ],
+        "terms": [
+          2,
+          4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "74fa18909ec576d57bbeda2576d729ad682da8fa101ee3396df29b0fe7d32dd9"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "w2-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": 2,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          7,
+          7,
+          7
+        ],
+        "terms": [
+          2,
+          4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "74fa18909ec576d57bbeda2576d729ad682da8fa101ee3396df29b0fe7d32dd9"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "bias-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -2,
+          1,
+          4
+        ],
+        "terms": [
+          2,
+          -2,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5ca444fb7f11e72b304b39d0bf2b7fb9758bcf82a5f2b192c34324573356ca60"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "bias-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -2,
+          1,
+          4
+        ],
+        "terms": [
+          2,
+          -2,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5ca444fb7f11e72b304b39d0bf2b7fb9758bcf82a5f2b192c34324573356ca60"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "bias-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 2,
+        "row": 0,
+        "predictions": [
+          2,
+          5,
+          8
+        ],
+        "terms": [
+          2,
+          -2,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8532657d7c1a6770ff48a3f51349a7ecafc71d5aacb67db428ae0aae85ef7f71"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "bias-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 2,
+        "row": 0,
+        "predictions": [
+          2,
+          5,
+          8
+        ],
+        "terms": [
+          2,
+          -2,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8532657d7c1a6770ff48a3f51349a7ecafc71d5aacb67db428ae0aae85ef7f71"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "all-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -2,
+        "bias": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -2
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -7,
+          -6,
+          -5
+        ],
+        "terms": [
+          -1,
+          -4,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f86cfb61779cd437c723c32a375e34a54c2d32c711e96a88be89eb9be24ababa"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "all-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -2,
+        "bias": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -2
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -7,
+          -6,
+          -5
+        ],
+        "terms": [
+          -1,
+          -4,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f86cfb61779cd437c723c32a375e34a54c2d32c711e96a88be89eb9be24ababa"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "all-max",
+      "params": {
+        "row": 2,
+        "w1": 3,
+        "w2": 2,
+        "bias": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          2
+        ],
+        "b": 2,
+        "row": 2,
+        "predictions": [
+          9,
+          10,
+          11
+        ],
+        "terms": [
+          9,
+          0,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ae8a884c3de399517ba82efc4ee2cdccd12fb0404ca0fcf9c0c2574177a60432"
+    },
+    {
+      "width": 1280,
+      "id": "rows-to-predictions",
+      "control": "all-max",
+      "params": {
+        "row": 2,
+        "w1": 3,
+        "w2": 2,
+        "bias": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          2
+        ],
+        "b": 2,
+        "row": 2,
+        "predictions": [
+          9,
+          10,
+          11
+        ],
+        "terms": [
+          9,
+          0,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ae8a884c3de399517ba82efc4ee2cdccd12fb0404ca0fcf9c0c2574177a60432"
+    },
+    {
+      "width": 1280,
+      "id": "one-gradient-step",
+      "control": "default",
+      "params": {
+        "eta": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 1,
+        "end": [
+          1.3333333333333333,
+          1
+        ],
+        "current": [
+          0.6666666666666666,
+          0
+        ],
+        "progress": 0.5,
+        "currentLoss": 1.0925925925925928,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 0.14814814814814822,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "360a6a1dc5a3b843f87da42dc0d937810eb32a6bbd7f475a837b0200bd40a6be"
+    },
+    {
+      "width": 1280,
+      "id": "one-gradient-step",
+      "control": "default",
+      "params": {
+        "eta": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 1,
+        "end": [
+          1.3333333333333333,
+          1
+        ],
+        "current": [
+          1.3333333333333333,
+          1
+        ],
+        "progress": 1,
+        "currentLoss": 0.14814814814814822,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 0.14814814814814822,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c3cd2db11c1e1aedf72afb6c7f9e973d479cf77a51872fe922385b6d6573fd56"
+    },
+    {
+      "width": 1280,
+      "id": "one-gradient-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 0.05,
+        "end": [
+          0.06666666666666667,
+          -0.9
+        ],
+        "current": [
+          0.03333333333333333,
+          -0.95
+        ],
+        "progress": 0.5,
+        "currentLoss": 3.1905092592592594,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 3.050925925925926,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a691b93800de7ad9024e826204f96a011a4722c9015c3bc7838a7070f7a03b35"
+    },
+    {
+      "width": 1280,
+      "id": "one-gradient-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 0.05,
+        "end": [
+          0.06666666666666667,
+          -0.9
+        ],
+        "current": [
+          0.06666666666666667,
+          -0.9
+        ],
+        "progress": 1,
+        "currentLoss": 3.050925925925926,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 3.050925925925926,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0c7bff6a7976efa7d4946d7da03fa17f163b4cd326b252d389605c676e3c3bb8"
+    },
+    {
+      "width": 1280,
+      "id": "one-gradient-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 3,
+        "end": [
+          4,
+          5
+        ],
+        "current": [
+          2,
+          2
+        ],
+        "progress": 0.5,
+        "currentLoss": 0.5,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 9.333333333333334,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9756df445230e33276a630baa2b4f0382617a4065496dc3356fd5a19c7fe27b4"
+    },
+    {
+      "width": 1280,
+      "id": "one-gradient-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 3,
+        "end": [
+          4,
+          5
+        ],
+        "current": [
+          4,
+          5
+        ],
+        "progress": 1,
+        "currentLoss": 9.333333333333334,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 9.333333333333334,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6355ab021ca99ecfdbeec703ce3d1d1661be904f0933400550eba2e1dc920cff"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "sigma": 1,
+        "residual": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 1.5,
+        "density": 0.12951759566589174,
+        "excessNLL": 1.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 2.0439385332046727,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "69ee2a8d78025a066268604e92e275a887d10fb0fa3077de3877c2011ba40b53"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "sigma": 1,
+        "residual": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 1.5,
+        "density": 0.12951759566589174,
+        "excessNLL": 1.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 2.0439385332046727,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "69ee2a8d78025a066268604e92e275a887d10fb0fa3077de3877c2011ba40b53"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": 1.5,
+        "density": 0.02921383415594757,
+        "excessNLL": 3.125,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 3.5331129094386817,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a273be3436c60e52a40ce334e8dcf45de4c9b29d28ab2411900b24e0b8e6748c"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": 1.5,
+        "density": 0.02921383415594757,
+        "excessNLL": 3.125,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 3.5331129094386817,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a273be3436c60e52a40ce334e8dcf45de4c9b29d28ab2411900b24e0b8e6748c"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "sigma": 2,
+        "residual": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 1.5,
+        "density": 0.15056871607740221,
+        "excessNLL": 0.28125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 1.893335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "eebcc55cfa7c74083794409196a8180dea5804b15edf8983af2d54e1912810eb"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "sigma": 2,
+        "residual": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 1.5,
+        "density": 0.15056871607740221,
+        "excessNLL": 0.28125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 1.893335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "eebcc55cfa7c74083794409196a8180dea5804b15edf8983af2d54e1912810eb"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "sigma": 1,
+        "residual": -2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": -2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "45e84a4ed521211146c54b2b4424014c68a16c15be63376eb9853eb54d142e2a"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "sigma": 1,
+        "residual": -2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": -2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "45e84a4ed521211146c54b2b4424014c68a16c15be63376eb9853eb54d142e2a"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "sigma": 1,
+        "residual": 2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "013748057dd69950356752084167d66d53cc10c5cc6a563e73419b2ebf06b61b"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "sigma": 1,
+        "residual": 2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "013748057dd69950356752084167d66d53cc10c5cc6a563e73419b2ebf06b61b"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": -2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": -2.5,
+        "density": 0.00011293834981469628,
+        "excessNLL": 8.680555555555555,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 9.088668464994237,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3117407411f99d04686963fbf47a5c52af19c7e51975c68ad9b69af223ace364"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": -2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": -2.5,
+        "density": 0.00011293834981469628,
+        "excessNLL": 8.680555555555555,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 9.088668464994237,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3117407411f99d04686963fbf47a5c52af19c7e51975c68ad9b69af223ace364"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "sigma": 2,
+        "residual": 2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 2.5,
+        "density": 0.09132454269451096,
+        "excessNLL": 0.78125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 2.393335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a0ac1842629667a1dcce51c75c85ff54ad739593b2de75077224bbfeb6aa9417"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "sigma": 2,
+        "residual": 2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 2.5,
+        "density": 0.09132454269451096,
+        "excessNLL": 0.78125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 2.393335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a0ac1842629667a1dcce51c75c85ff54ad739593b2de75077224bbfeb6aa9417"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "default",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "06ef2a44c7c4a8246ce01ce4ac7c663ec2d2d390547011f9dde24f0231f040c1"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "default",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "06ef2a44c7c4a8246ce01ce4ac7c663ec2d2d390547011f9dde24f0231f040c1"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "row-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "06ef2a44c7c4a8246ce01ce4ac7c663ec2d2d390547011f9dde24f0231f040c1"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "row-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          2,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "06ef2a44c7c4a8246ce01ce4ac7c663ec2d2d390547011f9dde24f0231f040c1"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "row-option-1",
+      "params": {
+        "row": 1,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 1,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          4,
+          -1,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d82ffb04b2b1727f768a7fecfe2e76c62e4ba84734589a05ac35d5b3f090dddb"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "row-option-1",
+      "params": {
+        "row": 1,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 1,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          4,
+          -1,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d82ffb04b2b1727f768a7fecfe2e76c62e4ba84734589a05ac35d5b3f090dddb"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "row-max",
+      "params": {
+        "row": 2,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 2,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          6,
+          0,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "44ff2d4f0e24026432dbd0f971a189fbcd62e0b68433bd7337b506233ac3c597"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "row-max",
+      "params": {
+        "row": 2,
+        "w1": 2,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 1,
+        "row": 2,
+        "predictions": [
+          1,
+          4,
+          7
+        ],
+        "terms": [
+          6,
+          0,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "44ff2d4f0e24026432dbd0f971a189fbcd62e0b68433bd7337b506233ac3c597"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w1-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -2,
+          -2,
+          -2
+        ],
+        "terms": [
+          -1,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e31cd55efd57d15ebbc58d63115ab23166190bfd618c01e97e6dc09862645e46"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w1-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -2,
+          -2,
+          -2
+        ],
+        "terms": [
+          -1,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e31cd55efd57d15ebbc58d63115ab23166190bfd618c01e97e6dc09862645e46"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w1-max",
+      "params": {
+        "row": 0,
+        "w1": 3,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          2,
+          6,
+          10
+        ],
+        "terms": [
+          3,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4da1dad81d4dafd0e306ba555d987dc8123ab9bd2f0edca08f73a4f3310883d8"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w1-max",
+      "params": {
+        "row": 0,
+        "w1": 3,
+        "w2": -1,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          -1
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          2,
+          6,
+          10
+        ],
+        "terms": [
+          3,
+          -2,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4da1dad81d4dafd0e306ba555d987dc8123ab9bd2f0edca08f73a4f3310883d8"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w2-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -2,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -1,
+          3,
+          7
+        ],
+        "terms": [
+          2,
+          -4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2d89cac053223a3d1cd9bcc2a7a4c2a6614880e2099752f9a5f3a121e14c3b35"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w2-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -2,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          -1,
+          3,
+          7
+        ],
+        "terms": [
+          2,
+          -4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2d89cac053223a3d1cd9bcc2a7a4c2a6614880e2099752f9a5f3a121e14c3b35"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w2-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": 2,
+        "bias": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          7,
+          7,
+          7
+        ],
+        "terms": [
+          2,
+          4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b3a26d4b62ca781d0aa1834a6d9c797ca60c16a26f658829886a801cf5f6d1f1"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "w2-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": 2,
+        "bias": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          2
+        ],
+        "b": 1,
+        "row": 0,
+        "predictions": [
+          7,
+          7,
+          7
+        ],
+        "terms": [
+          2,
+          4,
+          1
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b3a26d4b62ca781d0aa1834a6d9c797ca60c16a26f658829886a801cf5f6d1f1"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "bias-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -2,
+          1,
+          4
+        ],
+        "terms": [
+          2,
+          -2,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8939ff10ea16c23895beb05277fb4177725c6f3c89534f12232876b23150df50"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "bias-min",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -2,
+          1,
+          4
+        ],
+        "terms": [
+          2,
+          -2,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8939ff10ea16c23895beb05277fb4177725c6f3c89534f12232876b23150df50"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "bias-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 2,
+        "row": 0,
+        "predictions": [
+          2,
+          5,
+          8
+        ],
+        "terms": [
+          2,
+          -2,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "35cc961b12e83cf08f45c1f5060d64d01a62ac2ecd27d9a94719c3875555fa6c"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "bias-max",
+      "params": {
+        "row": 0,
+        "w1": 2,
+        "w2": -1,
+        "bias": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          2,
+          -1
+        ],
+        "b": 2,
+        "row": 0,
+        "predictions": [
+          2,
+          5,
+          8
+        ],
+        "terms": [
+          2,
+          -2,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "35cc961b12e83cf08f45c1f5060d64d01a62ac2ecd27d9a94719c3875555fa6c"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "all-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -2,
+        "bias": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -2
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -7,
+          -6,
+          -5
+        ],
+        "terms": [
+          -1,
+          -4,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7c0c82a5454b9ea94766baae9a3c12d87c8391b37a4e565d688f2229322017c0"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "all-min",
+      "params": {
+        "row": 0,
+        "w1": -1,
+        "w2": -2,
+        "bias": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          -1,
+          -2
+        ],
+        "b": -2,
+        "row": 0,
+        "predictions": [
+          -7,
+          -6,
+          -5
+        ],
+        "terms": [
+          -1,
+          -4,
+          -2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7c0c82a5454b9ea94766baae9a3c12d87c8391b37a4e565d688f2229322017c0"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "all-max",
+      "params": {
+        "row": 2,
+        "w1": 3,
+        "w2": 2,
+        "bias": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          2
+        ],
+        "b": 2,
+        "row": 2,
+        "predictions": [
+          9,
+          10,
+          11
+        ],
+        "terms": [
+          9,
+          0,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2f1685541e5b24211a504c6dda505daed0ba6378e628c8cd61811e25afe7a851"
+    },
+    {
+      "width": 375,
+      "id": "rows-to-predictions",
+      "control": "all-max",
+      "params": {
+        "row": 2,
+        "w1": 3,
+        "w2": 2,
+        "bias": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic n=3,d=2; no trained weights",
+        "X": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "w": [
+          3,
+          2
+        ],
+        "b": 2,
+        "row": 2,
+        "predictions": [
+          9,
+          10,
+          11
+        ],
+        "terms": [
+          9,
+          0,
+          2
+        ],
+        "identity": "predictions[i]=X[i][0]*w[0]+X[i][1]*w[1]+b",
+        "barDomain": [
+          -8,
+          12
+        ],
+        "scope": "row-wise dot product and scalar broadcast only"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2f1685541e5b24211a504c6dda505daed0ba6378e628c8cd61811e25afe7a851"
+    },
+    {
+      "width": 375,
+      "id": "one-gradient-step",
+      "control": "default",
+      "params": {
+        "eta": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 1,
+        "end": [
+          1.3333333333333333,
+          1
+        ],
+        "current": [
+          0.6666666666666666,
+          0
+        ],
+        "progress": 0.5,
+        "currentLoss": 1.0925925925925928,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 0.14814814814814822,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3e7180d6c06801e8cb866c273bd0ee0f71c4a6dbd76f97332df84ebdcf3f7146"
+    },
+    {
+      "width": 375,
+      "id": "one-gradient-step",
+      "control": "default",
+      "params": {
+        "eta": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 1,
+        "end": [
+          1.3333333333333333,
+          1
+        ],
+        "current": [
+          1.3333333333333333,
+          1
+        ],
+        "progress": 1,
+        "currentLoss": 0.14814814814814822,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 0.14814814814814822,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0178f5c687b61936ffe1edbde330353975b99c78638cb0fb0b90245635618330"
+    },
+    {
+      "width": 375,
+      "id": "one-gradient-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 0.05,
+        "end": [
+          0.06666666666666667,
+          -0.9
+        ],
+        "current": [
+          0.03333333333333333,
+          -0.95
+        ],
+        "progress": 0.5,
+        "currentLoss": 3.1905092592592594,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 3.050925925925926,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "092c2bd33a1d272380d056bec6f3b03a7f6ea14a23f87ae68ca7db74fe40ecb0"
+    },
+    {
+      "width": 375,
+      "id": "one-gradient-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 0.05,
+        "end": [
+          0.06666666666666667,
+          -0.9
+        ],
+        "current": [
+          0.06666666666666667,
+          -0.9
+        ],
+        "progress": 1,
+        "currentLoss": 3.050925925925926,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 3.050925925925926,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ae2b8b6f3a633e0d0b5b061e5919d46ef5dd840beb07bf339ff04cd4415ecb76"
+    },
+    {
+      "width": 375,
+      "id": "one-gradient-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 3,
+        "end": [
+          4,
+          5
+        ],
+        "current": [
+          2,
+          2
+        ],
+        "progress": 0.5,
+        "currentLoss": 0.5,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 9.333333333333334,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "dfb2743668508f97797838d33543a059406cddb4a17edf071b83bf486ea2b27a"
+    },
+    {
+      "width": 375,
+      "id": "one-gradient-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "synthetic batch; an exact single gradient update, not a fitted model",
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "start": [
+          0,
+          -1
+        ],
+        "gradient": [
+          -1.3333333333333333,
+          -2
+        ],
+        "eta": 3,
+        "end": [
+          4,
+          5
+        ],
+        "current": [
+          4,
+          5
+        ],
+        "progress": 1,
+        "currentLoss": 9.333333333333334,
+        "startLoss": 3.3333333333333335,
+        "endLoss": 9.333333333333334,
+        "optimum": [
+          2,
+          1
+        ],
+        "lossConvention": "L=mean(0.5*(w*x+b-y)^2)=(w-2)^2/3+(b-1)^2/2",
+        "interpolation": "current=start+p*(end-start); gradient always evaluated at start",
+        "limits": "fixed full batch of three; no stochastic sampling or generalization claim"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e2e63329eab06679c8b85c4a1ffb2fe1864eeadf27dbe191be2c20ece1b10a39"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "sigma": 1,
+        "residual": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 1.5,
+        "density": 0.12951759566589174,
+        "excessNLL": 1.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 2.0439385332046727,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fb3bb958cf9a9697a4ff5796de573e593fee16f829cf06f9396e54f45a6a211d"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "default",
+      "params": {
+        "sigma": 1,
+        "residual": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 1.5,
+        "density": 0.12951759566589174,
+        "excessNLL": 1.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 2.0439385332046727,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fb3bb958cf9a9697a4ff5796de573e593fee16f829cf06f9396e54f45a6a211d"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": 1.5,
+        "density": 0.02921383415594757,
+        "excessNLL": 3.125,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 3.5331129094386817,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e2dc8cfa89b5fbd9ac97965ecadeaa3774dc1015147d7bce753da0bfd4697107"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": 1.5,
+        "density": 0.02921383415594757,
+        "excessNLL": 3.125,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 3.5331129094386817,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e2dc8cfa89b5fbd9ac97965ecadeaa3774dc1015147d7bce753da0bfd4697107"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "sigma": 2,
+        "residual": 1.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 1.5,
+        "density": 0.15056871607740221,
+        "excessNLL": 0.28125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 1.893335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "56ebc9dc8ff9661da8e8e0d4908d66db8dd0a63682779053bffb3f2496b98ed4"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "sigma-max",
+      "params": {
+        "sigma": 2,
+        "residual": 1.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 1.5,
+        "density": 0.15056871607740221,
+        "excessNLL": 0.28125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 1.893335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "56ebc9dc8ff9661da8e8e0d4908d66db8dd0a63682779053bffb3f2496b98ed4"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "sigma": 1,
+        "residual": -2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": -2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "502e8245c1c74ca70ad4a3d0fc1022a93e544042e7012af605fe7750b02f14cc"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-min",
+      "params": {
+        "sigma": 1,
+        "residual": -2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": -2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "502e8245c1c74ca70ad4a3d0fc1022a93e544042e7012af605fe7750b02f14cc"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "sigma": 1,
+        "residual": 2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "900a85954306647098d9d2e98cf311432b3ee27c64679765dec15a4492138d13"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "residual-max",
+      "params": {
+        "sigma": 1,
+        "residual": 2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 1,
+        "residual": 2.5,
+        "density": 0.01752830049356854,
+        "excessNLL": 3.125,
+        "constant": 0.9189385332046727,
+        "negativeLogDensity": 4.043938533204672,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "900a85954306647098d9d2e98cf311432b3ee27c64679765dec15a4492138d13"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": -2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": -2.5,
+        "density": 0.00011293834981469628,
+        "excessNLL": 8.680555555555555,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 9.088668464994237,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b918d9be57408b47f9255e4cc73daf28e6eb3deeb2d53c6257d4d4642a4d2f31"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-min",
+      "params": {
+        "sigma": 0.6,
+        "residual": -2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 0.6,
+        "residual": -2.5,
+        "density": 0.00011293834981469628,
+        "excessNLL": 8.680555555555555,
+        "constant": 0.40811290943868206,
+        "negativeLogDensity": 9.088668464994237,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b918d9be57408b47f9255e4cc73daf28e6eb3deeb2d53c6257d4d4642a4d2f31"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "sigma": 2,
+        "residual": 2.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 2.5,
+        "density": 0.09132454269451096,
+        "excessNLL": 0.78125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 2.393335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f25a23f181d1993a3a4fc0e2cbfdc615e00c1957431ebbcb9b764bfee32647fe"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-to-square",
+      "control": "all-max",
+      "params": {
+        "sigma": 2,
+        "residual": 2.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "Gaussian noise illustration; no measured likelihood",
+        "sigma": 2,
+        "residual": 2.5,
+        "density": 0.09132454269451096,
+        "excessNLL": 0.78125,
+        "constant": 1.612085713764618,
+        "negativeLogDensity": 2.393335713764618,
+        "identity": "-log(p(r)) = 0.5*log(2*pi*sigma^2)+r^2/(2*sigma^2)",
+        "datasetIdentity": "for iid fixed sigma: totalNLL=n*constant+n*L/sigma^2",
+        "limits": "equivalence in w,b only for fixed shared positive sigma; density is not probability of an exact point; iid assumption"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f25a23f181d1993a3a4fc0e2cbfdc615e00c1957431ebbcb9b764bfee32647fe"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

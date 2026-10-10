@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "独立 Python 按原始梯度形式 w−η(g+λw) 核对第二图，按单样本半平方损失求导和配方法核对第一图最低点；与最终参数预览40个实际facts逐项比较，280次标量比较误差<1e-10。另核对31个λ与231组(λ,η)滑块网格的数值范围。见math-check.py、math-check.json。已查看两图1280/375宽度下0与1共8张端点PNG及最终中间与原文上下文图片。",
+  "limits": "仅为固定偏置的一维目标与手选二维权重/旧位置数据梯度的一次SGD代数示例；不是训练结果、泛化实验或性能测量。第一图使用单样本，不代表200维原书实验；第二图没有在收缩后的点重新计算梯度。参数图不使用时间进度，0/1同画面为预期。渲染器检查单参数端点和全最小/最大，未穷举所有连续参数的视觉布局；数学检查额外覆盖离散滑块网格。未进行真实读者理解实验、跨浏览器或辅助技术实测。已知未解决遮挡/数学/教学错误无。",
+  "html_sha256": "6ba2f58fd3af00fe881756503e0160c32ed8a9db17a7f8d9d7d89e3de47ed3b8",
+  "plan_sha256": "29e56b9bde5e9a4474db7844b959a108323e6ae810dc9f099cb45ee7046ff91c",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

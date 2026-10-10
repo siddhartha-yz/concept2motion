@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "独立 Python 对原文 x=[0,1,2,3] 核对 y=28、每条路径2x、合成4x；对最新预览的44个参数画面（9种图/参数配置）逐项核对 facts。用中心差分 h=1e-5、容差1e-7验证 Jᵀv；detach 差分时固定 u=9，梯度9，未分离梯度27。详见 math-check.json。已通过 inspect_frame 看完三图在1280/375的0/1端点。",
+  "limits": "实际检查了两轮候选的桌面/手机PNG与最终12个端点；参数极值和选择器由工具检查，未单独人工审阅所有参数配置的PNG；未穷举连续v₃值。J在此例为对角矩阵，未展示一般非对角情形。未运行PyTorch训练、未测内存或性能、未经读者学习效果试验。布局报告无发现不构成审美或教学认证。",
+  "html_sha256": "ebc2ca8950b38cbb48e83d47b765926e497ec402b01dc75ffa1c3b0e814ee41e",
+  "plan_sha256": "6c1885985a6fc4595d9e838155467cffbdfc35fd8a7c3991b77c50c425583546",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

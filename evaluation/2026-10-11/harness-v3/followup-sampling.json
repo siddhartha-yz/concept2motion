@@ -1,0 +1,109 @@
+{
+  "seed": "9466999233092515220",
+  "algorithm": "random.Random(seed).choice(pool), fixed domain order, no reselection",
+  "upstream_commit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "frozenToolCommit": "f0505b9",
+  "protocolCommit": "03a6589",
+  "exclusions": [
+    "chapter_attention-mechanisms/attention-scoring-functions.md",
+    "chapter_computational-performance/async-computation.md",
+    "chapter_computational-performance/multiple-gpus.md",
+    "chapter_convolutional-modern/batch-norm.md",
+    "chapter_convolutional-neural-networks/channels.md",
+    "chapter_convolutional-neural-networks/padding-and-strides.md",
+    "chapter_convolutional-neural-networks/pooling.md",
+    "chapter_deep-learning-computation/model-construction.md",
+    "chapter_linear-networks/linear-regression.md",
+    "chapter_multilayer-perceptrons/backprop.md",
+    "chapter_multilayer-perceptrons/weight-decay.md",
+    "chapter_optimization/gd.md",
+    "chapter_optimization/rmsprop.md",
+    "chapter_optimization/sgd.md",
+    "chapter_preliminaries/autograd.md",
+    "chapter_preliminaries/linear-algebra.md",
+    "chapter_preliminaries/ndarray.md",
+    "chapter_preliminaries/probability.md"
+  ],
+  "sections": [
+    {
+      "domain": "mathematics",
+      "stratum": "calculus",
+      "pool": [
+        "chapter_preliminaries/calculus.md"
+      ],
+      "selected": "chapter_preliminaries/calculus.md",
+      "source_sha256": "afbb49d0908ae9d23f12572e83044ed736d6aa4fc4a6754d76c183f24334a87d"
+    },
+    {
+      "domain": "machine-learning",
+      "stratum": "underfit-overfit",
+      "pool": [
+        "chapter_linear-networks/softmax-regression.md",
+        "chapter_multilayer-perceptrons/underfit-overfit.md"
+      ],
+      "selected": "chapter_multilayer-perceptrons/underfit-overfit.md",
+      "source_sha256": "b21c784ece1d264eb654b9bdd699c24ad885f8b7b7967361a28e1fb02c6bd43e"
+    },
+    {
+      "domain": "deep-learning",
+      "stratum": "nadaraya-waston",
+      "pool": [
+        "chapter_multilayer-perceptrons/dropout.md",
+        "chapter_attention-mechanisms/nadaraya-waston.md",
+        "chapter_attention-mechanisms/multihead-attention.md"
+      ],
+      "selected": "chapter_attention-mechanisms/nadaraya-waston.md",
+      "source_sha256": "66e0483427bdb9748fb997113d67dade1aaa09ba4e67b5e29835e272ac126301"
+    },
+    {
+      "domain": "programming",
+      "stratum": "parameters",
+      "pool": [
+        "chapter_deep-learning-computation/custom-layer.md",
+        "chapter_deep-learning-computation/parameters.md",
+        "chapter_deep-learning-computation/deferred-init.md"
+      ],
+      "selected": "chapter_deep-learning-computation/parameters.md",
+      "source_sha256": "d68788f5e8d53aca6e4180095e7be24ff30e06b5c69fa58af35f4b906b676d73"
+    }
+  ],
+  "schedule": [
+    [
+      "calculus",
+      "direct"
+    ],
+    [
+      "calculus",
+      "harness"
+    ],
+    [
+      "underfit-overfit",
+      "harness"
+    ],
+    [
+      "underfit-overfit",
+      "direct"
+    ],
+    [
+      "nadaraya-waston",
+      "direct"
+    ],
+    [
+      "nadaraya-waston",
+      "harness"
+    ],
+    [
+      "parameters",
+      "harness"
+    ],
+    [
+      "parameters",
+      "direct"
+    ]
+  ],
+  "startupCap": 8,
+  "timeoutSeconds": 600,
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "high",
+  "limits": "New chapter exploratory comparison, not blind. Calculus stratum has only one eligible candidate."
+}

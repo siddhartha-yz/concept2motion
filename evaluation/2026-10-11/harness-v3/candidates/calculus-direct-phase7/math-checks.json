@@ -1,0 +1,164 @@
+{
+  "source_md_sha256": "d40ff7f94f0ab8c322972621e63fa03ff23d64c68c02ade00fee0adff18b2fab",
+  "method": "解析推导加中心差分抽查；非一般性证明、非读者研究",
+  "checks": [
+    {
+      "kind": "secant",
+      "h": -0.65,
+      "quotient": 0.049999999999999954,
+      "analytic": 0.04999999999999982,
+      "absolute_error": 1.3183898417423734e-16
+    },
+    {
+      "kind": "secant",
+      "h": -0.325,
+      "quotient": 1.0249999999999997,
+      "analytic": 1.025,
+      "absolute_error": 2.220446049250313e-16
+    },
+    {
+      "kind": "secant",
+      "h": -0.001,
+      "quotient": 1.9970000000002486,
+      "analytic": 1.997,
+      "absolute_error": 2.4846791291111003e-13
+    },
+    {
+      "kind": "secant",
+      "h": 0.001,
+      "quotient": 2.002999999999755,
+      "analytic": 2.003,
+      "absolute_error": 2.4513724383723456e-13
+    },
+    {
+      "kind": "secant",
+      "h": 0.325,
+      "quotient": 2.9749999999999996,
+      "analytic": 2.975,
+      "absolute_error": 4.440892098500626e-16
+    },
+    {
+      "kind": "secant",
+      "h": 0.65,
+      "quotient": 3.9499999999999984,
+      "analytic": 3.95,
+      "absolute_error": 1.7763568394002505e-15
+    },
+    {
+      "kind": "direction",
+      "point": [
+        0.7,
+        0.5
+      ],
+      "angle": 30,
+      "finite_difference": 2.21243556530748,
+      "analytic": 2.212435565298214,
+      "absolute_error": 9.265921363521556e-12
+    },
+    {
+      "kind": "direction",
+      "point": [
+        -1.2,
+        -0.8
+      ],
+      "angle": 0,
+      "finite_difference": -2.4000000000246047,
+      "analytic": -2.4,
+      "absolute_error": 2.460476267174272e-11
+    },
+    {
+      "kind": "direction",
+      "point": [
+        1.2,
+        0.8
+      ],
+      "angle": 360,
+      "finite_difference": 2.4000000000246047,
+      "analytic": 2.399999999999999,
+      "absolute_error": 2.460565085016242e-11
+    },
+    {
+      "kind": "direction",
+      "point": [
+        0,
+        0
+      ],
+      "angle": 90,
+      "finite_difference": 0.0,
+      "analytic": 0.0,
+      "absolute_error": 0.0
+    },
+    {
+      "kind": "direction",
+      "point": [
+        0.7,
+        0.5
+      ],
+      "angle": 210,
+      "finite_difference": -2.21243556530748,
+      "analytic": -2.212435565298214,
+      "absolute_error": 9.265921363521556e-12
+    },
+    {
+      "kind": "chain",
+      "x": 1,
+      "a": -2,
+      "path_contributions": [
+        2,
+        -2
+      ],
+      "finite_difference": 0.0,
+      "analytic": 0,
+      "absolute_error": 0.0
+    },
+    {
+      "kind": "chain",
+      "x": -1.5,
+      "a": -2,
+      "path_contributions": [
+        -3.0,
+        -2
+      ],
+      "finite_difference": -4.999999999988347,
+      "analytic": -5.0,
+      "absolute_error": 1.1652900866465643e-11
+    },
+    {
+      "kind": "chain",
+      "x": 1.5,
+      "a": 2,
+      "path_contributions": [
+        3.0,
+        2
+      ],
+      "finite_difference": 4.999999999988347,
+      "analytic": 5.0,
+      "absolute_error": 1.1652900866465643e-11
+    },
+    {
+      "kind": "chain",
+      "x": 0,
+      "a": 0,
+      "path_contributions": [
+        0,
+        0
+      ],
+      "finite_difference": 0.0,
+      "analytic": 0,
+      "absolute_error": 0.0
+    },
+    {
+      "kind": "chain",
+      "x": 0.4,
+      "a": -1,
+      "path_contributions": [
+        0.8,
+        -1
+      ],
+      "finite_difference": -0.2000000000002,
+      "analytic": -0.19999999999999996,
+      "absolute_error": 2.0003443346183758e-13
+    }
+  ],
+  "max_absolute_error": 2.460565085016242e-11
+}

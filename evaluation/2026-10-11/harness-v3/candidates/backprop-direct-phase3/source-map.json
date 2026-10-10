@@ -1,0 +1,294 @@
+{
+  "title": "前向传播、反向传播和计算图",
+  "sourceSha256": "d71d5b8e916a1bc5ecdb99e7266bbf026456c3ae9da5cbfc1fbb79d59ecc80e6",
+  "blocks": [
+    {
+      "id": "backprop-001",
+      "type": "heading",
+      "depth": 1,
+      "line": 1
+    },
+    {
+      "id": "backprop-002",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3
+    },
+    {
+      "id": "backprop-003",
+      "type": "paragraph",
+      "depth": null,
+      "line": 7
+    },
+    {
+      "id": "backprop-004",
+      "type": "heading",
+      "depth": 2,
+      "line": 14
+    },
+    {
+      "id": "backprop-005",
+      "type": "paragraph",
+      "depth": null,
+      "line": 16
+    },
+    {
+      "id": "backprop-006",
+      "type": "paragraph",
+      "depth": null,
+      "line": 19
+    },
+    {
+      "id": "backprop-007",
+      "type": "paragraph",
+      "depth": null,
+      "line": 24
+    },
+    {
+      "id": "backprop-008",
+      "type": "paragraph",
+      "depth": null,
+      "line": 26
+    },
+    {
+      "id": "backprop-009",
+      "type": "paragraph",
+      "depth": null,
+      "line": 31
+    },
+    {
+      "id": "backprop-010",
+      "type": "paragraph",
+      "depth": null,
+      "line": 33
+    },
+    {
+      "id": "backprop-011",
+      "type": "paragraph",
+      "depth": null,
+      "line": 37
+    },
+    {
+      "id": "backprop-012",
+      "type": "paragraph",
+      "depth": null,
+      "line": 39
+    },
+    {
+      "id": "backprop-013",
+      "type": "paragraph",
+      "depth": null,
+      "line": 41
+    },
+    {
+      "id": "backprop-014",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43
+    },
+    {
+      "id": "backprop-015",
+      "type": "paragraph",
+      "depth": null,
+      "line": 45
+    },
+    {
+      "id": "backprop-016",
+      "type": "paragraph",
+      "depth": null,
+      "line": 47
+    },
+    {
+      "id": "backprop-017",
+      "type": "paragraph",
+      "depth": null,
+      "line": 50
+    },
+    {
+      "id": "backprop-018",
+      "type": "paragraph",
+      "depth": null,
+      "line": 52
+    },
+    {
+      "id": "backprop-019",
+      "type": "heading",
+      "depth": 2,
+      "line": 54
+    },
+    {
+      "id": "backprop-020",
+      "type": "paragraph",
+      "depth": null,
+      "line": 56
+    },
+    {
+      "id": "backprop-021",
+      "type": "paragraph",
+      "depth": null,
+      "line": 62
+    },
+    {
+      "id": "backprop-022",
+      "type": "heading",
+      "depth": 2,
+      "line": 64
+    },
+    {
+      "id": "backprop-023",
+      "type": "paragraph",
+      "depth": null,
+      "line": 66
+    },
+    {
+      "id": "backprop-024",
+      "type": "paragraph",
+      "depth": null,
+      "line": 73
+    },
+    {
+      "id": "backprop-025",
+      "type": "paragraph",
+      "depth": null,
+      "line": 75
+    },
+    {
+      "id": "backprop-026",
+      "type": "paragraph",
+      "depth": null,
+      "line": 80
+    },
+    {
+      "id": "backprop-027",
+      "type": "paragraph",
+      "depth": null,
+      "line": 87
+    },
+    {
+      "id": "backprop-028",
+      "type": "paragraph",
+      "depth": null,
+      "line": 89
+    },
+    {
+      "id": "backprop-029",
+      "type": "math",
+      "depth": null,
+      "line": 91
+    },
+    {
+      "id": "backprop-030",
+      "type": "paragraph",
+      "depth": null,
+      "line": 98
+    },
+    {
+      "id": "backprop-031",
+      "type": "math",
+      "depth": null,
+      "line": 100
+    },
+    {
+      "id": "backprop-032",
+      "type": "paragraph",
+      "depth": null,
+      "line": 106
+    },
+    {
+      "id": "backprop-033",
+      "type": "paragraph",
+      "depth": null,
+      "line": 110
+    },
+    {
+      "id": "backprop-034",
+      "type": "paragraph",
+      "depth": null,
+      "line": 112
+    },
+    {
+      "id": "backprop-035",
+      "type": "math",
+      "depth": null,
+      "line": 115
+    },
+    {
+      "id": "backprop-036",
+      "type": "paragraph",
+      "depth": null,
+      "line": 121
+    },
+    {
+      "id": "backprop-037",
+      "type": "math",
+      "depth": null,
+      "line": 125
+    },
+    {
+      "id": "backprop-038",
+      "type": "paragraph",
+      "depth": null,
+      "line": 131
+    },
+    {
+      "id": "backprop-039",
+      "type": "math",
+      "depth": null,
+      "line": 135
+    },
+    {
+      "id": "backprop-040",
+      "type": "heading",
+      "depth": 2,
+      "line": 141
+    },
+    {
+      "id": "backprop-041",
+      "type": "paragraph",
+      "depth": null,
+      "line": 143
+    },
+    {
+      "id": "backprop-042",
+      "type": "paragraph",
+      "depth": null,
+      "line": 147
+    },
+    {
+      "id": "backprop-043",
+      "type": "paragraph",
+      "depth": null,
+      "line": 154
+    },
+    {
+      "id": "backprop-044",
+      "type": "heading",
+      "depth": 2,
+      "line": 162
+    },
+    {
+      "id": "backprop-045",
+      "type": "list",
+      "depth": null,
+      "line": 164
+    },
+    {
+      "id": "backprop-046",
+      "type": "heading",
+      "depth": 2,
+      "line": 169
+    },
+    {
+      "id": "backprop-047",
+      "type": "list",
+      "depth": null,
+      "line": 171
+    },
+    {
+      "id": "backprop-048",
+      "type": "paragraph",
+      "depth": null,
+      "line": 181
+    }
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "title": "注意力汇聚：Nadaraya-Watson 核回归",
+  "sourceSha256": "66e0483427bdb9748fb997113d67dade1aaa09ba4e67b5e29835e272ac126301",
+  "blocks": [
+    {
+      "id": "nadaraya-waston-001",
+      "type": "heading",
+      "depth": 1,
+      "line": 1
+    },
+    {
+      "id": "nadaraya-waston-002",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3
+    },
+    {
+      "id": "nadaraya-waston-003",
+      "type": "code",
+      "depth": null,
+      "line": 19
+    },
+    {
+      "id": "nadaraya-waston-004",
+      "type": "heading",
+      "depth": 2,
+      "line": 41
+    },
+    {
+      "id": "nadaraya-waston-005",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43
+    },
+    {
+      "id": "nadaraya-waston-006",
+      "type": "paragraph",
+      "depth": null,
+      "line": 48
+    },
+    {
+      "id": "nadaraya-waston-007",
+      "type": "paragraph",
+      "depth": null,
+      "line": 51
+    },
+    {
+      "id": "nadaraya-waston-008",
+      "type": "paragraph",
+      "depth": null,
+      "line": 53
+    },
+    {
+      "id": "nadaraya-waston-009",
+      "type": "code",
+      "depth": null,
+      "line": 62
+    },
+    {
+      "id": "nadaraya-waston-010",
+      "type": "code",
+      "depth": null,
+      "line": 90
+    },
+    {
+      "id": "nadaraya-waston-011",
+      "type": "paragraph",
+      "depth": null,
+      "line": 125
+    },
+    {
+      "id": "nadaraya-waston-012",
+      "type": "code",
+      "depth": null,
+      "line": 129
+    },
+    {
+      "id": "nadaraya-waston-013",
+      "type": "heading",
+      "depth": 2,
+      "line": 136
+    },
+    {
+      "id": "nadaraya-waston-014",
+      "type": "paragraph",
+      "depth": null,
+      "line": 138
+    },
+    {
+      "id": "nadaraya-waston-015",
+      "type": "paragraph",
+      "depth": null,
+      "line": 141
+    },
+    {
+      "id": "nadaraya-waston-016",
+      "type": "paragraph",
+      "depth": null,
+      "line": 143
+    },
+    {
+      "id": "nadaraya-waston-017",
+      "type": "code",
+      "depth": null,
+      "line": 151
+    },
+    {
+      "id": "nadaraya-waston-018",
+      "type": "heading",
+      "depth": 2,
+      "line": 168
+    },
+    {
+      "id": "nadaraya-waston-019",
+      "type": "paragraph",
+      "depth": null,
+      "line": 170
+    },
+    {
+      "id": "nadaraya-waston-020",
+      "type": "paragraph",
+      "depth": null,
+      "line": 175
+    },
+    {
+      "id": "nadaraya-waston-021",
+      "type": "paragraph",
+      "depth": null,
+      "line": 177
+    },
+    {
+      "id": "nadaraya-waston-022",
+      "type": "paragraph",
+      "depth": null,
+      "line": 186
+    },
+    {
+      "id": "nadaraya-waston-023",
+      "type": "paragraph",
+      "depth": null,
+      "line": 188
+    },
+    {
+      "id": "nadaraya-waston-024",
+      "type": "paragraph",
+      "depth": null,
+      "line": 198
+    },
+    {
+      "id": "nadaraya-waston-025",
+      "type": "paragraph",
+      "depth": null,
+      "line": 201
+    },
+    {
+      "id": "nadaraya-waston-026",
+      "type": "paragraph",
+      "depth": null,
+      "line": 203
+    },
+    {
+      "id": "nadaraya-waston-027",
+      "type": "paragraph",
+      "depth": null,
+      "line": 206
+    },
+    {
+      "id": "nadaraya-waston-028",
+      "type": "paragraph",
+      "depth": null,
+      "line": 208
+    },
+    {
+      "id": "nadaraya-waston-029",
+      "type": "paragraph",
+      "depth": null,
+      "line": 213
+    },
+    {
+      "id": "nadaraya-waston-030",
+      "type": "code",
+      "depth": null,
+      "line": 231
+    },
+    {
+      "id": "nadaraya-waston-031",
+      "type": "paragraph",
+      "depth": null,
+      "line": 269
+    },
+    {
+      "id": "nadaraya-waston-032",
+      "type": "code",
+      "depth": null,
+      "line": 280
+    },
+    {
+      "id": "nadaraya-waston-033",
+      "type": "heading",
+      "depth": 2,
+      "line": 301
+    },
+    {
+      "id": "nadaraya-waston-034",
+      "type": "paragraph",
+      "depth": null,
+      "line": 303
+    },
+    {
+      "id": "nadaraya-waston-035",
+      "type": "paragraph",
+      "depth": null,
+      "line": 307
+    },
+    {
+      "id": "nadaraya-waston-036",
+      "type": "paragraph",
+      "depth": null,
+      "line": 310
+    },
+    {
+      "id": "nadaraya-waston-037",
+      "type": "paragraph",
+      "depth": null,
+      "line": 312
+    },
+    {
+      "id": "nadaraya-waston-038",
+      "type": "heading",
+      "depth": 3,
+      "line": 315
+    },
+    {
+      "id": "nadaraya-waston-039",
+      "type": "paragraph",
+      "depth": null,
+      "line": 318
+    },
+    {
+      "id": "nadaraya-waston-040",
+      "type": "paragraph",
+      "depth": null,
+      "line": 321
+    },
+    {
+      "id": "nadaraya-waston-041",
+      "type": "code",
+      "depth": null,
+      "line": 337
+    },
+    {
+      "id": "nadaraya-waston-042",
+      "type": "paragraph",
+      "depth": null,
+      "line": 357
+    },
+    {
+      "id": "nadaraya-waston-043",
+      "type": "code",
+      "depth": null,
+      "line": 365
+    },
+    {
+      "id": "nadaraya-waston-044",
+      "type": "heading",
+      "depth": 3,
+      "line": 385
+    },
+    {
+      "id": "nadaraya-waston-045",
+      "type": "paragraph",
+      "depth": null,
+      "line": 387
+    },
+    {
+      "id": "nadaraya-waston-046",
+      "type": "code",
+      "depth": null,
+      "line": 408
+    },
+    {
+      "id": "nadaraya-waston-047",
+      "type": "heading",
+      "depth": 3,
+      "line": 460
+    },
+    {
+      "id": "nadaraya-waston-048",
+      "type": "paragraph",
+      "depth": null,
+      "line": 462
+    },
+    {
+      "id": "nadaraya-waston-049",
+      "type": "code",
+      "depth": null,
+      "line": 480
+    },
+    {
+      "id": "nadaraya-waston-050",
+      "type": "paragraph",
+      "depth": null,
+      "line": 517
+    },
+    {
+      "id": "nadaraya-waston-051",
+      "type": "code",
+      "depth": null,
+      "line": 535
+    },
+    {
+      "id": "nadaraya-waston-052",
+      "type": "paragraph",
+      "depth": null,
+      "line": 583
+    },
+    {
+      "id": "nadaraya-waston-053",
+      "type": "code",
+      "depth": null,
+      "line": 596
+    },
+    {
+      "id": "nadaraya-waston-054",
+      "type": "paragraph",
+      "depth": null,
+      "line": 625
+    },
+    {
+      "id": "nadaraya-waston-055",
+      "type": "code",
+      "depth": null,
+      "line": 638
+    },
+    {
+      "id": "nadaraya-waston-056",
+      "type": "heading",
+      "depth": 2,
+      "line": 659
+    },
+    {
+      "id": "nadaraya-waston-057",
+      "type": "list",
+      "depth": null,
+      "line": 661
+    },
+    {
+      "id": "nadaraya-waston-058",
+      "type": "heading",
+      "depth": 2,
+      "line": 665
+    },
+    {
+      "id": "nadaraya-waston-059",
+      "type": "list",
+      "depth": null,
+      "line": 667
+    },
+    {
+      "id": "nadaraya-waston-060",
+      "type": "paragraph",
+      "depth": null,
+      "line": 676
+    }
+  ]
+}

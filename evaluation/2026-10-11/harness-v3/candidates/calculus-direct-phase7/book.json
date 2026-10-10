@@ -1,0 +1,106 @@
+{
+  "figures": [
+    {
+      "id": "secant-limit",
+      "title": "两点之间的斜率，怎样成为一点处的斜率？",
+      "afterAnchor": "calculus-015",
+      "endAnchor": "calculus-016",
+      "height": 350,
+      "mobileHeight": 470,
+      "summary": "拖动进度，让 Q 从任一侧靠近固定的 P；坐标范围始终不变。",
+      "durationMs": 7000,
+      "checkpoints": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "params": [
+        {
+          "key": "side",
+          "label": "逼近方向",
+          "kind": "select",
+          "value": 1,
+          "options": [
+            {
+              "value": 1,
+              "label": "从右侧"
+            },
+            {
+              "value": -1,
+              "label": "从左侧"
+            }
+          ]
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const NS='http://www.w3.org/2000/svg', ink='#283b42', muted='#65777b', teal='#167c80', blue='#4669af', orange='#bd6b35';\n function el(tag,id,attrs={},txt){let n=svg.querySelector('[data-k=\"'+id+'\"]');if(!n){n=document.createElementNS(NS,tag);n.setAttribute('data-k',id);svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(txt!==undefined)n.textContent=txt;return n;}\n function line(id,x1,y1,x2,y2,c=muted,sw=1,dash=''){return el('line',id,{x1,y1,x2,y2,stroke:c,'stroke-width':sw,'stroke-dasharray':dash});}\n function text(id,x,y,s,c=ink,size=14,anchor='start'){return el('text',id,{x,y,fill:c,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':anchor},s);}\n function path(id,d,c,sw=2,fill='none'){return el('path',id,{d,stroke:c,'stroke-width':sw,fill,'stroke-linecap':'round','stroke-linejoin':'round'});}\n function dot(id,x,y,c,r=4){return el('circle',id,{cx:x,cy:y,r,fill:c});}\n function arrow(id,x1,y1,x2,y2,c,sw=2){let visible=Math.hypot(x2-x1,y2-y1)>.01;line(id+'s',x1,y1,x2,y2,c,sw).setAttribute('opacity',visible?1:0);let a=Math.atan2(y2-y1,x2-x1),l=8;path(id+'h','M'+(x2-l*Math.cos(a-.4))+','+(y2-l*Math.sin(a-.4))+'L'+x2+','+y2+'L'+(x2-l*Math.cos(a+.4))+','+(y2-l*Math.sin(a+.4)),c,sw).setAttribute('opacity',visible?1:0);}\n const mobile=width<600, W=width,H=height;svg.setAttribute('viewBox','0 0 '+W+' '+H);\n\n const sign=Number(params.side||1),h=sign*.65*(1-progress),q=2+3*h,f=x=>3*x*x-4*x;\n const L=42,R=mobile?W-20:W*.62,T=77,B=mobile?H-160:H-48;\n const X=x=>L+(x-.3)/1.6*(R-L),Y=y=>B-(y+1.8)/5.3*(B-T);\n text('legend1',L,21,'曲线  f(x) = 3x² − 4x',ink,14);\n text('legend2',L,43,'切线',teal,13);line('lt',L+34,39,L+64,39,teal,2);\n text('legend3',L+88,43,'割线',orange,13);line('ls',L+122,39,L+152,39,orange,2);\n line('axisx',L,Y(0),R,Y(0),'#b4c1c3');line('axisy',L,T,L,B,'#b4c1c3');\n for(let i=0;i<4;i++){let v=[.5,1,1.5,1.8][i];line('xt'+i,X(v),B,X(v),B+4);text('xn'+i,X(v),B+21,String(v),muted,12,'middle');}\n for(let i=0;i<5;i++){let v=i-1;line('yt'+i,L-4,Y(v),L,Y(v));text('yn'+i,L-9,Y(v)+4,String(v),muted,12,'end');}\n text('ax',R-2,B+38,'x',ink,13);text('ay',L-4,T-9,'f(x)',ink,13);\n let d='';for(let i=0;i<=100;i++){let x=.3+1.6*i/100;d+=(i?'L':'M')+X(x)+','+Y(f(x));}path('curve',d,ink,2.3);\n function slopeLine(id,m,c,dash=''){let lo=Math.max(.3,1-.8/m),hi=Math.min(1.9,1+4.5/m);line(id,X(lo),Y(-1+m*(lo-1)),X(hi),Y(-1+m*(hi-1)),c,2.4,dash);}slopeLine('tangent',2,teal,'6 4');\n slopeLine('secant',q,orange);\n line('hbase',X(1),Y(-1),X(1+h),Y(-1),orange,1,'3 3');line('rise',X(1+h),Y(-1),X(1+h),Y(f(1+h)),orange,1,'3 3');\n dot('P',X(1),Y(-1),teal,5);dot('Q',X(1+h),Y(f(1+h)),orange,h===0?2:5);\n text('Ptxt',X(1)-10,Y(-1)+24,'P',teal,13);text('Qtxt',X(1+h)+9,Y(f(1+h))-10,h===0?'Q → P':'Q',orange,13);\n const tx=mobile?L:R+35,ty=mobile?B+56:106;\n text('hval',tx,ty,'h = '+h.toFixed(3),muted,15);\n text('qval',tx,ty+30,'割线斜率  '+q.toFixed(3),orange,18);\n text('target',tx,ty+61,'切线斜率  2',teal,18);\n text('err',tx,ty+94,'差值 = 3h = '+(3*h).toFixed(3),muted,14);\n return {example:'f(x)=3x²−4x, P=(1,−1)',h,secantSlope:q,tangentSlope:2,error:3*h,endpointConvention:'h=0 时使用解析极限 2；未计算 0/0',range:'仅此二次函数；不证明一般函数极限'};\n}"
+    },
+    {
+      "id": "gradient-direction",
+      "title": "偏导分量合起来，怎样决定方向变化？",
+      "afterAnchor": "calculus-045",
+      "endAnchor": "calculus-050",
+      "height": 380,
+      "mobileHeight": 535,
+      "interaction": "parameters",
+      "summary": "移动 P 并旋转方向，观察梯度在该方向的投影；浅灰线连接相同函数值。",
+      "params": [
+        {
+          "key": "x",
+          "label": "x₁",
+          "min": -1.2,
+          "max": 1.2,
+          "step": 0.1,
+          "value": 0.7
+        },
+        {
+          "key": "y",
+          "label": "x₂",
+          "min": -0.8,
+          "max": 0.8,
+          "step": 0.1,
+          "value": 0.5
+        },
+        {
+          "key": "angle",
+          "label": "方向角（°）",
+          "min": 0,
+          "max": 360,
+          "step": 5,
+          "value": 30
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const NS='http://www.w3.org/2000/svg', ink='#283b42', muted='#65777b', teal='#167c80', blue='#4669af', orange='#bd6b35';\n function el(tag,id,attrs={},txt){let n=svg.querySelector('[data-k=\"'+id+'\"]');if(!n){n=document.createElementNS(NS,tag);n.setAttribute('data-k',id);svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(txt!==undefined)n.textContent=txt;return n;}\n function line(id,x1,y1,x2,y2,c=muted,sw=1,dash=''){return el('line',id,{x1,y1,x2,y2,stroke:c,'stroke-width':sw,'stroke-dasharray':dash});}\n function text(id,x,y,s,c=ink,size=14,anchor='start'){return el('text',id,{x,y,fill:c,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':anchor},s);}\n function path(id,d,c,sw=2,fill='none'){return el('path',id,{d,stroke:c,'stroke-width':sw,fill,'stroke-linecap':'round','stroke-linejoin':'round'});}\n function dot(id,x,y,c,r=4){return el('circle',id,{cx:x,cy:y,r,fill:c});}\n function arrow(id,x1,y1,x2,y2,c,sw=2){let visible=Math.hypot(x2-x1,y2-y1)>.01;line(id+'s',x1,y1,x2,y2,c,sw).setAttribute('opacity',visible?1:0);let a=Math.atan2(y2-y1,x2-x1),l=8;path(id+'h','M'+(x2-l*Math.cos(a-.4))+','+(y2-l*Math.sin(a-.4))+'L'+x2+','+y2+'L'+(x2-l*Math.cos(a+.4))+','+(y2-l*Math.sin(a+.4)),c,sw).setAttribute('opacity',visible?1:0);}\n const mobile=width<600, W=width,H=height;svg.setAttribute('viewBox','0 0 '+W+' '+H);\n\n const x=Number(params.x),y=Number(params.y),a=Number(params.angle)*Math.PI/180,gx=2*x,gy=4*y,dx=Math.cos(a),dy=Math.sin(a),D=gx*dx+gy*dy;\n const S=Math.min(mobile?W-80:W*.5,H-100),cx=mobile?W/2:48+S/2,cy=mobile?60+S/2:H/2+5,scale=S/4.8;\n const X=v=>cx+v*scale,Y=v=>cy-v*scale;\n text('example',30,24,'示例  f(x₁,x₂) = x₁² + 2x₂²',ink,14);\n for(let j=0;j<3;j++){let i=[1,3,5][j],r=Math.sqrt(i);el('ellipse','contour'+i,{cx,cy,rx:r*scale,ry:r/Math.sqrt(2)*scale,fill:'none',stroke:'#d8e3e2','stroke-width':1.2});text('level'+i,X(r*.707)+5,Y(-r*.5)+4,String(i),muted,12);}\n line('ax',X(-2.35),cy,X(2.35),cy,'#a8b9bb');line('ay',cx,Y(-2.35),cx,Y(2.35),'#a8b9bb');\n for(let i=0;i<5;i++){let v=i-2;line('xt'+i,X(v),cy-3,X(v),cy+3);text('xn'+i,X(v),cy+17,String(v),muted,12,'middle');line('yt'+i,cx-3,Y(v),cx+3,Y(v));if(v)text('yn'+i,cx-7,Y(v)+4,String(v),muted,12,'end');}\n text('xlab',X(2.35),cy+28,'x₁',ink,14,'end');text('ylab',cx+9,Y(2.35)+4,'x₂',ink,14);\n const k=.4,px=X(x),py=Y(y);\n arrow('gx',px,py,X(x+k*gx),py,blue,2);arrow('gy',X(x+k*gx),py,X(x+k*gx),Y(y+k*gy),blue,2);\n arrow('grad',px,py,X(x+k*gx),Y(y+k*gy),teal,3);\n arrow('dir',px,py,X(x+dx),Y(y+dy),orange,1.8);line('projection',X(x+k*gx),Y(y+k*gy),X(x+k*D*dx),Y(y+k*D*dy),'#94a6a8',1.3,'3 3');dot('projection-dot',X(x+k*D*dx),Y(y+k*D*dy),orange,4);dot('point',px,py,ink,4);\n const tx=mobile?30:S+94,ty=mobile?60+S+32:92;\n text('loc',tx,ty,'P = ('+x.toFixed(1)+', '+y.toFixed(1)+')',ink,14);\n text('gval',tx,ty+29,'梯度  ('+gx.toFixed(1)+', '+gy.toFixed(1)+')',teal,16);\n text('parts',tx,ty+53,'蓝：偏导分量 · 梯度×0.4',blue,13);\n text('dirval',tx,ty+79,'橙：方向 '+params.angle+'° · 圆点：投影',orange,13);\n text('D',tx,ty+108,'方向变化率  '+D.toFixed(2),ink,18);\n text('meaning',tx,ty+132,Math.abs(D)<.005?'此方向一阶变化为零':D>0?'沿橙色方向，函数局部增大':'沿橙色方向，函数局部减小',muted,13);\n return {example:'f=x₁²+2x₂²',point:[x,y],gradient:[gx,gy],unitDirection:[dx,dy],directionalDerivative:D,vectorDrawingScale:.4,convention:'欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数',limits:'局部一阶变化率，不保证有限步长的变化；未展示一般高维函数'};\n}"
+    },
+    {
+      "id": "chain-paths",
+      "title": "沿路径相乘，汇合时相加",
+      "afterAnchor": "calculus-056",
+      "endAnchor": "calculus-059",
+      "height": 330,
+      "mobileHeight": 500,
+      "interaction": "parameters",
+      "summary": "改变 x 或固定系数 a，观察两条路径的导数贡献怎样增强或抵消。",
+      "params": [
+        {
+          "key": "x",
+          "label": "x",
+          "min": -1.5,
+          "max": 1.5,
+          "step": 0.1,
+          "value": 1
+        },
+        {
+          "key": "a",
+          "label": "固定系数 a",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": -2
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params,state,controls}){\n const NS='http://www.w3.org/2000/svg', ink='#283b42', muted='#65777b', teal='#167c80', blue='#4669af', orange='#bd6b35';\n function el(tag,id,attrs={},txt){let n=svg.querySelector('[data-k=\"'+id+'\"]');if(!n){n=document.createElementNS(NS,tag);n.setAttribute('data-k',id);svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(txt!==undefined)n.textContent=txt;return n;}\n function line(id,x1,y1,x2,y2,c=muted,sw=1,dash=''){return el('line',id,{x1,y1,x2,y2,stroke:c,'stroke-width':sw,'stroke-dasharray':dash});}\n function text(id,x,y,s,c=ink,size=14,anchor='start'){return el('text',id,{x,y,fill:c,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':anchor},s);}\n function path(id,d,c,sw=2,fill='none'){return el('path',id,{d,stroke:c,'stroke-width':sw,fill,'stroke-linecap':'round','stroke-linejoin':'round'});}\n function dot(id,x,y,c,r=4){return el('circle',id,{cx:x,cy:y,r,fill:c});}\n function arrow(id,x1,y1,x2,y2,c,sw=2){let visible=Math.hypot(x2-x1,y2-y1)>.01;line(id+'s',x1,y1,x2,y2,c,sw).setAttribute('opacity',visible?1:0);let a=Math.atan2(y2-y1,x2-x1),l=8;path(id+'h','M'+(x2-l*Math.cos(a-.4))+','+(y2-l*Math.sin(a-.4))+'L'+x2+','+y2+'L'+(x2-l*Math.cos(a+.4))+','+(y2-l*Math.sin(a+.4)),c,sw).setAttribute('opacity',visible?1:0);}\n const mobile=width<600, W=width,H=height;svg.setAttribute('viewBox','0 0 '+W+' '+H);\n\n const x=Number(params.x),a=Number(params.a),u=x*x,v=a*x,Y=u+v,c1=2*x,c2=a,total=c1+c2;\n text('ex',25,25,'示例  u = x²，v = ax，y = u + v',ink,14);\n const lx=mobile?42:55,rx=mobile?W-42:W*.59,my=mobile?168:166,ux=(lx+rx)/2,top=85,bot=247;\n text('xnode',lx,my,'x',ink,20,'middle');text('xnum',lx,my+24,x.toFixed(2),muted,13,'middle');\n text('unode',ux,top,'u',teal,19,'middle');text('unum',ux,top+21,u.toFixed(2),muted,13,'middle');\n text('vnode',ux,bot,'v',blue,19,'middle');text('vnum',ux,bot+21,v.toFixed(2),muted,13,'middle');\n text('ynode',rx,my,'y',ink,20,'middle');text('ynum',rx,my+24,Y.toFixed(2),muted,13,'middle');\n arrow('xu',lx+14,my-14,ux-19,top+12,teal);arrow('uy',ux+20,top+12,rx-14,my-14,teal);\n arrow('xv',lx+14,my+17,ux-19,bot-15,blue);arrow('vy',ux+20,bot-15,rx-14,my+17,blue);\n text('gainu',(lx+ux)/2-6,top+24,'× '+c1.toFixed(2),teal,13,'middle');text('gainuy',(ux+rx)/2+8,top+25,'× 1',teal,13,'middle');\n text('gainv',(lx+ux)/2-6,bot-25,'× '+c2.toFixed(2),blue,13,'middle');text('gainvy',(ux+rx)/2+8,bot-25,'× 1',blue,13,'middle');\n const L=mobile?38:W*.67,R=W-30,Z=(L+R)/2,bt=mobile?325:115,k=(R-L)/11;\n text('bartitle',L,bt-25,'对 dy/dx 的贡献',ink,14);line('zero',Z,bt-12,Z,bt+101,'#abbabd');\n for(let i=0;i<3;i++){let val=[c1,c2,total][i],yy=bt+i*38,col=[teal,blue,ink][i];line('bar'+i,Z,yy,Z+val*k,yy,col,8);text('bl'+i,L,yy+20,['经 u','经 v','合计'][i],col,12);text('bn'+i,R,yy+20,val.toFixed(2),col,13,'end');}\n line('baraxis',Z-5*k,bt+111,Z+5*k,bt+111,'#aabbbe');for(let i=0;i<3;i++){let v=[-5,0,5][i];line('bTick'+i,Z+v*k,bt+111,Z+v*k,bt+115);text('bNum'+i,Z+v*k,bt+131,String(v),muted,12,'middle');}text('note',mobile?38:L,mobile?H-18:bt+151,Math.abs(total)<.005?'两条路径恰好抵消':c1*c2<0?'符号相反：部分抵消':'符号相同：贡献相加',muted,13);\n return {example:'u=x²,v=ax,y=u+v',x,a,u,v,y:Y,pathContributions:[c1,c2],derivative:total,convention:'求 x 的导数时 a 固定；每条路径乘积再求和',limits:'解析示例，不是训练结果；未展示一般多输入雅可比'};\n}"
+    }
+  ]
+}

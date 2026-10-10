@@ -1,0 +1,1823 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/async-computation-direct-phase4/book.html",
+  "sha256": "3ccbcd4894136f227656651ab84f758d281a8253bd3933fc56ae46312301aed8",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "timing-boundary",
+      "control": "default",
+      "params": {
+        "gpuTime": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 3,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          4,
+          7
+        ],
+        "enqueueEnd": 3,
+        "completion": 10,
+        "synchronizationWait": 7,
+        "observedTime": 5,
+        "completedTasks": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "58115773e4798bdc56737872a81529824219446503334beb59fb1e1031de714d"
+    },
+    {
+      "width": 1280,
+      "id": "timing-boundary",
+      "control": "default",
+      "params": {
+        "gpuTime": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 3,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          4,
+          7
+        ],
+        "enqueueEnd": 3,
+        "completion": 10,
+        "synchronizationWait": 7,
+        "observedTime": 10,
+        "completedTasks": 3
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "877b674bc10bae00ee592862771654dde96ddd0c9e478ef0b01ccb000f71da4f"
+    },
+    {
+      "width": 1280,
+      "id": "timing-boundary",
+      "control": "gpuTime-min",
+      "params": {
+        "gpuTime": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 2,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          3,
+          5
+        ],
+        "enqueueEnd": 3,
+        "completion": 7,
+        "synchronizationWait": 4,
+        "observedTime": 3.5,
+        "completedTasks": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5042b5e7de993795bffadce739955f3cde56f13936f1b7f259da36e5eed88808"
+    },
+    {
+      "width": 1280,
+      "id": "timing-boundary",
+      "control": "gpuTime-min",
+      "params": {
+        "gpuTime": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 2,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          3,
+          5
+        ],
+        "enqueueEnd": 3,
+        "completion": 7,
+        "synchronizationWait": 4,
+        "observedTime": 7,
+        "completedTasks": 3
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3d99b91079f5aea0beb730b709bb281acff600ffa163d827749b4ae3a51eaa83"
+    },
+    {
+      "width": 1280,
+      "id": "timing-boundary",
+      "control": "gpuTime-max",
+      "params": {
+        "gpuTime": 5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 5,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          6,
+          11
+        ],
+        "enqueueEnd": 3,
+        "completion": 16,
+        "synchronizationWait": 13,
+        "observedTime": 8,
+        "completedTasks": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "91077852ee641f08e8316f71564c3a34bebbf2a62060e3292522bc9a7635f24a"
+    },
+    {
+      "width": 1280,
+      "id": "timing-boundary",
+      "control": "gpuTime-max",
+      "params": {
+        "gpuTime": 5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 5,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          6,
+          11
+        ],
+        "enqueueEnd": 3,
+        "completion": 16,
+        "synchronizationWait": 13,
+        "observedTime": 16,
+        "completedTasks": 3
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "观察时刻 16.0",
+          "提交完"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a31805d1d5c6e8c36c9250e66c175be306fc140826f7894b41f2369a746f7974"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "default",
+      "params": {
+        "t1": 1,
+        "t2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "backendEnds": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "synchronous": 16,
+        "asynchronous": 10,
+        "exactFormula": 10,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fe84ad5710b069699bce4d3a84009a2d8c86be80c6894ec41b5dc582ac850f33"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "default",
+      "params": {
+        "t1": 1,
+        "t2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "backendEnds": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "synchronous": 16,
+        "asynchronous": 10,
+        "exactFormula": 10,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fe84ad5710b069699bce4d3a84009a2d8c86be80c6894ec41b5dc582ac850f33"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t1-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          2.5,
+          4.5,
+          6.5
+        ],
+        "backendEnds": [
+          2.5,
+          4.5,
+          6.5,
+          8.5
+        ],
+        "synchronous": 14,
+        "asynchronous": 9.5,
+        "exactFormula": 9.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fbaea6d24185200cbf874b5f37d379e1ade38a17a3d52b332a0e459f2d3f5f12"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t1-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          2.5,
+          4.5,
+          6.5
+        ],
+        "backendEnds": [
+          2.5,
+          4.5,
+          6.5,
+          8.5
+        ],
+        "synchronous": 14,
+        "asynchronous": 9.5,
+        "exactFormula": 9.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fbaea6d24185200cbf874b5f37d379e1ade38a17a3d52b332a0e459f2d3f5f12"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t1-max",
+      "params": {
+        "t1": 3,
+        "t2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          5,
+          8,
+          11,
+          14
+        ],
+        "synchronous": 24,
+        "asynchronous": 15,
+        "exactFormula": 15,
+        "backendIdle": 6,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2f225f6f9209f6737b096bf12143f34e4c0efbd64151606217827cff53783a4c"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t1-max",
+      "params": {
+        "t1": 3,
+        "t2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          5,
+          8,
+          11,
+          14
+        ],
+        "synchronous": 24,
+        "asynchronous": 15,
+        "exactFormula": 15,
+        "backendIdle": 6,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2f225f6f9209f6737b096bf12143f34e4c0efbd64151606217827cff53783a4c"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t2-min",
+      "params": {
+        "t1": 1,
+        "t2": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendEnds": [
+          1.5,
+          2.5,
+          3.5,
+          4.5
+        ],
+        "synchronous": 10,
+        "asynchronous": 5.5,
+        "exactFormula": 5.5,
+        "backendIdle": 2.5,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9d93b44f60dfa0a252f9a6f4fa5a0c7867f7f97fed585e3afff14bfb71af7f6c"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t2-min",
+      "params": {
+        "t1": 1,
+        "t2": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendEnds": [
+          1.5,
+          2.5,
+          3.5,
+          4.5
+        ],
+        "synchronous": 10,
+        "asynchronous": 5.5,
+        "exactFormula": 5.5,
+        "backendIdle": 2.5,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9d93b44f60dfa0a252f9a6f4fa5a0c7867f7f97fed585e3afff14bfb71af7f6c"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t2-max",
+      "params": {
+        "t1": 1,
+        "t2": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "backendEnds": [
+          4,
+          7,
+          10,
+          13
+        ],
+        "synchronous": 20,
+        "asynchronous": 14,
+        "exactFormula": 14,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d96f03577903f983d68c7176a0647c9cc981f705b079e084dc231fbd82093b35"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "t2-max",
+      "params": {
+        "t1": 1,
+        "t2": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "backendEnds": [
+          4,
+          7,
+          10,
+          13
+        ],
+        "synchronous": 20,
+        "asynchronous": 14,
+        "exactFormula": 14,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d96f03577903f983d68c7176a0647c9cc981f705b079e084dc231fbd82093b35"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "all-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendEnds": [
+          1,
+          1.5,
+          2,
+          2.5
+        ],
+        "synchronous": 8,
+        "asynchronous": 3.5,
+        "exactFormula": 3.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "16e3082e29bef868b4bb7c437a2ef84dcec1579e18aea060cb5fdf6bec4a7f90"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "all-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendEnds": [
+          1,
+          1.5,
+          2,
+          2.5
+        ],
+        "synchronous": 8,
+        "asynchronous": 3.5,
+        "exactFormula": 3.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "16e3082e29bef868b4bb7c437a2ef84dcec1579e18aea060cb5fdf6bec4a7f90"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "all-max",
+      "params": {
+        "t1": 3,
+        "t2": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          6,
+          9,
+          12,
+          15
+        ],
+        "synchronous": 28,
+        "asynchronous": 16,
+        "exactFormula": 16,
+        "backendIdle": 3,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c915b545ae4aa75ba6b6a6606004bd3a088329472684cf456f47cb8b844ce0f4"
+    },
+    {
+      "width": 1280,
+      "id": "pipeline-bottleneck",
+      "control": "all-max",
+      "params": {
+        "t1": 3,
+        "t2": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          6,
+          9,
+          12,
+          15
+        ],
+        "synchronous": 28,
+        "asynchronous": 16,
+        "exactFormula": 16,
+        "backendIdle": 3,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c915b545ae4aa75ba6b6a6606004bd3a088329472684cf456f47cb8b844ce0f4"
+    },
+    {
+      "width": 375,
+      "id": "timing-boundary",
+      "control": "default",
+      "params": {
+        "gpuTime": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 3,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          4,
+          7
+        ],
+        "enqueueEnd": 3,
+        "completion": 10,
+        "synchronizationWait": 7,
+        "observedTime": 5,
+        "completedTasks": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "47206b3b24f34fe7ea4ce555878b951d8ef1ea0df368914d032eb5172abeb28f"
+    },
+    {
+      "width": 375,
+      "id": "timing-boundary",
+      "control": "default",
+      "params": {
+        "gpuTime": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 3,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          4,
+          7
+        ],
+        "enqueueEnd": 3,
+        "completion": 10,
+        "synchronizationWait": 7,
+        "observedTime": 10,
+        "completedTasks": 3
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "571844d1cb70c2c17b799cb065c93a3862385e14b09eb3b4b48bf9eb138c594d"
+    },
+    {
+      "width": 375,
+      "id": "timing-boundary",
+      "control": "gpuTime-min",
+      "params": {
+        "gpuTime": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 2,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          3,
+          5
+        ],
+        "enqueueEnd": 3,
+        "completion": 7,
+        "synchronizationWait": 4,
+        "observedTime": 3.5,
+        "completedTasks": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8528333cc8e835c2dc5b5f74ae99b12806217e03e598c8325aa9da9126ded3c7"
+    },
+    {
+      "width": 375,
+      "id": "timing-boundary",
+      "control": "gpuTime-min",
+      "params": {
+        "gpuTime": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 2,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          3,
+          5
+        ],
+        "enqueueEnd": 3,
+        "completion": 7,
+        "synchronizationWait": 4,
+        "observedTime": 7,
+        "completedTasks": 3
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c54b3d8d229533f2597dfc7e170b0470b2c1d9fa15ccb9450fa1c1fb1c660ccb"
+    },
+    {
+      "width": 375,
+      "id": "timing-boundary",
+      "control": "gpuTime-max",
+      "params": {
+        "gpuTime": 5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 5,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          6,
+          11
+        ],
+        "enqueueEnd": 3,
+        "completion": 16,
+        "synchronizationWait": 13,
+        "observedTime": 8,
+        "completedTasks": 1
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8e413ab11e1913992622e8afb4b0861e400df104bf1e5472383383eafbf0ae60"
+    },
+    {
+      "width": 375,
+      "id": "timing-boundary",
+      "control": "gpuTime-max",
+      "params": {
+        "gpuTime": 5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "enqueueDuration": 1,
+        "gpuDuration": 5,
+        "taskCount": 3,
+        "gpuStarts": [
+          1,
+          6,
+          11
+        ],
+        "enqueueEnd": 3,
+        "completion": 16,
+        "synchronizationWait": 13,
+        "observedTime": 16,
+        "completedTasks": 3
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0e14aec68fbaec0190df5f95bd5be0e20bcf74794a2a7bec021325f0d3010591"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "default",
+      "params": {
+        "t1": 1,
+        "t2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "backendEnds": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "synchronous": 16,
+        "asynchronous": 10,
+        "exactFormula": 10,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d220ecaf1072b651638c26b1b20c9b040a4f2757902104d4a1a4343b4f10a68c"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "default",
+      "params": {
+        "t1": 1,
+        "t2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          3,
+          5,
+          7
+        ],
+        "backendEnds": [
+          3,
+          5,
+          7,
+          9
+        ],
+        "synchronous": 16,
+        "asynchronous": 10,
+        "exactFormula": 10,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d220ecaf1072b651638c26b1b20c9b040a4f2757902104d4a1a4343b4f10a68c"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t1-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          2.5,
+          4.5,
+          6.5
+        ],
+        "backendEnds": [
+          2.5,
+          4.5,
+          6.5,
+          8.5
+        ],
+        "synchronous": 14,
+        "asynchronous": 9.5,
+        "exactFormula": 9.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "38ffe65c6b93cd08b374a9cb6090c44b50ba054e2baaa04e519ee44b9dd68bd0"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t1-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          2.5,
+          4.5,
+          6.5
+        ],
+        "backendEnds": [
+          2.5,
+          4.5,
+          6.5,
+          8.5
+        ],
+        "synchronous": 14,
+        "asynchronous": 9.5,
+        "exactFormula": 9.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "38ffe65c6b93cd08b374a9cb6090c44b50ba054e2baaa04e519ee44b9dd68bd0"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t1-max",
+      "params": {
+        "t1": 3,
+        "t2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          5,
+          8,
+          11,
+          14
+        ],
+        "synchronous": 24,
+        "asynchronous": 15,
+        "exactFormula": 15,
+        "backendIdle": 6,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4e07e0d95620a7327aff7917fccc4dc09862fd1094940971f28b1c6275e4f523"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t1-max",
+      "params": {
+        "t1": 3,
+        "t2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 2,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          5,
+          8,
+          11,
+          14
+        ],
+        "synchronous": 24,
+        "asynchronous": 15,
+        "exactFormula": 15,
+        "backendIdle": 6,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4e07e0d95620a7327aff7917fccc4dc09862fd1094940971f28b1c6275e4f523"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t2-min",
+      "params": {
+        "t1": 1,
+        "t2": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendEnds": [
+          1.5,
+          2.5,
+          3.5,
+          4.5
+        ],
+        "synchronous": 10,
+        "asynchronous": 5.5,
+        "exactFormula": 5.5,
+        "backendIdle": 2.5,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a0dbc3125a42a1bc9491bd76d6fb44bb5cbf0df13ecb9b821c493676cacf4f1f"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t2-min",
+      "params": {
+        "t1": 1,
+        "t2": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendEnds": [
+          1.5,
+          2.5,
+          3.5,
+          4.5
+        ],
+        "synchronous": 10,
+        "asynchronous": 5.5,
+        "exactFormula": 5.5,
+        "backendIdle": 2.5,
+        "bottleneck": "front"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a0dbc3125a42a1bc9491bd76d6fb44bb5cbf0df13ecb9b821c493676cacf4f1f"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t2-max",
+      "params": {
+        "t1": 1,
+        "t2": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "backendEnds": [
+          4,
+          7,
+          10,
+          13
+        ],
+        "synchronous": 20,
+        "asynchronous": 14,
+        "exactFormula": 14,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2df7237015e0cafa5deb72f5008fa186c1b7ec3a8f3108fc69c2e42ae2318cd8"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t2-max",
+      "params": {
+        "t1": 1,
+        "t2": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 1,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "backendStarts": [
+          1,
+          4,
+          7,
+          10
+        ],
+        "backendEnds": [
+          4,
+          7,
+          10,
+          13
+        ],
+        "synchronous": 20,
+        "asynchronous": 14,
+        "exactFormula": 14,
+        "backendIdle": 1,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2df7237015e0cafa5deb72f5008fa186c1b7ec3a8f3108fc69c2e42ae2318cd8"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "all-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendEnds": [
+          1,
+          1.5,
+          2,
+          2.5
+        ],
+        "synchronous": 8,
+        "asynchronous": 3.5,
+        "exactFormula": 3.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a4b84c0c3775fad2c6a738541a4f5ad6cd9224873fa5acdf87a43773417ff971"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "all-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 0.5,
+        "t2": 0.5,
+        "t3": 1,
+        "enqueueEnds": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendStarts": [
+          0.5,
+          1,
+          1.5,
+          2
+        ],
+        "backendEnds": [
+          1,
+          1.5,
+          2,
+          2.5
+        ],
+        "synchronous": 8,
+        "asynchronous": 3.5,
+        "exactFormula": 3.5,
+        "backendIdle": 0.5,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a4b84c0c3775fad2c6a738541a4f5ad6cd9224873fa5acdf87a43773417ff971"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "all-max",
+      "params": {
+        "t1": 3,
+        "t2": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          6,
+          9,
+          12,
+          15
+        ],
+        "synchronous": 28,
+        "asynchronous": 16,
+        "exactFormula": 16,
+        "backendIdle": 3,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2f7d882c01884d2104317d89c59a45fd3256ee6c13f051749d78f75200f87711"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "all-max",
+      "params": {
+        "t1": 3,
+        "t2": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "taskCount": 4,
+        "t1": 3,
+        "t2": 3,
+        "t3": 1,
+        "enqueueEnds": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendStarts": [
+          3,
+          6,
+          9,
+          12
+        ],
+        "backendEnds": [
+          6,
+          9,
+          12,
+          15
+        ],
+        "synchronous": 28,
+        "asynchronous": 16,
+        "exactFormula": 16,
+        "backendIdle": 3,
+        "bottleneck": "back"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "2f7d882c01884d2104317d89c59a45fd3256ee6c13f051749d78f75200f87711"
+    }
+  ],
+  "findings": [
+    {
+      "width": 1280,
+      "id": "timing-boundary",
+      "control": "gpuTime-max",
+      "params": {
+        "gpuTime": 5
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "观察时刻 16.0",
+          "提交完"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a31805d1d5c6e8c36c9250e66c175be306fc140826f7894b41f2369a746f7974"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t1-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "38ffe65c6b93cd08b374a9cb6090c44b50ba054e2baaa04e519ee44b9dd68bd0"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "t1-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "38ffe65c6b93cd08b374a9cb6090c44b50ba054e2baaa04e519ee44b9dd68bd0"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "all-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a4b84c0c3775fad2c6a738541a4f5ad6cd9224873fa5acdf87a43773417ff971"
+    },
+    {
+      "width": 375,
+      "id": "pipeline-bottleneck",
+      "control": "all-min",
+      "params": {
+        "t1": 0.5,
+        "t2": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "1",
+          "2"
+        ],
+        [
+          "2",
+          "3"
+        ],
+        [
+          "3",
+          "4"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a4b84c0c3775fad2c6a738541a4f5ad6cd9224873fa5acdf87a43773417ff971"
+    }
+  ],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

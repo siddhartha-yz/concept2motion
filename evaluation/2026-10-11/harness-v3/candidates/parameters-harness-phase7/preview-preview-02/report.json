@@ -1,0 +1,3611 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/book.html",
+  "sha256": "a602dfc52722f278fa98cf07a9b1f3d7827efddc2a15574cad0f2e6e15cc3aac",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "threshold-mass",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "e13f3453cef9132227844f06184319628e5bc43007ec7ccf6b44955087033226"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "e13f3453cef9132227844f06184319628e5bc43007ec7ccf6b44955087033226"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "e13f3453cef9132227844f06184319628e5bc43007ec7ccf6b44955087033226"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "e13f3453cef9132227844f06184319628e5bc43007ec7ccf6b44955087033226"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "e13f3453cef9132227844f06184319628e5bc43007ec7ccf6b44955087033226"
+            }
+          ]
+        },
+        {
+          "id": "shared-gradient",
+          "interaction": "timeline",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "forward",
+                    "progress": 0,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "forward",
+                  "phase": 0
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "31f7e8c6341e59d2e0a3581865ecb3010bdc4a4af53366514d9a22b0a25f562a"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "forward",
+                    "progress": 0.5,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "forward",
+                  "phase": 0.5
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "b585a871f7a163bc705b608f5ac066d924c7f4d5517fe38dbf660cf0a42d69d7"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "forward",
+                    "progress": 0.52,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "forward",
+                  "phase": 0.52
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "1123afac5b36042bb4eb010d88445efbd5d92957e6c26196c99db7e5c0d77717"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "backward",
+                    "progress": 0,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "backward",
+                  "phase": 0
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "49b1a97628aeadd98654cdf96ab823d42190938c3830d1843875bfc99982155d"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "backward",
+                    "progress": 1,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "backward",
+                  "phase": 1
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "2c3c528e008ee31c368fbd8c1f6a0dccd9b63e6872ca0435d951f6101ae22e20"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "threshold-mass",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "3133a5627497217afa8c7f61dcf9d54231aa6210c325e23e472476d2e983d28e"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "3133a5627497217afa8c7f61dcf9d54231aa6210c325e23e472476d2e983d28e"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "3133a5627497217afa8c7f61dcf9d54231aa6210c325e23e472476d2e983d28e"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "3133a5627497217afa8c7f61dcf9d54231aa6210c325e23e472476d2e983d28e"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "threshold": 5,
+                "initialDensity": 0.05,
+                "leftMass": 0.25,
+                "zeroMass": 0.5,
+                "rightMass": 0.25,
+                "totalMass": 1,
+                "rule": "w′ = u if |u| ≥ τ else 0",
+                "distribution": "u ~ U(-10,10)",
+                "atomSymbol": "circle area proportional to zero probability, not density height"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "3133a5627497217afa8c7f61dcf9d54231aa6210c325e23e472476d2e983d28e"
+            }
+          ]
+        },
+        {
+          "id": "shared-gradient",
+          "interaction": "timeline",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "forward",
+                    "progress": 0,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "forward",
+                  "phase": 0
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "a51a2049e6e414906981a6c1b849ef3dda611593e60905331ed17b339108c609"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "forward",
+                    "progress": 0.5,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "forward",
+                  "phase": 0.5
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "f080686e56e6dab8d4e7db4ac0455e3edce7a4cecdf302a773ade4fbac77f109"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "forward",
+                    "progress": 0.52,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "forward",
+                  "phase": 0.52
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "05ef6c2f1938342c76f4940048ee8be651ef361f55a8cbd0b1335dbf1f5a83a0"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "backward",
+                    "progress": 0,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "backward",
+                  "phase": 0
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "8243200cdb6706b9baf5c7f1c8756a4dd610cdbd8e0a3b3c1407c21e897e2518"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "calculation": {
+                  "trace": {
+                    "output": "y",
+                    "outputs": [
+                      "y"
+                    ],
+                    "seeds": [
+                      1
+                    ],
+                    "value": 2,
+                    "seededValue": 2,
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "gradients": {
+                      "w": 4
+                    },
+                    "convention": "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights"
+                  },
+                  "graph": {
+                    "nodes": [
+                      {
+                        "id": "w",
+                        "label": "共享 w",
+                        "op": "input",
+                        "value": 1,
+                        "inputs": [],
+                        "gradient": 4,
+                        "partials": []
+                      },
+                      {
+                        "id": "x",
+                        "label": "x=2",
+                        "op": "constant",
+                        "value": 2,
+                        "inputs": [],
+                        "gradient": 1,
+                        "partials": []
+                      },
+                      {
+                        "id": "h",
+                        "label": "h=w·x",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "x"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      },
+                      {
+                        "id": "y",
+                        "label": "y=w·h",
+                        "op": "mul",
+                        "inputs": [
+                          "w",
+                          "h"
+                        ],
+                        "gradient": 1,
+                        "value": 2,
+                        "partials": [
+                          2,
+                          1
+                        ]
+                      }
+                    ],
+                    "edges": [
+                      {
+                        "from": "w",
+                        "to": "h",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "x",
+                        "to": "h",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      },
+                      {
+                        "from": "w",
+                        "to": "y",
+                        "partial": 2,
+                        "contribution": 2,
+                        "inputIndex": 0
+                      },
+                      {
+                        "from": "h",
+                        "to": "y",
+                        "partial": 1,
+                        "contribution": 1,
+                        "inputIndex": 1
+                      }
+                    ],
+                    "layout": {
+                      "width": 164,
+                      "height": 232,
+                      "nodes": {
+                        "w": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 128,
+                          "y": 28,
+                          "order": 1,
+                          "rank": 0
+                        },
+                        "x": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 36,
+                          "y": 28,
+                          "order": 0,
+                          "rank": 0
+                        },
+                        "h": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 46,
+                          "y": 116,
+                          "order": 0,
+                          "rank": 2
+                        },
+                        "y": {
+                          "width": 72,
+                          "height": 56,
+                          "x": 82,
+                          "y": 204,
+                          "order": 0,
+                          "rank": 4
+                        }
+                      },
+                      "edges": [
+                        {
+                          "from": "w",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 105.0909090909091,
+                              "y": 56
+                            },
+                            {
+                              "x": 92,
+                              "y": 72
+                            },
+                            {
+                              "x": 75.27272727272728,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "x",
+                          "to": "h",
+                          "points": [
+                            {
+                              "x": 36,
+                              "y": 56
+                            },
+                            {
+                              "x": 36,
+                              "y": 72
+                            },
+                            {
+                              "x": 39.63636363636364,
+                              "y": 88
+                            }
+                          ]
+                        },
+                        {
+                          "from": "w",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 134.36363636363637,
+                              "y": 56
+                            },
+                            {
+                              "x": 138,
+                              "y": 72
+                            },
+                            {
+                              "x": 138,
+                              "y": 116
+                            },
+                            {
+                              "x": 138,
+                              "y": 160
+                            },
+                            {
+                              "x": 117.63636363636363,
+                              "y": 176
+                            }
+                          ]
+                        },
+                        {
+                          "from": "h",
+                          "to": "y",
+                          "points": [
+                            {
+                              "x": 46,
+                              "y": 144
+                            },
+                            {
+                              "x": 46,
+                              "y": 160
+                            },
+                            {
+                              "x": 59.09090909090909,
+                              "y": 176
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "mode": "backward",
+                    "progress": 1,
+                    "convention": "Moving markers explain graph connections; they do not claim hardware timing or a scheduled execution order"
+                  },
+                  "mode": "backward",
+                  "phase": 1
+                },
+                "values": {
+                  "items": [
+                    {
+                      "label": "输出 y=2w²",
+                      "value": 2,
+                      "color": "blue"
+                    },
+                    {
+                      "label": "总梯度 dy/dw",
+                      "value": 4,
+                      "color": "orange"
+                    }
+                  ]
+                }
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "5521b5b6210172ec55e5f7679e5d6f657ae418f80199dd4bf22c7bb10d61d8df"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-threshold-mass-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-threshold-mass-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-threshold-mass-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-threshold-mass-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-shared-gradient-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-shared-gradient-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-shared-gradient-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-threshold-mass-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-threshold-mass-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-threshold-mass-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-threshold-mass-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-shared-gradient-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-shared-gradient-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-shared-gradient-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/parameters-harness/preview-preview-02/375-page.png"
+  ],
+  "status": "completed",
+  "parameterAudit": {
+    "cases": 24,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  },
+  "interactionAudit": {
+    "status": "completed",
+    "cases": 0,
+    "coverage": [
+      {
+        "width": 1280,
+        "id": "threshold-mass",
+        "registered": 0,
+        "sampled": 0,
+        "limit": 16
+      },
+      {
+        "width": 1280,
+        "id": "shared-gradient",
+        "registered": 0,
+        "sampled": 0,
+        "limit": 16
+      },
+      {
+        "width": 375,
+        "id": "threshold-mass",
+        "registered": 0,
+        "sampled": 0,
+        "limit": 16
+      },
+      {
+        "width": 375,
+        "id": "shared-gradient",
+        "registered": 0,
+        "sampled": 0,
+        "limit": 16
+      }
+    ],
+    "scope": "Up to sixteen registered controls per figure: .vh-handle keyboard/pointer and .vh-selectable mouse/Enter, at two widths and first available default/0/0.5/1 pose. Not exhaustive states, custom controls, physical touch devices or artistic review."
+  }
+}

@@ -1,0 +1,6470 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/linear-regression-harness-phase2/book.html",
+  "sha256": "1e30e351b1f17a53c43294e70b922642ed05c315aa48fb528a43455d002e6ecd",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0.4,
+        "bias": 1,
+        "predictions": [
+          0.19999999999999996,
+          0.6,
+          1,
+          1.4,
+          1.8
+        ],
+        "residuals": [
+          1.2,
+          0.39999999999999997,
+          -0.3999999999999999,
+          -0.20000000000000018,
+          -1.4000000000000001
+        ],
+        "loss": 0.376,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "276a0e1f13d9c382f52ac48968602efe7fad51ebe28a9c9fcabca8c4387269c9"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0.4,
+        "bias": 1,
+        "predictions": [
+          0.19999999999999996,
+          0.6,
+          1,
+          1.4,
+          1.8
+        ],
+        "residuals": [
+          1.2,
+          0.39999999999999997,
+          -0.3999999999999999,
+          -0.20000000000000018,
+          -1.4000000000000001
+        ],
+        "loss": 0.376,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "276a0e1f13d9c382f52ac48968602efe7fad51ebe28a9c9fcabca8c4387269c9"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0,
+        "bias": 1,
+        "predictions": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "residuals": [
+          2,
+          0.8,
+          -0.3999999999999999,
+          -0.6000000000000001,
+          -2.2
+        ],
+        "loss": 1.0000000000000002,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "7dfdaf84381b5ea824358673bdab76550923b76856f045b2a90c1a3cb3cd1967"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0,
+        "bias": 1,
+        "predictions": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "residuals": [
+          2,
+          0.8,
+          -0.3999999999999999,
+          -0.6000000000000001,
+          -2.2
+        ],
+        "loss": 1.0000000000000002,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "7dfdaf84381b5ea824358673bdab76550923b76856f045b2a90c1a3cb3cd1967"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          1,
+          3,
+          5
+        ],
+        "residuals": [
+          -2,
+          -1.2,
+          -0.3999999999999999,
+          1.4,
+          1.7999999999999998
+        ],
+        "loss": 1.0799999999999998,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "5b7801e1ae6f503d2a12dfa5d4204e7f1a2baaefa0c24780b70d5d6c164543a7"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          1,
+          3,
+          5
+        ],
+        "residuals": [
+          -2,
+          -1.2,
+          -0.3999999999999999,
+          1.4,
+          1.7999999999999998
+        ],
+        "loss": 1.0799999999999998,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "5b7801e1ae6f503d2a12dfa5d4204e7f1a2baaefa0c24780b70d5d6c164543a7"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.3,
+        "end": [
+          0.78,
+          0.81
+        ],
+        "current": [
+          0.49000000000000005,
+          0.655
+        ],
+        "progress": 0.5,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.09431666666666665,
+        "currentLoss": 0.43691249999999987,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "858d7ba5e65157b0e878114c7cbe10f90fe06b1aafba947b276f9ecc4c813bd1"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.3,
+        "end": [
+          0.78,
+          0.81
+        ],
+        "current": [
+          0.78,
+          0.81
+        ],
+        "progress": 1,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.09431666666666665,
+        "currentLoss": 0.09431666666666665,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "ff9168abf9741df2675eed95127106d0360cbf8270820face36447da3cab1506"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.05,
+        "end": [
+          0.2966666666666667,
+          0.5516666666666666
+        ],
+        "current": [
+          0.24833333333333335,
+          0.5258333333333334
+        ],
+        "progress": 0.5,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.8053976851851852,
+        "currentLoss": 0.9150299768518518,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "27eba4ccaefde12dc06d02f804f2e30e844f628de2585c087d7523c5bd9d293b"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.05,
+        "end": [
+          0.2966666666666667,
+          0.5516666666666666
+        ],
+        "current": [
+          0.2966666666666667,
+          0.5516666666666666
+        ],
+        "progress": 1,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.8053976851851852,
+        "currentLoss": 0.8053976851851852,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "a76a6258b7075d45293d30e30024def4a288fdc03248a3364288e30a18e1ab15"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.9,
+        "end": [
+          1.9400000000000002,
+          1.4300000000000002
+        ],
+        "current": [
+          1.07,
+          0.9650000000000001
+        ],
+        "progress": 0.5,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 1.2455166666666673,
+        "currentLoss": 0.003879166666666683,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "7ba2012d385f2c3abe20497a4fb336f80c87ed9b8baee7a02a3815e7d59fbe29"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.9,
+        "end": [
+          1.9400000000000002,
+          1.4300000000000002
+        ],
+        "current": [
+          1.9400000000000002,
+          1.4300000000000002
+        ],
+        "progress": 1,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 1.2455166666666673,
+        "currentLoss": 1.2455166666666673,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "0d88e31de4a19f0167df12f3402a157783505d9fd9e567d6f1a5105f0069ad85"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 1,
+        "loss": 0.6849999999999999,
+        "nll": 8.019692666023364,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b388ee038d5cb53b350475ff785f77bb72ce355a3c26c6f150184c62737f0bda"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 1,
+        "loss": 0.6849999999999999,
+        "nll": 8.019692666023364,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b388ee038d5cb53b350475ff785f77bb72ce355a3c26c6f150184c62737f0bda"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 1,
+        "loss": 2.5,
+        "nll": 17.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "fcdec334d51c09b0f92b2c8eaf6e51de5d1a1abddf9b3aaa755f1b973c04d8b4"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 1,
+        "loss": 2.5,
+        "nll": 17.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "fcdec334d51c09b0f92b2c8eaf6e51de5d1a1abddf9b3aaa755f1b973c04d8b4"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 1,
+        "loss": 1.7,
+        "nll": 13.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "1a9da52b39de29c137ff560811d5a8340295af7a0f601f2be2beb38121492193"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 1,
+        "loss": 1.7,
+        "nll": 13.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "1a9da52b39de29c137ff560811d5a8340295af7a0f601f2be2beb38121492193"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 0.6,
+        "loss": 0.6849999999999999,
+        "nll": 11.554453436082298,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "9f6cddb312fb13bb57f5f3db83c1cbb71fa4e41d608a8bd13507d82b90714858"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 0.6,
+        "loss": 0.6849999999999999,
+        "nll": 11.554453436082298,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "9f6cddb312fb13bb57f5f3db83c1cbb71fa4e41d608a8bd13507d82b90714858"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 2,
+        "loss": 0.6849999999999999,
+        "nll": 8.91667856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "beccc16bef39654ff4675f7ab83818da41d7d0da8bb426a438c4fd91a7165360"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 2,
+        "loss": 0.6849999999999999,
+        "nll": 8.91667856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "beccc16bef39654ff4675f7ab83818da41d7d0da8bb426a438c4fd91a7165360"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 0.6,
+        "loss": 2.5,
+        "nll": 36.762786769415634,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "ad25f2323d137ae7ff3b9136f8ecdc007a32baff1498b48a3b440809946c182a"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 0.6,
+        "loss": 2.5,
+        "nll": 36.762786769415634,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "ad25f2323d137ae7ff3b9136f8ecdc007a32baff1498b48a3b440809946c182a"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 2,
+        "loss": 1.7,
+        "nll": 10.18542856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "15a451e5f024af747b22f6c57f12413778505702d24c7ce6aaf3ed893203178f"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 2,
+        "loss": 1.7,
+        "nll": 10.18542856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "15a451e5f024af747b22f6c57f12413778505702d24c7ce6aaf3ed893203178f"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0.4,
+        "bias": 1,
+        "predictions": [
+          0.19999999999999996,
+          0.6,
+          1,
+          1.4,
+          1.8
+        ],
+        "residuals": [
+          1.2,
+          0.39999999999999997,
+          -0.3999999999999999,
+          -0.20000000000000018,
+          -1.4000000000000001
+        ],
+        "loss": 0.376,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "ef7e521fee9a51f753bcdffc0559f524ded474e162e59e177d75bb0b690d8c5c"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0.4,
+        "bias": 1,
+        "predictions": [
+          0.19999999999999996,
+          0.6,
+          1,
+          1.4,
+          1.8
+        ],
+        "residuals": [
+          1.2,
+          0.39999999999999997,
+          -0.3999999999999999,
+          -0.20000000000000018,
+          -1.4000000000000001
+        ],
+        "loss": 0.376,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "ef7e521fee9a51f753bcdffc0559f524ded474e162e59e177d75bb0b690d8c5c"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0,
+        "bias": 1,
+        "predictions": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "residuals": [
+          2,
+          0.8,
+          -0.3999999999999999,
+          -0.6000000000000001,
+          -2.2
+        ],
+        "loss": 1.0000000000000002,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "201ba7fd6173f77b063f76679782db6fe2dffbc6b6138ae9475551cd8bf34ecf"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 0,
+        "bias": 1,
+        "predictions": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "residuals": [
+          2,
+          0.8,
+          -0.3999999999999999,
+          -0.6000000000000001,
+          -2.2
+        ],
+        "loss": 1.0000000000000002,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "201ba7fd6173f77b063f76679782db6fe2dffbc6b6138ae9475551cd8bf34ecf"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          1,
+          3,
+          5
+        ],
+        "residuals": [
+          -2,
+          -1.2,
+          -0.3999999999999999,
+          1.4,
+          1.7999999999999998
+        ],
+        "loss": 1.0799999999999998,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "e7f4d608577d4684b6f47fe1022528edf05a1a153e333a223bfc3fe7a710c3fe"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0.2
+          ],
+          [
+            0,
+            1.4
+          ],
+          [
+            1,
+            1.6
+          ],
+          [
+            2,
+            3.2
+          ]
+        ],
+        "weight": 2,
+        "bias": 1,
+        "predictions": [
+          -3,
+          -1,
+          1,
+          3,
+          5
+        ],
+        "residuals": [
+          -2,
+          -1.2,
+          -0.3999999999999999,
+          1.4,
+          1.7999999999999998
+        ],
+        "loss": 1.0799999999999998,
+        "optimumWeight": 0.9800000000000001,
+        "optimumLoss": 0.039599999999999996
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "e7f4d608577d4684b6f47fe1022528edf05a1a153e333a223bfc3fe7a710c3fe"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.3,
+        "end": [
+          0.78,
+          0.81
+        ],
+        "current": [
+          0.49000000000000005,
+          0.655
+        ],
+        "progress": 0.5,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.09431666666666665,
+        "currentLoss": 0.43691249999999987,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "de389fcd09fedcecda6967ad1f324c135275da152b8e21de1a6771e23e3ee97f"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.3,
+        "end": [
+          0.78,
+          0.81
+        ],
+        "current": [
+          0.78,
+          0.81
+        ],
+        "progress": 1,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.09431666666666665,
+        "currentLoss": 0.09431666666666665,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "a60442915e2f9b7d3a70fda338a165e686baa26e600de3fb833d471804a672a4"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.05,
+        "end": [
+          0.2966666666666667,
+          0.5516666666666666
+        ],
+        "current": [
+          0.24833333333333335,
+          0.5258333333333334
+        ],
+        "progress": 0.5,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.8053976851851852,
+        "currentLoss": 0.9150299768518518,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "03b0b23af869a4f6358d612f3b6f67e57467c7408f72e3ffc59a5eeb3c698cd4"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.05,
+        "end": [
+          0.2966666666666667,
+          0.5516666666666666
+        ],
+        "current": [
+          0.2966666666666667,
+          0.5516666666666666
+        ],
+        "progress": 1,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 0.8053976851851852,
+        "currentLoss": 0.8053976851851852,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "6508de43a93234ab942c994726d33fb1a216e800b74a7bca0f438c4568f40fa2"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.9,
+        "end": [
+          1.9400000000000002,
+          1.4300000000000002
+        ],
+        "current": [
+          1.07,
+          0.9650000000000001
+        ],
+        "progress": 0.5,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 1.2455166666666673,
+        "currentLoss": 0.003879166666666683,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "80c912f21519abbc98f78ab73afc7b881947d375c40eb1448877646d6a74cab8"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "start": [
+          0.2,
+          0.5
+        ],
+        "residuals": [
+          0.3,
+          -1.3,
+          -2.1
+        ],
+        "terms": [
+          [
+            -0.3,
+            0.3
+          ],
+          [
+            -1.3,
+            -1.3
+          ],
+          [
+            -4.2,
+            -2.1
+          ]
+        ],
+        "gradient": [
+          -1.9333333333333336,
+          -1.0333333333333334
+        ],
+        "eta": 0.9,
+        "end": [
+          1.9400000000000002,
+          1.4300000000000002
+        ],
+        "current": [
+          1.9400000000000002,
+          1.4300000000000002
+        ],
+        "progress": 1,
+        "startLoss": 1.0316666666666667,
+        "endLoss": 1.2455166666666673,
+        "currentLoss": 1.2455166666666673,
+        "interpolationOnly": true
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "30de0606e5a0698fb28df5ed8bb2cd939fd969585da0d6a1d5036240e7eb4a92"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 1,
+        "loss": 0.6849999999999999,
+        "nll": 8.019692666023364,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "3e5e1fcc1b575880cdb5c7f8388ac6d3e16714fbaeefcd481757435dfa882bc0"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 1,
+        "loss": 0.6849999999999999,
+        "nll": 8.019692666023364,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "3e5e1fcc1b575880cdb5c7f8388ac6d3e16714fbaeefcd481757435dfa882bc0"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 1,
+        "loss": 2.5,
+        "nll": 17.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "c6b49c4f0d1af5721dc38d1970ff7bd0ec2ac9d262370104ef84a141143bc642"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 1,
+        "loss": 2.5,
+        "nll": 17.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "c6b49c4f0d1af5721dc38d1970ff7bd0ec2ac9d262370104ef84a141143bc642"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 1,
+        "loss": 1.7,
+        "nll": 13.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "5443090602e49c7e6911b49addc447fc3623ef44eb59fb73a92a7155b751a090"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 1,
+        "loss": 1.7,
+        "nll": 13.094692666023363,
+        "constant": 4.594692666023363,
+        "scale": 5,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 4.994692666023362,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "5443090602e49c7e6911b49addc447fc3623ef44eb59fb73a92a7155b751a090"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 0.6,
+        "loss": 0.6849999999999999,
+        "nll": 11.554453436082298,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b926a1befd3435604ace337a938f125072e9983bf1211686e62939409c1883ed"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 0.6,
+        "loss": 0.6849999999999999,
+        "nll": 11.554453436082298,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b926a1befd3435604ace337a938f125072e9983bf1211686e62939409c1883ed"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 2,
+        "loss": 0.6849999999999999,
+        "nll": 8.91667856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "319e04a9513351fc5eee01eb2aeea94c8df3a06ded9a51e5ee9ab493c0bc76b3"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 0.1,
+        "sigma": 2,
+        "loss": 0.6849999999999999,
+        "nll": 8.91667856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "319e04a9513351fc5eee01eb2aeea94c8df3a06ded9a51e5ee9ab493c0bc76b3"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 0.6,
+        "loss": 2.5,
+        "nll": 36.762786769415634,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b24d16ddd56547e1546e51c21ac23e603900f83a4ec367bf4bac5f51f21f6e5b"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": -1,
+        "sigma": 0.6,
+        "loss": 2.5,
+        "nll": 36.762786769415634,
+        "constant": 2.0405645471934104,
+        "scale": 13.88888888888889,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 3.151675658304521,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b24d16ddd56547e1546e51c21ac23e603900f83a4ec367bf4bac5f51f21f6e5b"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 2,
+        "loss": 1.7,
+        "nll": 10.18542856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "41053802929179d53a0195ce6c78ac63670132ccbf528d25be50290ba5010cc9"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "data": [
+          [
+            -2,
+            -1
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            4
+          ]
+        ],
+        "weight": 1,
+        "bias": 3,
+        "sigma": 2,
+        "loss": 1.7,
+        "nll": 10.18542856882309,
+        "constant": 8.06042856882309,
+        "scale": 1.25,
+        "optimumBias": 1.2,
+        "minimumLoss": 0.07999999999999997,
+        "minimumNll": 8.16042856882309,
+        "fixedSigmaAcrossSamples": true
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "41053802929179d53a0195ce6c78ac63670132ccbf528d25be50290ba5010cc9"
+    }
+  ],
+  "findings": [
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "276a0e1f13d9c382f52ac48968602efe7fad51ebe28a9c9fcabca8c4387269c9"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "276a0e1f13d9c382f52ac48968602efe7fad51ebe28a9c9fcabca8c4387269c9"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "7dfdaf84381b5ea824358673bdab76550923b76856f045b2a90c1a3cb3cd1967"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "7dfdaf84381b5ea824358673bdab76550923b76856f045b2a90c1a3cb3cd1967"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "5b7801e1ae6f503d2a12dfa5d4204e7f1a2baaefa0c24780b70d5d6c164543a7"
+    },
+    {
+      "width": 1280,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "参数空间 · 固定 b = 1",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "5b7801e1ae6f503d2a12dfa5d4204e7f1a2baaefa0c24780b70d5d6c164543a7"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "858d7ba5e65157b0e878114c7cbe10f90fe06b1aafba947b276f9ecc4c813bd1"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "ff9168abf9741df2675eed95127106d0360cbf8270820face36447da3cab1506"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "27eba4ccaefde12dc06d02f804f2e30e844f628de2585c087d7523c5bd9d293b"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "a76a6258b7075d45293d30e30024def4a288fdc03248a3364288e30a18e1ab15"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "7ba2012d385f2c3abe20497a4fb336f80c87ed9b8baee7a02a3815e7d59fbe29"
+    },
+    {
+      "width": 1280,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 80.4296875,
+          "y": 58.74073791503906,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 106.21875,
+          "y": 107.62963104248047,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 170.53125,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 198.09375,
+          "y": 149.11111450195312,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 262.40625,
+          "y": 182.29629516601562,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 289.96875,
+          "y": 269.40740966796875,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "0d88e31de4a19f0167df12f3402a157783505d9fd9e567d6f1a5105f0069ad85"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b388ee038d5cb53b350475ff785f77bb72ce355a3c26c6f150184c62737f0bda"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b388ee038d5cb53b350475ff785f77bb72ce355a3c26c6f150184c62737f0bda"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "fcdec334d51c09b0f92b2c8eaf6e51de5d1a1abddf9b3aaa755f1b973c04d8b4"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "fcdec334d51c09b0f92b2c8eaf6e51de5d1a1abddf9b3aaa755f1b973c04d8b4"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "1a9da52b39de29c137ff560811d5a8340295af7a0f601f2be2beb38121492193"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "1a9da52b39de29c137ff560811d5a8340295af7a0f601f2be2beb38121492193"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "9f6cddb312fb13bb57f5f3db83c1cbb71fa4e41d608a8bd13507d82b90714858"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "9f6cddb312fb13bb57f5f3db83c1cbb71fa4e41d608a8bd13507d82b90714858"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "beccc16bef39654ff4675f7ab83818da41d7d0da8bb426a438c4fd91a7165360"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "beccc16bef39654ff4675f7ab83818da41d7d0da8bb426a438c4fd91a7165360"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "ad25f2323d137ae7ff3b9136f8ecdc007a32baff1498b48a3b440809946c182a"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "ad25f2323d137ae7ff3b9136f8ecdc007a32baff1498b48a3b440809946c182a"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "15a451e5f024af747b22f6c57f12413778505702d24c7ce6aaf3ed893203178f"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "15a451e5f024af747b22f6c57f12413778505702d24c7ce6aaf3ed893203178f"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "ef7e521fee9a51f753bcdffc0559f524ded474e162e59e177d75bb0b690d8c5c"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "default",
+      "params": {
+        "w": 0.4
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "ef7e521fee9a51f753bcdffc0559f524ded474e162e59e177d75bb0b690d8c5c"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "201ba7fd6173f77b063f76679782db6fe2dffbc6b6138ae9475551cd8bf34ecf"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-min",
+      "params": {
+        "w": 0
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "201ba7fd6173f77b063f76679782db6fe2dffbc6b6138ae9475551cd8bf34ecf"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "e7f4d608577d4684b6f47fe1022528edf05a1a153e333a223bfc3fe7a710c3fe"
+    },
+    {
+      "width": 375,
+      "id": "residual-landscape",
+      "control": "w-max",
+      "params": {
+        "w": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "样本空间",
+          "标签 y"
+        ],
+        [
+          "样本空间",
+          "平均损失 L"
+        ],
+        [
+          "标签 y",
+          "平均损失 L"
+        ]
+      ],
+      "svgHash": "e7f4d608577d4684b6f47fe1022528edf05a1a153e333a223bfc3fe7a710c3fe"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "de389fcd09fedcecda6967ad1f324c135275da152b8e21de1a6771e23e3ee97f"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "default",
+      "params": {
+        "eta": 0.3
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "a60442915e2f9b7d3a70fda338a165e686baa26e600de3fb833d471804a672a4"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "03b0b23af869a4f6358d612f3b6f67e57467c7408f72e3ffc59a5eeb3c698cd4"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "6508de43a93234ab942c994726d33fb1a216e800b74a7bca0f438c4568f40fa2"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "80c912f21519abbc98f78ab73afc7b881947d375c40eb1448877646d6a74cab8"
+    },
+    {
+      "width": 375,
+      "id": "batch-update",
+      "control": "eta-max",
+      "params": {
+        "eta": 0.9
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "0.30",
+          "key": "term-0-1",
+          "x": 74.3515625,
+          "y": 52.81481170654297,
+          "w": 21.828125,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-0.30",
+          "key": "term-0-0",
+          "x": 97.421875,
+          "y": 94.59259033203125,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-1",
+          "x": 155.390625,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-1.30",
+          "key": "term-1-0",
+          "x": 180.234375,
+          "y": 124.22222900390625,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-2.10",
+          "key": "term-2-1",
+          "x": 238.203125,
+          "y": 147.92591857910156,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        },
+        {
+          "tag": "text",
+          "text": "-4.20",
+          "key": "term-2-0",
+          "x": 263.046875,
+          "y": 210.1481475830078,
+          "w": 25.375,
+          "h": 15,
+          "size": 11
+        }
+      ],
+      "overlaps": [
+        [
+          "更新前 · 每个样本的贡献",
+          "梯度贡献"
+        ],
+        [
+          "更新前 · 每个样本的贡献",
+          "标签 y"
+        ],
+        [
+          "一次更新 · 固定这批样本",
+          "橙 r → 偏置；蓝 xr → 权重"
+        ],
+        [
+          "梯度贡献",
+          "标签 y"
+        ]
+      ],
+      "svgHash": "30de0606e5a0698fb28df5ed8bb2cd939fd969585da0d6a1d5036240e7eb4a92"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "3e5e1fcc1b575880cdb5c7f8388ac6d3e16714fbaeefcd481757435dfa882bc0"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "default",
+      "params": {
+        "b": 0.1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "3e5e1fcc1b575880cdb5c7f8388ac6d3e16714fbaeefcd481757435dfa882bc0"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "c6b49c4f0d1af5721dc38d1970ff7bd0ec2ac9d262370104ef84a141143bc642"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-min",
+      "params": {
+        "b": -1,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "c6b49c4f0d1af5721dc38d1970ff7bd0ec2ac9d262370104ef84a141143bc642"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "5443090602e49c7e6911b49addc447fc3623ef44eb59fb73a92a7155b751a090"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "b-max",
+      "params": {
+        "b": 3,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "5443090602e49c7e6911b49addc447fc3623ef44eb59fb73a92a7155b751a090"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b926a1befd3435604ace337a938f125072e9983bf1211686e62939409c1883ed"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-min",
+      "params": {
+        "b": 0.1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b926a1befd3435604ace337a938f125072e9983bf1211686e62939409c1883ed"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "319e04a9513351fc5eee01eb2aeea94c8df3a06ded9a51e5ee9ab493c0bc76b3"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "sigma-max",
+      "params": {
+        "b": 0.1,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "319e04a9513351fc5eee01eb2aeea94c8df3a06ded9a51e5ee9ab493c0bc76b3"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b24d16ddd56547e1546e51c21ac23e603900f83a4ec367bf4bac5f51f21f6e5b"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-min",
+      "params": {
+        "b": -1,
+        "sigma": 0.6
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "b24d16ddd56547e1546e51c21ac23e603900f83a4ec367bf4bac5f51f21f6e5b"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "41053802929179d53a0195ce6c78ac63670132ccbf528d25be50290ba5010cc9"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-equivalence",
+      "control": "all-max",
+      "params": {
+        "b": 3,
+        "sigma": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "平方损失 · 固定 w = 1",
+          "平均损失 L"
+        ],
+        [
+          "平方损失 · 固定 w = 1",
+          "负对数似然"
+        ],
+        [
+          "负对数似然 · 共享 σ",
+          "虚线：同一最小点 b = 1.20"
+        ],
+        [
+          "平均损失 L",
+          "负对数似然"
+        ]
+      ],
+      "svgHash": "41053802929179d53a0195ce6c78ac63670132ccbf528d25be50290ba5010cc9"
+    }
+  ],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

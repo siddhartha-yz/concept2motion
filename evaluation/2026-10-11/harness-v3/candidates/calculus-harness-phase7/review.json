@@ -1,0 +1,20 @@
+{
+  "issues": [
+    {
+      "figureId": "partials-gradient",
+      "condition": "1280px desktop, all sampled progress and parameter states",
+      "description": "左侧 x₁ 轴标签与右下切片 −2 刻度过近，实际 PNG 可见碰撞，最后预览报告有重复发现；三次预览上限已用满，未继续修改未复核候选。"
+    },
+    {
+      "figureId": "secant-limit",
+      "condition": "原文 calculus-015 的桌面与手机上下文",
+      "description": "原文公式附近显示字面的 Markdown **；给定编译结果仍存在此展示问题，未修改 source 或工具。"
+    }
+  ],
+  "mathCheckNote": "Python 独立核对实际预览 facts 共82份，其中52个参数案例；差商=2+3h，梯度=[2x₁,4x₂]，端点与切片值/斜率及两路径贡献，总导数=2x−1；中心差分另核对补充函数。math-check.py 与 math-check.json 保存证据。已实际审阅3图两种尺寸0/1共12个端点和三轮中间PNG。",
+  "limits": "三轮预览已用满，已知碰撞与原文格式问题未解决；不导出通过版。检查不是参数组合穷举或读者研究。切片屏幕斜率受独立轴比例影响；未验证真实手机触摸、所有浏览器、全文逐屏审美。所有函数均是解析补充例子，无训练或性能测量。",
+  "html_sha256": "ac2063e05003b63565b686b488ab4bee733814233010f8ac9a0a5a8abb9f463a",
+  "plan_sha256": "673615c9c60f751a2c02a99bc4c682a54ab630c087cc5a8621765a4b9f2d34f7",
+  "ready_for_export": false,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

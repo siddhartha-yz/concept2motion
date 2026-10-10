@@ -1,0 +1,109 @@
+{
+  "figures": [
+    {
+      "id": "gradient-sum",
+      "title": "两条路径，在权重处相加",
+      "afterAnchor": "backprop-031",
+      "endAnchor": "backprop-033",
+      "height": 390,
+      "mobileHeight": 420,
+      "interaction": "parameters",
+      "summary": "单权重示例：h = 2、y = 1，L = (2w − 1)²/2，s = λw²/2。",
+      "stages": [
+        "比较梯度贡献"
+      ],
+      "params": [
+        {
+          "key": "w",
+          "label": "权重 w",
+          "min": -0.5,
+          "max": 1.5,
+          "step": 0.05,
+          "value": 0.4
+        },
+        {
+          "key": "lambda",
+          "label": "正则强度 λ",
+          "min": 0,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "code": "function draw({svg,width,height,params}) {\n  const NS='http://www.w3.org/2000/svg'; svg.replaceChildren();\n  const W=width,H=height, small=W<500;\n  const C={ink:'#243844',muted:'#667982',grid:'#dde5e7',blue:'#287ea1',gold:'#b27729',total:'#6653a0'};\n  function el(tag,a={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;svg.appendChild(e);return e;}\n  function t(x,y,s,color=C.ink,size=13,anchor='start'){return el('text',{x,y,fill:color,'font-size':Math.max(12,size),'font-family':'system-ui,sans-serif','text-anchor':anchor},s);}\n  function line(x1,y1,x2,y2,color=C.grid,sw=1){return el('line',{x1,y1,x2,y2,stroke:color,'stroke-width':sw});}\n  const w=Number(params.w),lambda=Number(params.lambda), h=2,y=1;\n  const L=u=>.5*(h*u-y)**2,s=u=>lambda*u*u/2,J=u=>L(u)+s(u);\n  const gL=4*w-2,gs=lambda*w,gJ=gL+gs;\n  const left=small?42:54,right=W-22,top=56,bottom=small?211:193;\n  const X=u=>left+(u+.5)/2*(right-left),Y=v=>bottom-v/5*(bottom-top);\n  t(left,21,'损失',C.muted,12); for(const [i,label,col] of [[0,'数据',C.blue],[1,'正则',C.gold],[2,'合计',C.total]]) {const xx=right-165+i*59;line(xx,17,xx+12,17,col,2.5);t(xx+17,21,label,col,12);}\n  for(let k=0;k<=5;k++){line(left,Y(k),right,Y(k));if(k%2===0)t(left-9,Y(k)+4,String(k),C.muted,11,'end');}\n  for(const u of[-.5,0,.5,1,1.5]){line(X(u),bottom,X(u),bottom+4,C.muted);t(X(u),bottom+19,String(u),C.muted,11,'middle');}\n  line(left,top,left,bottom,C.muted);t(right,bottom+36,'权重 w',C.muted,12,'end');\n  for(const [fn,col]of[[L,C.blue],[s,C.gold],[J,C.total]]){let d='';for(let i=0;i<=120;i++){const u=-.5+i/60;d+=(i?'L':'M')+X(u)+','+Y(fn(u));}el('path',{d,fill:'none',stroke:col,'stroke-width':2.2});}\n  line(X(w),top,X(w),bottom,C.muted,1);for(const[fn,col]of[[L,C.blue],[s,C.gold],[J,C.total]])el('circle',{cx:X(w),cy:Y(fn(w)),r:4.5,fill:col,stroke:'#fff','stroke-width':1.5});\n  const btop=bottom+69,zero=left+5/12*(right-left),G=v=>left+(v+5)/12*(right-left),row=small?30:28;\n  t(left,btop-13,'当前斜率 · 同一权重的三种贡献',C.ink,12);\n  for(const[k,v,col]of[['数据',gL,C.blue],['正则',gs,C.gold],['合计',gJ,C.total]]){const idx=k==='数据'?0:k==='正则'?1:2,yy=btop+idx*row;line(left,yy,right,yy,C.grid);line(zero,yy-10,zero,yy+10,C.muted);line(zero,yy,G(v),yy,col,5);el('circle',{cx:G(v),cy:yy,r:3.5,fill:col});t(left-8,yy+4,k,col,11,'end');t(right,yy-7,(v>=0?'+':'')+v.toFixed(2),col,12,'end');}\n  for(const v of [-5,0,7])t(G(v),btop+row*2+24,String(v),C.muted,12,'middle');\n  t(left,H-10,'← 负斜率',C.muted,12);t(right,H-10,'正斜率 →',C.muted,12,'end');\n  return {w,lambda,h,y,output:h*w,dataLoss:L(w),regularization:s(w),objective:J(w),dataGradient:gL,regularizationGradient:gs,totalGradient:gJ};\n}\n"
+    },
+    {
+      "id": "reverse-gate",
+      "title": "转置汇流，再过激活闸门",
+      "afterAnchor": "backprop-035",
+      "endAnchor": "backprop-037",
+      "height": 405,
+      "mobileHeight": 415,
+      "interaction": "parameters",
+      "summary": "手选 2 × 2 权重、ReLU 激活；调节输出梯度与隐藏单元 1 的输入。",
+      "stages": [
+        "汇流与截断"
+      ],
+      "params": [
+        {
+          "key": "a",
+          "label": "输出梯度 gₒ₁",
+          "min": -1,
+          "max": 2,
+          "step": 0.25,
+          "value": 1
+        },
+        {
+          "key": "z",
+          "label": "激活前 z₁",
+          "min": -1,
+          "max": 1,
+          "step": 0.1,
+          "value": -0.5
+        }
+      ],
+      "code": "function draw({svg,width,height,params}) {\n const NS='http://www.w3.org/2000/svg';svg.replaceChildren();const W=width,H=height,small=W<500;\n const C={ink:'#243844',muted:'#667982',grid:'#dce5e8',blue:'#287ea1',red:'#b16458',gate:'#647c61'};\n function el(tag,a={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;svg.appendChild(e);return e;}\n function t(x,y,s,color=C.ink,size=13,anchor='start'){el('text',{x,y,fill:color,'font-size':Math.max(12,size),'font-family':'system-ui,sans-serif','text-anchor':anchor},s);}\n function line(x1,y1,x2,y2,col,sw=1,extra={}){el('line',{x1,y1,x2,y2,stroke:col,'stroke-width':sw,...extra});}\n const a=Number(params.a),z=Number(params.z),go=[a,1],gh=[a+.5,-2*a+1],gate=z>0?1:0,gz=[gate*gh[0],gh[1]];\n const x1=small?36:90,x2=W/2,x3=W-(small?38:90),ys=small?[146,239]:[135,230];\n t(20,23,'W⁽²⁾',C.muted,12);t(W/2,24,'[ 1   −2 ; 0.5   1 ]',C.ink,small?14:16,'middle');\n t(W/2,48,'列 1 / 2 对应隐藏单元 1 / 2',C.muted,small?10:12,'middle');\n for(const[x,s]of[[x1,'gₒ'],[x2,'gₕ'],[x3,'g_z']])t(x,83,s,C.ink,16,'middle');\n t((x1+x2)/2,106,'转置汇流',C.muted,11,'middle');t((x2+x3)/2,106,'× φ′',C.gate,11,'middle');\n const ww=[[1,-2],[.5,1]];\n for(let i=0;i<2;i++)for(let j=0;j<2;j++){const val=ww[i][j]*go[i],col=val>=0?C.blue:C.red;line(x1+23,ys[i],x2-25,ys[j],Math.abs(val)<1e-9?C.grid:col,Math.abs(val)<1e-9?1:1.5+Math.min(2,Math.abs(val)));if(Math.abs(val)>1e-9){const dx=x2-25-(x1+23),dy=ys[j]-ys[i],norm=Math.hypot(dx,dy),ux=dx/norm,uy=dy/norm,ex=x2-25,ey=ys[j];el('path',{d:`M${ex},${ey} L${ex-8*ux+3*uy},${ey-8*uy-3*ux} L${ex-8*ux-3*uy},${ey-8*uy+3*ux} Z`,fill:col});}if(!small)t(x1+(x2-x1)*.29,ys[i]+(ys[j]-ys[i])*.29-6,String(ww[i][j]),C.muted,11,'middle');}\n for(let i=0;i<2;i++){line(x2+25,ys[i],x3-25,ys[i],i===0&&!gate?C.grid:C.gate,3,i===0&&!gate?{'stroke-dasharray':'4 4'}:{});if((i===1||gate)&&Math.abs(gz[i])>1e-9)el('path',{d:`M${x3-25},${ys[i]} l-7,-4 l0,8 Z`,fill:C.gate});if(i===0&&!gate){const xx=(x2+x3)/2;line(xx-5,ys[i]-7,xx+5,ys[i]+7,C.red,2);line(xx-5,ys[i]+7,xx+5,ys[i]-7,C.red,2);}}\n for(const [x,vals,col]of[[x1,go,C.blue],[x2,gh,C.ink],[x3,gz,C.gate]])for(let i=0;i<2;i++){el('circle',{cx:x,cy:ys[i],r:24,fill:'#fff',stroke:col,'stroke-width':1.7});t(x,ys[i]+5,vals[i].toFixed(2),col,small?12:14,'middle');}\n const status=z===0?'z₁=0，约定 ×0':`z₁=${z.toFixed(1)}，×${gate}`;\n t((x2+x3)/2,ys[0]+44,status,C.gate,small?10:12,'middle');t((x2+x3)/2,ys[1]+40,'z₂=1，×1',C.gate,small?10:12,'middle');\n const by=small?337:320;\n line(20,by-20,W-20,by-20,C.grid);\n t(24,by,`隐藏 1   ${a.toFixed(2)} + 0.50 = ${gh[0].toFixed(2)}`,C.ink,13);\n t(24,by+27,`隐藏 2   ${(-2*a).toFixed(2)} + 1.00 = ${gh[1].toFixed(2)}`,C.ink,13);\n t(24,H-16,'蓝正 / 红负 · 线宽表示贡献大小',C.muted,small?10:12);\n return {W2:ww,outputGradient:go,z:[z,1],activationDerivative:[gate,1],hiddenGradient:gh,preactivationGradient:gz,contributions:[[a,.5],[-2*a,1]],zeroDerivativeConvention:0};\n}\n"
+    },
+    {
+      "id": "cache-lifetime",
+      "title": "一次前传，保留到反传使用",
+      "afterAnchor": "backprop-043",
+      "endAnchor": "backprop-043",
+      "height": 365,
+      "mobileHeight": 390,
+      "interaction": "timeline",
+      "summary": "四层同宽网络的缓存示意；金色端点表示该层反传完成，随后释放。",
+      "stages": [
+        "前传存入",
+        "反传复用",
+        "更新"
+      ],
+      "initialProgress": 0,
+      "durationMs": 12000,
+      "checkpoints": [
+        0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8,
+        0.9,
+        1
+      ],
+      "params": [
+        {
+          "key": "batch",
+          "label": "批量 B",
+          "min": 8,
+          "max": 64,
+          "step": 8,
+          "value": 32
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n const NS='http://www.w3.org/2000/svg';svg.replaceChildren();const W=width,H=height,small=W<500,p=Math.max(0,Math.min(1,progress));\n const C={ink:'#243844',muted:'#667982',grid:'#dce5e8',blue:'#287ea1',gold:'#b27729'};\n function el(tag,a={},text){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;svg.appendChild(e);return e;}\n function t(x,y,s,color=C.ink,size=13,anchor='start'){el('text',{x,y,fill:color,'font-size':Math.max(12,size),'font-family':'system-ui,sans-serif','text-anchor':anchor},s);}\n const left=small?40:72,right=W-24,X=v=>left+v*(right-left),rows=[83,126,169,212],birth=[.1,.2,.3,.4],death=[.9,.8,.7,.6],B=Number(params.batch),features=64,bytesPerActivation=B*features*4,band=B/64*22;\n const live=birth.map((b,i)=>p>=b&&p<death[i]),count=live.filter(Boolean).length;\n t(20,24,'中间值的保留区间',C.ink,13);t(20,44,'蓝：当前保留 · 浅灰：区间参考',C.muted,12);t(W-20,24,`每层 ${bytesPerActivation/1024} KiB`,C.muted,12,'end');\n for(let i=0;i<4;i++){const y=rows[i];t(left-12,y+6,`a${i+1}`,C.muted,13,'end');el('rect',{x:X(birth[i]),y:y-band/2,width:X(death[i])-X(birth[i]),height:band,rx:3,fill:'#edf1f2'});const reached=Math.min(p,death[i]);if(reached>birth[i])el('rect',{x:X(birth[i]),y:y-band/2,width:X(reached)-X(birth[i]),height:band,rx:3,fill:live[i]?'#8bbecb':'#edf1f2'});el('circle',{cx:X(birth[i]),cy:y,r:3,fill:C.blue});el('circle',{cx:X(death[i]),cy:y,r:3,fill:C.gold});}\n el('line',{x1:X(p),y1:54,x2:X(p),y2:234,stroke:C.ink,'stroke-width':1.5});el('circle',{cx:X(p),cy:54,r:4,fill:C.ink});\n const axis=252;el('line',{x1:left,y1:axis,x2:right,y2:axis,stroke:C.grid});\n for(const[v,label]of[[.2,'前传'],[.45,'损失'],[.7,'反传'],[.97,'更新']]){el('line',{x1:X(v),y1:axis,x2:X(v),y2:axis+5,stroke:C.muted});t(X(v),axis+20,label,C.muted,11,'middle');}\n t(left,axis+42,'计算顺序 →',C.muted,11);\n const base=small?325:316;t(left,base,`保留 ${count} / 4 层`,C.ink,small?16:18);t(right,base,`${count*bytesPerActivation/1024} KiB`,C.blue,small?17:20,'end');\n t(left,H-31,'B × 64 × 4 字节 / 层，仅计激活',C.muted,12);t(left,H-12,'厚度 ∝ 批量 B；横轴不是实测时间',C.muted,12);\n return {progress:p,batch:B,features,bytesPerElement:4,birth,death,retained:live,retainedCount:count,activationBytes:count*bytesPerActivation,bytesPerActivation};\n}\n"
+    }
+  ]
+}

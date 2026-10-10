@@ -1,0 +1,213 @@
+{
+  "arm": "harness",
+  "figures": [
+    {
+      "id": "threshold-mass",
+      "afterAnchor": "parameters-042",
+      "endAnchor": "parameters-044",
+      "title": "置零没有删掉概率，而是把它集中到零点",
+      "summary": "τ=5 对应原文；调整阈值可比较其他规则。蓝色面积是保留概率，橙色圆面积是零点概率，二者用不同的标记。这里画解析分布，不做随机抽样。",
+      "interaction": "parameters",
+      "height": 455,
+      "mobileHeight": 465,
+      "params": [
+        {
+          "key": "tau",
+          "label": "置零阈值 τ",
+          "min": 0,
+          "max": 10,
+          "step": 0.1,
+          "value": 5
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n  const C=VisualBook.palette, t=params.tau, zero=t/10, tail=(10-t)/20;\n  const left=52, right=width-22;\n  board.text('input-title','① 均匀取值',18,23,{size:16,weight:600});\n  board.text('input-law','U(−10, 10)',right,23,{size:14,color:C.muted,anchor:'end'});\n  board.text('density-before','概率密度',left,44,{size:13,color:C.muted});\n  const f=board.axes('before',{xDomain:[-10,10],yDomain:[0,0.1],xLabel:'初始值 u',yLabel:'',box:[left,59,right,143],grid:false});\n  board.rect('input-area',f.x(-10),f.y(.05),f.x(10)-f.x(-10),f.y(0)-f.y(.05),C.blue,{opacity:.12});\n  board.rect('removed-area',f.x(-t),f.y(.05),f.x(t)-f.x(-t),f.y(0)-f.y(.05),C.orange,{opacity:.25});\n  board.curve('input-density',f,[[-10,.05],[10,.05]],{color:C.blue,width:2.5});\n  board.text('threshold','|u| < '+t.toFixed(1)+' → 0',width/2,188,{size:15,color:C.orange,anchor:'middle'});\n  board.text('output-title','② 阈值处理后',18,221,{size:16,weight:600});\n  board.text('density-after','概率密度',left,242,{size:13,color:C.muted});\n  const g=board.axes('after',{xDomain:[-10,10],yDomain:[0,0.1],xLabel:'处理后 w′',yLabel:'',box:[left,253,right,337],grid:false});\n  board.rect('left-area',g.x(-10),g.y(.05),g.x(-t)-g.x(-10),g.y(0)-g.y(.05),C.blue,{opacity:.12});\n  board.rect('right-area',g.x(t),g.y(.05),g.x(10)-g.x(t),g.y(0)-g.y(.05),C.blue,{opacity:.12});\n  board.curve('left-density',g,[[-10,.05],[-t,.05]],{color:C.blue,width:2.5});\n  board.curve('right-density',g,[[t,.05],[10,.05]],{color:C.blue,width:2.5});\n  board.curve('middle-density',g,[[-t,0],[t,0]],{color:C.orange,width:3});\n  const yy=height-23;\n  board.circle('atom',width/2-18,yy,12*Math.sqrt(zero),C.orange);\n  board.text('atom-label','零点 '+(100*zero).toFixed(0)+'%',width/2+5,yy+5,{size:15,color:C.orange});\n  board.text('left-mass','左 '+(100*tail).toFixed(0)+'%',left,yy+5,{size:15,color:C.blue});\n  board.text('right-mass','右 '+(100*tail).toFixed(0)+'%',right,yy+5,{size:15,color:C.blue,anchor:'end'});\n  return {threshold:t,initialDensity:.05,leftMass:tail,zeroMass:zero,rightMass:tail,totalMass:2*tail+zero,rule:'w′ = u if |u| ≥ τ else 0',distribution:'u ~ U(-10,10)',atomSymbol:'circle area proportional to zero probability, not density height'};\n}"
+    },
+    {
+      "title": "同一个 w 用两次，梯度沿两条边汇合",
+      "height": 400,
+      "mobileHeight": 560,
+      "stages": [
+        "前向数值",
+        "反向梯度"
+      ],
+      "params": [
+        {
+          "key": "w",
+          "label": "共享参数 w",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "calculation",
+            "type": "autograd",
+            "props": {
+              "nodes": [
+                {
+                  "id": "w",
+                  "label": "共享 w",
+                  "op": "input",
+                  "value": {
+                    "$param": "w"
+                  }
+                },
+                {
+                  "id": "x",
+                  "label": "x=2",
+                  "op": "constant",
+                  "value": 2
+                },
+                {
+                  "id": "h",
+                  "label": "h=w·x",
+                  "op": "mul",
+                  "inputs": [
+                    "w",
+                    "x"
+                  ]
+                },
+                {
+                  "id": "y",
+                  "label": "y=w·h",
+                  "op": "mul",
+                  "inputs": [
+                    "w",
+                    "h"
+                  ]
+                }
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "title": "一份参数，两个使用位置"
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "输出 y=2w²",
+                  "value": {
+                    "$result": "calculation.trace.value"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "总梯度 dy/dw",
+                  "value": {
+                    "$result": "calculation.trace.gradients.w"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "summary": "标量简例：x=2，h=w·x，y=w·h，目标取 y。两处 w 指向同一参数；两条路径各贡献 2w，总导数为 4w。无偏置、无激活，不是原矩阵网络的运行或训练结果。",
+      "id": "shared-gradient",
+      "afterAnchor": "parameters-048",
+      "endAnchor": "parameters-048",
+      "initialProgress": 0,
+      "durationMs": 8000,
+      "checkpoints": [
+        0,
+        0.5,
+        1
+      ],
+      "designRef": {
+        "id": "autograd",
+        "catalogSha256": "2733ca84fc6296a3fc3cf6be68f0883799a0449ab1fc09c2aa72af65dd167613",
+        "overrides": [
+          {
+            "path": "/params",
+            "value": [
+              {
+                "key": "w",
+                "label": "共享参数 w",
+                "min": -2,
+                "max": 2,
+                "step": 0.1,
+                "value": 1
+              }
+            ]
+          },
+          {
+            "path": "/scene/children/0/props/nodes",
+            "value": [
+              {
+                "id": "w",
+                "label": "共享 w",
+                "op": "input",
+                "value": {
+                  "$param": "w"
+                }
+              },
+              {
+                "id": "x",
+                "label": "x=2",
+                "op": "constant",
+                "value": 2
+              },
+              {
+                "id": "h",
+                "label": "h=w·x",
+                "op": "mul",
+                "inputs": [
+                  "w",
+                  "x"
+                ]
+              },
+              {
+                "id": "y",
+                "label": "y=w·h",
+                "op": "mul",
+                "inputs": [
+                  "w",
+                  "h"
+                ]
+              }
+            ]
+          },
+          {
+            "path": "/scene/children/0/props/title",
+            "value": "一份参数，两个使用位置"
+          },
+          {
+            "path": "/scene/children/1/props/items",
+            "value": [
+              {
+                "label": "输出 y=2w²",
+                "value": {
+                  "$result": "calculation.trace.value"
+                },
+                "color": "blue"
+              },
+              {
+                "label": "总梯度 dy/dw",
+                "value": {
+                  "$result": "calculation.trace.gradients.w"
+                },
+                "color": "orange"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

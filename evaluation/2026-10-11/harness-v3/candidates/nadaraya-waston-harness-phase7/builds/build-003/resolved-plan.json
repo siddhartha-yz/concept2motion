@@ -1,0 +1,40 @@
+{
+  "arm": "harness",
+  "figures": [
+    {
+      "id": "query-to-prediction",
+      "afterAnchor": "nadaraya-waston-028",
+      "endAnchor": "nadaraya-waston-030",
+      "title": "移动查询，同一份权重决定预测",
+      "summary": "拖动橙点。四个手选样本，固定 w = 1；左图圆面积和右图柱高表示同一权重。",
+      "interaction": "parameters",
+      "height": 360,
+      "mobileHeight": 560,
+      "state": {
+        "query": 2
+      },
+      "code": "function draw(input) {\n  const {board,width,height,params,state,controls}=input;\n  const P=VisualBook.palette, small=width<600;\n  const q=state.query===undefined?2:state.query;\n  const data=[[0.5,1.4],[1.5,3.5],[3,2.3],[4.5,1.2]], names=['A','B','C','D'];\n  const scores=data.map(d=>-0.5*(q-d[0])**2), m=Math.max(...scores);\n  const e=scores.map(s=>Math.exp(s-m)), total=e.reduce((a,b)=>a+b,0);\n  const weights=e.map(v=>v/total), terms=weights.map((v,i)=>v*data[i][1]);\n  const output=VisualBook.dot(weights,data.map(d=>d[1]));\n  const split=small?width:width*0.54;\n  const a=board.axes('samples',{xDomain:[0,5],yDomain:[0,4.2],box:small?[42,45,width-20,235]:[44,46,split-22,height-84],grid:false});\n  const curve=Array.from({length:121},(_,i)=>{const x=i*5/120, r=data.map(d=>Math.exp(-0.5*(x-d[0])**2)), z=r.reduce((a,b)=>a+b,0);return [x,VisualBook.dot(r,data.map(d=>d[1]))/z];});\n  board.curve('prediction',a,curve,{color:P.blue,width:2,opacity:0.5});\n  data.forEach((d,i)=>{\n    board.circle('weight-area-'+i,a.x(d[0]),a.y(d[1]),25*Math.sqrt(weights[i]),P.faint);\n    board.circle('sample-'+i,a.x(d[0]),a.y(d[1]),3.5,P.ink);\n    board.text('name-'+i,names[i],a.x(d[0]),a.y(d[1])-30,{anchor:'middle',size:14,color:P.ink});\n  });\n  board.line('query-guide',a.x(q),a.top,a.x(q),a.bottom,P.orange,1,0.45);\n  board.handle('query',a,[q,output],{axis:'x',bounds:{x:[0,5],y:[0,4.2]},color:P.orange,label:'x',ariaLabel:'拖动查询 x，重新计算权重和预测',onChange:v=>controls.setState('query',v[0])});\n  board.text('query-readout','x = '+q.toFixed(2)+'   ŷ = '+output.toFixed(3),small?42:44,small?303:height-14,{size:14,color:P.orange});\n  const b=board.axes('weights',{xDomain:[0,5],yDomain:[0,1],box:small?[42,355,width-20,height-84]:[split+45,46,width-22,height-84],grid:false});\n  data.forEach((d,i)=>{\n    const x=b.x(d[0]), y=b.y(weights[i]), bw=small?25:34;\n    board.rect('weight-bar-'+i,x-bw/2,y,bw,b.bottom-y,P.blue,{opacity:0.72});\n    board.text('weight-number-'+i,names[i]+' '+weights[i].toFixed(2),x,y-9,{anchor:'middle',size:13,color:P.ink});\n  });\n  board.text('value-axis','值 y',a.left,small?23:24,{size:14,color:P.ink});\n  board.text('weight-axis','权重 αᵢ',b.left,small?331:24,{size:14,color:P.ink});\n  board.text('sample-x-axis','键 / 查询 x',a.right,a.bottom+44,{size:14,color:P.ink,anchor:'end'});\n  board.text('weight-x-axis','键 xᵢ',b.right,b.bottom+44,{size:14,color:P.ink,anchor:'end'});\n  board.text('sum','Σα = '+weights.reduce((a,b)=>a+b,0).toFixed(3),small?42:split+45,small?height-14:height-18,{size:14,color:P.muted});\n  return {data,query:q,scores,weights,terms,output,weightSum:weights.reduce((a,b)=>a+b,0),bandwidth:1,curve,convention:'四个手选样本；w=1；圆面积与归一化权重成正比；曲线为121点采样'};\n}"
+    },
+    {
+      "id": "w-controls-locality",
+      "afterAnchor": "nadaraya-waston-036",
+      "endAnchor": "nadaraya-waston-037",
+      "title": "|w| 越大，影响范围越窄",
+      "summary": "调整 w，比较同一组手选样本的预测。蓝线固定 w = 1；橙线使用当前参数。",
+      "interaction": "parameters",
+      "height": 370,
+      "mobileHeight": 370,
+      "params": [
+        {
+          "key": "w",
+          "label": "距离缩放 w",
+          "min": -4,
+          "max": 4,
+          "step": 0.1,
+          "value": 2
+        }
+      ],
+      "code": "function draw(input) {\n  const {board,width,height,params}=input, P=VisualBook.palette;\n  const w=params.w, data=[[0.5,1.4],[1.5,3.5],[3,2.3],[4.5,1.2]], small=width<600;\n  function predict(x,v) {const scores=data.map(d=>-0.5*((x-d[0])*v)**2), m=Math.max(...scores),e=scores.map(s=>Math.exp(s-m)),z=e.reduce((a,b)=>a+b,0);return VisualBook.dot(e,data.map(d=>d[1]))/z;}\n  const curve=Array.from({length:201},(_,i)=>[5*i/200,predict(5*i/200,w)]);\n  const baseline=curve.map(d=>[d[0],predict(d[0],1)]);\n  const mean=data.reduce((s,d)=>s+d[1],0)/data.length;\n  const frame=board.axes('curve',{xDomain:[0,5],yDomain:[0,4.2],box:[44,96,width-20,height-80],grid:false});\n  board.line('mean',frame.left,frame.y(mean),frame.right,frame.y(mean),P.muted,1,0.3);\n  board.curve('w-one',frame,baseline,{color:P.blue,width:2,opacity:0.48});\n  board.curve('current-w',frame,curve,{color:P.orange,width:2.6});\n  data.forEach((d,i)=>board.circle('sample-'+i,frame.x(d[0]),frame.y(d[1]),4,P.ink));\n  board.line('legend-current',44,17,62,17,P.orange,2.6,1);\n  board.text('legend-current-text','当前 w = '+w.toFixed(1),70,22,{size:14,color:P.orange});\n  const bx=small?197:236;\n  board.line('legend-baseline',bx,17,bx+18,17,P.blue,2,0.48);\n  board.text('legend-baseline-text','w = 1',bx+26,22,{size:14,color:P.muted});\n  board.text('scale',Math.abs(w)<1e-10?'w = 0：等权平均':'影响尺度 h = 1 / |w| = '+(1/Math.abs(w)).toFixed(2),44,small?53:46,{size:14,color:P.ink});\n  board.text('value-axis','预测 ŷ',44,79,{size:14,color:P.ink});\n  board.text('query-axis','查询 x',frame.right,frame.bottom+43,{size:14,color:P.ink,anchor:'end'});\n  board.text('mean-label','灰线：等权平均',44,height-37,{size:14,color:P.muted});\n  board.text('footer','w 与 −w 得到同一条曲线',44,height-10,{size:14,color:P.muted});\n  return {data,w,effectiveBandwidth:w===0?null:1/Math.abs(w),uniform:w===0,mean,curve,baseline,maxSignDifference:Math.max(...curve.map(d=>Math.abs(d[1]-predict(d[0],-w)))),convention:'w为读者设置；不是训练；w=0精确等权；201点采样连线'};\n}"
+    }
+  ]
+}

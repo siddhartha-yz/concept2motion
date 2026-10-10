@@ -1,0 +1,474 @@
+{
+  "title": "模型选择、欠拟合和过拟合",
+  "sourceSha256": "b21c784ece1d264eb654b9bdd699c24ad885f8b7b7967361a28e1fb02c6bd43e",
+  "blocks": [
+    {
+      "id": "underfit-overfit-001",
+      "type": "heading",
+      "depth": 1,
+      "line": 1
+    },
+    {
+      "id": "underfit-overfit-002",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3
+    },
+    {
+      "id": "underfit-overfit-003",
+      "type": "paragraph",
+      "depth": null,
+      "line": 11
+    },
+    {
+      "id": "underfit-overfit-004",
+      "type": "paragraph",
+      "depth": null,
+      "line": 15
+    },
+    {
+      "id": "underfit-overfit-005",
+      "type": "paragraph",
+      "depth": null,
+      "line": 21
+    },
+    {
+      "id": "underfit-overfit-006",
+      "type": "paragraph",
+      "depth": null,
+      "line": 28
+    },
+    {
+      "id": "underfit-overfit-007",
+      "type": "heading",
+      "depth": 2,
+      "line": 35
+    },
+    {
+      "id": "underfit-overfit-008",
+      "type": "paragraph",
+      "depth": null,
+      "line": 37
+    },
+    {
+      "id": "underfit-overfit-009",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43
+    },
+    {
+      "id": "underfit-overfit-010",
+      "type": "paragraph",
+      "depth": null,
+      "line": 48
+    },
+    {
+      "id": "underfit-overfit-011",
+      "type": "paragraph",
+      "depth": null,
+      "line": 57
+    },
+    {
+      "id": "underfit-overfit-012",
+      "type": "paragraph",
+      "depth": null,
+      "line": 68
+    },
+    {
+      "id": "underfit-overfit-013",
+      "type": "heading",
+      "depth": 3,
+      "line": 79
+    },
+    {
+      "id": "underfit-overfit-014",
+      "type": "paragraph",
+      "depth": null,
+      "line": 81
+    },
+    {
+      "id": "underfit-overfit-015",
+      "type": "paragraph",
+      "depth": null,
+      "line": 90
+    },
+    {
+      "id": "underfit-overfit-016",
+      "type": "paragraph",
+      "depth": null,
+      "line": 97
+    },
+    {
+      "id": "underfit-overfit-017",
+      "type": "paragraph",
+      "depth": null,
+      "line": 106
+    },
+    {
+      "id": "underfit-overfit-018",
+      "type": "paragraph",
+      "depth": null,
+      "line": 110
+    },
+    {
+      "id": "underfit-overfit-019",
+      "type": "paragraph",
+      "depth": null,
+      "line": 115
+    },
+    {
+      "id": "underfit-overfit-020",
+      "type": "paragraph",
+      "depth": null,
+      "line": 120
+    },
+    {
+      "id": "underfit-overfit-021",
+      "type": "heading",
+      "depth": 3,
+      "line": 125
+    },
+    {
+      "id": "underfit-overfit-022",
+      "type": "paragraph",
+      "depth": null,
+      "line": 127
+    },
+    {
+      "id": "underfit-overfit-023",
+      "type": "paragraph",
+      "depth": null,
+      "line": 136
+    },
+    {
+      "id": "underfit-overfit-024",
+      "type": "paragraph",
+      "depth": null,
+      "line": 146
+    },
+    {
+      "id": "underfit-overfit-025",
+      "type": "list",
+      "depth": null,
+      "line": 148
+    },
+    {
+      "id": "underfit-overfit-026",
+      "type": "heading",
+      "depth": 2,
+      "line": 152
+    },
+    {
+      "id": "underfit-overfit-027",
+      "type": "paragraph",
+      "depth": null,
+      "line": 154
+    },
+    {
+      "id": "underfit-overfit-028",
+      "type": "paragraph",
+      "depth": null,
+      "line": 159
+    },
+    {
+      "id": "underfit-overfit-029",
+      "type": "heading",
+      "depth": 3,
+      "line": 163
+    },
+    {
+      "id": "underfit-overfit-030",
+      "type": "paragraph",
+      "depth": null,
+      "line": 165
+    },
+    {
+      "id": "underfit-overfit-031",
+      "type": "paragraph",
+      "depth": null,
+      "line": 170
+    },
+    {
+      "id": "underfit-overfit-032",
+      "type": "paragraph",
+      "depth": null,
+      "line": 173
+    },
+    {
+      "id": "underfit-overfit-033",
+      "type": "paragraph",
+      "depth": null,
+      "line": 178
+    },
+    {
+      "id": "underfit-overfit-034",
+      "type": "heading",
+      "depth": 3,
+      "line": 187
+    },
+    {
+      "id": "underfit-overfit-035",
+      "type": "paragraph",
+      "depth": null,
+      "line": 189
+    },
+    {
+      "id": "underfit-overfit-036",
+      "type": "heading",
+      "depth": 2,
+      "line": 196
+    },
+    {
+      "id": "underfit-overfit-037",
+      "type": "paragraph",
+      "depth": null,
+      "line": 198
+    },
+    {
+      "id": "underfit-overfit-038",
+      "type": "paragraph",
+      "depth": null,
+      "line": 207
+    },
+    {
+      "id": "underfit-overfit-039",
+      "type": "paragraph",
+      "depth": null,
+      "line": 214
+    },
+    {
+      "id": "underfit-overfit-040",
+      "type": "heading",
+      "depth": 3,
+      "line": 217
+    },
+    {
+      "id": "underfit-overfit-041",
+      "type": "paragraph",
+      "depth": null,
+      "line": 219
+    },
+    {
+      "id": "underfit-overfit-042",
+      "type": "paragraph",
+      "depth": null,
+      "line": 224
+    },
+    {
+      "id": "underfit-overfit-043",
+      "type": "paragraph",
+      "depth": null,
+      "line": 226
+    },
+    {
+      "id": "underfit-overfit-044",
+      "type": "paragraph",
+      "depth": null,
+      "line": 231
+    },
+    {
+      "id": "underfit-overfit-045",
+      "type": "paragraph",
+      "depth": null,
+      "line": 241
+    },
+    {
+      "id": "underfit-overfit-046",
+      "type": "heading",
+      "depth": 3,
+      "line": 243
+    },
+    {
+      "id": "underfit-overfit-047",
+      "type": "paragraph",
+      "depth": null,
+      "line": 245
+    },
+    {
+      "id": "underfit-overfit-048",
+      "type": "heading",
+      "depth": 2,
+      "line": 257
+    },
+    {
+      "id": "underfit-overfit-049",
+      "type": "paragraph",
+      "depth": null,
+      "line": 259
+    },
+    {
+      "id": "underfit-overfit-050",
+      "type": "code",
+      "depth": null,
+      "line": 269
+    },
+    {
+      "id": "underfit-overfit-051",
+      "type": "heading",
+      "depth": 3,
+      "line": 296
+    },
+    {
+      "id": "underfit-overfit-052",
+      "type": "paragraph",
+      "depth": null,
+      "line": 298
+    },
+    {
+      "id": "underfit-overfit-053",
+      "type": "paragraph",
+      "depth": null,
+      "line": 300
+    },
+    {
+      "id": "underfit-overfit-054",
+      "type": "paragraph",
+      "depth": null,
+      "line": 303
+    },
+    {
+      "id": "underfit-overfit-055",
+      "type": "code",
+      "depth": null,
+      "line": 309
+    },
+    {
+      "id": "underfit-overfit-056",
+      "type": "paragraph",
+      "depth": null,
+      "line": 325
+    },
+    {
+      "id": "underfit-overfit-057",
+      "type": "code",
+      "depth": null,
+      "line": 330
+    },
+    {
+      "id": "underfit-overfit-058",
+      "type": "code",
+      "depth": null,
+      "line": 336
+    },
+    {
+      "id": "underfit-overfit-059",
+      "type": "heading",
+      "depth": 3,
+      "line": 340
+    },
+    {
+      "id": "underfit-overfit-060",
+      "type": "paragraph",
+      "depth": null,
+      "line": 342
+    },
+    {
+      "id": "underfit-overfit-061",
+      "type": "code",
+      "depth": null,
+      "line": 355
+    },
+    {
+      "id": "underfit-overfit-062",
+      "type": "paragraph",
+      "depth": null,
+      "line": 380
+    },
+    {
+      "id": "underfit-overfit-063",
+      "type": "code",
+      "depth": null,
+      "line": 407
+    },
+    {
+      "id": "underfit-overfit-064",
+      "type": "heading",
+      "depth": 3,
+      "line": 482
+    },
+    {
+      "id": "underfit-overfit-065",
+      "type": "paragraph",
+      "depth": null,
+      "line": 484
+    },
+    {
+      "id": "underfit-overfit-066",
+      "type": "code",
+      "depth": null,
+      "line": 488
+    },
+    {
+      "id": "underfit-overfit-067",
+      "type": "heading",
+      "depth": 3,
+      "line": 494
+    },
+    {
+      "id": "underfit-overfit-068",
+      "type": "paragraph",
+      "depth": null,
+      "line": 496
+    },
+    {
+      "id": "underfit-overfit-069",
+      "type": "code",
+      "depth": null,
+      "line": 500
+    },
+    {
+      "id": "underfit-overfit-070",
+      "type": "heading",
+      "depth": 3,
+      "line": 506
+    },
+    {
+      "id": "underfit-overfit-071",
+      "type": "paragraph",
+      "depth": null,
+      "line": 508
+    },
+    {
+      "id": "underfit-overfit-072",
+      "type": "code",
+      "depth": null,
+      "line": 514
+    },
+    {
+      "id": "underfit-overfit-073",
+      "type": "paragraph",
+      "depth": null,
+      "line": 520
+    },
+    {
+      "id": "underfit-overfit-074",
+      "type": "heading",
+      "depth": 2,
+      "line": 522
+    },
+    {
+      "id": "underfit-overfit-075",
+      "type": "list",
+      "depth": null,
+      "line": 524
+    },
+    {
+      "id": "underfit-overfit-076",
+      "type": "heading",
+      "depth": 2,
+      "line": 529
+    },
+    {
+      "id": "underfit-overfit-077",
+      "type": "list",
+      "depth": null,
+      "line": 531
+    },
+    {
+      "id": "underfit-overfit-078",
+      "type": "paragraph",
+      "depth": null,
+      "line": 543
+    }
+  ]
+}

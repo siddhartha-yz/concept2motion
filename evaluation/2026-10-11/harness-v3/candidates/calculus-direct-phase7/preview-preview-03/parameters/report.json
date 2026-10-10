@@ -1,0 +1,2461 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/followup/sessions/calculus-direct/book.html",
+  "sha256": "30e8442451acd1537ab4db16146875655fc7dd560132ea34725654d40f7dddb2",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "secant-limit",
+      "control": "default",
+      "params": {
+        "side": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0.325,
+        "secantSlope": 2.975,
+        "tangentSlope": 2,
+        "error": 0.9750000000000001,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3882a03de8e44d3720f5bbcfc7ffea632e93d48482df2708f97a3063ae74b643"
+    },
+    {
+      "width": 1280,
+      "id": "secant-limit",
+      "control": "default",
+      "params": {
+        "side": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0,
+        "secantSlope": 2,
+        "tangentSlope": 2,
+        "error": 0,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8adcfddaef01e11a1fdb4536c39a3a16f410caea43e417660a82e2a7d29c2554"
+    },
+    {
+      "width": 1280,
+      "id": "secant-limit",
+      "control": "side-min",
+      "params": {
+        "side": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0.325,
+        "secantSlope": 2.975,
+        "tangentSlope": 2,
+        "error": 0.9750000000000001,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3882a03de8e44d3720f5bbcfc7ffea632e93d48482df2708f97a3063ae74b643"
+    },
+    {
+      "width": 1280,
+      "id": "secant-limit",
+      "control": "side-min",
+      "params": {
+        "side": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0,
+        "secantSlope": 2,
+        "tangentSlope": 2,
+        "error": 0,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8adcfddaef01e11a1fdb4536c39a3a16f410caea43e417660a82e2a7d29c2554"
+    },
+    {
+      "width": 1280,
+      "id": "secant-limit",
+      "control": "side-max",
+      "params": {
+        "side": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": -0.325,
+        "secantSlope": 1.025,
+        "tangentSlope": 2,
+        "error": -0.9750000000000001,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d18a234d7ed31f4f68c3c60fc7fe5376170139aa99d27c32c7e42b272902fdbb"
+    },
+    {
+      "width": 1280,
+      "id": "secant-limit",
+      "control": "side-max",
+      "params": {
+        "side": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0,
+        "secantSlope": 2,
+        "tangentSlope": 2,
+        "error": 0,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8adcfddaef01e11a1fdb4536c39a3a16f410caea43e417660a82e2a7d29c2554"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "default",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.212435565298214,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e54a7954ef3cb7a36f645bd7d1900c58efe2f6b95b70dd3e391901399781fca3"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "default",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.212435565298214,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e54a7954ef3cb7a36f645bd7d1900c58efe2f6b95b70dd3e391901399781fca3"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "x-min",
+      "params": {
+        "x": -1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          0.5
+        ],
+        "gradient": [
+          -2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -1.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "94b100833759b57ee561c5e5a466a05e49fc6a162236a53a26a46248a2152120"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "x-min",
+      "params": {
+        "x": -1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          0.5
+        ],
+        "gradient": [
+          -2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -1.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "94b100833759b57ee561c5e5a466a05e49fc6a162236a53a26a46248a2152120"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "x-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.5
+        ],
+        "gradient": [
+          2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 3.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3cec7e3fbcb1d557322170e281c37c052a717671da8922ff72054ef4a2223f8c"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "x-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.5
+        ],
+        "gradient": [
+          2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 3.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3cec7e3fbcb1d557322170e281c37c052a717671da8922ff72054ef4a2223f8c"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "y-min",
+      "params": {
+        "x": 0.7,
+        "y": -0.8,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          -0.8
+        ],
+        "gradient": [
+          1.4,
+          -3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -0.3875644347017857,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9605eaefe67e9ae64e3b168166062e769021340f46a0fc04e55a064e7e5907ea"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "y-min",
+      "params": {
+        "x": 0.7,
+        "y": -0.8,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          -0.8
+        ],
+        "gradient": [
+          1.4,
+          -3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -0.3875644347017857,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9605eaefe67e9ae64e3b168166062e769021340f46a0fc04e55a064e7e5907ea"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "y-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.8,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.8
+        ],
+        "gradient": [
+          1.4,
+          3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.8124355652982143,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "42a370ae7fcbc76742132b3112bd11f2c4d9398b9df42a172ca2656b4bd70e39"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "y-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.8,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.8
+        ],
+        "gradient": [
+          1.4,
+          3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.8124355652982143,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "42a370ae7fcbc76742132b3112bd11f2c4d9398b9df42a172ca2656b4bd70e39"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "angle-min",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": 1.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "48e1b79a56ff1631a6d560fe9a9a30c7154ef8a94aabc79e26256b8417e25b11"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "angle-min",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": 1.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "48e1b79a56ff1631a6d560fe9a9a30c7154ef8a94aabc79e26256b8417e25b11"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "angle-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 360
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 1.3999999999999995,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "30dcc41f1b573dee67e9b40f81b707231fe07b2cd4210ad8c22a048d19488551"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "angle-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 360
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 1.3999999999999995,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "30dcc41f1b573dee67e9b40f81b707231fe07b2cd4210ad8c22a048d19488551"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "all-min",
+      "params": {
+        "x": -1.2,
+        "y": -0.8,
+        "angle": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          -0.8
+        ],
+        "gradient": [
+          -2.4,
+          -3.2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": -2.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c28e3443940a604925384895f9b32167c14eb8aa7f28e241502746e16ee18718"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "all-min",
+      "params": {
+        "x": -1.2,
+        "y": -0.8,
+        "angle": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          -0.8
+        ],
+        "gradient": [
+          -2.4,
+          -3.2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": -2.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "c28e3443940a604925384895f9b32167c14eb8aa7f28e241502746e16ee18718"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "all-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.8,
+        "angle": 360
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.8
+        ],
+        "gradient": [
+          2.4,
+          3.2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 2.399999999999999,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "90be2f65c0cb5b9dc2e3f20a7ed4d01081df81d67991686c37206d8802edfd4e"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-direction",
+      "control": "all-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.8,
+        "angle": 360
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.8
+        ],
+        "gradient": [
+          2.4,
+          3.2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 2.399999999999999,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "90be2f65c0cb5b9dc2e3f20a7ed4d01081df81d67991686c37206d8802edfd4e"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "default",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d75e1d6af2507e1a6619f7d0cb17533c327ec15c3f49a9929c15a35d25c7d150"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "default",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d75e1d6af2507e1a6619f7d0cb17533c327ec15c3f49a9929c15a35d25c7d150"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "x-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "adc4f7dbf193797998b4ffe10070d0706eb0f4bdaa29f3840428f091fee90ffc"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "x-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "adc4f7dbf193797998b4ffe10070d0706eb0f4bdaa29f3840428f091fee90ffc"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "x-max",
+      "params": {
+        "x": 1.5,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": -3,
+        "y": -0.75,
+        "pathContributions": [
+          3,
+          -2
+        ],
+        "derivative": 1,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "64300c9d52899f60ccd975258f81a40ec411660bc1845a3bc6fce08cf65b6e94"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "x-max",
+      "params": {
+        "x": 1.5,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": -3,
+        "y": -0.75,
+        "pathContributions": [
+          3,
+          -2
+        ],
+        "derivative": 1,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "64300c9d52899f60ccd975258f81a40ec411660bc1845a3bc6fce08cf65b6e94"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "a-min",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d75e1d6af2507e1a6619f7d0cb17533c327ec15c3f49a9929c15a35d25c7d150"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "a-min",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d75e1d6af2507e1a6619f7d0cb17533c327ec15c3f49a9929c15a35d25c7d150"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "a-max",
+      "params": {
+        "x": 1,
+        "a": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": 2,
+        "u": 1,
+        "v": 2,
+        "y": 3,
+        "pathContributions": [
+          2,
+          2
+        ],
+        "derivative": 4,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7ec2ea937b18e4807be25ba72a29576b3554486f836f0c2b774355d001fd8b6c"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "a-max",
+      "params": {
+        "x": 1,
+        "a": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": 2,
+        "u": 1,
+        "v": 2,
+        "y": 3,
+        "pathContributions": [
+          2,
+          2
+        ],
+        "derivative": 4,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7ec2ea937b18e4807be25ba72a29576b3554486f836f0c2b774355d001fd8b6c"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "all-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "adc4f7dbf193797998b4ffe10070d0706eb0f4bdaa29f3840428f091fee90ffc"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "all-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "adc4f7dbf193797998b4ffe10070d0706eb0f4bdaa29f3840428f091fee90ffc"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "all-max",
+      "params": {
+        "x": 1.5,
+        "a": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": 2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          3,
+          2
+        ],
+        "derivative": 5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a6c14d95f44ce12983da76de251230475b14e7fea9af61718675112825d4c90b"
+    },
+    {
+      "width": 1280,
+      "id": "chain-paths",
+      "control": "all-max",
+      "params": {
+        "x": 1.5,
+        "a": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": 2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          3,
+          2
+        ],
+        "derivative": 5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a6c14d95f44ce12983da76de251230475b14e7fea9af61718675112825d4c90b"
+    },
+    {
+      "width": 375,
+      "id": "secant-limit",
+      "control": "default",
+      "params": {
+        "side": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0.325,
+        "secantSlope": 2.975,
+        "tangentSlope": 2,
+        "error": 0.9750000000000001,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "37ec52f834454699593df5c429fda6c678dd343d5990abcdb35594d5da422844"
+    },
+    {
+      "width": 375,
+      "id": "secant-limit",
+      "control": "default",
+      "params": {
+        "side": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0,
+        "secantSlope": 2,
+        "tangentSlope": 2,
+        "error": 0,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3fdfb08a924ea4d18b877001d42e605e99ffb35b7f73aae8b7825b7ec9f4c044"
+    },
+    {
+      "width": 375,
+      "id": "secant-limit",
+      "control": "side-min",
+      "params": {
+        "side": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0.325,
+        "secantSlope": 2.975,
+        "tangentSlope": 2,
+        "error": 0.9750000000000001,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "37ec52f834454699593df5c429fda6c678dd343d5990abcdb35594d5da422844"
+    },
+    {
+      "width": 375,
+      "id": "secant-limit",
+      "control": "side-min",
+      "params": {
+        "side": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0,
+        "secantSlope": 2,
+        "tangentSlope": 2,
+        "error": 0,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3fdfb08a924ea4d18b877001d42e605e99ffb35b7f73aae8b7825b7ec9f4c044"
+    },
+    {
+      "width": 375,
+      "id": "secant-limit",
+      "control": "side-max",
+      "params": {
+        "side": -1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": -0.325,
+        "secantSlope": 1.025,
+        "tangentSlope": 2,
+        "error": -0.9750000000000001,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "064ba648e3cc5b0f869c7496b4a5dc80ca8e07dfe216077a1ab28433e730f46a"
+    },
+    {
+      "width": 375,
+      "id": "secant-limit",
+      "control": "side-max",
+      "params": {
+        "side": -1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f(x)=3x²−4x, P=(1,−1)",
+        "h": 0,
+        "secantSlope": 2,
+        "tangentSlope": 2,
+        "error": 0,
+        "endpointConvention": "h=0 时使用解析极限 2；未计算 0/0",
+        "range": "仅此二次函数；不证明一般函数极限"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3fdfb08a924ea4d18b877001d42e605e99ffb35b7f73aae8b7825b7ec9f4c044"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "default",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.212435565298214,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ad71ab2821e38a9b259696c8dce812f462ac691c383eabdad56300b7f5b74623"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "default",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.212435565298214,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ad71ab2821e38a9b259696c8dce812f462ac691c383eabdad56300b7f5b74623"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "x-min",
+      "params": {
+        "x": -1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          0.5
+        ],
+        "gradient": [
+          -2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -1.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d383e563bfe687f70834ffc3ac7baa1d7acbe56919e0f0756e65794c9209e38"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "x-min",
+      "params": {
+        "x": -1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          0.5
+        ],
+        "gradient": [
+          -2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -1.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0d383e563bfe687f70834ffc3ac7baa1d7acbe56919e0f0756e65794c9209e38"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "x-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.5
+        ],
+        "gradient": [
+          2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 3.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fd196d7db0cdd4fd2a9451fdb8563f7561b00cdf330a8d47bd4b5cd11ce3c9a2"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "x-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.5,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.5
+        ],
+        "gradient": [
+          2.4,
+          2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 3.078460969082653,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fd196d7db0cdd4fd2a9451fdb8563f7561b00cdf330a8d47bd4b5cd11ce3c9a2"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "y-min",
+      "params": {
+        "x": 0.7,
+        "y": -0.8,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          -0.8
+        ],
+        "gradient": [
+          1.4,
+          -3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -0.3875644347017857,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b6d2c32845cc0a210538e0b017136afe98376ddc9e69ebb3f4e72e3e20f96876"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "y-min",
+      "params": {
+        "x": 0.7,
+        "y": -0.8,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          -0.8
+        ],
+        "gradient": [
+          1.4,
+          -3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": -0.3875644347017857,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b6d2c32845cc0a210538e0b017136afe98376ddc9e69ebb3f4e72e3e20f96876"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "y-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.8,
+        "angle": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.8
+        ],
+        "gradient": [
+          1.4,
+          3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.8124355652982143,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "49e08611ed67258a5541ac97fb67d5eb5a31cd25701e9e6d87f5e2b83aa93728"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "y-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.8,
+        "angle": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.8
+        ],
+        "gradient": [
+          1.4,
+          3.2
+        ],
+        "unitDirection": [
+          0.8660254037844387,
+          0.49999999999999994
+        ],
+        "directionalDerivative": 2.8124355652982143,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "49e08611ed67258a5541ac97fb67d5eb5a31cd25701e9e6d87f5e2b83aa93728"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "angle-min",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": 1.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "49548006ca2cc748d022ef854f629f90b982eae5b87387f65d97f971607209d2"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "angle-min",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": 1.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "49548006ca2cc748d022ef854f629f90b982eae5b87387f65d97f971607209d2"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "angle-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 360
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 1.3999999999999995,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "52649d3cfb1a42806337a30e9e448d3747b58fcab2410bcd8d4c57c35ddfcfe6"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "angle-max",
+      "params": {
+        "x": 0.7,
+        "y": 0.5,
+        "angle": 360
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          0.7,
+          0.5
+        ],
+        "gradient": [
+          1.4,
+          2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 1.3999999999999995,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "52649d3cfb1a42806337a30e9e448d3747b58fcab2410bcd8d4c57c35ddfcfe6"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "all-min",
+      "params": {
+        "x": -1.2,
+        "y": -0.8,
+        "angle": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          -0.8
+        ],
+        "gradient": [
+          -2.4,
+          -3.2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": -2.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6a1fbc96488cbe24f18c76a8c33e21cc61096beb4a90f5c8b0bea55382191f4f"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "all-min",
+      "params": {
+        "x": -1.2,
+        "y": -0.8,
+        "angle": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          -1.2,
+          -0.8
+        ],
+        "gradient": [
+          -2.4,
+          -3.2
+        ],
+        "unitDirection": [
+          1,
+          0
+        ],
+        "directionalDerivative": -2.4,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6a1fbc96488cbe24f18c76a8c33e21cc61096beb4a90f5c8b0bea55382191f4f"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "all-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.8,
+        "angle": 360
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.8
+        ],
+        "gradient": [
+          2.4,
+          3.2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 2.399999999999999,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6410b2d585a0569d7d65311fabf77e1478699ac5de98ad782022b853fa960802"
+    },
+    {
+      "width": 375,
+      "id": "gradient-direction",
+      "control": "all-max",
+      "params": {
+        "x": 1.2,
+        "y": 0.8,
+        "angle": 360
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "f=x₁²+2x₂²",
+        "point": [
+          1.2,
+          0.8
+        ],
+        "gradient": [
+          2.4,
+          3.2
+        ],
+        "unitDirection": [
+          1,
+          -2.4492935982947064e-16
+        ],
+        "directionalDerivative": 2.399999999999999,
+        "vectorDrawingScale": 0.4,
+        "convention": "欧氏坐标；方向单位化；梯度箭头与分量均乘0.4；投影为0.4倍方向导数",
+        "limits": "局部一阶变化率，不保证有限步长的变化；未展示一般高维函数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6410b2d585a0569d7d65311fabf77e1478699ac5de98ad782022b853fa960802"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "default",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3dc1a0348ac3f2b8dbab417e7573abbdb049755ca02cc88a655601dfc3118ba8"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "default",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3dc1a0348ac3f2b8dbab417e7573abbdb049755ca02cc88a655601dfc3118ba8"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "x-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6514ac38a20fab0e96e6c2549f0a0f37f0c42865fef4d69cfb0808aed0c643b3"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "x-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6514ac38a20fab0e96e6c2549f0a0f37f0c42865fef4d69cfb0808aed0c643b3"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "x-max",
+      "params": {
+        "x": 1.5,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": -3,
+        "y": -0.75,
+        "pathContributions": [
+          3,
+          -2
+        ],
+        "derivative": 1,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f5266324301515a3db4166f470cf09b9023e68957855f3c24d5a460fa4a31840"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "x-max",
+      "params": {
+        "x": 1.5,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": -3,
+        "y": -0.75,
+        "pathContributions": [
+          3,
+          -2
+        ],
+        "derivative": 1,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f5266324301515a3db4166f470cf09b9023e68957855f3c24d5a460fa4a31840"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "a-min",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3dc1a0348ac3f2b8dbab417e7573abbdb049755ca02cc88a655601dfc3118ba8"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "a-min",
+      "params": {
+        "x": 1,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": -2,
+        "u": 1,
+        "v": -2,
+        "y": -1,
+        "pathContributions": [
+          2,
+          -2
+        ],
+        "derivative": 0,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "3dc1a0348ac3f2b8dbab417e7573abbdb049755ca02cc88a655601dfc3118ba8"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "a-max",
+      "params": {
+        "x": 1,
+        "a": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": 2,
+        "u": 1,
+        "v": 2,
+        "y": 3,
+        "pathContributions": [
+          2,
+          2
+        ],
+        "derivative": 4,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ab2d80812b7efd96cf4fea1b64d0f3ab2ce4edbbb776f057f215a03bac218e80"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "a-max",
+      "params": {
+        "x": 1,
+        "a": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1,
+        "a": 2,
+        "u": 1,
+        "v": 2,
+        "y": 3,
+        "pathContributions": [
+          2,
+          2
+        ],
+        "derivative": 4,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ab2d80812b7efd96cf4fea1b64d0f3ab2ce4edbbb776f057f215a03bac218e80"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "all-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6514ac38a20fab0e96e6c2549f0a0f37f0c42865fef4d69cfb0808aed0c643b3"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "all-min",
+      "params": {
+        "x": -1.5,
+        "a": -2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": -1.5,
+        "a": -2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          -3,
+          -2
+        ],
+        "derivative": -5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6514ac38a20fab0e96e6c2549f0a0f37f0c42865fef4d69cfb0808aed0c643b3"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "all-max",
+      "params": {
+        "x": 1.5,
+        "a": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": 2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          3,
+          2
+        ],
+        "derivative": 5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "83a2667ea068a2b500537a1d9646f03314fba4df6249d1508e931a96c8a8647c"
+    },
+    {
+      "width": 375,
+      "id": "chain-paths",
+      "control": "all-max",
+      "params": {
+        "x": 1.5,
+        "a": 2
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "example": "u=x²,v=ax,y=u+v",
+        "x": 1.5,
+        "a": 2,
+        "u": 2.25,
+        "v": 3,
+        "y": 5.25,
+        "pathContributions": [
+          3,
+          2
+        ],
+        "derivative": 5,
+        "convention": "求 x 的导数时 a 固定；每条路径乘积再求和",
+        "limits": "解析示例，不是训练结果；未展示一般多输入雅可比"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "83a2667ea068a2b500537a1d9646f03314fba4df6249d1508e931a96c8a8647c"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

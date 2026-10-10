@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "以真实 draw 源码的 facts 对照独立加权平方和、中心有限差分、固定 u 的函数与显式控制流分段函数；3396 次求值，最大绝对比较误差约 1.01e-8。核对负/零权重、负/零分量以及 a=125/250 跳变点，跳变处不声称通常导数存在。实际查看最后预览三图在 1280/375 的全部 0/1 端点共12张PNG及中点、上下文。候选、预览与端点哈希一致。",
+  "limits": "SVG 数学核对使用简化 DOM，不是 PyTorch 或性能实测。真实预览只覆盖指定尺寸、有限进度和参数极值；不穷举组合，不证明审美或教学效果。加权图限于逐元素平方，detach 限单分量，控制流限正标量100–330；不覆盖一般稠密Jacobian、二阶导数、负/零控制流或向量矩阵。共同阅读运行时的主动播放、滚动暂停、减少动态效果、键盘及屏幕阅读器交互未独立验收。当前人工已发现的问题均已修订，无已知未解决遮挡/数学/教学问题；不能排除未发现的问题。详见 AUTHOR.md。",
+  "html_sha256": "1ac3c86957ade0c707ae8faf71edf895fe7f6111b71c2d6e5dd195d14d4e2045",
+  "plan_sha256": "e23563ebccd1fe03aa630c4fc5aa6f27bdccfce2384d66aafbe28acf50f04b3d",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

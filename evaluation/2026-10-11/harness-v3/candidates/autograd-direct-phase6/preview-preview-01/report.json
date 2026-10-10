@@ -1,0 +1,2163 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/book.html",
+  "sha256": "22f03c01e9893b7ff6933d135d27d64a4576dfdc5cbffaccc72cc3ad985ea1b9",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 14,
+        "rendered": 14,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "weighted-backward",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "v"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "6248043572e118f3ece57b4816f16bee5142095073105efe12b52984187de2cb"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "v"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "6248043572e118f3ece57b4816f16bee5142095073105efe12b52984187de2cb"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "v"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "6248043572e118f3ece57b4816f16bee5142095073105efe12b52984187de2cb"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "v"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "6248043572e118f3ece57b4816f16bee5142095073105efe12b52984187de2cb"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "v"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "6248043572e118f3ece57b4816f16bee5142095073105efe12b52984187de2cb"
+            }
+          ]
+        },
+        {
+          "id": "detach-path",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6060a18b913664fdd327e138958249c0c6cf8a4c90890c74929d5dfcbb818238"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6060a18b913664fdd327e138958249c0c6cf8a4c90890c74929d5dfcbb818238"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6060a18b913664fdd327e138958249c0c6cf8a4c90890c74929d5dfcbb818238"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6060a18b913664fdd327e138958249c0c6cf8a4c90890c74929d5dfcbb818238"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6060a18b913664fdd327e138958249c0c6cf8a4c90890c74929d5dfcbb818238"
+            }
+          ]
+        },
+        {
+          "id": "control-flow",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "81ebf6386ac7ba1b4403f05914c0216e759ae858c823488b9276dc9d262384b2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "81ebf6386ac7ba1b4403f05914c0216e759ae858c823488b9276dc9d262384b2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "81ebf6386ac7ba1b4403f05914c0216e759ae858c823488b9276dc9d262384b2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "81ebf6386ac7ba1b4403f05914c0216e759ae858c823488b9276dc9d262384b2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "81ebf6386ac7ba1b4403f05914c0216e759ae858c823488b9276dc9d262384b2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 14,
+        "rendered": 14,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "weighted-backward",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "Jᵀ  (4 × 4)"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "d44ac20275792aba8b997aedea140103ec903b3848959584f2021b2ee778d13b"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "Jᵀ  (4 × 4)"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "d44ac20275792aba8b997aedea140103ec903b3848959584f2021b2ee778d13b"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "Jᵀ  (4 × 4)"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "d44ac20275792aba8b997aedea140103ec903b3848959584f2021b2ee778d13b"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "Jᵀ  (4 × 4)"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "d44ac20275792aba8b997aedea140103ec903b3848959584f2021b2ee778d13b"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": "elementwise square; column vectors; J_ij=dy_i/dx_j",
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "y": [
+                  0,
+                  1,
+                  4,
+                  9
+                ],
+                "v": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "jacobianTranspose": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    4,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    6
+                  ]
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "formula": "g = J^T v = (2x) elementwise v",
+                "limits": "Analytic example, not a PyTorch execution; diagonal Jacobian does not describe coupled outputs."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [
+                [
+                  "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+                  "Jᵀ  (4 × 4)"
+                ]
+              ],
+              "invalidGeometry": [],
+              "svgHash": "d44ac20275792aba8b997aedea140103ec903b3848959584f2021b2ee778d13b"
+            }
+          ]
+        },
+        {
+          "id": "detach-path",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "67fe51fc8bbde21e3ce2b40a46976c640d45e557f9edf6191c07b5b6ea80cec2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "67fe51fc8bbde21e3ce2b40a46976c640d45e557f9edf6191c07b5b6ea80cec2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "67fe51fc8bbde21e3ce2b40a46976c640d45e557f9edf6191c07b5b6ea80cec2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "67fe51fc8bbde21e3ce2b40a46976c640d45e557f9edf6191c07b5b6ea80cec2"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "u": 4,
+                "z": 8,
+                "detached": true,
+                "forwardSameForBothModes": true,
+                "directPathGradient": 4,
+                "viaUGradient": 0,
+                "gradient": 4,
+                "formula": "d z/d x holding u constant = u = x^2",
+                "barAxis": [
+                  0,
+                  27
+                ],
+                "limits": "One scalar component of the elementwise example; no memory-sharing claim or trained weights."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "67fe51fc8bbde21e3ce2b40a46976c640d45e557f9edf6191c07b5b6ea80cec2"
+            }
+          ]
+        },
+        {
+          "id": "control-flow",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "547b61b73abe41205fda8e0e009dddceb05a3a06f25726144efbaca5fafc0c6a"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "547b61b73abe41205fda8e0e009dddceb05a3a06f25726144efbaca5fafc0c6a"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "547b61b73abe41205fda8e0e009dddceb05a3a06f25726144efbaca5fafc0c6a"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "547b61b73abe41205fda8e0e009dddceb05a3a06f25726144efbaca5fafc0c6a"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "a": 200,
+                "f": 1600,
+                "initialMultiplier": 2,
+                "whileIterations": 2,
+                "k": 8,
+                "executedPathGradient": 8,
+                "ratio": 8,
+                "atDiscontinuity": false,
+                "classicalDerivativeExists": true,
+                "positiveBranch": true,
+                "displayDomain": [
+                  80,
+                  650
+                ],
+                "jumpLocations": [
+                  125,
+                  250,
+                  500
+                ],
+                "limits": "Positive scalar slice only; a=0 loops forever, negative branch and tensor controls are not shown; k is not a derivative through branch decisions."
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "547b61b73abe41205fda8e0e009dddceb05a3a06f25726144efbaca5fafc0c6a"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "progress": 0,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "progress": 0.25,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "progress": 0.26,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "progress": 0.5,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "progress": 1,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "progress": 0,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "progress": 0.25,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "progress": 0.26,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "progress": 0.5,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "progress": 1,
+      "kind": "figure-layout",
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": []
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3cd10e5c6fbcbea5b87d7ab4156dac6ca1930384b9add7e15a78b40651c137f3",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3cd10e5c6fbcbea5b87d7ab4156dac6ca1930384b9add7e15a78b40651c137f3",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "fc7199a1138c0c4b41cab71c5f185c6028070d27e1ae7e662e41ffa4a4e384c5",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "fc7199a1138c0c4b41cab71c5f185c6028070d27e1ae7e662e41ffa4a4e384c5",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "551ca778264819ab95dec5ac3b5ebc4b3fc7846c079f6a874856db162fbed75d",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "551ca778264819ab95dec5ac3b5ebc4b3fc7846c079f6a874856db162fbed75d",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "41e0f9e9aae75ec3428e22772bbe381d41f3bd009471876efa7914b26a11819f",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "41e0f9e9aae75ec3428e22772bbe381d41f3bd009471876efa7914b26a11819f",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e834a402159f3e4cc280003f128d5a188c02db08ba174f615163c4628547ee09",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e834a402159f3e4cc280003f128d5a188c02db08ba174f615163c4628547ee09",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "c6b9de84b728788e41f2f91f355355aa976dfbf16a725e6d5b08e7d4f4777b52",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "c6b9de84b728788e41f2f91f355355aa976dfbf16a725e6d5b08e7d4f4777b52",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "cb20b632be372eae18095cb7e73b1978aef172b98efb7cdf0744d5019bdb08f7",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 1280,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "v"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "cb20b632be372eae18095cb7e73b1978aef172b98efb7cdf0744d5019bdb08f7",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "126ef41dadb4a714211090fa04917253ee5a6233449f73e245e676c704938160",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "default",
+      "params": {
+        "x2": 2,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "126ef41dadb4a714211090fa04917253ee5a6233449f73e245e676c704938160",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "c9ea894d7ed35d996067cafb88de9554a38ecf0207b5f3b8b28bbadbebe86c6f",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-min",
+      "params": {
+        "x2": 0,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "c9ea894d7ed35d996067cafb88de9554a38ecf0207b5f3b8b28bbadbebe86c6f",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e5d53d3e4dea213d2123d8a19dcae4ad84d3108f730c8b6049c7233720ca5f3d",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "x2-max",
+      "params": {
+        "x2": 3,
+        "v2": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "e5d53d3e4dea213d2123d8a19dcae4ad84d3108f730c8b6049c7233720ca5f3d",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "8e4e63e801c89fe1c48ab03a420ecccb2604baaef4a06dd834b96340708a689a",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-min",
+      "params": {
+        "x2": 2,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "8e4e63e801c89fe1c48ab03a420ecccb2604baaef4a06dd834b96340708a689a",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "70db0563d2bd6e6090cf1a797e3a151d97c40ca0c8dcac3332ab92538a36f891",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "v2-max",
+      "params": {
+        "x2": 2,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 2, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "70db0563d2bd6e6090cf1a797e3a151d97c40ca0c8dcac3332ab92538a36f891",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "7099bbd63492e31b58fd38248e812a80b8e3229f83e74ea790dd34b4ce1501be",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-min",
+      "params": {
+        "x2": 0,
+        "v2": -2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 0, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "7099bbd63492e31b58fd38248e812a80b8e3229f83e74ea790dd34b4ce1501be",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "aa8d45573d45e0f4c8b73ee8c781a107e75929cb55502d9d18b07d0a5ea9ae1d",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    },
+    {
+      "width": 375,
+      "id": "weighted-backward",
+      "control": "all-max",
+      "params": {
+        "x2": 3,
+        "v2": 2
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "yᵢ = xᵢ²   ·   x = [0, 1, 3, 3]",
+          "Jᵀ  (4 × 4)"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "aa8d45573d45e0f4c8b73ee8c781a107e75929cb55502d9d18b07d0a5ea9ae1d",
+      "problem": "layout",
+      "kind": "parameter-boundary"
+    }
+  ],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-weighted-backward-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-weighted-backward-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-weighted-backward-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-weighted-backward-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-detach-path-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-detach-path-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-detach-path-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-control-flow-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-control-flow-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-control-flow-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-weighted-backward-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-weighted-backward-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-weighted-backward-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-weighted-backward-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-detach-path-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-detach-path-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-detach-path-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-control-flow-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-control-flow-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-control-flow-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase6/preview-preview-01/375-page.png"
+  ],
+  "status": "completed",
+  "parameterAudit": {
+    "cases": 68,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  }
+}

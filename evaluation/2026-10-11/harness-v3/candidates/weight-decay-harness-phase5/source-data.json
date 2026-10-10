@@ -1,0 +1,759 @@
+{
+  "id": "weight-decay",
+  "title": "权重衰减",
+  "sourceName": "《动手学深度学习》",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/inputs/weight-decay/chapter.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html",
+  "sourceSha256": "4d697ad4b725c9636874695b41bb0f37a7701f579e8c0ccb554108a51fb899ab",
+  "adaptedSha256": "4d697ad4b725c9636874695b41bb0f37a7701f579e8c0ccb554108a51fb899ab",
+  "license": "Apache-2.0",
+  "adaptation": {
+    "images": 0,
+    "mathExpected": 65,
+    "mathRendered": 65
+  },
+  "blocks": [
+    {
+      "id": "weight-decay-001",
+      "sha256": "dea7d05f0cf6bfb4c5be6aef8c87e4ee077aebd83f8daf00847d68d1144e4653",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 权重衰减",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-002",
+      "sha256": "60476b741effe28f5338b14de498af582b98225ba8565418f50accf32a821572",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "前一节我们描述了过拟合的问题，本节我们将介绍一些正则化模型的技术。\n我们总是可以通过去收集更多的训练数据来缓解过拟合。\n但这可能成本很高，耗时颇多，或者完全超出我们的控制，因而在短期内不可能做到。\n假设我们已经拥有尽可能多的高质量数据，我们便可以将重点放在正则化技术上。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-003",
+      "sha256": "921ef6e8c2503363a49b1ded0294b7b626cae4f2e61895038dbe34b5a6a36279",
+      "type": "paragraph",
+      "depth": null,
+      "line": 8,
+      "raw": "回想一下，在多项式回归的例子（ [原文引用：sec_model_selection](https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html)）中，\n我们可以通过调整拟合多项式的阶数来限制模型的容量。\n实际上，限制特征的数量是缓解过拟合的一种常用技术。\n然而，简单地丢弃特征对这项工作来说可能过于生硬。\n我们继续思考多项式回归的例子，考虑高维输入可能发生的情况。\n多项式对多变量数据的自然扩展称为*单项式*（monomials），\n也可以说是变量幂的乘积。\n单项式的阶数是幂的和。\n例如，$x_1^2 x_2$和$x_3 x_5^2$都是3次单项式。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-004",
+      "sha256": "501d59b24f7a307f56a78b41adf4207da01fefc20c4bbdc66668b28d0066cb34",
+      "type": "paragraph",
+      "depth": null,
+      "line": 18,
+      "raw": "注意，随着阶数$d$的增长，带有阶数$d$的项数迅速增加。 \n给定$k$个变量，阶数为$d$的项的个数为\n${k - 1 + d} \\choose {k - 1}$，即$C^{k-1}_{k-1+d} = \\frac{(k-1+d)!}{(d)!(k-1)!}$。\n因此即使是阶数上的微小变化，比如从$2$到$3$，也会显著增加我们模型的复杂性。\n仅仅通过简单的限制特征数量（在多项式回归中体现为限制阶数），可能仍然使模型在过简单和过复杂中徘徊，\n我们需要一个更细粒度的工具来调整函数的复杂性，使其达到一个合适的平衡位置。",
+      "math": {
+        "expected": 8,
+        "rendered": 8,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-005",
+      "sha256": "ee05b04c42b8eceb98d74365729bf3549a69839a19f891f00bab7b82dbc29965",
+      "type": "heading",
+      "depth": 2,
+      "line": 24,
+      "raw": "## 范数与权重衰减",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-006",
+      "sha256": "5d06ac76fe4ea15b650fe21cfcd38fe9a6bea3a032a51b77872bb09257c670e7",
+      "type": "paragraph",
+      "depth": null,
+      "line": 26,
+      "raw": "在 [原文引用：subsec_lin-algebra-norms](https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html)中，\n我们已经描述了$L_2$范数和$L_1$范数，\n它们是更为一般的$L_p$范数的特殊情况。\n(~~权重衰减是最广泛使用的正则化的技术之一~~)\n在训练参数化机器学习模型时，\n*权重衰减*（weight decay）是最广泛使用的正则化的技术之一，\n它通常也被称为$L_2$*正则化*。\n这项技术通过函数与零的距离来衡量函数的复杂度，\n因为在所有函数$f$中，函数$f = 0$（所有输入都得到值$0$）\n在某种意义上是最简单的。\n但是我们应该如何精确地测量一个函数和零之间的距离呢？\n没有一个正确的答案。\n事实上，函数分析和巴拿赫空间理论的研究，都在致力于回答这个问题。",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-007",
+      "sha256": "89bcd05067378fa686aac9bd8891cf978323c620831ba8350623676b5c3da934",
+      "type": "paragraph",
+      "depth": null,
+      "line": 40,
+      "raw": "一种简单的方法是通过线性函数\n$f(\\mathbf{x}) = \\mathbf{w}^\\top \\mathbf{x}$\n中的权重向量的某个范数来度量其复杂性，\n例如$\\| \\mathbf{w} \\|^2$。\n要保证权重向量比较小，\n最常用方法是将其范数作为惩罚项加到最小化损失的问题中。\n将原来的训练目标*最小化训练标签上的预测损失*，\n调整为*最小化预测损失和惩罚项之和*。\n现在，如果我们的权重向量增长的太大，\n我们的学习算法可能会更集中于最小化权重范数$\\| \\mathbf{w} \\|^2$。\n这正是我们想要的。\n让我们回顾一下 [原文引用：sec_linear_regression](https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html)中的线性回归例子。\n我们的损失由下式给出：",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-008",
+      "sha256": "b85774fab105abdce5d68bcc6d379c607cd28cf8df88c27a09476e32a09d1255",
+      "type": "paragraph",
+      "depth": null,
+      "line": 54,
+      "raw": "$$L(\\mathbf{w}, b) = \\frac{1}{n}\\sum_{i=1}^n \\frac{1}{2}\\left(\\mathbf{w}^\\top \\mathbf{x}^{(i)} + b - y^{(i)}\\right)^2.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-009",
+      "sha256": "516feb0136a2cd210fab3bed6b38a602fe11b2c70d0c8b08aa11a8893a2e0620",
+      "type": "paragraph",
+      "depth": null,
+      "line": 56,
+      "raw": "回想一下，$\\mathbf{x}^{(i)}$是样本$i$的特征，\n$y^{(i)}$是样本$i$的标签，\n$(\\mathbf{w}, b)$是权重和偏置参数。\n为了惩罚权重向量的大小，\n我们必须以某种方式在损失函数中添加$\\| \\mathbf{w} \\|^2$，\n但是模型应该如何平衡这个新的额外惩罚的损失？\n实际上，我们通过*正则化常数*$\\lambda$来描述这种权衡，\n这是一个非负超参数，我们使用验证数据拟合：",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-010",
+      "sha256": "ac525090e84a3808f5650074d536da30f597048135a61dfa5b2bb331fd96b9c8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 65,
+      "raw": "$$L(\\mathbf{w}, b) + \\frac{\\lambda}{2} \\|\\mathbf{w}\\|^2,$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-011",
+      "sha256": "1745865d8b4ed0899dc36884e7cf4ba47015cde72e03366cf44577c6fd07243a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 67,
+      "raw": "对于$\\lambda = 0$，我们恢复了原来的损失函数。\n对于$\\lambda > 0$，我们限制$\\| \\mathbf{w} \\|$的大小。\n这里我们仍然除以$2$：当我们取一个二次函数的导数时，\n$2$和$1/2$会抵消，以确保更新表达式看起来既漂亮又简单。\n为什么在这里我们使用平方范数而不是标准范数（即欧几里得距离）？\n我们这样做是为了便于计算。\n通过平方$L_2$范数，我们去掉平方根，留下权重向量每个分量的平方和。\n这使得惩罚的导数很容易计算：导数的和等于和的导数。",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-012",
+      "sha256": "7ec45142be5278a1c73279b095665104abbd4e4bbc0cb86dd31d4afe70948f82",
+      "type": "paragraph",
+      "depth": null,
+      "line": 76,
+      "raw": "此外，为什么我们首先使用$L_2$范数，而不是$L_1$范数。\n事实上，这个选择在整个统计领域中都是有效的和受欢迎的。\n$L_2$正则化线性模型构成经典的*岭回归*（ridge regression）算法，\n$L_1$正则化线性回归是统计学中类似的基本模型，\n通常被称为*套索回归*（lasso regression）。\n使用$L_2$范数的一个原因是它对权重向量的大分量施加了巨大的惩罚。\n这使得我们的学习算法偏向于在大量特征上均匀分布权重的模型。\n在实践中，这可能使它们对单个变量中的观测误差更为稳定。\n相比之下，$L_1$惩罚会导致模型将权重集中在一小部分特征上，\n而将其他权重清除为零。\n这称为*特征选择*（feature selection），这可能是其他场景下需要的。",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-013",
+      "sha256": "8187f97fcaa90cfb16c0ab575dd4f0f96375de87e9fd6a39d76cb1c0f2435285",
+      "type": "paragraph",
+      "depth": null,
+      "line": 88,
+      "raw": "使用与 [原文引用：eq_linreg_batch_update](https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html)中的相同符号，\n$L_2$正则化回归的小批量随机梯度下降更新如下式：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-014",
+      "sha256": "566c204d0c8f97f17b5a9df3087e984f6aba5ca0169b60b1a26b0a223d5d9e1a",
+      "type": "math",
+      "depth": null,
+      "line": 91,
+      "raw": "$$\n\\begin{aligned}\n\\mathbf{w} & \\leftarrow \\left(1- \\eta\\lambda \\right) \\mathbf{w} - \\frac{\\eta}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} \\mathbf{x}^{(i)} \\left(\\mathbf{w}^\\top \\mathbf{x}^{(i)} + b - y^{(i)}\\right).\n\\end{aligned}\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-015",
+      "sha256": "d192fa71e23e25e6670c15629d9cdbc15034692c59a549c85222d406b8f6a317",
+      "type": "paragraph",
+      "depth": null,
+      "line": 97,
+      "raw": "根据之前章节所讲的，我们根据估计值与观测值之间的差异来更新$\\mathbf{w}$。\n然而，我们同时也在试图将$\\mathbf{w}$的大小缩小到零。\n这就是为什么这种方法有时被称为*权重衰减*。\n我们仅考虑惩罚项，优化算法在训练的每一步*衰减*权重。\n与特征选择相比，权重衰减为我们提供了一种连续的机制来调整函数的复杂度。\n较小的$\\lambda$值对应较少约束的$\\mathbf{w}$，\n而较大的$\\lambda$值对$\\mathbf{w}$的约束更大。",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-016",
+      "sha256": "44415f61614bf0b41dfdd49365342da2d67d10d70fc29812682dcd682f2fb5a7",
+      "type": "paragraph",
+      "depth": null,
+      "line": 105,
+      "raw": "是否对相应的偏置$b^2$进行惩罚在不同的实践中会有所不同，\n在神经网络的不同层中也会有所不同。\n通常，网络输出层的偏置项不会被正则化。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-017",
+      "sha256": "e9b93791b5884dbcd6c980e2efe775ea54671f507d71e5d27ba4d4d6d1024ce3",
+      "type": "heading",
+      "depth": 2,
+      "line": 109,
+      "raw": "## 高维线性回归",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-018",
+      "sha256": "4e8ff84b536d47f2df8e6e2befc0fbf70e455197d06a590d0270342285ea6edb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 111,
+      "raw": "我们通过一个简单的例子来演示权重衰减。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-019",
+      "sha256": "c61a6efd35c26e0729a1066cd3e5ff2d7b39fea01e537a681f4e31c8382c2801",
+      "type": "code",
+      "depth": null,
+      "line": 121,
+      "raw": "```python\n%matplotlib inline\nfrom d2l import torch as d2l\nimport torch\nfrom torch import nn\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-020",
+      "sha256": "649597c5e294119a34a1e3d6dd8ab09954875ca4db0ade81389c418b66de1b85",
+      "type": "paragraph",
+      "depth": null,
+      "line": 145,
+      "raw": "首先，我们**像以前一样生成一些数据**，生成公式如下：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-021",
+      "sha256": "464c92c9650ec1581f7f706afadfea76a9622bc4c80e95d11784d3759936af6b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 147,
+      "raw": "**$$y = 0.05 + \\sum_{i = 1}^d 0.01 x_i + \\epsilon \\text{ where }\n\\epsilon \\sim \\mathcal{N}(0, 0.01^2).$$**",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-022",
+      "sha256": "aefda2d7bd70a015c8da2774598c823416c3ae4c128495dec07ebbc897d551f6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 150,
+      "raw": "我们选择标签是关于输入的线性函数。\n标签同时被均值为0，标准差为0.01高斯噪声破坏。\n为了使过拟合的效果更加明显，我们可以将问题的维数增加到$d = 200$，\n并使用一个只包含20个样本的小训练集。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-023",
+      "sha256": "d022e6a60e397fd12a24d6a72c57bf2c6e0b23c8843fef30435a0f8b56d53fe0",
+      "type": "code",
+      "depth": null,
+      "line": 155,
+      "raw": "```python\nn_train, n_test, num_inputs, batch_size = 20, 100, 200, 5\ntrue_w, true_b = d2l.ones((num_inputs, 1)) * 0.01, 0.05\ntrain_data = d2l.synthetic_data(true_w, true_b, n_train)\ntrain_iter = d2l.load_array(train_data, batch_size)\ntest_data = d2l.synthetic_data(true_w, true_b, n_test)\ntest_iter = d2l.load_array(test_data, batch_size, is_train=False)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-024",
+      "sha256": "b32713c0f17a0a4fe013c2622504adaf296b3060d91a9197ce35509e7875c15a",
+      "type": "heading",
+      "depth": 2,
+      "line": 164,
+      "raw": "## 从零开始实现",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-025",
+      "sha256": "d3a10428b1a04183ebfec2e67fce5aca0b677dc56db17779cedaf20880ac2690",
+      "type": "paragraph",
+      "depth": null,
+      "line": 166,
+      "raw": "下面我们将从头开始实现权重衰减，只需将$L_2$的平方惩罚添加到原始目标函数中。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-026",
+      "sha256": "f8dde034513831c06d2d3ba2c7f85a7cb4df849a70fb32890274844ad65aeda5",
+      "type": "heading",
+      "depth": 3,
+      "line": 168,
+      "raw": "### **初始化模型参数**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-027",
+      "sha256": "bfe412007096aa92c49dcacae30fc448bf11d1b68f4351f0837c32b07c03e462",
+      "type": "paragraph",
+      "depth": null,
+      "line": 170,
+      "raw": "首先，我们将定义一个函数来随机初始化模型参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-028",
+      "sha256": "fcd973e3f27c71c7ff5cfc0ef39901967eb272ce6f971e760288ea38c5fa91f5",
+      "type": "code",
+      "depth": null,
+      "line": 181,
+      "raw": "```python\ndef init_params():\n    w = torch.normal(0, 1, size=(num_inputs, 1), requires_grad=True)\n    b = torch.zeros(1, requires_grad=True)\n    return [w, b]\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-029",
+      "sha256": "5878c6b91b50ef1700624de1c8ef772567d7f2e9a7203f6e75486460b80def65",
+      "type": "heading",
+      "depth": 3,
+      "line": 206,
+      "raw": "### **定义$L_2$范数惩罚**",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-030",
+      "sha256": "69b5d292d8dbb6de1f4d83823f97b0f7bf7de368b8dfcd919a5509b989ad0d84",
+      "type": "paragraph",
+      "depth": null,
+      "line": 208,
+      "raw": "实现这一惩罚最方便的方法是对所有项求平方后并将它们求和。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-031",
+      "sha256": "d94849ca5983121a0ceb21694ef8b371149ff7b5ada0dfec82d6ba567b53b9a6",
+      "type": "code",
+      "depth": null,
+      "line": 215,
+      "raw": "```python\ndef l2_penalty(w):\n    return torch.sum(w.pow(2)) / 2\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-032",
+      "sha256": "7ca8850e1b9425e6846f60178bcd97b518253c82c244b27f18d643dae1957b51",
+      "type": "heading",
+      "depth": 3,
+      "line": 232,
+      "raw": "### **定义训练代码实现**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-033",
+      "sha256": "fb20e7f61ad73879e662b6ef7c5072d551215862aabae64d2c1f91c143a0d163",
+      "type": "paragraph",
+      "depth": null,
+      "line": 234,
+      "raw": "下面的代码将模型拟合训练数据集，并在测试数据集上进行评估。\n从 [原文引用：chap_linear](https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html)以来，线性网络和平方损失没有变化，\n所以我们通过`d2l.linreg`和`d2l.squared_loss`导入它们。\n唯一的变化是损失现在包括了惩罚项。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-034",
+      "sha256": "83ed6c26d14ce84b52f288baa74733d4eab2b36088c7a0317bf3143c73d62f9a",
+      "type": "code",
+      "depth": null,
+      "line": 260,
+      "raw": "```python\ndef train(lambd):\n    w, b = init_params()\n    net, loss = lambda X: d2l.linreg(X, w, b), d2l.squared_loss\n    num_epochs, lr = 100, 0.003\n    animator = d2l.Animator(xlabel='epochs', ylabel='loss', yscale='log',\n                            xlim=[5, num_epochs], legend=['train', 'test'])\n    for epoch in range(num_epochs):\n        for X, y in train_iter:\n            # 增加了L2范数惩罚项，\n            # 广播机制使l2_penalty(w)成为一个长度为batch_size的向量\n            l = loss(net(X), y) + lambd * l2_penalty(w)\n            l.sum().backward()\n            d2l.sgd([w, b], lr, batch_size)\n        if (epoch + 1) % 5 == 0:\n            animator.add(epoch + 1, (d2l.evaluate_loss(net, train_iter, loss),\n                                     d2l.evaluate_loss(net, test_iter, loss)))\n    print('w的L2范数是：', torch.norm(w).item())\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-035",
+      "sha256": "6a83751856c82592d2bd934c1d635de6eb2780f9406a1de0bf2212e7ce3baf35",
+      "type": "heading",
+      "depth": 3,
+      "line": 323,
+      "raw": "### **忽略正则化直接训练**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-036",
+      "sha256": "c0319082f5fbf2b758123aa63f61130204195d317b69694c7c1f0505390940a1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 325,
+      "raw": "我们现在用`lambd = 0`禁用权重衰减后运行这个代码。\n注意，这里训练误差有了减少，但测试误差没有减少，\n这意味着出现了严重的过拟合。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-037",
+      "sha256": "babde55eb13c1aca9fd111b32753199a0790b06a0873fc6a9c121edf0e3253cd",
+      "type": "code",
+      "depth": null,
+      "line": 329,
+      "raw": "```python\ntrain(lambd=0)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-038",
+      "sha256": "f03b46cad74377283348ac6443bfdd6eeefd5d240989527a789377fe675cee72",
+      "type": "heading",
+      "depth": 3,
+      "line": 333,
+      "raw": "### **使用权重衰减**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-039",
+      "sha256": "a81ad691743cbf222f4c3f1cca68392d111dcf53f62653c6e85cb456e5c8acbc",
+      "type": "paragraph",
+      "depth": null,
+      "line": 335,
+      "raw": "下面，我们使用权重衰减来运行代码。\n注意，在这里训练误差增大，但测试误差减小。\n这正是我们期望从正则化中得到的效果。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-040",
+      "sha256": "f1ed67351b3c4375017405fcd580c86102b6399c1c2cfbbb7a54675f2198c902",
+      "type": "code",
+      "depth": null,
+      "line": 339,
+      "raw": "```python\ntrain(lambd=3)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-041",
+      "sha256": "2e1402e48d04370f108f05abf3019cb78b689ee0bfbf3cd753f65bf188e77e49",
+      "type": "heading",
+      "depth": 2,
+      "line": 343,
+      "raw": "## **简洁实现**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-042",
+      "sha256": "02d56f8df98b63e94705b86cec53aed1a71c1c81b8a370764cd2c28c5e6965fc",
+      "type": "paragraph",
+      "depth": null,
+      "line": 345,
+      "raw": "由于权重衰减在神经网络优化中很常用，\n深度学习框架为了便于我们使用权重衰减，\n将权重衰减集成到优化算法中，以便与任何损失函数结合使用。\n此外，这种集成还有计算上的好处，\n允许在不增加任何额外的计算开销的情况下向算法中添加权重衰减。\n由于更新的权重衰减部分仅依赖于每个参数的当前值，\n因此优化器必须至少接触每个参数一次。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-043",
+      "sha256": "413d3f368dc2e5e4b48916033fc5d151238fd4aa4a34de88e1655eb18423b374",
+      "type": "paragraph",
+      "depth": null,
+      "line": 360,
+      "raw": "在下面的代码中，我们在实例化优化器时直接通过`weight_decay`指定weight decay超参数。\n默认情况下，PyTorch同时衰减权重和偏移。\n这里我们只为权重设置了`weight_decay`，所以偏置参数$b$不会衰减。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-044",
+      "sha256": "a613df585e21fd213334ed07331f648e53f7c0d5ba7eeb1582328ee637298fbd",
+      "type": "code",
+      "depth": null,
+      "line": 395,
+      "raw": "```python\ndef train_concise(wd):\n    net = nn.Sequential(nn.Linear(num_inputs, 1))\n    for param in net.parameters():\n        param.data.normal_()\n    loss = nn.MSELoss(reduction='none')\n    num_epochs, lr = 100, 0.003\n    # 偏置参数没有衰减\n    trainer = torch.optim.SGD([\n        {\"params\":net[0].weight,'weight_decay': wd},\n        {\"params\":net[0].bias}], lr=lr)\n    animator = d2l.Animator(xlabel='epochs', ylabel='loss', yscale='log',\n                            xlim=[5, num_epochs], legend=['train', 'test'])\n    for epoch in range(num_epochs):\n        for X, y in train_iter:\n            trainer.zero_grad()\n            l = loss(net(X), y)\n            l.mean().backward()\n            trainer.step()\n        if (epoch + 1) % 5 == 0:\n            animator.add(epoch + 1,\n                         (d2l.evaluate_loss(net, train_iter, loss),\n                          d2l.evaluate_loss(net, test_iter, loss)))\n    print('w的L2范数：', net[0].weight.norm().item())\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-045",
+      "sha256": "e0d1224841c0015afa7ac24f882bf0af5d7cc0fbfa4dcabc9ef9b0629db7ce86",
+      "type": "paragraph",
+      "depth": null,
+      "line": 471,
+      "raw": "**这些图看起来和我们从零开始实现权重衰减时的图相同**。\n然而，它们运行得更快，更容易实现。\n对于更复杂的问题，这一好处将变得更加明显。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-046",
+      "sha256": "f344b38aa3f6b841b63a5be58b244e1fe2bcc9140a15c6ccf9a0039a82228a8e",
+      "type": "code",
+      "depth": null,
+      "line": 475,
+      "raw": "```python\ntrain_concise(0)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-047",
+      "sha256": "bc1b1b2262de10974246ec1bbfddc374ff5151ac1c2ece79e66ba337643cfa36",
+      "type": "code",
+      "depth": null,
+      "line": 479,
+      "raw": "```python\ntrain_concise(3)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-048",
+      "sha256": "2b90c9644f34289aea5ea45e8f7b84a491468b61c80ad6ada0a2a1187d9f0ef8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 483,
+      "raw": "到目前为止，我们只接触到一个简单线性函数的概念。\n此外，由什么构成一个简单的非线性函数可能是一个更复杂的问题。\n例如，[再生核希尔伯特空间（RKHS）](https://en.wikipedia.org/wiki/Reproducing_kernel_Hilbert_space)\n允许在非线性环境中应用为线性函数引入的工具。\n不幸的是，基于RKHS的算法往往难以应用到大型、高维的数据。\n在这本书中，我们将默认使用简单的启发式方法，即在深层网络的所有层上应用权重衰减。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-049",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 490,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-050",
+      "sha256": "8242c1902db79833e7dc08fe8903c540dc00991c1b4df1be09e0168789561c10",
+      "type": "list",
+      "depth": null,
+      "line": 492,
+      "raw": "* 正则化是处理过拟合的常用方法：在训练集的损失函数中加入惩罚项，以降低学习到的模型的复杂度。\n* 保持模型简单的一个特别的选择是使用$L_2$惩罚的权重衰减。这会导致学习算法更新步骤中的权重衰减。\n* 权重衰减功能在深度学习框架的优化器中提供。\n* 在同一训练代码实现中，不同的参数集可以有不同的更新行为。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-051",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 497,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-052",
+      "sha256": "1a1d6e86b9fed68a9e4fd32ebd83c5996e15441f78e0f7c84833286a9c682aef",
+      "type": "list",
+      "depth": null,
+      "line": 499,
+      "raw": "1. 在本节的估计问题中使用$\\lambda$的值进行实验。绘制训练和测试精度关于$\\lambda$的函数。观察到了什么？\n1. 使用验证集来找到最佳值$\\lambda$。它真的是最优值吗？这有关系吗？\n1. 如果我们使用$\\sum_i |w_i|$作为我们选择的惩罚（$L_1$正则化），那么更新方程会是什么样子？\n1. 我们知道$\\|\\mathbf{w}\\|^2 = \\mathbf{w}^\\top \\mathbf{w}$。能找到类似的矩阵方程吗（见 [原文引用：subsec_lin-algebra-norms](https://zh.d2l.ai/chapter_multilayer-perceptrons/weight-decay.html) 中的Frobenius范数）？\n1. 回顾训练误差和泛化误差之间的关系。除了权重衰减、增加训练数据、使用适当复杂度的模型之外，还能想出其他什么方法来处理过拟合？\n1. 在贝叶斯统计中，我们使用先验和似然的乘积，通过公式$P(w \\mid x) \\propto P(x \\mid w) P(w)$得到后验。如何得到带正则化的$P(w)$？",
+      "math": {
+        "expected": 8,
+        "rendered": 8,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "weight-decay-053",
+      "sha256": "ba462967d3d7a34f458b464feab2507e3680dba27c46e38c2d6cd61efd7821e3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 510,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1808)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

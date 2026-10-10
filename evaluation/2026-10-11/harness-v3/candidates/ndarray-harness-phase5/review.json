@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "独立 Python 重算对照第三轮 Chromium 返回的 36 个参数案例 facts（每图12）：核对 reshape 元素总数、divmod(k,4) 与逆索引；广播逐格相加及输出形状；有限 alias/copy/write 的存储绑定和值。math-check.json 保存方法、计数与哈希。inspect_frame 已实际查看三图在1280/375下0/1的全部12张端点PNG，另看过六张中间帧与段落上下文；参数图的progress端点相同是预期。",
+  "limits": "只审阅默认参数PNG；参数极值有浏览器数值/布局检查，但没有逐张保存的极值PNG审美复核。未独立验收逐格点击、触屏、辅助技术；无读者学习实验、真人艺术评审、实测性能或训练结果。当前Python没有torch，没有执行真实PyTorch。有限CPU共享/复制语义不覆盖GPU、梯度、特殊布局。原文按要求保留：013的shape/numel类型区别、057的id不等于存储地址仍未改写；066的共享泛化由图三明确区分numpy共享与torch.tensor复制。AUTHOR.md详细记录三轮修订及这些边界。",
+  "html_sha256": "356ab769f74f0e86a384941bd9f58f081d1ce1524d0880094b147e31b810e7d3",
+  "plan_sha256": "c07b54c2642321bf416a9567973b405dae83081f7178def969283377eb7daab6",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

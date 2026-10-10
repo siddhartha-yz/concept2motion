@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "已用 verify_math.py 独立的 Python Fraction 总体统计、仿射变换和批次响应闭式表达式，核对第二轮真实渲染返回的 82 条 facts（含 52 个参数边界/选择器检查例）；均值、方差、标准化及输出在 1e-11 容差内一致。方差分别除以 4、8、3，ε=0.01 在根号内；通道均值/方差为 (4.5,5.25) 与 (17,21)。预测输出 2/√4.01 固定。检查所有 161 点响应曲线在坐标域内。已逐幅查看最终 1280/375 的 0/1 实际 PNG，修订手机数字及轴名碰撞。",
+  "limits": "仅为给定数值的确定性解释，不含训练、训练速度、泛化效果或内部协变量偏移机制验证；历史统计人为给定，不演示移动平均更新；参数预览非全部组合穷举，γ=0 仅独立数值核对；未在物理触屏设备或读者研究中验证。三图均为 parameters，0/1 画面一致是预期，无时间播放。当前已检查画面没有已知未解决遮挡、数学或教学问题，检查机制与作者观察不构成审美认证。",
+  "html_sha256": "b6d6d08aff9411dc27097774b72d954c66f39f88bc89e95d0109b669ff4f42c5",
+  "plan_sha256": "c67bfd9c1b12555b0cb4c508cd79baca4aee7283ad2f26b773020a2ce0a28a1d",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

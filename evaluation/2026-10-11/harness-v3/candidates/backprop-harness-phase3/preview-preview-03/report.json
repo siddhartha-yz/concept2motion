@@ -1,0 +1,772 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/book.html",
+  "sha256": "c696380ee00b039466308ce279736621648d512e81ba482083494a1965bd5442",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 60,
+        "rendered": 60,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "gradient-branches",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "fd9ba52848619e7c3bb093563925eb7dd138878c5e6f11ddacf2607a91f01be8"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "fd9ba52848619e7c3bb093563925eb7dd138878c5e6f11ddacf2607a91f01be8"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "fd9ba52848619e7c3bb093563925eb7dd138878c5e6f11ddacf2607a91f01be8"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "fd9ba52848619e7c3bb093563925eb7dd138878c5e6f11ddacf2607a91f01be8"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "fd9ba52848619e7c3bb093563925eb7dd138878c5e6f11ddacf2607a91f01be8"
+            }
+          ]
+        },
+        {
+          "id": "activation-lifetimes",
+          "interaction": "timeline",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "progress": 0,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  false,
+                  false
+                ],
+                "savedActivationCount": 1,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "577f7add6558026a544898ca111cf6ce88b20f48d67432ca30026661523fb62d"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "progress": 0.25,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  true,
+                  false
+                ],
+                "savedActivationCount": 2,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "eb43a79d3a37a52446463f966dc0565647c213e32bef29936f7000d9ec600caf"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "progress": 0.26,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  true,
+                  false
+                ],
+                "savedActivationCount": 2,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "c46234a03edcf054dcd642de926a84a55eb26e90bdcd8387592087511a3feb14"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "progress": 0.5,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  true,
+                  true
+                ],
+                "savedActivationCount": 3,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "22aea6429de9c2c32e4c3e05c8fa4193d796bbe7146ad8a86b94bdd8e827e03e"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "progress": 1,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  false,
+                  false,
+                  false
+                ],
+                "savedActivationCount": 0,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "55ebf688cb471843562c9cbfee87eff41d18a675ad90de4dbccbfdf4292809e4"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 60,
+        "rendered": 60,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "gradient-branches",
+          "interaction": "parameters",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "1277749075b4dfbabb056af75055e4dac738f8a574cc518c77966501e4dd6749"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "1277749075b4dfbabb056af75055e4dac738f8a574cc518c77966501e4dd6749"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "1277749075b4dfbabb056af75055e4dac738f8a574cc518c77966501e4dd6749"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "1277749075b4dfbabb056af75055e4dac738f8a574cc518c77966501e4dd6749"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "input": {
+                  "h": [
+                    1,
+                    -2
+                  ],
+                  "w": [
+                    2,
+                    1
+                  ],
+                  "y": 1,
+                  "lambda": 0.5
+                },
+                "output": 0,
+                "upstream": -1,
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "regularizationGradient": [
+                  1,
+                  0.5
+                ],
+                "totalGradient": [
+                  0,
+                  2.5
+                ]
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "1277749075b4dfbabb056af75055e4dac738f8a574cc518c77966501e4dd6749"
+            }
+          ]
+        },
+        {
+          "id": "activation-lifetimes",
+          "interaction": "timeline",
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "progress": 0,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  false,
+                  false
+                ],
+                "savedActivationCount": 1,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "23d2a994d70e21f456f9dcf92e64098a622c4c9ba1df23708fe5f67064a93481"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "progress": 0.25,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  true,
+                  false
+                ],
+                "savedActivationCount": 2,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "98c94bfeb958b8fa3938fcd781b47ae68005fb4d5ac405210a91b0a0ec10ab23"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "progress": 0.26,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  true,
+                  false
+                ],
+                "savedActivationCount": 2,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "ad844236299e7ed4e553fdf280f5cc7f5353cba77a2cc74252a43fcdaddfed39"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "progress": 0.5,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  true,
+                  true,
+                  true
+                ],
+                "savedActivationCount": 3,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "2443ea367265731188890cbe9607c61697d9fc04451fe364ea457044dabd31b5"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "progress": 1,
+                "activationIds": [
+                  "a₀",
+                  "a₁",
+                  "a₂"
+                ],
+                "births": [
+                  0,
+                  0.15,
+                  0.3
+                ],
+                "lastBackwardReads": [
+                  0.9,
+                  0.75,
+                  0.6
+                ],
+                "saved": [
+                  false,
+                  false,
+                  false
+                ],
+                "savedActivationCount": 0,
+                "schedule": "示意三层线性链；每个值最后一次读取后允许释放；不表示框架的实际内存分配或硬件时间"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "12a6b799e5c3eb66f651e00240ebfbd6284cc4a7caf55a50e97acc93050d7ca9"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-gradient-branches-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-gradient-branches-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-gradient-branches-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-gradient-branches-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-activation-lifetimes-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-activation-lifetimes-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-activation-lifetimes-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-gradient-branches-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-gradient-branches-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-gradient-branches-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-gradient-branches-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-activation-lifetimes-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-activation-lifetimes-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-activation-lifetimes-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/backprop-harness-phase3/preview-preview-03/375-page.png"
+  ],
+  "status": "completed",
+  "parameterAudit": {
+    "cases": 16,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  }
+}

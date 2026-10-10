@@ -1,0 +1,31 @@
+{
+  "checks": 5613,
+  "method": "Evaluate actual authored draw facts; independent scalar formulas, central finite differences, and sum of direct Gaussian log densities.",
+  "residual": {
+    "weight": 0.4,
+    "loss": 0.376,
+    "optimumWeight": 0.9800000000000001,
+    "minimumLoss": 0.039599999999999996
+  },
+  "update": {
+    "gradient": [
+      -1.9333333333333336,
+      -1.0333333333333334
+    ],
+    "end": [
+      0.78,
+      0.81
+    ],
+    "startLoss": 1.0316666666666667,
+    "endLoss": 0.09431666666666665,
+    "etaMaxEndLoss": 1.2455166666666673
+  },
+  "gaussian": {
+    "minimumBias": 1.2,
+    "minimumLoss": 0.08,
+    "maxIdentityError": 7.105427357601002e-15,
+    "biasSamples": 81,
+    "sigmaSamples": 15
+  },
+  "limits": "Deterministic illustrative data, no model training or performance benchmark; checking formulas does not validate pedagogy or aesthetics."
+}

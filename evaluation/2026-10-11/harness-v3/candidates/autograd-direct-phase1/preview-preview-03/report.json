@@ -1,0 +1,899 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/book.html",
+  "sha256": "1ac3c86957ade0c707ae8faf71edf895fe7f6111b71c2d6e5dd195d14d4e2045",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 14,
+        "rendered": 14,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "weighted-backward",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0,
+                "exactDeltaL": 0,
+                "tangentDeltaL": 0,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "9bd12d4deaaa95e5146750542d20af1e83b42db9d79484236ed356cc8c0d2513"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0.25,
+                "exactDeltaL": 1.0625,
+                "tangentDeltaL": 1,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "17643050c1af74a86d4238ea9b2c8f4f9515756401b8c178371e6862d613e153"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0.26,
+                "exactDeltaL": 1.1076000000000001,
+                "tangentDeltaL": 1.04,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "b6fa4b465f02004200ff24881243b1733efa341af63e306005b6f40f659eafaf"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0.5,
+                "exactDeltaL": 2.25,
+                "tangentDeltaL": 2,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "29ddf58711f18e7c2121735d0b2a4d55e1eb10afd345e68ebda2080832e2b246"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 1,
+                "exactDeltaL": 5,
+                "tangentDeltaL": 4,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "3f428802f5fc39ec705cca035bcd9a6830fdbd18e72607e4164ff831d237bb94"
+            }
+          ]
+        },
+        {
+          "id": "detach-paths",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0,
+                "fullIndirectSignalProgress": 0,
+                "detachedIndirectSignalProgress": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "fdde30446c0d6c3fe791c26d46c038a0d6ea309c1182c80204ed76b18dbdae4a"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0.25,
+                "fullIndirectSignalProgress": 0.25,
+                "detachedIndirectSignalProgress": 0.25
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "86942678ac15614387f9b5cc8d0916036ecb3af4b8c0c82bb0d8c5f286c54540"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0.26,
+                "fullIndirectSignalProgress": 0.26,
+                "detachedIndirectSignalProgress": 0.26
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "98a9c254d657bf106befb1664bc1ac9b7c9ab413255253fcd52190f0971dca20"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0.5,
+                "fullIndirectSignalProgress": 0.5,
+                "detachedIndirectSignalProgress": 0.5
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "8b9cdaa4947a4582f70f441458cc575d6e12164a3eab0a4b051dfbff74f945f5"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 1,
+                "fullIndirectSignalProgress": 1,
+                "detachedIndirectSignalProgress": 0.5
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "444e36616f0f3431fbff7dc37e8bf5a4ca1b3d986bad7d0a4abb901f4f92fb82"
+            }
+          ]
+        },
+        {
+          "id": "executed-branch",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "a": 230,
+                "probeInput": 230,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1840,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "27438935d49ccc9dde7d443614c0c307ebf479023df6c2f36f8843f9e000cc50"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "a": 230,
+                "probeInput": 237.5,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1900,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1900,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "59362a0c37d92b44851a3dcf6a10e7ba5e0cb0c80318a64e4bce6a09f09ae6f9"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "a": 230,
+                "probeInput": 237.8,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1902.4,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1902.4,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "84018d9af1fad2b23a37b5c00b1b8b94d25e4792c69282e925ab6bf62f15dd71"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "a": 230,
+                "probeInput": 245,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1960,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1960,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "8023b111f7bfa1986aa9e39a1caf00b1236d742dd29e446a1b3d015f793f5432"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "a": 230,
+                "probeInput": 260,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1040,
+                  "k": 4,
+                  "multiplications": 2,
+                  "whileIterations": 1
+                },
+                "baseGraphExtrapolation": 2080,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "dd13682fc19614223ad57a12bf45af01d2194fb8b6719776ec64068f81d291e9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 14,
+        "rendered": 14,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "weighted-backward",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0,
+                "exactDeltaL": 0,
+                "tangentDeltaL": 0,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "6b96466a2a6313e9e93a61ec0ca5b91402a72e35b197b8c6826e3c9fcfe91161"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0.25,
+                "exactDeltaL": 1.0625,
+                "tangentDeltaL": 1,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "5d1ee8ba8b83b0f212d901ffc0393c89ca634a8fd9784192ab67e50359423c44"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0.26,
+                "exactDeltaL": 1.1076000000000001,
+                "tangentDeltaL": 1.04,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "d529b1a4a4107a7c99b86edce58238c039ae66446b7ca3dba0715cdd24d5e0ea"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 0.5,
+                "exactDeltaL": 2.25,
+                "tangentDeltaL": 2,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "c16d733b00677ee26260dc4aa54a362656ceacd227789a562f65bcb1c38fd269"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "seed": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "gradient": [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                "delta": 1,
+                "exactDeltaL": 5,
+                "tangentDeltaL": 4,
+                "tangentSlope": 4
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "0d2e7ea2d63ceacaf988d1bc3cf26b65bc1af07495c30353807b0449903afb62"
+            }
+          ]
+        },
+        {
+          "id": "detach-paths",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0,
+                "fullIndirectSignalProgress": 0,
+                "detachedIndirectSignalProgress": 0
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "607b25a582c3d4225eb70bf883f08885aa33ec2997a71b38c3409d931f5b870a"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0.25,
+                "fullIndirectSignalProgress": 0.25,
+                "detachedIndirectSignalProgress": 0.25
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "87ee89d03c89701b5cbb12d88ce9e881861e38409ed09a8cc1b79e110795c8e3"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0.26,
+                "fullIndirectSignalProgress": 0.26,
+                "detachedIndirectSignalProgress": 0.26
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "5a5ff07f2f0f5e5bd961f3794f808931df4a20add8583d2615bde336af67dd17"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 0.5,
+                "fullIndirectSignalProgress": 0.5,
+                "detachedIndirectSignalProgress": 0.5
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "180885cf2620ca5a299885d7a3c2f621173d27f1e02ae25c6f7e923277cefc8c"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "x": 2,
+                "y": 4,
+                "u": 4,
+                "z": 8,
+                "fullGradient": 12,
+                "detachedGradient": 4,
+                "directContribution": 4,
+                "indirectContribution": 8,
+                "progress": 1,
+                "fullIndirectSignalProgress": 1,
+                "detachedIndirectSignalProgress": 0.5
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "f4e6562d411d8960aa82bc0edb683c74eaf3504bd150a7bd69e9f94e59c18b3a"
+            }
+          ]
+        },
+        {
+          "id": "executed-branch",
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "a": 230,
+                "probeInput": 230,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1840,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "193205f0111092612b1254c11268570ca6e4be11c2bc6359b09c44403c1303bf"
+            },
+            {
+              "progress": 0.25,
+              "facts": {
+                "a": 230,
+                "probeInput": 237.5,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1900,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1900,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "7725ac7613af560d02055eb202e29d05d706fea1fa0b24a7978856a38a0ea13d"
+            },
+            {
+              "progress": 0.26,
+              "facts": {
+                "a": 230,
+                "probeInput": 237.8,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1902.4,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1902.4,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "95460d91b453f78da7bba57b853a4834f2ab117b1dde1fa87253117e0dd5ad2b"
+            },
+            {
+              "progress": 0.5,
+              "facts": {
+                "a": 230,
+                "probeInput": 245,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1960,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "baseGraphExtrapolation": 1960,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "5411f2a419bf1d286981defc28752547dfd3153d48de5efae73f1adb8be7d99b"
+            },
+            {
+              "progress": 1,
+              "facts": {
+                "a": 230,
+                "probeInput": 260,
+                "base": {
+                  "value": 1840,
+                  "k": 8,
+                  "multiplications": 3,
+                  "whileIterations": 2
+                },
+                "probe": {
+                  "value": 1040,
+                  "k": 4,
+                  "multiplications": 2,
+                  "whileIterations": 1
+                },
+                "baseGraphExtrapolation": 2080,
+                "atDiscontinuity": false,
+                "mathematicalDerivative": 8,
+                "probeAtDiscontinuity": false
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "svgHash": "1b310c693e5643a8e24f87b3d4e24e20713b6d003eb1ff99e85a8056f70c95d5"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-weighted-backward-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-weighted-backward-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-weighted-backward-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-weighted-backward-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-detach-paths-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-detach-paths-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-detach-paths-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-executed-branch-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-executed-branch-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-executed-branch-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-weighted-backward-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-weighted-backward-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-weighted-backward-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-weighted-backward-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-detach-paths-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-detach-paths-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-detach-paths-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-executed-branch-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-executed-branch-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-executed-branch-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/autograd-direct-phase1/preview-preview-03/375-page.png"
+  ],
+  "parameterAudit": {
+    "cases": 36,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  }
+}

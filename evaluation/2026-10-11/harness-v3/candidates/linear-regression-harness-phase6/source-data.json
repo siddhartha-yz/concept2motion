@@ -1,0 +1,1417 @@
+{
+  "id": "linear-regression",
+  "title": "线性回归",
+  "sourceName": "《动手学深度学习》",
+  "source": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/inputs/linear-regression/chapter.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_linear-networks/linear-regression.html",
+  "sourceSha256": "778cfb8dfab0bb6407be2882883ecccc8bf5fa988895fc1b0d5c9af8b2283bed",
+  "adaptedSha256": "778cfb8dfab0bb6407be2882883ecccc8bf5fa988895fc1b0d5c9af8b2283bed",
+  "license": "Apache-2.0",
+  "adaptation": {
+    "images": 3,
+    "mathExpected": 113,
+    "mathRendered": 113
+  },
+  "blocks": [
+    {
+      "id": "linear-regression-001",
+      "sha256": "72cc733526961a5c347d5712696674e2792b1d347992db45a4c14991d2d9dda6",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 线性回归",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-002",
+      "sha256": "66d3c29edec1af231de0d9c1c64195d067d1ffea7fff8e931bcdfc2556bea725",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "*回归*（regression）是能为一个或多个自变量与因变量之间关系建模的一类方法。\n在自然科学和社会科学领域，回归经常用来表示输入和输出之间的关系。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-003",
+      "sha256": "1fb08b2fb0afcf57e4f123b530a5820f8993e679709652cc9ec42a3b62b226b9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 6,
+      "raw": "在机器学习领域中的大多数任务通常都与*预测*（prediction）有关。\n当我们想预测一个数值时，就会涉及到回归问题。\n常见的例子包括：预测价格（房屋、股票等）、预测住院时间（针对住院病人等）、\n预测需求（零售销量等）。\n但不是所有的*预测*都是回归问题。\n在后面的章节中，我们将介绍分类问题。分类问题的目标是预测数据属于一组类别中的哪一个。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-004",
+      "sha256": "ad6839f8e408a7bfdbd85a277ead43962a43f0444de993c8bac35ea44f02cd75",
+      "type": "heading",
+      "depth": 2,
+      "line": 13,
+      "raw": "## 线性回归的基本元素",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-005",
+      "sha256": "cc3e5440a17a49c7c9201de92b17b20d34c6580e33b87cbbac6b79db09e6d1eb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 15,
+      "raw": "*线性回归*（linear regression）可以追溯到19世纪初，\n它在回归的各种标准工具中最简单而且最流行。\n线性回归基于几个简单的假设：\n首先，假设自变量$\\mathbf{x}$和因变量$y$之间的关系是线性的，\n即$y$可以表示为$\\mathbf{x}$中元素的加权和，这里通常允许包含观测值的一些噪声；\n其次，我们假设任何噪声都比较正常，如噪声遵循正态分布。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-006",
+      "sha256": "3e865885de0f3fb7da3c7a8f723e5e4f09f492712ddc51e2b8a6f034db6a1c69",
+      "type": "paragraph",
+      "depth": null,
+      "line": 22,
+      "raw": "为了解释*线性回归*，我们举一个实际的例子：\n我们希望根据房屋的面积（平方英尺）和房龄（年）来估算房屋价格（美元）。\n为了开发一个能预测房价的模型，我们需要收集一个真实的数据集。\n这个数据集包括了房屋的销售价格、面积和房龄。\n在机器学习的术语中，该数据集称为*训练数据集*（training data set）\n或*训练集*（training set）。\n每行数据（比如一次房屋交易相对应的数据）称为*样本*（sample），\n也可以称为*数据点*（data point）或*数据样本*（data instance）。\n我们把试图预测的目标（比如预测房屋价格）称为*标签*（label）或*目标*（target）。\n预测所依据的自变量（面积和房龄）称为*特征*（feature）或*协变量*（covariate）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-007",
+      "sha256": "0c92fff106fded1cd28a7e4eef8adfd5e4e0bd73e228c663aa446bb084d15d17",
+      "type": "paragraph",
+      "depth": null,
+      "line": 33,
+      "raw": "通常，我们使用$n$来表示数据集中的样本数。\n对索引为$i$的样本，其输入表示为$\\mathbf{x}^{(i)} = [x_1^{(i)}, x_2^{(i)}]^\\top$，\n其对应的标签是$y^{(i)}$。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-008",
+      "sha256": "7c6d9227c6c997bcfd2efa61466dd30748e84707dbb527bad8cb7ab6078677e8",
+      "type": "heading",
+      "depth": 3,
+      "line": 37,
+      "raw": "### 线性模型",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-009",
+      "sha256": "46e578eaea24b37ea4b7dbc11a15d6eb19d3b463c61a270d7c495b5432949b9b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 39,
+      "raw": "线性假设是指目标（房屋价格）可以表示为特征（面积和房龄）的加权和，如下面的式子：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-010",
+      "sha256": "c977e131c81ad3d9b6bbaba4f72ae185fdcc56f8ab840601a2dce21486704f62",
+      "type": "paragraph",
+      "depth": null,
+      "line": 41,
+      "raw": "$$\\mathrm{price} = w_{\\mathrm{area}} \\cdot \\mathrm{area} + w_{\\mathrm{age}} \\cdot \\mathrm{age} + b.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-011",
+      "sha256": "c996fc4059d9a3b3b0bee10d173fb969a6984defea3627c8e4f443f0301ed2ac",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43,
+      "raw": "[原文引用：eq_price-area](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)中的$w_{\\mathrm{area}}$和$w_{\\mathrm{age}}$\n称为*权重*（weight），权重决定了每个特征对我们预测值的影响。\n$b$称为*偏置*（bias）、*偏移量*（offset）或*截距*（intercept）。\n偏置是指当所有特征都取值为0时，预测值应该为多少。\n即使现实中不会有任何房子的面积是0或房龄正好是0年，我们仍然需要偏置项。\n如果没有偏置项，我们模型的表达能力将受到限制。\n严格来说， [原文引用：eq_price-area](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)是输入特征的一个\n*仿射变换*（affine transformation）。\n仿射变换的特点是通过加权和对特征进行*线性变换*（linear transformation），\n并通过偏置项来进行*平移*（translation）。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-012",
+      "sha256": "4117799dbc9a2b5f67da1d9c77dc2e8bd6aa75e86253069bda5c49045b43b2c8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 54,
+      "raw": "给定一个数据集，我们的目标是寻找模型的权重$\\mathbf{w}$和偏置$b$，\n使得根据模型做出的预测大体符合数据里的真实价格。\n输出的预测值由输入特征通过*线性模型*的仿射变换决定，仿射变换由所选权重和偏置确定。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-013",
+      "sha256": "5a677929c375d3c9e57cbb6b11775df63b86b501c99a0b0e37fa184b76d30661",
+      "type": "paragraph",
+      "depth": null,
+      "line": 58,
+      "raw": "而在机器学习领域，我们通常使用的是高维数据集，建模时采用线性代数表示法会比较方便。\n当我们的输入包含$d$个特征时，我们将预测结果$\\hat{y}$\n（通常使用“尖角”符号表示$y$的估计值）表示为：",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-014",
+      "sha256": "9dac07e9ac95807d61079324ec458996124c0ef04c6a24bee582d4edf063e297",
+      "type": "paragraph",
+      "depth": null,
+      "line": 62,
+      "raw": "$$\\hat{y} = w_1  x_1 + ... + w_d  x_d + b.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-015",
+      "sha256": "adbbf71201b0f8eb5a491343154f6ed12ae7237834946cc65abbf4f87657eb89",
+      "type": "paragraph",
+      "depth": null,
+      "line": 64,
+      "raw": "将所有特征放到向量$\\mathbf{x} \\in \\mathbb{R}^d$中，\n并将所有权重放到向量$\\mathbf{w} \\in \\mathbb{R}^d$中，\n我们可以用点积形式来简洁地表达模型：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-016",
+      "sha256": "64fda2d38bf261d3a74a92f4949e28741a0c72da4abefa540fcb21c2dc9c31f0",
+      "type": "paragraph",
+      "depth": null,
+      "line": 68,
+      "raw": "$$\\hat{y} = \\mathbf{w}^\\top \\mathbf{x} + b.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-017",
+      "sha256": "32294b9a378f733c88392a1ace5b1cc64919b7c77aac2985677bedb3e3b5ca98",
+      "type": "paragraph",
+      "depth": null,
+      "line": 70,
+      "raw": "在 [原文引用：eq_linreg-y](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)中，\n向量$\\mathbf{x}$对应于单个数据样本的特征。\n用符号表示的矩阵$\\mathbf{X} \\in \\mathbb{R}^{n \\times d}$\n可以很方便地引用我们整个数据集的$n$个样本。\n其中，$\\mathbf{X}$的每一行是一个样本，每一列是一种特征。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-018",
+      "sha256": "7e9f19fb2e316832fef600145467d8295c98dcb330546e8e7b9ebb2c4ae89039",
+      "type": "paragraph",
+      "depth": null,
+      "line": 76,
+      "raw": "对于特征集合$\\mathbf{X}$，预测值$\\hat{\\mathbf{y}} \\in \\mathbb{R}^n$\n可以通过矩阵-向量乘法表示为：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-019",
+      "sha256": "c62abfc68092fd0cc3c5a0c79d1ec165bc374ea1d2ecfffe0f6b9c8e0ad2d2c8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 79,
+      "raw": "$${\\hat{\\mathbf{y}}} = \\mathbf{X} \\mathbf{w} + b$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-020",
+      "sha256": "d9885cdba1010c6169dc5f7ef37d6460dd74ec563957c4f01bf28b6a668ccae1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 81,
+      "raw": "这个过程中的求和将使用广播机制\n（广播机制在 [原文引用：subsec_broadcasting](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)中有详细介绍）。\n给定训练数据特征$\\mathbf{X}$和对应的已知标签$\\mathbf{y}$，\n线性回归的目标是找到一组权重向量$\\mathbf{w}$和偏置$b$：\n当给定从$\\mathbf{X}$的同分布中取样的新样本特征时，\n这组权重向量和偏置能够使得新样本预测标签的误差尽可能小。",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-021",
+      "sha256": "a40b9d166ed9a72b8a06557a59530dea9cb7fd94fd9e5fc36de4170d0206f640",
+      "type": "paragraph",
+      "depth": null,
+      "line": 88,
+      "raw": "虽然我们相信给定$\\mathbf{x}$预测$y$的最佳模型会是线性的，\n但我们很难找到一个有$n$个样本的真实数据集，其中对于所有的$1 \\leq i \\leq n$，$y^{(i)}$完全等于$\\mathbf{w}^\\top \\mathbf{x}^{(i)}+b$。\n无论我们使用什么手段来观察特征$\\mathbf{X}$和标签$\\mathbf{y}$，\n都可能会出现少量的观测误差。\n因此，即使确信特征与标签的潜在关系是线性的，\n我们也会加入一个噪声项来考虑观测误差带来的影响。",
+      "math": {
+        "expected": 8,
+        "rendered": 8,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-022",
+      "sha256": "de087f6ed31bc64ca93470916bf3c25592dd4171dc4642519a72c10d5615e1a3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 95,
+      "raw": "在开始寻找最好的*模型参数*（model parameters）$\\mathbf{w}$和$b$之前，\n我们还需要两个东西：\n（1）一种模型质量的度量方式；\n（2）一种能够更新模型以提高模型预测质量的方法。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-023",
+      "sha256": "2df6890756cc524de06373d78ed0c7b129005093ede85e9f455386354a8800f7",
+      "type": "heading",
+      "depth": 3,
+      "line": 100,
+      "raw": "### 损失函数",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-024",
+      "sha256": "f05f920d1f842fa17e5ae5a2adf81e2efefd11d51d3cbafed854bf91223d0aa2",
+      "type": "paragraph",
+      "depth": null,
+      "line": 102,
+      "raw": "在我们开始考虑如何用模型*拟合*（fit）数据之前，我们需要确定一个拟合程度的度量。\n*损失函数*（loss function）能够量化目标的*实际*值与*预测*值之间的差距。\n通常我们会选择非负数作为损失，且数值越小表示损失越小，完美预测时的损失为0。\n回归问题中最常用的损失函数是平方误差函数。\n当样本$i$的预测值为$\\hat{y}^{(i)}$，其相应的真实标签为$y^{(i)}$时，\n平方误差可以定义为以下公式：",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-025",
+      "sha256": "c5fdce3b4fa7f2ccbbe0510f96d3c8dee6120ad200c79c0519860b6f449895ae",
+      "type": "paragraph",
+      "depth": null,
+      "line": 109,
+      "raw": "$$l^{(i)}(\\mathbf{w}, b) = \\frac{1}{2} \\left(\\hat{y}^{(i)} - y^{(i)}\\right)^2.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-026",
+      "sha256": "41f1d56bf615041e37de2975d182f5a49d3294ffb16d2d9227388004ee1ba0b8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 111,
+      "raw": "常数$\\frac{1}{2}$不会带来本质的差别，但这样在形式上稍微简单一些\n（因为当我们对损失函数求导后常数系数为1）。\n由于训练数据集并不受我们控制，所以经验误差只是关于模型参数的函数。\n为了进一步说明，来看下面的例子。\n我们为一维情况下的回归问题绘制图像，如 [原文引用：fig_fit_linreg](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)所示。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-027",
+      "sha256": "9a417fa6035833e125e3a5e7c33004e7b3c0ad5f6af80770e0fa81a4c30055d1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 117,
+      "raw": "![用线性模型拟合数据。](assets/fit-linreg.svg)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-028",
+      "sha256": "a41a0cdf35771f00db504e82eab561dca98a52bb2cb4e4d719a53720c04e141a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 119,
+      "raw": "由于平方误差函数中的二次方项，\n估计值$\\hat{y}^{(i)}$和观测值$y^{(i)}$之间较大的差异将导致更大的损失。\n为了度量模型在整个数据集上的质量，我们需计算在训练集$n$个样本上的损失均值（也等价于求和）。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-029",
+      "sha256": "100aeacb16799e878583b00c600001e389eaf9f42af152d8b0e9729345abc4a9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 123,
+      "raw": "$$L(\\mathbf{w}, b) =\\frac{1}{n}\\sum_{i=1}^n l^{(i)}(\\mathbf{w}, b) =\\frac{1}{n} \\sum_{i=1}^n \\frac{1}{2}\\left(\\mathbf{w}^\\top \\mathbf{x}^{(i)} + b - y^{(i)}\\right)^2.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-030",
+      "sha256": "ce9993c0be6b961dfdcda37d42884bae1742ad999c47be8f0109ad1156cd3fb0",
+      "type": "paragraph",
+      "depth": null,
+      "line": 125,
+      "raw": "在训练模型时，我们希望寻找一组参数（$\\mathbf{w}^*, b^*$），\n这组参数能最小化在所有训练样本上的总损失。如下式：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-031",
+      "sha256": "39b5aaa1fb6deeff6e4fadce02b1dea40c625ac0ce1359d1dd0dbf7ae5f66142",
+      "type": "paragraph",
+      "depth": null,
+      "line": 128,
+      "raw": "$$\\mathbf{w}^*, b^* = \\operatorname*{argmin}_{\\mathbf{w}, b}\\  L(\\mathbf{w}, b).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-032",
+      "sha256": "f153503c71a15052e1d5cf082d4bac4734bf4efbc52c507d29c06a2865293648",
+      "type": "heading",
+      "depth": 3,
+      "line": 130,
+      "raw": "### 解析解",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-033",
+      "sha256": "16bfe1ed9b9fe1fb6e6ba56aa3d191ba7d3875ba03f8305320d8b9247590ea18",
+      "type": "paragraph",
+      "depth": null,
+      "line": 132,
+      "raw": "线性回归刚好是一个很简单的优化问题。\n与我们将在本书中所讲到的其他大部分模型不同，线性回归的解可以用一个公式简单地表达出来，\n这类解叫作解析解（analytical solution）。\n首先，我们将偏置$b$合并到参数$\\mathbf{w}$中，合并方法是在包含所有参数的矩阵中附加一列。\n我们的预测问题是最小化$\\|\\mathbf{y} - \\mathbf{X}\\mathbf{w}\\|^2$。\n这在损失平面上只有一个临界点，这个临界点对应于整个区域的损失极小点。\n将损失关于$\\mathbf{w}$的导数设为0，得到解析解：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-034",
+      "sha256": "7eabe2431f2de79a6f33adf17a0d8604350e2bbaba507c007ba7b72f3b2b8b87",
+      "type": "paragraph",
+      "depth": null,
+      "line": 140,
+      "raw": "$$\\mathbf{w}^* = (\\mathbf X^\\top \\mathbf X)^{-1}\\mathbf X^\\top \\mathbf{y}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-035",
+      "sha256": "4181239624539457dac386a1379746eedb076b7682663c01e66587e38f5c78c5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 142,
+      "raw": "像线性回归这样的简单问题存在解析解，但并不是所有的问题都存在解析解。\n解析解可以进行很好的数学分析，但解析解对问题的限制很严格，导致它无法广泛应用在深度学习里。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-036",
+      "sha256": "2e1d1ac85cde316a9253d3a5df8ee9855de57769868891f1a0727cee4ce47a0f",
+      "type": "heading",
+      "depth": 3,
+      "line": 145,
+      "raw": "### 随机梯度下降",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-037",
+      "sha256": "122b4a4767ed28bd5d76d765c06f9f78fe321a592a3c205f9c880412e7ea2b8b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 147,
+      "raw": "即使在我们无法得到解析解的情况下，我们仍然可以有效地训练模型。\n在许多任务上，那些难以优化的模型效果要更好。\n因此，弄清楚如何训练这些难以优化的模型是非常重要的。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-038",
+      "sha256": "b37ff543c6d5920d41f383e45a36edb7c84ac0225ab56a66d312c973817d1666",
+      "type": "paragraph",
+      "depth": null,
+      "line": 151,
+      "raw": "本书中我们用到一种名为*梯度下降*（gradient descent）的方法，\n这种方法几乎可以优化所有深度学习模型。\n它通过不断地在损失函数递减的方向上更新参数来降低误差。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-039",
+      "sha256": "ff52b2369632ed2ac97cc67d43a32f5753fca508268d9c6eea934ed9f7d4904e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 155,
+      "raw": "梯度下降最简单的用法是计算损失函数（数据集中所有样本的损失均值）\n关于模型参数的导数（在这里也可以称为梯度）。\n但实际中的执行可能会非常慢：因为在每一次更新参数之前，我们必须遍历整个数据集。\n因此，我们通常会在每次需要计算更新的时候随机抽取一小批样本，\n这种变体叫做*小批量随机梯度下降*（minibatch stochastic gradient descent）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-040",
+      "sha256": "dcc157a293ea3b99e75fa95652d501a86d8294f01ad4a7e6d51ec44900b8c7ed",
+      "type": "paragraph",
+      "depth": null,
+      "line": 161,
+      "raw": "在每次迭代中，我们首先随机抽样一个小批量$\\mathcal{B}$，\n它是由固定数量的训练样本组成的。\n然后，我们计算小批量的平均损失关于模型参数的导数（也可以称为梯度）。\n最后，我们将梯度乘以一个预先确定的正数$\\eta$，并从当前参数的值中减掉。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-041",
+      "sha256": "413d1bf8ab43b3b82c30afbe19a3f03dfcb653abcb55eff7fbae1f26537bc50e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 166,
+      "raw": "我们用下面的数学公式来表示这一更新过程（$\\partial$表示偏导数）：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-042",
+      "sha256": "bc3c528341a7e511c8e09bb68accd641f981129be89292e2cfc23dee4e74d184",
+      "type": "paragraph",
+      "depth": null,
+      "line": 168,
+      "raw": "$$(\\mathbf{w},b) \\leftarrow (\\mathbf{w},b) - \\frac{\\eta}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} \\partial_{(\\mathbf{w},b)} l^{(i)}(\\mathbf{w},b).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-043",
+      "sha256": "f344a34af6e53fdf14d1960f152b37e24e82d86a1a35e145886306bc4843cdf6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 170,
+      "raw": "总结一下，算法的步骤如下：\n（1）初始化模型参数的值，如随机初始化；\n（2）从数据集中随机抽取小批量样本且在负梯度的方向上更新参数，并不断迭代这一步骤。\n对于平方损失和仿射变换，我们可以明确地写成如下形式:",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-044",
+      "sha256": "6558c1dfb3abcfa7853961dec763a9d41da15419bef2ac29b1d7f61657baea7e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 175,
+      "raw": "$$\\begin{aligned} \\mathbf{w} &\\leftarrow \\mathbf{w} -   \\frac{\\eta}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} \\partial_{\\mathbf{w}} l^{(i)}(\\mathbf{w}, b) = \\mathbf{w} - \\frac{\\eta}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} \\mathbf{x}^{(i)} \\left(\\mathbf{w}^\\top \\mathbf{x}^{(i)} + b - y^{(i)}\\right),\\\\ b &\\leftarrow b -  \\frac{\\eta}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} \\partial_b l^{(i)}(\\mathbf{w}, b)  = b - \\frac{\\eta}{|\\mathcal{B}|} \\sum_{i \\in \\mathcal{B}} \\left(\\mathbf{w}^\\top \\mathbf{x}^{(i)} + b - y^{(i)}\\right). \\end{aligned}$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-045",
+      "sha256": "b35267b73030040fd18a630746839c4c7ac901a8df265f3ebd9b111b22c8d13d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 177,
+      "raw": "公式 [原文引用：eq_linreg_batch_update](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)中的$\\mathbf{w}$和$\\mathbf{x}$都是向量。\n在这里，更优雅的向量表示法比系数表示法（如$w_1, w_2, \\ldots, w_d$）更具可读性。\n$|\\mathcal{B}|$表示每个小批量中的样本数，这也称为*批量大小*（batch size）。\n$\\eta$表示*学习率*（learning rate）。\n批量大小和学习率的值通常是手动预先指定，而不是通过模型训练得到的。\n这些可以调整但不在训练过程中更新的参数称为*超参数*（hyperparameter）。\n*调参*（hyperparameter tuning）是选择超参数的过程。\n超参数通常是我们根据训练迭代结果来调整的，\n而训练迭代结果是在独立的*验证数据集*（validation dataset）上评估得到的。",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-046",
+      "sha256": "4504d8558ed1a03cef2340036b4caaf3b61b1a120ce625a143f06a08a1a7497b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 187,
+      "raw": "在训练了预先确定的若干迭代次数后（或者直到满足某些其他停止条件后），\n我们记录下模型参数的估计值，表示为$\\hat{\\mathbf{w}}, \\hat{b}$。\n但是，即使我们的函数确实是线性的且无噪声，这些估计值也不会使损失函数真正地达到最小值。\n因为算法会使得损失向最小值缓慢收敛，但却不能在有限的步数内非常精确地达到最小值。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-047",
+      "sha256": "2c1623e42c9597572209a4dbb62c45dba47bd78452340bcaee499a0d6b8ef5c5",
+      "type": "paragraph",
+      "depth": null,
+      "line": 192,
+      "raw": "线性回归恰好是一个在整个域中只有一个最小值的学习问题。\n但是对像深度神经网络这样复杂的模型来说，损失平面上通常包含多个最小值。\n深度学习实践者很少会去花费大力气寻找这样一组参数，使得在*训练集*上的损失达到最小。\n事实上，更难做到的是找到一组参数，这组参数能够在我们从未见过的数据上实现较低的损失，\n这一挑战被称为*泛化*（generalization）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-048",
+      "sha256": "d411de53011b0fb463ae66100e5241dff89f54eedfce853bb0bde9e01fed2d09",
+      "type": "heading",
+      "depth": 3,
+      "line": 198,
+      "raw": "### 用模型进行预测",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-049",
+      "sha256": "c3dc69b97532cdf36a5ef3f5cfbae23364034c2b694184a8c1c224bdf41d56fb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 200,
+      "raw": "给定“已学习”的线性回归模型$\\hat{\\mathbf{w}}^\\top \\mathbf{x} + \\hat{b}$，\n现在我们可以通过房屋面积$x_1$和房龄$x_2$来估计一个（未包含在训练数据中的）新房屋价格。\n给定特征估计目标的过程通常称为*预测*（prediction）或*推断*（inference）。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-050",
+      "sha256": "71a7306332acba16003834deaa0dfeb0325edf0289f64488ceb7e66dd894377b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 204,
+      "raw": "本书将尝试坚持使用*预测*这个词。\n虽然*推断*这个词已经成为深度学习的标准术语，但其实*推断*这个词有些用词不当。\n在统计学中，*推断*更多地表示基于数据集估计参数。\n当深度学习从业者与统计学家交谈时，术语的误用经常导致一些误解。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-051",
+      "sha256": "a62b86547640db712f7dc99366d8681b90e39866b458132f8e2634ebfa8bdc9c",
+      "type": "heading",
+      "depth": 2,
+      "line": 209,
+      "raw": "## 矢量化加速",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-052",
+      "sha256": "255edce6e224268449a712e9019a868b9a7a0815ecca576a9328c8f4857973ec",
+      "type": "paragraph",
+      "depth": null,
+      "line": 211,
+      "raw": "在训练我们的模型时，我们经常希望能够同时处理整个小批量的样本。\n为了实现这一点，需要**我们对计算进行矢量化，\n从而利用线性代数库，而不是在Python中编写开销高昂的for循环**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-053",
+      "sha256": "36bba84a28e0109fc8110b83e4558c678ec0bed3f3507f09f8f8d97b9dd0c18c",
+      "type": "code",
+      "depth": null,
+      "line": 223,
+      "raw": "```python\n%matplotlib inline\nfrom d2l import torch as d2l\nimport math\nimport torch\nimport numpy as np\nimport time\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-054",
+      "sha256": "41c5ea6e2290d1a4bc90a4e7642b7f5b2f5bfa096f9cd56b8a939425c115446b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 254,
+      "raw": "为了说明矢量化为什么如此重要，我们考虑**对向量相加的两种方法**。\n我们实例化两个全为1的10000维向量。\n在一种方法中，我们将使用Python的for循环遍历向量；\n在另一种方法中，我们将依赖对`+`的调用。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-055",
+      "sha256": "57db45bb1e330f05805368e3a5ba66b1ca31d5a756d0d3783b2aff6a4f04ef0d",
+      "type": "code",
+      "depth": null,
+      "line": 259,
+      "raw": "```python\nn = 10000\na = d2l.ones([n])\nb = d2l.ones([n])\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-056",
+      "sha256": "a5424def3f60b61b10785134a8fa5ded26b9858949dc144fde6919aa8996f3c8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 265,
+      "raw": "由于在本书中我们将频繁地进行运行时间的基准测试，所以**我们定义一个计时器**：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-057",
+      "sha256": "1e08b356e25880d90ec08a12889b1303a2d40e3110633aee38ffd0bb5bc49935",
+      "type": "code",
+      "depth": null,
+      "line": 267,
+      "raw": "```python\nclass Timer:  #@save\n    \"\"\"记录多次运行时间\"\"\"\n    def __init__(self):\n        self.times = []\n        self.start()\n\n    def start(self):\n        \"\"\"启动计时器\"\"\"\n        self.tik = time.time()\n\n    def stop(self):\n        \"\"\"停止计时器并将时间记录在列表中\"\"\"\n        self.times.append(time.time() - self.tik)\n        return self.times[-1]\n\n    def avg(self):\n        \"\"\"返回平均时间\"\"\"\n        return sum(self.times) / len(self.times)\n\n    def sum(self):\n        \"\"\"返回时间总和\"\"\"\n        return sum(self.times)\n\n    def cumsum(self):\n        \"\"\"返回累计时间\"\"\"\n        return np.array(self.times).cumsum().tolist()\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-058",
+      "sha256": "65537d76ca0d5a2dc076eb9863dfdb0b2b3cc74534ba11307967d97bbedd973f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 296,
+      "raw": "现在我们可以对工作负载进行基准测试。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-059",
+      "sha256": "8d114c65e3b719ef65f487d72aaec6b3f316a405696c75da994340eba2d3a79f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 298,
+      "raw": "首先，**我们使用for循环，每次执行一位的加法**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-060",
+      "sha256": "e0d64283458fb92e6a7e2b0ed4bdcac480a39a82df76d4a973c1b224df68a991",
+      "type": "code",
+      "depth": null,
+      "line": 300,
+      "raw": "```python\nc = d2l.zeros(n)\ntimer = Timer()\nfor i in range(n):\n    c[i] = a[i] + b[i]\nf'{timer.stop():.5f} sec'\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-061",
+      "sha256": "c28624680bc9f8f39fd67007b9b98afa6a2d277a241d1aeddcec70b624cb25ed",
+      "type": "paragraph",
+      "depth": null,
+      "line": 326,
+      "raw": "**或者，我们使用重载的`+`运算符来计算按元素的和**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-062",
+      "sha256": "dc84285309a5434c4929ca8c352278507ac76d036091b252dd23fe3b43c87644",
+      "type": "code",
+      "depth": null,
+      "line": 328,
+      "raw": "```python\ntimer.start()\nd = a + b\nf'{timer.stop():.5f} sec'\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-063",
+      "sha256": "94cd00b3d9e635c8ed77ea1551a3243080961e26601724101e81ccc2764176a7",
+      "type": "paragraph",
+      "depth": null,
+      "line": 334,
+      "raw": "结果很明显，第二种方法比第一种方法快得多。\n矢量化代码通常会带来数量级的加速。\n另外，我们将更多的数学运算放到库中，而无须自己编写那么多的计算，从而减少了出错的可能性。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-064",
+      "sha256": "0a98fcab0ede5f92fb7b1c8fb0c639b6ab6296abd01db05eccacd86c17828d3e",
+      "type": "heading",
+      "depth": 2,
+      "line": 338,
+      "raw": "## 正态分布与平方损失",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-065",
+      "sha256": "257d2eb52e2335a918fbb6130c9cca8e2de357e2fe733e5cd2462b95c358b3be",
+      "type": "paragraph",
+      "depth": null,
+      "line": 340,
+      "raw": "接下来，我们通过对噪声分布的假设来解读平方损失目标函数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-066",
+      "sha256": "e31e22a5d2a50d97ba9790772e52b711d8430b0ced9c6cb0a1d47619b1b3f0d3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 342,
+      "raw": "正态分布和线性回归之间的关系很密切。\n正态分布（normal distribution），也称为*高斯分布*（Gaussian distribution），\n最早由德国数学家高斯（Gauss）应用于天文学研究。\n简单的说，若随机变量$x$具有均值$\\mu$和方差$\\sigma^2$（标准差$\\sigma$），其正态分布概率密度函数如下：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-067",
+      "sha256": "8fb5cbbe8955e20257788889fe13496ebd9018811d2463d5e1fff688c137d369",
+      "type": "paragraph",
+      "depth": null,
+      "line": 347,
+      "raw": "$$p(x) = \\frac{1}{\\sqrt{2 \\pi \\sigma^2}} \\exp\\left(-\\frac{1}{2 \\sigma^2} (x - \\mu)^2\\right).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-068",
+      "sha256": "0ab15168da0782c37d441fb773e1564a3fae151f21d37558a31d22155b08cd7e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 349,
+      "raw": "下面**我们定义一个Python函数来计算正态分布**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-069",
+      "sha256": "a2d5987816290fbc12b1e0970376dd3e919532024d0d308f319d997994d1f36d",
+      "type": "code",
+      "depth": null,
+      "line": 351,
+      "raw": "```python\ndef normal(x, mu, sigma):\n    p = 1 / math.sqrt(2 * math.pi * sigma**2)\n    return p * np.exp(-0.5 / sigma**2 * (x - mu)**2)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-070",
+      "sha256": "5cbe50a8f7bf8fa2e1ff51284f808a51efdb9d0b5da5f324044b0e22ea442805",
+      "type": "paragraph",
+      "depth": null,
+      "line": 357,
+      "raw": "我们现在**可视化正态分布**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-071",
+      "sha256": "7d2c688adece150e12c3116c7a5b78d0eaec333a6f79a14209dc493ef03ee4d8",
+      "type": "code",
+      "depth": null,
+      "line": 370,
+      "raw": "```python\n# 再次使用numpy进行可视化\nx = np.arange(-7, 7, 0.01)\n\n# 均值和标准差对\nparams = [(0, 1), (0, 2), (3, 1)]\nd2l.plot(x, [normal(x, mu, sigma) for mu, sigma in params], xlabel='x',\n         ylabel='p(x)', figsize=(4.5, 2.5),\n         legend=[f'mean {mu}, std {sigma}' for mu, sigma in params])\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-072",
+      "sha256": "e81a40021da990d18b5475508c33ee9a737a0c28a4d4d1f42724df8a2c2eaa77",
+      "type": "paragraph",
+      "depth": null,
+      "line": 381,
+      "raw": "就像我们所看到的，改变均值会产生沿$x$轴的偏移，增加方差将会分散分布、降低其峰值。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-073",
+      "sha256": "6878bf5e59a3fba0cd11be0a0e77c22ba591beb78f42a043b3262ebd2ba4d952",
+      "type": "paragraph",
+      "depth": null,
+      "line": 383,
+      "raw": "均方误差损失函数（简称均方损失）可以用于线性回归的一个原因是：\n我们假设了观测中包含噪声，其中噪声服从正态分布。\n噪声正态分布如下式:",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-074",
+      "sha256": "74d39bd177f6f85d6deb240b68296610072a0626217659543893eacbd88a1219",
+      "type": "paragraph",
+      "depth": null,
+      "line": 387,
+      "raw": "$$y = \\mathbf{w}^\\top \\mathbf{x} + b + \\epsilon,$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-075",
+      "sha256": "cdae7295b906f2875d4c1c0d63a82a8a15d6fe5fa76faa4c2a400ea3766a269b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 389,
+      "raw": "其中，$\\epsilon \\sim \\mathcal{N}(0, \\sigma^2)$。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-076",
+      "sha256": "317578a19a0036f412e994a882b8bb93ed4b82f6ba9278e42365d78cdb0543c7",
+      "type": "paragraph",
+      "depth": null,
+      "line": 391,
+      "raw": "因此，我们现在可以写出通过给定的$\\mathbf{x}$观测到特定$y$的*似然*（likelihood）：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-077",
+      "sha256": "1c797e1aa1709783f71bf9595b64a7bf466b9cd7338a68f8d448265aefd764f6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 393,
+      "raw": "$$P(y \\mid \\mathbf{x}) = \\frac{1}{\\sqrt{2 \\pi \\sigma^2}} \\exp\\left(-\\frac{1}{2 \\sigma^2} (y - \\mathbf{w}^\\top \\mathbf{x} - b)^2\\right).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-078",
+      "sha256": "01c15fcc17edcd6dccbc26508f10bbf1756f405782a1371829c1875c5b2917e8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 395,
+      "raw": "现在，根据极大似然估计法，参数$\\mathbf{w}$和$b$的最优值是使整个数据集的*似然*最大的值：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-079",
+      "sha256": "fdc6dac0a37fde459fdc9074416180ce5d1797ee6fb0ed2735ee604bdf6ac9be",
+      "type": "paragraph",
+      "depth": null,
+      "line": 397,
+      "raw": "$$P(\\mathbf y \\mid \\mathbf X) = \\prod_{i=1}^{n} p(y^{(i)}|\\mathbf{x}^{(i)}).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-080",
+      "sha256": "e415da290ac2dfb0b78f9dbd4cd055be744e560b48d010dcf8437d99ac33fab4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 399,
+      "raw": "根据极大似然估计法选择的估计量称为*极大似然估计量*。\n虽然使许多指数函数的乘积最大化看起来很困难，\n但是我们可以在不改变目标的前提下，通过最大化似然对数来简化。\n由于历史原因，优化通常是说最小化而不是最大化。\n我们可以改为*最小化负对数似然*$-\\log P(\\mathbf y \\mid \\mathbf X)$。\n由此可以得到的数学公式是：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-081",
+      "sha256": "e8dfb1ca2a59eb67b051f7ac7dd9874caa4fc35d3d272829667d7509dce3d60e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 406,
+      "raw": "$$-\\log P(\\mathbf y \\mid \\mathbf X) = \\sum_{i=1}^n \\frac{1}{2} \\log(2 \\pi \\sigma^2) + \\frac{1}{2 \\sigma^2} \\left(y^{(i)} - \\mathbf{w}^\\top \\mathbf{x}^{(i)} - b\\right)^2.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-082",
+      "sha256": "73e18edc17173c74a0b201abbc58445a21aaa9f15effc5021b805274dc14da07",
+      "type": "paragraph",
+      "depth": null,
+      "line": 408,
+      "raw": "现在我们只需要假设$\\sigma$是某个固定常数就可以忽略第一项，\n因为第一项不依赖于$\\mathbf{w}$和$b$。\n现在第二项除了常数$\\frac{1}{\\sigma^2}$外，其余部分和前面介绍的均方误差是一样的。\n幸运的是，上面式子的解并不依赖于$\\sigma$。\n因此，在高斯噪声的假设下，最小化均方误差等价于对线性模型的极大似然估计。",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-083",
+      "sha256": "c783e5e14e0a701a40ceb5ccaff5c2fcf9779fdf49bfa7d37bb9f8890a7e7a57",
+      "type": "heading",
+      "depth": 2,
+      "line": 414,
+      "raw": "## 从线性回归到深度网络",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-084",
+      "sha256": "6e2ff25412d4d249e47517b45505eee83eb6b812fca7b7e4f78b6d5d37642d78",
+      "type": "paragraph",
+      "depth": null,
+      "line": 416,
+      "raw": "到目前为止，我们只谈论了线性模型。\n尽管神经网络涵盖了更多更为丰富的模型，我们依然可以用描述神经网络的方式来描述线性模型，\n从而把线性模型看作一个神经网络。\n首先，我们用“层”符号来重写这个模型。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-085",
+      "sha256": "4762e8a88aeba48f42098aa33b176e3903b44042b7940a312e478cbde6fb4304",
+      "type": "heading",
+      "depth": 3,
+      "line": 421,
+      "raw": "### 神经网络图",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-086",
+      "sha256": "f132310c530d7596af65d717bee18c8661997ff0dfec8ae8676d68c875d37537",
+      "type": "paragraph",
+      "depth": null,
+      "line": 423,
+      "raw": "深度学习从业者喜欢绘制图表来可视化模型中正在发生的事情。\n在 [原文引用：fig_single_neuron](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)中，我们将线性回归模型描述为一个神经网络。\n需要注意的是，该图只显示连接模式，即只显示每个输入如何连接到输出，隐去了权重和偏置的值。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-087",
+      "sha256": "4b6c26319b859ce84244316d2c174236d17ba6b214693abfd974ec12c2885698",
+      "type": "paragraph",
+      "depth": null,
+      "line": 427,
+      "raw": "![线性回归是一个单层神经网络。](assets/singleneuron.svg)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-088",
+      "sha256": "c2da8930e5f8665ebf2c2897a4ea136880fd8e349078ff4aa51b6306a6de98fb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 429,
+      "raw": "在 [原文引用：fig_single_neuron](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)所示的神经网络中，输入为$x_1, \\ldots, x_d$，\n因此输入层中的*输入数*（或称为*特征维度*，feature dimensionality）为$d$。\n网络的输出为$o_1$，因此输出层中的*输出数*是1。\n需要注意的是，输入值都是已经给定的，并且只有一个*计算*神经元。\n由于模型重点在发生计算的地方，所以通常我们在计算层数时不考虑输入层。\n也就是说， [原文引用：fig_single_neuron](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)中神经网络的*层数*为1。\n我们可以将线性回归模型视为仅由单个人工神经元组成的神经网络，或称为单层神经网络。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-089",
+      "sha256": "da04c3378e2485a06fa3462f75f6cba53296757a9dae4f02dfa49d9446a141ad",
+      "type": "paragraph",
+      "depth": null,
+      "line": 437,
+      "raw": "对于线性回归，每个输入都与每个输出（在本例中只有一个输出）相连，\n我们将这种变换（ [原文引用：fig_single_neuron](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)中的输出层）\n称为*全连接层*（fully-connected layer）或称为*稠密层*（dense layer）。\n下一章将详细讨论由这些层组成的网络。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-090",
+      "sha256": "67086b983ff6374278967568912d115f8d29421b8bd879610ff2467148c95d09",
+      "type": "heading",
+      "depth": 3,
+      "line": 442,
+      "raw": "### 生物学",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-091",
+      "sha256": "f3fa007a49382556dcb7d5d683afdbede234d7887e3dacf5cb63b47cd2029b6d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 444,
+      "raw": "线性回归发明的时间（1795年）早于计算神经科学，所以将线性回归描述为神经网络似乎不合适。\n当控制学家、神经生物学家沃伦·麦库洛奇和沃尔特·皮茨开始开发人工神经元模型时，\n他们为什么将线性模型作为一个起点呢？\n我们来看一张图片 [原文引用：fig_Neuron](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)：\n这是一张由*树突*（dendrites，输入终端）、\n*细胞核*（nucleus，CPU）组成的生物神经元图片。\n*轴突*（axon，输出线）和*轴突端子*（axon terminal，输出端子）\n通过*突触*（synapse）与其他神经元连接。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-092",
+      "sha256": "4525a8a4a641a4712e023dcb15b7416eb5485e25bd62408585cb3a427bffeceb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 453,
+      "raw": "![真实的神经元。](assets/neuron.svg)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-093",
+      "sha256": "4ea310b164bed6b5a593c3a994d793882bdefbf19509dd5b5b344b482c3a38a2",
+      "type": "paragraph",
+      "depth": null,
+      "line": 455,
+      "raw": "树突中接收到来自其他神经元（或视网膜等环境传感器）的信息$x_i$。\n该信息通过*突触权重*$w_i$来加权，以确定输入的影响（即，通过$x_i w_i$相乘来激活或抑制）。\n来自多个源的加权输入以加权和$y = \\sum_i x_i w_i + b$的形式汇聚在细胞核中，\n然后将这些信息发送到轴突$y$中进一步处理，通常会通过$\\sigma(y)$进行一些非线性处理。\n之后，它要么到达目的地（例如肌肉），要么通过树突进入另一个神经元。",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-094",
+      "sha256": "9d324f9ffd70af0b589ba46c1a5ca73cc39e2af6a3db7fb3b5618bde9341b6cb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 461,
+      "raw": "当然，许多这样的单元可以通过正确连接和正确的学习算法拼凑在一起，\n从而产生的行为会比单独一个神经元所产生的行为更有趣、更复杂，\n这种想法归功于我们对真实生物神经系统的研究。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-095",
+      "sha256": "4791d5a0d42db9f0266abcbff32d06f8c3cd0fc69aa2bf87b374da4c1d44ca3a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 465,
+      "raw": "当今大多数深度学习的研究几乎没有直接从神经科学中获得灵感。\n我们援引斯图尔特·罗素和彼得·诺维格在他们的经典人工智能教科书\n*Artificial Intelligence:A Modern Approach* [原文引用：Russell.Norvig.2016](https://zh.d2l.ai/chapter_linear-networks/linear-regression.html)\n中所说的：虽然飞机可能受到鸟类的启发，但几个世纪以来，鸟类学并不是航空创新的主要驱动力。\n同样地，如今在深度学习中的灵感同样或更多地来自数学、统计学和计算机科学。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-096",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 471,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-097",
+      "sha256": "1a90d8919ccb87c8299a8b64ea86515c9a63fe333fa67e85ebf16d0baa12223d",
+      "type": "list",
+      "depth": null,
+      "line": 473,
+      "raw": "* 机器学习模型中的关键要素是训练数据、损失函数、优化算法，还有模型本身。\n* 矢量化使数学表达上更简洁，同时运行的更快。\n* 最小化目标函数和执行极大似然估计等价。\n* 线性回归模型也是一个简单的神经网络。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-098",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 478,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-099",
+      "sha256": "28673e1f1bd8d5335d0aa731801f384ed2762f4f0b63b2cd952f38e87a28bf6c",
+      "type": "list",
+      "depth": null,
+      "line": 480,
+      "raw": "1. 假设我们有一些数据$x_1, \\ldots, x_n \\in \\mathbb{R}$。我们的目标是找到一个常数$b$，使得最小化$\\sum_i (x_i - b)^2$。\n    1. 找到最优值$b$的解析解。\n    1. 这个问题及其解与正态分布有什么关系?\n1. 推导出使用平方误差的线性回归优化问题的解析解。为了简化问题，可以忽略偏置$b$（我们可以通过向$\\mathbf X$添加所有值为1的一列来做到这一点）。\n    1. 用矩阵和向量表示法写出优化问题（将所有数据视为单个矩阵，将所有目标值视为单个向量）。\n    1. 计算损失对$w$的梯度。\n    1. 通过将梯度设为0、求解矩阵方程来找到解析解。\n    1. 什么时候可能比使用随机梯度下降更好？这种方法何时会失效？\n1. 假定控制附加噪声$\\epsilon$的噪声模型是指数分布。也就是说，$p(\\epsilon) = \\frac{1}{2} \\exp(-|\\epsilon|)$\n    1. 写出模型$-\\log P(\\mathbf y \\mid \\mathbf X)$下数据的负对数似然。\n    1. 请试着写出解析解。\n    1. 提出一种随机梯度下降算法来解决这个问题。哪里可能出错？（提示：当我们不断更新参数时，在驻点附近会发生什么情况）请尝试解决这个问题。",
+      "math": {
+        "expected": 10,
+        "rendered": 10,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "linear-regression-100",
+      "sha256": "b3bce3d08db477b7ba4635cea46fd161e50621a3b69b54dd80a65b74e7265c2d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 497,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1775)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

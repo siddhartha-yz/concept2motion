@@ -1,0 +1,135 @@
+{
+  "figures": [
+    {
+      "id": "repeated-input",
+      "afterAnchor": "autograd-013",
+      "endAnchor": "autograd-014",
+      "title": "同一分量，两次使用",
+      "summary": "每条路径贡献 2xᵢ；完整梯度是两项之和。拖动逐项加入，条长表示解释进度。",
+      "interaction": "timeline",
+      "height": 260,
+      "mobileHeight": 300,
+      "initialProgress": 0,
+      "checkpoints": [
+        0,
+        0.5,
+        1
+      ],
+      "durationMs": 6000,
+      "params": [
+        {
+          "key": "i",
+          "label": "分量 i",
+          "kind": "select",
+          "value": 3,
+          "options": [
+            {
+              "value": 0,
+              "label": "i = 0，x₀ = 0"
+            },
+            {
+              "value": 1,
+              "label": "i = 1，x₁ = 1"
+            },
+            {
+              "value": 2,
+              "label": "i = 2，x₂ = 2"
+            },
+            {
+              "value": 3,
+              "label": "i = 3，x₃ = 3"
+            }
+          ]
+        }
+      ],
+      "scene": {
+        "type": "contributions",
+        "props": {
+          "terms": [
+            {
+              "id": "left-use",
+              "label": "左侧 xᵢ",
+              "value": [
+                0,
+                2,
+                4,
+                6
+              ]
+            },
+            {
+              "id": "right-use",
+              "label": "右侧 xᵢ",
+              "value": [
+                0,
+                2,
+                4,
+                6
+              ]
+            }
+          ],
+          "dimension": {
+            "$param": "i"
+          },
+          "progress": {
+            "$progress": true
+          },
+          "domain": [
+            -1,
+            13
+          ],
+          "sumLabel": "已合成"
+        }
+      }
+    },
+    {
+      "id": "backward-seed",
+      "afterAnchor": "autograd-020",
+      "endAnchor": "autograd-020",
+      "title": "反传种子，选择输出的贡献",
+      "summary": "固定 x = [0,1,2,3]，前三个种子为 1。调 v₃，看 Jᵀv 怎样变化；全为 1 时就是 y.sum() 的梯度。",
+      "interaction": "parameters",
+      "height": 390,
+      "mobileHeight": 430,
+      "params": [
+        {
+          "key": "v3",
+          "label": "种子 v₃",
+          "min": -1,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n  const P=VisualBook.palette, x=[0,1,2,3], y=x.map(t=>t*t), v=[1,1,1,params.v3];\n  const g=x.map((t,i)=>2*t*v[i]);\n  const f=board.axes('gradient-axes',{xDomain:[-0.4,3.4],yDomain:[-6,12],xLabel:'输入分量 i',yLabel:'梯度 gᵢ',box:[54,153,width-26,height-46],grid:true});\n  board.text('output-heading','输出 yᵢ = xᵢ²',20,21,{size:15,color:P.blue});\n  board.text('seed-heading','反传种子 vᵢ',20,83,{size:15,color:P.orange});\n  const subs=['₀','₁','₂','₃'];\n  for(let i=0;i<4;i++){\n    const xx=f.x(i), c=i===3?P.orange:P.blue;\n    board.text('output-'+i,'y'+subs[i]+' = '+y[i],xx,49,{anchor:'middle',size:15,color:P.blue});\n    board.text('seed-'+i,'v'+subs[i]+' = '+Number(v[i].toFixed(2)),xx,111,{anchor:'middle',size:15,color:i===3?P.orange:P.muted});\n    board.line('stem-'+i,xx,f.y(0),xx,f.y(g[i]),c,8,0.75);\n    board.circle('tip-'+i,xx,f.y(g[i]),4,c);\n    board.text('g-'+i,String(Number(g[i].toFixed(2))),xx,f.y(g[i])+(g[i]>=0?-10:22),{anchor:'middle',size:15,color:c});\n  }\n  board.text('chain-rule','gᵢ = 2xᵢ vᵢ',width-26,139,{anchor:'end',size:15,color:P.ink});\n  return {x,y,seeds:v,jacobian:x.map((t,i)=>x.map((_,j)=>i===j?2*t:0)),inputGradient:g,weightedObjective:y.reduce((a,t,i)=>a+t*v[i],0),convention:'固定原文输入；输出加权和的梯度 Jᵀv，不代表训练。'};\n}"
+    },
+    {
+      "id": "detach-path",
+      "afterAnchor": "autograd-024",
+      "endAnchor": "autograd-026",
+      "title": "值留下，梯度路径截断",
+      "summary": "只看原文的第 3 分量 x₃ = 3。切换是否分离 u，比较相同前向值下的两条反传路径。",
+      "interaction": "parameters",
+      "height": 320,
+      "mobileHeight": 365,
+      "params": [
+        {
+          "key": "mode",
+          "label": "u 的连接",
+          "kind": "select",
+          "value": "detach",
+          "options": [
+            {
+              "value": "detach",
+              "label": "u = y.detach()"
+            },
+            {
+              "value": "attached",
+              "label": "u = y（未分离）"
+            }
+          ]
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n  const P=VisualBook.palette, narrow=width<500, x=3, y=x*x, u=y, z=u*x, stopped=params.mode==='detach';\n  const direct=u, indirect=stopped?0:2*x*x, total=direct+indirect;\n  const nodes={x:[width*.14,171],y:[width*.38,75],u:[width*.66,75],z:[width*.86,171]};\n  const bw=narrow?62:76, bh=54;\n  function route(id,pts,color,dash){\n    board.path(id,pts,{color,width:2,opacity:1});\n    if(dash)board.mark(id+'-dash','path',{d:pts.map((p,i)=>(i?'L':'M')+p[0]+','+p[1]).join(' '),fill:'none',stroke:P.paper,'stroke-width':3,'stroke-dasharray':'4 5'});\n    const a=pts[pts.length-2],b=pts[pts.length-1],dx=b[0]-a[0],dy=b[1]-a[1],len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len;\n    board.path(id+'-head',[[b[0]-ux*7-uy*3,b[1]-uy*7+ux*3],b,[b[0]-ux*7+uy*3,b[1]-uy*7-ux*3]],{color,width:2});\n  }\n  const [X,Y,U,Z]=['x','y','u','z'].map(k=>nodes[k]);\n  route('forward-xy',[[X[0],X[1]-bh/2],[Y[0],Y[1]+bh/2]],P.blue);\n  route('forward-yu',[[Y[0]+bw/2,Y[1]-5],[U[0]-bw/2,U[1]-5]],P.blue);\n  route('forward-uz',[[U[0],U[1]+bh/2],[Z[0],Z[1]-bh/2]],P.blue);\n  route('forward-xz',[[X[0]+bw/2,X[1]],[Z[0]-bw/2,Z[1]]],P.blue);\n  route('reverse-direct',[[Z[0],Z[1]+bh/2],[Z[0],237],[X[0],237],[X[0],X[1]+bh/2]],P.orange);\n  route('reverse-zu',[[Z[0]-8,Z[1]-bh/2],[U[0]-8,U[1]+bh/2]],P.orange);\n  route('reverse-uy',[[U[0]-bw/2,U[1]+7],[Y[0]+bw/2,Y[1]+7]],stopped?P.faint:P.orange,stopped);\n  route('reverse-yx',[[Y[0]-8,Y[1]+bh/2],[X[0]-8,X[1]-bh/2]],stopped?P.faint:P.orange,stopped);\n  board.text('mode-title',stopped?'u = detach(y)':'u = y',20,23,{size:16,color:P.ink});\n  board.text('legend','蓝：前向值　橙：反向贡献',20,49,{size:15,color:P.muted});\n  for(const [id,label,val] of [['x','x₃',x],['y','y₃',y],['u','u₃',u],['z','z₃',z]]){\n    const [cx,cy]=nodes[id];\n    board.rect('node-'+id,cx-bw/2,cy-bh/2,bw,bh,P.paper,{stroke:P.faint,rx:7});\n    board.text('label-'+id,label,cx,cy-4,{anchor:'middle',size:15,color:P.ink});\n    board.text('value-'+id,String(val),cx,cy+17,{anchor:'middle',size:16,color:P.blue});\n  }\n  board.text('cut-symbol',stopped?'×':'←',(Y[0]+U[0])/2,91,{anchor:'middle',size:21,color:P.orange});\n  board.text('cut-label',stopped?'梯度到此停止':'梯度经过 y',(Y[0]+U[0])/2,123,{anchor:'middle',size:15,color:P.muted});\n  board.text('same-forward','z₃ = 27，前向值相同',width/2,220,{anchor:'middle',size:15,color:P.blue});\n  const ys=narrow?[279,310,345]:[287,287,287];\n  const xs=narrow?[20,20,20]:[20,width*.36,width*.73];\n  board.text('direct-value','直接路径  x₃² = '+direct,xs[0],ys[0],{size:16,color:P.orange});\n  board.text('indirect-value','经 y 路径  '+(stopped?'0':'2x₃² = '+indirect),xs[1],ys[1],{size:16,color:P.orange});\n  board.text('total-value','合计 g = '+total,xs[2],ys[2],{size:17,color:P.ink,weight:600});\n  return {x,y,u,z,mode:params.mode,directContribution:direct,viaYContribution:indirect,inputGradient:total,forwardValuesIdentical:true,convention:'原文第3分量 x₃=3；detach只截断导数路径；比较两种计算图，无训练。'};\n}"
+    }
+  ]
+}

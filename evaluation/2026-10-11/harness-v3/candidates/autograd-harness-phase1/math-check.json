@@ -1,0 +1,38 @@
+{
+  "kind": "独立有限差分与原代码条件核对，不是模型训练或渲染质量测试",
+  "drawNumericCases": 1070,
+  "browserFactCases": 30,
+  "totalCases": 1100,
+  "byFigure": {
+    "backward-seed": 220,
+    "detach-path": 420,
+    "executed-slope": 460
+  },
+  "progress": [
+    0,
+    0.25,
+    0.26,
+    0.5,
+    1
+  ],
+  "widthsForMock": [
+    311,
+    740
+  ],
+  "browserViewports": [
+    1280,
+    375
+  ],
+  "finiteDifferenceH": 1e-05,
+  "absoluteTolerance": 1e-06,
+  "maxObservedDifference": 1.0099029612575805e-08,
+  "bookHtmlSha256": "1d7cdb399b47fdd1fc329520220d9aa8d439a182a19a8c90d863a14441aee722",
+  "bookJsonSha256": "1fefef043ee094156c20c8d977dd421ea5399576b5d049a4067a847d404352b5",
+  "sourceMdSha256": "0a4f8f40fd7dbb673b68ad490a5846dd9e890907e4d733dfcffd7e249ea23ecc",
+  "sourceMapSha256": "452e35b27dd700a7eb3fcc20107336b863bb76652311b4d5510d218901938c2e",
+  "parameterAudit": {
+    "cases": 36,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  },
+  "limits": "不运行 PyTorch；不穷举连续进度；不验证高维/负输入/零输入控制流；数值检查不证明教学有效性。"
+}

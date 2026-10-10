@@ -1,0 +1,3798 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/linear-regression-direct-phase2/book.html",
+  "sha256": "f39fa939b3a6f36becfb6bfe0987ab571cfc1c02b340d0f6e1c705d3b6de70d7",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          0.7666666666666666,
+          -0.09999999999999998
+        ],
+        "predictions": [
+          -0.8666666666666666,
+          -0.09999999999999998,
+          0.6666666666666666
+        ],
+        "residuals": [
+          0.13333333333333341,
+          -0.6,
+          -1.3333333333333335
+        ],
+        "loss": 0.35925925925925933,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "aec6a9c3395621fbd1087d613f953fbdaa71820a2018b01e30dcbb7f150ee4f9"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          1.0333333333333332,
+          0.30000000000000004
+        ],
+        "predictions": [
+          -0.7333333333333332,
+          0.30000000000000004,
+          1.3333333333333333
+        ],
+        "residuals": [
+          0.26666666666666683,
+          -0.19999999999999996,
+          -0.6666666666666667
+        ],
+        "loss": 0.09259259259259262,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "51b5213d31bdbd7a5a272c66ec27cacca576ea26bcfd44757d61e4beddf3c1a9"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5166666666666666,
+          -0.475
+        ],
+        "predictions": [
+          -0.9916666666666666,
+          -0.475,
+          0.04166666666666663
+        ],
+        "residuals": [
+          0.008333333333333415,
+          -0.975,
+          -1.9583333333333335
+        ],
+        "loss": 0.797627314814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "46dfdcdef67135775570ead6993b4261c15a36dcd94a4f82b328d5130c1e70fc"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5333333333333333,
+          -0.45
+        ],
+        "predictions": [
+          -0.9833333333333334,
+          -0.45,
+          0.08333333333333331
+        ],
+        "residuals": [
+          0.016666666666666607,
+          -0.95,
+          -1.9166666666666667
+        ],
+        "loss": 0.7627314814814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "eed83bfd6768a94ef708a9d8a97b2f3f59be8cabedc434ab79a78d57c9f907a1"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          1.2999999999999998,
+          0.7
+        ],
+        "predictions": [
+          -0.5999999999999999,
+          0.7,
+          1.9999999999999998
+        ],
+        "residuals": [
+          0.40000000000000013,
+          0.19999999999999996,
+          -2.220446049250313e-16
+        ],
+        "loss": 0.03333333333333335,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "6a6bc067f00beb6df6e0f4168fafa50e66986c89d2ee333074c01b69b193189a"
+    },
+    {
+      "width": 1280,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          2.0999999999999996,
+          1.9
+        ],
+        "predictions": [
+          -0.19999999999999973,
+          1.9,
+          3.9999999999999996
+        ],
+        "residuals": [
+          0.8000000000000003,
+          1.4,
+          1.9999999999999996
+        ],
+        "loss": 1.0999999999999996,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "svgHash": "db62c02ef87d077be8656e870ce18179f167c5202e4f73c64701761c111550f8"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "918a66a9f822a47fb61cbbf4cb73f884d95efce92a4a24234fd7945bb1762ae0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "918a66a9f822a47fb61cbbf4cb73f884d95efce92a4a24234fd7945bb1762ae0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "c5f37b9f7dbba2a5c8b093e59fa62fed7d10bdc97d45ea3a7199ad606b986c03"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "c5f37b9f7dbba2a5c8b093e59fa62fed7d10bdc97d45ea3a7199ad606b986c03"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "dccb8224276c679411e7acd809827fe512ba3aea8ca79aaa1702b9ec48a3e9e7"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "dccb8224276c679411e7acd809827fe512ba3aea8ca79aaa1702b9ec48a3e9e7"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "70663a17bdb20800772fa0292d9b4ff61756968a65b9dde81e9ed7742ad86847"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "70663a17bdb20800772fa0292d9b4ff61756968a65b9dde81e9ed7742ad86847"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "61c60876416e8bda2c17f8c2c283f79ccfc3c8747ed5d6e7318d9848fff0f70f"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "61c60876416e8bda2c17f8c2c283f79ccfc3c8747ed5d6e7318d9848fff0f70f"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "85735917f541f11d8c9ba60a2b0a9e842c0732e06c414343ebe6ad8d0df986e0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "85735917f541f11d8c9ba60a2b0a9e842c0732e06c414343ebe6ad8d0df986e0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "15179da984971323b9f457f72f8351191c27b84d360b376f43c7b183a73928bf"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "15179da984971323b9f457f72f8351191c27b84d360b376f43c7b183a73928bf"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          0.7666666666666666,
+          -0.09999999999999998
+        ],
+        "predictions": [
+          -0.8666666666666666,
+          -0.09999999999999998,
+          0.6666666666666666
+        ],
+        "residuals": [
+          0.13333333333333341,
+          -0.6,
+          -1.3333333333333335
+        ],
+        "loss": 0.35925925925925933,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "403bf27ef62a1203eeb7406ebdbbfd8525ca5e7bffc9866fc2a9295c1492373e"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.8,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 1.0333333333333332,
+          "b": 0.30000000000000004
+        },
+        "current": [
+          1.0333333333333332,
+          0.30000000000000004
+        ],
+        "predictions": [
+          -0.7333333333333332,
+          0.30000000000000004,
+          1.3333333333333333
+        ],
+        "residuals": [
+          0.26666666666666683,
+          -0.19999999999999996,
+          -0.6666666666666667
+        ],
+        "loss": 0.09259259259259262,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.09259259259259262,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "e53b3bcba3aa92c2450fe4c25c19b0cb5139e6832a9b14875aec721e6bec4ee1"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5166666666666666,
+          -0.475
+        ],
+        "predictions": [
+          -0.9916666666666666,
+          -0.475,
+          0.04166666666666663
+        ],
+        "residuals": [
+          0.008333333333333415,
+          -0.975,
+          -1.9583333333333335
+        ],
+        "loss": 0.797627314814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "6afe8c7481807723d5b31b593532e08ac819a7c6961c78df2adaf1bbdc13c7cc"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 0.05,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 0.5333333333333333,
+          "b": -0.45
+        },
+        "current": [
+          0.5333333333333333,
+          -0.45
+        ],
+        "predictions": [
+          -0.9833333333333334,
+          -0.45,
+          0.08333333333333331
+        ],
+        "residuals": [
+          0.016666666666666607,
+          -0.95,
+          -1.9166666666666667
+        ],
+        "loss": 0.7627314814814815,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 0.7627314814814814,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "f1e7e5efc877fa8b2d9e8fddd9c3cddd18f57c1a94294323309c9b71e1d72deb"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 0.5,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          1.2999999999999998,
+          0.7
+        ],
+        "predictions": [
+          -0.5999999999999999,
+          0.7,
+          1.9999999999999998
+        ],
+        "residuals": [
+          0.40000000000000013,
+          0.19999999999999996,
+          -2.220446049250313e-16
+        ],
+        "loss": 0.03333333333333335,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "d2e5007c8faab9468076f342c3f412a6516c6829cc9e483f5054ec0156532001"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "eta": 2.4,
+        "progress": 1,
+        "data": [
+          [
+            -1,
+            -1
+          ],
+          [
+            0,
+            0.5
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "start": {
+          "w": 0.5,
+          "b": -0.5
+        },
+        "initialResiduals": [
+          0,
+          -1,
+          -2
+        ],
+        "initialGradient": [
+          -0.6666666666666666,
+          -1
+        ],
+        "target": {
+          "w": 2.0999999999999996,
+          "b": 1.9
+        },
+        "current": [
+          2.0999999999999996,
+          1.9
+        ],
+        "predictions": [
+          -0.19999999999999973,
+          1.9,
+          3.9999999999999996
+        ],
+        "residuals": [
+          0.8000000000000003,
+          1.4,
+          1.9999999999999996
+        ],
+        "loss": 1.0999999999999996,
+        "startLoss": 0.8333333333333333,
+        "targetLoss": 1.0999999999999996,
+        "contourLevels": [
+          0.05,
+          0.2,
+          0.5,
+          0.9
+        ],
+        "minimizer": [
+          1.5,
+          0.5
+        ],
+        "minLoss": 0
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "f3cbd2803020e3b8332e642e58ada8de6eb120bd87279fa7e955b19b6e1caa4f"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "77c8ffc449db270579e67a68df7d9444711d750bf69314e6f116291abf26de30"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.10226492456397804,
+          0.3229723596679143,
+          0.3752403469169379
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.390565599614018,
+        "meanNegativeLogLikelihood": 1.4635218665380059,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "77c8ffc449db270579e67a68df7d9444711d750bf69314e6f116291abf26de30"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "7994932567c71ec12ba01a495473882ac38dae2b45b5bbd243c471d0f4924719"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.24197072451914337,
+          0.05399096651318806,
+          0.0044318484119380075
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "7994932567c71ec12ba01a495473882ac38dae2b45b5bbd243c471d0f4924719"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "701cbe34baa924f778522fb03d1bbee3ccead814fb3f9a263dd53fa922ae6ca2"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.0044318484119380075,
+          0.05399096651318806,
+          0.24197072451914337
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 9.756815599614018,
+        "meanNegativeLogLikelihood": 3.252271866538006,
+        "constantPerSample": 0.9189385332046727,
+        "positiveScale": 1,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.252271866538006
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "701cbe34baa924f778522fb03d1bbee3ccead814fb3f9a263dd53fa922ae6ca2"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1c232aa7de5fd045ad5718343784aac9e47d16f8b83ac2d6e3933d13bf2c6551"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.035425449179436796,
+          0.3703206458436758,
+          0.5029504668061422
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 5.020974441267208,
+        "meanNegativeLogLikelihood": 1.6736581470890695,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1c232aa7de5fd045ad5718343784aac9e47d16f8b83ac2d6e3933d13bf2c6551"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1ca8faa1fd2f8a2588fae9296a9c29da0eecc507193112a0013a8bf04813bf84"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 0.65,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.142284589451089,
+          0.2558429799970847,
+          0.2761915120020352
+        ],
+        "residuals": [
+          1.65,
+          0.65,
+          -0.35
+        ],
+        "meanHalfSquaredLoss": 0.5445833333333333,
+        "negativeLogLikelihood": 4.599778227845004,
+        "meanNegativeLogLikelihood": 1.5332594092816678,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1ca8faa1fd2f8a2588fae9296a9c29da0eecc507193112a0013a8bf04813bf84"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "01ba6cc2639235648a2e4082b5fb7692d72487239eeb5e79b6c5dd0a5aa4374f"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": -2,
+        "sigma": 0.7,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.20542551821266894,
+          0.009620142107471776,
+          0.00005853199333205833
+        ],
+        "residuals": [
+          -1,
+          -2,
+          -3
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 15.97250505351211,
+        "meanNegativeLogLikelihood": 5.324168351170703,
+        "constantPerSample": 0.5622635892659402,
+        "positiveScale": 2.0408163265306127,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.2425356981094777
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "01ba6cc2639235648a2e4082b5fb7692d72487239eeb5e79b6c5dd0a5aa4374f"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "47b4c07d61094e43111aec5b51caab3164786480a5cb4aaeed559f053c2d5c38"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "bias": 2,
+        "sigma": 1.4,
+        "observations": [
+          -1,
+          0,
+          1
+        ],
+        "densities": [
+          0.02868648602921652,
+          0.10271275910633447,
+          0.2207967220136189
+        ],
+        "residuals": [
+          3,
+          2,
+          1
+        ],
+        "meanHalfSquaredLoss": 2.3333333333333335,
+        "negativeLogLikelihood": 7.337660880906229,
+        "meanNegativeLogLikelihood": 2.4458869603020763,
+        "constantPerSample": 1.2554107698258856,
+        "positiveScale": 0.5102040816326532,
+        "minimizer": 0,
+        "lossAtMin": 0.3333333333333333,
+        "nllAtMin": 1.42547879703677
+      },
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "47b4c07d61094e43111aec5b51caab3164786480a5cb4aaeed559f053c2d5c38"
+    }
+  ],
+  "findings": [
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "918a66a9f822a47fb61cbbf4cb73f884d95efce92a4a24234fd7945bb1762ae0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "918a66a9f822a47fb61cbbf4cb73f884d95efce92a4a24234fd7945bb1762ae0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "c5f37b9f7dbba2a5c8b093e59fa62fed7d10bdc97d45ea3a7199ad606b986c03"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "c5f37b9f7dbba2a5c8b093e59fa62fed7d10bdc97d45ea3a7199ad606b986c03"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "dccb8224276c679411e7acd809827fe512ba3aea8ca79aaa1702b9ec48a3e9e7"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "dccb8224276c679411e7acd809827fe512ba3aea8ca79aaa1702b9ec48a3e9e7"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "70663a17bdb20800772fa0292d9b4ff61756968a65b9dde81e9ed7742ad86847"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "70663a17bdb20800772fa0292d9b4ff61756968a65b9dde81e9ed7742ad86847"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "61c60876416e8bda2c17f8c2c283f79ccfc3c8747ed5d6e7318d9848fff0f70f"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "61c60876416e8bda2c17f8c2c283f79ccfc3c8747ed5d6e7318d9848fff0f70f"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "85735917f541f11d8c9ba60a2b0a9e842c0732e06c414343ebe6ad8d0df986e0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "85735917f541f11d8c9ba60a2b0a9e842c0732e06c414343ebe6ad8d0df986e0"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "15179da984971323b9f457f72f8351191c27b84d360b376f43c7b183a73928bf"
+    },
+    {
+      "width": 1280,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 532.6484375,
+          "y": 68,
+          "w": 64.11993408203125,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 260.5,
+          "y": 41,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "15179da984971323b9f457f72f8351191c27b84d360b376f43c7b183a73928bf"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "403bf27ef62a1203eeb7406ebdbbfd8525ca5e7bffc9866fc2a9295c1492373e"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "default",
+      "params": {
+        "eta": 0.8
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "e53b3bcba3aa92c2450fe4c25c19b0cb5139e6832a9b14875aec721e6bec4ee1"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "6afe8c7481807723d5b31b593532e08ac819a7c6961c78df2adaf1bbdc13c7cc"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-min",
+      "params": {
+        "eta": 0.05
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "f1e7e5efc877fa8b2d9e8fddd9c3cddd18f57c1a94294323309c9b71e1d72deb"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "d2e5007c8faab9468076f342c3f412a6516c6829cc9e483f5054ec0156532001"
+    },
+    {
+      "width": 375,
+      "id": "residual-step",
+      "control": "eta-max",
+      "params": {
+        "eta": 2.4
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "● 观测   ○ 预测   橙线：残差 / 更新",
+          "x": 18,
+          "y": 445,
+          "w": 172.21633911132812,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "f3cbd2803020e3b8332e642e58ada8de6eb120bd87279fa7e955b19b6e1caa4f"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "77c8ffc449db270579e67a68df7d9444711d750bf69314e6f116291abf26de30"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "default",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "77c8ffc449db270579e67a68df7d9444711d750bf69314e6f116291abf26de30"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "7994932567c71ec12ba01a495473882ac38dae2b45b5bbd243c471d0f4924719"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-min",
+      "params": {
+        "bias": -2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "7994932567c71ec12ba01a495473882ac38dae2b45b5bbd243c471d0f4924719"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "701cbe34baa924f778522fb03d1bbee3ccead814fb3f9a263dd53fa922ae6ca2"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "bias-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "701cbe34baa924f778522fb03d1bbee3ccead814fb3f9a263dd53fa922ae6ca2"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1c232aa7de5fd045ad5718343784aac9e47d16f8b83ac2d6e3933d13bf2c6551"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-min",
+      "params": {
+        "bias": 0.65,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1c232aa7de5fd045ad5718343784aac9e47d16f8b83ac2d6e3933d13bf2c6551"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1ca8faa1fd2f8a2588fae9296a9c29da0eecc507193112a0013a8bf04813bf84"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "sigma-max",
+      "params": {
+        "bias": 0.65,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "1ca8faa1fd2f8a2588fae9296a9c29da0eecc507193112a0013a8bf04813bf84"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "01ba6cc2639235648a2e4082b5fb7692d72487239eeb5e79b6c5dd0a5aa4374f"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-min",
+      "params": {
+        "bias": -2,
+        "sigma": 0.7
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "01ba6cc2639235648a2e4082b5fb7692d72487239eeb5e79b6c5dd0a5aa4374f"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "47b4c07d61094e43111aec5b51caab3164786480a5cb4aaeed559f053c2d5c38"
+    },
+    {
+      "width": 375,
+      "id": "gaussian-objective",
+      "control": "all-max",
+      "params": {
+        "bias": 2,
+        "sigma": 1.4
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [
+        {
+          "tag": "text",
+          "text": "最小点 b = 0",
+          "x": 147.1484375,
+          "y": 268,
+          "w": 64.11991882324219,
+          "h": 15,
+          "size": 11.5
+        },
+        {
+          "tag": "text",
+          "text": "橙点：固定观测",
+          "x": 237.5,
+          "y": 29,
+          "w": 80.5,
+          "h": 15,
+          "size": 11.5
+        }
+      ],
+      "overlaps": [],
+      "svgHash": "47b4c07d61094e43111aec5b51caab3164786480a5cb4aaeed559f053c2d5c38"
+    }
+  ],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

@@ -1,0 +1,726 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/book.html",
+  "sha256": "6ba2f58fd3af00fe881756503e0160c32ed8a9db17a7f8d9d7d89e3de47ed3b8",
+  "viewports": [
+    {
+      "width": 1280,
+      "math": {
+        "expected": 65,
+        "rendered": 65,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "minimum-shifts",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "b942089036a7745564320e289f9b85e61117885f3eb34c8b0e6547bd70bc37e4"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "b942089036a7745564320e289f9b85e61117885f3eb34c8b0e6547bd70bc37e4"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "b942089036a7745564320e289f9b85e61117885f3eb34c8b0e6547bd70bc37e4"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "b942089036a7745564320e289f9b85e61117885f3eb34c8b0e6547bd70bc37e4"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "b942089036a7745564320e289f9b85e61117885f3eb34c8b0e6547bd70bc37e4"
+            }
+          ]
+        },
+        {
+          "id": "one-update",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6b36058eba2a09d777de20af2a4ad422802d42fd38814e78c0572e080afbe8e9"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6b36058eba2a09d777de20af2a4ad422802d42fd38814e78c0572e080afbe8e9"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6b36058eba2a09d777de20af2a4ad422802d42fd38814e78c0572e080afbe8e9"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6b36058eba2a09d777de20af2a4ad422802d42fd38814e78c0572e080afbe8e9"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "6b36058eba2a09d777de20af2a4ad422802d42fd38814e78c0572e080afbe8e9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "math": {
+        "expected": 65,
+        "rendered": 65,
+        "errors": 0,
+        "raw": [],
+        "overflow": false
+      },
+      "shapes": [
+        {
+          "id": "minimum-shifts",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "267207304ae5639901af5f6de92d5a1c5a0d3e48bda419fffc313861ce1908e3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "267207304ae5639901af5f6de92d5a1c5a0d3e48bda419fffc313861ce1908e3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "267207304ae5639901af5f6de92d5a1c5a0d3e48bda419fffc313861ce1908e3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "267207304ae5639901af5f6de92d5a1c5a0d3e48bda419fffc313861ce1908e3"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "example": {
+                  "x": 1,
+                  "y": 2,
+                  "bias": 0
+                },
+                "lambda": 0.5,
+                "optimum": 1.3333333333333333,
+                "dataLoss": 0.22222222222222227,
+                "penalty": 0.4444444444444444,
+                "totalLoss": 0.6666666666666667,
+                "derivativeAtOptimum": -1.1102230246251565e-16,
+                "unregularizedOptimum": 2
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "267207304ae5639901af5f6de92d5a1c5a0d3e48bda419fffc313861ce1908e3"
+            }
+          ]
+        },
+        {
+          "id": "one-update",
+          "interaction": "parameters",
+          "initialProgress": 0,
+          "interactiveTargets": 0,
+          "frames": [
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "561b4b80dee2f7110919b31dfb7933060bf5294fcf427494a4ff1aa7e8bb0007"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "561b4b80dee2f7110919b31dfb7933060bf5294fcf427494a4ff1aa7e8bb0007"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "561b4b80dee2f7110919b31dfb7933060bf5294fcf427494a4ff1aa7e8bb0007"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "561b4b80dee2f7110919b31dfb7933060bf5294fcf427494a4ff1aa7e8bb0007"
+            },
+            {
+              "progress": 0,
+              "facts": {
+                "old": [
+                  2,
+                  1
+                ],
+                "dataGradient": [
+                  -1,
+                  2
+                ],
+                "eta": 0.4,
+                "lambda": 0.5,
+                "shrinkFactor": 0.8,
+                "shrinkStep": [
+                  -0.4,
+                  -0.2
+                ],
+                "shrunk": [
+                  1.6,
+                  0.8
+                ],
+                "dataStep": [
+                  0.4,
+                  -0.8
+                ],
+                "next": [
+                  2,
+                  0
+                ],
+                "oldNorm": 2.23606797749979,
+                "nextNorm": 2,
+                "convention": "旧位置的数据梯度；箭头为一次SGD更新的代数分解，不是两次优化"
+              },
+              "error": null,
+              "outside": [],
+              "tiny": [],
+              "overlaps": [],
+              "invalidGeometry": [],
+              "svgHash": "561b4b80dee2f7110919b31dfb7933060bf5294fcf427494a4ff1aa7e8bb0007"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "findings": [],
+  "screenshots": [
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-minimum-shifts-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-minimum-shifts-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-minimum-shifts-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-minimum-shifts-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-one-update-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-one-update-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-one-update-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/1280-page.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-minimum-shifts-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-minimum-shifts-context.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-minimum-shifts-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-minimum-shifts-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-one-update-0.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-one-update-0.5.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-one-update-1.png",
+    "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/runs/transfer-book-phase5/sessions/weight-decay/preview-preview-02/375-page.png"
+  ],
+  "status": "completed",
+  "parameterAudit": {
+    "cases": 40,
+    "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+  }
+}
