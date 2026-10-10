@@ -1,10 +1,18 @@
 # Concept2Motion · 概念成形
 
-让 AI 根据画面证据快速、局部地修改概念动画，并检验修改是否改善表达。
+当前聚焦于 **让 LLM 更好地生成可视化教材**：保留已有教材的详细正文，把有用的图解放在对应段落里，让读者自行控制进度。图解释文字里的关系，交互帮助比较变化。没有鼠标追踪，也不默认自动播放。
 
-目标是减少每次重新提示和人工盯画面的成本。当前是实验基础设施的起点，尚未宣称解决自动艺术审美。
+最新的 [D2L 六节实验](evaluation/2026-10-10/d2l-visualbook-v1/REPORT.md)包含正式生成的12幅图、保留的首版与局部修订、离线HTML、版本绑定的读者反馈和可重建入口。先做 textbook2visualbook；movie2textbook 后续对接。Zanim 作为可选工具。[讨论与方向记录](docs/decisions/2026-10-10-visualbook-direction.md)。
 
-2026-10-10 新增[随阅读变化的 HTML 教材实验](evaluation/2026-10-10/reading-textbook-v1/REPORT.md)：固定复现 Video2Book/Zanim 的关键流程，实际导入 CS336 的 21 份文档，做出三个段落跟随图解和离线单文件。[源码与重建说明](experiments/reading-textbook/README.md)独立于旧视频作者／裁判流程；工程可运行，学习收益尚未验证，新音频转写仍有工具缺口。旧研究与负结果继续保留。
+```bash
+# Node 22、Python 3.11+、Git、npm；首次下载固定源码与依赖，不调用模型
+python3 experiments/visualbook/bootstrap.py --fetch
+python3 -m http.server 8768 --bind 127.0.0.1 --directory outputs/visualbook
+```
+
+打开 <http://127.0.0.1:8768/index.html>。[完整使用说明](experiments/visualbook/README.md)。当前只是六节实验，尚未证明批量整书质量或学习效率提升。
+
+旧动画研究保留，主要借用源码/证据绑定、独立检查、局部修订和失败记录。此前的 [CS336阅读原型](evaluation/2026-10-10/reading-textbook-v1/REPORT.md)保留作历史样本；用户已指出文字重复和鼠标跟随体验不佳，不能把它当作接受标准。
 
 [仓库定位、约束、假设与验证方式](docs/positioning.md)说明目标和现有能力的边界。当前已有渲染、部分数学检查、局部补丁与快速预览；可信评分和评价驱动的完整改进循环尚未完成，尚未证明稳定的表达质量提升。
 

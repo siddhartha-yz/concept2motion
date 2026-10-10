@@ -234,6 +234,23 @@ export function prepare() {
       // requires an explicit environment. Keep raw/hash unchanged; this is
       // solely a rendering adaptation, not a source or equation rewrite.
       let renderedNode = node;
+      // A standalone one-line $$...$$ is display math in D2L, while Remark
+      // parses it as an inline math paragraph. Fix presentation only: retain
+      // the original raw block and hash used by saved generation inputs.
+      if (
+        node.type === "paragraph" &&
+        node.children.length === 1 &&
+        node.children[0].type === "inlineMath" &&
+        raw.trim().startsWith("$$") &&
+        raw.trim().endsWith("$$")
+      ) {
+        renderedNode = {
+          type: "math",
+          value: node.children[0].value,
+          position: node.position,
+        };
+        report.oneLineDisplayMath = (report.oneLineDisplayMath ?? 0) + 1;
+      }
       const boldFixed = raw.replace(/([^\s\p{P}])\*\*(?=`)/gu, "$1 **");
       if (boldFixed !== raw) {
         renderedNode = parser.parse(boldFixed).children[0];

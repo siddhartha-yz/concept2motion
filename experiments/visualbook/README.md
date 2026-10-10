@@ -40,7 +40,7 @@ VISUALBOOK_EVIDENCE_DIR=work/visualbook/new-bounded-run \
   --image /absolute/path/original-figure.png
 ```
 
-章节必须已经由 `prepare.mjs` 导入。更换章节目前需要维护采样清单和相应的数学核对；不要把这个示例当成“一条命令转换整本书”。默认使用 [v2生成要求](generation-guide-v2.md)，保留 [首轮要求](generation-guide.md) 作对照。独立模型返回纯 SVG 函数，这只是当前后端；以后需要 HTML/Canvas 或 Zanim 时再加适配，不能把所有图强行做成 SVG。
+章节必须已经由 `prepare.mjs` 导入。更换章节目前需要维护采样清单和相应的数学核对；不要把这个示例当成“一条命令转换整本书”。下一轮默认使用 [v3生成要求](generation-guide-v3.md)，允许明确解释后的零幅图；它尚未经历真实生成评估。本批使用的 [v2要求](generation-guide-v2.md)、[首轮要求](generation-guide.md)和[原始schema](response.schema-v1.json)保留作对照。独立模型返回纯 SVG 函数，这只是当前后端；以后需要 HTML/Canvas 或 Zanim 时再加适配，不能把所有图强行做成 SVG。
 
 阅读时，粗略滚动位置选中解释状态；“自己试一下”可以暂停跟随、调参数，再“回到阅读位置”。不是眼动追踪。短屏和减少动态偏好使用普通文中摆放。手机上图可能先滚出屏幕，后面的状态不一定与文字同屏；这是当前限制，需用户试读。
 

@@ -151,7 +151,7 @@ function startVisualbook(data) {
     { passive: true },
   );
   follow.addEventListener("change", () => {
-    controllers.forEach((c) => c.resume());
+    if (follow.checked) controllers.forEach((c) => c.resume());
     update();
   });
   original.addEventListener("click", () => {

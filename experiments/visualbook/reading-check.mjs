@@ -198,6 +198,18 @@ for (const section of Object.keys(active)) {
 }
 await page.goto(`file://${output}/iteration.html`);
 await page.waitForFunction(() => !!window.visualbook);
+await record("global-pause/keeps-exploration", async () => {
+  const figure = page.locator("#figure-sgd-gradient-mean");
+  await figure.locator("details").evaluate((el) => (el.open = true));
+  const slider = figure.locator('[data-param="sample"]');
+  await slider.focus();
+  await slider.press("End");
+  await clickHeaderButton("#follow");
+  assert.equal(await slider.inputValue(), "4");
+  await clickHeaderButton("#follow");
+  assert.equal(await slider.inputValue(), "1");
+  await figure.locator("details").evaluate((el) => (el.open = false));
+});
 await record("feedback/export-and-version-bound-capsule", async () => {
   const figure = page.locator(".visual").first();
   await figure.locator("details").evaluate((el) => (el.open = true));
@@ -284,6 +296,19 @@ for (const section of Object.keys(active))
     );
     const expected = candidate.figures.reduce((n, f) => n + f.states.length, 0);
     assert.equal(await p.locator(".visual img:visible").count(), expected);
+    assert.ok(
+      await p.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth + 1,
+      ),
+      "No-JS mobile page overflows",
+    );
+    await p.setViewportSize({ width: 360, height: 640 });
+    assert.ok(
+      await p.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth + 1,
+      ),
+      "Short no-JS mobile page overflows",
+    );
     await nojs.close();
     const reduced = await browser.newContext({ reducedMotion: "reduce" }),
       q = await reduced.newPage();

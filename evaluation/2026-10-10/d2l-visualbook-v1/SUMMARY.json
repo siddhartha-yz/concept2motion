@@ -1,0 +1,75 @@
+{
+  "status": "Technical checks complete; no human reading acceptance or learning claim",
+  "actualModelCalls": 8,
+  "initialChapters": 6,
+  "generatedActiveFigures": 12,
+  "independentModelRevisions": 2,
+  "maintenanceSourceRevisions": 2,
+  "numeric": {
+    "passed": 210,
+    "total": 210,
+    "scope": "Reviewed examples only"
+  },
+  "browser": {
+    "records": 348,
+    "files": [
+      "spatial-first-final-v7.json",
+      "iteration-revised-final-v8.json",
+      "routing-axis-revised-final-v6.json",
+      "execution-revised-final-v7.json",
+      "holdout-iteration-first-final-v7.json",
+      "holdout-spatial-layout-revised-final-v5.json"
+    ],
+    "sourcePreserved": true,
+    "scriptErrors": 0,
+    "outsideLabels": 0,
+    "overlappingLabelPairs": 0,
+    "smallDeclaredFonts": 0,
+    "overflowRecords": 0,
+    "scope": "Four fixed viewport sizes; each file records its HTML/checker hash. HTML presentation may subsequently change; no universal browser guarantee."
+  },
+  "relations": {
+    "file": "relations/final-v6.json",
+    "total": 228,
+    "expectedOldFailures": 18,
+    "unexpected": 0
+  },
+  "reading": {
+    "file": "reading/final-v10.json",
+    "scope": "Scripted browser controls and injected renderer failure, not human review",
+    "passed": 79,
+    "total": 79,
+    "errors": [],
+    "externalRequests": []
+  },
+  "source": {
+    "blocks": 316,
+    "originalFigures": 7,
+    "keptPytorchCodeBlocks": 55,
+    "publishedCells": 35,
+    "matchedPublishedCells": 20,
+    "unmatchedPublishedCells": 15,
+    "mathRenderErrors": 0
+  },
+  "active": {
+    "spatial": "first",
+    "iteration": "revised",
+    "routing": "axis-revised",
+    "execution": "revised",
+    "holdout-iteration": "first",
+    "holdout-spatial": "layout-revised"
+  },
+  "modelUsage": {
+    "input_tokens": 246823,
+    "output_tokens": 51475,
+    "cached_input_tokens": 13312,
+    "reasoning_output_tokens": 17581,
+    "wall_s": 1432.888
+  },
+  "publication": "See PUBLICATION.md; raw logs/upstream checkouts/output HTML are ignored",
+  "protocol": {
+    "version": "v3",
+    "zeroFigureChoice": "mock protocol only; no new real generation",
+    "frozenCallSchema": "response.schema-v1.json"
+  }
+}

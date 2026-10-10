@@ -28,7 +28,7 @@ def main():
     parser.add_argument("section")
     parser.add_argument("attempt")
     parser.add_argument("--feedback", type=Path)
-    parser.add_argument("--guide", type=Path, default=HERE / "generation-guide-v2.md")
+    parser.add_argument("--guide", type=Path, default=HERE / "generation-guide-v3.md")
     parser.add_argument("--image", type=Path, action="append", default=[])
     args = parser.parse_args()
     if not all(re.fullmatch(r"[a-z][a-z0-9-]*", s) for s in [args.section, args.attempt]):
@@ -69,7 +69,8 @@ def main():
         context = raw / "context"
         context.mkdir()
         (raw / "prompt.md").write_text(prompt)
-        write_json(raw / "invocation.json", {"cliVersion": version, "runnerSha256": sha(Path(__file__)), "guideSha256": sha(args.guide), "images": [{"sha256": sha(p)} for p in images]})
+        (raw / "response.schema.json").write_bytes((HERE / "response.schema.json").read_bytes())
+        write_json(raw / "invocation.json", {"cliVersion": version, "runnerSha256": sha(Path(__file__)), "guideSha256": sha(args.guide), "schemaSha256": sha(HERE / "response.schema.json"), "images": [{"sha256": sha(p)} for p in images]})
         cmd = ["codex", "exec", "--ephemeral", "--skip-git-repo-check", "--sandbox", "read-only", "--json", "--output-schema", str(HERE / "response.schema.json"), "--output-last-message", str(raw / "response.json"), "--cd", str(context)]
         for image in images:
             cmd += ["--image", str(image)]
@@ -101,7 +102,7 @@ def main():
             if kind in ("command_execution", "file_change", "mcp_tool_call", "web_search"):
                 tool_types.append(kind)
         response_file = raw / "response.json"
-        result = dict(section=args.section, attempt=args.attempt, exit_code=proc.returncode, timed_out=timed_out, interrupted=interrupted, wall_s=round(time.monotonic()-started, 3), prompt_sha256=sha(raw/"prompt.md"), response_sha256=sha(response_file) if response_file.exists() else None, tool_types=tool_types, usage=usage, auth="official Codex; existing ChatGPT login", images=len(images), cliVersion=version, runnerSha256=sha(Path(__file__)))
+        result = dict(section=args.section, attempt=args.attempt, exit_code=proc.returncode, timed_out=timed_out, interrupted=interrupted, wall_s=round(time.monotonic()-started, 3), prompt_sha256=sha(raw/"prompt.md"), response_sha256=sha(response_file) if response_file.exists() else None, tool_types=tool_types, usage=usage, auth="official Codex; existing ChatGPT login", images=len(images), cliVersion=version, runnerSha256=sha(Path(__file__)), schemaSha256=sha(HERE / "response.schema.json"))
         write_json(raw / "process.json", result)
         public = BASE / "calls"
         public.mkdir(exist_ok=True)

@@ -4,7 +4,7 @@
 
 **当前结论：局部预览更快，部分工程检查更可靠；尚未证明完整工具循环能稳定提高概念表达质量。**
 
-2026-10-10 后续方向：[先聚焦教材到可视化教材](decisions/2026-10-10-visualbook-direction.md)。用户试读明确否定旧原型的文字密度和默认光标跟随；新 D2L 实验以原教材为比较对象，按知识类型随机选节，保留首版、失败和人工修改。Zanim 降为可选绘图工具。[本轮执行日志](../evaluation/2026-10-10/d2l-visualbook-v1/LOG.md)正在追加；实际结果尚未产生，不预先计为通过。
+2026-10-10 [D2L教材到可视化教材实验](../evaluation/2026-10-10/d2l-visualbook-v1/REPORT.md)：先聚焦后半流程，Zanim可选。首批四组随机选节，再从预留节随机选两组；八次串行官方CLI，12幅当前图，两次模型修订、两次维护源码修订。210个数值组合、228个SVG关系组合（含18个旧缺陷），实际阅读控制与跨目录重建；用户试读与学习收益未验证。源码公式吞正文、手机标签碰撞、概率轴缺失、长公式溢出及检查器误判保留。[方向记录](decisions/2026-10-10-visualbook-direction.md)、[日志](../evaluation/2026-10-10/d2l-visualbook-v1/LOG.md)、[复用入口](../experiments/visualbook/README.md)。设计 `88085c5`，首批实现 `336bac1`，修订和阅读功能 `3045c43`。旧原型用户否定意见与VideoScore负结果不改写。
 
 2026-10-10 新方向：[可随阅读变化的 HTML 教材设计](../evaluation/2026-10-10/reading-textbook-v1/DESIGN.md)，设计提交 `f41f4c0`，首个实现 `3d2b46c`。[最终通俗报告](../evaluation/2026-10-10/reading-textbook-v1/REPORT.md)与[候选记录](../evaluation/2026-10-10/reading-textbook-v1/candidates.json)保存三个实际图解、21 个 CS336 文档的独立导入与离线单文件。原 Video2Book/Zanim 的工具复现、既有文本重编、真实渲染、新转录缺口和未验证的学习效果分别报告；[实现里程碑](../evaluation/2026-10-10/reading-textbook-v1/IMPLEMENTATION.md)保留当时进度。新方向的工程可行性有直接证据，学习收益仍未建立。旧 VideoScore 负结果和旧研究账目继续保留。
 

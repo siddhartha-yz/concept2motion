@@ -120,12 +120,10 @@ export function renderer(code) {
   };
 }
 export function validateResponse(book, response) {
-  if (
-    !Array.isArray(response.figures) ||
-    response.figures.length < 1 ||
-    response.figures.length > 2
-  )
-    throw new Error("Need one or two figures");
+  if (!Array.isArray(response.figures) || response.figures.length > 2)
+    throw new Error("Need zero to two figures");
+  if (!response.figures.length && !response.selectionNote?.trim())
+    throw Error("A deliberate zero-figure choice needs an explanation");
   const ids = new Set();
   const bindings = [];
   for (const f of response.figures) {
