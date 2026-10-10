@@ -1,0 +1,462 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "id": "projection",
+      "title": "向量投影",
+      "props": {
+        "vector": "Finite [x,y]",
+        "onto": "Nonzero finite [x,y] projection direction",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "draggable": "See executable example and numeric limits",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it"
+      },
+      "required": [],
+      "outputs": [
+        "projection",
+        "residual",
+        "coefficient",
+        "dot",
+        "orthogonality"
+      ],
+      "examples": [
+        "projection"
+      ],
+      "limits": "非零二维投影方向；把手存储二维向量",
+      "keywords": "linear algebra vector 投影 向量"
+    },
+    {
+      "id": "linear-transform",
+      "title": "二维线性变换",
+      "props": {
+        "matrix": "Finite 2×2 matrix",
+        "vector": "Finite [x,y]",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "gridExtent": "Integer grid extent around the origin"
+      },
+      "required": [],
+      "outputs": [
+        "currentMatrix",
+        "transformed",
+        "target",
+        "determinant"
+      ],
+      "examples": [
+        "linear-transform"
+      ],
+      "limits": "2×2矩阵；I到A的插值不是矩阵指数",
+      "keywords": "二维线性变换"
+    },
+    {
+      "id": "plot",
+      "title": "同坐标系图层",
+      "props": {
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "equalUnits": "See executable example and numeric limits",
+        "layers": "See executable example and numeric limits"
+      },
+      "required": [],
+      "outputs": [
+        "xDomain",
+        "yDomain",
+        "layers"
+      ],
+      "examples": [
+        "linked-plot"
+      ],
+      "limits": "curve/points/vector/area/handle；最多16层",
+      "keywords": "同坐标系图层"
+    },
+    {
+      "id": "readout",
+      "title": "紧凑数值读数",
+      "props": {
+        "items": "Short label/value/color records; value can bind to an earlier $result",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [],
+      "outputs": [
+        "items"
+      ],
+      "examples": [],
+      "limits": "最多8项；每项至少50px加16px留白；短标签与实际计算结果",
+      "keywords": "紧凑数值读数"
+    },
+    {
+      "id": "function-plot",
+      "title": "函数和变化率",
+      "props": {
+        "function": "{kind:polynomial,coefficients:[low power...]} or sin/cos/exp/log/relu/sigmoid/tanh/gaussian; gaussian has mean/sigma",
+        "x": "See executable example and numeric limits",
+        "derivative": "See executable example and numeric limits",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it"
+      },
+      "required": [],
+      "outputs": [
+        "function",
+        "x",
+        "value",
+        "derivative",
+        "convention"
+      ],
+      "examples": [
+        "activation"
+      ],
+      "limits": "函数用结构化数据；无eval函数字符串",
+      "keywords": "函数和变化率"
+    },
+    {
+      "id": "derivative",
+      "title": "割线和切线",
+      "props": {
+        "function": "{kind:polynomial,coefficients:[low power...]} or sin/cos/exp/log/relu/sigmoid/tanh/gaussian; gaussian has mean/sigma",
+        "x": "See executable example and numeric limits",
+        "h": "See executable example and numeric limits",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it"
+      },
+      "required": [],
+      "outputs": [
+        "x",
+        "h",
+        "value",
+        "derivative",
+        "secantSlope"
+      ],
+      "examples": [
+        "derivative"
+      ],
+      "limits": "h=0显示解析导数；ReLU在0处仅显示指定次梯度",
+      "keywords": "割线和切线"
+    },
+    {
+      "id": "integral",
+      "title": "数值面积",
+      "props": {
+        "function": "{kind:polynomial,coefficients:[low power...]} or sin/cos/exp/log/relu/sigmoid/tanh/gaussian; gaussian has mean/sigma",
+        "a": "See executable example and numeric limits",
+        "b": "See executable example and numeric limits",
+        "count": "See executable example and numeric limits",
+        "rule": "See executable example and numeric limits",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [],
+      "outputs": [
+        "a",
+        "b",
+        "count",
+        "rule",
+        "bins",
+        "sum",
+        "exact",
+        "visibleArea",
+        "constructionProgress"
+      ],
+      "examples": [
+        "integral"
+      ],
+      "limits": "left/right/midpoint；数字计算和可见范围分开",
+      "keywords": "数值面积"
+    },
+    {
+      "id": "unit-circle",
+      "title": "单位圆",
+      "props": {
+        "angle": "Finite angle in radians",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [],
+      "outputs": [
+        "angle",
+        "cos",
+        "sin",
+        "norm"
+      ],
+      "examples": [
+        "unit-circle"
+      ],
+      "limits": "角度为弧度；等单位比例",
+      "keywords": "单位圆"
+    },
+    {
+      "id": "graph",
+      "title": "稳定有向关系图",
+      "props": {
+        "nodes": "Structured nodes; scalar graph input/constant/add/sub/mul/div/pow/exp/log/relu/sigmoid/tanh/detach",
+        "edges": "See executable example and numeric limits",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "direction": "See executable example and numeric limits",
+        "mode": "See executable example and numeric limits",
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "selected": "See executable example and numeric limits",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it",
+        "note": "See executable example and numeric limits"
+      },
+      "required": [
+        "nodes"
+      ],
+      "outputs": [
+        "nodes",
+        "edges",
+        "layout",
+        "mode",
+        "progress"
+      ],
+      "examples": [
+        "dependency-graph"
+      ],
+      "limits": "最多16节点32边；移动点不是硬件时序",
+      "keywords": "稳定有向关系图"
+    },
+    {
+      "id": "autograd",
+      "title": "前向与反向计算图",
+      "props": {
+        "nodes": "Structured nodes; scalar graph input/constant/add/sub/mul/div/pow/exp/log/relu/sigmoid/tanh/detach",
+        "output": "See executable example and numeric limits",
+        "outputs": "Known unique output node ids; mutually exclusive with output",
+        "seeds": "Finite backward seeds aligned with outputs; default ones",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "mode": "See executable example and numeric limits",
+        "title": "Optional short title; omit if figure heading already names the idea",
+        "selected": "See executable example and numeric limits",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it"
+      },
+      "required": [
+        "nodes"
+      ],
+      "outputs": [
+        "trace",
+        "graph",
+        "mode",
+        "phase"
+      ],
+      "examples": [
+        "autograd"
+      ],
+      "limits": "标量节点、有限反传种子、重复输入独立累加、detach截断；不代表训练",
+      "keywords": "automatic differentiation backprop backward gradient detach stop-gradient 微分 梯度 反向传播"
+    },
+    {
+      "id": "distribution",
+      "title": "连续或离散概率分布",
+      "props": {
+        "kind": "See executable example and numeric limits",
+        "mean": "See executable example and numeric limits",
+        "sigma": "See executable example and numeric limits",
+        "n": "See executable example and numeric limits",
+        "p": "See executable example and numeric limits",
+        "interval": "See executable example and numeric limits",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [],
+      "outputs": [
+        "probability",
+        "selected",
+        "mean",
+        "variance",
+        "interval"
+      ],
+      "examples": [
+        "normal-distribution",
+        "binomial-distribution"
+      ],
+      "limits": "normal或binomial；CDF近似界明确；可见n<=40",
+      "keywords": "probability normal binomial 概率 正态 二项"
+    },
+    {
+      "id": "histogram",
+      "title": "固定样本的直方图",
+      "props": {
+        "samples": "See executable example and numeric limits",
+        "domain": "See executable example and numeric limits",
+        "count": "See executable example and numeric limits",
+        "density": "See executable example and numeric limits",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [
+        "samples"
+      ],
+      "outputs": [
+        "bins",
+        "outside",
+        "total",
+        "inRange",
+        "density"
+      ],
+      "examples": [
+        "histogram"
+      ],
+      "limits": "最多40个可见箱；画外样本显式计数",
+      "keywords": "statistics density sample 统计 密度 样本"
+    },
+    {
+      "id": "bayes",
+      "title": "条件概率面积",
+      "props": {
+        "prior": "See executable example and numeric limits",
+        "sensitivity": "See executable example and numeric limits",
+        "falsePositive": "See executable example and numeric limits",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [],
+      "outputs": [
+        "prior",
+        "evidence",
+        "posterior",
+        "truePositive",
+        "falsePositiveMass"
+      ],
+      "examples": [
+        "bayes-area"
+      ],
+      "limits": "后验为null表示零概率观察；转换中面积不作为概率",
+      "keywords": "conditional probability bayesian 条件概率 贝叶斯"
+    },
+    {
+      "id": "regression",
+      "title": "数据、直线和残差",
+      "props": {
+        "data": "Array of finite [x,y] pairs; no trained weights implied",
+        "weight": "Finite supplied slope, default 1",
+        "bias": "Finite supplied intercept, default 0",
+        "lambda": "Nonnegative λ; loss penalty λw²/2",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "squares": "See executable example and numeric limits",
+        "draggable": "See executable example and numeric limits",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [
+        "data"
+      ],
+      "outputs": [
+        "predictions",
+        "residuals",
+        "dataLoss",
+        "penalty",
+        "loss",
+        "weightGradient",
+        "biasGradient"
+      ],
+      "examples": [
+        "regression-residuals"
+      ],
+      "limits": "最多60可见点；半均方误差+λw²/2，截距不正则化",
+      "keywords": "linear regression residual least squares 回归 最小二乘 误差"
+    },
+    {
+      "id": "loss-curve",
+      "title": "权重与损失的关系",
+      "props": {
+        "data": "Array of finite [x,y] pairs; no trained weights implied",
+        "bias": "Finite supplied intercept, default 0",
+        "lambda": "Nonnegative λ; loss penalty λw²/2",
+        "weight": "Finite supplied slope, default 1",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [
+        "data"
+      ],
+      "outputs": [
+        "dataLoss",
+        "penalty",
+        "loss",
+        "weightGradient",
+        "biasGradient",
+        "samples"
+      ],
+      "examples": [
+        "regularized-loss"
+      ],
+      "limits": "固定截距的1D切片；不是完整训练轨迹",
+      "keywords": "regularization weight decay 正则 权重衰减"
+    },
+    {
+      "id": "decision-boundary",
+      "title": "二维线性分类",
+      "props": {
+        "data": "Array of finite [x,y] pairs; no trained weights implied",
+        "labels": "See executable example and numeric limits",
+        "weights": "See executable example and numeric limits",
+        "bias": "Finite supplied intercept, default 0",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "selected": "See executable example and numeric limits",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [],
+      "outputs": [
+        "scores",
+        "probabilities",
+        "predictions",
+        "correct",
+        "total",
+        "selected"
+      ],
+      "examples": [
+        "decision-boundary"
+      ],
+      "limits": "<=80点；颜色表示标签，描边表示错误；手选权重",
+      "keywords": "classification sigmoid logistic 分类 边界"
+    },
+    {
+      "id": "pca",
+      "title": "变化最多的方向",
+      "props": {
+        "data": "Array of finite [x,y] pairs; no trained weights implied",
+        "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
+        "xDomain": "Increasing finite [min,max] displayed input interval",
+        "yDomain": "Increasing finite [min,max] displayed output interval",
+        "draggable": "See executable example and numeric limits",
+        "stateKey": "Name in figure.state; use $state to read it and shared controls to update it",
+        "title": "Optional short title; omit if figure heading already names the idea"
+      },
+      "required": [
+        "data"
+      ],
+      "outputs": [
+        "mean",
+        "covariance",
+        "eigenvalues",
+        "axis",
+        "projections",
+        "reconstructed",
+        "explained",
+        "degenerate"
+      ],
+      "examples": [
+        "pca-projection"
+      ],
+      "limits": "总体协方差分母N；重复特征值不确定方向；<=60可见点",
+      "keywords": "principal component analysis variance 主成分 方差 降维"
+    }
+  ]
+}

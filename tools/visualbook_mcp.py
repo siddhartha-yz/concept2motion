@@ -27,6 +27,7 @@ def main():
     catalog = json.loads((ROOT / "packages/visualbook/catalog.json").read_text())[
         "designs"
     ]
+    components = json.loads((ROOT / "packages/visualbook/components.json").read_text())["components"]
 
     def inside(name):
         path = (workspace / name).resolve()
@@ -62,6 +63,21 @@ def main():
     ]
     if not args.direct:
         definitions += [
+            {
+                "name":"search_designs",
+                "description":"Search reusable designs and composable components by concept in Chinese or English. Returns at most six matching entries with limits, not all source code.",
+                "inputSchema":{"type":"object","properties":{"query":{"type":"string","maxLength":120}},"required":["query"],"additionalProperties":False},
+            },
+            {
+                "name":"describe_component",
+                "description":"Retrieve one component's actual input keys, outputs, limits and matching executable examples. Connect its real outputs to other components using $result.",
+                "inputSchema":{"type":"object","properties":{"id":{"type":"string"}},"required":["id"],"additionalProperties":False},
+            },
+            {
+                "name":"compute_math",
+                "description":"Call the same canonical probability/learning numerical kernels used by drawings; no DOM, network or model calls. This helps inspect values but is not independent math review. Allowed input keys are returned on error.",
+                "inputSchema":{"type":"object","properties":{"operation":{"type":"string","enum":["normal-cdf","binomial","histogram","bayes","regression","regression-optimum","pca"]},"inputs":{"type":"object"}},"required":["operation","inputs"],"additionalProperties":False},
+            },
             {
                 "name": "list_designs",
                 "description": "List reusable mathematical/ML/programming designs and their limits. Select suitable ones; do not force every concept into a template.",
@@ -157,6 +173,36 @@ def main():
             result = [
                 {k: d[k] for k in ["id", "title", "topic", "limits"]} for d in catalog
             ]
+        elif name == "search_designs":
+            query=arguments.get("query")
+            if not isinstance(query,str) or not query.strip() or len(query)>120:
+                raise ValueError("Provide a short concept query")
+            terms=set(re.findall(r"[a-z0-9]+|[\u4e00-\u9fff]",query.lower()))
+            matches=[]
+            for entry in components:
+                text=" ".join([entry["id"],entry["title"],entry["keywords"],entry["limits"]]).lower()
+                score=sum(term in text for term in terms)
+                if score:
+                    matches.append((score,{k:entry[k] for k in ["id","title","limits","examples"]}))
+            matches.sort(key=lambda item:(-item[0],item[1]["id"]))
+            selected=[item[1] for item in matches[:6]]
+            example_ids={ident for item in selected for ident in item["examples"]}
+            designs=[]
+            for design in catalog:
+                text=" ".join(str(design.get(k,"")) for k in ["id","title","topic","limits","keywords"]).lower()
+                score=sum(term in text for term in terms)+(1 if design["id"] in example_ids else 0)
+                if score:designs.append((score,{k:design[k] for k in ["id","title","topic","limits"]}))
+            designs.sort(key=lambda item:(-item[0],item[1]["id"]))
+            result={"components":selected,"designs":[item[1] for item in designs[:6]],"scope":"Simple deterministic keyword lookup; no embedding model or quality ranking"}
+        elif name == "describe_component":
+            result=next((entry for entry in components if entry["id"]==arguments.get("id")),None)
+            if result is None:raise ValueError("Unknown component")
+        elif name == "compute_math":
+            request=json.dumps({"operation":arguments.get("operation"),"inputs":arguments.get("inputs")})
+            if len(request.encode())>65536:raise ValueError("Numeric input exceeds 64 KiB")
+            process=subprocess.run(["node",str(ROOT/"tools/visualbook_math.mjs")],input=request,cwd=workspace,capture_output=True,text=True,timeout=30)
+            if process.returncode:raise ValueError(process.stderr[-3000:])
+            result=json.loads(process.stdout)
         elif name == "inspect_frame":
             directory, report = latest_preview()
             ident = arguments.get("id")
@@ -354,7 +400,7 @@ def main():
                         "protocolVersion", "2024-11-05"
                     ),
                     "capabilities": {"tools": {}},
-                    "serverInfo": {"name": "visualbook-local", "version": "0.3.0"},
+                    "serverInfo": {"name": "visualbook-local", "version": "0.4.0"},
                 }
             elif method == "ping":
                 result = {}

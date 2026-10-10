@@ -210,16 +210,44 @@ export async function auditParameters(file, out) {
               state.overlaps.length
             ) {
               report.findings.push({ ...record, facts: undefined });
-              await page
-                .locator("#figure-" + figure.id)
-                .screenshot({
-                  path: path.join(
-                    out,
-                    `${width}-${figure.id}-${c.name}-${progress}.png`,
-                  ),
-                });
+              await page.locator("#figure-" + figure.id).screenshot({
+                path: path.join(
+                  out,
+                  `${width}-${figure.id}-${c.name}-${progress}.png`,
+                ),
+              });
             }
           }
+        for (const param of figure.params) {
+          const samples = report.cases.filter(
+            (c) => c.width === width && c.id === figure.id,
+          );
+          const unchanged = [0.5, 1].every((progress) => {
+            const low = samples.find(
+              (c) =>
+                c.control === param.key + "-min" && c.progress === progress,
+            );
+            const high = samples.find(
+              (c) =>
+                c.control === param.key + "-max" && c.progress === progress,
+            );
+            return (
+              low &&
+              high &&
+              !low.error &&
+              !high.error &&
+              low.svgHash === high.svgHash
+            );
+          });
+          if (unchanged)
+            report.findings.push({
+              width,
+              id: figure.id,
+              control: param.key,
+              kind: "parameter-no-visual-effect",
+              note: "Both tested endpoints produce identical SVG at both tested poses",
+            });
+        }
       }
       await page.close();
     }

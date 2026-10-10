@@ -69,6 +69,8 @@ const plan = {
       height: 360,
       mobileHeight: 560,
       state: { v: [1.5, 1] },
+      interaction: "parameters",
+      initialProgress: 1,
       scene,
       params: [],
     },
@@ -182,7 +184,9 @@ try {
     [1.5, 1],
   );
   result.resetRestoresSharedState = true;
-  await page.locator(".vh-progress").fill("1");
+  assert.equal(await page.locator(".vh-progress,.vh-play").count(), 0);
+  assert.equal(await page.evaluate(() => VisualBookRuntime.instances[0].play()), false);
+  result.parameterExplorationHasNoFakeTimeline = true;
   await page.screenshot({
     path: path.join(out, "mobile-linked.png"),
     fullPage: true,

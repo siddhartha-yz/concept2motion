@@ -15,6 +15,102 @@ const esc = (s) =>
     .replaceAll('"', "&quot;");
 const json = (filename) => JSON.parse(fs.readFileSync(filename, "utf8"));
 const hash = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex");
+export function validateScene(scene, figure = {}) {
+  const registry = new Map(
+    json(path.join(lib, "components.json")).components.map((c) => [c.id, c]),
+  );
+  const seen = new Set(),
+    results = new Map(),
+    params = new Set((figure.params ?? []).map((p) => p.key));
+  let count = 0;
+  function bindings(value) {
+    if (!value || typeof value !== "object") return;
+    if (Array.isArray(value)) {
+      value.forEach(bindings);
+      return;
+    }
+    if (Object.hasOwn(value, "$param") && !params.has(value.$param))
+      throw Error("Unknown scene parameter " + value.$param);
+    if (
+      Object.hasOwn(value, "$state") &&
+      !Object.hasOwn(figure.state ?? {}, value.$state) &&
+      !Object.hasOwn(value, "fallback")
+    )
+      throw Error(
+        "Scene state needs an initial value or fallback: " + value.$state,
+      );
+    if (Object.hasOwn(value, "$result")) {
+      const [id, key] = String(value.$result).split(".");
+      if (!results.has(id))
+        throw Error("Scene result must come from an earlier component: " + id);
+      if (!results.get(id).includes(key))
+        throw Error("Unknown component output: " + value.$result);
+    }
+    Object.values(value).forEach(bindings);
+  }
+  function visit(node, depth = 0) {
+    if (
+      !node ||
+      typeof node !== "object" ||
+      Array.isArray(node) ||
+      ++count > 64 ||
+      depth > 8
+    )
+      throw Error("Scene needs objects, at most 64 nodes and depth 8");
+    if (node.id !== undefined) {
+      if (!/^[a-z][a-z0-9-]*$/.test(node.id) || seen.has(node.id))
+        throw Error("Unique valid scene ids required");
+      seen.add(node.id);
+    }
+    const layout = ["columns", "stack", "grid", "overlay"].includes(node.type),
+      allowed = layout
+        ? ["id", "type", "children", "layout"]
+        : ["id", "type", "props"];
+    if (Object.keys(node).some((k) => !allowed.includes(k)))
+      throw Error("Unknown scene node field; allowed: " + allowed.join(", "));
+    if (layout) {
+      if (
+        !Array.isArray(node.children) ||
+        !node.children.length ||
+        node.children.length > 16
+      )
+        throw Error("Scene layout needs 1..16 children");
+      if (
+        Object.keys(node.layout ?? {}).some(
+          (k) =>
+            ![
+              "weights",
+              "gap",
+              "padding",
+              "minColumnWidth",
+              "columns",
+            ].includes(k),
+        )
+      )
+        throw Error("Unknown layout option");
+      node.children.forEach((child) => visit(child, depth + 1));
+      return;
+    }
+    const spec = registry.get(node.type);
+    if (!spec) throw Error("Unknown scene component " + node.type);
+    const props = node.props ?? {};
+    if (!props || typeof props !== "object" || Array.isArray(props))
+      throw Error("Component props must be an object");
+    if (Object.keys(props).some((k) => !Object.hasOwn(spec.props, k)))
+      throw Error(
+        "Unknown " +
+          node.type +
+          " input; allowed: " +
+          Object.keys(spec.props).join(", "),
+      );
+    if (spec.required.some((k) => !Object.hasOwn(props, k)))
+      throw Error(node.type + " needs " + spec.required.join(", "));
+    bindings(props);
+    if (node.id) results.set(node.id, spec.outputs);
+  }
+  visit(scene);
+  return { nodes: count };
+}
 function katexCss() {
   return fs
     .readFileSync(path.join(runtime, "katex/dist/katex.min.css"), "utf8")
@@ -34,6 +130,46 @@ export function validatePlan(book, plan) {
     if (!/^[a-z][a-z0-9-]*$/.test(f.id) || ids.has(f.id))
       throw Error("Bad/duplicate figure id");
     ids.add(f.id);
+    if (typeof f.title !== "string" || !f.title.trim() || f.title.length > 80)
+      throw Error("Figure needs a short title " + f.id);
+    if (
+      f.summary !== undefined &&
+      (typeof f.summary !== "string" || f.summary.length > 180)
+    )
+      throw Error("Figure summary must be at most 180 characters " + f.id);
+    if (
+      f.stages !== undefined &&
+      (!Array.isArray(f.stages) ||
+        !f.stages.length ||
+        f.stages.length > 8 ||
+        f.stages.some((s) => typeof s !== "string" || s.length > 32))
+    )
+      throw Error("Use 1..8 short stage labels " + f.id);
+    if (
+      f.params !== undefined &&
+      (!Array.isArray(f.params) ||
+        f.params.length > 8 ||
+        new Set(f.params.map((p) => p.key)).size !== f.params.length)
+    )
+      throw Error("Use at most 8 uniquely named parameter controls " + f.id);
+    const interaction = f.interaction ?? "timeline";
+    if (!["timeline", "parameters", "static"].includes(interaction))
+      throw Error("Bad interaction mode " + f.id);
+    if (
+      interaction === "static" &&
+      (f.params?.length || Object.keys(f.state ?? {}).length)
+    )
+      throw Error(
+        "Static figures cannot declare interactive state or controls " + f.id,
+      );
+    if (
+      interaction === "parameters" &&
+      !f.params?.length &&
+      !Object.keys(f.state ?? {}).length
+    )
+      throw Error(
+        "Parameter exploration needs controls or shared state " + f.id,
+      );
     if (
       f.initialProgress !== undefined &&
       (!Number.isFinite(f.initialProgress) ||
@@ -78,6 +214,7 @@ export function validatePlan(book, plan) {
       throw Error("Scene must be an object " + f.id);
     if (f.scene !== undefined && f.code !== undefined)
       throw Error("Use scene or code, not both " + f.id);
+    if (f.scene) validateScene(f.scene, f);
     if (
       f.scene === undefined &&
       (typeof f.code !== "string" ||
@@ -120,14 +257,28 @@ export function build(book, plan, { direct = false } = {}) {
   const scopes = validatePlan(book, plan),
     mathExpected = book.blocks.reduce((s, b) => s + (b.math?.expected ?? 0), 0);
   const figure = (f) =>
-    `<figure class="vh-figure" id="figure-${f.id}" data-viz-id="${f.id}"><h3>${esc(f.title)}</h3><div class="vh-canvas"><svg role="img" aria-label="${esc(f.summary ?? f.title)}"><title>${esc(f.title)}</title></svg></div><div class="vh-toolbar"><div class="vh-bar"><input class="vh-progress" type="range" min="0" max="1" step="0.001" value="${f.initialProgress ?? 0}" aria-label="${esc(f.title)}：连续演示进度"><span class="vh-status"></span></div><div class="vh-transport"><button type="button" class="vh-prev" aria-label="${esc(f.title)}：上一步">←</button><button type="button" class="vh-play" aria-label="${esc(f.title)}：播放演示" aria-pressed="false">播放</button><button type="button" class="vh-next" aria-label="${esc(f.title)}：下一步">→</button><button type="button" class="vh-reset" aria-label="${esc(f.title)}：重置进度与参数">重置</button></div></div><div class="vh-params">${(f.params ?? []).map((c) => `<label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>`).join("")}</div>${f.summary ? `<p class="vh-caption">${esc(f.summary)}</p>` : ""}</figure>`;
+    `<figure class="vh-figure" id="figure-${f.id}" data-viz-id="${f.id}" data-interaction="${f.interaction ?? "timeline"}"><h3>${esc(f.title)}</h3><div class="vh-canvas"><svg role="img" aria-label="${esc(f.summary ?? f.title)}"><title>${esc(f.title)}</title></svg></div><div class="vh-toolbar"><div class="vh-bar"><input class="vh-progress" type="range" min="0" max="1" step="0.001" value="${f.initialProgress ?? 0}" aria-label="${esc(f.title)}：连续演示进度"><span class="vh-status"></span></div><div class="vh-transport"><button type="button" class="vh-prev" aria-label="${esc(f.title)}：上一步">←</button><button type="button" class="vh-play" aria-label="${esc(f.title)}：播放演示" aria-pressed="false">播放</button><button type="button" class="vh-next" aria-label="${esc(f.title)}：下一步">→</button><button type="button" class="vh-reset" aria-label="${esc(f.title)}：重置进度与参数">重置</button></div></div><div class="vh-params">${(f.params ?? []).map((c) => `<label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>`).join("")}</div>${f.summary ? `<p class="vh-caption">${esc(f.summary)}</p>` : ""}</figure>`;
+  const renderFigure = (f) => {
+    let html = figure(f);
+    if (f.interaction === "static")
+      html = html.replace(
+        /<div class="vh-toolbar">[\s\S]*?<div class="vh-params">/,
+        '<div class="vh-params">',
+      );
+    else if (f.interaction === "parameters")
+      html = html.replace(
+        /<div class="vh-toolbar">[\s\S]*?<div class="vh-params">/,
+        `<div class="vh-toolbar vh-toolbar-parameters"><button type="button" class="vh-reset" aria-label="${esc(f.title)}：重置参数">重置</button></div><div class="vh-params">`,
+      );
+    return html;
+  };
   let body = "";
   for (let i = 0; i < book.blocks.length; i++) {
     const b = book.blocks[i],
       scope = scopes.find((s) => s.start === i);
     if (scope) body += '<section class="vh-scope">';
     if (!(i === 0 && hasCover)) body += block(b);
-    if (scope) body += figure(scope.f);
+    if (scope) body += renderFigure(scope.f);
     if (scopes.some((s) => s.end === i)) body += "</section>";
   }
   const library = direct
@@ -144,17 +295,13 @@ export function build(book, plan, { direct = false } = {}) {
         "utf8",
       ) +
       "\n" +
-      fs.readFileSync(path.join(lib, "viz.js"), "utf8") +
-      "\n" +
-      fs.readFileSync(path.join(lib, "compose.js"), "utf8") +
-      "\n" +
-      fs.readFileSync(path.join(lib, "designs.js"), "utf8") +
-      "\n" +
-      fs.readFileSync(path.join(lib, "components.js"), "utf8") +
-      "\n" +
-      fs.readFileSync(path.join(lib, "components.math.js"), "utf8") +
-      "\n" +
-      fs.readFileSync(path.join(lib, "components.graph.js"), "utf8");
+      json(path.join(lib, "bundle.json"))
+        .modules.map((name) => {
+          if (!/^[a-zA-Z0-9.\-]+\.c?js$/.test(name))
+            throw Error("Invalid module in bundled manifest");
+          return fs.readFileSync(path.join(lib, name), "utf8");
+        })
+        .join("\n");
   const startup = plan.figures
     .map(
       (f) =>
@@ -222,6 +369,18 @@ export async function preview(file, out) {
       );
       const shapes = [];
       for (const id of instances) {
+        const interaction = await page.evaluate(
+          (id) =>
+            VisualBookRuntime.instances.find((i) => i.id === id).interaction,
+          id,
+        );
+        const interactiveTargets = await page.evaluate(
+          (id) =>
+            VisualBookRuntime.instances
+              .find((i) => i.id === id)
+              .svg.querySelectorAll('[tabindex="0"]').length,
+          id,
+        );
         const frames = [];
         for (const progress of [0, 0.25, 0.26, 0.5, 1]) {
           await page.evaluate(
@@ -232,7 +391,7 @@ export async function preview(file, out) {
             { id, progress },
           );
           await page.locator("#figure-" + id).scrollIntoViewIfNeeded();
-          // Set again after scroll, which may drive automatic reading progress.
+          // Scrolling pauses playback; setting the deterministic pose does not start it.
           await page.evaluate(
             ({ id, progress }) =>
               VisualBookRuntime.instances
@@ -358,14 +517,17 @@ export async function preview(file, out) {
             report.screenshots.push(path.resolve(filename));
           }
         }
-        if (frames[1].svgHash === frames[2].svgHash)
+        if (
+          frames[1].svgHash === frames[2].svgHash &&
+          interaction === "timeline"
+        )
           report.findings.push({
             width,
             id,
             kind: "no-fractional-change",
             note: "0.25 and 0.26 produced identical SVG; review whether this is intentional",
           });
-        shapes.push({ id, frames });
+        shapes.push({ id, interaction, interactiveTargets, frames });
       }
       const filename = path.join(out, `${width}-page.png`);
       await page.screenshot({ path: filename, fullPage: true });
@@ -382,8 +544,30 @@ export async function preview(file, out) {
     scope: parameters.scope,
   };
   report.findings.push(
-    ...parameters.findings.map((f) => ({ ...f, kind: "parameter-boundary" })),
+    ...parameters.findings.map((f) => ({
+      ...f,
+      problem: f.kind ?? "layout",
+      kind: "parameter-boundary",
+    })),
   );
+  for (const viewport of report.viewports)
+    for (const shape of viewport.shapes)
+      if (
+        shape.interaction === "parameters" &&
+        !shape.interactiveTargets &&
+        !parameters.cases.some(
+          (c) =>
+            c.id === shape.id &&
+            c.width === viewport.width &&
+            c.control !== "default",
+        )
+      )
+        report.findings.push({
+          kind: "no-interaction",
+          width: viewport.width,
+          id: shape.id,
+          note: "Parameter exploration has no rendered handles or parameter controls",
+        });
   fs.writeFileSync(
     path.join(out, "report.json"),
     JSON.stringify(report, null, 2) + "\n",

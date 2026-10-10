@@ -7,7 +7,10 @@
     return v;
   };
   const fmt = (v) => Number(v.toFixed(3));
-  function traceGraph(spec, { output = null } = {}) {
+  function traceGraph(
+    spec,
+    { output = null, outputs = null, seeds = null } = {},
+  ) {
     if (!Array.isArray(spec) || !spec.length || spec.length > 32)
       throw Error("Scalar graph needs 1..32 nodes");
     const nodes = new Map();
@@ -108,15 +111,39 @@
           node.value = Math.tanh(args[0]);
           node.partials = [1 - node.value ** 2];
           break;
+        case "detach":
+          arity(1);
+          node.value = args[0];
+          node.partials = [0];
+          node.convention =
+            "Forward identity with a stopped gradient; not the ordinary derivative of the complete numeric function";
+          break;
         default:
           throw Error("Unknown scalar operation " + node.op);
       }
       finite(node.value);
       node.partials.forEach(finite);
     }
-    const target = output ?? ordered.at(-1).id;
-    if (!nodes.has(target)) throw Error("Unknown output " + target);
-    nodes.get(target).gradient = 1;
+    if (output !== null && outputs !== null)
+      throw Error("Use output or outputs, not both");
+    const targets = outputs ?? [output ?? ordered.at(-1).id];
+    if (
+      !Array.isArray(targets) ||
+      !targets.length ||
+      new Set(targets).size !== targets.length ||
+      targets.some((id) => !nodes.has(id))
+    )
+      throw Error("Unique known graph outputs required");
+    const seedValues = seeds ?? targets.map(() => 1);
+    if (
+      !Array.isArray(seedValues) ||
+      seedValues.length !== targets.length ||
+      !seedValues.every(Number.isFinite)
+    )
+      throw Error("Each output needs a finite backward seed");
+    targets.forEach((id, i) => {
+      nodes.get(id).gradient += seedValues[i];
+    });
     for (const node of [...ordered].reverse())
       node.inputs.forEach((id, i) => {
         nodes.get(id).gradient += node.gradient * node.partials[i];
@@ -132,15 +159,26 @@
       })),
     );
     return {
-      output: target,
-      value: nodes.get(target).value,
+      output: targets.length === 1 ? targets[0] : null,
+      outputs: targets,
+      seeds: seedValues,
+      value:
+        targets.length === 1
+          ? nodes.get(targets[0]).value
+          : targets.map((id) => nodes.get(id).value),
+      seededValue: finite(
+        targets.reduce(
+          (sum, id, i) => sum + nodes.get(id).value * seedValues[i],
+          0,
+        ),
+      ),
       nodes: ordered.map((n) => ({ ...n })),
       edges,
       gradients: Object.fromEntries(
         ordered.filter((n) => n.op === "input").map((n) => [n.id, n.gradient]),
       ),
       convention:
-        "Scalar reverse-mode differentiation; repeated inputs contribute separately; values are supplied, not trained weights",
+        "Seeded reverse-mode differentiation computes Jᵀv; repeated inputs contribute separately; detach stops gradients; values are supplied, not trained weights",
     };
   }
   function graphLayout(
@@ -213,6 +251,7 @@
       direction = "auto",
       mode = "forward",
       title = "关系图",
+      note = null,
       selected = null,
       stateKey = null,
     } = {},
@@ -241,7 +280,7 @@
     }
     const layout = board._vhGraphLayout,
       availableW = board.width - 32,
-      availableH = board.height - (title ? 56 : 32),
+      availableH = board.height - (title ? 56 : 32) - (note ? 26 : 0),
       scale = Math.min(
         1,
         availableW / layout.width,
@@ -260,12 +299,26 @@
         maxWidth: board.width - 32,
         avoid: false,
       });
+    if (note)
+      board.label("note", note, 16, board.height - 12, {
+        size: 13,
+        maxWidth: board.width - 32,
+        avoid: false,
+        color: P.muted,
+      });
     layout.edges.forEach((edge, i) => {
       const points = edge.points.map(toCanvas);
       board.path("edge-" + i, points, { color: P.faint, width: 2 });
       const at = positionAlong(edge.points, mode === "backward" ? 1 - p : p),
         [x, y] = toCanvas({ x: at[0], y: at[1] });
-      board.circle("flow-" + i, x, y, 3, flowColor);
+      const blocked = mode === "backward" && edges[i].contribution === 0;
+      board.mark("flow-" + i, "circle", {
+        cx: x,
+        cy: y,
+        r: 3,
+        fill: flowColor,
+        opacity: blocked ? 0 : 1,
+      });
       const end = points.at(-1),
         previous = points.at(-2),
         a = Math.atan2(end[1] - previous[1], end[0] - previous[0]);
@@ -337,6 +390,8 @@
     {
       nodes,
       output = null,
+      outputs = null,
+      seeds = null,
       progress = 0,
       mode = "both",
       title = "前向数值与反向梯度",
@@ -345,7 +400,7 @@
     } = {},
     context = {},
   ) {
-    const trace = traceGraph(nodes, { output }),
+    const trace = traceGraph(nodes, { output, outputs, seeds }),
       p = V.clamp(progress, 0, 1),
       currentMode = mode === "both" ? (p < 0.5 ? "forward" : "backward") : mode,
       phase = mode === "both" ? (p < 0.5 ? p * 2 : (p - 0.5) * 2) : p;
@@ -357,6 +412,10 @@
         progress: phase,
         mode: currentMode,
         title,
+        note:
+          currentMode === "backward"
+            ? "g = 目标加权和对节点的导数"
+            : "蓝色数值：前向计算",
         selected,
         stateKey,
       },

@@ -7,7 +7,8 @@
       "limits": "小矩阵，最多5维；不是GPU执行模拟",
       "height": 300,
       "mobileHeight": 410,
-      "code": "function draw({board,progress}) {return board.product('product',[[1,2],[3,4]],[[5,6],[7,8]],{progress,row:0,col:0});}"
+      "code": "function draw({board,progress}) {return board.product('product',[[1,2],[3,4]],[[5,6],[7,8]],{progress,row:0,col:0});}",
+      "keywords": "matmul matrix multiplication 矩阵乘法"
     },
     {
       "id": "reshape",
@@ -16,7 +17,8 @@
       "limits": "行优先顺序；不是转置；最多36值",
       "height": 320,
       "mobileHeight": 320,
-      "code": "function draw({board,progress}) {return board.reshape('reshape',[[0,1,2,3],[4,5,6,7],[8,9,10,11]],2,{progress});}"
+      "code": "function draw({board,progress}) {return board.reshape('reshape',[[0,1,2,3],[4,5,6,7],[8,9,10,11]],2,{progress});}",
+      "keywords": "tensor reshape shape 张量 形状 重排"
     },
     {
       "id": "data-flow",
@@ -25,7 +27,8 @@
       "limits": "顺序流程；动态分支和循环需要自定义",
       "height": 300,
       "mobileHeight": 330,
-      "code": "function draw({board,progress}) {return {boxes:board.sequence('flow',[{id:'input',label:'输入'},{id:'hidden',label:'隐藏层'},{id:'output',label:'输出'}],{active:progress*3})};}"
+      "code": "function draw({board,progress}) {return {boxes:board.sequence('flow',[{id:'input',label:'输入'},{id:'hidden',label:'隐藏层'},{id:'output',label:'输出'}],{active:progress*3})};}",
+      "keywords": "program execution layers 程序 执行 数据流"
     },
     {
       "id": "optimizer",
@@ -34,7 +37,8 @@
       "limits": "二维二次目标；不是深度网络训练成绩",
       "height": 330,
       "mobileHeight": 360,
-      "code": "function draw({board,progress}) {return board.optimization('optimizer',{progress,kind:'rmsprop',compare:'sgd',eta:.4,rho:.9,start:[-5,-2],steps:20});}"
+      "code": "function draw({board,progress}) {return board.optimization('optimizer',{progress,kind:'rmsprop',compare:'sgd',eta:.4,rho:.9,start:[-5,-2],steps:20});}",
+      "keywords": "SGD RMSProp gradient descent optimization 梯度下降 优化"
     },
     {
       "id": "probabilities",
@@ -43,7 +47,8 @@
       "limits": "从均匀到目标概率的演示插值；不是学习过程",
       "height": 330,
       "mobileHeight": 350,
-      "code": "function draw({board,progress}) {return board.probabilities('weights',[2,0,-1],{progress,temperature:1,labels:['A','B','C']});}"
+      "code": "function draw({board,progress}) {return board.probabilities('weights',[2,0,-1],{progress,temperature:1,labels:['A','B','C']});}",
+      "keywords": "softmax logits temperature probability 概率 温度"
     },
     {
       "id": "convolution",
@@ -52,7 +57,8 @@
       "limits": "深度学习采用的互相关，不翻转核；滑动中间位置仅为演示",
       "height": 330,
       "mobileHeight": 430,
-      "code": "function draw({board,progress}) {return board.convolution('conv',[[0,1,2],[3,4,5],[6,7,8]],[[0,1],[2,3]],{progress});}"
+      "code": "function draw({board,progress}) {return board.convolution('conv',[[0,1,2],[3,4,5],[6,7,8]],[[0,1],[2,3]],{progress});}",
+      "keywords": "convolution cross correlation kernel stride padding 卷积 互相关 核 步幅 填充"
     },
     {
       "id": "projection",
@@ -222,10 +228,7 @@
               },
               "x": 1,
               "h": {
-                "$progress": [
-                  1,
-                  0.01
-                ]
+                "$param": "h"
               },
               "xDomain": [
                 -2,
@@ -267,7 +270,19 @@
             }
           }
         ]
-      }
+      },
+      "interaction": "parameters",
+      "initialProgress": 1,
+      "params": [
+        {
+          "key": "h",
+          "label": "两点距离 h",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "value": 0.5
+        }
+      ]
     },
     {
       "id": "integral",
@@ -372,10 +387,7 @@
             "type": "unit-circle",
             "props": {
               "angle": {
-                "$progress": [
-                  0,
-                  6.283185307179586
-                ]
+                "$param": "angle"
               }
             }
           },
@@ -409,7 +421,19 @@
             }
           }
         ]
-      }
+      },
+      "interaction": "parameters",
+      "initialProgress": 1,
+      "params": [
+        {
+          "key": "angle",
+          "label": "角度 θ",
+          "min": 0,
+          "max": 6.283185307179586,
+          "step": 0.01,
+          "value": 1.0471975511965976
+        }
+      ]
     },
     {
       "id": "activation",
@@ -437,10 +461,7 @@
               },
               "derivative": true,
               "x": {
-                "$progress": [
-                  -4,
-                  4
-                ]
+                "$state": "x"
               },
               "xDomain": [
                 -5,
@@ -450,7 +471,8 @@
                 -0.1,
                 1.2
               ],
-              "title": "蓝：sigmoid · 橙：导数"
+              "title": "蓝：sigmoid · 橙：导数",
+              "stateKey": "x"
             }
           },
           {
@@ -483,6 +505,11 @@
             }
           }
         ]
+      },
+      "interaction": "parameters",
+      "initialProgress": 1,
+      "state": {
+        "x": 0
       }
     },
     {
@@ -674,7 +701,12 @@
             }
           }
         ]
-      }
+      },
+      "stages": [
+        "前向数值",
+        "反向梯度"
+      ],
+      "summary": "g 是输出对当前节点的导数；同一输入的两次使用分别贡献梯度。"
     },
     {
       "id": "dependency-graph",
@@ -727,6 +759,721 @@
             "$progress": true
           }
         }
+      }
+    },
+    {
+      "id": "normal-distribution",
+      "title": "概率是曲线下面的面积",
+      "topic": "概率 / 数学",
+      "limits": "正态分布；CDF为误差有界的近似；可见阴影受横轴范围限制",
+      "height": 340,
+      "mobileHeight": 540,
+      "interaction": "parameters",
+      "initialProgress": 1,
+      "params": [
+        {
+          "key": "sigma",
+          "label": "标准差",
+          "min": 0.5,
+          "max": 1.5,
+          "step": 0.01,
+          "value": 1
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "gap": 18
+        },
+        "children": [
+          {
+            "id": "prob",
+            "type": "distribution",
+            "props": {
+              "kind": "normal",
+              "sigma": {
+                "$param": "sigma"
+              },
+              "interval": [
+                -1,
+                1
+              ],
+              "xDomain": [
+                -4,
+                4
+              ]
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "区间 [-1, 1] 的概率",
+                  "value": {
+                    "$result": "prob.probability"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "方差",
+                  "value": {
+                    "$result": "prob.variance"
+                  },
+                  "color": "blue"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "binomial-distribution",
+      "title": "同样的试验，不同的成功机会",
+      "topic": "概率 / 数学",
+      "limits": "独立伯努利试验；离散柱面积不等于连续密度",
+      "height": 320,
+      "mobileHeight": 500,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "chance",
+          "label": "成功概率",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "value": 0.4
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "gap": 18
+        },
+        "children": [
+          {
+            "id": "prob",
+            "type": "distribution",
+            "props": {
+              "kind": "binomial",
+              "n": 12,
+              "p": {
+                "$param": "chance"
+              },
+              "interval": [
+                4,
+                7
+              ]
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "成功 4–7 次的概率",
+                  "value": {
+                    "$result": "prob.selected"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "期望成功次数",
+                  "value": {
+                    "$result": "prob.mean"
+                  },
+                  "color": "blue"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "bayes-area",
+      "title": "阳性结果里，有多少来自目标人群",
+      "topic": "概率 / 机器学习",
+      "limits": "示意概率；观察结果概率为0时后验未定义；转换中面积不作为概率",
+      "height": 360,
+      "mobileHeight": 540,
+      "stages": [
+        "全体人群",
+        "观察结果内"
+      ],
+      "params": [
+        {
+          "key": "prior",
+          "label": "目标人群比例",
+          "min": 0.01,
+          "max": 0.8,
+          "step": 0.01,
+          "value": 0.2
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "gap": 18
+        },
+        "children": [
+          {
+            "id": "prob",
+            "type": "bayes",
+            "props": {
+              "prior": {
+                "$param": "prior"
+              },
+              "sensitivity": 0.8,
+              "falsePositive": 0.15,
+              "progress": {
+                "$progress": true
+              }
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "观察结果的概率",
+                  "value": {
+                    "$result": "prob.evidence"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "其中目标人群的比例",
+                  "value": {
+                    "$result": "prob.posterior"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "histogram",
+      "title": "同一批数据，可以用不同粒度观察",
+      "topic": "概率 / 机器学习",
+      "limits": "数据固定；归一化分母包含画外样本；最后一箱包含右端点",
+      "height": 320,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "bins",
+          "label": "分箱数",
+          "min": 4,
+          "max": 20,
+          "step": 1,
+          "value": 10
+        }
+      ],
+      "scene": {
+        "id": "prob",
+        "type": "histogram",
+        "props": {
+          "samples": [
+            -2.1,
+            -1.6,
+            -1.3,
+            -1.1,
+            -0.9,
+            -0.7,
+            -0.6,
+            -0.4,
+            -0.3,
+            -0.2,
+            -0.1,
+            0,
+            0.1,
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.7,
+            0.8,
+            1,
+            1.2,
+            1.7,
+            2.3
+          ],
+          "domain": [
+            -3,
+            3
+          ],
+          "count": {
+            "$param": "bins"
+          }
+        }
+      }
+    },
+    {
+      "id": "regression-residuals",
+      "title": "移动直线，误差随之改变",
+      "topic": "机器学习 / 数学",
+      "limits": "固定小数据；损失为半均方误差；权重由读者设置，不是训练成绩",
+      "height": 360,
+      "mobileHeight": 560,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "weight",
+          "label": "斜率",
+          "min": -0.5,
+          "max": 1.5,
+          "step": 0.05,
+          "value": 0.8
+        },
+        {
+          "key": "bias",
+          "label": "截距",
+          "min": -0.5,
+          "max": 0.5,
+          "step": 0.05,
+          "value": 0
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "gap": 18
+        },
+        "children": [
+          {
+            "id": "model",
+            "type": "regression",
+            "props": {
+              "data": [
+                [
+                  -2,
+                  -1.8
+                ],
+                [
+                  -1.5,
+                  -1.5
+                ],
+                [
+                  -1,
+                  -0.3
+                ],
+                [
+                  -0.5,
+                  -0.8
+                ],
+                [
+                  0.2,
+                  0.7
+                ],
+                [
+                  0.8,
+                  0.3
+                ],
+                [
+                  1.2,
+                  1.7
+                ],
+                [
+                  2,
+                  1.5
+                ]
+              ],
+              "weight": {
+                "$param": "weight"
+              },
+              "bias": {
+                "$param": "bias"
+              },
+              "xDomain": [
+                -2.5,
+                2.5
+              ],
+              "yDomain": [
+                -4.5,
+                4.5
+              ]
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "数据损失",
+                  "value": {
+                    "$result": "model.dataLoss"
+                  },
+                  "color": "violet"
+                },
+                {
+                  "label": "斜率的梯度",
+                  "value": {
+                    "$result": "model.weightGradient"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "regularized-loss",
+      "title": "同样的拟合误差，加上对权重的约束",
+      "topic": "机器学习 / 优化",
+      "limits": "一维斜率、截距固定0；半均方误差 + λw²/2；不是完整训练过程",
+      "height": 330,
+      "mobileHeight": 520,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "lambda",
+          "label": "约束强度",
+          "min": 0,
+          "max": 2,
+          "step": 0.05,
+          "value": 0.2
+        },
+        {
+          "key": "weight",
+          "label": "当前权重",
+          "min": -0.5,
+          "max": 1.5,
+          "step": 0.05,
+          "value": 0.8
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "gap": 18
+        },
+        "children": [
+          {
+            "id": "model",
+            "type": "loss-curve",
+            "props": {
+              "data": [
+                [
+                  -2,
+                  -1.8
+                ],
+                [
+                  -1.5,
+                  -1.5
+                ],
+                [
+                  -1,
+                  -0.3
+                ],
+                [
+                  -0.5,
+                  -0.8
+                ],
+                [
+                  0.2,
+                  0.7
+                ],
+                [
+                  0.8,
+                  0.3
+                ],
+                [
+                  1.2,
+                  1.7
+                ],
+                [
+                  2,
+                  1.5
+                ]
+              ],
+              "bias": 0,
+              "lambda": {
+                "$param": "lambda"
+              },
+              "weight": {
+                "$param": "weight"
+              },
+              "xDomain": [
+                -0.5,
+                1.5
+              ],
+              "yDomain": [
+                0,
+                5
+              ]
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "数据损失",
+                  "value": {
+                    "$result": "model.dataLoss"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "约束惩罚",
+                  "value": {
+                    "$result": "model.penalty"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "总损失",
+                  "value": {
+                    "$result": "model.loss"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "decision-boundary",
+      "title": "一条边界怎样改变每个点的分类",
+      "topic": "机器学习 / 数学",
+      "limits": "手动设置的二维线性分类器；点颜色为标签，深色描边表示分类错误",
+      "height": 360,
+      "mobileHeight": 540,
+      "interaction": "parameters",
+      "state": {
+        "selected": 0
+      },
+      "params": [
+        {
+          "key": "bias",
+          "label": "偏移",
+          "min": -2,
+          "max": 2,
+          "step": 0.05,
+          "value": 0
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "gap": 18
+        },
+        "children": [
+          {
+            "id": "model",
+            "type": "decision-boundary",
+            "props": {
+              "data": [
+                [
+                  -2,
+                  -1
+                ],
+                [
+                  -1,
+                  1
+                ],
+                [
+                  0,
+                  -1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  1,
+                  -2
+                ]
+              ],
+              "labels": [
+                0,
+                0,
+                0,
+                1,
+                1,
+                0
+              ],
+              "weights": [
+                1,
+                1
+              ],
+              "bias": {
+                "$param": "bias"
+              },
+              "stateKey": "selected",
+              "selected": {
+                "$state": "selected"
+              },
+              "xDomain": [
+                -3,
+                3
+              ],
+              "yDomain": [
+                -3,
+                3
+              ]
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "判断正确的点数",
+                  "value": {
+                    "$result": "model.correct"
+                  }
+                },
+                {
+                  "label": "选中点的正类概率",
+                  "value": {
+                    "$result": "model.selected.probability"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "pca-projection",
+      "title": "保留变化最多的方向",
+      "topic": "机器学习 / 线性代数",
+      "limits": "二维固定数据；总体协方差分母N；相等特征值不能确定唯一方向",
+      "height": 360,
+      "mobileHeight": 540,
+      "stages": [
+        "原始数据",
+        "投影到主方向"
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "gap": 18
+        },
+        "children": [
+          {
+            "id": "model",
+            "type": "pca",
+            "props": {
+              "data": [
+                [
+                  -2,
+                  -1.8
+                ],
+                [
+                  -1.5,
+                  -1.5
+                ],
+                [
+                  -1,
+                  -0.3
+                ],
+                [
+                  -0.5,
+                  -0.8
+                ],
+                [
+                  0.2,
+                  0.7
+                ],
+                [
+                  0.8,
+                  0.3
+                ],
+                [
+                  1.2,
+                  1.7
+                ],
+                [
+                  2,
+                  1.5
+                ]
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "xDomain": [
+                -3,
+                3
+              ],
+              "yDomain": [
+                -3,
+                3
+              ]
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "保留的方差比例",
+                  "value": {
+                    "$result": "model.explained"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "主方向",
+                  "value": {
+                    "$result": "model.axis"
+                  },
+                  "color": "blue"
+                }
+              ]
+            }
+          }
+        ]
       }
     }
   ]

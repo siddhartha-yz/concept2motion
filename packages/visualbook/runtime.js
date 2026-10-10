@@ -21,6 +21,9 @@
   });
 
   function mount(element, figure, draw, library = true) {
+    const interaction = figure.interaction ?? "timeline";
+    if (!["timeline", "parameters", "static"].includes(interaction))
+      throw Error("Unknown interaction mode");
     const svg = element.querySelector("svg");
     const range = element.querySelector(".vh-progress");
     const status = element.querySelector(".vh-status");
@@ -77,7 +80,11 @@
         instance.setParam(key, value);
       },
       setState(key, value) {
-        if (typeof key !== "string" || !key.length)
+        if (
+          typeof key !== "string" ||
+          !/^[a-z][a-zA-Z0-9]*$/.test(key) ||
+          ["constructor", "prototype"].includes(key)
+        )
           throw Error("State key required");
         pause();
         state[key] = structuredClone(value);
@@ -139,25 +146,26 @@
       } catch (error) {
         instance.error = String(error);
         element.dataset.failed = "true";
-        status.textContent = "图解暂不可用";
+        if (status) status.textContent = "图解暂不可用";
         pause();
         throw error;
       }
       instance.progress = progress;
-      range.value = progress;
-      status.textContent = figure.stages?.length
-        ? figure.stages[
-            Math.min(
-              figure.stages.length - 1,
-              Math.floor(progress * figure.stages.length),
-            )
-          ]
-        : "拖动观察";
+      if (range) range.value = progress;
+      if (status)
+        status.textContent = figure.stages?.length
+          ? figure.stages[
+              Math.min(
+                figure.stages.length - 1,
+                Math.floor(progress * figure.stages.length),
+              )
+            ]
+          : "拖动观察";
       refreshControls();
     }
     function setProgress(p) {
       pause();
-      paint(p);
+      paint(interaction === "timeline" ? p : initialProgress);
     }
     function tick(now) {
       raf = null;
@@ -171,7 +179,7 @@
       else raf = requestAnimationFrame(tick);
     }
     function play() {
-      if (reduced.matches) return false;
+      if (reduced.matches || interaction !== "timeline") return false;
       pauseAll();
       if (progress >= 1) paint(0);
       playing = true;
@@ -206,6 +214,7 @@
     const instance = {
       id: figure.id,
       figure,
+      interaction,
       element,
       svg,
       params,
@@ -249,7 +258,7 @@
         paint(progress);
       },
     };
-    range.addEventListener("input", () => setProgress(+range.value));
+    range?.addEventListener("input", () => setProgress(+range.value));
     for (const input of element.querySelectorAll("[data-param]"))
       input.addEventListener("input", () =>
         instance.setParam(input.dataset.param, +input.value),

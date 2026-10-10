@@ -144,15 +144,76 @@ try {
       characterData: true,
     });
     i.paint(i.progress);
-    const mutations = observer
-      .takeRecords()
-      .map((m) => ({
-        type: m.type,
-        tag: m.target.tagName,
-        attribute: m.attributeName,
-      }));
+    const mutations = observer.takeRecords().map((m) => ({
+      type: m.type,
+      tag: m.target.tagName,
+      attribute: m.attributeName,
+    }));
     observer.disconnect();
     return {
+      detached: VisualBook.traceGraph([
+        { id: "x", op: "input", value: 2 },
+        { id: "y", op: "mul", inputs: ["x", "x"] },
+        { id: "u", op: "detach", inputs: ["y"] },
+        { id: "z", op: "mul", inputs: ["u", "x"] },
+      ]),
+      seeded: VisualBook.traceGraph(
+        [
+          { id: "x", op: "input", value: 2 },
+          { id: "square", op: "mul", inputs: ["x", "x"] },
+          { id: "cube", op: "mul", inputs: ["square", "x"] },
+        ],
+        { outputs: ["square", "cube"], seeds: [2, 3] },
+      ),
+      binomial: [
+        VisualBook.binomial(4, 0.5),
+        VisualBook.binomial(4, 0),
+        VisualBook.binomial(4, 1),
+      ],
+      normal: [-1, 0, 1, 3].map((x) => ({ x, cdf: VisualBook.normalCDF(x) })),
+      histogram: VisualBook.histogram([-1, 0, 1, 2, 3, 4, 5], [0, 4], 4),
+      bayes: [VisualBook.bayes(0.1, 0.8, 0.2), VisualBook.bayes(0, 1, 0)],
+      regression: [
+        VisualBook.regression(
+          [
+            [-1, -1],
+            [0, 1],
+            [1, 3],
+          ],
+          2,
+          1,
+          0.5,
+        ),
+        VisualBook.regression(
+          [
+            [-1, -1],
+            [0, 1],
+            [1, 3],
+          ],
+          0,
+          0,
+          0,
+        ),
+      ],
+      optimum: VisualBook.regressionOptimum(
+        [
+          [-1, -1],
+          [0, 1],
+          [1, 3],
+        ],
+        0.5,
+      ),
+      pca: VisualBook.pca2d([
+        [-1, -2],
+        [0, 0],
+        [1, 2],
+      ]),
+      repeatedEigenvalues: VisualBook.pca2d([
+        [1, 0],
+        [-1, 0],
+        [0, 1],
+        [0, -1],
+      ]),
       graphs,
       inputs,
       integrals,
@@ -175,6 +236,49 @@ try {
       4 * r.x,
     );
   }
+  close(results.detached.value, 8);
+  close(results.detached.gradients.x, 4);
+  close(results.seeded.seededValue, 32);
+  close(results.seeded.gradients.x, 44);
+  assert.deepEqual(
+    results.binomial[0].probabilities,
+    [1, 4, 6, 4, 1].map((v) => v / 16),
+  );
+  assert.deepEqual(results.binomial[1].probabilities, [1, 0, 0, 0, 0]);
+  assert.deepEqual(results.binomial[2].probabilities, [0, 0, 0, 0, 1]);
+  close(results.binomial[0].sum, 1);
+  for (const { x, cdf } of results.normal) {
+    const expected = new Map([
+      [-1, 0.15865525393145707],
+      [0, 0.5],
+      [1, 0.8413447460685429],
+      [3, 0.9986501019683699],
+    ]).get(x);
+    assert.ok(Math.abs(cdf - expected) < 1.5e-7);
+  }
+  assert.deepEqual(
+    results.histogram.bins.map((b) => b.count),
+    [1, 1, 1, 2],
+  );
+  assert.equal(results.histogram.outside, 2);
+  assert.equal(results.histogram.total, 7);
+  close(results.bayes[0].evidence, 0.26);
+  close(results.bayes[0].posterior, 4 / 13);
+  assert.equal(results.bayes[1].posterior, null);
+  close(results.regression[0].dataLoss, 0);
+  close(results.regression[0].penalty, 1);
+  close(results.regression[0].weightGradient, 1);
+  close(results.regression[1].dataLoss, 11 / 6);
+  close(results.regression[1].weightGradient, -4 / 3);
+  close(results.regression[1].biasGradient, -1);
+  close(results.optimum.weight, 8 / 7);
+  close(results.optimum.bias, 1);
+  close(results.pca.eigenvalues[0], 10 / 3);
+  close(results.pca.eigenvalues[1], 0);
+  close(results.pca.axis[0], 1 / Math.sqrt(5));
+  close(results.pca.axis[1], 2 / Math.sqrt(5));
+  close(results.pca.explained, 1);
+  assert.equal(results.repeatedEigenvalues.degenerate, true);
   for (const r of results.inputs) {
     close(r.value, 3 - 2 * r.x + 0.5 * r.x * r.x);
     close(r.gradient, -2 + r.x);

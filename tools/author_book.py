@@ -73,24 +73,21 @@ def main():
     api = ROOT / "packages/visualbook/API.md"
     libfiles = [
         ROOT / "packages/visualbook" / n
-        for n in [
-            "viz.js",
-            "compose.js",
-            "components.js",
-            "components.math.js",
-            "components.graph.js",
-            "designs.js",
+        for n in json.loads((ROOT / "packages/visualbook/bundle.json").read_text())["modules"] + [
+            "bundle.json",
             "runtime.js",
             "theme.css",
             "math.mjs",
             "API.md",
             "catalog.json",
+            "components.json",
         ]
     ] + [
         tool,
         ROOT / "tools/visualbook_mcp.py",
         ROOT / "tools/audit_visualbook_parameters.mjs",
         ROOT / "tools/build_visualbook_catalog.mjs",
+        ROOT / "tools/visualbook_math.mjs",
     ]
     env = dict(os.environ)
     for key in ["OPENAI_API_KEY", "CODEX_API_KEY"]:
@@ -136,7 +133,7 @@ def main():
         schema = {"figures": []}
         write(job / "book.json", schema)
         prompt = f"""你要把当前目录的完整教材变成优秀的段落内可视化教材。中文，保留原文与公式，不改source文件。阅读source.md的完整内容与锚点，source-map.json提供结构。source.json包含编译后的大段HTML和图片编码，仅给编译器使用，不要读取它来重复占用上下文；完整原文已经在source.md中。选择1–3个原书没有解释清楚的关系，允许有依据地零图；不要把原文段落再次塞进图。
-本次工具路径 TOOL={tool}。把绘图计划写到book.json，调用构建和预览工具，查看实际桌面与手机PNG，自行修订。需要连续的0–1进度、真实因果参数、清楚的轴与短标签、安静但有设计感的画面。不要只把进度取整后切换静态图片。图解默认静止，由读者拖动、单步或主动播放；页面滚动只暂停。避免装饰卡片、说明墙和超过480px的桌面图。
+本次工具路径 TOOL={tool}。把绘图计划写到book.json，调用构建和预览工具，查看实际桌面与手机PNG，自行修订。连续演示使用连续的0–1进度；直接拖动或调参数的图可声明interaction=parameters，静态关系可声明static。需要真实因果参数、清楚的轴与短标签、安静但有设计感的画面。不要只把进度取整后切换静态图片。图解默认静止，由读者拖动、单步或主动播放；页面滚动只暂停。避免装饰卡片、说明墙和超过480px的桌面图。
 两臂共享同一原文、基本任务、编译器、阅读运行时和预览检查。你的arm={args.arm}。
 运行 node TOOL build source.json book.json book.html {'--direct' if args.arm=='direct' else ''}（TOOL换成上面绝对路径）。运行 node TOOL preview book.html preview-01 会得到真实PNG与report.json。至少预览一次并查看桌面和手机的图片。每次修改重新build，预览目录另起名。最多3次预览，{args.timeout}秒会话上限；内部检查不能代替审美判断。失败保留，不自打分。
 {('你使用普通SVG/DOM自行绘图，不调用VisualBook/Board库。draw收到svg,width,height,progress,params，可自己管理稳定SVG对象。' if args.arm=='direct' else '你可以使用可复用Board和VisualBook数学工具，使用稳定图元id，充分利用库减少布局与绘图负担。')}
@@ -151,7 +148,7 @@ def main():
             )
         prompt += "\n" + interface
         if args.mcp:
-            prompt += "\n本轮有本地 visualbook MCP 工具。可以先用list_designs和show_design查看适合章节的可复用设计与真实图片。必须用 build_book 构建，再用 preview_book 预览；它直接返回真实桌面/手机PNG图片内容，不能仅凭文件路径或数值报告声称看过画面。观察图片后自行修订。CLI命令只用于读取原文和写book.json，不用shell替代图片预览。最多3次预览，不要更改工具源码。最后必须用inspect_frame检查每幅图在1280和375下的起点/终点，并用finalize_book记录数学核对、已知未解决问题与限制。不要因为数值报告零发现就隐瞒遮挡、错误解释或其它问题；有问题就记录，工具会停止导出。\n"
+            prompt += "\n本轮有本地 visualbook MCP 工具。可以先用list_designs和show_design查看适合章节的可复用设计与真实图片。必须用 build_book 构建，再用 preview_book 预览；它直接返回真实桌面/手机PNG图片内容，不能仅凭文件路径或数值报告声称看过画面。观察图片后自行修订。Python脚本使用python3，环境未提供python别名。可用search_designs按概念寻找积木，describe_component核对真实输入输出，再用scene的$result或共享状态拼接；不必把全部目录读进上下文。CLI命令只用于读取原文和写book.json，不用shell替代图片预览。最多3次预览，不要更改工具源码。最后必须用inspect_frame检查每幅图在1280和375下的起点/终点，并用finalize_book记录数学核对、已知未解决问题与限制。不要因为数值报告零发现就隐瞒遮挡、错误解释或其它问题；有问题就记录，工具会停止导出。\n"
         (job / "prompt.md").write_text(prompt)
         before = {str(f.relative_to(ROOT)): sha(f) for f in libfiles}
         write(

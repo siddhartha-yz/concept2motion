@@ -10,6 +10,8 @@
 
 可选 `initialProgress`（0–1，默认0）、`durationMs`（1000–60000，默认8000）和 `checkpoints`（包含0和1的严格递增进度数组）控制初始视图、主动播放时长与单步位置。不要在源码中自行启动定时器或监听页面滚动。开启系统“减少动态效果”时，播放按钮禁用，拖动和单步仍可用。
 
+figure 可声明 `interaction:"timeline"`（默认）、`"parameters"` 或 `"static"`。参数探索适合直接拖动点或调参数：不显示播放/进度条，必须提供实际有效的参数或共享状态把手。静态图没有交互控件。预览仅对 timeline 要求连续进度改变图形；参数检查仍检查两个端点的真实画面，声明但没有视觉效果的参数会报错。不要为了检查加入没有意义的运动。
+
 ## Board：共享绘图、布局与稳定对象
 
 draw每次收到同一个board；工具负责begin/end、尺寸和键值复用。每个图形使用固定id，不要自己清空svg。纯数值计算使用JavaScript；工具不替你选择教学内容。以下颜色在`VisualBook.palette`中：ink、muted、blue、orange、faint、paper。
@@ -48,6 +50,8 @@ figure 中可设 `state:{"v":[1.5,1]}`。拖动向量会更新同一份状态，
 
 `board.handle(id,frame,[x,y],{onChange,label,color,axis,step,bounds,constrain})` 提供稳定的鼠标/触摸把手、方向键与边界约束，默认双轴移动，axis 可为 x 或 y，bounds 为 `{x:[最小,最大],y:[最小,最大]}`。拖动时暂停演示。`board.selectable(node,{label,selected,onSelect})` 让已有图元能用点击、Enter、空格选择。
 
+新增概率/学习组件：distribution、histogram、bayes、regression、loss-curve、decision-boundary、pca，可和下列基础组件用共享状态和 $result 拼接。用 describe_component 查询完整字段。
+
 当前基础组件：projection（vector、onto、progress，可拖动）、linear-transform（2×2 matrix、vector、progress）、plot（xDomain/yDomain 与 curve/points/vector/area/handle 图层）、readout（短 label/value 数值列表）。数学组件：function-plot（function、x、derivative）、derivative（function、x、h）、integral（function、a、b、count、rule、progress）、unit-circle（angle）。函数 function 是数据：polynomial + 低次到高次 coefficients，或 sin/cos/exp/log/sigmoid/tanh/relu/gaussian；gaussian 支持 mean/sigma。范围需要覆盖教材例子，工具不会把画外数据伪装成画内结果。用目录的真实图片选择合适设计，完整示例和限制随目录提供。
 
 独立核对：`VisualBook.project(v,onto)`、`scalarFunction(spec).f(x)/df(x)`、`riemannSum(spec,a,b,{count,rule})`。ReLU在0处不可导，显示0只是选择的次梯度；`h=0` 显示解析导数，不执行0/0；数值积分和精确积分分开返回。
@@ -57,6 +61,8 @@ figure 中可设 `state:{"v":[1.5,1]}`。拖动向量会更新同一份状态，
 - `board.reshape(id,values,rows,{progress})`：保持行优先顺序和元素数量，让同一批稳定对象移动到新形状；不是转置。最多36值、每维最多8，过密会拒绝。新行数必须整除元素总数。
 - `board.convolution(id,input,kernel,{stride,padding,progress})`：实际计算深度学习中的互相关、输出尺寸、当前窗口的乘积求和；核不翻转。支持输入最多6×6、核最多3×3、零填充最多1。连续窗口移动是阅读演示，输出只取实际离散位置。手机需选择小例子，建议height330/mobileHeight430。
 - `VisualBook.correlate2d(input,kernel,{stride,padding})`：独立数值结果，检查核、步幅与填充形状，不假装测量硬件执行。
+
+本地MCP的 `search_designs({query})` 按概念检索最多六个组件；`describe_component({id})` 返回实际输入字段、输出、限制与示例。目录是积木的展示方式，不要把整份源码读进上下文。概率/学习组件的 `compute_math({operation,inputs})` 调用同一无DOM计算内核，支持normal-cdf、binomial、histogram、bayes、regression、regression-optimum、pca；这是核对实际使用数值的便利工具，不是独立数学验收。
 
 本地MCP的`list_designs`给出目录与限制，`show_design({id})`返回某种设计的执行示例及真实桌面/手机PNG。每次会话最多查看两种不同设计；查看示例不修改候选教材，也不占候选的三轮预览。
 
@@ -86,3 +92,5 @@ preview返回真实桌面/手机PNG和report.json，覆盖0、0.25、0.26、0.5�
 trace要求有限向量、同形有限梯度、eta≥0、epsilon>0、0≤rho<1和0..1000整数步。其step>0记录的gradient是到达当前theta时使用的上一位置梯度；需要当前位置梯度时重新用自己的gradient(theta)计算。sequence让同一个signal对象跨越各层，不用切换不同标记。普通Markdown可用--source-name注明原文归属。
 
 最终检查：用inspect_frame({id,width,progress})查看最后预览的每幅图在1280/375下的0/1端点，图片直接返回，不消耗新预览。随后调用finalize_book({issues:[],mathCheckNote:"实际核对方式",limits:"未验证范围"})。issues必须如实记录所有已知未解决遮挡/数学/教学问题，不给自己打分。没有最终记录、记录过期或仍有已知问题，流水线停止导出。这个机制只能挡住已经被发现的问题，不能证明模型审美判断正确。
+
+计算图 autograd 使用标量节点，支持多输出与反传 seeds 计算 Jᵀv；detach 保持前向值并截断梯度。g 表示目标加权和对该节点的导数。多次使用同一输入须分别累计，零贡献的反向边不显示传播标记。traceGraph 的 seededValue 是加权目标，value 仍是原始输出（多个输出时为数组）。

@@ -278,11 +278,12 @@
         if (!Array.isArray(layer.points) || layer.points.length > 1000)
           throw Error("Area needs at most 1000 points");
         layer.points.forEach(vector);
-        board.path(
+        const area = board.path(
           id,
           layer.points.map(([x, y]) => [f.x(x), f.y(y)]),
           { color: c, closed: true, width: 0, opacity: layer.opacity ?? 0.15 },
         );
+        area.setAttribute("clip-path", f.clip);
         facts.layers.push({ id, type: layer.type, points: layer.points });
       } else if (layer.type === "handle") {
         vector(layer.point);
@@ -302,17 +303,38 @@
   function readout(board, { items = [], title = null } = {}) {
     if (!Array.isArray(items) || items.length > 8)
       throw Error("Readout supports at most 8 short values");
-    const h = board.height / (items.length + (title ? 1 : 0) || 1);
-    if (h < 42) throw Error("Readout needs at least 42px per value");
+    const h = (board.height - 16) / (items.length + (title ? 1 : 0) || 1);
+    if (h < 50)
+      throw Error("Readout needs 16px padding plus at least 50px per value");
     if (title) board.text("title", title, 20, 30, { size: 14, color: P.muted });
     const width = board.width - 40;
     items.forEach((item, i) => {
-      const y = (i + (title ? 1 : 0)) * h + 20;
+      if (typeof item.label !== "string" || item.label.length > 80)
+        throw Error("Readout needs a short label");
+      const scalar = (v) =>
+        v === null ||
+        ["string", "boolean"].includes(typeof v) ||
+        (typeof v === "number" && Number.isFinite(v));
+      if (
+        !(Array.isArray(item.value)
+          ? item.value.every(scalar)
+          : scalar(item.value))
+      )
+        throw Error(
+          "Readout expects a scalar or 1D array; choose an explicit result field",
+        );
+      const y = (i + (title ? 1 : 0)) * h + 14;
       const value = Array.isArray(item.value)
         ? item.value.map((v) => (typeof v === "number" ? fmt(v) : v)).join(", ")
         : typeof item.value === "number"
           ? fmt(item.value)
-          : item.value;
+          : item.value === null
+            ? "未定义"
+            : typeof item.value === "boolean"
+              ? item.value
+                ? "是"
+                : "否"
+              : item.value;
       board.text("label-" + i, item.label ?? "", 20, y, {
         size: 13,
         color: P.muted,
