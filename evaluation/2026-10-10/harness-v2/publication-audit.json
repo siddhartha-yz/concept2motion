@@ -1,12 +1,13 @@
 {
   "scanner": "Gitleaks 8.30.1",
   "scope": {
-    "intended_files": 2570,
-    "history": "main through 92d14ed, 87 commits; final documentation delta will be scanned before push",
+    "intended_files": 2579,
+    "history": "main publishing history; all commits scanned immediately before final documentation push",
     "public_snapshot": {
-      "nonexpired_artifacts": 19,
-      "runs_with_downloaded_logs": 16,
-      "zip_archives": 35,
+      "at_utc": "2026-10-10 16:59:25 UTC",
+      "nonexpired_artifacts": 21,
+      "runs_with_downloaded_logs": 17,
+      "zip_archives": 38,
       "release_assets": 0,
       "archive_depth": 3,
       "surfaces": {
@@ -44,18 +45,20 @@
         },
         "artifacts": {
           "status": 0,
-          "items": 19
+          "items": 21
         },
         "runs": {
           "status": 0,
-          "items": 16
+          "items": 17
         },
         "pages": {
           "status": 1,
           "items": 0
         }
       }
-    }
+    },
+    "main_commit_count_at_final_push": 89,
+    "offline_delivery_archive": "8a68283b2d7b4dbb26c1ae30b682c1cdf9623e295c0416813abd09a221abe68a"
   },
   "default_pattern_findings": {
     "files": 12,
@@ -206,13 +209,14 @@
   "exception": "Only four exact SHA256 values, recomputed from public source blobs or exact frozen API prompt segments. No broad file/rule suppression. Original reports retained in ignored work.",
   "limits": "Pattern audit and accessible snapshot only; expired/deleted archives, internal checkpoint refs and inaccessible external surfaces are outside scope.",
   "post_push_ci": {
-    "run_id": 38068852694,
-    "head_sha": "92d14eda9a72b5ad7ef2ff0548078c2398eff833",
+    "run_id": 38069637807,
+    "head_sha": "f5abde068709ac5caf9db8f69ee19b418174a2a5",
     "conclusion": "success",
     "jobs": [
       "check",
       "scene-smoke",
       "visualbook"
     ]
-  }
+  },
+  "unresolved_findings": 0
 }
