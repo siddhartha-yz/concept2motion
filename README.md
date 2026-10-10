@@ -55,7 +55,7 @@ node tools/studio.mjs
 
 具体作品仍在 [neural-choreography](https://github.com/siddhartha-yz/neural-choreography)。这里开发通用能力，暂不迁移作品。
 
-## 快速开始
+## 快速开始（旧视频工具）
 
 只需 Python 3.11+，准备流程不需要安装第三方包：
 
@@ -100,7 +100,7 @@ node tools/evaluate_openmotion.mjs --upstream /path/to/open-motion --out runs/op
 Paper2Manim 工具要使用其虚拟环境 Python，且 `manim`、`ffmpeg`、`ffprobe` 应在 PATH。详细环境要求和本机遇到的问题均记录在报告中。
 OpenMotion 工具在已安装依赖的隔离副本中加载原始 TypeScript 模块，评测组件、HTML 生成、变体与结构性评分；不代表完整服务能够启动。
 
-## 可续跑的真实生成评测
+## 可续跑的真实生成评测（旧视频实验）
 
 ```bash
 python3 tools/batch.py run --out runs/my-six

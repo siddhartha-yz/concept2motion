@@ -1,13 +1,8 @@
 // Actual rendering and geometry evidence. These checks do not judge pedagogy.
 import fs from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
 import { root, output, evidence, dependencies, sha } from "./prepare.mjs";
-const { chromium } = await import(
-  pathToFileURL(
-    path.join(dependencies, "node_modules/playwright-core/index.mjs"),
-  )
-);
+import { launchBrowser } from "./browser.mjs";
 const section = process.argv[2] ?? "spatial",
   attempt = process.argv[3] ?? "first";
 const auditId = process.argv[4] ?? "initial";
@@ -15,12 +10,7 @@ const raw = path.join(evidence, "raw", section, attempt, "browser", auditId);
 if (fs.existsSync(raw))
   throw Error("Refuse to overwrite browser evidence; use a new audit id");
 fs.mkdirSync(raw, { recursive: true });
-const browser = await chromium.launch({
-  headless: true,
-  executablePath:
-    process.env.CHROMIUM_PATH ??
-    "/home/yang-zhi/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
-});
+const browser = await launchBrowser();
 const records = [],
   errors = [];
 const context = await browser.newContext();

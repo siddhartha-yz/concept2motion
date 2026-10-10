@@ -2,20 +2,10 @@
 import fs from "node:fs";
 import path from "node:path";
 import assert from "node:assert/strict";
-import { pathToFileURL } from "node:url";
 import { dependencies, evidence, sha } from "./prepare.mjs";
 import { renderer } from "./figure.mjs";
-const { chromium } = await import(
-  pathToFileURL(
-    path.join(dependencies, "node_modules/playwright-core/index.mjs"),
-  )
-);
-const browser = await chromium.launch({
-  headless: true,
-  executablePath:
-    process.env.CHROMIUM_PATH ??
-    "/home/yang-zhi/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
-});
+import { launchBrowser } from "./browser.mjs";
+const browser = await launchBrowser();
 const page = await browser.newPage();
 await page.route("**/*", (route) => route.abort());
 const records = [];

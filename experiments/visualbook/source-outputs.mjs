@@ -2,16 +2,8 @@
 // This is a downloaded upstream snapshot, never a local execution claim.
 import fs from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
 import { root, output, sha } from "./prepare.mjs";
-const { chromium } = await import(
-  pathToFileURL(
-    path.join(
-      root,
-      "work/visualbook/runtime/node_modules/playwright-core/index.mjs",
-    ),
-  )
-);
+import { launchBrowser } from "./browser.mjs";
 const folder = path.join(root, "work/visualbook/source-snapshots");
 const normalize = (s) =>
   s
@@ -21,12 +13,7 @@ const normalize = (s) =>
     .filter((s) => s.trim())
     .join("\n")
     .trim();
-const browser = await chromium.launch({
-  headless: true,
-  executablePath:
-    process.env.CHROMIUM_PATH ??
-    "/home/yang-zhi/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
-});
+const browser = await launchBrowser();
 const page = await browser.newPage();
 await page.goto(`file://${output}/index.html`);
 const summary = [];

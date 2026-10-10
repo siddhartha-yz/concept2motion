@@ -18,6 +18,8 @@ jobs:
       - name: Install browser for offline reading checks
         run: |
           npm exec --prefix work/visualbook/runtime -- playwright-core install --with-deps chromium
+          sudo apt-get install --no-install-recommends -y fonts-noto-cjk
+          dpkg-query -W fonts-noto-cjk
           node --input-type=module -e "import {chromium} from './work/visualbook/runtime/node_modules/playwright-core/index.mjs'; console.log('CHROMIUM_PATH='+chromium.executablePath())" >> "$GITHUB_ENV"
       - name: Verify frozen books without model calls
         run: python3 experiments/visualbook/check-frozen.py

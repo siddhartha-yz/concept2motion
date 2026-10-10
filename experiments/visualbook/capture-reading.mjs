@@ -1,19 +1,9 @@
 // Save source-and-figure viewports for maintainers; screenshots are not scores.
 import fs from "node:fs";
 import path from "node:path";
-import { pathToFileURL } from "node:url";
 import { dependencies, output, evidence, sha } from "./prepare.mjs";
-const { chromium } = await import(
-  pathToFileURL(
-    path.join(dependencies, "node_modules/playwright-core/index.mjs"),
-  )
-);
-const browser = await chromium.launch({
-  headless: true,
-  executablePath:
-    process.env.CHROMIUM_PATH ??
-    "/home/yang-zhi/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome",
-});
+import { launchBrowser } from "./browser.mjs";
+const browser = await launchBrowser();
 const raw = path.join(
   evidence,
   "raw/reading-frames",

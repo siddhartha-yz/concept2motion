@@ -13,7 +13,7 @@ python3 experiments/visualbook/bootstrap.py --fetch
 python3 -m http.server 8768 --bind 127.0.0.1 --directory outputs/visualbook
 ```
 
-打开 <http://127.0.0.1:8768/index.html>。每节 HTML 内嵌字体、公式、图片与图解，复制出去也能离线打开。以后只需 `python3 experiments/visualbook/bootstrap.py`；它会保留首版入口，再构建 `active.json` 中的当前版本。没有新模型调用。
+打开 <http://127.0.0.1:8768/index.html>。每节 HTML 内嵌公式字体、公式、图片与图解，正文字体使用设备系统字体，复制出去也能离线打开。分享时请一起带上导出的两份许可证。以后只需 `python3 experiments/visualbook/bootstrap.py`；它会保留首版入口，再构建 `active.json` 中的当前版本。没有新模型调用。
 
 D2L 源码中的正文、原图和 PyTorch 代码能固定重建。源码不带代码输出。下面的可选步骤只补入与源码代码唯一匹配的原版公开输出；网站构建提交未知，不能把它当成严格固定的源码执行结果：
 
@@ -55,7 +55,7 @@ python3 experiments/visualbook/feedback.py /path/note.json work/visualbook/revis
 
 ## 检查与证据
 
-实际浏览器检查需要 Chromium。可设置 `CHROMIUM_PATH`；本机默认路径只是实验环境，其他机器应显式设置：
+实际浏览器检查需要 Chromium。默认由锁定的Playwright运行时自动发现安装路径；使用另一份浏览器时可设置 `CHROMIUM_PATH`：
 
 ```bash
 npm exec --prefix work/visualbook/runtime -- playwright-core install chromium
