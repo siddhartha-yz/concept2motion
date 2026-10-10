@@ -1,0 +1,27 @@
+{
+  "figures": [
+    {
+      "id": "stretch-a-vector",
+      "title": "同一坐标里，方向和长度怎样变化",
+      "afterAnchor": "gallery-001",
+      "endAnchor": "gallery-002",
+      "height": 320,
+      "summary": "手选向量。拖动细线比较变化前后；横纵坐标采用相同的单位尺度。",
+      "stages": ["原向量", "逐渐拉伸", "比较结果"],
+      "params": [{"key":"scale","label":"横向倍率","min":0.5,"max":2,"step":0.05,"value":1.5}],
+      "code": "function draw({board,width,height,progress,params}) { const frame=board.axes('plane',{xDomain:[-1,5],yDomain:[-1,3],equalUnits:true,xLabel:'横坐标',yLabel:'纵坐标'}); const original=[2,1], transformed=[2*VisualBook.mix(1,params.scale,progress),1]; board.vector('original',frame,[0,0],original,{color:VisualBook.palette.muted}); board.vector('transformed',frame,[0,0],transformed,{color:VisualBook.palette.blue}); board.label('value',`(${transformed.map(x=>x.toFixed(2)).join(', ')})`,frame.x(transformed[0])+10,frame.y(transformed[1])-10,{maxWidth:110}); return {original,transformed,unitX:frame.unitX,unitY:frame.unitY}; }"
+    },
+    {
+      "id": "trace-a-signal",
+      "title": "信息沿着同一条路径流动",
+      "afterAnchor": "gallery-003",
+      "endAnchor": "gallery-004",
+      "height": 240,
+      "mobileHeight": 310,
+      "summary": "示意数据流，不代表实际执行耗时。",
+      "stages": ["输入", "处理中", "输出"],
+      "params": [],
+      "code": "function draw({board,width,height,progress}) { const nodes=[{id:'input',label:'输入数据'},{id:'transform',label:'计算变换'},{id:'output',label:'输出结果'}]; board.sequence('signal',nodes,{active:progress*3}); return {progress,nodes:nodes.map(n=>n.id),kind:'conceptual data flow'}; }"
+    }
+  ]
+}

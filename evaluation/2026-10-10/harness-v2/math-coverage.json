@@ -1,0 +1,146 @@
+{
+  "old_six": [
+    {
+      "id": "spatial",
+      "title": "汇聚层",
+      "blocks": 39,
+      "excludedTabBlocks": 9,
+      "excludedCodeBlocks": 18,
+      "keptCodeBlocks": 10,
+      "removedDirectives": 2,
+      "figureCaptions": 1,
+      "multilineMathWrapped": 1,
+      "images": 1,
+      "mathErrors": 0,
+      "mathExpected": 12,
+      "mathRendered": 12
+    },
+    {
+      "id": "iteration",
+      "title": "随机梯度下降",
+      "blocks": 69,
+      "excludedTabBlocks": 3,
+      "excludedCodeBlocks": 4,
+      "keptCodeBlocks": 6,
+      "removedDirectives": 6,
+      "oneLineDisplayMath": 17,
+      "images": 0,
+      "mathErrors": 0,
+      "mathExpected": 106,
+      "mathRendered": 106
+    },
+    {
+      "id": "routing",
+      "title": "注意力评分函数",
+      "blocks": 43,
+      "excludedTabBlocks": 2,
+      "excludedCodeBlocks": 24,
+      "keptCodeBlocks": 10,
+      "removedDirectives": 7,
+      "figureCaptions": 1,
+      "oneLineDisplayMath": 5,
+      "images": 1,
+      "mathErrors": 0,
+      "mathExpected": 41,
+      "mathRendered": 41
+    },
+    {
+      "id": "execution",
+      "title": "多GPU训练",
+      "blocks": 51,
+      "excludedTabBlocks": 2,
+      "excludedCodeBlocks": 18,
+      "keptCodeBlocks": 12,
+      "removedDirectives": 4,
+      "figureCaptions": 3,
+      "emphasisAdapted": 1,
+      "images": 3,
+      "mathErrors": 0,
+      "mathExpected": 20,
+      "mathRendered": 20
+    },
+    {
+      "id": "holdout-iteration",
+      "title": "梯度下降",
+      "blocks": 79,
+      "excludedTabBlocks": 3,
+      "excludedCodeBlocks": 7,
+      "keptCodeBlocks": 13,
+      "removedDirectives": 6,
+      "mathDelimitersAdapted": 1,
+      "oneLineDisplayMath": 13,
+      "images": 0,
+      "mathErrors": 0,
+      "mathExpected": 125,
+      "mathRendered": 125
+    },
+    {
+      "id": "holdout-spatial",
+      "title": "填充和步幅",
+      "blocks": 35,
+      "excludedTabBlocks": 3,
+      "excludedCodeBlocks": 12,
+      "keptCodeBlocks": 4,
+      "removedDirectives": 3,
+      "figureCaptions": 2,
+      "oneLineDisplayMath": 2,
+      "images": 2,
+      "mathErrors": 0,
+      "mathExpected": 57,
+      "mathRendered": 57
+    }
+  ],
+  "new_three": [
+    {
+      "id": "programming",
+      "math": {
+        "excludedTabBlocks": 12,
+        "excludedCodeBlocks": 20,
+        "keptCodeBlocks": 8,
+        "removedDirectives": 2,
+        "figureCaptions": 1,
+        "images": 1,
+        "mathErrors": 0,
+        "mathExpected": 7,
+        "mathRendered": 7
+      }
+    },
+    {
+      "id": "geometry",
+      "math": {
+        "excludedTabBlocks": 5,
+        "excludedCodeBlocks": 90,
+        "keptCodeBlocks": 30,
+        "removedDirectives": 7,
+        "mathDelimitersAdapted": 4,
+        "oneLineDisplayMath": 7,
+        "images": 0,
+        "mathErrors": 0,
+        "mathExpected": 180,
+        "mathRendered": 180
+      }
+    },
+    {
+      "id": "optimization",
+      "math": {
+        "excludedTabBlocks": 3,
+        "excludedCodeBlocks": 11,
+        "keptCodeBlocks": 7,
+        "removedDirectives": 1,
+        "mathDelimitersAdapted": 1,
+        "images": 0,
+        "mathErrors": 0,
+        "mathExpected": 27,
+        "mathRendered": 27
+      }
+    }
+  ],
+  "old_six_formula_count": 361,
+  "new_three_formula_count": 214,
+  "old_failure_example": {
+    "source": "routing",
+    "block": "routing-006",
+    "finding": "standalone $$ displayed as raw TeX; zero katex-error did not mean rendered"
+  },
+  "formula_display_correctness": "coverage is necessary, later real-browser checks still required"
+}

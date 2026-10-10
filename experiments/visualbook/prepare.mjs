@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
 import { execFileSync } from "node:child_process";
+import { renderingMath, countMath, inspectMath } from "../../packages/visualbook/math.mjs";
 export const root = path.resolve(import.meta.dirname, "../..");
 export const output = path.resolve(
   process.env.VISUALBOOK_OUTPUT ?? path.join(root, "outputs/visualbook"),
@@ -189,10 +190,10 @@ function readableReferences(hast, refs, sourceUrl, blocks) {
 }
 export function prepare() {
   const sampling = JSON.parse(
-    fs.readFileSync(path.join(import.meta.dirname, "sampling.json")),
+    fs.readFileSync(process.env.VISUALBOOK_SAMPLING ?? path.join(import.meta.dirname, "sampling.json")),
   );
   const reserved = path.join(import.meta.dirname, "holdout-sampling.json");
-  if (fs.existsSync(reserved)) {
+  if (!process.env.VISUALBOOK_SAMPLING && fs.existsSync(reserved)) {
     const extra = JSON.parse(fs.readFileSync(reserved));
     if (extra.upstream_commit !== sampling.upstream_commit)
       throw Error("Reserved source version differs");
@@ -214,7 +215,7 @@ export function prepare() {
     const { text, report } = adapt(source);
     const adapted = text.replaceAll("SOURCE_URL", sourceUrl);
     const tree = parser.parse(adapted),
-      stats = { images: 0, mathErrors: 0 };
+      stats = { images: 0, mathErrors: 0, mathExpected: 0, mathRendered: 0 };
     for (const node of tree.children)
       if (
         node.type === "math" &&
@@ -256,17 +257,7 @@ export function prepare() {
         renderedNode = parser.parse(boldFixed).children[0];
         report.emphasisAdapted = (report.emphasisAdapted ?? 0) + 1;
       }
-      if (
-        node.type === "math" &&
-        node.value.includes("\\\\") &&
-        !node.value.includes("\\begin{")
-      ) {
-        renderedNode = {
-          ...node,
-          value: "\\begin{aligned}\n" + node.value + "\n\\end{aligned}",
-        };
-        report.multilineMathWrapped = (report.multilineMathWrapped ?? 0) + 1;
-      }
+      renderedNode = renderingMath(renderedNode, report);
       const hast = toHast(
         { type: "root", children: [renderedNode] },
         { allowDangerousHtml: false },
@@ -291,6 +282,9 @@ export function prepare() {
         }
       }
       unified().use(katex, { trust: false, strict: "ignore" }).runSync(hast);
+      const coverage = inspectMath(hast, countMath(renderedNode));
+      stats.mathExpected += coverage.expected;
+      stats.mathRendered += coverage.rendered;
       inlineImages(hast, sourcePath, stats);
       return {
         id,
@@ -299,6 +293,7 @@ export function prepare() {
         depth: node.depth ?? null,
         line: node.position.start.line,
         raw,
+        math: coverage,
         hast,
       };
     });
