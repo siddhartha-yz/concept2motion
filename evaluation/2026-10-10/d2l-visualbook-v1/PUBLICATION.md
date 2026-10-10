@@ -13,3 +13,9 @@
 ## 发布前完整文件与历史
 
 13:53 UTC扫描提交 acc75b17964522060349e92e2e9e03abf3648bbb：main全历史78提交，约19.49MB变更文本；整棵拟发布树2438个tracked文件，约19.25MB可扫描内容。两份Gitleaks报告均为0。随后仅增加浏览器路径发现、CI中文字体安装及审计文字，提交后再次扫描才push。
+
+## 首次本轮推送与真实CI
+
+非强制推送79298077dd12941beec53bb2e6a0b227f10a68ce完成；本地HEAD与git ls-remote main相同，git status为空。推送前再次全历史79提交、拟发布树扫描均0。
+
+GitHub运行38057717014三个任务success；visualbook在Ubuntu runner独立重建并完成79项阅读、228项关系，没有模型调用。新公开两份artifact（一个旧scene，一个教材摘要）及本次run日志已下载，连同旧归档共13份artifact、12份对应run日志，再用3层归档Gitleaks扫描约19.93MB可扫描内容，发现0。教材artifact只有8份数学/关系/阅读摘要，没有raw或全文HTML。
