@@ -106,14 +106,14 @@
             "props": {
               "items": [
                 {
-                  "label": "投影",
+                  "label": "目标投影",
                   "value": {
                     "$result": "geometry.projection"
                   },
                   "color": "orange"
                 },
                 {
-                  "label": "垂直分量",
+                  "label": "完整垂直分量",
                   "value": {
                     "$result": "geometry.residual"
                   },
@@ -3244,6 +3244,300 @@
             4
           ]
         }
+      }
+    },
+    {
+      "id": "quadratic-contours",
+      "title": "旋转的等高线与梯度",
+      "topic": "数学 / 机器学习",
+      "keywords": "contour gradient loss landscape 等高线 梯度 鞍点",
+      "limits": "维护者给定的解析函数；等高线是采样近似，橙箭头只表示梯度方向。拖动黑点联动精确数值。",
+      "interaction": "parameters",
+      "height": 390,
+      "mobileHeight": 530,
+      "state": {
+        "point": [
+          1.1,
+          0.8
+        ]
+      },
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "minColumnWidth": 260,
+          "gap": 14
+        },
+        "children": [
+          {
+            "id": "surface",
+            "type": "level-set",
+            "props": {
+              "field": {
+                "type": "quadratic",
+                "matrix": [
+                  [
+                    3,
+                    1
+                  ],
+                  [
+                    1,
+                    1
+                  ]
+                ],
+                "center": [
+                  0,
+                  0
+                ]
+              },
+              "point": {
+                "$state": "point"
+              },
+              "stateKey": "point",
+              "xDomain": [
+                -2,
+                2
+              ],
+              "yDomain": [
+                -2,
+                2
+              ],
+              "levels": [
+                0.25,
+                0.5,
+                1,
+                2,
+                4,
+                8
+              ],
+              "arrowLength": 0.55,
+              "title": "拖动黑点"
+            }
+          },
+          {
+            "id": "numbers",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "位置",
+                  "value": {
+                    "$result": "surface.point"
+                  }
+                },
+                {
+                  "label": "函数值",
+                  "value": {
+                    "$result": "surface.value"
+                  }
+                },
+                {
+                  "label": "梯度",
+                  "value": {
+                    "$result": "surface.gradient"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "rosenbrock-valley",
+      "title": "弯曲谷地上的当前位置",
+      "topic": "数学 / 机器学习",
+      "keywords": "contour gradient loss landscape 等高线 梯度 鞍点",
+      "limits": "维护者给定的解析函数；等高线是采样近似，橙箭头只表示梯度方向。拖动黑点联动精确数值。",
+      "interaction": "parameters",
+      "height": 390,
+      "mobileHeight": 530,
+      "state": {
+        "point": [
+          -0.5,
+          1
+        ]
+      },
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "minColumnWidth": 260,
+          "gap": 14
+        },
+        "children": [
+          {
+            "id": "surface",
+            "type": "level-set",
+            "props": {
+              "field": {
+                "type": "rosenbrock",
+                "a": 1,
+                "b": 8
+              },
+              "point": {
+                "$state": "point"
+              },
+              "stateKey": "point",
+              "xDomain": [
+                -1.5,
+                1.5
+              ],
+              "yDomain": [
+                -0.5,
+                2
+              ],
+              "levels": [
+                0.25,
+                0.5,
+                1,
+                2,
+                4,
+                8,
+                16,
+                32
+              ],
+              "arrowLength": 0.55,
+              "title": "拖动黑点"
+            }
+          },
+          {
+            "id": "numbers",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "位置",
+                  "value": {
+                    "$result": "surface.point"
+                  }
+                },
+                {
+                  "label": "函数值",
+                  "value": {
+                    "$result": "surface.value"
+                  }
+                },
+                {
+                  "label": "梯度",
+                  "value": {
+                    "$result": "surface.gradient"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "saddle-contours",
+      "title": "鞍点附近：函数值与方向",
+      "topic": "数学 / 机器学习",
+      "keywords": "contour gradient loss landscape 等高线 梯度 鞍点",
+      "limits": "维护者给定的解析函数；等高线是采样近似，橙箭头只表示梯度方向。拖动黑点联动精确数值。",
+      "interaction": "parameters",
+      "height": 390,
+      "mobileHeight": 530,
+      "state": {
+        "point": [
+          0.8,
+          0.7
+        ]
+      },
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "weights": [
+            2,
+            1
+          ],
+          "minColumnWidth": 260,
+          "gap": 14
+        },
+        "children": [
+          {
+            "id": "surface",
+            "type": "level-set",
+            "props": {
+              "field": {
+                "type": "quadratic",
+                "matrix": [
+                  [
+                    2,
+                    0
+                  ],
+                  [
+                    0,
+                    -2
+                  ]
+                ],
+                "center": [
+                  0,
+                  0
+                ]
+              },
+              "point": {
+                "$state": "point"
+              },
+              "stateKey": "point",
+              "xDomain": [
+                -2,
+                2
+              ],
+              "yDomain": [
+                -2,
+                2
+              ],
+              "levels": [
+                -3,
+                -2,
+                -1,
+                0,
+                1,
+                2,
+                3
+              ],
+              "arrowLength": 0.55,
+              "title": "拖动黑点"
+            }
+          },
+          {
+            "id": "numbers",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "位置",
+                  "value": {
+                    "$result": "surface.point"
+                  }
+                },
+                {
+                  "label": "函数值",
+                  "value": {
+                    "$result": "surface.value"
+                  }
+                },
+                {
+                  "label": "梯度",
+                  "value": {
+                    "$result": "surface.gradient"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
       }
     }
   ]

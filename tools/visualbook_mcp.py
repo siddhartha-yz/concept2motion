@@ -191,7 +191,7 @@ def main():
     def tool_fingerprint():
         library=ROOT/'packages/visualbook'
         modules=json.loads((library/'bundle.json').read_text())['modules']
-        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json','catalog.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/visualbook_math.mjs',ROOT/'tools/visualbook_inspection.mjs',ROOT/'tools/export_visualbook_motion.mjs',ROOT/'tools/build_visualbook_catalog.mjs']
+        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json','catalog.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/audit_visualbook_interactions.mjs',ROOT/'tools/visualbook_math.mjs',ROOT/'tools/visualbook_inspection.mjs',ROOT/'tools/export_visualbook_motion.mjs',ROOT/'tools/build_visualbook_catalog.mjs']
         return hashlib.sha256(json.dumps({str(p.relative_to(ROOT)):digest(p) for p in files},sort_keys=True).encode()).hexdigest()
 
     def build_inputs():
@@ -507,6 +507,7 @@ def main():
                 for p in screenshots
                 if Path(p).name.endswith("-0.5.png")
                 or Path(p).name.endswith("-context.png")
+                or Path(p).name.startswith("failure-")
             ]
             if not selected:
                 selected = screenshots

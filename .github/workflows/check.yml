@@ -3,7 +3,7 @@ on: [push, pull_request]
 jobs:
   visualbook:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -25,7 +25,7 @@ jobs:
         run: python3 experiments/visualbook/check-frozen.py
       - name: Verify reusable tools and ordinary Markdown import
         run: |
-          node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs tests/visualbook-numeric.test.mjs tests/visualbook-neural.test.mjs tests/visualbook-program.test.mjs tests/visualbook-relations.test.mjs tests/visualbook-recipes.test.mjs tests/visualbook-spatial.test.mjs
+          node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs tests/visualbook-numeric.test.mjs tests/visualbook-neural.test.mjs tests/visualbook-program.test.mjs tests/visualbook-relations.test.mjs tests/visualbook-recipes.test.mjs tests/visualbook-spatial.test.mjs tests/visualbook-format.test.mjs tests/visualbook-fields.test.mjs
           node tools/check_visualbook.mjs work/visualbook/ci-tools
           node tools/check_visualbook_controls.mjs work/visualbook/ci-reader-controls
           node tools/check_visualbook_composition.mjs work/visualbook/ci-composition
@@ -38,6 +38,7 @@ jobs:
           node tools/check_visualbook_failures.mjs work/visualbook/ci-failures
           node tools/check_visualbook_program_controls.mjs work/visualbook/ci-program-controls
           node tools/check_visualbook_spatial_controls.mjs work/visualbook/ci-spatial-controls
+          node tools/check_visualbook_interactions.mjs work/visualbook/ci-interactions
           node tools/check_visualbook_motion.mjs work/visualbook/ci-motion
           python3 tools/check_visualbook_motion_protocol.py work/visualbook/ci-motion-protocol
           node tools/build_visualbook_catalog.mjs work/visualbook/ci-designs
@@ -61,6 +62,7 @@ jobs:
             work/visualbook/ci-failures
             work/visualbook/ci-program-controls
             work/visualbook/ci-spatial-controls
+            work/visualbook/ci-interactions
             work/visualbook/ci-motion
             work/visualbook/ci-motion-protocol
             work/visualbook/ci-designs

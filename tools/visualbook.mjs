@@ -5,6 +5,7 @@ import crypto from "node:crypto";
 import { operations as calculations } from "./visualbook_math.mjs";
 import { pathToFileURL } from "node:url";
 import { auditParameters } from "./audit_visualbook_parameters.mjs";
+import { auditInteractions } from "./audit_visualbook_interactions.mjs";
 import { invalidGeometry } from "./visualbook_inspection.mjs";
 const root = path.resolve(import.meta.dirname, "..");
 const runtime = path.join(root, "work/visualbook/runtime/node_modules");
@@ -865,6 +866,36 @@ export async function preview(file, out) {
           id: shape.id,
           note: "Parameter exploration has no rendered handles or parameter controls",
         });
+  if (report.findings.length) {
+    report.interactionAudit = {
+      status: "skipped",
+      reason: "Resolve existing render/parameter findings first",
+    };
+  } else {
+    const directory = path.join(out, "interactions");
+    const interaction = await auditInteractions(file, directory);
+    report.interactionAudit = {
+      status: interaction.status,
+      cases: interaction.cases.length,
+      coverage: interaction.coverage,
+      scope: interaction.scope,
+    };
+    report.findings.push(
+      ...interaction.findings.map((f) => ({
+        ...f,
+        problem: f.kind,
+        kind: "interaction-control",
+      })),
+    );
+    for (const name of fs.readdirSync(directory))
+      if (/^failure-.*\.png$/.test(name))
+        report.screenshots.push(path.resolve(directory, name));
+    if (interaction.status !== "completed") {
+      report.status = "failed";
+      saveReport();
+      return report;
+    }
+  }
   report.status = "completed";
   saveReport();
   return report;

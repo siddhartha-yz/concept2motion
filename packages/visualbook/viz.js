@@ -13,6 +13,7 @@
     positive: "#397564",
     negative: "#a8502f",
   };
+  const formatNumber = global.VisualBookFormat.formatNumber;
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   const mix = (a, b, t) => a + (b - a) * t;
   const finite = (v) => {
@@ -23,6 +24,35 @@
   function measure(text, size = 15, family = "system-ui, sans-serif") {
     textCanvas.font = `${size}px ${family}`;
     return textCanvas.measureText(String(text)).width;
+  }
+  function fitNumber(
+    value,
+    { maxWidth, precision = 3, size = 16, minSize = 12 } = {},
+  ) {
+    if (
+      !Number.isFinite(maxWidth) ||
+      maxWidth <= 0 ||
+      !Number.isFinite(size) ||
+      !Number.isFinite(minSize) ||
+      minSize < 12 ||
+      size < minSize
+    )
+      throw Error("Numeric label needs finite space and at least 12px text");
+    // Reduce displayed precision only after the requested precision cannot fit.
+    // This does not alter the exact values used in computations or facts.
+    formatNumber(value, { precision });
+    for (let digits = precision; digits >= 0; digits--) {
+      const text = formatNumber(value, { precision: digits });
+      const actualSize = Math.min(
+        size,
+        (size * maxWidth) / Math.max(measure(text, size), 1),
+      );
+      if (actualSize >= minSize)
+        return { text, size: actualSize, precision: digits };
+    }
+    throw Error(
+      "Numeric label cannot fit at 12px; allocate more space or hide values",
+    );
   }
   function lines(text, width, size = 15) {
     const out = [];
@@ -509,13 +539,18 @@
               : "#eff0eb",
             { stroke: active ? color : "none", "stroke-width": 1.2 },
           );
+          const display = fitNumber(v, {
+            precision,
+            maxWidth: cell - 7,
+            size: Math.max(12, Math.min(16, cell * 0.4)),
+          });
           this.text(
             `${id}-v-${r}-${c}`,
-            Number(v.toFixed(precision)),
+            display.text,
             x + (c + 0.5) * cell - 1.5,
             y + (r + 0.5) * cell + 4,
             {
-              size: Math.max(12, Math.min(16, cell * 0.4)),
+              size: display.size,
               anchor: "middle",
               color: active ? palette.ink : palette.muted,
             },
@@ -670,9 +705,9 @@
         sum = terms.reduce((s, v) => s + v, 0);
       this.label(
         id + "-dot",
-        terms.map((v) => Number(v.toFixed(2))).join(" + ") +
+        terms.map((v) => formatNumber(v, { precision: 2 })).join(" + ") +
           " = " +
-          Number(sum.toFixed(2)),
+          formatNumber(sum, { precision: 2 }),
         this.width / 2,
         this.height - 22,
         { anchor: "middle", maxWidth: this.width - 32, avoid: false },
@@ -784,7 +819,9 @@
       );
       this.label(
         id + "-position-label",
-        `第 ${current.index.toFixed(1)} 步`,
+        Number.isInteger(current.index)
+          ? `第 ${current.index} 步`
+          : `步间插值 ${current.index.toFixed(1)}`,
         frame.x(current.theta[0]) + 10,
         frame.y(current.theta[1]) - 12,
         { maxWidth: 110 },
@@ -974,6 +1011,8 @@
   global.VisualBook = {
     Board,
     palette,
+    formatNumber,
+    fitNumber,
     measure,
     lines,
     clamp,

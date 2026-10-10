@@ -18,7 +18,7 @@
       throw Error("Learning data needs 1..200 finite 2D points");
     return data;
   };
-  const fmt = (v) => Number(v.toFixed(3));
+  const fmt = (v) => V.formatNumber(v);
   const {
     regression,
     regressionOptimum: optimum,

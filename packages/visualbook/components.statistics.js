@@ -12,7 +12,7 @@
     if (value < 0 || value > 1) throw Error("Probability must be in [0,1]");
     return value;
   };
-  const fmt = (value) => Number(value.toFixed(3));
+  const fmt = (value) => V.formatNumber(value);
   const { normalCDF, binomial, histogram, bayes } = global.VisualBookNumeric;
   function legend(
     board,

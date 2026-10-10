@@ -3,7 +3,7 @@
   const V = global.VisualBook,
     P = V.palette,
     N = global.VisualBookNeural;
-  const fmt = (v) => Number(v.toFixed(3));
+  const fmt = (v) => V.formatNumber(v);
   function attention(
     board,
     {

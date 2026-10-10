@@ -3,7 +3,7 @@
   const V = global.VisualBook,
     P = V.palette,
     N = global.VisualBookNeural;
-  const fmt = (v, p = 2) => Number(v.toFixed(p));
+  const fmt = (v, p = 2) => V.formatNumber(v, { precision: p });
   function tensor(
     board,
     {
@@ -97,6 +97,8 @@
               P.paper,
               v < 0 ? P.blue : P.orange,
             )(V.clamp(Math.abs(v) / (v < 0 ? -bounds[0] : bounds[1]), 0, 1));
+    const displayValues = values.map((row) => row.map(() => null));
+    const displayPrecisions = values.map((row) => row.map(() => null));
     values.forEach((row, r) =>
       row.forEach((v, c) => {
         const active = selected?.[0] === r && selected?.[1] === c;
@@ -132,22 +134,24 @@
               : global.d3.lab(color).l < 55
                 ? "#fff"
                 : P.ink;
-          const label = String(fmt(v, precision));
-          const nominal = Math.min(16, cell * 0.38);
-          const size = Math.min(
-            nominal,
-            (nominal * (cell - 7)) / Math.max(V.measure(label, nominal), 1),
-          );
-          if (size < 12)
-            throw Error(
-              "Tensor value does not fit its cell; reduce precision or showValues:false",
-            );
+          const display = V.fitNumber(v, {
+            precision,
+            maxWidth: cell - 7,
+            size: Math.max(12, Math.min(16, cell * 0.38)),
+          });
+          displayValues[r][c] = display.text;
+          displayPrecisions[r][c] = display.precision;
           board.text(
             "value-" + r + "-" + c,
-            label,
+            display.text,
             x + (c + 0.5) * cell - 1.5,
             y + (r + 0.5) * cell + 4,
-            { anchor: "middle", size, color: contrast, halo: false },
+            {
+              anchor: "middle",
+              size: display.size,
+              color: contrast,
+              halo: false,
+            },
           );
         }
       }),
@@ -206,6 +210,8 @@
     return {
       values,
       shape: [rows, cols],
+      displayValues,
+      displayPrecisions,
       minimum,
       maximum,
       domain: bounds,
@@ -214,7 +220,7 @@
       row: selected ? values[selected[0]] : null,
       column: selected ? values.map((r) => r[selected[1]]) : null,
       convention:
-        "Stable row-major cell identity; color domain is explicit or reported; clipped colors do not change numeric values",
+        "Stable row-major cell identity; color domain is explicit or reported; clipped colors and fitted display precision do not change numeric values",
     };
   }
   const components = {

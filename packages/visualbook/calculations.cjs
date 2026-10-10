@@ -20,7 +20,17 @@
     typeof module !== "undefined" && module.exports
       ? require("./spatial.cjs")
       : global.VisualBookSpatial;
+  const F =
+    typeof module !== "undefined" && module.exports
+      ? require("./fields.cjs")
+      : global.VisualBookFields;
   const operations = {
+    "scalar-field": {
+      keys: ["spec", "point"],
+      required: ["spec", "point"],
+      outputs: ["spec", "point", "value", "gradient", "hessian", "convention"],
+      run: ({ spec, point }) => F.scalarField(spec, point),
+    },
     "receptive-field": {
       keys: ["inputLength", "layers", "index"],
       required: ["inputLength", "layers"],

@@ -148,3 +148,11 @@ MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","m
 本地命令：`node tools/export_visualbook_motion.mjs book.html preview-directory work/fresh-output motion.json`。需要已有FFmpeg，工具不自动安装；中间帧与视频留在ignored work。输出文件可另行交付，不能把导出成功当作审美或教学认证。
 
 二维贡献可以用 `vector-sum`：给定1–4个二维加权项、共同起点与完整坐标域，返回vertices/currentEndpoint/endpoint。共享箭头对零向量不画假箭头，短向量的箭头头部也随长度收缩。默认示例含数据/惩罚两项；它不替模型推导梯度。
+
+## 二维函数与可读的数值
+
+`level-set`绘制有限二维解析函数的等高线，黑点可直接拖动，`point/value/gradient/hessian`能接入其它组件。field支持`{type:"quadratic",matrix:[[3,1],[1,1]],center:[0,0],constant:0}`或`{type:"rosenbrock",a:1,b:8}`；二次型采用`0.5*(p-center)^T H (p-center)+constant`，矩阵必须对称，但不假设正定。相同无DOM计算是`compute_math({operation:"scalar-field",inputs:{spec,point}})`。等高线是21..101网格的采样近似；橙箭头长度经过归一化并在边界缩短，只表示梯度或负梯度方向，不能叫真实梯度大小或一次优化更新。方向为none时不画箭头，零梯度也不画假箭头。
+
+`VisualBook.formatNumber(value,{precision:3})`只改变显示，极小的非零值使用科学计数，精确facts保持不变。`fitNumber(value,{maxWidth,precision,size,minSize})`使用实际字体测量，先尝试所需精度，必要时减少显示位数，字号至少12px；仍放不下就拒绝。tensor返回displayValues/displayPrecisions说明实际显示内容，不能拿显示舍入值代替运算值。
+
+正式preview会实际操作注册的图内把手和选中点，检查键盘/指针输入是否改变画面、是否报错以及无输入重画是否一致。最多16个注册控件/图、两个尺寸、首次可用姿态；没有穷举所有状态、自定义DOM控件或物理触摸设备。无作用的把手、输入后错误和随机重画进入正式发现，失败截图返回模型，阻止导出。数值正确与图形美观仍须分别审阅。

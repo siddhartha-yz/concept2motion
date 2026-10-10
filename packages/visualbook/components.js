@@ -12,7 +12,7 @@
       throw Error("Finite 2D vector required");
     return v;
   };
-  const fmt = (v) => Number(v.toFixed(3));
+  const fmt = (v) => V.formatNumber(v);
   const color = (name, fallback = P.blue) => P[name] ?? name ?? fallback;
   function frame(
     board,
@@ -129,7 +129,10 @@
       color: P.blue,
       label: draggable ? null : "v",
     });
-    board.vector("projected", f, [0, 0], q, { color: P.orange, label: "投影" });
+    board.vector("projected", f, [0, 0], q, {
+      color: P.orange,
+      label: p === 1 ? "投影" : "展开中",
+    });
     board.mark("residual", "path", {
       d: `M${f.x(q[0])},${f.y(q[1])}L${f.x(value[0])},${f.y(value[1])}`,
       fill: "none",

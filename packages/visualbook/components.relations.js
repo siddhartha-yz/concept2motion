@@ -4,7 +4,7 @@
     P = V.palette,
     N = global.VisualBookRelations;
   const colors = [P.blue, P.orange, P.violet, P.green, P.gold];
-  const fmt = (v) => Number(v.toFixed(3));
+  const fmt = (v) => V.formatNumber(v);
   const label = (board, id, text, x, y, options = {}) => {
     if (
       typeof text !== "string" ||
@@ -78,7 +78,11 @@
         value: r.visibleValue[dimension],
         color: colors[i % colors.length],
       })),
-      { label: sumLabel, value: facts.visibleSum[dimension], color: P.ink },
+      {
+        label: facts.prefix === terms.length ? sumLabel : "当前合计",
+        value: facts.visibleSum[dimension],
+        color: P.ink,
+      },
     ];
     records.forEach((record, i) => {
       const y = titleHeight + row * (i + 0.5),
@@ -336,7 +340,10 @@
       P.violet,
     );
     const text =
-      String(sumLabel) + " [" + facts.visibleSum.map(fmt).join(", ") + "]";
+      (facts.prefix === terms.length ? String(sumLabel) : "当前合计") +
+      " [" +
+      facts.visibleSum.map(fmt).join(", ") +
+      "]";
     label(board, "sum-value", text, f.right, f.top + 14, {
       maxWidth: f.right - f.left,
       color: P.violet,

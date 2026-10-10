@@ -3,7 +3,7 @@
   const V = global.VisualBook,
     P = V.palette,
     N = global.VisualBookSpatial;
-  const fmt = (v) => Number(v.toFixed(3));
+  const fmt = (v) => V.formatNumber(v);
   function receptiveField(
     board,
     { inputLength, layers, index = 0, stateKey = null, title = null } = {},

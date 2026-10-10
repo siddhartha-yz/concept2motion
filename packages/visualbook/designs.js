@@ -221,7 +221,7 @@
       ty = mobile ? ky + 18 : this.height - 50;
     this.label(
       id + "-value",
-      `输出[${r}, ${c}] = ${Number(sum.toFixed(2))}`,
+      `输出[${r}, ${c}] = ${V.formatNumber(sum, { precision: 2 })}`,
       tx,
       ty,
       {

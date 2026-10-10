@@ -16,15 +16,17 @@
       },
       "required": [],
       "outputs": [
+        "vector",
+        "onto",
         "projection",
         "residual",
         "coefficient",
         "dot",
-        "orthogonality"
+        "orthogonality",
+        "visibleProjection",
+        "constructionProgress"
       ],
-      "examples": [
-        "projection"
-      ],
+      "examples": ["projection"],
       "limits": "非零二维投影方向；把手存储二维向量",
       "keywords": "linear algebra vector 投影 向量"
     },
@@ -41,15 +43,8 @@
         "gridExtent": "Integer grid extent around the origin"
       },
       "required": [],
-      "outputs": [
-        "currentMatrix",
-        "transformed",
-        "target",
-        "determinant"
-      ],
-      "examples": [
-        "linear-transform"
-      ],
+      "outputs": ["currentMatrix", "transformed", "target", "determinant"],
+      "examples": ["linear-transform"],
       "limits": "2×2矩阵；I到A的插值不是矩阵指数",
       "keywords": "二维线性变换"
     },
@@ -64,14 +59,8 @@
         "layers": "See executable example and numeric limits"
       },
       "required": [],
-      "outputs": [
-        "xDomain",
-        "yDomain",
-        "layers"
-      ],
-      "examples": [
-        "linked-plot"
-      ],
+      "outputs": ["xDomain", "yDomain", "layers"],
+      "examples": ["linked-plot"],
       "limits": "curve/points/vector/area/handle；最多16层",
       "keywords": "同坐标系图层"
     },
@@ -83,9 +72,7 @@
         "title": "Optional short title; omit if figure heading already names the idea"
       },
       "required": [],
-      "outputs": [
-        "items"
-      ],
+      "outputs": ["items"],
       "examples": [],
       "limits": "最多8项；每项至少50px加16px留白；短标签与实际计算结果",
       "keywords": "紧凑数值读数"
@@ -103,16 +90,8 @@
         "stateKey": "Name in figure.state; use $state to read it and shared controls to update it"
       },
       "required": [],
-      "outputs": [
-        "function",
-        "x",
-        "value",
-        "derivative",
-        "convention"
-      ],
-      "examples": [
-        "activation"
-      ],
+      "outputs": ["function", "x", "value", "derivative", "convention"],
+      "examples": ["activation"],
       "limits": "函数用结构化数据；无eval函数字符串",
       "keywords": "函数和变化率"
     },
@@ -129,16 +108,8 @@
         "stateKey": "Name in figure.state; use $state to read it and shared controls to update it"
       },
       "required": [],
-      "outputs": [
-        "x",
-        "h",
-        "value",
-        "derivative",
-        "secantSlope"
-      ],
-      "examples": [
-        "derivative"
-      ],
+      "outputs": ["x", "h", "value", "derivative", "secantSlope"],
+      "examples": ["derivative"],
       "limits": "h=0显示解析导数；ReLU在0处仅显示指定次梯度",
       "keywords": "割线和切线"
     },
@@ -168,9 +139,7 @@
         "visibleArea",
         "constructionProgress"
       ],
-      "examples": [
-        "integral"
-      ],
+      "examples": ["integral"],
       "limits": "left/right/midpoint；数字计算和可见范围分开",
       "keywords": "数值面积"
     },
@@ -182,15 +151,8 @@
         "title": "Optional short title; omit if figure heading already names the idea"
       },
       "required": [],
-      "outputs": [
-        "angle",
-        "cos",
-        "sin",
-        "norm"
-      ],
-      "examples": [
-        "unit-circle"
-      ],
+      "outputs": ["angle", "cos", "sin", "norm"],
+      "examples": ["unit-circle"],
       "limits": "角度为弧度；等单位比例",
       "keywords": "单位圆"
     },
@@ -208,19 +170,9 @@
         "stateKey": "Name in figure.state; use $state to read it and shared controls to update it",
         "note": "See executable example and numeric limits"
       },
-      "required": [
-        "nodes"
-      ],
-      "outputs": [
-        "nodes",
-        "edges",
-        "layout",
-        "mode",
-        "progress"
-      ],
-      "examples": [
-        "dependency-graph"
-      ],
+      "required": ["nodes"],
+      "outputs": ["nodes", "edges", "layout", "mode", "progress"],
+      "examples": ["dependency-graph"],
       "limits": "最多16节点32边；移动点不是硬件时序",
       "keywords": "稳定有向关系图"
     },
@@ -238,18 +190,9 @@
         "selected": "See executable example and numeric limits",
         "stateKey": "Name in figure.state; use $state to read it and shared controls to update it"
       },
-      "required": [
-        "nodes"
-      ],
-      "outputs": [
-        "trace",
-        "graph",
-        "mode",
-        "phase"
-      ],
-      "examples": [
-        "autograd"
-      ],
+      "required": ["nodes"],
+      "outputs": ["trace", "graph", "mode", "phase"],
+      "examples": ["autograd"],
       "limits": "标量节点、有限反传种子、重复输入独立累加、detach截断；不代表训练",
       "keywords": "automatic differentiation backprop backward gradient detach stop-gradient 微分 梯度 反向传播"
     },
@@ -269,17 +212,8 @@
         "title": "Optional short title; omit if figure heading already names the idea"
       },
       "required": [],
-      "outputs": [
-        "probability",
-        "selected",
-        "mean",
-        "variance",
-        "interval"
-      ],
-      "examples": [
-        "normal-distribution",
-        "binomial-distribution"
-      ],
+      "outputs": ["probability", "selected", "mean", "variance", "interval"],
+      "examples": ["normal-distribution", "binomial-distribution"],
       "limits": "normal或binomial；CDF近似界明确；可见n<=40",
       "keywords": "probability normal binomial 概率 正态 二项"
     },
@@ -294,19 +228,9 @@
         "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
         "title": "Optional short title; omit if figure heading already names the idea"
       },
-      "required": [
-        "samples"
-      ],
-      "outputs": [
-        "bins",
-        "outside",
-        "total",
-        "inRange",
-        "density"
-      ],
-      "examples": [
-        "histogram"
-      ],
+      "required": ["samples"],
+      "outputs": ["bins", "outside", "total", "inRange", "density"],
+      "examples": ["histogram"],
       "limits": "最多40个可见箱；画外样本显式计数",
       "keywords": "statistics density sample 统计 密度 样本"
     },
@@ -328,9 +252,7 @@
         "truePositive",
         "falsePositiveMass"
       ],
-      "examples": [
-        "bayes-area"
-      ],
+      "examples": ["bayes-area"],
       "limits": "后验为null表示零概率观察；转换中面积不作为概率",
       "keywords": "conditional probability bayesian 条件概率 贝叶斯"
     },
@@ -350,9 +272,7 @@
         "stateKey": "Name in figure.state; use $state to read it and shared controls to update it",
         "title": "Optional short title; omit if figure heading already names the idea"
       },
-      "required": [
-        "data"
-      ],
+      "required": ["data"],
       "outputs": [
         "predictions",
         "residuals",
@@ -362,9 +282,7 @@
         "weightGradient",
         "biasGradient"
       ],
-      "examples": [
-        "regression-residuals"
-      ],
+      "examples": ["regression-residuals"],
       "limits": "最多60可见点；半均方误差+λw²/2，截距不正则化",
       "keywords": "linear regression residual least squares 回归 最小二乘 误差"
     },
@@ -381,9 +299,7 @@
         "progress": "Reader-controlled value in [0,1]; optional for parameter exploration",
         "title": "Optional short title; omit if figure heading already names the idea"
       },
-      "required": [
-        "data"
-      ],
+      "required": ["data"],
       "outputs": [
         "dataLoss",
         "penalty",
@@ -392,9 +308,7 @@
         "biasGradient",
         "samples"
       ],
-      "examples": [
-        "regularized-loss"
-      ],
+      "examples": ["regularized-loss"],
       "limits": "固定截距的1D切片；不是完整训练轨迹",
       "keywords": "regularization weight decay 正则 权重衰减"
     },
@@ -421,9 +335,7 @@
         "total",
         "selected"
       ],
-      "examples": [
-        "decision-boundary"
-      ],
+      "examples": ["decision-boundary"],
       "limits": "<=80点；颜色表示标签，描边表示错误；手选权重",
       "keywords": "classification sigmoid logistic 分类 边界"
     },
@@ -441,9 +353,7 @@
         "view": "projection moves points to their orthogonal reconstruction; coordinates maps to centered PC1/PC2; dragging only original projection view",
         "pointColors": "One palette name per point, shared across views for object identity"
       },
-      "required": [
-        "data"
-      ],
+      "required": ["data"],
       "outputs": [
         "mean",
         "covariance",
@@ -456,10 +366,7 @@
         "coordinates",
         "secondAxis"
       ],
-      "examples": [
-        "pca-projection",
-        "pca-coordinates"
-      ],
+      "examples": ["pca-projection", "pca-coordinates"],
       "limits": "总体协方差分母N；重复特征值不确定方向；<=60可见点",
       "keywords": "principal component analysis variance 主成分 方差 降维"
     },
@@ -476,11 +383,9 @@
         "columnLabels": "One short string per column",
         "selected": "[row,column] or null",
         "stateKey": "Shared state receiving a selected [row,column]",
-        "precision": "Integer 0..5"
+        "precision": "Requested display precision integer 0..5; fewer digits only when needed to fit at >=12px. Exact values unchanged."
       },
-      "required": [
-        "values"
-      ],
+      "required": ["values"],
       "outputs": [
         "values",
         "shape",
@@ -491,13 +396,11 @@
         "value",
         "row",
         "column",
-        "convention"
+        "convention",
+        "displayValues",
+        "displayPrecisions"
       ],
-      "examples": [
-        "matrix-selection",
-        "attention-compose",
-        "dense-compose"
-      ],
+      "examples": ["matrix-selection", "attention-compose", "dense-compose"],
       "limits": "最多8×8，格子至少30px；色域与数值分开，越界颜色裁剪不改变数值",
       "keywords": "matrix heatmap tensor attention values 矩阵 热力图 张量 选择"
     },
@@ -511,10 +414,7 @@
         "row": "Valid output row integer",
         "col": "Valid output column integer"
       },
-      "required": [
-        "a",
-        "b"
-      ],
+      "required": ["a", "b"],
       "outputs": [
         "a",
         "b",
@@ -527,9 +427,7 @@
         "phase",
         "assumption"
       ],
-      "examples": [
-        "matrix-product"
-      ],
+      "examples": ["matrix-product"],
       "limits": "最多5行/列/内积维；不是GPU执行",
       "keywords": "matrix multiplication matmul 矩阵乘法"
     },
@@ -541,10 +439,7 @@
         "rows": "Target rows dividing element count",
         "progress": "Position interpolation 0..1"
       },
-      "required": [
-        "values",
-        "rows"
-      ],
+      "required": ["values", "rows"],
       "outputs": [
         "values",
         "output",
@@ -554,9 +449,7 @@
         "progress",
         "order"
       ],
-      "examples": [
-        "reshape"
-      ],
+      "examples": ["reshape"],
       "limits": "最多36值，每维≤8；行优先顺序保持，不是转置",
       "keywords": "tensor reshape shape 张量 形状 重排"
     },
@@ -570,10 +463,7 @@
         "padding": "See executable design and stated numeric limits",
         "progress": "See executable design and stated numeric limits"
       },
-      "required": [
-        "input",
-        "kernel"
-      ],
+      "required": ["input", "kernel"],
       "outputs": [
         "input",
         "kernel",
@@ -590,9 +480,7 @@
         "progress",
         "convention"
       ],
-      "examples": [
-        "convolution"
-      ],
+      "examples": ["convolution"],
       "limits": "输入每维≤6、核≤3、填充≤1；互相关不翻转核",
       "keywords": "convolution cross correlation stride padding kernel 卷积 互相关 核 步幅 填充"
     },
@@ -627,9 +515,7 @@
         "unitY",
         "interpolation"
       ],
-      "examples": [
-        "optimizer"
-      ],
+      "examples": ["optimizer"],
       "limits": "二维二次目标；SGD/RMSProp等可复现更新，不是网络训练成绩",
       "keywords": "optimization gradient descent SGD RMSProp 梯度下降 优化"
     },
@@ -642,19 +528,9 @@
         "progress": "See executable design and stated numeric limits",
         "labels": "See executable design and stated numeric limits"
       },
-      "required": [
-        "scores"
-      ],
-      "outputs": [
-        "scores",
-        "temperature",
-        "probabilities",
-        "sum",
-        "progress"
-      ],
-      "examples": [
-        "probabilities"
-      ],
+      "required": ["scores"],
+      "outputs": ["scores", "temperature", "probabilities", "sum", "progress"],
+      "examples": ["probabilities"],
       "limits": "最多10项，正温度；均匀到目标的插值不是训练",
       "keywords": "probability logits softmax temperature 概率 温度 分数"
     },
@@ -669,15 +545,9 @@
         "width": "See executable design and stated numeric limits",
         "height": "See executable design and stated numeric limits"
       },
-      "required": [
-        "nodes"
-      ],
-      "outputs": [
-        "boxes"
-      ],
-      "examples": [
-        "data-flow"
-      ],
+      "required": ["nodes"],
+      "outputs": ["boxes"],
+      "examples": ["data-flow"],
       "limits": "顺序流程；动态分支需计算图或程序轨迹，不声称执行时间",
       "keywords": "flow program stages sequence 流程 程序 阶段"
     },
@@ -695,11 +565,7 @@
         "title": "Short optional heading",
         "view": "weights: one composable weight matrix (default); summary: matrix plus selected weighted sum"
       },
-      "required": [
-        "queries",
-        "keys",
-        "values"
-      ],
+      "required": ["queries", "keys", "values"],
       "outputs": [
         "queries",
         "keys",
@@ -718,9 +584,7 @@
         "selectedWeights",
         "selectedOutput"
       ],
-      "examples": [
-        "attention-compose"
-      ],
+      "examples": ["attention-compose"],
       "limits": "≤6查询/键，≤4值维；Q/K/V给定，无训练投影、多头或随机采样声明",
       "keywords": "attention query key value mask Q K V softmax 注意力 查询 键 值 掩码"
     },
@@ -740,9 +604,7 @@
         "valueDomain": "Optional finite increasing visible numeric bounds",
         "title": "Short heading"
       },
-      "required": [
-        "data"
-      ],
+      "required": ["data"],
       "outputs": [
         "input",
         "shape",
@@ -763,10 +625,7 @@
         "stage",
         "convention"
       ],
-      "examples": [
-        "normalization-axes",
-        "normalization-running"
-      ],
+      "examples": ["normalization-axes", "normalization-running"],
       "limits": "≤8样本、6特征；总体方差除N，running统计由调用方给定，不更新",
       "keywords": "batch normalization layer norm normalization feature sample 批量归一化 层归一化 统计范围 均值 方差"
     },
@@ -785,10 +644,7 @@
         "mode": "forward or backward; backward shows gradients of the seeded output sum",
         "seeds": "Finite [1,outputs]; defaults to a one-hot selected output"
       },
-      "required": [
-        "input",
-        "weights"
-      ],
+      "required": ["input", "weights"],
       "outputs": [
         "input",
         "weights",
@@ -811,10 +667,7 @@
         "biasGradient",
         "seededValue"
       ],
-      "examples": [
-        "dense-compose",
-        "dense-backward"
-      ],
+      "examples": ["dense-compose", "dense-backward"],
       "limits": "一份输入、≤6输入/输出；给定权重，无训练声明",
       "keywords": "dense linear layer affine weights neuron MLP 全连接 仿射 层 权重 神经元 backprop backward chain rule VJP 反传 反向传播 链式法则 梯度"
     },
@@ -829,10 +682,7 @@
         "progress": "Illustrative interpolation input→masked/scaled output",
         "title": "Optional heading"
       },
-      "required": [
-        "data",
-        "mask"
-      ],
+      "required": ["data", "mask"],
       "outputs": [
         "input",
         "mask",
@@ -844,9 +694,7 @@
         "progress",
         "convention"
       ],
-      "examples": [
-        "dropout-mask"
-      ],
+      "examples": ["dropout-mask"],
       "limits": "显式固定掩码；不声称随机采样，无推理时丢弃",
       "keywords": "dropout mask training inference 掩码 暂退法 训练 推理"
     },
@@ -863,10 +711,7 @@
         "stateKey": "Shared state vector updated by click or keyboard selection",
         "title": "Optional short title"
       },
-      "required": [
-        "buffer",
-        "shape"
-      ],
+      "required": ["buffer", "shape"],
       "outputs": [
         "shape",
         "elementStrides",
@@ -885,9 +730,7 @@
         "bufferBytes",
         "convention"
       ],
-      "examples": [
-        "array-strides"
-      ],
+      "examples": ["array-strides"],
       "limits": "显示1/2维视图及≤16值的缓冲区；允许负步长、零步长和别名，但地址必须在缓冲区内。",
       "keywords": "stride index transpose alias view slice array buffer 内存 数组 张量 索引 步长 转置 视图"
     },
@@ -900,9 +743,7 @@
         "title": "Optional short title",
         "domain": "[0,max] containing the entire schedule; use same domain to compare schedules"
       },
-      "required": [
-        "tasks"
-      ],
+      "required": ["tasks"],
       "outputs": [
         "records",
         "lanes",
@@ -914,9 +755,7 @@
         "current",
         "completed"
       ],
-      "examples": [
-        "async-schedule"
-      ],
+      "examples": ["async-schedule"],
       "limits": "≤16任务、≤4行；时间是给定示例单位，非CPU/GPU实测。依赖和同行顺序形成环时拒绝。",
       "keywords": "async synchronize dependency GPU CPU queue wait timing 异步 同步 调度 等待 依赖 时间"
     },
@@ -930,17 +769,9 @@
         "title": "Optional short title",
         "highlights": "Identifier to palette name or hex color; ≤16 identifiers"
       },
-      "required": [
-        "lines"
-      ],
-      "outputs": [
-        "activeLine",
-        "visibleLines",
-        "convention"
-      ],
-      "examples": [
-        "memory-alias"
-      ],
+      "required": ["lines"],
+      "outputs": ["activeLine", "visibleLines", "convention"],
+      "examples": ["memory-alias"],
       "limits": "只显示局部代码和给定状态，不执行任意Python。等宽字体实际测量，过长拒绝。",
       "keywords": "code line trace statement 编程 源码 执行 语句 跟踪"
     },
@@ -953,18 +784,9 @@
         "variableIds": "Stable variable drawing order",
         "title": "Optional short title"
       },
-      "required": [
-        "snapshot"
-      ],
-      "outputs": [
-        "snapshot",
-        "objectIds",
-        "variableIds",
-        "convention"
-      ],
-      "examples": [
-        "memory-alias"
-      ],
+      "required": ["snapshot"],
+      "outputs": ["snapshot", "objectIds", "variableIds", "convention"],
+      "examples": ["memory-alias"],
       "limits": "≤4对象、≤6变量、每对象≤8值；颜色按对象身份，不代表物理地址或自动垃圾回收。",
       "keywords": "memory reference object alias copy heap 内存 变量 引用 对象 复制 别名"
     },
@@ -977,10 +799,7 @@
         "step": "Integer executed instruction count including step0 initial state",
         "title": "Optional local code title"
       },
-      "required": [
-        "instructions",
-        "lines"
-      ],
+      "required": ["instructions", "lines"],
       "outputs": [
         "history",
         "locals",
@@ -992,9 +811,7 @@
         "snapshot",
         "step"
       ],
-      "examples": [
-        "memory-alias"
-      ],
+      "examples": ["memory-alias"],
       "limits": "真实执行有限指令语义，再拼接代码和对象组件；不能声称执行了任意源码。",
       "keywords": "trace allocation alias copy mutate assignment Python array view 代码 赋值 复制 引用 改写 数组"
     },
@@ -1009,9 +826,7 @@
         "title": "Optional short title",
         "sumLabel": "Short final row label, default 合计"
       },
-      "required": [
-        "terms"
-      ],
+      "required": ["terms"],
       "outputs": [
         "records",
         "dimension",
@@ -1023,10 +838,7 @@
         "selectedDimension",
         "domain"
       ],
-      "examples": [
-        "gradient-contributions",
-        "weighted-expectation"
-      ],
+      "examples": ["gradient-contributions", "weighted-expectation"],
       "limits": "最多6项；显示一个坐标，数值仍保留完整向量；连续加入是解释过程",
       "keywords": "gradient chain rule sum expectation loss 梯度 汇合 合计 链式法则 期望 损失 正则"
     },
@@ -1041,9 +853,7 @@
         "sizeUnit": "Short supplied-size unit label",
         "title": "Optional short title"
       },
-      "required": [
-        "intervals"
-      ],
+      "required": ["intervals"],
       "outputs": [
         "records",
         "time",
@@ -1059,9 +869,7 @@
         "convention",
         "domain"
       ],
-      "examples": [
-        "cache-lifetimes"
-      ],
+      "examples": ["cache-lifetimes"],
       "limits": "最多8个半开区间，大小和生存时间由输入指定；不是分配器或硬件测量",
       "keywords": "backprop cache lifetime intervals memory 缓存 内存 反向传播 生存 区间 同时存活"
     },
@@ -1075,10 +883,7 @@
         "stateKey": "Optional shared scalar integer state for mouse/Enter selection of output nodes",
         "title": "Optional short title"
       },
-      "required": [
-        "inputLength",
-        "layers"
-      ],
+      "required": ["inputLength", "layers"],
       "outputs": [
         "inputLength",
         "layers",
@@ -1094,10 +899,7 @@
         "requestedIndex",
         "selectionClamped"
       ],
-      "examples": [
-        "receptive-field",
-        "dilation-holes"
-      ],
+      "examples": ["receptive-field", "dilation-holes"],
       "limits": "单路径局部层；准确保留膨胀空洞与补零边界；结构依赖不是非零梯度或真实空间坐标",
       "keywords": "convolution receptive field dilation stride pooling CNN 卷积 感受野 膨胀 空洞 步长 池化"
     },
@@ -1114,9 +916,7 @@
         "stateKey": "Shared scalar query state",
         "title": "Optional short title"
       },
-      "required": [
-        "data"
-      ],
+      "required": ["data"],
       "outputs": [
         "query",
         "keys",
@@ -1135,10 +935,7 @@
         "xDomain",
         "yDomain"
       ],
-      "examples": [
-        "kernel-regression",
-        "kernel-weight-composition"
-      ],
+      "examples": ["kernel-regression", "kernel-weight-composition"],
       "limits": "给定样本，未训练；彩色圆面积与归一化权重成正比；101点连线仅为显示采样",
       "keywords": "Gaussian Nadaraya Watson kernel regression attention weights 核回归 加权 权重 查询 平滑"
     },
@@ -1154,9 +951,7 @@
         "title": "Optional short title",
         "sumLabel": "Short resultant label"
       },
-      "required": [
-        "terms"
-      ],
+      "required": ["terms"],
       "outputs": [
         "records",
         "dimension",
@@ -1172,12 +967,48 @@
         "xDomain",
         "yDomain"
       ],
-      "examples": [
-        "gradient-vectors",
-        "vector-addition"
-      ],
+      "examples": ["gradient-vectors", "vector-addition"],
       "limits": "最多4个二维贡献；相同坐标比例；全域包含全部顶点，不掩盖出界；插值只是解释构造",
       "keywords": "vector sum gradient regularization linear combination embedding 向量 合成 梯度 正则化 线性组合"
+    },
+    {
+      "id": "level-set",
+      "title": "等高线、位置与梯度方向",
+      "required": ["field"],
+      "props": {
+        "field": "quadratic with symmetric matrix/center/constant, or rosenbrock with a/b; analytic derivatives",
+        "point": "Finite [x,y] within both domains",
+        "xDomain": "Finite increasing domain",
+        "yDomain": "Finite increasing domain",
+        "levels": "1..12 strictly increasing finite contour values",
+        "resolution": "Integer 21..101, default61; cell-center sampling",
+        "direction": "gradient/descent/none",
+        "arrowLength": "0..2 data units; normalized direction and boundary-shortened, not gradient magnitude or optimizer step",
+        "stateKey": "Shared state receiving the dragged point",
+        "title": "Optional short plot heading"
+      },
+      "outputs": [
+        "spec",
+        "point",
+        "value",
+        "gradient",
+        "hessian",
+        "convention",
+        "levels",
+        "resolution",
+        "direction",
+        "arrowEndpoint",
+        "arrowLength",
+        "gradientNorm",
+        "contourConvention"
+      ],
+      "examples": [
+        "quadratic-contours",
+        "rosenbrock-valley",
+        "saddle-contours"
+      ],
+      "limits": "仅二维解析二次型与Rosenbrock；等高线为采样近似；箭头只表示方向，不宣称训练轨迹",
+      "keywords": "contour level set gradient loss landscape saddle 等高线 梯度 损失 鞍点"
     }
   ]
 }

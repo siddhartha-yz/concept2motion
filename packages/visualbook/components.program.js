@@ -4,7 +4,7 @@
     P = V.palette,
     N = global.VisualBookProgram,
     mono = "ui-monospace, SFMono-Regular, Consolas, monospace";
-  const fmt = (v) => Number(v.toFixed(3));
+  const fmt = (v) => V.formatNumber(v);
   const color = (id) =>
     [P.blue, P.orange, P.violet, P.green, P.gold][
       [...id].reduce((a, c) => a + c.charCodeAt(0), 0) % 5

@@ -87,6 +87,7 @@ def main():
         tool,
         ROOT / "tools/visualbook_mcp.py",
         ROOT / "tools/audit_visualbook_parameters.mjs",
+        ROOT / "tools/audit_visualbook_interactions.mjs",
         ROOT / "tools/build_visualbook_catalog.mjs",
         ROOT / "tools/visualbook_math.mjs",
         ROOT / "tools/visualbook_inspection.mjs",

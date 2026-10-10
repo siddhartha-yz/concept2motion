@@ -6,7 +6,7 @@
     if (!Number.isFinite(v)) throw Error("Graph value is not finite");
     return v;
   };
-  const fmt = (v) => Number(v.toFixed(3));
+  const fmt = (v) => V.formatNumber(v);
   function traceGraph(
     spec,
     { output = null, outputs = null, seeds = null } = {},
