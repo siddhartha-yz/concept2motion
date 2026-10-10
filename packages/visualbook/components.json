@@ -56,11 +56,12 @@
         "yDomain": "Increasing finite [min,max] displayed output interval",
         "title": "Optional short title; omit if figure heading already names the idea",
         "equalUnits": "See executable example and numeric limits",
-        "layers": "See executable example and numeric limits"
+        "layers": "At most 16 {id,type,color,label,...} records. curve/area: finite points <=1000; points: finite points <=200 and radius; vector: from/to; handle: point/stateKey. legend=true needs distinct labels <=24 characters. Curves/scatter/areas use the same domain and clip.",
+        "legend": "Boolean, default false. When true, generate actual mark glyphs from each non-handle layer; up to six unique short layer labels required."
       },
       "required": [],
-      "outputs": ["xDomain", "yDomain", "layers"],
-      "examples": ["linked-plot"],
+      "outputs": ["xDomain", "yDomain", "layers", "legend"],
+      "examples": ["linked-plot", "polynomial-fit"],
       "limits": "curve/points/vector/area/handle；最多16层",
       "keywords": "同坐标系图层"
     },
@@ -1028,6 +1029,37 @@
       "examples": ["normalization-points", "paired-points"],
       "limits": "行数最多5、每行12点；对应不代表因果/时间，同一数字刻度不保证物理单位相同；重复值只在非定量纵向轻微错开",
       "keywords": "paired samples normalization affine transformed points 批量规范化 标准化 同一数据 变换 均值 方差"
+    },
+    {
+      "id": "scalar-map",
+      "title": "可联动的二维采样色图",
+      "keywords": "scalar map raster sampled neural response 热力图 采样 响应 神经网络",
+      "props": {
+        "grid": "Exact sample-grid result; cell-centre coordinates are checked",
+        "values": "Finite N×C numerical responses, one row per grid point",
+        "channel": "Integer channel index, default 0",
+        "colorDomain": "Required finite [min,max] containing every displayed sample, no clipping",
+        "colorMode": "diverging (negative..positive) or sequential",
+        "point": "Finite in-domain [x,y] probe",
+        "stateKey": "Optional shared 2D point state key, enables real drag/keyboard handle",
+        "title": "Short title <=24 characters"
+      },
+      "required": ["grid", "values", "colorDomain"],
+      "outputs": [
+        "row",
+        "column",
+        "index",
+        "sampledPoint",
+        "probePoint",
+        "value",
+        "channel",
+        "shape",
+        "colorDomain",
+        "colorMode",
+        "convention"
+      ],
+      "examples": ["neural-response", "sigmoid-response", "sampled-field"],
+      "limits": "5..31 square grid, N×C <=4096 values; at least260×240 region. Canvas colours plus SVG axes and controls. Cell sampling, not exact interpolation/training/calibration."
     }
   ]
 }

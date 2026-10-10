@@ -45,3 +45,11 @@ Python Tutor已实际运行维护者输入的四行allocate/alias/copy/write示�
 
 - [D3 contour 官方接口](https://d3js.org/d3-contour/contour)：实际阅读网格中心坐标、阈值区域与线性插值定义。新等高线积木按这些坐标约定连接现有D3 7.9.0，没有复制展示作品资源；依赖沿用ISC归属。
 - [Distill: Why Momentum Really Works](https://distill.pub/2017/momentum/)：再次核对二次型、梯度与等高线交互的表达。借鉴“稳定背景＋读者控制当前位置”的结构；没有复制代码、插图或文章内容。新Rosenbrock和鞍点只是维护者输入的示例，不算生成或训练结果。
+
+### 响应图、小多图与自动图例
+
+[Observable Plot facets](https://observablehq.com/plot/features/facets) 和 [legends](https://observablehq.com/plot/features/legends)：阅读共享尺度、多图组织与图例来自同一编码的官方说明。没有复制代码或图像。新增 plot 图例直接由真实图层生成，拒绝同名标签，减少维护者看图时发现的“观测和预测都叫预测”的错误。
+
+[TensorFlow Playground](https://playground.tensorflow.org/)：实际打开并查看其输入、隐藏层响应和输出的组织。参考仓库 tensorflow/playground 固定为 `02469bd3751764b20486015d4202b792af5362a6`，核对 Apache-2.0 许可证；没有检出或复制源码、图像、模型权重或界面资产。新增响应图是独立实现的 Canvas 颜色采样 + SVG 坐标与共享拖动控件，默认权重手动给定，不是训练复现。
+
+[LAPACK QR with column pivoting](https://www.netlib.org/lapack/lug/node42.html)：核对最小二乘中列主元 QR 与秩的用途，不复制 LAPACK 源码，也不把本项目的简单秩阈值等同于 LAPACK 的完整秩估计。新拟合内核独立实现，另用现有 NumPy 2.2.6 的 SVD 和 SciPy gelsy 对24种配置核对。系数基底和非截距惩罚明确；训练误差不代表泛化误差。

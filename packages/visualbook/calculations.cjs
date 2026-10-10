@@ -24,7 +24,62 @@
     typeof module !== "undefined" && module.exports
       ? require("./fields.cjs")
       : global.VisualBookFields;
+  const G =
+    typeof module !== "undefined" && module.exports
+      ? require("./sampling.cjs")
+      : global.VisualBookSampling;
+  const Q =
+    typeof module !== "undefined" && module.exports
+      ? require("./polynomial.cjs")
+      : global.VisualBookPolynomial;
   const operations = {
+    "sample-grid": {
+      keys: ["xDomain", "yDomain", "resolution", "field"],
+      required: [],
+      outputs: [
+        "grid",
+        "points",
+        "values",
+        "field",
+        "shape",
+        "xDomain",
+        "yDomain",
+        "convention",
+      ],
+      run: G.sampleGrid,
+    },
+    "polynomial-fit": {
+      keys: [
+        "data",
+        "degree",
+        "lambda",
+        "center",
+        "scale",
+        "xDomain",
+        "samples",
+      ],
+      required: ["data"],
+      outputs: [
+        "data",
+        "degree",
+        "lambda",
+        "center",
+        "scale",
+        "coefficients",
+        "predictions",
+        "residuals",
+        "trainingMSE",
+        "regularization",
+        "objective",
+        "gradient",
+        "curve",
+        "xDomain",
+        "rank",
+        "diagonalRatio",
+        "convention",
+      ],
+      run: Q.polynomialFit,
+    },
     transpose: {
       keys: ["input", "index"],
       required: ["input"],

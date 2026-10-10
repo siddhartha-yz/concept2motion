@@ -30,5 +30,9 @@ bad=out/'bad-late-chapter';invoke('bad-late-chapter',manifest,bad,expect=1);asse
 image.write_text('<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"><circle cx="20" cy="20" r="6"/></svg>')
 (original/'two.md').write_text('# 平方\n\n$$\nf(x)=x^2\n$$\n');snapshot.write_text(snapshot.read_text()+' ')
 p=invoke('corrupt-snapshot',manifest,run,True,1);assert 'snapshot was modified' in p.stderr
-record={'passed':True,'modelCalls':0,'cases':records,'scope':'Actual two-chapter Markdown import, formula/image identity and resume rejection. Not full generation or browser/teaching validation.'}
+# A last imported JSON chapter with missing compiled math also stops all authors.
+json_source=json.loads((run/'inputs/one.source.json').read_text());json_source['id']='two';json_source['blocks'][1]['html']='<p>\\mathbf{x}</p>'
+(original/'two.json').write_text(json.dumps(json_source));json_manifest=original/'imported.json';json_manifest.write_text(json.dumps({'title':'已导入输入控制','chapters':[{'id':'one','source':'one.md'},{'id':'two','source':'two.json'}]}))
+json_bad=out/'bad-imported-math';p=invoke('bad-imported-math',json_manifest,json_bad,expect=1);assert 'formula coverage mismatch' in p.stderr;assert not (json_bad/'inputs').exists()
+record={'passed':True,'modelCalls':0,'cases':records,'scope':'Actual two-chapter Markdown/imported JSON formula coverage, formula/image identity and resume rejection. Not full generation or browser/teaching validation.'}
 (out/'control.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'passed':True,'cases':len(records),'modelCalls':0}))

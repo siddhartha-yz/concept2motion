@@ -2995,6 +2995,482 @@
           ]
         }
       }
+    },
+    {
+      "id": "neural-response",
+      "title": "一个输入，连接隐藏层和输出层",
+      "topic": "深度学习",
+      "keywords": "neural response activation decision surface 神经网络 激活 响应 隐藏层 决策",
+      "limits": "两层手设小网络，未训练。颜色是21×21单元中心采样，两个画面共用输入点但各自标明色标；sigmoid输出不代表已经校准的概率。",
+      "interaction": "parameters",
+      "height": 380,
+      "mobileHeight": 560,
+      "params": [
+        {
+          "key": "bias",
+          "label": "隐藏偏置",
+          "min": -1,
+          "max": 1,
+          "step": 0.1,
+          "value": 0
+        },
+        {
+          "key": "mix",
+          "label": "输出系数",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        },
+        {
+          "key": "activation",
+          "label": "激活",
+          "kind": "select",
+          "options": [
+            {
+              "label": "tanh",
+              "value": "tanh"
+            },
+            {
+              "label": "sigmoid",
+              "value": "sigmoid"
+            }
+          ],
+          "value": "tanh"
+        },
+        {
+          "key": "channel",
+          "label": "隐藏单元",
+          "kind": "select",
+          "options": [
+            {
+              "label": "第一个",
+              "value": 0
+            },
+            {
+              "label": "第二个",
+              "value": 1
+            }
+          ],
+          "value": 0
+        }
+      ],
+      "state": {
+        "point": [0, 0]
+      },
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "grid",
+            "operation": "sample-grid",
+            "inputs": {
+              "resolution": 21,
+              "xDomain": [-2, 2],
+              "yDomain": [-2, 2]
+            }
+          },
+          {
+            "id": "hidden",
+            "operation": "dense",
+            "inputs": {
+              "input": {
+                "$result": "grid.points"
+              },
+              "weights": [
+                [1, -1],
+                [1, 1]
+              ],
+              "bias": [
+                {
+                  "$param": "bias"
+                },
+                0
+              ],
+              "activation": {
+                "$param": "activation"
+              }
+            }
+          },
+          {
+            "id": "output",
+            "operation": "dense",
+            "inputs": {
+              "input": {
+                "$result": "hidden.output"
+              },
+              "weights": [
+                [
+                  {
+                    "$param": "mix"
+                  }
+                ],
+                [1]
+              ],
+              "activation": "sigmoid"
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 300,
+            "gap": 20
+          },
+          "children": [
+            {
+              "id": "hidden-map",
+              "type": "scalar-map",
+              "props": {
+                "grid": {
+                  "$result": "grid.grid"
+                },
+                "values": {
+                  "$result": "hidden.output"
+                },
+                "colorDomain": [-1, 1],
+                "channel": {
+                  "$param": "channel"
+                },
+                "point": {
+                  "$state": "point"
+                },
+                "stateKey": "point",
+                "title": "隐藏单元响应",
+                "colorMode": "diverging"
+              }
+            },
+            {
+              "id": "output-map",
+              "type": "scalar-map",
+              "props": {
+                "grid": {
+                  "$result": "grid.grid"
+                },
+                "values": {
+                  "$result": "output.output"
+                },
+                "colorDomain": [0, 1],
+                "channel": 0,
+                "point": {
+                  "$state": "point"
+                },
+                "stateKey": "point",
+                "title": "输出响应",
+                "colorMode": "sequential"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sigmoid-response",
+      "title": "一条直线怎样分开输入平面",
+      "topic": "数学 / 机器学习",
+      "keywords": "sigmoid logistic regression response 决策边界 逻辑回归 响应",
+      "limits": "手动系数，不是训练或准确率实验。颜色表示σ(w₁x₁+w₂x₂+b)的有限网格采样，不是数据密度，也不保证概率校准。",
+      "interaction": "parameters",
+      "height": 350,
+      "mobileHeight": 350,
+      "params": [
+        {
+          "key": "w1",
+          "label": "系数 w₁",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        },
+        {
+          "key": "w2",
+          "label": "系数 w₂",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        },
+        {
+          "key": "bias",
+          "label": "偏置",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 0
+        }
+      ],
+      "state": {
+        "point": [0, 0]
+      },
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "grid",
+            "operation": "sample-grid",
+            "inputs": {
+              "resolution": 21,
+              "xDomain": [-2, 2],
+              "yDomain": [-2, 2]
+            }
+          },
+          {
+            "id": "response",
+            "operation": "dense",
+            "inputs": {
+              "input": {
+                "$result": "grid.points"
+              },
+              "weights": [
+                [
+                  {
+                    "$param": "w1"
+                  }
+                ],
+                [
+                  {
+                    "$param": "w2"
+                  }
+                ]
+              ],
+              "bias": [
+                {
+                  "$param": "bias"
+                }
+              ],
+              "activation": "sigmoid"
+            }
+          }
+        ],
+        "visual": {
+          "id": "response-map",
+          "type": "scalar-map",
+          "props": {
+            "grid": {
+              "$result": "grid.grid"
+            },
+            "values": {
+              "$result": "response.output"
+            },
+            "colorDomain": [0, 1],
+            "channel": 0,
+            "point": {
+              "$state": "point"
+            },
+            "stateKey": "point",
+            "title": "输入平面的响应",
+            "colorMode": "sequential"
+          }
+        }
+      }
+    },
+    {
+      "id": "sampled-field",
+      "title": "颜色与等高线，共用一个位置",
+      "topic": "数学 / 机器学习",
+      "keywords": "field grid response contour scalar 热力图 等高线 采样 函数",
+      "limits": "同一个解析二次型，两种有限采样表示。色图读数取所在单元中心，等高线图的函数值在指针位置精确计算；二者靠近但未必相等。",
+      "interaction": "parameters",
+      "height": 380,
+      "mobileHeight": 560,
+      "params": [],
+      "state": {
+        "point": [1, 0.7]
+      },
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "grid",
+            "operation": "sample-grid",
+            "inputs": {
+              "field": {
+                "type": "quadratic",
+                "matrix": [
+                  [3, 1],
+                  [1, 1]
+                ],
+                "center": [0, 0]
+              },
+              "resolution": 21,
+              "xDomain": [-2, 2],
+              "yDomain": [-2, 2]
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 300,
+            "gap": 20
+          },
+          "children": [
+            {
+              "id": "colour-map",
+              "type": "scalar-map",
+              "props": {
+                "grid": {
+                  "$result": "grid.grid"
+                },
+                "values": {
+                  "$result": "grid.values"
+                },
+                "colorDomain": [0, 12],
+                "channel": 0,
+                "point": {
+                  "$state": "point"
+                },
+                "stateKey": "point",
+                "title": "单元中心采样",
+                "colorMode": "sequential"
+              }
+            },
+            {
+              "id": "contour",
+              "type": "level-set",
+              "props": {
+                "field": {
+                  "type": "quadratic",
+                  "matrix": [
+                    [3, 1],
+                    [1, 1]
+                  ],
+                  "center": [0, 0]
+                },
+                "point": {
+                  "$state": "point"
+                },
+                "stateKey": "point",
+                "xDomain": [-2, 2],
+                "yDomain": [-2, 2],
+                "levels": [0.5, 1, 2, 4, 8],
+                "direction": "none",
+                "title": "解析函数的等高线"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "polynomial-fit",
+      "title": "阶数改变，拟合和惩罚一起变化",
+      "topic": "数学 / 机器学习",
+      "keywords": "polynomial fit ridge regression QR 多项式 拟合 过拟合 正则化",
+      "limits": "九个手设观测，中心点增加0.2。QR直接求最小二乘，不是SGD。惩罚不含常数项，系数基底明确；训练误差不代表泛化误差。",
+      "interaction": "parameters",
+      "height": 340,
+      "mobileHeight": 500,
+      "params": [
+        {
+          "key": "degree",
+          "label": "阶数",
+          "min": 1,
+          "max": 8,
+          "step": 1,
+          "value": 3,
+          "kind": "stepper"
+        },
+        {
+          "key": "lambda",
+          "label": "惩罚 λ",
+          "min": 0,
+          "max": 0.1,
+          "step": 0.01,
+          "value": 0
+        }
+      ],
+      "state": {},
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "fit",
+            "operation": "polynomial-fit",
+            "inputs": {
+              "data": [
+                [-1.0, -1.0],
+                [-0.75, -0.421875],
+                [-0.5, -0.125],
+                [-0.25, -0.015625],
+                [0.0, 0.2],
+                [0.25, 0.015625],
+                [0.5, 0.125],
+                [0.75, 0.421875],
+                [1.0, 1.0]
+              ],
+              "degree": {
+                "$param": "degree"
+              },
+              "lambda": {
+                "$param": "lambda"
+              },
+              "xDomain": [-1, 1]
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "weights": [2.5, 1],
+            "minColumnWidth": 290,
+            "gap": 20
+          },
+          "children": [
+            {
+              "id": "plot",
+              "type": "plot",
+              "props": {
+                "xDomain": [-1.1, 1.1],
+                "yDomain": [-1.6, 1.6],
+                "legend": true,
+                "layers": [
+                  {
+                    "id": "data",
+                    "type": "points",
+                    "label": "观测",
+                    "points": {
+                      "$result": "fit.data"
+                    },
+                    "color": "blue"
+                  },
+                  {
+                    "id": "curve",
+                    "type": "curve",
+                    "label": "拟合",
+                    "points": {
+                      "$result": "fit.curve"
+                    },
+                    "color": "orange"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "numbers",
+              "type": "readout",
+              "props": {
+                "items": [
+                  {
+                    "label": "训练均方误差",
+                    "value": {
+                      "$result": "fit.trainingMSE"
+                    },
+                    "color": "blue"
+                  },
+                  {
+                    "label": "惩罚项",
+                    "value": {
+                      "$result": "fit.regularization"
+                    },
+                    "color": "orange"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
     }
   ]
 }

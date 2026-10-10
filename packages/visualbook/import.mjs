@@ -1,5 +1,6 @@
 // General Markdown adapter. D2L/Sphinx keeps its separately pinned adapter.
 import fs from "node:fs";
+import { normalizeEmphasis } from "./emphasis.mjs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
@@ -72,6 +73,13 @@ export function importMarkdown(
         value: node.children[0].value,
         position: node.position,
       };
+    if (["paragraph", "heading"].includes(node.type)) {
+      const normalized = normalizeEmphasis(text);
+      if (normalized !== text) {
+        render = parser.parse(normalized).children[0];
+        adaptation.emphasisAdapted = (adaptation.emphasisAdapted ?? 0) + 1;
+      }
+    }
     render = renderingMath(render, adaptation);
     const hast = toHast(
       { type: "root", children: [render] },

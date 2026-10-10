@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import {normalizeEmphasis} from "../../packages/visualbook/emphasis.mjs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { pathToFileURL } from "node:url";
@@ -253,7 +254,7 @@ export function prepare() {
         };
         report.oneLineDisplayMath = (report.oneLineDisplayMath ?? 0) + 1;
       }
-      const boldFixed = raw.replace(/([^\s\p{P}])\*\*(?=`)/gu, "$1 **");
+      const boldFixed = ["paragraph","heading"].includes(node.type)?normalizeEmphasis(raw):raw;
       if (boldFixed !== raw) {
         renderedNode = parser.parse(boldFixed).children[0];
         report.emphasisAdapted = (report.emphasisAdapted ?? 0) + 1;

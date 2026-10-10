@@ -22,8 +22,11 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--workspace", type=Path, required=True)
     parser.add_argument("--direct", action="store_true")
+    parser.add_argument("--library-first", action="store_true")
     args = parser.parse_args()
     workspace = args.workspace.resolve(strict=True)
+    if args.direct and args.library_first: raise ValueError("Library policy applies only to harness")
+    drawing_gaps = {}
     tool = ROOT / "tools/visualbook.mjs"
     catalog = json.loads((ROOT / "packages/visualbook/catalog.json").read_text())[
         "designs"
@@ -63,6 +66,12 @@ def main():
             },
         },
     ]
+    definitions += [
+        {"name":"inspect_source","description":"Inspect up to three actual source anchors, neighbouring text and safe insertion advice. No source rewrite or quality verdict.","inputSchema":{"type":"object","properties":{"anchors":{"type":"array","minItems":1,"maxItems":3,"items":{"type":"string"}}},"required":["anchors"],"additionalProperties":False}},
+        {"name":"put_annotation","description":"Add a concise visible condition/clarification/correction beside original source; optional TeX is actually compiled. Original text and hashes remain unchanged. Explicit replace=true to revise a note. Saves before/after and builds; still inspect the real page.","inputSchema":{"type":"object","properties":{"id":{"type":"string"},"afterAnchor":{"type":"string"},"kind":{"type":"string","enum":["condition","clarification","correction"]},"text":{"type":"string","maxLength":360},"formula":{"type":"string","maxLength":500},"replace":{"type":"boolean"}},"required":["id","afterAnchor","kind","text"],"additionalProperties":False}}
+    ]
+    if args.library_first:
+        definitions += [{"name":"declare_drawing_gap","description":"After checking 1..3 named designs, record why this figure needs custom drawing. Binds the escape to this exact code hash; later code changes require a new declaration. Twelve declarations maximum, failed requests count. Does not certify that the reason is true or the custom figure is good.","inputSchema":{"type":"object","properties":{"figureId":{"type":"string"},"attemptedDesigns":{"type":"array","minItems":1,"maxItems":3,"items":{"type":"string"}},"reason":{"type":"string","minLength":30,"maxLength":600}},"required":["figureId","attemptedDesigns","reason"],"additionalProperties":False}}]
     if not args.direct:
         definitions += [
             {
@@ -95,7 +104,7 @@ def main():
             {
                 "name":"compute_math",
                 "description":"Call the same canonical probability/learning numerical kernels used by drawings; no DOM, network or model calls. This helps inspect values but is not independent math review. Allowed input keys are returned on error.",
-                "inputSchema":{"type":"object","properties":{"operation":{"type":"string","enum":list(calculation_metadata)},"inputs":{"type":"object"}},"required":["operation","inputs"],"additionalProperties":False},
+                "inputSchema":{"type":"object","properties":{"operation":{"type":"string","enum":list(calculation_metadata)},"inputs":{"type":"object"},"fields":{"type":"array","minItems":1,"maxItems":8,"uniqueItems":True,"items":{"type":"string"}}},"required":["operation","inputs"],"additionalProperties":False},
             },
             {
                 'name':'describe_calculation',
@@ -191,11 +200,11 @@ def main():
     def tool_fingerprint():
         library=ROOT/'packages/visualbook'
         modules=json.loads((library/'bundle.json').read_text())['modules']
-        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','components.json','catalog.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/audit_visualbook_interactions.mjs',ROOT/'tools/visualbook_math.mjs',ROOT/'tools/visualbook_inspection.mjs',ROOT/'tools/export_visualbook_motion.mjs',ROOT/'tools/build_visualbook_catalog.mjs']
+        files=[library/n for n in modules+['bundle.json','runtime.js','theme.css','math.mjs','anchors.mjs','components.json','catalog.json']]+[tool,Path(__file__).resolve(),ROOT/'tools/audit_visualbook_parameters.mjs',ROOT/'tools/audit_visualbook_interactions.mjs',ROOT/'tools/visualbook_math.mjs',ROOT/'tools/visualbook_inspection.mjs',ROOT/'tools/export_visualbook_motion.mjs',ROOT/'tools/build_visualbook_catalog.mjs']
         return hashlib.sha256(json.dumps({str(p.relative_to(ROOT)):digest(p) for p in files},sort_keys=True).encode()).hexdigest()
 
     def build_inputs():
-        return {'source_sha256':digest(inside('source.json')),'plan_sha256':digest(inside('book.json')),'tools_sha256':tool_fingerprint(),'arm':'direct' if args.direct else 'harness'}
+        return {'source_sha256':digest(inside('source.json')),'plan_sha256':digest(inside('book.json')),'tools_sha256':tool_fingerprint(),'arm':'direct' if args.direct else 'harness','composition_policy':'prefer-library' if args.library_first else 'open','drawing_gaps_sha256':hashlib.sha256(json.dumps(drawing_gaps,sort_keys=True).encode()).hexdigest()}
 
     def require_current_build():
         receipt=inside('build-receipt.json')
@@ -243,7 +252,39 @@ def main():
         if any(k not in required for k in arguments):
             raise ValueError("Unknown argument")
         result = None
-        is_build = name in ["build_book", "put_design"]
+        is_build = name in ["build_book", "put_design", "put_annotation"]
+        if name == "declare_drawing_gap":
+            directory=inside('drawing-gaps');directory.mkdir(exist_ok=True)
+            count=len(list(directory.glob('declaration-*')))
+            if count>=12:raise ValueError('Twelve drawing gap declarations reached')
+            path=directory/f'declaration-{count+1:03d}.json'
+            record={'arguments':arguments,'status':'requested'};path.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+            plan=json.loads(inside('book.json').read_text());figure=next((f for f in plan['figures'] if f['id']==arguments.get('figureId')),None)
+            designs=arguments.get('attemptedDesigns');reason=arguments.get('reason')
+            try:
+                if not figure or not isinstance(figure.get('code'),str) or figure.get('design'):raise ValueError('Gap declaration needs an existing custom-code figure')
+                if not isinstance(designs,list) or not 1<=len(designs)<=3 or len(set(designs))!=len(designs) or any(d not in [x['id'] for x in catalog] for d in designs):raise ValueError('Inspect and identify one to three distinct actual designs')
+                if not isinstance(reason,str) or not 30<=len(reason.strip())<=600:raise ValueError('Explain the concrete missing relation in 30..600 characters')
+                record.update(status='declared',code_sha256=hashlib.sha256(figure['code'].encode()).hexdigest())
+                drawing_gaps[figure['id']]=record
+            except Exception as error:
+                record.update(status='failed',error=str(error));path.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n');raise
+            path.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n')
+            result={'declaration':record,'scope':'Recorded author explanation, not independently established coverage or quality'}
+        if name == "put_annotation":
+            if not isinstance(arguments.get('replace',False),bool):raise ValueError('replace must be an explicit boolean')
+            previous=inside('book.json').read_bytes();plan=json.loads(previous);notes=plan.setdefault('annotations',[])
+            if not isinstance(notes,list):raise ValueError('Annotations must be an array')
+            matches=[i for i,n in enumerate(notes) if n.get('id')==arguments.get('id')]
+            if len(matches)>1 or (matches and not arguments.get('replace',False)) or (not matches and arguments.get('replace',False)):raise ValueError('Note replacement requires one existing id and explicit replace=true')
+            note={k:v for k,v in arguments.items() if k!='replace'}
+            if matches:notes[matches[0]]=note
+            else:notes.append(note)
+            edits=inside('annotation-edits');edits.mkdir(exist_ok=True)
+            if len(list(edits.glob('edit-*')))>=24:raise ValueError('Twenty-four annotation edits reached; failures count')
+            directory=edits/f'edit-{len(list(edits.glob("edit-*")))+1:03d}';directory.mkdir()
+            (directory/'before.json').write_bytes(previous);(directory/'request.json').write_text(json.dumps(arguments,ensure_ascii=False,indent=2)+'\n')
+            proposal=json.dumps(plan,ensure_ascii=False,indent=2)+'\n';(directory/'after.json').write_text(proposal);inside('book.json').write_text(proposal)
         if name == "put_design":
             if not all(isinstance(arguments.get(k),str) and arguments[k] for k in ['id','design','afterAnchor']):
                 raise ValueError('Design, figure id and real source anchor required')
@@ -270,7 +311,15 @@ def main():
             proposal=json.dumps(plan,ensure_ascii=False,indent=2)+'\n'
             (directory/'after.json').write_text(proposal)
             inside('book.json').write_text(proposal)
-        if name == "list_designs":
+        if name == "inspect_source":
+            anchors=arguments.get('anchors')
+            if not isinstance(anchors,list) or not 1<=len(anchors)<=3 or any(not isinstance(a,str) for a in anchors):raise ValueError('Provide one to three source anchors')
+            process=subprocess.run(['node',str(ROOT/'packages/visualbook/anchors.mjs'),str(inside('source.json')),json.dumps(anchors)],capture_output=True,text=True,timeout=30)
+            if process.returncode:raise ValueError(process.stderr[-3000:])
+            result=json.loads(process.stdout)
+        elif name == "declare_drawing_gap":
+            pass
+        elif name == "list_designs":
             result = [
                 {k: d[k] for k in ["id", "title", "topic", "limits"]} for d in catalog
             ]
@@ -323,6 +372,11 @@ def main():
             process=subprocess.run(["node",str(ROOT/"tools/visualbook_math.mjs")],input=request,cwd=workspace,capture_output=True,text=True,timeout=30)
             if process.returncode:raise ValueError(process.stderr[-3000:])
             result=json.loads(process.stdout)
+            fields=arguments.get('fields')
+            if fields is not None:
+                if not isinstance(fields,list) or not 1<=len(fields)<=8 or len(set(fields))!=len(fields) or any(k not in result['result'] for k in fields):raise ValueError('Choose one to eight distinct actual result fields')
+                directory=inside('math-results');directory.mkdir(exist_ok=True);artifact=directory/f'result-{len(list(directory.glob("result-*")))+1:03d}.json';artifact.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
+                result={**result,'result':{k:result['result'][k] for k in fields},'selectedFields':fields,'fullResultPath':str(artifact.relative_to(workspace))}
         elif name == "inspect_frame":
             directory, report = latest_preview()
             ident = arguments.get("id")
@@ -477,6 +531,13 @@ def main():
                     str(out),
                 ]
             try:
+                if is_build and args.library_first:
+                    plan=json.loads(inside('book.json').read_text())
+                    for figure in plan.get('figures',[]):
+                        if figure.get('code') and not figure.get('design'):
+                            current=hashlib.sha256(figure['code'].encode()).hexdigest()
+                            if drawing_gaps.get(figure.get('id'),{}).get('code_sha256')!=current:
+                                raise ValueError('Prefer a named design or composed scene. If no suitable design fits, inspect candidates then declare_drawing_gap for current figure '+str(figure.get('id'))+'. Revisions require a matching declaration.')
                 process = subprocess.run(command, cwd=workspace, capture_output=True, text=True, timeout=180)
             except Exception as error:
                 if is_build:

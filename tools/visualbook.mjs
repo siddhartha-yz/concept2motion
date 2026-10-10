@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 import fs from "node:fs";
+import {
+  sourceContext,
+  validateAnnotations,
+} from "../packages/visualbook/anchors.mjs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { operations as calculations } from "./visualbook_math.mjs";
@@ -10,6 +14,9 @@ import { invalidGeometry } from "./visualbook_inspection.mjs";
 const root = path.resolve(import.meta.dirname, "..");
 const runtime = path.join(root, "work/visualbook/runtime/node_modules");
 const lib = path.join(root, "packages/visualbook");
+const { default: katex } = await import(
+  pathToFileURL(path.join(runtime, "katex/dist/katex.mjs"))
+);
 const esc = (s) =>
   String(s)
     .replaceAll("&", "&amp;")
@@ -267,6 +274,7 @@ export function validatePlan(book, plan) {
   plan = resolvePlan(plan);
   if (!Array.isArray(plan.figures) || plan.figures.length > 4)
     throw Error("Expected zero to four figures");
+  validateAnnotations(book, plan.annotations);
   const ids = new Set(),
     scopes = [];
   for (const f of plan.figures) {
@@ -354,6 +362,12 @@ export function validatePlan(book, plan) {
       );
     if (start < 0 || end < start || end - start > 8)
       throw Error("Invalid/too long scope " + f.id);
+    const context = sourceContext(book, f.afterAnchor);
+    if (!context.safeToInsertAfter)
+      throw Error(
+        "Keep source introduction with its continuation; place figure after " +
+          context.recommendedAnchor,
+      );
     if (
       f.scene !== undefined &&
       (!f.scene || typeof f.scene !== "object" || Array.isArray(f.scene))
@@ -468,12 +482,17 @@ export function build(book, plan, { direct = false } = {}) {
       );
     return html;
   };
+  const annotations = validateAnnotations(book, plan.annotations);
+  const noteHtml = (note) =>
+    `<aside class="vh-annotation" id="${esc(note.id)}" data-kind="${esc(note.kind)}" data-math-expected="${note.formula ? 1 : 0}"><p><span>${{ condition: "适用条件", clarification: "补充说明", correction: "勘误" }[note.kind]}</span>${esc(note.text)}</p>${note.formula ? katex.renderToString(note.formula, { displayMode: true, throwOnError: true, trust: false, strict: "ignore" }) : ""}</aside>`;
   let body = "";
   for (let i = 0; i < book.blocks.length; i++) {
     const b = book.blocks[i],
       scope = scopes.find((s) => s.start === i);
     if (scope) body += '<section class="vh-scope">';
     if (!(i === 0 && hasCover)) body += block(b);
+    for (const note of annotations.filter((n) => n.afterAnchor === b.id))
+      body += noteHtml(note);
     if (scope) body += renderFigure(scope.f);
     if (scopes.some((s) => s.end === i)) body += "</section>";
   }
@@ -573,6 +592,11 @@ export async function preview(file, out) {
       const math = await page.evaluate(() => ({
         expected: +document.body.dataset.mathExpected,
         rendered: document.querySelectorAll(".source-block .katex").length,
+        annotationExpected: [
+          ...document.querySelectorAll(".vh-annotation"),
+        ].reduce((s, n) => s + Number(n.dataset.mathExpected), 0),
+        annotationRendered: document.querySelectorAll(".vh-annotation .katex")
+          .length,
         errors: document.querySelectorAll(".katex-error").length,
         raw: [...document.querySelectorAll(".source-block")]
           .filter((b) =>
@@ -586,7 +610,12 @@ export async function preview(file, out) {
           .map((b) => b.id),
         overflow: document.documentElement.scrollWidth > innerWidth + 2,
       }));
-      if (math.expected !== math.rendered || math.errors || math.raw.length)
+      if (
+        math.expected !== math.rendered ||
+        math.annotationExpected !== math.annotationRendered ||
+        math.errors ||
+        math.raw.length
+      )
         report.findings.push({ width, kind: "formula-render", ...math });
       if (math.overflow) report.findings.push({ width, kind: "page-overflow" });
       if (errors.length)

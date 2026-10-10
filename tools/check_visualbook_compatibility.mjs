@@ -32,7 +32,7 @@ const report = {
   status: "running",
   engine,
   scope:
-    "Alternate browser: fourteen frozen maintainer designs at two widths/four poses, registered input actions, live playback/wheel pause, four frozen model chapters with scripts disabled and images decoded. No exhaustive browser/device or art guarantee.",
+    "Alternate browser: twenty-one frozen maintainer designs at two widths/four poses, registered input actions, live playback/wheel pause, four frozen model chapters with scripts disabled and images decoded. No exhaustive browser/device or art guarantee.",
   modelCalls: 0,
   cases: [],
   offline: [],
@@ -84,6 +84,13 @@ try {
     "kernel-weight-composition",
     "gradient-vectors",
     "quadratic-contours",
+    "normalization-points",
+    "paired-points",
+    "transpose-grid",
+    "neural-response",
+    "sigmoid-response",
+    "sampled-field",
+    "polynomial-fit",
   ];
   for (const id of ids) {
     const file = path.resolve(catalogDir, "sources", id, "book.html"),
@@ -177,6 +184,13 @@ try {
           "autograd",
           "kernel-weight-composition",
           "quadratic-contours",
+          "normalization-points",
+          "paired-points",
+          "transpose-grid",
+          "neural-response",
+          "sigmoid-response",
+          "sampled-field",
+          "polynomial-fit",
         ].includes(id)
       )
         await page
@@ -243,7 +257,13 @@ try {
       "false",
     );
     await page.emulateMedia({ reducedMotion: "reduce" });
-    await page.waitForFunction(() => matchMedia("(prefers-reduced-motion: reduce)").matches && document.querySelector(".vh-play").disabled, {}, {timeout:1500});
+    await page.waitForFunction(
+      () =>
+        matchMedia("(prefers-reduced-motion: reduce)").matches &&
+        document.querySelector(".vh-play").disabled,
+      {},
+      { timeout: 1500 },
+    );
     assert.equal(await figure.locator(".vh-play").isDisabled(), true);
     await figure.locator(".vh-reset").click();
     await figure.locator(".vh-next").click();

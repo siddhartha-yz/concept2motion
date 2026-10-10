@@ -22,6 +22,7 @@ def main():
     p.add_argument("arm", choices=["direct", "harness"])
     p.add_argument("--attempt", default="")
     p.add_argument("--mcp", action="store_true")
+    p.add_argument("--composition-policy",choices=["prefer-library","open"],default="prefer-library")
     p.add_argument("--source", type=Path)
     p.add_argument("--job", type=Path)
     p.add_argument("--timeout", type=int, default=1200)
@@ -78,6 +79,9 @@ def main():
             "runtime.js",
             "theme.css",
             "math.mjs",
+            "anchors.mjs",
+            "emphasis.mjs",
+            "AUTHOR_API.md",
             "API.md",
             "DIRECT_API.md",
             "catalog.json",
@@ -144,12 +148,15 @@ def main():
 输出book.json形状和接口见下面。源码是function draw(input)，绘图后返回实际使用的facts；不要自称训练结果或实测性能。公式已经编译，不重写教材。最终写AUTHOR.md说明图的取舍、实际预览与修订、未解决问题。
 禁止网络、其他模型或代理、读取账号配置与凭据、修改工具源码或任务外文件。只操作当前目录，不需要git提交。预览若因sandbox被阻断可按正常审批请求执行本地Chromium，不跳过安全控制。
 """
-        interface = api.read_text()
+        interface = (ROOT/"packages/visualbook/AUTHOR_API.md").read_text() if args.arm=="harness" and args.composition_policy=="prefer-library" else api.read_text()
         if args.arm == "direct":
             interface = (ROOT / "packages/visualbook/DIRECT_API.md").read_text()
         prompt += "\n" + interface
         if args.mcp:
             prompt += "\n本轮有本地 visualbook MCP 工具。可以先用list_designs和show_design查看适合章节的可复用设计与真实图片。必须用 build_book 构建，再用 preview_book 预览；它直接返回真实桌面/手机PNG图片内容，不能仅凭文件路径或数值报告声称看过画面。观察图片后自行修订。Python脚本使用python3，环境未提供python别名。可用search_designs按概念寻找积木，describe_component核对真实输入输出，再用scene的$result或共享状态拼接；不必把全部目录读进上下文。CLI命令只用于读取原文和写book.json，不用shell替代图片预览。最多3次预览，不要更改工具源码。最后必须用inspect_frame检查每幅图在1280和375下的起点/终点，并用finalize_book记录数学核对、已知未解决问题与限制。不要因为数值报告零发现就隐瞒遮挡、错误解释或其它问题；有问题就记录，工具会停止导出。\n"
+        if args.arm=='harness' and args.composition_policy=='prefer-library':
+            if not args.mcp:raise SystemExit('prefer-library requires local MCP; use --mcp or explicit --composition-policy open')
+            prompt+='\n本轮使用prefer-library入口：先search_designs，再describe_design_inputs，优先put_design或组合scene。直接写custom code需要先检查现成设计，并调用declare_drawing_gap记录具体缺口；代码修订后重新声明。它只记录你的解释，不代表解释已获认可。不要为了符合形式硬套不合适的图。原文有明确条件缺失或需澄清时，用inspect_source查上下文，再put_annotation加简洁补充，不改source；必须查看补充在页面上的真实位置。\n'
         (job / "prompt.md").write_text(prompt)
         before = {str(f.relative_to(ROOT)): sha(f) for f in libfiles}
         write(
@@ -161,6 +168,7 @@ def main():
                 "source_md_sha256": source_md_sha,
                 "prompt_sha256": sha(job / "prompt.md"),
                 "tool_hashes": before,
+                "composition_policy":args.composition_policy if args.arm=="harness" else "direct",
                 "cliVersion": version,
                 "requested_model": args.model,
                 "requested_reasoning_effort": args.reasoning_effort,
@@ -197,7 +205,7 @@ def main():
                 str(ROOT / "tools/visualbook_mcp.py"),
                 "--workspace",
                 str(job),
-            ] + (["--direct"] if args.arm == "direct" else [])
+            ] + (["--direct"] if args.arm == "direct" else (["--library-first"] if args.composition_policy=="prefer-library" else []))
             cmd = cmd[:-1] + [
                 "-c",
                 'mcp_servers.visualbook.command="python3"',

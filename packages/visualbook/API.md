@@ -160,3 +160,13 @@ MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","m
 `aligned-points`把同一批项目在1–5行数值中的位置连起来：每行`{label,values}`，数量一致，共同数字刻度，均值与总体方差可选。点选一个项目会用共享状态同时强调所有行的同一项；重复值只在非定量纵向轻微错开，不改真实x值。它能接规范化/仿射输出、成对观测或其它一一对应数据。连线不代表因果、时间或训练轨迹，数字同刻度也不意味着物理单位相同。
 
 `compute_math({operation:"transpose",inputs:{input,index}})`返回转置数值、前后形状与交换后的选中索引。可以把标准化的N×1结果转成一行送给点图，或者把矩阵的同一元素连接到另一幅图。这里不推断真实框架是否复制了存储。
+
+### 采样响应、拟合、源文补充
+
+`sample-grid`返回显式`grid`描述、cell-centre `points`和可选二维解析`field`的N×1 `values`。`dense`可以直接接`points`，然后把结果送给`scalar-map`；两幅图可共用`point/stateKey`。色图要求显式色标覆盖所有样本，不默默剪裁；读数取所在单元中心，不能冒充连续精确函数或训练结果。示例`neural-response`、`sigmoid-response`、`sampled-field`可以直接`put_design`。
+
+`polynomial-fit`对2..40个明确观测执行列主元Householder QR，degree0..12，支持明确center/scale基底和非负λ。惩罚不含截距；没有可靠满列秩时拒绝，而非编造解。返回系数、残差、训练均方误差、目标、驻点梯度和采样曲线；`diagonalRatio`不是条件数。可接`plot`与`readout`。`plot.legend:true`由同一图层生成图例，最多六个不同短标签，避免观测/拟合含义混淆。
+
+`inspect_source`查真实邻接；图和补充不能拆开冒号引导句与紧跟公式/代码/列表/表格。`put_annotation`可追加明确标注的condition/clarification/correction和可选TeX；原文和哈希不变。补充公式实际编译并另计显示覆盖，不能拿补充代替原公式。
+
+默认生成入口是`prefer-library`，使用较短的AUTHOR_API.md和实际MCP构建约束：design/scene优先，自写code需要`declare_drawing_gap`说明实际检查过的设计与缺口，声明绑定当前代码哈希，代码改后重新声明。最多十二次含失败；不是安全隔离、证明缺口真实或品质保证。明确`--composition-policy open`保留开放绘图研究路径；不同政策的结果不能混作公平同方法对照。

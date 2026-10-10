@@ -287,6 +287,7 @@
             f.y(p[1]),
             layer.radius ?? 4,
             c,
+            { "clip-path": f.clip },
           );
         });
         facts.layers.push({ id, type: layer.type, points: layer.points });

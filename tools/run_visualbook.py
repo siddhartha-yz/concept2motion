@@ -87,6 +87,7 @@ def main():
     parser.add_argument("--reasoning-effort", choices=["low", "medium", "high", "xhigh", "max", "ultra"])
     parser.add_argument("--campaign", type=Path, help="Optional shared ignored parent campaign; includes this output and earlier startup attempts")
     parser.add_argument("--attempt-limit", type=int, default=16, help="Global startup limit when --campaign is supplied; failures count")
+    parser.add_argument("--composition-policy",choices=["prefer-library","open"],default="prefer-library")
     parser.add_argument("--prepare-only", action="store_true", help="Import and freeze every chapter without starting any model session")
     parser.add_argument("--keep-going", action="store_true", help="Evaluate later chapters after a chapter gate fails; still refuse book export if any chapter fails")
     parser.add_argument(
@@ -172,6 +173,8 @@ def main():
                 "--timeout",
                 str(args.timeout),
                 "--mcp",
+                "--composition-policy",
+                args.composition_policy,
                 "--campaign",
                 str(campaign),
                 "--attempt-limit",

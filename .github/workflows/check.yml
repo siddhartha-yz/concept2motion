@@ -25,7 +25,7 @@ jobs:
         run: python3 experiments/visualbook/check-frozen.py
       - name: Verify reusable tools and ordinary Markdown import
         run: |
-          node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs tests/visualbook-numeric.test.mjs tests/visualbook-neural.test.mjs tests/visualbook-program.test.mjs tests/visualbook-relations.test.mjs tests/visualbook-recipes.test.mjs tests/visualbook-spatial.test.mjs tests/visualbook-format.test.mjs tests/visualbook-fields.test.mjs tests/visualbook-transpose.test.mjs
+          node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs tests/visualbook-numeric.test.mjs tests/visualbook-neural.test.mjs tests/visualbook-program.test.mjs tests/visualbook-relations.test.mjs tests/visualbook-recipes.test.mjs tests/visualbook-spatial.test.mjs tests/visualbook-format.test.mjs tests/visualbook-fields.test.mjs tests/visualbook-transpose.test.mjs tests/visualbook-sampling-fit.test.mjs tests/visualbook-source-context.test.mjs
           node tools/check_visualbook.mjs work/visualbook/ci-tools
           node tools/check_visualbook_controls.mjs work/visualbook/ci-reader-controls
           node tools/check_visualbook_composition.mjs work/visualbook/ci-composition
@@ -35,6 +35,7 @@ jobs:
           node tools/check_visualbook_recipes.mjs work/visualbook/ci-recipes
           python3 tools/check_visualbook_build_state.py work/visualbook/ci-build-state
           python3 tools/check_visualbook_design_protocol.py work/visualbook/ci-design-protocol
+          python3 tools/check_visualbook_source_policy.py work/visualbook/ci-source-policy
           python3 tools/check_visualbook_preparation.py work/visualbook/ci-preparation
           node tools/check_visualbook_failures.mjs work/visualbook/ci-failures
           node tools/check_visualbook_program_controls.mjs work/visualbook/ci-program-controls
