@@ -19,3 +19,5 @@
 非强制推送79298077dd12941beec53bb2e6a0b227f10a68ce完成；本地HEAD与git ls-remote main相同，git status为空。推送前再次全历史79提交、拟发布树扫描均0。
 
 GitHub运行38057717014三个任务success；visualbook在Ubuntu runner独立重建并完成79项阅读、228项关系，没有模型调用。新公开两份artifact（一个旧scene，一个教材摘要）及本次run日志已下载，连同旧归档共13份artifact、12份对应run日志，再用3层归档Gitleaks扫描约19.93MB可扫描内容，发现0。教材artifact只有8份数学/关系/阅读摘要，没有raw或全文HTML。
+
+最后报告记录属于文档变更，源码/工作流已经在7929807的真实CI中验证。最终报告提交再次扫描完整main历史和发布文件，再非强制push；最终HEAD/远端SHA/工作区状态在本轮最终回复核对。后续文档CI可能重复生成同类归档，本记录的公开表面数量以实际下载时刻为限。
