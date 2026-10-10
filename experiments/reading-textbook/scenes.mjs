@@ -28,12 +28,12 @@ function tensor(scene) {
     scene.at(0);
     const memoryX=-5.17+(address%12)*.94,memoryY=-1.55-Math.floor(address/12)*.58;
     const memory = rectangle(scene,.82,.43,memoryX,memoryY,h===0?BLUE:GREEN);
-    text(scene,value,memoryX,memoryY,22);
+    text(scene,value,memoryX,memoryY,16);
     if (address===8) {
       scene.at(2); scene.animate(memory,{style:{...scene.stateAt(memory,2).style,fill:'#e1b987'},duration:1});
     }
   }
-  text(scene,'存储地址顺序（固定）',0,-2.61,13);
+  text(scene,'同一批数的存储顺序（固定）',0,-2.61,13);
   stageLabels(scene,['输入 [3, 8]','每份输入拆成 2 个头：[3, 2, 4]','先看 head，再看 batch：[2, 3, 4]','逻辑换轴 ≠ 物理复制']);
 }
 function softmax(scene) {

@@ -155,7 +155,9 @@ await check('browser: static comparison keeps state and print fallback',async()=
   await page.locator('#mode').selectOption('static');const before=(await state()).stages;
   await hover('softmax-logits');assert.deepEqual((await state()).stages,before);
   await page.emulateMedia({media:'print'});
-  assert.equal(await page.locator('#softmax .fallback').isVisible(),true);
+  assert.equal(await page.locator('#softmax .mechanism').isVisible(),false);
+  assert.equal(await page.locator('#softmax-logits .static-step-image').isVisible(),true);
+  assert.equal(await page.locator('#softmax-change .static-step-image').isVisible(),true);
   await frame('print-preview');await page.emulateMedia({media:'screen'});
   await page.locator('#mode').selectOption('pointer');return {stages:before};
 });
@@ -188,8 +190,8 @@ await check('browser: WASM fails but text and static diagram survive',async()=>{
 });
 await check('browser: JavaScript disabled leaves complete reading path',async()=>{
   const ctx=await browser.newContext({javaScriptEnabled:false});const p=await ctx.newPage();await p.goto(base);
-  assert.equal(await p.locator('.reading-step').count(),12);assert.equal(await p.locator('.fallback').count(),3);assert.equal(await p.locator('noscript').isVisible(),true);
-  await p.screenshot({path:path.join(out,'no-js.png')});await ctx.close();return {paragraphs:12,staticDiagrams:3};
+  assert.equal(await p.locator('.reading-step').count(),12);assert.equal(await p.locator('.static-step-image:visible').count(),12);assert.equal(await p.locator('noscript').isVisible(),true);
+  await p.screenshot({path:path.join(out,'no-js.png')});await ctx.close();return {paragraphs:12,staticDiagrams:12};
 });
 
 const summary={schema:1,startedAt:new Date().toISOString(),url:base,checks,artifacts,passed:checks.filter(c=>c.pass).length,total:checks.length,scope:'automated engineering checks; not human learning validation'};

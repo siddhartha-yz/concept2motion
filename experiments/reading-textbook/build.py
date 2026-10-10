@@ -73,22 +73,48 @@ def svg(kind, stage):
     return ''.join(items)
 
 
-def build(output, courses, zanim, npm):
+def frozen_inputs(courses):
+    """Check every input before writing any output. A changed source needs review."""
     content = json.loads((HERE / 'content.json').read_text())
     lock = json.loads((HERE / 'bindings.lock.json').read_text())
     if digest((HERE/'content.json').read_bytes()) != lock['content_sha256']:
         raise ValueError('authored content changed: review paragraph/state mapping before refreshing bindings.lock.json')
-    output.mkdir(parents=True, exist_ok=True)
-    (output/'static').mkdir(exist_ok=True)
-    provenance = {"schema": 1, "content_sha256": digest((HERE/'content.json').read_bytes()), "sources": [], "bindings": []}
-    sections = []
-    course_sha = subprocess.check_output(['git','-C',str(courses),'rev-parse','HEAD'],text=True).strip()
-    zanim_sha = subprocess.check_output(['git','-C',str(zanim),'rev-parse','HEAD'],text=True).strip()
+    sources = {}
     for unit in content['units']:
         candidates = list((courses/COURSE).glob(unit['source']['glob']))
         if len(candidates) != 1:
             raise ValueError(f"source ambiguous or missing: {unit['source']['glob']}")
-        path = candidates[0]
+        source = candidates[0]
+        frozen = [s for s in lock['sources'] if s['unit'] == unit['id']]
+        if len(frozen) != 1 or digest(source.read_bytes()) != frozen[0]['file_sha256']:
+            raise ValueError('source changed: disable binding until a new source review')
+        start, end = unit['source']['start'], unit['source']['end']
+        if not (1 <= start <= end <= len(source.read_text().splitlines())):
+            raise ValueError('source line range invalid')
+        for paragraph in unit['paragraphs']:
+            if not 0 <= paragraph['state'] < len(unit['states']):
+                raise ValueError('unknown state')
+        sources[unit['id']] = source
+    return content, lock, sources
+
+
+def build(output, courses, zanim, npm):
+    content, lock, sources = frozen_inputs(courses)
+    course_sha = subprocess.check_output(['git','-C',str(courses),'rev-parse','HEAD'],text=True).strip()
+    zanim_sha = subprocess.check_output(['git','-C',str(zanim),'rev-parse','HEAD'],text=True).strip()
+    pins = json.loads((ROOT/'evaluation/2026-10-10/reading-textbook-v1/upstreams.json').read_text())
+    if course_sha != pins['video2book-courses']['commit'] or zanim_sha != pins['zanim']['commit']:
+        raise ValueError('upstream commit changed: evaluate and record the new version before building')
+    for checkout in (courses, zanim):
+        tracked_changes = subprocess.check_output(['git','-C',str(checkout),'status','--porcelain','--untracked-files=no'],text=True)
+        if tracked_changes.strip():
+            raise ValueError('upstream tracked source modified: evaluate separately before building')
+    output.mkdir(parents=True, exist_ok=True)
+    (output/'static').mkdir(exist_ok=True)
+    provenance = {"schema": 1, "content_sha256": digest((HERE/'content.json').read_bytes()), "sources": [], "bindings": []}
+    sections = []
+    for unit in content['units']:
+        path = sources[unit['id']]
         raw = path.read_bytes()
         frozen = [s for s in lock['sources'] if s['unit'] == unit['id']]
         if len(frozen) != 1 or digest(raw) != frozen[0]['file_sha256']:
@@ -105,7 +131,8 @@ def build(output, courses, zanim, npm):
             if not 0 <= p['state'] < len(unit['states']):
                 raise ValueError('unknown state')
             provenance['bindings'].append({"id": p['id'], "text_sha256": digest(p['text'].encode()), "unit": unit['id'], "state": p['state'], "time": unit['states'][p['state']]['time']})
-            paragraphs.append(f'<p id="{e(p["id"])}" class="reading-step" tabindex="0" data-unit="{e(unit["id"])}" data-stage="{p["state"]}" aria-describedby="{e(unit["id"])}-caption"><span class="step-index" aria-hidden="true">{p["state"]+1:02d}</span>{e(p["text"])}</p>')
+            state = unit['states'][p['state']]
+            paragraphs.append(f'<p id="{e(p["id"])}" class="reading-step" tabindex="0" data-unit="{e(unit["id"])}" data-stage="{p["state"]}" aria-describedby="{e(unit["id"])}-caption"><img class="static-step-image" src="static/{e(unit["id"])}-{p["state"]}.svg" alt="{e(state["caption"])}"><span class="step-index" aria-hidden="true">{p["state"]+1:02d}</span>{e(p["text"])}</p>')
         for stage in range(len(unit['states'])):
             (output/'static'/f'{unit["id"]}-{stage}.svg').write_text(svg(unit['id'], stage))
         refs = ' · '.join(f'<a href="{e(r["url"])}" target="_blank" rel="noopener">{e(r["label"])}</a>' for r in unit['references'])

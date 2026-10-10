@@ -29,6 +29,10 @@ h2 { font-family:"Noto Serif CJK SC",serif; font-size:28px; font-weight:600; lin
 .figure-meta { display:flex; justify-content:space-between; gap:16px; padding:9px 16px 0; font-size:11px; color:var(--muted); }
 .state-name { color:var(--accent); }
 .canvas-wrap { position:relative; width:100%; aspect-ratio:840/330; }
+.mechanism { display:none; }
+body.interactive .mechanism { display:block; }
+.static-step-image { display:block; width:100%; height:auto; border-radius:8px; margin:0 0 14px; }
+body.interactive:not(.static) .static-step-image { display:none; }
 canvas,.fallback { width:100%; height:100%; display:block; object-fit:contain; }
 canvas { position:absolute; inset:0; visibility:hidden; }
 .mechanism.ready canvas { visibility:visible; }
@@ -54,8 +58,8 @@ footer { color:var(--muted); font-size:12px; padding:42px 0 64px; }
 .skip { position:fixed; top:-80px; left:10px; z-index:20; background:white; padding:8px; }
 .skip:focus { top:5px; }
 .noscript { padding:14px 28px; font-size:13px; }
-body.text-only .mechanism { display:none; }
-body.static .mechanism { position:relative; top:0; }
+body.text-only .mechanism,body.text-only .static-step-image { display:none; }
+body.interactive.static .mechanism { display:none; }
 body.static .reading-step.active { border-color:transparent; background:none; }
 @media(max-width:600px) {
   body { font-size:16px; }
@@ -88,6 +92,8 @@ body.static .reading-step.active { border-color:transparent; background:none; }
   h2 { font-size:23px; }
   .reading-unit { padding:20px 0; }
   .mechanism { position:relative; top:auto; break-inside:avoid; box-shadow:none; }
+  body.interactive .mechanism { display:none; }
+  body.interactive .static-step-image { display:block; break-inside:avoid; }
   .mechanism.ready canvas { visibility:hidden; }
   .mechanism.ready .fallback { visibility:visible; }
   .reading-step.active { background:none; border-color:transparent; }

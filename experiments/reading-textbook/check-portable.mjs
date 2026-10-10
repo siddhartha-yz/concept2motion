@@ -18,7 +18,7 @@ for(const name of ['index','book-01','book-04'])await check(`offline file://${na
   await page.screenshot({path:path.join(out,`${name}-offline.png`)});await context.close();return {rendered:state.rendered,errors,networkRequests:0,fileBytes:fs.statSync(path.join(root,`outputs/reading-textbook/${name}-portable.html`)).size};
 });
 await check('offline file: no JavaScript leaves static illustrations and disabled controls',async()=>{
-  const ctx=await browser.newContext({offline:true,javaScriptEnabled:false});const p=await ctx.newPage();await p.goto(pathToFileURL(path.join(root,'outputs/reading-textbook/index-portable.html')).href);assert.equal(await p.locator('.fallback').count(),3);assert.equal(await p.locator('.reading-step').count(),12);assert.equal(await p.locator('#mode').isDisabled(),true);await p.screenshot({path:path.join(out,'no-js.png')});await ctx.close();return {paragraphs:12,illustrations:3};
+  const ctx=await browser.newContext({offline:true,javaScriptEnabled:false});const p=await ctx.newPage();await p.goto(pathToFileURL(path.join(root,'outputs/reading-textbook/index-portable.html')).href);assert.equal(await p.locator('.static-step-image:visible').count(),12);assert.equal(await p.locator('.reading-step').count(),12);assert.equal(await p.locator('#mode').isDisabled(),true);await p.screenshot({path:path.join(out,'no-js.png')});await ctx.close();return {paragraphs:12,illustrations:12};
 });
 await check('200 percent text preserves reading and graphics controls',async()=>{
   const ctx=await browser.newContext({viewport:{width:800,height:900}}),p=await ctx.newPage();await p.goto(pathToFileURL(path.join(root,'outputs/reading-textbook/index-portable.html')).href);await p.waitForFunction(()=>!!window.readingLab);

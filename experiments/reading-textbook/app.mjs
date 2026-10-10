@@ -21,6 +21,7 @@ const mode = document.querySelector('#mode');
 const pause = document.querySelector('#pause');
 const textOnly = document.querySelector('#text-only');
 for(const control of [mode,pause,textOnly])control.disabled=false;
+document.body.classList.add('interactive');
 const counts = {rendered: 0, errors: [], events: [], seekMs: []};
 const coarse = matchMedia('(hover: none)').matches;
 if(coarse) mode.value='scroll';
@@ -75,7 +76,7 @@ function activate(step,reason) {
 }
 
 const controller=new ReadingController({steps,onActivate:activate,mode:mode.value});
-let lastPointer=null, needsFreshPointer=false, pendingScroll=null, disposed=false;
+let lastPointer=null, needsFreshPointer=false, pendingScroll=null, disposed=false, focusPositionLock=false;
 const listeners=[];
 function listen(target,type,fn,options) {target.addEventListener(type,fn,options);listeners.push(()=>target.removeEventListener(type,fn,options));}
 function hasSelection(){return !window.getSelection()?.isCollapsed;}
@@ -89,7 +90,7 @@ listen(document,'pointermove',event=>{
   if(hasSelection()) {controller.cancel();return;}
   controller.pointer(event.target.closest('.reading-step'));
 },{passive:true});
-listen(document,'pointerdown',()=>controller.setSelecting(true),{passive:true});
+listen(document,'pointerdown',()=>{focusPositionLock=false;controller.setSelecting(true);},{passive:true});
 listen(document,'pointerup',()=>{controller.setSelecting(false);needsFreshPointer=true;},{passive:true});
 listen(document,'selectionchange',()=>{if(hasSelection())controller.cancel();});
 listen(window,'blur',()=>controller.cancel());
@@ -97,13 +98,20 @@ listen(document,'visibilitychange',()=>{if(document.hidden)controller.cancel();}
 listen(document,'focusin',event=>{
   if(hasSelection()){controller.cancel();return;}
   const step=event.target.closest('.reading-step');
+  focusPositionLock=!!step;
   if(step) controller.focus(step);
+});
+function releaseFocusPosition(){focusPositionLock=false;schedulePosition();}
+listen(window,'wheel',releaseFocusPosition,{passive:true});
+listen(window,'touchmove',releaseFocusPosition,{passive:true});
+listen(document,'keydown',event=>{
+  if(['PageDown','PageUp','ArrowDown','ArrowUp','Home','End',' '].includes(event.key))releaseFocusPosition();
 });
 
 function readingPosition() {
   pendingScroll=null;
   if(controller.mode!=='scroll'||controller.blocked()||hasSelection())return;
-  if(steps.includes(document.activeElement)){controller.focus(document.activeElement);return;}
+  if(focusPositionLock&&steps.includes(document.activeElement)){controller.focus(document.activeElement);return;}
   const line=innerHeight*.76;
   const visible=steps.map(step=>({step,r:step.getBoundingClientRect()})).filter(({r})=>r.bottom>100 && r.top<innerHeight-20);
   visible.sort((a,b)=>Math.abs((a.r.top+a.r.bottom)/2-line)-Math.abs((b.r.top+b.r.bottom)/2-line));
@@ -115,7 +123,7 @@ listen(window,'resize',()=>{controller.cancel();schedulePosition();},{passive:tr
 listen(mode,'change',()=>{
   controller.setMode(mode.value);
   document.body.classList.toggle('static',mode.value==='static');
-  status.textContent=mode.value==='static'?'静态对照：图保持当前位置。':mode.value==='scroll'?'图按屏幕下部的阅读位置切换；随时可以暂停。':'把光标停在正文上，图跟随这一段。';
+  status.textContent=mode.value==='static'?'静态对照：每段显示对应的图，不自动切换。':mode.value==='scroll'?'图按屏幕下部的阅读位置切换；随时可以暂停。':'把光标停在正文上，图跟随这一段。';
   if(mode.value==='scroll')schedulePosition();
 });
 listen(pause,'click',()=>{

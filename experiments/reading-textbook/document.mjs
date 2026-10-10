@@ -2,7 +2,7 @@
 // BEFORE math interpretation so a broken formula cannot swallow chapter sources.
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';
-const modules=path.resolve(import.meta.dirname,'../../work/reading-textbook/node-mirror/node_modules');
+const modules=path.join(process.env.READING_DEPENDENCIES??path.resolve(import.meta.dirname,'../../work/reading-textbook/node-mirror'),'node_modules');
 const get=async name=>import(pathToFileURL(path.join(modules,name,'index.js')));
 const {unified}=await get('unified');
 const {default:remarkParse}=await get('remark-parse');

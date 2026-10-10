@@ -4,8 +4,8 @@ import path from 'node:path';
 import {pathToFileURL} from 'node:url';
 import crypto from 'node:crypto';
 const root=path.resolve(import.meta.dirname,'../..');
-const output=path.join(root,'outputs/reading-textbook');
-const npm=path.join(root,'work/reading-textbook/node-mirror/node_modules');
+const output=process.env.READING_OUTPUT??path.join(root,'outputs/reading-textbook');
+const npm=path.join(process.env.READING_DEPENDENCIES??path.join(root,'work/reading-textbook/node-mirror'),'node_modules');
 const {build}=await import(pathToFileURL(path.join(npm,'vite/dist/node/index.js')));
 const data=(file,type)=>`data:${type};base64,${fs.readFileSync(file).toString('base64')}`;
 const content=fs.readFileSync(path.join(output,'content.json'),'utf8');
@@ -39,6 +39,13 @@ for(const name of ['index','book-01','book-04']){
   html=html.replace('</head>',()=>`<style>${css}</style></head>`);
   html=html.replace(/src="static\/([^"]+)"/g,(_,file)=>`src="${data(path.join(output,'static',file),'image/svg+xml')}"`);
   html=html.replace('<script type="module" src="app.mjs"></script>',()=>`<script type="application/json" id="embedded-content">${safeJSON(content)}</script><script type="application/json" id="embedded-fallbacks">${safeJSON(JSON.stringify(fallbackAssets))}</script><script>globalThis.__ZANIM_WASM_URL__=${JSON.stringify(wasm)};</script><script type="module">${js}</script>`);
+  let sourceRecords='';
+  for(const [file,id,title] of [['provenance.json','portable-provenance','来源与文字对应记录'],['content.json','portable-content','本页讲解与出处'],['import-report.json','portable-import-report','整册来源记录']]){
+    if(!html.includes(`href="${file}"`))continue;
+    html=html.replaceAll(`href="${file}"`,`href="#${id}"`);
+    sourceRecords+=`<details id="${id}" style="margin:20px;font-size:12px"><summary>${title}</summary><pre>${escape(fs.readFileSync(path.join(output,file),'utf8'))}</pre></details>`;
+  }
+  html=html.replace('</body>',()=>`${sourceRecords}</body>`);
   html=html.replace('</body>',()=>`<details style="margin:20px;font-size:12px"><summary>随文件保留的 Zanim / KaTeX 使用许可</summary><pre>${escape(licenses)}</pre></details></body>`);
   const destination=path.join(output,`${name}-portable.html`);fs.writeFileSync(destination,html);
   report.files.push({file:path.basename(destination),bytes:Buffer.byteLength(html),sha256:crypto.createHash('sha256').update(html).digest('hex'),javascriptBytes:Buffer.byteLength(js)});
