@@ -1,0 +1,87 @@
+{
+  "figures": [
+    {
+      "id": "axis-collapse",
+      "title": "沿哪一轴，合并哪些元素",
+      "afterAnchor": "geometry-057",
+      "endAnchor": "geometry-062",
+      "height": 300,
+      "mobileHeight": 320,
+      "summary": "使用原文的 5×4 矩阵；只给左上角元素增加一个数。",
+      "stages": [
+        "原位置",
+        "沿轴合并",
+        "输出形状"
+      ],
+      "params": [
+        {
+          "key": "axis",
+          "label": "求和轴",
+          "min": 0,
+          "max": 1,
+          "step": 1,
+          "value": 0
+        },
+        {
+          "key": "delta",
+          "label": "左上角增量",
+          "min": 0,
+          "max": 8,
+          "step": 0.1,
+          "value": 0
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n  const ns='http://www.w3.org/2000/svg';\n  const nodes=svg.__nodes||(svg.__nodes=new Map()); const used=new Set();\n  function el(key,tag,a,text){let n=nodes.get(key);if(!n){n=document.createElementNS(ns,tag);svg.appendChild(n);nodes.set(key,n);}used.add(key);for(const [k,v] of Object.entries(a))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;return n;}\n  function txt(key,x,y,value,attrs={}){return el(key,'text',{x,y,fill:'var(--ink)','font-size':13,'font-family':'system-ui, sans-serif','text-anchor':'middle',...attrs},value);}\n  function line(key,x1,y1,x2,y2,attrs={}){return el(key,'line',{x1,y1,x2,y2,stroke:'var(--muted)','stroke-width':1,...attrs});}\n  function path(key,d,attrs={}){return el(key,'path',{d,fill:'none',stroke:'var(--blue)','stroke-width':2,...attrs});}\n  function dot(key,x,y,r,attrs={}){return el(key,'circle',{cx:x,cy:y,r,fill:'var(--blue)',...attrs});}\n  const fmt=v=>Math.abs(v)<0.00001?'0':Number(v.toFixed(2)).toString();\n  function finish(){for(const [k,n] of nodes){if(!used.has(k)){n.remove();nodes.delete(k);}}}\n\n  const p=progress,axis=params.axis===1?1:0,delta=params.delta;\n  const A=Array.from({length:5},(_,r)=>Array.from({length:4},(_,c)=>4*r+c+(r===0&&c===0?delta:0)));\n  const sums=axis===0?A[0].map((_,c)=>A.reduce((s,row)=>s+row[c],0)):A.map(row=>row.reduce((s,v)=>s+v,0));\n  const cw=width<450?38:42,x0=(width-(4*cw+90))/2+20,y0=79,rh=width<450?32:30;\n  const dy=height-51,dx=x0+4*cw+56;\n  txt('head',8,20,'A · (5,4)',{'text-anchor':'start','font-size':14});\n  txt('resulthead',width-8,20,axis===0?'sum(0) · (4,)':'sum(1) · (5,)',{'text-anchor':'end','font-size':14});\n  txt('colaxis',x0+2*cw,44,'轴1 →',{fill:'var(--muted)'});\n  txt('rowaxis',x0-40,y0+77,'轴0 →',{fill:'var(--muted)',transform:`rotate(90 ${x0-40} ${y0+77})`});\n  for(let c=0;c<4;c++)txt('col'+c,x0+(c+.5)*cw,64,c,{fill:'var(--muted)'});\n  for(let r=0;r<5;r++)txt('row'+r,x0-13,y0+r*rh+21,r,{fill:'var(--muted)'});\n  const terms=[];\n  for(let r=0;r<5;r++)for(let c=0;c<4;c++){\n    const k=r+'-'+c,sx=x0+(c+.5)*cw,sy=y0+(r+.5)*rh;\n    const tx=axis===0?sx:dx,ty=axis===0?dy:sy;\n    el('cell'+k,'rect',{x:sx-cw/2+2,y:sy-rh/2+2,width:cw-4,height:rh-4,fill:'none',stroke:'var(--muted)','stroke-opacity':.17,'stroke-width':1});\n    const x=sx+(tx-sx)*p,y=sy+(ty-sy)*p;\n    line('trail'+k,sx,sy,tx,ty,{stroke:'var(--blue)','stroke-opacity':.08});\n    dot('dot'+k,x,y,3.5,{opacity:Math.min(1,p*5)*(1-p),'fill':axis===0?'var(--blue)':'var(--orange)'});\n    txt('v'+k,x,y+4,fmt(A[r][c]),{opacity:Math.max(0,1-p/.46)});\n    terms.push({value:A[r][c],row:r,column:c,x,y});\n  }\n  for(let g=0;g<sums.length;g++){\n    const x=axis===0?x0+(g+.5)*cw:dx,y=axis===0?dy:y0+(g+.5)*rh;\n    el('out'+g,'rect',{x:x-19,y:y-15,width:38,height:30,rx:2,fill:axis===0?'var(--blue)':'var(--orange)','fill-opacity':.07});\n    txt('sum'+g,x,y+4,fmt(sums[g]),{opacity:.22+.78*p,'font-size':14});\n  }\n  txt('foot',width/2,height-10,axis===0?'行合并，列位置保留':'列合并，行位置保留',{fill:'var(--muted)'});\n  finish();return {progress:p,axis,inputShape:[5,4],input:A,outputShape:[sums.length],sums,terms};\n}"
+    },
+    {
+      "id": "columns-transform",
+      "title": "两列，决定平面如何变形",
+      "afterAnchor": "geometry-086",
+      "endAnchor": "geometry-088",
+      "height": 300,
+      "mobileHeight": 340,
+      "summary": "二维剪切例子：x=(1,1)，k 控制横向剪切。",
+      "stages": [
+        "单位网格",
+        "逐渐剪切",
+        "两列相加"
+      ],
+      "params": [
+        {
+          "key": "shear",
+          "label": "剪切 k",
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "value": 0.8
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n  const ns='http://www.w3.org/2000/svg';\n  const nodes=svg.__nodes||(svg.__nodes=new Map()); const used=new Set();\n  function el(key,tag,a,text){let n=nodes.get(key);if(!n){n=document.createElementNS(ns,tag);svg.appendChild(n);nodes.set(key,n);}used.add(key);for(const [k,v] of Object.entries(a))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;return n;}\n  function txt(key,x,y,value,attrs={}){return el(key,'text',{x,y,fill:'var(--ink)','font-size':13,'font-family':'system-ui, sans-serif','text-anchor':'middle',...attrs},value);}\n  function line(key,x1,y1,x2,y2,attrs={}){return el(key,'line',{x1,y1,x2,y2,stroke:'var(--muted)','stroke-width':1,...attrs});}\n  function path(key,d,attrs={}){return el(key,'path',{d,fill:'none',stroke:'var(--blue)','stroke-width':2,...attrs});}\n  function dot(key,x,y,r,attrs={}){return el(key,'circle',{cx:x,cy:y,r,fill:'var(--blue)',...attrs});}\n  const fmt=v=>Math.abs(v)<0.00001?'0':Number(v.toFixed(2)).toString();\n  function finish(){for(const [k,n] of nodes){if(!used.has(k)){n.remove();nodes.delete(k);}}}\n\n  const p=progress,k=params.shear,q=p*k;\n  const cx=width/2,cy=height/2+13,s=Math.min((width-80)/7,(height-100)/4.2);\n  const X=x=>cx+x*s,Y=y=>cy-y*s;\n  txt('matrix',8,21,'A(t) = [1, t·k; 0, 1]',{'text-anchor':'start','font-size':14});\n  txt('t',width-8,21,'t = '+p.toFixed(2),{'text-anchor':'end'});\n  const paths=[];\n  for(let i=-2;i<=2;i++){\n    line('ghostv'+i,X(i),Y(-1.5),X(i),Y(1.5),{'stroke-opacity':.12});\n    line('ghosth'+i,X(-2),Y(i/2),X(2),Y(i/2),{'stroke-opacity':.12});\n    const v=[[i-q*1.5,-1.5],[i+q*1.5,1.5]],h=[[-2+q*i/2,i/2],[2+q*i/2,i/2]];\n    path('gridv'+i,`M${X(v[0][0])},${Y(v[0][1])}L${X(v[1][0])},${Y(v[1][1])}`,{'stroke-opacity':.2,'stroke-width':1});\n    path('gridh'+i,`M${X(h[0][0])},${Y(h[0][1])}L${X(h[1][0])},${Y(h[1][1])}`,{'stroke-opacity':.2,'stroke-width':1});paths.push({vertical:v,horizontal:h});\n  }\n  line('axisx',X(-3),Y(0),X(3),Y(0),{'stroke-opacity':.65});\n  line('axisy',X(0),Y(-1.9),X(0),Y(2),{'stroke-opacity':.65});\n  txt('xaxis',X(3),Y(0)+42,'横坐标',{'text-anchor':'end',fill:'var(--muted)'});\n  txt('yaxis',X(0)+10,Y(2)-8,'纵坐标',{'text-anchor':'start',fill:'var(--muted)'});\n  for(const x of [-2,-1,1,2])txt('tickx'+x,X(x),Y(0)+17,x,{fill:'var(--muted)'});\n  txt('zero',X(0)-10,Y(0)+17,'0',{fill:'var(--muted)'});\n  txt('ticky',X(0)-12,Y(-1)+4,'−1',{fill:'var(--muted)','text-anchor':'end'});\n  const x=[1,1],col1=[1,0],col2=[q,1],out=[1+q,1];\n  path('input',`M${X(0)},${Y(0)}L${X(1)},${Y(1)}`,{stroke:'var(--muted)','stroke-dasharray':'4 4','stroke-opacity':.6});\n  path('sum1',`M${X(0)},${Y(0)}L${X(1)},${Y(0)}`,{stroke:'var(--orange)','stroke-width':4});\n  path('sum2',`M${X(1)},${Y(0)}L${X(out[0])},${Y(out[1])}`,{stroke:'var(--orange)','stroke-width':2,'stroke-dasharray':'4 3'});\n  path('output',`M${X(0)},${Y(0)}L${X(out[0])},${Y(out[1])}`,{'stroke-width':3});\n  dot('end',X(out[0]),Y(out[1]),5);\n  txt('outlabel',X(out[0]),Y(out[1])-17,'A(t)x');\n  txt('basis1',X(.5),Y(0)+39,'第1列',{fill:'var(--muted)'});\n  txt('basis2',X((1+out[0])/2)+18,Y(.5)+4,'第2列',{'text-anchor':'start',fill:'var(--muted)'});\n  txt('foot',width/2,height-13,'x = (1,1) → '+ '('+fmt(out[0])+', 1)',{'font-size':14});\n  finish();return {progress:p,shear:k,matrix:[[1,q],[0,1]],input:x,columns:[col1,col2],output:out,grid:paths};\n}"
+    },
+    {
+      "id": "norm-direction",
+      "title": "同一长度，两种走法",
+      "afterAnchor": "geometry-115",
+      "endAnchor": "geometry-119",
+      "height": 300,
+      "mobileHeight": 340,
+      "summary": "从 (3,−4) 的方向转到纵轴，保持蓝色圆的半径。",
+      "stages": [
+        "原方向",
+        "转动向量",
+        "比较路径"
+      ],
+      "params": [
+        {
+          "key": "radius",
+          "label": "L₂ 长度",
+          "min": 2,
+          "max": 6,
+          "step": 0.1,
+          "value": 5
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n  const ns='http://www.w3.org/2000/svg';\n  const nodes=svg.__nodes||(svg.__nodes=new Map()); const used=new Set();\n  function el(key,tag,a,text){let n=nodes.get(key);if(!n){n=document.createElementNS(ns,tag);svg.appendChild(n);nodes.set(key,n);}used.add(key);for(const [k,v] of Object.entries(a))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;return n;}\n  function txt(key,x,y,value,attrs={}){return el(key,'text',{x,y,fill:'var(--ink)','font-size':13,'font-family':'system-ui, sans-serif','text-anchor':'middle',...attrs},value);}\n  function line(key,x1,y1,x2,y2,attrs={}){return el(key,'line',{x1,y1,x2,y2,stroke:'var(--muted)','stroke-width':1,...attrs});}\n  function path(key,d,attrs={}){return el(key,'path',{d,fill:'none',stroke:'var(--blue)','stroke-width':2,...attrs});}\n  function dot(key,x,y,r,attrs={}){return el(key,'circle',{cx:x,cy:y,r,fill:'var(--blue)',...attrs});}\n  const fmt=v=>Math.abs(v)<0.00001?'0':Number(v.toFixed(2)).toString();\n  function finish(){for(const [k,n] of nodes){if(!used.has(k)){n.remove();nodes.delete(k);}}}\n\n  const p=progress,r=params.radius,theta=Math.atan2(-4,3)+(Math.PI/2-Math.atan2(-4,3))*p,x=r*Math.cos(theta),y=r*Math.sin(theta),l1=Math.abs(x)+Math.abs(y),l2=Math.hypot(x,y);\n  const cx=width/2,cy=height/2+13,s=Math.min((width-65)/14,(height-71)/14),X=v=>cx+v*s,Y=v=>cy-v*s;\n  txt('l2',8,21,'L₂ · 直线 '+fmt(l2),{'text-anchor':'start','font-size':14});\n  txt('l1',width-8,21,'L₁ · 折线 '+fmt(l1),{'text-anchor':'end','font-size':14});\n  line('ax',X(-6.7),Y(0),X(6.7),Y(0),{'stroke-opacity':.45});\n  line('ay',X(0),Y(-6.7),X(0),Y(6.7),{'stroke-opacity':.45});\n  txt('xaxis',X(6.7),Y(0)+18,'x₁',{'text-anchor':'end',fill:'var(--muted)'});\n  txt('yaxis',X(0)+9,Y(6.7)+4,'x₂',{'text-anchor':'start',fill:'var(--muted)'});\n  txt('zero',X(0)-9,Y(0)+17,'0',{fill:'var(--muted)'});\n  for(const t of [-5,5]){\n    line('xt'+t,X(t),Y(0)-3,X(t),Y(0)+3);\n    txt('xnum'+t,X(t),Y(0)+18,t,{fill:'var(--muted)'});\n    line('yt'+t,X(0)-3,Y(t),X(0)+3,Y(t));\n    txt('ynum'+t,X(0)-9,Y(t)+4,t,{'text-anchor':'end',fill:'var(--muted)'});\n  }\n  el('circle','circle',{cx,cy,r:r*s,fill:'none',stroke:'var(--blue)','stroke-opacity':.28,'stroke-width':1});\n  path('walk',`M${X(0)},${Y(0)}L${X(x)},${Y(0)}L${X(x)},${Y(y)}`,{stroke:'var(--orange)','stroke-width':2.5,'stroke-dasharray':'4 3'});\n  path('straight',`M${X(0)},${Y(0)}L${X(x)},${Y(y)}`,{stroke:'var(--blue)','stroke-width':3});\n  dot('end',X(x),Y(y),5);\n  txt('foot',width/2,height-11,'向量 ('+fmt(x)+', '+fmt(y)+')',{'font-size':14});\n  finish();return {progress:p,radius:r,angleRadians:theta,vector:[x,y],l1,l2,route:[[0,0],[x,0],[x,y]],circleRadius:r};\n}"
+    }
+  ]
+}

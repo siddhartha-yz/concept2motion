@@ -23,6 +23,11 @@ jobs:
           node --input-type=module -e "import {chromium} from './work/visualbook/runtime/node_modules/playwright-core/index.mjs'; console.log('CHROMIUM_PATH='+chromium.executablePath())" >> "$GITHUB_ENV"
       - name: Verify frozen books without model calls
         run: python3 experiments/visualbook/check-frozen.py
+      - name: Verify reusable tools and ordinary Markdown import
+        run: |
+          node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs
+          node tools/check_visualbook.mjs work/visualbook/ci-tools
+          node tools/build_visualbook_catalog.mjs work/visualbook/ci-designs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -31,6 +36,8 @@ jobs:
             work/visualbook/frozen-checks/*/math
             work/visualbook/frozen-checks/*/relations
             work/visualbook/frozen-checks/*/reading
+            work/visualbook/ci-tools
+            work/visualbook/ci-designs
   check:
     runs-on: ubuntu-latest
     steps:

@@ -1,6 +1,6 @@
 # 模型可调用的可视化工具
 
-先读取 source.json 的完整正文与锚点，选择原书没有说明清楚的联系。输出 book.json：
+先读取 source.md 的完整正文与锚点（source-map.json是结构，source.json是编译器内部数据），选择原书没有说明清楚的联系。输出 book.json：
 
 ```json
 {"figures":[{"id":"one-idea","title":"短图名","afterAnchor":"章节-001","endAnchor":"章节-004","height":320,"mobileHeight":360,"summary":"最多一句必要的例子条件，不复制正文","stages":["观察","改变","比较"],"params":[{"key":"eta","label":"学习率","min":0.01,"max":0.3,"step":0.01,"value":0.1}],"code":"function draw({svg,board,width,height,progress,params}) { /* 绘图，返回实际数值 facts */ return {}; }"}]}
@@ -30,6 +30,14 @@ draw每次收到同一个board；工具负责begin/end、尺寸和键值复用�
 
 设计模板也允许组合或扩展；不是每个章节都应该套模板。模板返回facts仍须核对表达是否贴合教材。不能把不适合问题的模板强行使用。
 
+## 张量与卷积设计
+
+- `board.reshape(id,values,rows,{progress})`：保持行优先顺序和元素数量，让同一批稳定对象移动到新形状；不是转置。最多36值、每维最多8，过密会拒绝。新行数必须整除元素总数。
+- `board.convolution(id,input,kernel,{stride,padding,progress})`：实际计算深度学习中的互相关、输出尺寸、当前窗口的乘积求和；核不翻转。支持输入最多6×6、核最多3×3、零填充最多1。连续窗口移动是阅读演示，输出只取实际离散位置。手机需选择小例子，建议height330/mobileHeight430。
+- `VisualBook.correlate2d(input,kernel,{stride,padding})`：独立数值结果，检查核、步幅与填充形状，不假装测量硬件执行。
+
+本地MCP的`list_designs`给出目录与限制，`show_design({id})`返回某种设计的执行示例及真实桌面/手机PNG。每次会话最多查看两种不同设计；查看示例不修改候选教材，也不占候选的三轮预览。
+
 ## 可检查的数学计算
 
 `VisualBook.dot(a,b)`、`matmul(A,B)`、`mix(a,b,t)`、`clamp(v,min,max)`。
@@ -47,6 +55,8 @@ node TOOL build source.json book.json book.html
 node TOOL preview book.html preview-01
 ```
 
-preview返回真实桌面/手机PNG和report.json，覆盖0、0.25、0.26、0.5、1进度。用图片查看工具看画面，处理具体碰撞、越界、错误轴和解释问题。修改book.json后重新build并使用新preview目录，旧失败保留。两臂都有同一预览工具；direct加`--direct`并自行操作SVG DOM，不使用Board或VisualBook库。
+preview返回真实桌面/手机PNG和report.json，覆盖0、0.25、0.26、0.5、1进度，以及单参数两端、全最小/全最大参数在0.5/1进度的实际检查。不是所有参数组合穷举。用图片查看工具看画面，处理具体碰撞、越界、错误轴和解释问题。修改book.json后重新build并使用新preview目录，旧失败保留。两臂都有同一预览工具；direct加`--direct`并自行操作SVG DOM，不使用Board或VisualBook库。
 
 预览的布局检查不证明数学或教学正确；返回facts须是画面实际使用的数据，不能自打分。不要访问网络、账号配置、外部凭据或改工具源码；只写当前任务目录。工具接受本地已授权生成源码，不是陌生代码上传服务。
+
+构建和预览用MCP的build_book/preview_book，图片直接作为工具结果进入模型上下文。不要cat编译后的book.html或source.json来假装看图；源文、锚点和真实图片是分开提供的。每次修改后重新预览，导出哈希必须一致。

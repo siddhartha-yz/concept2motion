@@ -1,0 +1,58 @@
+{
+  "designs": [
+    {
+      "id": "matrix-product",
+      "title": "一行与一列怎样得到一个输出",
+      "topic": "数学 / 深度学习",
+      "limits": "小矩阵，最多5维；不是GPU执行模拟",
+      "height": 300,
+      "mobileHeight": 410,
+      "code": "function draw({board,progress}) {return board.product('product',[[1,2],[3,4]],[[5,6],[7,8]],{progress,row:0,col:0});}"
+    },
+    {
+      "id": "reshape",
+      "title": "元素没变，形状变了",
+      "topic": "数学 / 编程",
+      "limits": "行优先顺序；不是转置；最多36值",
+      "height": 320,
+      "mobileHeight": 320,
+      "code": "function draw({board,progress}) {return board.reshape('reshape',[[0,1,2,3],[4,5,6,7],[8,9,10,11]],2,{progress});}"
+    },
+    {
+      "id": "data-flow",
+      "title": "同一份输入怎样经过三个层",
+      "topic": "编程 / 深度学习",
+      "limits": "顺序流程；动态分支和循环需要自定义",
+      "height": 300,
+      "mobileHeight": 330,
+      "code": "function draw({board,progress}) {return {boxes:board.sequence('flow',[{id:'input',label:'输入'},{id:'hidden',label:'隐藏层'},{id:'output',label:'输出'}],{active:progress*3})};}"
+    },
+    {
+      "id": "optimizer",
+      "title": "相同目标上的不同更新路线",
+      "topic": "机器学习 / 优化",
+      "limits": "二维二次目标；不是深度网络训练成绩",
+      "height": 330,
+      "mobileHeight": 360,
+      "code": "function draw({board,progress}) {return board.optimization('optimizer',{progress,kind:'rmsprop',compare:'sgd',eta:.4,rho:.9,start:[-5,-2],steps:20});}"
+    },
+    {
+      "id": "probabilities",
+      "title": "分数怎样变成一组权重",
+      "topic": "概率 / 机器学习",
+      "limits": "从均匀到目标概率的演示插值；不是学习过程",
+      "height": 330,
+      "mobileHeight": 350,
+      "code": "function draw({board,progress}) {return board.probabilities('weights',[2,0,-1],{progress,temperature:1,labels:['A','B','C']});}"
+    },
+    {
+      "id": "convolution",
+      "title": "同一个核沿输入移动",
+      "topic": "深度学习 / 编程",
+      "limits": "深度学习采用的互相关，不翻转核；滑动中间位置仅为演示",
+      "height": 330,
+      "mobileHeight": 430,
+      "code": "function draw({board,progress}) {return board.convolution('conv',[[0,1,2],[3,4,5],[6,7,8]],[[0,1],[2,3]],{progress});}"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "figures": [
+    {
+      "id": "reduce-axis",
+      "title": "求和沿哪条轴收拢？",
+      "afterAnchor": "geometry-057",
+      "endAnchor": "geometry-062",
+      "height": 310,
+      "mobileHeight": 410,
+      "summary": "用 3×4 小矩阵追踪归组；圆点表示贡献去向，输出始终显示完整求和。",
+      "stages": [
+        "对应元素",
+        "收拢",
+        "同组相加"
+      ],
+      "params": [
+        {
+          "key": "axis",
+          "label": "求和轴（0 或 1）",
+          "min": 0,
+          "max": 1,
+          "step": 1,
+          "value": 1
+        },
+        {
+          "key": "last",
+          "label": "右下角元素",
+          "min": 0,
+          "max": 20,
+          "step": 1,
+          "value": 11
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n const P=VisualBook.palette, mobile=width<520, axis=Number(params.axis), p=progress;\n const A=[[0,1,2,3],[4,5,6,7],[8,9,10,Number(params.last)]];\n const sums=axis===0?A[0].map((_,j)=>A.reduce((s,row)=>s+row[j],0)):A.map(row=>row.reduce((s,v)=>s+v,0));\n const cell=mobile?38:44, sx=mobile?(width-4*cell)/2:64, sy=70;\n const outCell=mobile?36:44;\n const ox=mobile?(width-sums.length*outCell)/2:Math.max(340,width-4*outCell-35), oy=mobile?260:100;\n board.matrix('input',A,{x:sx,y:sy,cell,label:'A · (3, 4)',activeCol:axis===0?0:undefined,activeRow:axis===1?0:undefined,precision:0});\n board.text('columns','列 j · 轴 1',sx+2*cell,42,{size:13,color:P.muted,anchor:'middle'});\n board.label('rows','行 i\\n轴 0',sx-42,sy+cell,{maxWidth:35,size:12,color:P.muted});\n const output=[sums];\n board.matrix('output',output,{x:ox,y:oy,cell:outCell,label:'输出 · ('+sums.length+',)',color:P.blue,activeCol:0,precision:0});\n const positions=[];\n for(let i=0;i<3;i++) for(let j=0;j<4;j++) {\n  const group=axis===0?j:i, x0=sx+(j+.5)*cell+11, y0=sy+(i+.5)*cell+11;\n  const x1=ox+(group+.5)*outCell+10, y1=oy+.5*outCell+10;\n  const bend=mobile?18*(j-1.5):16*(i-1);\n  const x=x0*(1-p)+x1*p+(mobile?bend*4*p*(1-p):0);\n  const y=y0*(1-p)+y1*p+(!mobile?bend*4*p*(1-p):0);\n  board.circle('term-'+i+'-'+j,x,y,group===0?4:3,group===0?P.blue:P.muted);\n  positions.push({i,j,group,value:A[i][j],x,y});\n }\n board.text('retained',axis===0?'保留列 j':'保留行 i',ox+sums.length/2*outCell,oy+outCell+26,{size:14,color:P.blue,anchor:'middle'});\n const terms=axis===0?A.map(row=>row[0]):A[0];\n board.text('first-sum',terms.join(' + ')+' = '+sums[0],width/2,mobile?height-63:height-63,{size:16,color:P.blue,anchor:'middle'});\n const y=height-30;\n board.label('shape','(3, 4) → ('+sums.length+',) · 消去轴 '+axis,width/2,y,{maxWidth:width-28,size:15,anchor:'middle'});\n return {A,axis,inputShape:[3,4],outputShape:[sums.length],sums,retainedAxis:1-axis,progress:p,positions};\n}"
+    },
+    {
+      "id": "dot-projection",
+      "title": "点积，是有符号的投影",
+      "afterAnchor": "geometry-078",
+      "endAnchor": "geometry-080",
+      "height": 330,
+      "mobileHeight": 430,
+      "summary": "固定 x=(1,0)，y 也是单位向量；进度把夹角从 0° 连续转到所选角度。",
+      "stages": [
+        "同向",
+        "转动",
+        "读投影"
+      ],
+      "params": [
+        {
+          "key": "angle",
+          "label": "终点夹角（°）",
+          "min": 0,
+          "max": 180,
+          "step": 1,
+          "value": 120
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n const P=VisualBook.palette, mobile=width<520;\n const degrees=Number(params.angle)*progress, theta=degrees*Math.PI/180;\n const y=[Math.cos(theta),Math.sin(theta)], dot=VisualBook.dot([1,0],y);\n const plotRight=mobile?width-28:width*.56;\n const f=board.axes('plane',{xDomain:[-1.35,1.35],yDomain:[-1.25,1.35],equalUnits:true,xLabel:'',yLabel:'分量 2',box:[mobile?38:48,36,plotRight,mobile?228:height-52],grid:false});\n board.text('horizontal-name','分量 1',f.right,f.bottom+40,{size:13,anchor:'end'});\n const circle=Array.from({length:121},(_,i)=>[Math.cos(i*2*Math.PI/120),Math.sin(i*2*Math.PI/120)]);\n board.curve('unit-circle',f,circle,{color:P.faint,width:1.5});\n board.line('project',f.x(y[0]),f.y(y[1]),f.x(y[0]),f.y(0),P.orange,1.5,.65);\n board.vector('x',f,[0,0],[1,0],{color:P.ink});\n board.vector('y',f,[0,0],y,{color:P.blue});\n board.line('signed-projection',f.x(0),f.y(0)+5,f.x(dot),f.y(0)+5,P.orange,4);\n board.circle('projection-point',f.x(dot),f.y(0),4,P.orange);\n board.label('x-name','x',f.x(1)+9,f.y(0)+20,{size:14});\n board.label('y-name','y',f.x(y[0])+9,f.y(y[1])-12,{size:15,color:P.blue});\n const arc=Array.from({length:41},(_,i)=>[.33*Math.cos(theta*i/40),.33*Math.sin(theta*i/40)]);\n board.curve('angle-arc',f,arc,{color:P.muted,width:1});\n const mx=mobile?42:width*.63, mw=mobile?width-84:width*.31, top=mobile?298:86;\n board.text('angle-reading','夹角 '+degrees.toFixed(1)+'°',mx,top,{size:15,color:P.muted});\n board.text('dot-reading','xᵀy = '+dot.toFixed(3),mx,top+30,{size:21,color:P.orange,weight:600});\n const meterY=top+76;\n board.line('number-axis',mx,meterY,mx+mw,meterY,P.muted,1);\n [-1,0,1].forEach(v=>{\n  const px=mx+(v+1)*mw/2;\n  board.line('tick-'+v,px,meterY-4,px,meterY+4,P.muted,1);\n  board.text('tick-value-'+v,String(v),px,meterY+22,{size:12,color:P.muted,anchor:'middle'});\n });\n board.line('meter-value',mx+mw/2,meterY,mx+(dot+1)*mw/2,meterY,P.orange,4);\n board.circle('meter-tip',mx+(dot+1)*mw/2,meterY,5,P.orange);\n board.text('meter-name','cos θ · 有符号投影',mx,top+123,{size:13,color:P.muted});\n return {x:[1,0],y,angleDegrees:degrees,dot,projection:[dot,0],cosine:Math.cos(theta),normX:1,normY:Math.hypot(...y),progress};\n}"
+    },
+    {
+      "id": "norm-paths",
+      "title": "同一个终点，两种长度",
+      "afterAnchor": "geometry-110",
+      "endAnchor": "geometry-117",
+      "height": 330,
+      "mobileHeight": 430,
+      "summary": "二维向量沿半径 r 的四分之一圆转动，比较直达和沿坐标轴走的长度。",
+      "stages": [
+        "沿轴",
+        "转向",
+        "沿轴"
+      ],
+      "params": [
+        {
+          "key": "radius",
+          "label": "半径 r",
+          "min": 1,
+          "max": 5,
+          "step": 0.1,
+          "value": 5
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n const P=VisualBook.palette, mobile=width<520, r=Number(params.radius);\n const theta=-Math.PI*progress/2, u=[r*Math.cos(theta),r*Math.sin(theta)];\n const l1=Math.abs(u[0])+Math.abs(u[1]), l2=Math.hypot(...u);\n const right=mobile?width-30:width*.56;\n const f=board.axes('plane',{xDomain:[-.8,5.8],yDomain:[-5.8,.8],equalUnits:true,xLabel:'',yLabel:'分量 2',box:[mobile?40:50,36,right,mobile?228:height-52],grid:false});\n board.text('horizontal-name','分量 1',f.right,f.bottom+40,{size:13,anchor:'end'});\n const arc=Array.from({length:81},(_,i)=>[r*Math.cos(-Math.PI*i/160),r*Math.sin(-Math.PI*i/160)]);\n board.curve('radius-arc',f,arc,{color:P.faint,width:2});\n board.curve('axis-route',f,[[0,0],[u[0],0],u],{color:P.orange,width:3});\n board.vector('direct',f,[0,0],u,{color:P.blue});\n board.circle('corner',f.x(u[0]),f.y(0),3,P.orange);\n board.circle('end',f.x(u[0]),f.y(u[1]),4,P.blue);\n board.label('u-name','u',f.x(u[0])+10,f.y(u[1])+15,{color:P.blue,size:15});\n const mx=mobile?42:width*.63, mw=mobile?width-84:width*.31, top=mobile?298:75;\n board.text('coordinates','u = ('+u[0].toFixed(2)+', '+u[1].toFixed(2)+')',mx,top,{size:14,color:P.muted});\n board.text('direct-reading','直达 · L₂ = '+l2.toFixed(2),mx,top+33,{size:18,color:P.blue,weight:600});\n board.text('route-reading','沿轴 · L₁ = '+l1.toFixed(2),mx,top+63,{size:18,color:P.orange,weight:600});\n const y=top+100, max=8;\n board.line('length-axis',mx,y,mx+mw,y,P.muted,1);\n [0,4,8].forEach(v=>{\n const x=mx+v/max*mw; board.line('len-tick-'+v,x,y-4,x,y+4,P.muted,1);\n board.text('len-label-'+v,String(v),x,y+22,{size:12,color:P.muted,anchor:'middle'});\n });\n board.line('l1-bar',mx,y-11,mx+mw*l1/max,y-11,P.orange,4);\n board.line('l2-bar',mx,y-20,mx+mw*l2/max,y-20,P.blue,4);\n board.text('length-name','长度',mx+mw+6,y+5,{size:12,color:P.muted});\n return {u,radius:r,angleDegrees:-90*progress,l1,l2,axisSegments:[Math.abs(u[0]),Math.abs(u[1])],progress};\n}"
+    }
+  ]
+}

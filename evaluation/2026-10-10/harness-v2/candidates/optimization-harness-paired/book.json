@@ -1,0 +1,87 @@
+{
+  "figures": [
+    {
+      "id": "history-response",
+      "title": "同一段梯度，两种记忆",
+      "afterAnchor": "optimization-004",
+      "endAnchor": "optimization-004",
+      "height": 330,
+      "mobileHeight": 370,
+      "summary": "单坐标示例：前20步 g²=4，之后 g²=1；泄漏平均从 s₀=0 开始。 步间连线仅供阅读。",
+      "stages": [
+        "积累",
+        "输入改变",
+        "响应"
+      ],
+      "params": [
+        {
+          "key": "gamma",
+          "label": "记忆系数 γ",
+          "min": 0.5,
+          "max": 0.97,
+          "step": 0.01,
+          "value": 0.9
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) { const P=VisualBook.palette, gamma=params.gamma, T=1+39*progress; const ema=[0], mean=[0]; let total=0; for(let t=1;t<=40;t++){const q=t<=20?4:1; total+=q; ema[t]=gamma*ema[t-1]+(1-gamma)*q; mean[t]=total/t;} const sample=a=>{const n=Math.floor(T),f=T-n;return a[n]+f*((a[n+1]??a[n])-a[n]);}; const prefix=a=>{const pts=[];for(let t=1;t<=Math.floor(T);t++)pts.push([t,a[t]]);pts.push([T,sample(a)]);return pts;}; const mobile=width<500; const f=board.axes('response-axes',{xDomain:[0,40],yDomain:[0,4.5],xLabel:'迭代步 t',yLabel:'平方梯度尺度',box:[48,78,width-22,height-115],grid:true}); board.line('legend-ema',48,45,67,45,P.blue,3);board.text('legend-ema-text','泄漏平均',74,50,{size:13,color:P.blue});board.line('legend-mean',mobile?180:220,45,mobile?199:239,45,P.ink,2);board.text('legend-mean-text','全历史均值',mobile?206:246,50,{size:13,color:P.ink}); board.curve('input',f,[[1,4],[20,4],[20,1],[40,1]],{color:P.orange,width:1.5,opacity:0.6});board.text('input-key','橙线：输入 g²',width-22,18,{anchor:'end',size:12,color:P.orange}); board.curve('ema-future',f,ema.slice(1).map((v,i)=>[i+1,v]),{color:P.blue,width:2,opacity:0.17});board.curve('mean-future',f,mean.slice(1).map((v,i)=>[i+1,v]),{color:P.ink,width:2,opacity:0.13});board.curve('ema-past',f,prefix(ema),{color:P.blue,width:3});board.curve('mean-past',f,prefix(mean),{color:P.ink,width:2});board.line('cursor',f.x(T),f.top,f.x(T),f.bottom,P.muted,1,0.35);board.circle('ema-dot',f.x(T),f.y(sample(ema)),4.5,P.blue);board.circle('mean-dot',f.x(T),f.y(sample(mean)),3.5,P.ink);board.text('time', 't = '+T.toFixed(1),48,height-42,{size:13,color:P.muted});board.text('ema-value','泄漏 '+sample(ema).toFixed(3),mobile?155:width*0.38,height-42,{size:14,color:P.blue});board.text('mean-value','均值 '+sample(mean).toFixed(3),mobile?48:width*0.7,mobile?height-16:height-42,{size:14,color:P.ink});return {gamma,time:T,ema:sample(ema),historicalMean:sample(mean),inputBefore:4,inputAfter:1,changeAfterStep:20,emaAt40:ema[40],meanAt40:mean[40],interpolation:'adjacent discrete states'}; }"
+    },
+    {
+      "id": "memory-horizon",
+      "title": "“十步记忆”没有硬边界",
+      "afterAnchor": "optimization-010",
+      "endAnchor": "optimization-012",
+      "height": 350,
+      "mobileHeight": 390,
+      "summary": "以下按递推式计算无限历史权重，半衰期满足 γᵏ=1/2。",
+      "stages": [
+        "新观测",
+        "权重减半",
+        "更早历史"
+      ],
+      "params": [
+        {
+          "key": "gamma",
+          "label": "记忆系数 γ",
+          "min": 0.7,
+          "max": 0.97,
+          "step": 0.01,
+          "value": 0.9
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {const P=VisualBook.palette,g=params.gamma,k=40*progress,relative=Math.pow(g,k),near=1-relative,half=Math.log(0.5)/Math.log(g); const f=board.axes('memory-axes',{xDomain:[0,40],yDomain:[0,1.08],xLabel:'距今 / 步',yLabel:'相对新观测的权重',box:[48,55,width-22,height-147],grid:true});const pts=Array.from({length:161},(_,i)=>[i/4,Math.pow(g,i/4)]);board.curve('weights',f,pts,{color:P.blue,width:2.5});board.line('half-horizontal',f.x(0),f.y(0.5),f.x(half),f.y(0.5),P.muted,1,0.6);board.line('half-vertical',f.x(half),f.y(0.5),f.x(half),f.bottom,P.muted,1,0.6);board.circle('half-dot',f.x(half),f.y(0.5),3,P.muted);board.text('half-label','减半 '+half.toFixed(2)+' 步',width-22,25,{anchor:'end',size:13,color:P.ink});board.line('age-cursor',f.x(k),f.top,f.x(k),f.bottom,P.orange,1.3,0.65);board.circle('age-dot',f.x(k),f.y(relative),5,P.orange);const left=48,right=width-22,bw=right-left,y=height-76;board.rect('mass-background',left,y,bw,10,P.faint);board.rect('mass-near',left,y,bw*near,10,P.blue);board.rect('mass-tail',left+bw*near,y,bw*relative,10,P.orange,{opacity:0.65});board.text('near-label','近 '+k.toFixed(1)+' 步 '+(near*100).toFixed(1)+'%',left,height-51,{size:13,color:P.blue});board.text('tail-label','更早 '+(relative*100).toFixed(1)+'%',right,height-51,{anchor:'end',size:13,color:P.orange});board.text('current-weight','该观测权重 '+((1-g)*relative).toFixed(4),left,height-29,{size:12,color:P.muted});board.text('half-formula','半衰期 = ln(1/2) / ln γ',left,height-7,{size:12,color:P.muted});return {gamma:g,age:k,relativeWeight:relative,observationWeight:(1-g)*relative,halfLife:half,recentMass:near,earlierMass:relative,recent10Mass:1-Math.pow(g,10),infiniteWeightSum:1,zeroInitialized40WeightSum:1-Math.pow(g,40),meaning:'integer ages are discrete; fractional ages interpolate exponentially'};}"
+    },
+    {
+      "id": "scaled-trajectory",
+      "title": "缩放分母，改变前进方向",
+      "afterAnchor": "optimization-014",
+      "endAnchor": "optimization-015",
+      "height": 340,
+      "mobileHeight": 440,
+      "summary": "教材二次目标，起点 (−5, −2)、s₀=0；两算法共用 η，计算20步，步间位置为阅读插值。",
+      "stages": [
+        "起点",
+        "坐标缩放",
+        "后期比较"
+      ],
+      "params": [
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0.05,
+          "max": 0.6,
+          "step": 0.01,
+          "value": 0.4
+        },
+        {
+          "key": "gamma",
+          "label": "记忆系数 γ",
+          "min": 0.7,
+          "max": 0.97,
+          "step": 0.01,
+          "value": 0.9
+        }
+      ],
+      "code": "function draw({board,width,height,progress,params}) {\n const P=VisualBook.palette,mobile=width<500,eta=params.eta,gamma=params.gamma;\n const gradient=([x,y])=>[0.2*x,4*y],opts={eta,rho:gamma,epsilon:1e-6,steps:20};\n const rms=VisualBook.trace('rmsprop',gradient,[-5,-2],opts),ada=VisualBook.trace('adagrad',gradient,[-5,-2],opts);\n const current=VisualBook.interpolateTrace(rms,progress),other=VisualBook.interpolateTrace(ada,progress);\n const f=board.axes('trajectory-axes',{xDomain:[-5.8,1.2],yDomain:[-2.4,2.4],equalUnits:true,xLabel:'参数 x₁',yLabel:'参数 x₂',box:mobile?[48,72,width-22,height-155]:[48,72,width*0.63,height-65],grid:true});\n board.line('legend-rms',48,44,67,44,P.blue,3);board.text('legend-rms-label','RMSProp',74,49,{size:13,color:P.blue});board.line('legend-ada',180,44,199,44,P.orange,2);board.text('legend-ada-label','Adagrad',206,49,{size:13,color:P.orange});\n for(const level of [0.2,1,3,6,10]) {let seg=[],part=0;const flush=()=>{if(seg.length>1)board.curve('contour-'+level+'-'+part++,f,seg,{color:P.faint,width:1});seg=[];};for(let i=0;i<=180;i++){const a=i/180*2*Math.PI,x=Math.sqrt(level/0.1)*Math.cos(a),y=Math.sqrt(level/2)*Math.sin(a);if(x>=-5.8&&x<=1.2&&y>=-2.4&&y<=2.4)seg.push([x,y]);else flush();}flush();}\n const prefix=(tr,cur)=>[...tr.slice(0,Math.floor(cur.index)+1).map(p=>p.theta),cur.theta];\n board.curve('rms-full',f,rms.map(p=>p.theta),{color:P.blue,width:1.5,opacity:0.16});board.curve('ada-full',f,ada.map(p=>p.theta),{color:P.orange,width:1.5,opacity:0.16});board.curve('rms-prefix',f,prefix(rms,current),{color:P.blue,width:3});board.curve('ada-prefix',f,prefix(ada,other),{color:P.orange,width:2});board.circle('origin',f.x(0),f.y(0),2.5,P.ink);board.circle('rms-current',f.x(current.theta[0]),f.y(current.theta[1]),5,P.blue);board.circle('ada-current',f.x(other.theta[0]),f.y(other.theta[1]),4,P.orange);\n const tx=mobile?48:width*0.68,ty=mobile?height-78:92,pair=a=>'('+a[0].toFixed(2)+', '+a[1].toFixed(2)+')';board.text('iteration','第 '+current.index.toFixed(1)+' / 20 步',tx,ty,{size:14,color:P.ink});board.text('rms-readout','RMSProp '+pair(current.theta),tx,ty+25,{size:13,color:P.blue});board.text('ada-readout','Adagrad '+pair(other.theta),tx,ty+48,{size:13,color:P.orange});\n if(mobile){board.text('mobile-first-scale','首步 η/√(s+ε) = '+pair(rms[1].square.map(s=>eta/Math.sqrt(s+1e-6))),48,height-8,{size:12,color:P.muted});} if(!mobile){const first=rms[1];board.text('first-scaling-title','首步缩放 η / √(s + ε)',tx,ty+99,{size:12,color:P.muted});board.text('first-scaling',pair(first.square.map(s=>eta/Math.sqrt(s+1e-6))),tx,ty+123,{size:14,color:P.ink});board.text('first-delta-title','首步位移 Δx',tx,ty+156,{size:12,color:P.muted});board.text('first-delta',pair(first.theta.map((v,i)=>v-[-5,-2][i])),tx,ty+180,{size:14,color:P.blue});}\n return {objective:{a:0.1,b:2},eta,gamma,epsilon:1e-6,steps:20,rmsTrace:rms,adagradTrace:ada,current,comparison:other,firstScale:rms[1].square.map(s=>eta/Math.sqrt(s+1e-6)),firstDisplacement:rms[1].theta.map((v,i)=>v-[-5,-2][i]),unitX:f.unitX,unitY:f.unitY,interpolation:'between discrete updates only'};\n}"
+    }
+  ]
+}

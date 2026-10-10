@@ -1,0 +1,54 @@
+{
+  "figures": [
+    {
+      "id": "memory-response",
+      "title": "旧梯度，要记多久？",
+      "afterAnchor": "optimization-004",
+      "endAnchor": "optimization-010",
+      "height": 320,
+      "mobileHeight": 350,
+      "summary": "前10步 g² = 1，随后变为9；初始均值设为1，只观察变化后的记忆。",
+      "stages": [
+        "读取历史",
+        "比较响应",
+        "观察尾部"
+      ],
+      "params": [
+        {
+          "key": "gamma",
+          "label": "记忆系数 γ",
+          "min": 0.5,
+          "max": 0.98,
+          "step": 0.01,
+          "value": 0.9
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n  const ns='http://www.w3.org/2000/svg', nodes=svg.__nodes||(svg.__nodes={}), used=new Set();\n  function el(key,tag,attrs,text){used.add(key);let n=nodes[key];if(!n){n=document.createElementNS(ns,tag);nodes[key]=n;svg.appendChild(n);}for(const [k,v] of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}\n  const teal='#167d83',amber='#b46b39',ink='#273e46',muted='#69797c',grid='#e3e8e7';\n  const txt=(k,x,y,s,c=ink,size=12,a='start')=>el(k,'text',{x,y,fill:c,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':a},s);\n  const line=(k,x1,y1,x2,y2,c=grid,dash='')=>el(k,'line',{x1,y1,x2,y2,stroke:c,'stroke-width':1,'stroke-dasharray':dash});\n  const path=(k,d,c,sw=2,dash='',opacity=1)=>el(k,'path',{d,fill:'none',stroke:c,'stroke-width':sw,'stroke-dasharray':dash,opacity,'stroke-linejoin':'round','stroke-linecap':'round'});\n  const dot=(k,x,y,c,r=4)=>el(k,'circle',{cx:x,cy:y,r,fill:c,stroke:'#fff','stroke-width':1.5});\n  const gamma=Number(params.gamma),t=40*progress,h=Math.log(.5)/Math.log(gamma);\n  const seq=[1],mean=[1];\n  for(let i=1;i<=40;i++){seq[i]=gamma*seq[i-1]+(1-gamma)*(i>10?9:1);mean[i]=i<=10?1:(10+9*(i-10))/i;}\n  const at=(a,u)=>{let i=Math.min(39,Math.floor(u));return a[i]+(a[i+1]-a[i])*(u-i);};\n  const left=43,right=width-18,top=70,bottom=height-85;\n  const X=u=>left+(right-left)*u/40,Y=v=>bottom-(bottom-top)*v/10;\n  txt('input',left,17,'输入 g²：1 → 9',muted,12);\n  txt('time',right,17,'t = '+t.toFixed(2),ink,12,'end');\n  line('legend1',left,36,left+17,36,teal);txt('legend1t',left+23,40,'RMSProp',teal);\n  line('legend2',left+120,36,left+137,36,amber);txt('legend2t',left+143,40,'全历史平均',amber);\n  txt('ylabel',left,61,'平方梯度 / 均值',muted,12);\n  for(const v of [0,1,5,9]){line('gy'+v,left,Y(v),right,Y(v));txt('yt'+v,left-9,Y(v)+4,String(v),muted,12,'end');}\n  for(const u of [0,10,20,30,40])txt('xt'+u,X(u),bottom+18,String(u),muted,12,'middle');\n  txt('xlabel',right,bottom+36,'更新步 t',muted,12,'end');\n  path('inputpath',`M ${X(0)} ${Y(1)} H ${X(10)} V ${Y(9)} H ${X(40)}`,'#9da8a8',1.3,'4 4');\n  line('change',X(10),top,X(10),bottom,'#c6cecc','3 5');\n  txt('changeLabel',X(10)+5,top+13,'变化',muted,12);\n  const full=a=>a.map((v,i)=>(i?'L':'M')+X(i)+' '+Y(v)).join(' ');\n  const partial=a=>{let pts=[];for(let i=0;i<=Math.floor(t);i++)pts.push([X(i),Y(a[i])]);if(t%1)pts.push([X(t),Y(at(a,t))]);return pts.map((p,i)=>(i?'L':'M')+p.join(' ')).join(' ');};\n  path('ghostR',full(seq),teal,2,'',.13);path('ghostA',full(mean),amber,2,'',.13);\n  path('r',partial(seq),teal,2.5);path('a',partial(mean),amber,2.2);\n  line('cursor',X(t),top,X(t),bottom,'#b7c3c2','2 4');\n  dot('rDot',X(t),Y(at(seq,t)),teal);dot('aDot',X(t),Y(at(mean,t)),amber,3.5);\n  txt('valueR',left,height-33,'RMS '+at(seq,t).toFixed(2),teal,12);\n  txt('valueA',left+118,height-33,'全历史 '+at(mean,t).toFixed(2),amber,12);\n  txt('half',left,height-13,'旧贡献减半：'+h.toFixed(2)+' 步',muted,12);\n  txt('interp',right,height-13,'步间连线插值',muted,12,'end');\n  for(const k of Object.keys(nodes))if(!used.has(k)){nodes[k].remove();delete nodes[k];}\n  return {time:t,gamma,squaredGradient:t<=10?1:9,rmsState:at(seq,t),historyMean:at(mean,t),halfLifeSteps:h,initialState:1,changeAfterStep:10,displayInterpolation:'linear between integer updates'};\n}"
+    },
+    {
+      "id": "coordinate-path",
+      "title": "同一学习率，不同坐标步幅",
+      "afterAnchor": "optimization-014",
+      "endAnchor": "optimization-015",
+      "height": 370,
+      "mobileHeight": 430,
+      "summary": "从 (−5, −2) 出发，s₀ = 0；两算法用相同 η，RMSProp 固定 γ = 0.9。",
+      "stages": [
+        "早期更新",
+        "沿谷底前进",
+        "后期步幅"
+      ],
+      "params": [
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0.05,
+          "max": 0.7,
+          "step": 0.01,
+          "value": 0.4
+        }
+      ],
+      "code": "function draw({svg,width,height,progress,params}) {\n  const ns='http://www.w3.org/2000/svg',nodes=svg.__nodes||(svg.__nodes={}),used=new Set();\n  function el(key,tag,attrs,text){used.add(key);let n=nodes[key];if(!n){n=document.createElementNS(ns,tag);nodes[key]=n;svg.appendChild(n);}for(const[k,v]of Object.entries(attrs))n.setAttribute(k,v);if(text!==undefined)n.textContent=text;return n;}\n  const teal='#167d83',amber='#b46b39',ink='#273e46',muted='#69797c',grid='#e3e8e7';\n  const txt=(k,x,y,s,c=ink,size=12,a='start')=>el(k,'text',{x,y,fill:c,'font-size':size,'font-family':'system-ui, sans-serif','text-anchor':a},s);\n  const line=(k,x1,y1,x2,y2,c=grid,dash='')=>el(k,'line',{x1,y1,x2,y2,stroke:c,'stroke-width':1,'stroke-dasharray':dash});\n  const path=(k,d,c,sw=2,opacity=1)=>el(k,'path',{d,fill:'none',stroke:c,'stroke-width':sw,opacity,'stroke-linecap':'round','stroke-linejoin':'round'});\n  const dot=(k,x,y,c,r=4)=>el(k,'circle',{cx:x,cy:y,r,fill:c,stroke:'#fff','stroke-width':1.3});\n  const eta=Number(params.eta),gamma=.9,eps=1e-6,N=24,u=N*progress;\n  function simulate(rms){let x=-5,y=-2,sx=0,sy=0,out=[{x,y,sx,sy}];for(let i=0;i<N;i++){let gx=.2*x,gy=4*y;sx=(rms?gamma:1)*sx+(rms?1-gamma:1)*gx*gx;sy=(rms?gamma:1)*sy+(rms?1-gamma:1)*gy*gy;x-=eta*gx/Math.sqrt(sx+eps);y-=eta*gy/Math.sqrt(sy+eps);out.push({x,y,sx,sy});}return out;}\n  const rms=simulate(true),ada=simulate(false),i=Math.min(N-1,Math.floor(u)),q=u-i;\n  const at=a=>({x:a[i].x+(a[i+1].x-a[i].x)*q,y:a[i].y+(a[i+1].y-a[i].y)*q});\n  const r=at(rms),a=at(ada),mobile=width<500;\n  txt('legendR',40,18,'● RMSProp',teal,12);txt('legendA',166,18,'● Adagrad',amber,12);\n  txt('time',width-18,40,'更新 t = '+u.toFixed(2),muted,12,'end');\n  txt('field',40,40,'等高线',muted,12);\n  const L=40,R=width-19,T=61,B=mobile?height-153:height-131;\n  const X=v=>L+(v+5.6)/7.0*(R-L),Y=v=>B-(v+2.6)/4.2*(B-T);\n  // Clip contours to the coordinate plot. The axes retain fixed ranges as eta varies.\n  const defs=el('defs','defs',{});let clip=defs.querySelector('clipPath');if(!clip){clip=document.createElementNS(ns,'clipPath');clip.id='trajectory-direct-clip';defs.appendChild(clip);let rec=document.createElementNS(ns,'rect');clip.appendChild(rec);}const cr=clip.firstChild;for(const[k,v]of Object.entries({x:L,y:T,width:R-L,height:B-T}))cr.setAttribute(k,v);\n  for(const f of [.1,.5,1,2,4,8]){let d='';for(let j=0;j<=180;j++){let theta=j/180*Math.PI*2,xx=Math.sqrt(f/.1)*Math.cos(theta),yy=Math.sqrt(f/2)*Math.sin(theta);d+=(j?'L':'M')+X(xx)+' '+Y(yy)+' ';}el('contour'+f,'path',{d,fill:'none',stroke:'#d9e2df','stroke-width':1,'clip-path':'url(#trajectory-direct-clip)'});}\n  line('axisX',L,Y(0),R,Y(0),'#a7b4b2');line('axisY',X(0),T,X(0),B,'#a7b4b2');\n  for(const v of [-5,-3,-1,0,1]){line('tickX'+v,X(v),B,X(v),B+4,'#a7b4b2');txt('tx'+v,X(v),B+17,String(v),muted,12,'middle');}\n  for(const v of [-2,-1,0,1]){line('tickY'+v,L-4,Y(v),L,Y(v),'#a7b4b2');txt('ty'+v,L-9,Y(v)+3,String(v),muted,12,'end');}\n  txt('x1',R,B+34,'x₁',ink,12,'end');txt('x2',L-14,T-5,'x₂',ink,12);\n  const trace=(arr,full)=>{let p=[];for(let j=0;j<=(full?N:Math.floor(u));j++)p.push([X(arr[j].x),Y(arr[j].y)]);if(!full&&u%1){let z=at(arr);p.push([X(z.x),Y(z.y)]);}return p.map((z,j)=>(j?'L':'M')+z.join(' ')).join(' ');};\n  path('rGhost',trace(rms,true),teal,1.8,.14);path('aGhost',trace(ada,true),amber,1.8,.14);\n  path('ada',trace(ada,false),amber,2);path('rms',trace(rms,false),teal,2.5);\n  dot('start',X(-5),Y(-2),ink,3);txt('startLabel',X(-5)+8,Y(-2)+15,'起点',muted,12);\n  dot('minimum',X(0),Y(0),ink,2.5);\n  dot('aMarker',X(a.x),Y(a.y),amber,3.5);dot('rMarker',X(r.x),Y(r.y),teal,4.5);\n  // Effective learning rates at the most recent integer state, interpolated only for display.\n  function rate(arr,k){const v0=k?eta/Math.sqrt(arr[k].sx+eps):null,v1=eta/Math.sqrt(arr[k+1].sx+eps);return v0===null?v1:v0+(v1-v0)*q;}\n  function rate2(arr,k){const v0=k?eta/Math.sqrt(arr[k].sy+eps):null,v1=eta/Math.sqrt(arr[k+1].sy+eps);return v0===null?v1:v0+(v1-v0)*q;}\n  const ratesR=[rate(rms,i),rate2(rms,i)],ratesA=[rate(ada,i),rate2(ada,i)];\n  const valueF=z=>.1*z.x*z.x+2*z.y*z.y;\n  const fmtF=v=>v>0&&v<.001?v.toExponential(1):v.toFixed(3);\n  txt('fR',40,B+57,'f(RMS) = '+fmtF(valueF(r)),teal,12);\n  txt('fA',mobile?40:width/2,mobile?B+77:B+57,'f(Ada) = '+fmtF(valueF(a)),amber,12);\n  txt('rateTitle',40,height-53,u<1?'坐标缩放（首步）':'坐标缩放 η / √(s + ε)',muted,12);\n  txt('rateR',40,height-33,'RMS  '+ratesR.map(x=>x.toFixed(2)).join(' / '),teal,12);\n  txt('rateA',mobile?166:width/2,height-33,'Ada  '+ratesA.map(x=>x.toFixed(2)).join(' / '),amber,12);\n  txt('note',40,height-11,'顺序 x₁ / x₂ · 步间连线插值',muted,12);\n  for(const k of Object.keys(nodes))if(!used.has(k)){nodes[k].remove();delete nodes[k];}\n  return {time:u,eta,gamma,epsilon:eps,start:[-5,-2],rmsPosition:[r.x,r.y],adagradPosition:[a.x,a.y],rmsFunction:valueF(r),adagradFunction:valueF(a),rmsScaling:ratesR,adagradScaling:ratesA,scalingAtStart:'first update shown',interpolation:'linear between integer states',iterations:N};\n}"
+    }
+  ]
+}
