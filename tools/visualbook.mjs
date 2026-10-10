@@ -34,6 +34,16 @@ export function validatePlan(book, plan) {
     if (!/^[a-z][a-z0-9-]*$/.test(f.id) || ids.has(f.id))
       throw Error("Bad/duplicate figure id");
     ids.add(f.id);
+    if (f.initialProgress !== undefined && (!Number.isFinite(f.initialProgress) || f.initialProgress < 0 || f.initialProgress > 1))
+      throw Error("Bad initial progress " + f.id);
+    if (f.durationMs !== undefined && (!Number.isFinite(f.durationMs) || f.durationMs < 1000 || f.durationMs > 60000))
+      throw Error("Bad playback duration " + f.id);
+    if (f.checkpoints !== undefined) {
+      if (!Array.isArray(f.checkpoints)) throw Error("Checkpoints must be an array " + f.id);
+      const points = f.checkpoints.map((c) => typeof c === "number" ? c : c.progress);
+      if (points.length < 2 || points[0] !== 0 || points.at(-1) !== 1 || points.some((p, i) => !Number.isFinite(p) || p < 0 || p > 1 || (i && p <= points[i - 1])))
+        throw Error("Bad checkpoints " + f.id);
+    }
     const start = book.blocks.findIndex((b) => b.id === f.afterAnchor),
       end = book.blocks.findIndex(
         (b) => b.id === (f.endAnchor ?? f.afterAnchor),
@@ -79,7 +89,7 @@ export function build(book, plan, { direct = false } = {}) {
   const scopes = validatePlan(book, plan),
     mathExpected = book.blocks.reduce((s, b) => s + (b.math?.expected ?? 0), 0);
   const figure = (f) =>
-    `<figure class="vh-figure" id="figure-${f.id}" data-viz-id="${f.id}"><h3>${esc(f.title)}</h3><div class="vh-canvas"><svg role="img" aria-label="${esc(f.summary ?? f.title)}"><title>${esc(f.title)}</title></svg></div><div class="vh-bar"><input class="vh-progress" type="range" min="0" max="1" step="0.001" value="0" aria-label="${esc(f.title)}：连续演示进度"><span class="vh-status"></span></div><div class="vh-params">${(f.params ?? []).map((c) => `<label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>`).join("")}<button class="vh-resume">跟随阅读</button></div>${f.summary ? `<p class="vh-caption">${esc(f.summary)}</p>` : ""}</figure>`;
+    `<figure class="vh-figure" id="figure-${f.id}" data-viz-id="${f.id}"><h3>${esc(f.title)}</h3><div class="vh-canvas"><svg role="img" aria-label="${esc(f.summary ?? f.title)}"><title>${esc(f.title)}</title></svg></div><div class="vh-toolbar"><div class="vh-bar"><input class="vh-progress" type="range" min="0" max="1" step="0.001" value="${f.initialProgress ?? 0}" aria-label="${esc(f.title)}：连续演示进度"><span class="vh-status"></span></div><div class="vh-transport"><button type="button" class="vh-prev" aria-label="${esc(f.title)}：上一步">←</button><button type="button" class="vh-play" aria-label="${esc(f.title)}：播放演示" aria-pressed="false">播放</button><button type="button" class="vh-next" aria-label="${esc(f.title)}：下一步">→</button><button type="button" class="vh-reset" aria-label="${esc(f.title)}：重置进度与参数">重置</button></div></div><div class="vh-params">${(f.params ?? []).map((c) => `<label>${esc(c.label)}<input type="range" data-param="${c.key}" min="${c.min}" max="${c.max}" step="${c.step}" value="${c.value}" aria-label="${esc(c.label)}"><output>${c.value}</output></label>`).join("")}</div>${f.summary ? `<p class="vh-caption">${esc(f.summary)}</p>` : ""}</figure>`;
   let body = "";
   for (let i = 0; i < book.blocks.length; i++) {
     const b = book.blocks[i],
@@ -102,7 +112,7 @@ export function build(book, plan, { direct = false } = {}) {
         `VisualBookRuntime.mount(document.getElementById('figure-${f.id}'),${JSON.stringify({ ...f, code: undefined }).replaceAll("<", "\\u003c")},(${f.code}),${!direct});`,
     )
     .join("\n");
-  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'"><title>${esc(book.title)}</title><style>${fs.readFileSync(path.join(lib, "theme.css"), "utf8")}\n${katexCss()}</style></head><body data-source-name="${esc(sourceName)}" data-math-expected="${mathExpected}" data-source-sha="${book.sourceSha256}"><header><a href="index.html">VisualBook</a>${book.sourceUrl ? `<a href="${esc(book.sourceUrl)}">原版教材 ↗</a>` : ""}</header><main><div class="eyebrow">读 · 看 · 自己试一下</div>${cover}<p class="source-note">正文来自 ${esc(sourceName)}。图解随阅读进度变化，也可以拖动图下的细线或参数；没有自动播放。</p>${body}</main><script>${library}\n${fs.readFileSync(path.join(lib, "runtime.js"), "utf8")}\n${startup}</script></body></html>`;
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'"><title>${esc(book.title)}</title><style>${fs.readFileSync(path.join(lib, "theme.css"), "utf8")}\n${katexCss()}</style></head><body data-source-name="${esc(sourceName)}" data-math-expected="${mathExpected}" data-source-sha="${book.sourceSha256}"><header><a href="index.html">VisualBook</a>${book.sourceUrl ? `<a href="${esc(book.sourceUrl)}">原版教材 ↗</a>` : ""}</header><main><div class="eyebrow">读 · 看 · 自己试一下</div>${cover}<p class="source-note">正文来自 ${esc(sourceName)}。图解可拖动、单步查看，也可以主动播放或暂停。</p>${body}</main><script>${library}\n${fs.readFileSync(path.join(lib, "runtime.js"), "utf8")}\n${startup}</script></body></html>`;
 }
 export async function preview(file, out) {
   if (fs.existsSync(out))

@@ -41,6 +41,6 @@ python3 tools/run_visualbook.py chapters.json work/my-book --max-chapters 3
 
 `packages/visualbook/` 是绘图、数学、阅读运行时和设计目录。`tools/visualbook_mcp.py` 把实际 PNG 返回给模型，`tools/run_visualbook.py` 负责串行生成和导出，`tools/assemble_visualbook.mjs` 也可以不调用模型重建已保存的书。
 
-正文与图在同一条阅读路径里。变化由阅读位置或参数控制；没有光标跟随、自动播放或左右分栏。公式数量覆盖、编译诊断、实际浏览器布局和数学核对分开记录，审美与教学判断另做。
+正文与图在同一条阅读路径里。图解默认静止，可以拖动、单步查看或主动播放；滚动页面会暂停演示。公式数量覆盖、编译诊断、实际浏览器布局和数学核对分开记录，审美与教学判断另做。
 
 D3按固定版本与ISC许可证使用，KaTeX与D2L许可证随导出保留。维护者编写的设计示例不冒充模型生成样本。[旧动画设施和研究入口](docs/legacy-infrastructure.md)继续保留，避免把负结果和历史证据丢掉。
