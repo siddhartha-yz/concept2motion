@@ -1,0 +1,305 @@
+{
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "c8ba8de987c1352df4972b89359baa888fe42c4cdf97368dad774ccaf48adc11",
+  "source": "chapter_optimization/sgd.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_optimization/sgd.html",
+  "guideSha256": "bbe68e46047f168d1d75a0fff146781583586e324bff026633b4ce15a783ff22",
+  "section": "iteration",
+  "attempt": "revised",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 107.375,
+  "prompt_sha256": "d896e2e97bcb653fbf5d97f29de3d64207db0b32379136f094e1d3eede0e4595",
+  "response_sha256": "323176b2f2485331d4824acd4c943e009048f023908ed6d3a34a0ae7bc61091c",
+  "tool_types": [],
+  "usage": [
+    {
+      "input_tokens": 36052,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 5385,
+      "reasoning_output_tokens": 855
+    }
+  ],
+  "auth": "official Codex; existing ChatGPT login",
+  "images": 1,
+  "anchorHashes": [
+    {
+      "id": "iteration-001",
+      "sha256": "ec6faba91a12ad06ebe8c76e53f399b5bfbf817e3d310642db56e1590a429aab"
+    },
+    {
+      "id": "iteration-002",
+      "sha256": "0d1fefb443538019186f67d07626ecdb8dd0e06d89f56b59d9ce4539b7913635"
+    },
+    {
+      "id": "iteration-003",
+      "sha256": "3752f6ac32c81fdede1629386e3ac9bf20797017aefc490ba193aa8cdac317b6"
+    },
+    {
+      "id": "iteration-004",
+      "sha256": "3e8502ceab3c0f897aaabd2de874f3aa32eda57886a3f01a7b84b46ac735bb41"
+    },
+    {
+      "id": "iteration-005",
+      "sha256": "2032c53df52bbdc44fb26495a2974f9364335cc57fba5dbab6da07f985b4bfb5"
+    },
+    {
+      "id": "iteration-006",
+      "sha256": "055b4ee6d8c6dc42221de99eb77f33153e56e565d1d94dace829de3e62edf563"
+    },
+    {
+      "id": "iteration-007",
+      "sha256": "f6a5a9538a9565118f1da2ac491672bc6ec9c1aec3a7238dbc8b689ebac7ab41"
+    },
+    {
+      "id": "iteration-008",
+      "sha256": "6f73cac8e5cc28758b3fde42c332ff38f7beacc228e9d5cbda8508beb12184bf"
+    },
+    {
+      "id": "iteration-009",
+      "sha256": "b3f36e884e0ca998a66c516e5138a111170ce70fcc32d7ea73dfe4197c0fb484"
+    },
+    {
+      "id": "iteration-010",
+      "sha256": "6fb749155fcaf5b022323f6f2b15dfba768387560845bfc1c585300cf24de156"
+    },
+    {
+      "id": "iteration-011",
+      "sha256": "2105be7d7a6a163c40d1b144e25bbea8dc8998e99ce28a961a602a2efb3f64a0"
+    },
+    {
+      "id": "iteration-012",
+      "sha256": "57a9dad66db128f0b4590bed2340d81b58bde06ccab005c33c9c4653f6b83802"
+    },
+    {
+      "id": "iteration-013",
+      "sha256": "9b93e02101043bf1610a7b8dcfe8b7b53a44a6b0b0185e10a675772b4cec7c84"
+    },
+    {
+      "id": "iteration-014",
+      "sha256": "f9ea87497252a7c3d0c98cefc89bd197260ef4fae6247d74bed35d3ce85f4b7c"
+    },
+    {
+      "id": "iteration-015",
+      "sha256": "6677d046d7505077fd9cc1a4b319930d5bad4c9411c7d83e3099c1da6b88bbb9"
+    },
+    {
+      "id": "iteration-016",
+      "sha256": "ac85634c9f0979b8cb9896c4a512d33a1facbcee204a3eb6c87b51d23a875e8d"
+    },
+    {
+      "id": "iteration-017",
+      "sha256": "1f7e35451b1f10575cac2243f852f17a227e6d08454400f1e997be8ac6c9271e"
+    },
+    {
+      "id": "iteration-018",
+      "sha256": "12e549387a7e0003ce34c848e1cd67c61cf97e82b991c0ed48610f368a714c86"
+    },
+    {
+      "id": "iteration-019",
+      "sha256": "b210580d3b812fde176d3ce5e9e1dad1bb0f90a933029226278900909ba377ee"
+    },
+    {
+      "id": "iteration-020",
+      "sha256": "e88d6f91ccec58fe0823c2ab5b1c2190a656342a8535a8e7515e8627c938600e"
+    },
+    {
+      "id": "iteration-021",
+      "sha256": "ac76d3114f6be393e41f47781687a97ac58571af161eb1d99bcabb332592c225"
+    },
+    {
+      "id": "iteration-022",
+      "sha256": "094538967b772f1a073e6d2641e736ff1d63c3e791a4fca97ddb8f2360cdb0df"
+    },
+    {
+      "id": "iteration-023",
+      "sha256": "bd356da3932414e1e6d6f2f0034b12faf8d38a10659cad622356c3a8b99ccf90"
+    },
+    {
+      "id": "iteration-024",
+      "sha256": "7623b5607c45db1c3e9f211b27a460e8a02a4d5818ed60e28d1732aa33da9728"
+    },
+    {
+      "id": "iteration-025",
+      "sha256": "d2c1ad6b40d89f7cfaa00e213e8e4bb5c08e8dee7ab8849ce5836f3233ec5bd0"
+    },
+    {
+      "id": "iteration-026",
+      "sha256": "d25266135c50e8c9a4ff375cf9593b84c630984324d6ee2abad5bfc2417ceae6"
+    },
+    {
+      "id": "iteration-027",
+      "sha256": "410c0e065779539530618cf8dedfb4f294c5ad2524a76f3b0bd40d4b34f09136"
+    },
+    {
+      "id": "iteration-028",
+      "sha256": "79d7c5b2ca73850a2a6390098344cef57499629d273b08af753846d07eccf24c"
+    },
+    {
+      "id": "iteration-029",
+      "sha256": "06ceddc370a5b2410c984ee83212b5c33bed50aa491ee7773debd7cba95d1764"
+    },
+    {
+      "id": "iteration-030",
+      "sha256": "fcc519faee65675139efcce9e51b45d8f6cabd5b47d66716e25578927195213c"
+    },
+    {
+      "id": "iteration-031",
+      "sha256": "dd051a5750bd500e39f78bff17e5184d6339933455b5ac5cb7f95e672895bb52"
+    },
+    {
+      "id": "iteration-032",
+      "sha256": "4bed6835c171607fa5da941276d3058f6a390c680b30d9bc37ecbcbc4e3bfa8c"
+    },
+    {
+      "id": "iteration-033",
+      "sha256": "aa5a9b8fe60e5c084ada213424867d4eca648fe1b4f88f0f98a1c84da5d4cb6d"
+    },
+    {
+      "id": "iteration-034",
+      "sha256": "dc745e80993f718fa23b6203f586d10e0c58f472398f3ea341df6bab89d0c32d"
+    },
+    {
+      "id": "iteration-035",
+      "sha256": "bd7899f10c80cae4c705d174414f1bb94b6d249407d924c3cfd858ce070a7bbc"
+    },
+    {
+      "id": "iteration-036",
+      "sha256": "cb928b57922ca3980c109a8ca1215640327ff440ac273107e9e1ec3b561659e5"
+    },
+    {
+      "id": "iteration-037",
+      "sha256": "6e7f6c80da4b0671e6aba1dc3b6126835f3c3026318e68825de9012797038fda"
+    },
+    {
+      "id": "iteration-038",
+      "sha256": "2a2c2fb19f4348949145962f232514960b50aa92a0d6430f613884ad29b9719f"
+    },
+    {
+      "id": "iteration-039",
+      "sha256": "42cead444c0812c6a2daf2918525cc414c79015b105ff48d0e4ebba8fae20877"
+    },
+    {
+      "id": "iteration-040",
+      "sha256": "8390c2601e6859e875779bf2c6cacb40be7e778f0207d967438c628d1a970d74"
+    },
+    {
+      "id": "iteration-041",
+      "sha256": "fc7886ef881463c9cb62c2060a2158aa0ddf1ca1f350335cff3889fb20ad8235"
+    },
+    {
+      "id": "iteration-042",
+      "sha256": "96f4fb4936abb5b7f0b71e681407faa82ed9f583fabc40b6395612bee22594c0"
+    },
+    {
+      "id": "iteration-043",
+      "sha256": "1682e2d855116aa1cb4c223d4dd171a909900b90d28fbcc35160501185cd296b"
+    },
+    {
+      "id": "iteration-044",
+      "sha256": "be1f09c5adb177d1fc46940287de14392aeb2d577c19661851d6d857f9cda960"
+    },
+    {
+      "id": "iteration-045",
+      "sha256": "379d80fa93f5ee23c2be6d072534625dc5a1cbe88128604be30f1356e4c8d7f1"
+    },
+    {
+      "id": "iteration-046",
+      "sha256": "8aed83aefbfe4b84bd438bc2486200d7e826c2f10e673c97e8349e221d5696df"
+    },
+    {
+      "id": "iteration-047",
+      "sha256": "71caa43aa479b35e51d58375992bd3b258036f400f6314b2b260f233b49c2c09"
+    },
+    {
+      "id": "iteration-048",
+      "sha256": "5537c911ec7ff724ae05219795f88c06a2e4b19c180e1dc379d8be78818f1165"
+    },
+    {
+      "id": "iteration-049",
+      "sha256": "a6fe2595aca69b31ba6ba34cec1edc246795180cc603d016bf5bc984cd72380b"
+    },
+    {
+      "id": "iteration-050",
+      "sha256": "cd2611d4497f2a85db3806ce02ae1e5e9e4a03fb58506453524439073b9ec159"
+    },
+    {
+      "id": "iteration-051",
+      "sha256": "ec2e1437d92a2898f61b41d7220889dfed26b451d87b7343faed21e0331e685b"
+    },
+    {
+      "id": "iteration-052",
+      "sha256": "1edcd002de310f2769460023f1c7a85360734e701b6f6d3f44162e41596268a2"
+    },
+    {
+      "id": "iteration-053",
+      "sha256": "2ab7f420042f2f2768b276fe7a147b0a685168031f98274b211cfa17111924c5"
+    },
+    {
+      "id": "iteration-054",
+      "sha256": "af42893137bccb7477f02bee21a9d29244d5510827f61c010b2917b09b8ca895"
+    },
+    {
+      "id": "iteration-055",
+      "sha256": "fd13db0740b50d528a0ba26bb2ea0615ac86c71f32568d4b8e81b53c701fd369"
+    },
+    {
+      "id": "iteration-056",
+      "sha256": "62c89848e0df2f51ba29f16788fe9e2415379e35c2c2c5ed1a02d17b3aa01825"
+    },
+    {
+      "id": "iteration-057",
+      "sha256": "5c9385b2c204a587f36cb7233a53c0213c20a00bec7bdb22701b62f8ccb0c0e6"
+    },
+    {
+      "id": "iteration-058",
+      "sha256": "6899c952b4dc765112f368c188910fe372c8be13e504d109a6f0f4ee489efd48"
+    },
+    {
+      "id": "iteration-059",
+      "sha256": "23d9cdfa77f9f279e9fd69f5231573eaa9d4a24accccf9ede81c6485cc00fc92"
+    },
+    {
+      "id": "iteration-060",
+      "sha256": "028d9dff9fd7e766422a52e5dee49a55b8ec1c8bfeaf12276c18363deb02391f"
+    },
+    {
+      "id": "iteration-061",
+      "sha256": "0cc5ed42bc0149a573ff19293ac0eba6f01262dbdcfd815020549e930072620c"
+    },
+    {
+      "id": "iteration-062",
+      "sha256": "5518dbb190e656386478d93b777b84b372a3b73e3bb94be17383172804327749"
+    },
+    {
+      "id": "iteration-063",
+      "sha256": "9b708c6bc7c395c76acffcdb2c6aba3670b44b74489a841a75e00a379159e51d"
+    },
+    {
+      "id": "iteration-064",
+      "sha256": "017cc96ed1c802f1ff2b21b13be87e53b7a2a9f7f5e888e10c51f59cd9622075"
+    },
+    {
+      "id": "iteration-065",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf"
+    },
+    {
+      "id": "iteration-066",
+      "sha256": "1cbce36d4edef00560e739a653f1b792576130f5b26cb5db34ce033e488dfcd8"
+    },
+    {
+      "id": "iteration-067",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a"
+    },
+    {
+      "id": "iteration-068",
+      "sha256": "a281ceb0e80cf6c6d7f4be7c1c69c6d3fd6ff0f585419d6439e9acca752a583f"
+    },
+    {
+      "id": "iteration-069",
+      "sha256": "26489ea7e320d792bf56d69db458716c43d7a367af62ba91a45d00ef309b41a4"
+    }
+  ],
+  "anchorHashProvenance": "backfilled from immutable original input prompt; prompt hash verified; candidate code unchanged"
+}

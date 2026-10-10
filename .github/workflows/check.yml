@@ -1,6 +1,34 @@
 name: mechanism-contracts
 on: [push, pull_request]
 jobs:
+  visualbook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: experiments/visualbook/package-lock.json
+      - run: python3 experiments/visualbook/bootstrap.py --fetch
+      - name: Install browser for offline reading checks
+        run: |
+          npm exec --prefix work/visualbook/runtime -- playwright-core install --with-deps chromium
+          node --input-type=module -e "import {chromium} from './work/visualbook/runtime/node_modules/playwright-core/index.mjs'; console.log('CHROMIUM_PATH='+chromium.executablePath())" >> "$GITHUB_ENV"
+      - name: Verify frozen books without model calls
+        run: python3 experiments/visualbook/check-frozen.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: visualbook-engineering-evidence
+          path: |
+            work/visualbook/frozen-checks/*/math
+            work/visualbook/frozen-checks/*/relations
+            work/visualbook/frozen-checks/*/reading
   check:
     runs-on: ubuntu-latest
     steps:

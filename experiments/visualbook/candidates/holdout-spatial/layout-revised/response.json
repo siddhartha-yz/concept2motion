@@ -1,0 +1,71 @@
+{
+  "figures": [
+    {
+      "id": "padding-center",
+      "title": "核大小与中心对齐",
+      "purpose": "补充原图没有展示的联系：保持输出大小时，奇数核可对称填充并对齐输入中心；偶数核采用原文给出的非对称填充方案时，窗口几何中心偏移半格。改变核大小即可比较。",
+      "alt": "输入与输出沿同一坐标排列。蓝色标出计算 Y[2] 的窗口，橙色标出 Y[2]。调整核大小，比较左右填充数量与窗口中心位置。",
+      "afterAnchor": "holdout-spatial-010",
+      "states": [
+        {
+          "key": "padding",
+          "label": "两侧分配",
+          "anchor": "holdout-spatial-010"
+        },
+        {
+          "key": "center",
+          "label": "中心对齐",
+          "anchor": "holdout-spatial-013"
+        }
+      ],
+      "controls": [
+        {
+          "key": "kernel",
+          "label": "核大小 k",
+          "min": 2,
+          "max": 5,
+          "step": 1,
+          "value": 3
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  function integer(v,d,lo,hi) { const z=Number(v); return Number.isFinite(z)?Math.max(lo,Math.min(hi,Math.round(z))):d; }\n  const W=integer(width,320,320,760), H=260;\n  const k=integer(params&&params.kernel,3,2,5), n=5, j=2;\n  const total=k-1, left=Math.ceil(total/2), right=Math.floor(total/2);\n  const N=n+total, start=j-left, end=start+k-1, center=(start+end)/2;\n  const focus=state==='center'?'center':'padding';\n  const wide=W>=560, area=wide?W-190:W;\n  const cell=Math.min(44,(area-32)/9), x=(area-N*cell)/2;\n  const inputY=44, outputY=178;\n  const ink='#252521', quiet='#a9a69e', blue='#3176a6', orange='#bb702e';\n  const parts=[];\n  function text(a,b,t,size,color,anchor) { parts.push('<text x=\"'+a+'\" y=\"'+b+'\" font-size=\"'+(size||14)+'\" fill=\"'+(color||ink)+'\" text-anchor=\"'+(anchor||'middle')+'\">'+t+'</text>'); }\n  function line(a,b,c,d,color,dash) { parts.push('<line x1=\"'+a+'\" y1=\"'+b+'\" x2=\"'+c+'\" y2=\"'+d+'\" stroke=\"'+color+'\" stroke-width=\"1.5\"'+(dash?' stroke-dasharray=\"4 3\"':'')+'/>'); }\n  function rect(a,b,w,h,fill,stroke,dash) { parts.push('<rect x=\"'+a+'\" y=\"'+b+'\" width=\"'+w+'\" height=\"'+h+'\" fill=\"'+fill+'\" stroke=\"'+stroke+'\"'+(dash?' stroke-dasharray=\"3 3\"':'')+'/>'); }\n  const sub=['₀','₁','₂','₃','₄'];\n  text(x,25,'输入 X',15,ink,'start');\n  const inputCells=[];\n  for(let t=0;t<N;t++) {\n    const coordinate=t-left, pad=coordinate<0||coordinate>=n;\n    const inWindow=coordinate>=start&&coordinate<=end;\n    rect(x+t*cell,inputY,cell,cell,inWindow?'#e0edf5':(pad?'#f0eeea':'#faf9f6'),pad?quiet:ink,pad);\n    text(x+(t+0.5)*cell,inputY+cell/2+5,pad?'0':'x'+sub[coordinate],14);\n    text(x+(t+0.5)*cell,inputY+cell+19,String(coordinate),14,quiet);\n    inputCells.push({coordinate:coordinate,padding:pad,label:pad?'0':'x'+sub[coordinate],inWindow:inWindow});\n  }\n  const wx=x+j*cell, span=k*cell, mid=wx+span/2;\n  rect(wx,inputY,span,cell,'none',blue,false);\n  const by=112;\n  line(wx,by,wx+span,by,blue,false);\n  line(wx,by-5,wx,by+5,blue,false);\n  line(wx+span,by-5,wx+span,by+5,blue,false);\n  line(mid,by,mid,125,blue,false);\n  parts.push('<circle cx=\"'+mid+'\" cy=\"125\" r=\"3\" fill=\"'+blue+'\"/>');\n  text(mid,146,'窗口中心 '+center,14,blue);\n  const ox=x+left*cell;\n  text(ox,167,'输出 Y',15,ink,'start');\n  const outputCells=[];\n  for(let q=0;q<n;q++) {\n    rect(ox+q*cell,outputY,cell,cell,q===j?'#f5e7d8':'#faf9f6',q===j?orange:quiet,false);\n    text(ox+(q+0.5)*cell,outputY+cell/2+5,'y'+sub[q],14,q===j?orange:ink);\n    outputCells.push({index:q,selected:q===j});\n  }\n  const selectedX=ox+(j+0.5)*cell;\n  if(focus==='center') {\n    line(selectedX,inputY-5,selectedX,inputY+cell+4,orange,true);\n    line(selectedX,151,selectedX,outputY-4,orange,true);\n  }\n  if(wide) {\n    const sx=W-174;\n    text(sx,65,'k = '+k,16,ink,'start');\n    text(sx,98,'p总 = '+total,16,ink,'start');\n    text(sx,131,'左 '+left+' / 右 '+right,16,ink,'start');\n    text(sx,164,'Y['+j+']：坐标 '+j,14,orange,'start');\n    text(sx,197,'中心差 '+(center-j),14,blue,'start');\n  } else {\n    text(W/2,246,'k='+k+' · p总='+total+' · 左 '+left+' / 右 '+right,14);\n  }\n  const svg='<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+W+'\" height=\"'+H+'\" viewBox=\"0 0 '+W+' '+H+'\" role=\"img\"><title>核大小与中心对齐</title><desc>固定输入长度为五、步幅为一。核大小为'+k+'，总填充为'+total+'，左侧'+left+'，右侧'+right+'。输出索引二的窗口覆盖输入坐标'+start+'到'+end+'，几何中心为'+center+'。</desc><rect width=\"'+W+'\" height=\"'+H+'\" fill=\"#faf9f6\"/><g font-family=\"sans-serif\">'+parts.join('')+'</g></svg>';\n  return {svg:svg,facts:{state:focus,width:W,height:H,inputLength:n,kernelSize:k,stride:1,dilation:1,padding:{total:total,left:left,right:right},paddedLength:N,outputLength:N-k+1,selectedOutputIndex:j,window:{inputStart:start,inputEnd:end,center:center,offsetFromOutputIndex:center-j},inputCells:inputCells,outputCells:outputCells,geometry:{cellSize:cell,inputOriginX:x,inputY:inputY,outputOriginX:ox,outputY:outputY},numericConvolutionComputed:false}};\n}",
+      "assumptions": "展示二维方形输入的一条水平切片，固定长度5、步幅1、膨胀率1；核大小表示窗口尺寸，没有使用或声称训练权重。采用010给出的偶数核方案：左侧 ceil((k−1)/2)，右侧 floor((k−1)/2)。偶数核的半格偏移仅针对此填充分配。012的“奇数的核大小和填充大小”用语与010的总填充 p=k−1 不一致：奇数核对应偶数总填充；013的明确条件可成立，本图依照这些明确条件。030又将 p 用于每侧填充，与007—010中的总填充符号含义不同，本图始终标注 p总。未修改原文。",
+      "checks": "逐一复核 k=2、3、4、5：总填充分别为1、2、3、4；左右分别为(1,0)、(1,1)、(2,1)、(2,2)；输出长度均为5；Y[2]窗口中心分别为1.5、2、1.5、2。核窗口应覆盖恰好k格，所有填充格应位于原输入之外。两个状态应保持相同上下文与画布高度。检查320、559、560、760像素布局、字号和标签边界；窄屏摘要应移到下方。以上为待复核项目，未声称已执行验证。"
+    },
+    {
+      "id": "stride-valid-origins",
+      "title": "最后一个窗口能否放下",
+      "purpose": "把输出尺寸公式中的向下取整联系到合法窗口起点。读者增加一格右填充或改变步幅，可直接看到末端窗口何时成为有效输出，补充已有互相关数值图未展示的边界阈值。",
+      "alt": "固定五格输入，蓝色短线表示合法窗口，灰色虚线表示下一个越界窗口，橙色格表示对应输出。调整步幅和右侧填充，观察合法起点与输出格数。",
+      "afterAnchor": "holdout-spatial-024",
+      "states": [
+        {
+          "key": "count",
+          "label": "合法起点与取整",
+          "anchor": "holdout-spatial-024"
+        }
+      ],
+      "controls": [
+        {
+          "key": "stride",
+          "label": "水平步幅 s",
+          "min": 1,
+          "max": 3,
+          "step": 1,
+          "value": 2
+        },
+        {
+          "key": "rightPadding",
+          "label": "右侧填充",
+          "min": 0,
+          "max": 2,
+          "step": 1,
+          "value": 0
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  function integer(v,d,lo,hi) { const z=Number(v); return Number.isFinite(z)?Math.max(lo,Math.min(hi,Math.round(z))):d; }\n  const W=integer(width,320,320,760), H=268;\n  const s=integer(params&&params.stride,2,1,3);\n  const p=integer(params&&params.rightPadding,0,0,2);\n  const n=5,k=2,N=n+p,count=Math.floor((N-k)/s)+1;\n  const origins=Array.from({length:count},function(_,i){return i*s;});\n  const next=count*s, wide=W>=560;\n  const area=wide?W*0.6:W, cell=Math.min(40,(area-32)/8);\n  const x=wide?16:(W-8*cell)/2, y=42;\n  const ink='#252521',quiet='#a9a69e',blue='#3176a6',orange='#bb702e';\n  const parts=[];\n  function text(a,b,t,size,color,anchor) { parts.push('<text x=\"'+a+'\" y=\"'+b+'\" font-size=\"'+(size||14)+'\" fill=\"'+(color||ink)+'\" text-anchor=\"'+(anchor||'middle')+'\">'+t+'</text>'); }\n  function line(a,b,c,d,color,dash) { parts.push('<line x1=\"'+a+'\" y1=\"'+b+'\" x2=\"'+c+'\" y2=\"'+d+'\" stroke=\"'+color+'\" stroke-width=\"2\"'+(dash?' stroke-dasharray=\"4 3\"':'')+'/>'); }\n  function rect(a,b,w,h,fill,stroke,dash) { parts.push('<rect x=\"'+a+'\" y=\"'+b+'\" width=\"'+w+'\" height=\"'+h+'\" fill=\"'+fill+'\" stroke=\"'+stroke+'\"'+(dash?' stroke-dasharray=\"3 3\"':'')+'/>'); }\n  const sub=['₀','₁','₂','₃','₄','₅'];\n  text(x,24,'输入 n=5',15,ink,'start');\n  text(x+8*cell,24,'右填充 '+p,14,ink,'end');\n  const inputCells=[];\n  for(let q=0;q<N;q++) {\n    const padded=q>=n;\n    rect(x+q*cell,y,cell,cell,padded?'#f0eeea':'#faf9f6',padded?quiet:ink,padded);\n    text(x+(q+0.5)*cell,y+cell/2+5,padded?'0':'x'+sub[q],14);\n    inputCells.push({paddedIndex:q,padding:padded,label:padded?'0':'x'+sub[q]});\n  }\n  for(let q=0;q<8;q++) text(x+(q+0.5)*cell,y+cell+18,String(q),14,quiet);\n  const boundary=x+N*cell;\n  line(boundary,y-5,boundary,165,quiet,true);\n  const windows=[];\n  for(let i=0;i<count;i++) {\n    const a=origins[i], yy=114+(i%2)*20, xx=x+a*cell;\n    rect(xx+1,yy,k*cell-2,7,'#dcebf5',blue,false);\n    parts.push('<circle cx=\"'+(xx+cell/2)+'\" cy=\"'+(yy+3.5)+'\" r=\"2.5\" fill=\"'+blue+'\"/>');\n    windows.push({outputIndex:i,start:a,endInclusive:a+k-1,startMultiple:i,stride:s,valid:a+k<=N,barY:yy});\n  }\n  const nx=x+next*cell;\n  rect(nx+1,154,k*cell-2,7,'none',quiet,true);\n  text(nx+k*cell/2,178,'越界',14,ink);\n  const outCell=wide?Math.min(32,(W*0.35-24)/6):Math.min(36,(W-32)/6);\n  const outX=wide?W*0.65:(W-count*outCell)/2;\n  const outY=wide?77:200;\n  text(outX,outY-10,'输出 Y',15,ink,'start');\n  const outputCells=[];\n  for(let i=0;i<count;i++) {\n    rect(outX+i*outCell,outY,outCell,26,'#f5e7d8',orange,false);\n    text(outX+(i+0.5)*outCell,outY+18,'y'+sub[i],14,orange);\n    outputCells.push({outputIndex:i,inputStart:origins[i],inputEndInclusive:origins[i]+k-1});\n  }\n  if(wide) {\n    text(outX,134,'s = '+s,15,ink,'start');\n    text(outX,163,count+' 个合法起点',15,orange,'start');\n  }\n  text(W/2,252,'⌊('+n+'+'+p+'−'+k+')/'+s+'⌋+1 = '+count,16);\n  const svg='<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+W+'\" height=\"'+H+'\" viewBox=\"0 0 '+W+' '+H+'\" role=\"img\"><title>最后一个窗口能否放下</title><desc>固定输入长度五，核宽二，右侧填充'+p+'格，步幅'+s+'。合法窗口起点为'+origins.join('、')+'，对应'+count+'个输出。下一个起点'+next+'的窗口超出填充后长度'+N+'。</desc><rect width=\"'+W+'\" height=\"'+H+'\" fill=\"#faf9f6\"/><g font-family=\"sans-serif\">'+parts.join('')+'</g></svg>';\n  return {svg:svg,facts:{state:'count',width:W,height:H,inputLength:n,kernelSize:k,stride:s,dilation:1,padding:{left:0,right:p,total:p},paddedLength:N,lastAllowedStart:N-k,validOrigins:origins,outputLength:count,windows:windows,nextWindow:{start:next,endInclusive:next+k-1,valid:next+k<=N,overflowCells:Math.max(0,next+k-N)},remainder:(N-k)%s,formulaOperands:{n:n,pTotal:p,k:k,s:s},inputCells:inputCells,outputCells:outputCells,geometry:{cellSize:cell,inputOriginX:x,inputY:y,boundaryX:boundary,outputCellWidth:outCell,outputOriginX:outX,outputY:outY},numericConvolutionComputed:false}};\n}",
+      "assumptions": "使用水平一维切片，固定 n=5、k=2、膨胀率1。填充只加在右侧，以隔离末端窗口是否能放下这一因果关系；这不是框架中对称 padding 参数的演示。坐标是填充后输入的零基索引，蓝色窗口按起点递增排列，上下错开放置仅为避免重叠。橙色输出格只表示位置与数量，不表示已计算的互相关数值。024的 p 是两侧总填充；030将同名符号用于每侧填充，存在记号歧义，本图明确返回 left、right 和 total。图内结果均为确定性几何计算，没有本机 PyTorch 执行或性能测量。",
+      "checks": "复核全部9组参数：s=1时，右填充0、1、2对应输出4、5、6；s=2时对应2、3、3；s=3时对应2、2、2。每个合法起点必须是步幅的非负整数倍，并满足 start+k≤n+p；下一个起点必须不满足该条件。重点检查默认 s=2 时，增加一格右填充使起点4由越界变为合法，再增加一格不增加输出。核对橙色输出格与蓝色合法窗口一一对应。检查320、559、560、760像素布局：窄屏输出移到下方、宽屏移到右侧，所有参数保持268像素高度，越界窗口不得超出画布。以上为待复核项目，未声称已执行验证。"
+    }
+  ]
+}

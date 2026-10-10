@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "seed": "6997156784937666285",
+  "algorithm": "uniformly sample two of four pre-registered strata; use their frozen reserved section",
+  "upstream_commit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sections": [
+    {
+      "stratum": "holdout-iteration",
+      "reason": "保留的新节：优化中的逐步变化",
+      "selected": "chapter_optimization/gd.md",
+      "source_sha256": "7116f91055e7ed0b66c636568560432fa7a4734622e102b882905c6e85d1e81d"
+    },
+    {
+      "stratum": "holdout-spatial",
+      "reason": "保留的新节：卷积中的空间计算",
+      "selected": "chapter_convolutional-neural-networks/padding-and-strides.md",
+      "source_sha256": "96d541d3cd01b9808e803b08d60a5acaced070bb0a8db1740d7a1cc58b778d05"
+    }
+  ],
+  "purpose": "Apply revised general author guidance to new sections. Exploratory transfer, not a controlled comparison."
+}

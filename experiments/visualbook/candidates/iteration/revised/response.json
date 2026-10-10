@@ -1,0 +1,73 @@
+{
+  "figures": [
+    {
+      "id": "sgd-gradient-mean",
+      "title": "单样本与平均梯度",
+      "purpose": "在同一参数点保留全部样本梯度，让读者切换所选样本，并直接比较单次梯度与均匀采样的精确期望。横纵分量使用相同像素尺度，均值始终来自同一组数据。",
+      "alt": "梯度分量坐标轴标为 g₁、g₂，横纵单位长度相同。四个橙色样本梯度从原点出发，蓝色箭头表示同一组梯度的平均值。切换样本只改变橙色箭头的强调，蓝色均值保持不变；这些箭头不表示参数移动。",
+      "afterAnchor": "iteration-010",
+      "states": [
+        {
+          "key": "sample",
+          "label": "选一个样本",
+          "anchor": "iteration-010"
+        },
+        {
+          "key": "mean",
+          "label": "均匀采样的期望",
+          "anchor": "iteration-013"
+        }
+      ],
+      "controls": [
+        {
+          "key": "sample",
+          "label": "样本编号",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "value": 1
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  const w = Number.isFinite(width) ? Math.max(320, Math.min(760, width)) : 640;\n  const h = 250;\n  const p = params || {};\n  const index = Number.isFinite(p.sample) ? Math.max(1, Math.min(4, Math.round(p.sample))) : 1;\n  const key = typeof state === 'string' ? state : state && state.key;\n  const mode = key === 'mean' ? 'mean' : 'sample';\n  const ink = '#272b2e', blue = '#356f9f', orange = '#c87532', quiet = '#d6d2c9';\n  const gradients = [[3,1],[-1,3],[2,-1],[0,1]];\n  const sum = gradients.reduce((a,g) => [a[0]+g[0], a[1]+g[1]], [0,0]);\n  const mean = sum.map(v => v / gradients.length);\n  const domain = {x:[-1.8,4], y:[-1.6,3.9]};\n  const spanX = domain.x[1]-domain.x[0], spanY = domain.y[1]-domain.y[0];\n  const scale = Math.min((w-68)/spanX,154/spanY);\n  const plotWidth = spanX*scale, plotHeight = spanY*scale;\n  const plotLeft = (w-plotWidth)/2, plotTop = 34+(154-plotHeight)/2;\n  function point(v) {\n    return {x:plotLeft+(v[0]-domain.x[0])*scale, y:plotTop+(domain.y[1]-v[1])*scale};\n  }\n  function text(x,y,t,anchor,color,size) {\n    return '<text x=\"'+x+'\" y=\"'+y+'\" text-anchor=\"'+(anchor||'start')+'\" fill=\"'+(color||ink)+'\" font-size=\"'+(size||14)+'\">'+t+'</text>';\n  }\n  const origin = point([0,0]);\n  const endpoints = gradients.map(point);\n  const meanEnd = point(mean);\n  const arrows = [];\n  function arrow(end,color,stroke,opacity) {\n    const dx=end.x-origin.x, dy=end.y-origin.y;\n    const length=Math.hypot(dx,dy), ux=dx/length, uy=dy/length;\n    const head=[{x:end.x,y:end.y},{x:end.x-8*ux+4*uy,y:end.y-8*uy-4*ux},{x:end.x-8*ux-4*uy,y:end.y-8*uy+4*ux}];\n    arrows.push({start:origin,end:end,head:head,color:color,stroke:stroke,opacity:opacity});\n    return '<g opacity=\"'+opacity+'\"><line x1=\"'+origin.x+'\" y1=\"'+origin.y+'\" x2=\"'+end.x+'\" y2=\"'+end.y+'\" stroke=\"'+color+'\" stroke-width=\"'+stroke+'\"/><polygon points=\"'+head.map(q=>q.x+','+q.y).join(' ')+'\" fill=\"'+color+'\"/></g>';\n  }\n  let body='<rect width=\"'+w+'\" height=\"'+h+'\" fill=\"#fbf8f1\"/>';\n  body+='<line x1=\"16\" y1=\"16\" x2=\"34\" y2=\"16\" stroke=\"'+orange+'\" stroke-width=\"3\"/>'+text(40,21,'样本梯度');\n  body+='<line x1=\"150\" y1=\"16\" x2=\"168\" y2=\"16\" stroke=\"'+blue+'\" stroke-width=\"3\"/>'+text(174,21,'同一数据均值');\n  const xStart=point([domain.x[0],0]), xEnd=point([domain.x[1],0]);\n  const yStart=point([0,domain.y[0]]), yEnd=point([0,domain.y[1]]);\n  body+='<path d=\"M '+xStart.x+' '+xStart.y+' H '+xEnd.x+' M '+yStart.x+' '+yStart.y+' V '+yEnd.y+'\" fill=\"none\" stroke=\"'+quiet+'\"/>';\n  body+=text(xEnd.x+8,origin.y+5,'g₁')+text(origin.x+8,yEnd.y+8,'g₂')+text(origin.x-8,origin.y+18,'0','end');\n  gradients.forEach((g,i)=>{\n    body+=arrow(endpoints[i],orange,mode==='sample' && i===index-1 ? 3.5 : 2,mode==='sample' && i!==index-1 ? 0.55 : 1);\n  });\n  body+=arrow(meanEnd,blue,3.5,1);\n  body+=text(endpoints[0].x,endpoints[0].y-10,'(3,1)','end');\n  body+=text(endpoints[1].x,endpoints[1].y-10,'(−1,3)');\n  body+=text(endpoints[2].x+6,endpoints[2].y+6,'(2,−1)');\n  body+=text(endpoints[3].x-8,endpoints[3].y-8,'(0,1)','end');\n  body+=text(meanEnd.x+8,meanEnd.y+20,'(1,1)','start',blue);\n  const chosen=gradients[index-1];\n  body+=text(w/2,211,mode==='mean' ? '¼Σgᵢ = E[gᵢ] = (1,1)' : 'i = '+index+'    gᵢ = ('+chosen.join(',')+')','middle',mode==='mean' ? blue : ink,16);\n  body+=text(w/2,237,'手选例：同一点 x = (0,0)。','middle');\n  return {svg:'<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+w+'\" height=\"'+h+'\" viewBox=\"0 0 '+w+' '+h+'\" role=\"img\" font-family=\"sans-serif\"><title>单样本与平均梯度</title><desc>横纵轴是梯度分量 g₁、g₂，单位像素尺度相同。四个样本等概率，各梯度为所标坐标；蓝色箭头始终是这四个梯度的精确平均值。当前样本编号为'+index+'。箭头不表示参数更新轨迹。</desc>'+body+'</svg>',facts:{width:w,height:h,state:mode,parameterPoint:[0,0],sampleGradients:gradients,sampleProbabilities:[0.25,0.25,0.25,0.25],gradientSum:sum,expectedGradient:mean,selectedIndex:index,selectedGradient:chosen,compatibleLosses:gradients.map(g=>({form:'0.5*((x1+b1)^2+(x2+b2)^2)',b:g})),domain:domain,coordinateMeaning:'梯度分量',layout:{pixelsPerUnitX:scale,pixelsPerUnitY:scale,plotLeft:plotLeft,plotTop:plotTop,plotWidth:plotWidth,plotHeight:plotHeight,plotCenterX:plotLeft+plotWidth/2},origin:origin,sampleEndpoints:endpoints,meanEndpoint:meanEnd,arrows:arrows,parameterUpdates:[],steps:[{operation:'选择样本',index:index},{operation:'同一组四个梯度均匀加权求和',weights:[0.25,0.25,0.25,0.25],result:mean}]}};\n}",
+      "assumptions": "四个梯度是手选教学例，来自四个凸二次损失在 x=(0,0) 处的梯度；不是训练权重或实验数据。样本编号控件是枚举选择，不模拟随机抽样。橙色始终表示样本梯度，蓝色始终表示同一组数据的完整平均梯度。坐标轴表示梯度分量，图中没有参数更新。",
+      "checks": "独立求导 compatibleLosses，复核四个梯度、总和 (4,4) 及均匀期望 (1,1)。检查样本编号 1–4、两个状态及 width=320、560、760：横纵 pixelsPerUnit 相等，端点距离等于梯度范数乘统一尺度，角度与长度比例不随 width 改变，绘图区水平居中，标签不交叠且位于画布内。确认轴标签为 g₁/g₂，parameterUpdates 为空；切换编号或状态不改变四个梯度及蓝色均值。此处给出代码修订，未执行渲染或截图复核。"
+    },
+    {
+      "id": "sgd-sampling-coverage",
+      "title": "一轮抽样的覆盖",
+      "purpose": "把有放回抽样的理论概率与固定种子的有限示例并置，再用相同样本位置比较打乱后遍历一遍，揭示遗漏、重复和恰好一次的区别。",
+      "alt": "顶部显示有放回抽 n 次时某个样本被抽中零次、一次、至少两次的概率。下方两组对应格子记录每个样本的实际抽中次数：有放回示例可能遗漏或重复，打乱遍历每个样本恰好一次。",
+      "afterAnchor": "iteration-061",
+      "states": [
+        {
+          "key": "coverage",
+          "label": "遗漏与覆盖",
+          "anchor": "iteration-061"
+        },
+        {
+          "key": "once",
+          "label": "恰好一次",
+          "anchor": "iteration-063"
+        },
+        {
+          "key": "shuffle",
+          "label": "打乱后遍历",
+          "anchor": "iteration-064"
+        }
+      ],
+      "controls": [
+        {
+          "key": "n",
+          "label": "样本数 n",
+          "min": 2,
+          "max": 24,
+          "step": 1,
+          "value": 12
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  const w=Number.isFinite(width) ? Math.max(320,Math.min(760,width)) : 640;\n  const p=params||{};\n  const n=Number.isFinite(p.n) ? Math.max(2,Math.min(24,Math.round(p.n))) : 12;\n  const key=typeof state==='string' ? state : state && state.key;\n  const mode=key==='once'||key==='shuffle' ? key : 'coverage';\n  const cols=Math.min(n,w>=560 ? 12 : 8), rows=Math.ceil(n/cols);\n  const h=152+52*rows;\n  const ink='#272b2e', blue='#356f9f', orange='#c87532', quiet='#ded9cf';\n  function generator(seed) {\n    let s=seed>>>0;\n    return function() {s=(Math.imul(1664525,s)+1013904223)>>>0;return s/4294967296;};\n  }\n  const replacementSeed=20261010, shuffleSeed=20261011;\n  const random=generator(replacementSeed), shuffleRandom=generator(shuffleSeed);\n  const draws=[], counts=Array(n).fill(0);\n  for(let t=0;t<n;t++){const i=Math.floor(random()*n);draws.push(i+1);counts[i]++;}\n  const permutation=Array.from({length:n},(_,i)=>i+1), swaps=[];\n  for(let i=n-1;i>0;i--){const j=Math.floor(shuffleRandom()*(i+1));const a=permutation[i];permutation[i]=permutation[j];permutation[j]=a;swaps.push({i:i,j:j});}\n  const p0=Math.pow(1-1/n,n), p1=Math.pow(1-1/n,n-1), p2=1-p0-p1;\n  const probabilities=[p0,p1,p2];\n  const covered=counts.filter(c=>c>0).length;\n  const empiricalCategories=[counts.filter(c=>c===0).length,counts.filter(c=>c===1).length,counts.filter(c=>c>=2).length];\n  const colors=[quiet,blue,orange];\n  const segments=[], cells=[];\n  function text(x,y,t,anchor,color,weight){return '<text x=\"'+x+'\" y=\"'+y+'\" text-anchor=\"'+(anchor||'start')+'\" fill=\"'+(color||ink)+'\" font-size=\"14\" font-weight=\"'+(weight||400)+'\">'+t+'</text>';}\n  let body='<rect width=\"'+w+'\" height=\"'+h+'\" fill=\"#fbf8f1\"/>';\n  body+=text(16,18,'有放回概率')+text(w-16,18,'n = '+n,'end');\n  let start=16;\n  probabilities.forEach((prob,i)=>{\n    const span=(w-32)*prob;\n    const active=(mode==='coverage'&&i===0)||(mode==='once'&&i===1);\n    segments.push({category:i===2 ? '至少两次' : i+'次',probability:prob,x:start,y:30,width:span,height:24,highlighted:active});\n    body+='<rect x=\"'+start+'\" y=\"30\" width=\"'+span+'\" height=\"24\" fill=\"'+colors[i]+'\"'+(active ? ' stroke=\"'+ink+'\" stroke-width=\"2\"' : '')+'/>';\n    body+=text(start+span/2,47,(prob*100).toFixed(1)+'%','middle',i===0 ? ink : '#ffffff');\n    start+=span;\n  });\n  ['0次','1次','≥2次'].forEach((label,i)=>{\n    const x=16+(w-32)*(i+0.5)/3;\n    body+='<circle cx=\"'+(x-25)+'\" cy=\"70\" r=\"4\" fill=\"'+colors[i]+'\"/>'+text(x-15,75,label);\n  });\n  const panelStarts=[92,92+22+26*rows];\n  const series=[counts,Array(n).fill(1)];\n  body+=text(16,panelStarts[0],'有放回：覆盖 '+covered+'/'+n);\n  body+=text(16,panelStarts[1],'打乱遍历：覆盖 '+n+'/'+n,'start',ink,mode==='shuffle' ? 700 : 400);\n  series.forEach((values,panel)=>{\n    values.forEach((count,i)=>{\n      const x=16+(w-32)/cols*(i%cols+0.5);\n      const y=panelStarts[panel]+20+26*Math.floor(i/cols);\n      const fill=count===0 ? quiet : count===1 ? blue : orange;\n      cells.push({method:panel===0 ? '有放回' : '打乱遍历',sampleIndex:i+1,count:count,cx:x,cy:y,radius:10,fill:fill});\n      body+='<circle cx=\"'+x+'\" cy=\"'+y+'\" r=\"10\" fill=\"'+fill+'\"/>'+text(x,y+5,String(count),'middle',count===0 ? ink : '#ffffff');\n    });\n  });\n  body+=text(w/2,h-10,'固定种子例；格内为抽中次数。','middle');\n  return {svg:'<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+w+'\" height=\"'+h+'\" viewBox=\"0 0 '+w+' '+h+'\" role=\"img\" font-family=\"sans-serif\"><title>一轮抽样的覆盖</title><desc>理论概率针对有放回抽样。下方每组格子按样本编号顺序排列，对应位置是同一个样本。蓝色为一次，橙色为至少两次，灰色为零次。固定示例覆盖'+covered+'个样本；打乱遍历覆盖全部'+n+'个样本。</desc>'+body+'</svg>',facts:{width:w,height:h,state:mode,n:n,drawCount:n,probabilities:{omitted:p0,exactlyOnce:p1,atLeastTwice:p2,covered:1-p0},expectedCategoryCounts:probabilities.map(v=>n*v),generator:{name:'LCG32',multiplier:1664525,increment:1013904223,modulus:4294967296,replacementSeed:replacementSeed,shuffleSeed:shuffleSeed},replacement:{draws:draws,countsBySample:counts,covered:covered,categoryCounts:empiricalCategories},shuffle:{permutation:permutation,swaps:swaps,countsBySample:series[1],covered:n},layout:{columns:cols,rows:rows,probabilitySegments:segments,sampleCells:cells},steps:{replacement:'每步更新种子，取 floor(u*n)+1，累计 n 次',shuffle:'Fisher–Yates：i 从 n−1 到 1，交换 i 与 floor(u*(i+1))'}}};\n}",
+      "assumptions": "顶部是独立均匀有放回抽样的精确概率；下方只是固定伪随机种子的可复现示例，不是概率估计或训练实验。格子按样本编号排列，两组对应位置表示同一样本。蓝色固定表示恰好一次，橙色固定表示重复，灰色表示遗漏；仅在宽屏增加列数，窄屏换行。",
+      "checks": "复核 p0=(1−1/n)^n、p1=(1−1/n)^(n−1)、p2=1−p0−p1，三项非负且和为 1。按记录的生成器和种子重建抽样与洗牌；检查次数之和为 n、覆盖数与分类计数一致、排列包含全部编号且各出现一次。检查所有整数 n=2–24、三个状态及 width=320、560、760 的布局与标签边界。有限示例的覆盖比例无须等于理论期望；此图不据此推断收敛速度或梯度方差。"
+    }
+  ]
+}

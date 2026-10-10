@@ -1,0 +1,63 @@
+{
+  "figures": [
+    {
+      "id": "gd-step-balance",
+      "title": "一步更新的收支",
+      "purpose": "原图已经展示了不同学习率下的轨迹。本图补充同一次更新中一阶下降项与曲率项的竞争，让读者改变学习率后直接看到函数值为何可能增加。",
+      "alt": "三条共用数值尺度的横条分别表示一阶项、二阶项和实际函数值变化。改变学习率，同时更新一步后的参数、函数值和收缩因子。",
+      "afterAnchor": "holdout-iteration-021",
+      "states": [
+        {
+          "key": "change",
+          "label": "一步变化",
+          "anchor": "holdout-iteration-021"
+        },
+        {
+          "key": "curvature",
+          "label": "曲率项",
+          "anchor": "holdout-iteration-023"
+        }
+      ],
+      "controls": [
+        {
+          "key": "eta",
+          "label": "学习率 η",
+          "min": 0.05,
+          "max": 1.2,
+          "step": 0.05,
+          "value": 0.2
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  const W = Number.isFinite(width) ? Math.max(320,Math.min(760,width)) : 320;\n  const H = 260;\n  const supplied = params && params.eta;\n  const eta = Number.isFinite(supplied) ? Math.max(0.05,Math.min(1.2,supplied)) : 0.2;\n  const focus = state === 'curvature' ? 'curvature' : 'change';\n  const ink = '#292722', blue = '#286c9c', orange = '#cb702c', quiet = '#c9c5bb';\n  const x0 = 10, gradient = 20, deltaX = -eta*gradient;\n  const x1 = x0+deltaX, f0 = x0*x0, f1 = x1*x1;\n  const linear = gradient*deltaX, quadratic = deltaX*deltaX, change = f1-f0;\n  const q = 1-2*eta, magnitude = Math.abs(q);\n  const regime = magnitude < 1-1e-12 ? '收缩' : magnitude > 1+1e-12 ? '放大' : '保持';\n  const fmt = n => (Math.abs(n)<0.0000001 ? 0 : n).toFixed(2);\n  const left = 24, right = W-24, domain = [-500,600];\n  const X = v => left+(v-domain[0])/(domain[1]-domain[0])*(right-left);\n  const zero = X(0);\n  const definitions = [\n    {key:'linear',label:'一阶项',value:linear,color:blue,y:78},\n    {key:'quadratic',label:'二阶项',value:quadratic,color:orange,y:124},\n    {key:'change',label:'实际 Δf',value:change,color:ink,y:170}\n  ];\n  let body = '<rect width=\"'+W+'\" height=\"'+H+'\" fill=\"#faf8f2\"/>';\n  const text = (x,y,t,anchor='start',color=ink) => '<text x=\"'+x+'\" y=\"'+y+'\" text-anchor=\"'+anchor+'\" fill=\"'+color+'\" font-size=\"14\">'+t+'</text>';\n  body += text(16,21,'η='+fmt(eta)+'   x₁='+fmt(x1)+'   f₁='+fmt(f1));\n  body += text(16,43,'f(x)=x² · x₀=10');\n  body += '<line x1=\"'+zero+'\" y1=\"61\" x2=\"'+zero+'\" y2=\"203\" stroke=\"'+quiet+'\"/>';\n  const rows = definitions.map(row => {\n    const endpoint = X(row.value), rectX = Math.min(zero,endpoint), rectWidth = Math.abs(endpoint-zero);\n    const active = focus === 'curvature' ? row.key === 'quadratic' : row.key === 'change';\n    body += text(left,row.y-8,row.label);\n    body += text(right,row.y-8,fmt(row.value),'end');\n    body += '<rect x=\"'+rectX+'\" y=\"'+row.y+'\" width=\"'+rectWidth+'\" height=\"12\" fill=\"'+row.color+'\" opacity=\"'+(active ? 1 : 0.55)+'\"/>';\n    return {key:row.key,value:row.value,color:row.color,rectangle:{x:rectX,y:row.y,width:rectWidth,height:12},emphasized:active};\n  });\n  body += '<line x1=\"'+left+'\" y1=\"203\" x2=\"'+right+'\" y2=\"203\" stroke=\"'+quiet+'\"/>';\n  [-400,0,400].forEach(v => {\n    const px = X(v);\n    body += '<line x1=\"'+px+'\" y1=\"203\" x2=\"'+px+'\" y2=\"208\" stroke=\"'+quiet+'\"/>';\n    body += text(px,225,String(v),'middle');\n  });\n  body += text(16,249,'|1−2η|='+fmt(magnitude)+' · '+regime);\n  const svg = '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+W+'\" height=\"'+H+'\" viewBox=\"0 0 '+W+' '+H+'\" role=\"img\"><title>一步更新的收支</title><desc>横条长度表示函数值变化，三行使用相同尺度。蓝色是一阶项，橙色是二阶项，墨色是实际变化。当前学习率为'+fmt(eta)+'，实际变化为'+fmt(change)+'。</desc><g font-family=\"sans-serif\">'+body+'</g></svg>';\n  return {svg,facts:{width:W,height:H,state:focus,objective:'x^2',eta,initial:{x:x0,f:f0,gradient},update:{deltaX,x:x1,f:f1},decomposition:{linear,quadratic,actual:change,sum:linear+quadratic},iterationMultiplier:q,magnitudeMultiplier:magnitude,regime,barAxis:{domain,pixelRange:[left,right],zeroPixel:zero,quantity:'函数值变化'},rows}};\n}",
+      "assumptions": "使用原文的 f(x)=x²、x₀=10，展示一次已经完成的确定性更新，不是本机运行原版代码的结果。此二次函数的二阶展开精确成立：Δf=−400η+400η²；不能将这个精确余项推广到任意函数。蓝色始终表示一阶项，橙色始终表示二阶项。收缩标签指本例的 |x| 收缩；越过零点本身不等于发散，例如 0.5<η<1 时仍会收敛。",
+      "checks": "独立复核 x₁=10−20η、f₁=x₁²、三行数值及共同横向尺度。检查 η=0.05、0.2、0.5、1、1.2：η=0.5 时 x₁=0；η=1 时函数值保持；η=1.2 时函数值增加。两个状态只改变强调对象，均保留三项和当前一步结果。检查宽度 320、540、760 的标签、零长度横条和画布高度；这些是待复核项目，未声称已经执行验证。"
+    },
+    {
+      "id": "diagonal-coordinate-step",
+      "title": "各坐标的一步",
+      "purpose": "原版二维轨迹没有直接展示坐标曲率与更新量的关系。本图在同一初始点比较普通更新和对角预处理，让读者只改变一个曲率系数，就能观察两种更新的坐标缩放。",
+      "alt": "两个等单位尺度的参数平面显示同一初始点和一次更新。蓝色椭圆表示目标函数等值线，橙色箭头表示参数更新量。旁边列出更新分量、更新后的函数值和各坐标乘数。",
+      "afterAnchor": "holdout-iteration-071",
+      "states": [
+        {
+          "key": "compare",
+          "label": "坐标缩放",
+          "anchor": "holdout-iteration-071"
+        }
+      ],
+      "controls": [
+        {
+          "key": "kappa",
+          "label": "x₂ 曲率系数 κ",
+          "min": 1,
+          "max": 12,
+          "step": 1,
+          "value": 2
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  const W = Number.isFinite(width) ? Math.max(320,Math.min(760,width)) : 320;\n  const narrow = W < 540, H = narrow ? 330 : 250;\n  const supplied = params && params.kappa;\n  const kappa = Number.isFinite(supplied) ? Math.max(1,Math.min(12,supplied)) : 2;\n  const eta = 0.1, start = [-5,-2], gradient = [-10,-4*kappa], diagonal = [2,2*kappa];\n  const ink = '#292722', blue = '#286c9c', orange = '#cb702c', quiet = '#c9c5bb';\n  const fmt = n => (Math.abs(n)<0.0000001 ? 0 : n).toFixed(2);\n  const value = p => p[0]*p[0]+kappa*p[1]*p[1];\n  const text = (x,y,t,anchor='start',color=ink) => '<text x=\"'+x+'\" y=\"'+y+'\" text-anchor=\"'+anchor+'\" font-size=\"14\" fill=\"'+color+'\">'+t+'</text>';\n  const methods = [\n    {key:'ordinary',label:'普通：Δx=−ηg',delta:gradient.map(g => -eta*g),multipliers:[1-2*eta,1-2*kappa*eta]},\n    {key:'diagonal',label:'对角预处理：Δx=−ηD⁻¹g',delta:gradient.map((g,i) => -eta*g/diagonal[i]),multipliers:[1-eta,1-eta]}\n  ];\n  let body = '<rect width=\"'+W+'\" height=\"'+H+'\" fill=\"#faf8f2\"/>';\n  body += text(16,21,'f=x₁²+κx₂²   κ='+kappa.toFixed(1)+'   η=0.1');\n  const panels = methods.map((method,index) => {\n    const base = narrow ? 0 : index*W/2;\n    const top = narrow ? 34+index*146 : 39;\n    const panelWidth = narrow ? W : W/2;\n    const availableWidth = Math.min(narrow ? 145 : 180,panelWidth-(narrow ? 160 : 144));\n    const availableHeight = narrow ? 98 : 130;\n    const scale = Math.min(availableWidth/7,availableHeight/6.5);\n    const px = base+36, py = top+28, pw = 7*scale, ph = 6.5*scale;\n    const X = x => px+(x+6)*scale;\n    const Y = y => py+(3.5-y)*scale;\n    const end = start.map((v,i) => v+method.delta[i]);\n    const startPixel = [X(start[0]),Y(start[1])], endPixel = [X(end[0]),Y(end[1])];\n    const clipId = 'diagonal-coordinate-step-'+method.key;\n    body += text(base+14,top+15,method.label);\n    body += '<defs><clipPath id=\"'+clipId+'\"><rect x=\"'+px+'\" y=\"'+py+'\" width=\"'+pw+'\" height=\"'+ph+'\"/></clipPath></defs>';\n    const contours = [4,16,36].map(level => ({level,cx:X(0),cy:Y(0),rx:Math.sqrt(level)*scale,ry:Math.sqrt(level/kappa)*scale}));\n    body += '<g clip-path=\"url(#'+clipId+')\">';\n    contours.forEach(c => { body += '<ellipse cx=\"'+c.cx+'\" cy=\"'+c.cy+'\" rx=\"'+c.rx+'\" ry=\"'+c.ry+'\" fill=\"none\" stroke=\"'+blue+'\" stroke-width=\"1.2\" opacity=\"0.6\"/>'; });\n    body += '<line x1=\"'+px+'\" y1=\"'+Y(0)+'\" x2=\"'+(px+pw)+'\" y2=\"'+Y(0)+'\" stroke=\"'+quiet+'\"/>';\n    body += '<line x1=\"'+X(0)+'\" y1=\"'+py+'\" x2=\"'+X(0)+'\" y2=\"'+(py+ph)+'\" stroke=\"'+quiet+'\"/>';\n    body += '<line x1=\"'+startPixel[0]+'\" y1=\"'+startPixel[1]+'\" x2=\"'+endPixel[0]+'\" y2=\"'+endPixel[1]+'\" stroke=\"'+orange+'\" stroke-width=\"2.2\"/>';\n    const dx = endPixel[0]-startPixel[0], dy = endPixel[1]-startPixel[1], length = Math.hypot(dx,dy);\n    const ux = length > 0 ? dx/length : 1, uy = length > 0 ? dy/length : 0;\n    const headLength = Math.min(7,length*0.4), halfWidth = headLength*0.45;\n    const arrowHead = [endPixel,[endPixel[0]-headLength*ux-halfWidth*uy,endPixel[1]-headLength*uy+halfWidth*ux],[endPixel[0]-headLength*ux+halfWidth*uy,endPixel[1]-headLength*uy-halfWidth*ux]];\n    body += '<polygon points=\"'+arrowHead.map(p => p.join(',')).join(' ')+'\" fill=\"'+orange+'\"/>';\n    body += '<circle cx=\"'+startPixel[0]+'\" cy=\"'+startPixel[1]+'\" r=\"3.2\" fill=\"#faf8f2\" stroke=\"'+ink+'\" stroke-width=\"1.5\"/>';\n    body += '<circle cx=\"'+endPixel[0]+'\" cy=\"'+endPixel[1]+'\" r=\"2.8\" fill=\"'+orange+'\"/>';\n    body += '</g>';\n    [-5,0].forEach(v => { body += text(X(v),py+ph+17,String(v),'middle'); });\n    [-2,0].forEach(v => { body += text(px-7,Y(v)+5,String(v),'end'); });\n    body += text(px+pw,py+ph+17,'x₁','start');\n    body += text(px-27,py+14,'x₂');\n    const infoX = px+pw+12;\n    body += text(infoX,top+47,'Δx₁='+fmt(method.delta[0]));\n    body += text(infoX,top+69,'Δx₂='+fmt(method.delta[1]));\n    body += text(infoX,top+91,'f₁='+fmt(value(end)));\n    body += text(infoX,top+113,'x₁ × '+fmt(method.multipliers[0]));\n    body += text(infoX,top+135,'x₂ × '+fmt(method.multipliers[1]));\n    return {method:method.key,initial:start.slice(),gradient:gradient.slice(),delta:method.delta,end,f0:value(start),f1:value(end),coordinateMultipliers:method.multipliers,parameterDomain:{x1:[-6,1],x2:[-3,3.5]},pixelsPerUnit:{x1:scale,x2:scale},clipRectangle:{x:px,y:py,width:pw,height:ph},contours,startPixel,endPixel,arrowHead};\n  });\n  const svg = '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+W+'\" height=\"'+H+'\" viewBox=\"0 0 '+W+' '+H+'\" role=\"img\"><title>各坐标的一步</title><desc>空心点是初始参数，橙色箭头是一次参数更新，蓝色椭圆是目标函数等值线。两个平面的横纵单位尺度相同。当前曲率系数为'+kappa.toFixed(1)+'，比较普通梯度下降与正定对角Hessian预处理。</desc><g font-family=\"sans-serif\">'+body+'</g></svg>';\n  return {svg,facts:{width:W,height:H,state:'compare',layout:narrow ? 'vertical' : 'horizontal',objective:'x1^2+kappa*x2^2',kappa,eta,hessian:[[2,0],[0,2*kappa]],diagonal,contourLevels:[4,16,36],panels}};\n}",
+      "assumptions": "这是手选的确定性一步示例，默认 κ=2 对应原文目标函数；探索时推广为 x₁²+κx₂²，初始点保持 [-5,-2]。蓝色始终表示目标函数等值线，橙色始终表示参数更新量，坐标轴始终是参数。κ≥1 保证对角Hessian可逆且正定。此例Hessian恰好为对角矩阵，所以对角预处理与使用完整Hessian得到的方向一致；不能据此判断一般问题中二者一样。相同名义 η 不代表相同有效步长，预处理也不保证本例每一步比普通方法下降更多。原文071的“比不使用要好得多”不能视为一般保证。此外，原文067将二次误差界称为“线性”、将线性误差界称为“恒定”，与通常的二次收敛、线性收敛术语不一致；此处记录该问题，不修改原文。",
+      "checks": "复核梯度 [-10,−4κ]、普通更新 [1,0.4κ]、预处理更新 [0.5,0.2] 及更新后的函数值。检查 κ=1、2、5、10、12：普通方法第二坐标的乘数依次为 0.8、0.6、0、−1、−1.4，预处理始终为 0.9。复核两个面板横纵像素每单位相等、箭头确实从初始参数指向一步后的参数、椭圆满足 x₁²+κx₂²=4、16、36。检查宽度 320、539、540、760 的重新排布、标签和裁切；同一宽度所有参数保持相同高度。未声称完成渲染验证或艺术审查。"
+    }
+  ]
+}

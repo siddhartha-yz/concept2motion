@@ -1,0 +1,499 @@
+{
+  "scope": "Scripted actual Chromium controls and explicitly injected fallback; no human review or learning claim",
+  "browserVersion": "151.0.7922.34",
+  "checkerSha256": "c878196ddbf5d87a9905f5c428c6f5306b4f046dec4ff50aa1da18c3dbfa22b5",
+  "records": [
+    {
+      "label": "spatial/pooling-local-shift/forward/local",
+      "pass": true,
+      "detail": {
+        "state": "local"
+      }
+    },
+    {
+      "label": "spatial/pooling-local-shift/backward",
+      "pass": true
+    },
+    {
+      "label": "spatial/pooling-local-shift/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 242,
+        "max": 242
+      }
+    },
+    {
+      "label": "spatial/pooling-local-shift/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 1
+      }
+    },
+    {
+      "label": "spatial/pooling-padding-stride/forward/default",
+      "pass": true,
+      "detail": {
+        "state": "default"
+      }
+    },
+    {
+      "label": "spatial/pooling-padding-stride/forward/padded",
+      "pass": true,
+      "detail": {
+        "state": "padded"
+      }
+    },
+    {
+      "label": "spatial/pooling-padding-stride/forward/rectangular",
+      "pass": true,
+      "detail": {
+        "state": "rectangular"
+      }
+    },
+    {
+      "label": "spatial/pooling-padding-stride/backward",
+      "pass": true
+    },
+    {
+      "label": "spatial/pooling-padding-stride/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 270,
+        "max": 270
+      }
+    },
+    {
+      "label": "spatial/pooling-padding-stride/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "spatial/original-toggle-keeps-paragraph",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: 377.90625 -> 841.90625"
+    },
+    {
+      "label": "iteration/sgd-gradient-mean/forward/sample",
+      "pass": true,
+      "detail": {
+        "state": "sample"
+      }
+    },
+    {
+      "label": "iteration/sgd-gradient-mean/forward/mean",
+      "pass": true,
+      "detail": {
+        "state": "mean"
+      }
+    },
+    {
+      "label": "iteration/sgd-gradient-mean/backward",
+      "pass": true
+    },
+    {
+      "label": "iteration/sgd-gradient-mean/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 250,
+        "max": 250
+      }
+    },
+    {
+      "label": "iteration/sgd-gradient-mean/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "iteration/sgd-gradient-mean/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 2
+      }
+    },
+    {
+      "label": "iteration/sgd-sampling-coverage/forward/coverage",
+      "pass": true,
+      "detail": {
+        "state": "coverage"
+      }
+    },
+    {
+      "label": "iteration/sgd-sampling-coverage/forward/once",
+      "pass": true,
+      "detail": {
+        "state": "once"
+      }
+    },
+    {
+      "label": "iteration/sgd-sampling-coverage/forward/shuffle",
+      "pass": true,
+      "detail": {
+        "state": "shuffle"
+      }
+    },
+    {
+      "label": "iteration/sgd-sampling-coverage/backward",
+      "pass": true
+    },
+    {
+      "label": "iteration/sgd-sampling-coverage/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 256,
+        "max": 256
+      }
+    },
+    {
+      "label": "iteration/sgd-sampling-coverage/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "iteration/sgd-sampling-coverage/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 3
+      }
+    },
+    {
+      "label": "iteration/original-toggle-keeps-paragraph",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: 377.734375 -> 473.046875"
+    },
+    {
+      "label": "routing/masked-softmax-rows/forward/batch",
+      "pass": true,
+      "detail": {
+        "state": "batch"
+      }
+    },
+    {
+      "label": "routing/masked-softmax-rows/forward/row",
+      "pass": true,
+      "detail": {
+        "state": "row"
+      }
+    },
+    {
+      "label": "routing/masked-softmax-rows/backward",
+      "pass": true
+    },
+    {
+      "label": "routing/masked-softmax-rows/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 270,
+        "max": 270
+      }
+    },
+    {
+      "label": "routing/masked-softmax-rows/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "routing/dot-product-exact-spread/forward/raw",
+      "pass": true,
+      "detail": {
+        "state": "raw"
+      }
+    },
+    {
+      "label": "routing/dot-product-exact-spread/forward/scaled",
+      "pass": true,
+      "detail": {
+        "state": "scaled"
+      }
+    },
+    {
+      "label": "routing/dot-product-exact-spread/backward",
+      "pass": true
+    },
+    {
+      "label": "routing/dot-product-exact-spread/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 268,
+        "max": 268
+      }
+    },
+    {
+      "label": "routing/dot-product-exact-spread/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "routing/dot-product-exact-spread/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 2
+      }
+    },
+    {
+      "label": "routing/original-toggle-keeps-paragraph",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: 377.859375 -> 842.171875"
+    },
+    {
+      "label": "execution/allreduce-vector-steps/forward/local",
+      "pass": true,
+      "detail": {
+        "state": "local"
+      }
+    },
+    {
+      "label": "execution/allreduce-vector-steps/forward/sum",
+      "pass": true,
+      "detail": {
+        "state": "sum"
+      }
+    },
+    {
+      "label": "execution/allreduce-vector-steps/forward/broadcast",
+      "pass": true,
+      "detail": {
+        "state": "broadcast"
+      }
+    },
+    {
+      "label": "execution/allreduce-vector-steps/backward",
+      "pass": true
+    },
+    {
+      "label": "execution/allreduce-vector-steps/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 240,
+        "max": 240
+      }
+    },
+    {
+      "label": "execution/allreduce-vector-steps/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "execution/global-batch-gradient-normalization/forward/normalize",
+      "pass": true,
+      "detail": {
+        "state": "normalize"
+      }
+    },
+    {
+      "label": "execution/global-batch-gradient-normalization/backward",
+      "pass": true
+    },
+    {
+      "label": "execution/global-batch-gradient-normalization/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 288,
+        "max": 288
+      }
+    },
+    {
+      "label": "execution/global-batch-gradient-normalization/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 2
+      }
+    },
+    {
+      "label": "execution/original-toggle-keeps-paragraph",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: 378.328125 -> 483.640625"
+    },
+    {
+      "label": "holdout-iteration/gd-step-balance/forward/change",
+      "pass": true,
+      "detail": {
+        "state": "change"
+      }
+    },
+    {
+      "label": "holdout-iteration/gd-step-balance/forward/curvature",
+      "pass": true,
+      "detail": {
+        "state": "curvature"
+      }
+    },
+    {
+      "label": "holdout-iteration/gd-step-balance/backward",
+      "pass": true
+    },
+    {
+      "label": "holdout-iteration/gd-step-balance/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 260,
+        "max": 260
+      }
+    },
+    {
+      "label": "holdout-iteration/gd-step-balance/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "holdout-iteration/gd-step-balance/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 0.1
+      }
+    },
+    {
+      "label": "holdout-iteration/diagonal-coordinate-step/forward/compare",
+      "pass": true,
+      "detail": {
+        "state": "compare"
+      }
+    },
+    {
+      "label": "holdout-iteration/diagonal-coordinate-step/backward",
+      "pass": true
+    },
+    {
+      "label": "holdout-iteration/diagonal-coordinate-step/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 250,
+        "max": 250
+      }
+    },
+    {
+      "label": "holdout-iteration/diagonal-coordinate-step/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 2
+      }
+    },
+    {
+      "label": "holdout-iteration/original-toggle-keeps-paragraph",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: 378 -> 842.3125"
+    },
+    {
+      "label": "holdout-spatial/padding-center/forward/padding",
+      "pass": true,
+      "detail": {
+        "state": "padding"
+      }
+    },
+    {
+      "label": "holdout-spatial/padding-center/forward/center",
+      "pass": true,
+      "detail": {
+        "state": "center"
+      }
+    },
+    {
+      "label": "holdout-spatial/padding-center/backward",
+      "pass": true
+    },
+    {
+      "label": "holdout-spatial/padding-center/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 260,
+        "max": 260
+      }
+    },
+    {
+      "label": "holdout-spatial/padding-center/manual-pause-and-reset",
+      "pass": true
+    },
+    {
+      "label": "holdout-spatial/padding-center/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 3
+      }
+    },
+    {
+      "label": "holdout-spatial/stride-valid-origins/forward/count",
+      "pass": true,
+      "detail": {
+        "state": "count"
+      }
+    },
+    {
+      "label": "holdout-spatial/stride-valid-origins/backward",
+      "pass": true
+    },
+    {
+      "label": "holdout-spatial/stride-valid-origins/stable-height",
+      "pass": true,
+      "detail": {
+        "min": 268,
+        "max": 268
+      }
+    },
+    {
+      "label": "holdout-spatial/stride-valid-origins/keyboard-parameter",
+      "pass": true,
+      "detail": {
+        "value": 2
+      }
+    },
+    {
+      "label": "holdout-spatial/original-toggle-keeps-paragraph",
+      "pass": false,
+      "error": "AssertionError [ERR_ASSERTION]: 377.890625 -> 842.203125"
+    },
+    {
+      "label": "feedback/export-and-version-bound-capsule",
+      "pass": true,
+      "detail": {
+        "exportedSha256": "c4e9182984b8055237aaddbb2f4c19456c32c720b23fa2e42322171e443e910f",
+        "staleRejected": true,
+        "modelCalls": 0
+      }
+    },
+    {
+      "label": "runtime-failure/static-fallback",
+      "pass": true,
+      "detail": {
+        "explicitlyInjected": true
+      }
+    },
+    {
+      "label": "spatial/no-js-print-reduced-motion",
+      "pass": true,
+      "detail": {
+        "staticStates": 4
+      }
+    },
+    {
+      "label": "iteration/no-js-print-reduced-motion",
+      "pass": true,
+      "detail": {
+        "staticStates": 5
+      }
+    },
+    {
+      "label": "routing/no-js-print-reduced-motion",
+      "pass": true,
+      "detail": {
+        "staticStates": 4
+      }
+    },
+    {
+      "label": "execution/no-js-print-reduced-motion",
+      "pass": true,
+      "detail": {
+        "staticStates": 4
+      }
+    },
+    {
+      "label": "holdout-iteration/no-js-print-reduced-motion",
+      "pass": true,
+      "detail": {
+        "staticStates": 3
+      }
+    },
+    {
+      "label": "holdout-spatial/no-js-print-reduced-motion",
+      "pass": true,
+      "detail": {
+        "staticStates": 3
+      }
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "passed": 72,
+  "total": 78
+}

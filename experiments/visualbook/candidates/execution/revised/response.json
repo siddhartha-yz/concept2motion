@@ -1,0 +1,59 @@
+{
+  "figures": [
+    {
+      "id": "allreduce-vector-steps",
+      "title": "求和，再广播",
+      "purpose": "补充静态数据并行图没有展示的原地更新细节：先在GPU0累积，随后GPU1才获得相同结果。直接对应原文allreduce代码和两向量示例。",
+      "alt": "左列始终保留两个GPU的初始向量[1,1]和[2,2]。初始阶段右列保持原值；求和阶段只有GPU0变成[3,3]；广播阶段将GPU0的结果复制给GPU1。",
+      "afterAnchor": "execution-029",
+      "states": [
+        {
+          "key": "local",
+          "label": "初始向量",
+          "anchor": "execution-029"
+        },
+        {
+          "key": "sum",
+          "label": "累积到GPU0",
+          "anchor": "execution-030"
+        },
+        {
+          "key": "broadcast",
+          "label": "广播结果",
+          "anchor": "execution-032"
+        }
+      ],
+      "controls": [],
+      "code": "function render({width,state,params}) {\n  const w = Number.isFinite(width) ? Math.max(320, Math.min(760, width)) : 480;\n  const requested = typeof state === 'string' ? state : state && state.key;\n  const phase = ['local','sum','broadcast'].includes(requested) ? requested : 'local';\n  const initial = [[1,1],[2,2]];\n  const total = initial[0].map((v,j) => v + initial[1][j]);\n  const current = phase === 'local' ? initial.map(v => v.slice()) : phase === 'sum' ? [total.slice(), initial[1].slice()] : [total.slice(),total.slice()];\n  const bg = '#faf8f2', ink = '#292824', blue = '#356c98', orange = '#ba682e', quiet = '#d8d4ca';\n  const narrow = w < 440;\n  const boxW = narrow ? 80 : 104;\n  const leftX = narrow ? 68 : w * 0.25;\n  const rightX = narrow ? w - 112 : w * 0.70;\n  const rows = [76,146];\n  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');\n  const text = (x,y,s,color=ink,size=15,anchor='middle') => '<text x=\"'+x+'\" y=\"'+y+'\" fill=\"'+color+'\" font-size=\"'+size+'\" text-anchor=\"'+anchor+'\">'+esc(s)+'</text>';\n  function vector(x,y,values,color) {\n    return '<rect x=\"'+x+'\" y=\"'+(y-21)+'\" width=\"'+boxW+'\" height=\"38\" rx=\"3\" fill=\"'+bg+'\" stroke=\"'+color+'\"/><line x1=\"'+(x+boxW/2)+'\" y1=\"'+(y-21)+'\" x2=\"'+(x+boxW/2)+'\" y2=\"'+(y+17)+'\" stroke=\"'+quiet+'\"/>'+values.map((v,j)=>text(x+boxW*(j+0.5)/2,y+4,v,color,17)).join('');\n  }\n  let body = text(leftX+boxW/2,29,'初值 · 1×2') + text(rightX+boxW/2,29,'当前值');\n  rows.forEach((y,i) => {\n    body += text(16,y+4,'GPU'+i,ink,14,'start');\n    body += vector(leftX,y,initial[i],blue);\n    const isTotal = phase === 'broadcast' || (phase === 'sum' && i === 0);\n    body += vector(rightX,y,current[i],isTotal ? orange : blue);\n  });\n  const mid = (leftX+boxW+rightX)/2;\n  if (phase === 'sum') {\n    body += '<path d=\"M '+(leftX+boxW)+' '+rows[0]+' H '+(rightX-5)+'\" fill=\"none\" stroke=\"'+orange+'\" stroke-width=\"2\" marker-end=\"url(#ar-vector)\"/>';\n    body += '<path d=\"M '+(leftX+boxW)+' '+rows[1]+' C '+mid+' '+rows[1]+', '+mid+' '+(rows[0]+12)+', '+(rightX-5)+' '+(rows[0]+12)+'\" fill=\"none\" stroke=\"'+orange+'\" stroke-width=\"2\" marker-end=\"url(#ar-vector)\"/>';\n  }\n  if (phase === 'broadcast') {\n    const edge = Math.min(w-9,rightX+boxW+24);\n    body += '<path d=\"M '+(rightX+boxW)+' '+rows[0]+' H '+edge+' V '+rows[1]+' H '+(rightX+boxW+5)+'\" fill=\"none\" stroke=\"'+orange+'\" stroke-width=\"2\" marker-end=\"url(#ar-vector)\"/>';\n  }\n  const operation = phase === 'local' ? 'data[0], data[1]' : phase === 'sum' ? 'data[0] += data[1]' : 'data[1] = data[0]';\n  const expression = phase === 'local' ? '[1, 1] ; [2, 2]' : phase === 'sum' ? '[1, 1] + [2, 2] = [3, 3]' : '[3, 3] → [3, 3]';\n  body += text(w/2,195,operation,ink,15);\n  body += text(w/2,222,expression,phase === 'local' ? blue : orange,16);\n  const svg = '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+w+'\" height=\"240\" viewBox=\"0 0 '+w+' 240\" role=\"img\"><title>求和，再广播</title><desc>'+esc('仅解释execution-030中的集中求和与广播实现，不代表所有allreduce算法。求和时先将GPU1的向量复制到GPU0所在设备，再累加；广播时将结果复制到GPU1所在设备。阶段：'+phase+'。GPU0当前向量为'+current[0].join(',')+'；GPU1当前向量为'+current[1].join(',')+'。左列始终保留初值。')+'</desc><defs><marker id=\"ar-vector\" viewBox=\"0 0 8 8\" refX=\"7\" refY=\"4\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto\"><path d=\"M 0 0 L 8 4 L 0 8 Z\" fill=\"'+orange+'\"/></marker></defs><rect width=\"'+w+'\" height=\"240\" fill=\"'+bg+'\"/><g font-family=\"sans-serif\">'+body+'</g></svg>';\n  return {svg, facts:{phase,implementation:'centralized sum on GPU0, then broadcast',initial,tensorShapes:[[1,2],[1,2]],sum:total,current,operation,displayedExpression:expression,updateSteps:[{target:0,operation:'add',source:1,copyToDevice:0,result:total.slice()},{target:1,operation:'copy',source:0,copyToDevice:1,result:total.slice()}],completedSteps:phase==='local'?0:phase==='sum'?1:2,geometry:{width:w,height:240,narrow,boxWidth:boxW,initialX:leftX,currentX:rightX,rowCenters:rows}}};\n}",
+      "assumptions": "使用execution-032给出的确定性两向量示例；每个向量形状为1×2。只展示execution-030中的集中求和与广播实现，不表示其他allreduce算法或通信耗时。蓝色固定表示局部初值，橙色固定表示聚合结果。",
+      "checks": "逐状态核对当前向量：初始为[1,1]与[2,2]，累积后为[3,3]与[2,2]，广播后均为[3,3]。初始阶段的可见标签不得出现最终结果；求和阶段底部显示两份贡献相加，广播阶段显示结果复制。核对两条贡献箭头、广播箭头和设备复制与原文两个循环一致，SVG desc限定为集中实现。检查320、439、440、760像素宽度下标签、向量和箭头无重叠或越界；左列初值始终可见。"
+    },
+    {
+      "id": "global-batch-gradient-normalization",
+      "title": "求和后除以全批量",
+      "purpose": "把train_batch中局部损失求和、梯度allreduce和使用X.shape[0]更新连成可复核的数值例子。固定全批量，改变GPU数量，展示重新分片如何改变局部梯度和，但不改变本例的全批量平均梯度与同步更新。",
+      "alt": "十二个固定样本梯度被均匀分配给一至四个GPU。表格始终预留四行；局部梯度和汇总为6，除以全批量12得到0.5，所有参数副本从1同步更新到0.9。改变GPU数量时图高保持288像素。",
+      "afterAnchor": "execution-040",
+      "states": [
+        {
+          "key": "normalize",
+          "label": "全批量归一化",
+          "anchor": "execution-040"
+        }
+      ],
+      "controls": [
+        {
+          "key": "gpus",
+          "label": "GPU数量（固定批量12）",
+          "min": 1,
+          "max": 4,
+          "step": 1,
+          "value": 2
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  const w = Number.isFinite(width) ? Math.max(320,Math.min(760,width)) : 480;\n  const p = params || {};\n  const k = Number.isFinite(p.gpus) ? Math.max(1,Math.min(4,Math.round(p.gpus))) : 2;\n  const gradients = [-2,-1,0,1,2,3,-2,-1,0,1,2,3];\n  const B = gradients.length, n = B/k, theta = 1, lr = 0.2;\n  const shards = Array.from({length:k},(_,i) => {\n    const start = i*n;\n    const values = gradients.slice(start,start+n);\n    return {gpu:i,start,endExclusive:start+n,count:values.length,gradients:values,localGradientSum:values.reduce((a,b)=>a+b,0)};\n  });\n  const sum = shards.reduce((a,s)=>a+s.localGradientSum,0);\n  const mean = sum/B, updated = theta-lr*mean;\n  const bg = '#faf8f2', ink = '#292824', blue = '#356c98', orange = '#ba682e', quiet = '#d8d4ca';\n  const narrow = w < 440;\n  const gridW = Math.min(w-32,600), gridX = (w-gridW)/2, cellW = gridW/B;\n  const rowTop = 128, rowH = 29, reservedRows = 4, footerY = 271, h = 288;\n  const f = v => Number(v.toFixed(4)).toString();\n  const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');\n  const text = (x,y,s,color=ink,size=15,anchor='middle') => '<text x=\"'+x+'\" y=\"'+y+'\" fill=\"'+color+'\" font-size=\"'+size+'\" text-anchor=\"'+anchor+'\">'+esc(s)+'</text>';\n  let body = text(w/2,23,'手选平方损失；θ=1，η=0.2',ink,14);\n  gradients.forEach((g,j) => {\n    body += '<rect x=\"'+(gridX+j*cellW)+'\" y=\"39\" width=\"'+cellW+'\" height=\"30\" fill=\"'+bg+'\" stroke=\"'+quiet+'\"/>';\n    body += text(gridX+(j+0.5)*cellW,59,g,blue,14);\n  });\n  shards.forEach(s => {\n    const x = gridX+s.start*cellW+2, end = gridX+s.endExclusive*cellW-2;\n    body += '<path d=\"M '+x+' 73 V 78 H '+end+' V 73\" fill=\"none\" stroke=\"'+blue+'\" stroke-width=\"1.5\"/>';\n    body += text((x+end)/2,96,'GPU'+s.gpu,blue,14);\n  });\n  const xs = narrow ? [16,w*0.30,w*0.51,w*0.80] : [gridX,gridX+gridW*0.26,gridX+gridW*0.49,gridX+gridW*0.80];\n  body += text(xs[0],118,'设备',ink,14,'start') + text(xs[1],118,'样本数',ink,14) + text(xs[2],118,'局部Σg',ink,14) + text(xs[3],118,'θ → θ′',ink,14);\n  shards.forEach((s,i) => {\n    const y = rowTop+i*rowH+19;\n    body += text(xs[0],y,'GPU'+s.gpu,ink,14,'start') + text(xs[1],y,s.count,blue,16) + text(xs[2],y,s.localGradientSum,blue,16) + text(xs[3],y,f(theta)+' → '+f(updated),orange,16);\n    body += '<line x1=\"16\" y1=\"'+(y+9)+'\" x2=\"'+(w-16)+'\" y2=\"'+(y+9)+'\" stroke=\"'+quiet+'\"/>';\n  });\n  const flow = 'Σg '+f(sum)+' → ÷'+B+' → '+f(mean)+' → θ′ '+f(updated);\n  body += text(w/2,footerY,flow,orange,16);\n  const svg = '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+w+'\" height=\"'+h+'\" viewBox=\"0 0 '+w+' '+h+'\" role=\"img\"><title>求和后除以全批量</title><desc>'+esc('手选单参数平方损失的一次更新，不是真实训练结果。固定十二个样本梯度，分配到'+k+'个GPU，每个GPU处理'+n+'个样本。表中局部梯度和聚合为'+sum+'，广播给所有GPU；每个GPU均除以全批量12，得到平均梯度'+mean+'，以学习率0.2将参数从1同步更新到'+f(updated)+'。图高固定为288像素，始终预留四行。')+'</desc><rect width=\"'+w+'\" height=\"'+h+'\" fill=\"'+bg+'\"/><g font-family=\"sans-serif\">'+body+'</g></svg>';\n  return {svg, facts:{phase:'normalize',exampleType:'手选单参数平方损失示例',lossDefinition:'L_i(theta) = (theta - a_i)^2 / 2',sampleTargets:gradients.map(g=>theta-g),perSampleGradients:gradients,batchSize:B,gpuCount:k,shards,initialParameter:theta,learningRate:lr,aggregateGradientSum:sum,normalizationDenominator:B,meanGradient:mean,updatedParameters:Array(k).fill(updated),displayedFlow:flow,updateSteps:[{operation:'sum local sample losses and differentiate',localGradientSums:shards.map(s=>s.localGradientSum)},{operation:'allreduce sum and broadcast',gradientOnEachGPU:Array(k).fill(sum)},{operation:'divide by global batch size and apply SGD',denominator:B,delta:lr*mean,result:updated}],geometry:{width:w,height:h,narrow,gridX,gridWidth:gridW,cellWidth:cellW,columnXs:xs,rowTop,rowHeight:rowH,reservedRows,rowCenters:shards.map((s,i)=>rowTop+i*rowH+19),footerY}}};\n}",
+      "assumptions": "固定12个样本，GPU数量取1至4，均可整除12。使用手选目标构造单参数平方损失，仅展示当前θ=1处的一次梯度更新，不是LeNet训练或真实实验。学习率固定为0.2；改变GPU数量时全批量不变，区别于扩大批量的情形。蓝色固定表示局部样本及梯度，橙色固定表示聚合和同步更新。",
+      "checks": "独立由a_i和平方损失求导，核对十二个梯度及总和6。GPU数量1、2、3、4时，局部梯度和分别应为[6]、[3,3]、[-2,2,6]、[-3,6,-3,6]；分片必须连续、不重复、不遗漏。核对所有副本使用6/12而非局部样本数归一化，更新值均为0.9。检查全部控件取值与320、439、440、760像素宽度：SVG height及viewBox高度始终为288，四行均可容纳，底部链条和各列无重叠或越界。检查非有限GPU参数回退为2，范围外有限值钳制到1至4。"
+    }
+  ]
+}

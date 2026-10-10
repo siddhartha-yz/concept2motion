@@ -1,0 +1,171 @@
+{
+  "section": "holdout-spatial",
+  "attempt": "layout-revised",
+  "scope": "Independent numeric recomputation for reviewed frozen examples; not trained weights, runtime measurements or artistic acceptance",
+  "checks": [
+    {
+      "figure": "padding-center",
+      "state": "padding",
+      "params": {
+        "kernel": 2
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "padding-center",
+      "state": "padding",
+      "params": {
+        "kernel": 3
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "padding-center",
+      "state": "padding",
+      "params": {
+        "kernel": 4
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "padding-center",
+      "state": "padding",
+      "params": {
+        "kernel": 5
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "padding-center",
+      "state": "center",
+      "params": {
+        "kernel": 2
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "padding-center",
+      "state": "center",
+      "params": {
+        "kernel": 3
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "padding-center",
+      "state": "center",
+      "params": {
+        "kernel": 4
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "padding-center",
+      "state": "center",
+      "params": {
+        "kernel": 5
+      },
+      "pass": true,
+      "assertions": 9
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 1,
+        "rightPadding": 0
+      },
+      "pass": true,
+      "assertions": 14
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 1,
+        "rightPadding": 1
+      },
+      "pass": true,
+      "assertions": 16
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 1,
+        "rightPadding": 2
+      },
+      "pass": true,
+      "assertions": 18
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 2,
+        "rightPadding": 0
+      },
+      "pass": true,
+      "assertions": 10
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 2,
+        "rightPadding": 1
+      },
+      "pass": true,
+      "assertions": 12
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 2,
+        "rightPadding": 2
+      },
+      "pass": true,
+      "assertions": 12
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 3,
+        "rightPadding": 0
+      },
+      "pass": true,
+      "assertions": 10
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 3,
+        "rightPadding": 1
+      },
+      "pass": true,
+      "assertions": 10
+    },
+    {
+      "figure": "stride-valid-origins",
+      "state": "count",
+      "params": {
+        "stride": 3,
+        "rightPadding": 2
+      },
+      "pass": true,
+      "assertions": 10
+    }
+  ],
+  "passed": 17,
+  "total": 17
+}

@@ -1,0 +1,345 @@
+{
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "7116f91055e7ed0b66c636568560432fa7a4734622e102b882905c6e85d1e81d",
+  "adaptedSha256": "d525b62d34404519f8ebe69c8e5813236091ea278ca3e6ce4fa187f8743edb29",
+  "source": "chapter_optimization/gd.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_optimization/gd.html",
+  "guideSha256": "914475a68bc7e66619b7d38df5e7cfdf7d69a96dbb881c8b22b7e0e35044d9d0",
+  "anchorHashes": [
+    {
+      "id": "holdout-iteration-001",
+      "sha256": "7186ee55565d19345a73a8fd1f1eeb8103ab847b5f10bbf3330f472bbbacfc48"
+    },
+    {
+      "id": "holdout-iteration-002",
+      "sha256": "07ac11abd5b92c818d325c09e0ff05404b9789a44331a738182791a4d8861c83"
+    },
+    {
+      "id": "holdout-iteration-003",
+      "sha256": "aa72287a6ea9bf76b560b971aa2571568a2915119a60f18ea1f2e48c76ca6074"
+    },
+    {
+      "id": "holdout-iteration-004",
+      "sha256": "0c7bb9362323dc3a565de0c1d41b0cacb25e55b2775e4859ffe5dc31aeb5192d"
+    },
+    {
+      "id": "holdout-iteration-005",
+      "sha256": "1546849e0685191ac1d258a96c0ba121745b20bea839493d4bd14d8e34fe4aae"
+    },
+    {
+      "id": "holdout-iteration-006",
+      "sha256": "03fd788a22d87be0e0dc6c6b5bfdd9cc90e6f83a37852839906c9347bcabb7d2"
+    },
+    {
+      "id": "holdout-iteration-007",
+      "sha256": "fe04907cc1d14f2473154bdc05ffbe1ef0b9d5a1142edc936c94522c522c096e"
+    },
+    {
+      "id": "holdout-iteration-008",
+      "sha256": "62149ec7ed436d97cbb40f61287b66598f12ce1e1f343d17a6ba678e015e88c8"
+    },
+    {
+      "id": "holdout-iteration-009",
+      "sha256": "4cbdcc6886b6416ee3920e8402fe9c967660fc6e7d39a48fc57922e2be2139ef"
+    },
+    {
+      "id": "holdout-iteration-010",
+      "sha256": "1275b256459791e7d8ab954fe55f79cb673c1a35a4f12b513575b62b5cd28de2"
+    },
+    {
+      "id": "holdout-iteration-011",
+      "sha256": "2d78802d3a3843e61c00761e91bf6eaa03fa519b84d3365bf26bab703537c9ed"
+    },
+    {
+      "id": "holdout-iteration-012",
+      "sha256": "68e87e6f209a5215080545b663da2aed19fa41a780aa0992f018b8ff40084682"
+    },
+    {
+      "id": "holdout-iteration-013",
+      "sha256": "2ff09ae7dd0367a94649053d09bce87e5cb70032d6ec3dba93cf0a15f523e29a"
+    },
+    {
+      "id": "holdout-iteration-014",
+      "sha256": "59ed5b46652d51c4a226a8f4d6cfe66e74775f75cad022d4940ccf41223e5c74"
+    },
+    {
+      "id": "holdout-iteration-015",
+      "sha256": "0e234806d799a5c99ee57c88ccbac2d4b03cbc8e0811e8c8b71f88c2b0171096"
+    },
+    {
+      "id": "holdout-iteration-016",
+      "sha256": "4d1a817d2b278915ebcc8f029e83536362149874c7e4a27316dd8951b04e6552"
+    },
+    {
+      "id": "holdout-iteration-017",
+      "sha256": "a1ee5afcf9e880ee9bcc60757b04b93e52e61408f12fecb8bf61d312614b0890"
+    },
+    {
+      "id": "holdout-iteration-018",
+      "sha256": "9921923d4effa86b76303369e3b00e1179036596c1de941acd8879345111b23b"
+    },
+    {
+      "id": "holdout-iteration-019",
+      "sha256": "612b19e5fe09055418914feb27e513e5bd5c52ab879835606302ab0d24d39180"
+    },
+    {
+      "id": "holdout-iteration-020",
+      "sha256": "5e71627396127a7e8b111b05b64117c279323399c6f1888be83188f9f2097fa0"
+    },
+    {
+      "id": "holdout-iteration-021",
+      "sha256": "9b4d945eaa3f2c5668f604fc848413d299958a08ee0ef411a4a53fed2828bca5"
+    },
+    {
+      "id": "holdout-iteration-022",
+      "sha256": "4d26dac7f5fe40e636e45403e5287aeeb348f85969d283cbe5cd04561a89fcd4"
+    },
+    {
+      "id": "holdout-iteration-023",
+      "sha256": "1122257bea81eecc2f6bfd629717eacdee87fdfada443a2bcf8c63fe67e782aa"
+    },
+    {
+      "id": "holdout-iteration-024",
+      "sha256": "3fd27ff9a3f2e111506f518d30c173f0c04bfc7e9be68362f201b0334b5dbfdd"
+    },
+    {
+      "id": "holdout-iteration-025",
+      "sha256": "3dd52c5f5a47913f622cb8ef38438ddcd0fc1f61ed425a9e2e0f9f9272095f62"
+    },
+    {
+      "id": "holdout-iteration-026",
+      "sha256": "bfd635c05e28da139b98857ec6264b2b29ec8c9fc3137f0a33e54abbea7d85aa"
+    },
+    {
+      "id": "holdout-iteration-027",
+      "sha256": "b03540c13279ab08f711a636e5a145adf48cd8086bd4f72cf7231c9b64f45442"
+    },
+    {
+      "id": "holdout-iteration-028",
+      "sha256": "b91b5ea63271f4fa01ea3f95e584db2e914af24b4951641f7a6542f5dc531f37"
+    },
+    {
+      "id": "holdout-iteration-029",
+      "sha256": "debe77b1afc94b980983bb026401dfcd30e78361ef5eeec41a1b254c8622fd9d"
+    },
+    {
+      "id": "holdout-iteration-030",
+      "sha256": "17ee936c2c1a729e0a3c6619f4d2565f83a3f5898dbdb37ce24f1cddfbe4d886"
+    },
+    {
+      "id": "holdout-iteration-031",
+      "sha256": "930d38545b9e011acc6225e4f9def829dd8890d756c528041987a35e83c647ae"
+    },
+    {
+      "id": "holdout-iteration-032",
+      "sha256": "373f2802858f97459945849368031978e02c88d9348e2397f3a191ab4fe79977"
+    },
+    {
+      "id": "holdout-iteration-033",
+      "sha256": "54cf4be8deb10a391fb9ed769fb7dea7b8009b49066b56f7a198ab8fd4e3b9f3"
+    },
+    {
+      "id": "holdout-iteration-034",
+      "sha256": "0b34cd427f7da931f01802dfeef18306d427c13aa08baf7c34370bcc0a5d3968"
+    },
+    {
+      "id": "holdout-iteration-035",
+      "sha256": "c38fe4e81553e03c77a7d02d35f45373219d5f561503c128b3715e155b62668c"
+    },
+    {
+      "id": "holdout-iteration-036",
+      "sha256": "af6e0d13aeeefb8f18dec67c35ba4fbfc0e07a043c063b475df3ccc159204372"
+    },
+    {
+      "id": "holdout-iteration-037",
+      "sha256": "9dfe1f3f4b0c34a9ae5958ab767d240cbb942cf1c76050fb87dc250c31879b72"
+    },
+    {
+      "id": "holdout-iteration-038",
+      "sha256": "0f3b6ca06b542724c4ae7f99ce040eda767d72d2692818d1a4d5cb77192e1e2c"
+    },
+    {
+      "id": "holdout-iteration-039",
+      "sha256": "914b398d5130e50ebae65e3708b7207781f4e43bf7c2cefa43a0b275809d1a27"
+    },
+    {
+      "id": "holdout-iteration-040",
+      "sha256": "e7f0bfb05818d9773c5cde173780dbb3606e414b044901a3dc9ed6af94e2da99"
+    },
+    {
+      "id": "holdout-iteration-041",
+      "sha256": "0eb92620e4605d1d9d9286d4134a59d1806f432063a6bb98df7a16b3bb9ffb3c"
+    },
+    {
+      "id": "holdout-iteration-042",
+      "sha256": "b72d28e4539007641a0d28d52cfb0dc77cc379301f7c0198d33a4370d7d56980"
+    },
+    {
+      "id": "holdout-iteration-043",
+      "sha256": "b63f99191a625496cd5dd5ad07d50f60479ea1edac28123695b57ec1979ea996"
+    },
+    {
+      "id": "holdout-iteration-044",
+      "sha256": "2007fecf025945383bffb75aad55df3129aaa1bac6056995bd36f80f1d49e4c1"
+    },
+    {
+      "id": "holdout-iteration-045",
+      "sha256": "c8de48b0095953888e00bb10d90baa29cb660f8cca251572557c2361759a85fc"
+    },
+    {
+      "id": "holdout-iteration-046",
+      "sha256": "35d6d66425d315fd43b4a433f1210281d6658efb2f57b904294a1e386b605a6f"
+    },
+    {
+      "id": "holdout-iteration-047",
+      "sha256": "a615f5829b153a51ca659fd0066fcb8899abb6545a72ef7b5d290827e54b9d48"
+    },
+    {
+      "id": "holdout-iteration-048",
+      "sha256": "c9f5d1b83db16faddc3df6b577b8bb80a4797b956c59f1d93ba92f8604120b0b"
+    },
+    {
+      "id": "holdout-iteration-049",
+      "sha256": "993b0028b89e508daa36eb83feb305a3188e9a541541fd5d6c9b84711653c854"
+    },
+    {
+      "id": "holdout-iteration-050",
+      "sha256": "57ab8185b4ac9043fa0678290ab5ad7d22215d060038ab51e29701df421dd76f"
+    },
+    {
+      "id": "holdout-iteration-051",
+      "sha256": "552203cf2a649c310e0b9397db4416b657440efab1b919c8a89c6b739b643ba3"
+    },
+    {
+      "id": "holdout-iteration-052",
+      "sha256": "186983aa76fbaa49d9f4982e641e1c8b5d56178e571336b8d2dfca23065f91b1"
+    },
+    {
+      "id": "holdout-iteration-053",
+      "sha256": "167bf7067e576dd2f8a0757d25372e75d6017ced0615b0b763be7fb9cd64da42"
+    },
+    {
+      "id": "holdout-iteration-054",
+      "sha256": "213b4817719ed03e4248d4b132428e8ae9ecb62f93e99fe53bea62864425051e"
+    },
+    {
+      "id": "holdout-iteration-055",
+      "sha256": "f8458c7ec233505d1b7600a4376a16d054df3d32103f587c0320ae09fdef58df"
+    },
+    {
+      "id": "holdout-iteration-056",
+      "sha256": "bae959f939518990612031b1a3ca37637139b917a424e6623a32fd864a846f8f"
+    },
+    {
+      "id": "holdout-iteration-057",
+      "sha256": "03d01cf96d8b436f4dda1cdfc222a178c78768dae6b44eea5ff3589e6476a3df"
+    },
+    {
+      "id": "holdout-iteration-058",
+      "sha256": "a4198490df2f0410c0139eb40357873d2e2782ce346ac0042883d7019b77358b"
+    },
+    {
+      "id": "holdout-iteration-059",
+      "sha256": "bdff6ddec42ef6377f13a316cadda1bef3f967c30cd5e972b8c51dcd04c284fa"
+    },
+    {
+      "id": "holdout-iteration-060",
+      "sha256": "28ec368b471ea46fb5b96808a1453948b2b027034db1ab14572b0fd67a0e9155"
+    },
+    {
+      "id": "holdout-iteration-061",
+      "sha256": "a0dd530b52431c41c9d4bc04d7ef62a8b9a97af50aae1180eff5623444501846"
+    },
+    {
+      "id": "holdout-iteration-062",
+      "sha256": "5f5bc7151026ba5131b864160d404ae3a821e353107c2cd83046a275fb5905a6"
+    },
+    {
+      "id": "holdout-iteration-063",
+      "sha256": "e5e6d2d8493e97e6186f57e91aad8a837ac6882ed0b425b7c74af97ffab63523"
+    },
+    {
+      "id": "holdout-iteration-064",
+      "sha256": "85b79dcaf037d5dd8e0bbebfd263574d4652e7bf812d13a487eca7b99c4a8c00"
+    },
+    {
+      "id": "holdout-iteration-065",
+      "sha256": "6fa9bbc5746a3a6a2abeb4d4a88b6eb135dc68fdc6a0b451bede039dd58d4473"
+    },
+    {
+      "id": "holdout-iteration-066",
+      "sha256": "ef3280b3219073ceb3e9fb0177dbdf970e04fe70101605b354fd2492a814e470"
+    },
+    {
+      "id": "holdout-iteration-067",
+      "sha256": "2628b641f34c4fa80e21d30ac697c09d21704e7681f1b1e64b750170773294eb"
+    },
+    {
+      "id": "holdout-iteration-068",
+      "sha256": "d18c0e283200b839d8b8b04efa851fb89ac997889a9f98a3044fa520bab7bc44"
+    },
+    {
+      "id": "holdout-iteration-069",
+      "sha256": "3630a0aa8fc0bcc68517de162fe8fc6e8b4dcb0cb07375bfa84ec30eba4c22a5"
+    },
+    {
+      "id": "holdout-iteration-070",
+      "sha256": "48e5921dcfbe3da5a81dae9be82d84fa8396ded423c7fd8711a3daecdd47878a"
+    },
+    {
+      "id": "holdout-iteration-071",
+      "sha256": "f3fe6c20f51094fc6067d5d852cb37fd6a57957619b0bcf07e2869e03c3b6ccd"
+    },
+    {
+      "id": "holdout-iteration-072",
+      "sha256": "0d0a1571145cf19bbc1f59e6e2a1e2bac9a6db42f6b5bc42be49f04a9ed11603"
+    },
+    {
+      "id": "holdout-iteration-073",
+      "sha256": "b10e0a521efb286bbcde6dbb1dd85124613a2ad5f4d5769a3464b8b70afd593b"
+    },
+    {
+      "id": "holdout-iteration-074",
+      "sha256": "b613d5c098eae113d3e5eedf8144c7c4364e2806f50f8e6835f5838e6f1bcccf"
+    },
+    {
+      "id": "holdout-iteration-075",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf"
+    },
+    {
+      "id": "holdout-iteration-076",
+      "sha256": "967f79e4b214e1e632aec93ee2843cbad92e71601043f4d251ea9b46649f65a7"
+    },
+    {
+      "id": "holdout-iteration-077",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a"
+    },
+    {
+      "id": "holdout-iteration-078",
+      "sha256": "d5420ebcb8eb77ae18ea652c0afba94da07d1157c4dadd4460fb6402c0db49f7"
+    },
+    {
+      "id": "holdout-iteration-079",
+      "sha256": "eab6723166a9621951ef06f99c2bda8d97f5bfdb02541a9b1d03874d659ea331"
+    }
+  ],
+  "section": "holdout-iteration",
+  "attempt": "first",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 224.958,
+  "prompt_sha256": "cc78dca0edb9dcebc23b1eeae25736981a01bf3e0f6d97695069f6b91534382c",
+  "response_sha256": "2a52dda76435b9c5f94fe0c4d46918a44f6d3c7748a07152b7ab51bf1c2ddd64",
+  "tool_types": [],
+  "usage": [
+    {
+      "input_tokens": 36546,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7517,
+      "reasoning_output_tokens": 3103
+    }
+  ],
+  "auth": "official Codex; existing ChatGPT login",
+  "images": 4
+}

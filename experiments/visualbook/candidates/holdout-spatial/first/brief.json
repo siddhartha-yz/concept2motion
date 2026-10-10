@@ -1,0 +1,169 @@
+{
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "96d541d3cd01b9808e803b08d60a5acaced070bb0a8db1740d7a1cc58b778d05",
+  "adaptedSha256": "66620f6260a6a7ec28029a714e45661df387dbc40137a7185b3352dc66514439",
+  "source": "chapter_convolutional-neural-networks/padding-and-strides.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_convolutional-neural-networks/padding-and-strides.html",
+  "guideSha256": "914475a68bc7e66619b7d38df5e7cfdf7d69a96dbb881c8b22b7e0e35044d9d0",
+  "anchorHashes": [
+    {
+      "id": "holdout-spatial-001",
+      "sha256": "7f5aa9bf989b32bfc2069a7d824e784e97c456cd462776c3a30c55200d6b9b1c"
+    },
+    {
+      "id": "holdout-spatial-002",
+      "sha256": "92f2fb62bf5a44d1ce1b11a475c372e40d90a5c3d91dfd0c4e8f1fc9c9302584"
+    },
+    {
+      "id": "holdout-spatial-003",
+      "sha256": "2cddfe33717f95154e343e3e1f2271b6cc0336c82364d45a91c019f96ccdeac7"
+    },
+    {
+      "id": "holdout-spatial-004",
+      "sha256": "ae88310718298f5ea5e58d110a8b9d30b1c966248b1a96899842bfd836984ecd"
+    },
+    {
+      "id": "holdout-spatial-005",
+      "sha256": "d74abfc6990972ec4a3633ebf0af2f9521614e666e1e76bb6d830d1db15ba342"
+    },
+    {
+      "id": "holdout-spatial-006",
+      "sha256": "05c6095eea6e890ea259d590a3283a80b0e98cc073569837793762e079f67460"
+    },
+    {
+      "id": "holdout-spatial-007",
+      "sha256": "247a18bc3aff610d95f5654ad88a49725223e0ce02da8a51987745e2291c3095"
+    },
+    {
+      "id": "holdout-spatial-008",
+      "sha256": "58ad8313000978ba148d9fcb3c2a9b83aa2fe57bc0865e28c209fc135b1339c8"
+    },
+    {
+      "id": "holdout-spatial-009",
+      "sha256": "06576869e07bc966269cfeb6db3803c64867f3e13b9738c0570b3ec9fd5f732e"
+    },
+    {
+      "id": "holdout-spatial-010",
+      "sha256": "4fbe2608a7750772604587c9af60b4e5ab2cdc2ece7b50d9520b35b0ce30bc90"
+    },
+    {
+      "id": "holdout-spatial-011",
+      "sha256": "532f4ba18f0e1ea67652598ff6998cd1b0a37d81f3b538c272ffcc00decfc2e1"
+    },
+    {
+      "id": "holdout-spatial-012",
+      "sha256": "f4ad7dd19449cc7c38f24bbd6bfbd078ca2bc636c45d89de4d57b99a217df4df"
+    },
+    {
+      "id": "holdout-spatial-013",
+      "sha256": "0d25f89904a8157ca97486efbf02b61c097e53bea626757e4eeefb282c46e62c"
+    },
+    {
+      "id": "holdout-spatial-014",
+      "sha256": "a04906e514c25d86c8d36fc405aa7e7d2ca189ddc7f4172bd4c27c612dc4dd6a"
+    },
+    {
+      "id": "holdout-spatial-015",
+      "sha256": "5fb0ab80bf8b2a7195967e9c23b4fd8ca8c8146d9856b1c77bb1ee53eb724516"
+    },
+    {
+      "id": "holdout-spatial-016",
+      "sha256": "c407eafe6e7ea7eb338cb405f033528a24c3faff2da898dc288e41abc3537822"
+    },
+    {
+      "id": "holdout-spatial-017",
+      "sha256": "db4e3ec8f61682e7c4ac43ac541d8b276599ce2aeca9d347c79b4a8ffbefdc00"
+    },
+    {
+      "id": "holdout-spatial-018",
+      "sha256": "9c978492faac4ea4e9d0a54e4004d032a63a0a333a48ead0aa65aaa85811f3b2"
+    },
+    {
+      "id": "holdout-spatial-019",
+      "sha256": "fcb6bce5b2efd56cbddfc5d50f0f2f918b9138769b2b8c178328198f1cabcadf"
+    },
+    {
+      "id": "holdout-spatial-020",
+      "sha256": "09928176fcdca45655b28a1401a0f6d3c523ac634d79ebbeaf306eb40e570404"
+    },
+    {
+      "id": "holdout-spatial-021",
+      "sha256": "d90568879b6120bfec088e5d474c932e54a8c64b78aaa7d9323507d456e64578"
+    },
+    {
+      "id": "holdout-spatial-022",
+      "sha256": "b8651747ec345fb4be8fd168b675b8e1adacbbbc3b1dbfbdf3e281f5f3349091"
+    },
+    {
+      "id": "holdout-spatial-023",
+      "sha256": "54ad405c03b736d31c441e2a034aa1486286ccac14b8edcab74cec6ce5cc99c5"
+    },
+    {
+      "id": "holdout-spatial-024",
+      "sha256": "38c4f1b81f7efc4451c0d1bec6d116df8887e0799101d1c49e5f734641dcf782"
+    },
+    {
+      "id": "holdout-spatial-025",
+      "sha256": "b81b91843f6e07133b89d65cd119ab2f7dc7edc618a7ab8c5a1b0e223e5dc3fc"
+    },
+    {
+      "id": "holdout-spatial-026",
+      "sha256": "73a1c3162b3973fccec803ffbda38f765e5d4a031c5c5cbde91a11512dd7b1af"
+    },
+    {
+      "id": "holdout-spatial-027",
+      "sha256": "2b5126f1c414c50cf7fd4b9d725b7ffe49a238d75bda94b4381926c31d9a907c"
+    },
+    {
+      "id": "holdout-spatial-028",
+      "sha256": "75ea2a9ec09215782882c1b37769d57bf2ab7811b7c277f84ef2f0daf69973d7"
+    },
+    {
+      "id": "holdout-spatial-029",
+      "sha256": "cc2da7077d3b533167f245837d20d82dbc332d9abb4084a0ef1162df9f5194fe"
+    },
+    {
+      "id": "holdout-spatial-030",
+      "sha256": "6dcb5d84a8947c685c67d1501ff6616a18a78b0bdd61fe9d15c26d13770350e9"
+    },
+    {
+      "id": "holdout-spatial-031",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf"
+    },
+    {
+      "id": "holdout-spatial-032",
+      "sha256": "36b4a98963d833aedc17286298c35c46ebb3d9fcc67648d419ef0696fff4e5e0"
+    },
+    {
+      "id": "holdout-spatial-033",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a"
+    },
+    {
+      "id": "holdout-spatial-034",
+      "sha256": "d338b2048d0fad6946f521a4a41390c7d64c968305507d00808d834519fc922c"
+    },
+    {
+      "id": "holdout-spatial-035",
+      "sha256": "4cbcc8785d084e9a74219b521c170593b2234a3fb2853453b6f5ce86ccb31851"
+    }
+  ],
+  "section": "holdout-spatial",
+  "attempt": "first",
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 213.785,
+  "prompt_sha256": "6b9215a3f5a586f8d355c0ece13983bbf8447094db53a7be105267875d797ea6",
+  "response_sha256": "8166690206c0132deec8f6fde962c2bf8a327cbcacefad14d34edc73d541c838",
+  "tool_types": [],
+  "usage": [
+    {
+      "input_tokens": 28372,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 7014,
+      "reasoning_output_tokens": 2588
+    }
+  ],
+  "auth": "official Codex; existing ChatGPT login",
+  "images": 2
+}

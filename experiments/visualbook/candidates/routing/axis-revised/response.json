@@ -1,0 +1,59 @@
+{
+  "figures": [
+    {
+      "id": "masked-softmax-rows",
+      "title": "有效长度如何对应每一行",
+      "purpose": "把一维与二维有效长度直接映射到同一个固定张量的四行，显示掩蔽后重新归一化的数值，补足代码中展开有效长度与最后一轴运算的关系。",
+      "alt": "四行、四列的评分与注意力权重。一维有效长度在同一样本内重复；二维有效长度逐行指定。橙色位置被掩蔽，蓝色条表示有效位置的权重。",
+      "afterAnchor": "routing-013",
+      "states": [
+        {
+          "key": "batch",
+          "label": "每个样本一个长度",
+          "anchor": "routing-014"
+        },
+        {
+          "key": "row",
+          "label": "每一行一个长度",
+          "anchor": "routing-016"
+        }
+      ],
+      "controls": [],
+      "code": "function render({width,state,params}) {\n  const w = Number.isFinite(width) ? Math.max(320, Math.min(760, width)) : 640;\n  const key = typeof state === 'string' ? state : state && state.key;\n  const mode = key === 'row' ? 'row' : 'batch';\n  const X = [[[0,1,2,3],[3,1,0,2]],[[1,0,3,2],[2,3,1,0]]];\n  const lengths = mode === 'row' ? [[1,3],[2,4]] : [2,3];\n  const expanded = mode === 'row' ? [1,3,2,4] : [2,2,3,3];\n  const rows = X[0].concat(X[1]);\n  const masked = rows.map((r,i) => r.map((x,j) => j < expanded[i] ? x : -1e6));\n  const exponentials = masked.map(r => { const m = Math.max(...r); return r.map(x => Math.exp(x-m)); });\n  const denominators = exponentials.map(r => r.reduce((a,b) => a+b,0));\n  const alpha = exponentials.map((r,i) => r.map(x => x/denominators[i]));\n  const colors = {background:'#fbf8f1',ink:'#252a2d',blue:'#356b91',orange:'#bd6935',quiet:'#d9d5cd'};\n  const left = w < 460 ? 80 : 112;\n  const cellW = (w-left-12)/4;\n  const top = 83;\n  const rowH = 42;\n  const h = 270;\n  const text = (x,y,s,fill=colors.ink,anchor='start',size=14) => `<text x=\"${x}\" y=\"${y}\" fill=\"${fill}\" text-anchor=\"${anchor}\" font-size=\"${size}\">${s}</text>`;\n  let parts = [`<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"${w}\" height=\"${h}\" viewBox=\"0 0 ${w} ${h}\" role=\"img\"><title>有效长度与掩蔽softmax</title><desc>固定手选评分，形状为2乘2乘4。${mode === 'row' ? '四行有效长度依次为1、3、2、4。' : '样本有效长度为2和3，展开后为2、2、3、3。'}每格上方为评分，下方为权重；橙色表示被掩蔽的位置，蓝色条长度表示权重。</desc><rect width=\"${w}\" height=\"${h}\" fill=\"${colors.background}\"/><g font-family=\"sans-serif\">`];\n  parts.push(text(12,22,'X → α   (2, 2, 4)',colors.ink,'start',16));\n  parts.push(text(12,44,mode === 'row' ? 'L = [[1, 3], [2, 4]]' : 'L = [2, 3]'));\n  parts.push(text(w-12,22,'上 X / 下 α',colors.ink,'end'));\n  parts.push(text(12,73,'样本·行'));\n  for(let j=0;j<4;j++) parts.push(text(left+(j+0.5)*cellW,73,'k'+(j+1),colors.ink,'middle'));\n  const cells = [];\n  for(let i=0;i<4;i++) {\n    const y = top+i*rowH;\n    const b = Math.floor(i/2)+1;\n    const q = i%2+1;\n    parts.push(text(12,y+14,b+'·'+q));\n    parts.push(text(12,y+33,'L='+expanded[i]));\n    if(i===2) parts.push(`<line x1=\"12\" y1=\"${y-4}\" x2=\"${w-12}\" y2=\"${y-4}\" stroke=\"${colors.quiet}\"/>`);\n    for(let j=0;j<4;j++) {\n      const x = left+j*cellW;\n      const cx = x+cellW/2;\n      const valid = j<expanded[i];\n      const barW = (cellW-10)*alpha[i][j];\n      if(valid) parts.push(`<rect x=\"${x+5}\" y=\"${y+19}\" width=\"${barW}\" height=\"18\" fill=\"${colors.blue}\" fill-opacity=\"0.22\"/>`);\n      else parts.push(`<rect x=\"${x+5}\" y=\"${y+1}\" width=\"${cellW-10}\" height=\"36\" fill=\"${colors.orange}\" fill-opacity=\"0.08\"/>`);\n      parts.push(text(cx,y+14,String(rows[i][j]),valid ? colors.ink : colors.orange,'middle'));\n      if(!valid) parts.push(`<line x1=\"${cx-9}\" y1=\"${y+9}\" x2=\"${cx+9}\" y2=\"${y+9}\" stroke=\"${colors.orange}\" stroke-width=\"1.5\"/>`);\n      parts.push(text(cx,y+33,valid ? alpha[i][j].toFixed(3) : '0',valid ? colors.ink : colors.orange,'middle'));\n      cells.push({batch:b-1,query:q-1,key:j,x,y,width:cellW,height:rowH,valid,score:rows[i][j],maskedScore:masked[i][j],weight:alpha[i][j],barWidth:barW});\n    }\n  }\n  parts.push('</g></svg>');\n  return {svg:parts.join(''),facts:{example:'固定手选评分，非原文随机运行输出',state:mode,shape:[2,2,4],logits:X,validLens:lengths,flattenedRowOrder:[[0,0],[0,1],[1,0],[1,1]],expandedValidLens:expanded,maskedScores:masked,shiftedExponentials:exponentials,denominators,weights:alpha,rowSums:alpha.map(r=>r.reduce((a,b)=>a+b,0)),steps:['按样本与查询顺序展开四行','将键下标大于等于有效长度的评分替换为-1000000','逐行减最大值、取指数并归一化'],geometry:{width:w,height:h,left,top,rowHeight:rowH,cellWidth:cellW,cells}}};\n}",
+      "assumptions": "评分为固定手选数值，不是原文 torch.rand 的运行结果。一维有效长度为 [2,3]，二维有效长度为 [[1,3],[2,4]]，与相邻原文一致。采用原代码的 -1e6 哨兵值；此例在 JavaScript 数值计算中被掩蔽指数下溢为0。蓝色始终表示有效权重，橙色始终表示掩蔽。窄屏缩短行索引并重新分配列宽。",
+      "checks": "分别复核两个状态的有效长度展开顺序、最后一轴归一化、被掩蔽位置的零权重与每行权重和为1。独立重算固定评分的 softmax；显示值只保留三位小数，检查应使用 facts 中未舍入数值。检查宽度320、460、760时四列与行标签不重叠，SVG viewBox 宽度与返回宽度一致。"
+    },
+    {
+      "id": "dot-product-exact-spread",
+      "title": "缩放前后的离散分布",
+      "purpose": "用符合原文独立性、零均值和单位方差假设的有限分布，精确展示维度增加时点积的分散程度，以及除以根号d后的标准差；不依赖随机抽样或正态近似。",
+      "alt": "上下两幅共享横轴的离散概率图。上方为点积，下方为除以根号d的点积。维度可从1调整到16，点积方差为d，缩放后方差为1，横向线段分别标出正负一个标准差。",
+      "afterAnchor": "routing-029",
+      "states": [
+        {
+          "key": "raw",
+          "label": "点积方差随维度增加",
+          "anchor": "routing-029"
+        },
+        {
+          "key": "scaled",
+          "label": "除以根号d",
+          "anchor": "routing-030"
+        }
+      ],
+      "controls": [
+        {
+          "key": "d",
+          "label": "维度 d",
+          "min": 1,
+          "max": 16,
+          "step": 1,
+          "value": 8
+        }
+      ],
+      "code": "function render({width,state,params}) {\n  const w = Number.isFinite(width) ? Math.max(320, Math.min(760,width)) : 640;\n  const supplied = params && params.d;\n  const d = Number.isFinite(supplied) ? Math.max(1,Math.min(16,Math.round(supplied))) : 8;\n  const key = typeof state === 'string' ? state : state && state.key;\n  const mode = key === 'scaled' ? 'scaled' : 'raw';\n  const root = Math.sqrt(d);\n  const distribution = [];\n  let probability = Math.pow(2,-d);\n  for(let j=0;j<=d;j++) {\n    if(j>0) probability *= (d-j+1)/j;\n    const score = d-2*j;\n    distribution.push({negativeProducts:j,raw:score,scaled:score/root,probability});\n  }\n  const total = distribution.reduce((s,p)=>s+p.probability,0);\n  const rawMean = distribution.reduce((s,p)=>s+p.raw*p.probability,0);\n  const scaledMean = distribution.reduce((s,p)=>s+p.scaled*p.probability,0);\n  const rawVariance = distribution.reduce((s,p)=>s+(p.raw-rawMean)*(p.raw-rawMean)*p.probability,0);\n  const scaledVariance = distribution.reduce((s,p)=>s+(p.scaled-scaledMean)*(p.scaled-scaledMean)*p.probability,0);\n  const maxP = Math.max(...distribution.map(p=>p.probability));\n  const colors = {background:'#fbf8f1',ink:'#252a2d',blue:'#356b91',orange:'#bd6935',quiet:'#c9c5bd'};\n  const h = 268;\n  const left = 44;\n  const right = w-28;\n  const limit = Math.max(4,d);\n  const mapX = value => left+(value+limit)/(2*limit)*(right-left);\n  const text = (x,y,s,fill=colors.ink,anchor='start',size=14) => `<text x=\"${x}\" y=\"${y}\" fill=\"${fill}\" text-anchor=\"${anchor}\" font-size=\"${size}\">${s}</text>`;\n  let parts = [`<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"${w}\" height=\"${h}\" viewBox=\"0 0 ${w} ${h}\" role=\"img\"><title>点积缩放的精确离散分布</title><desc>查询和键的每个分量独立地以相同概率取负一或正一，维度为${d}。蓝色为原始点积，橙色为缩放点积。每根竖线的高度表示概率，两个图使用相同坐标尺度。原始方差为${d}，缩放后方差为一。横向线段标出负一个至正一个标准差。</desc><rect width=\"${w}\" height=\"${h}\" fill=\"${colors.background}\"/><g font-family=\"sans-serif\">`];\n  parts.push(text(12,21,'等概率 ±1；竖线高度为概率'));\n  parts.push(text(w-12,21,'d = '+d,colors.ink,'end'));\n  const plots = [];\n  const specs = [{name:'raw',label:'qᵀk',baseline:94,titleY:43,color:colors.blue,sigma:root,variance:d},{name:'scaled',label:'qᵀk / √d',baseline:204,titleY:153,color:colors.orange,sigma:1,variance:1}];\n  for(const spec of specs) {\n    const opacity = mode === spec.name ? 1 : 0.48;\n    parts.push(text(left,spec.titleY,spec.label,spec.color,'start',16));\n    parts.push(text(right,spec.titleY,'Var = '+spec.variance,colors.ink,'end'));\n    parts.push(`<line x1=\"${left}\" y1=\"${spec.baseline}\" x2=\"${right}\" y2=\"${spec.baseline}\" stroke=\"${colors.quiet}\"/>`);\n    parts.push(`<line x1=\"${left-4}\" y1=\"${spec.baseline-44}\" x2=\"${left-4}\" y2=\"${spec.baseline}\" stroke=\"${colors.quiet}\"/>`);\n    parts.push(text(left-8,spec.baseline-38,maxP.toFixed(2),colors.ink,'end'));\n    parts.push(text(left-8,spec.baseline-3,'0',colors.ink,'end'));\n    parts.push(`<line x1=\"${mapX(0)}\" y1=\"${spec.baseline-44}\" x2=\"${mapX(0)}\" y2=\"${spec.baseline}\" stroke=\"${colors.quiet}\" stroke-dasharray=\"2 3\"/>`);\n    const marks = [];\n    parts.push(`<g opacity=\"${opacity}\">`);\n    for(const point of distribution) {\n      const value = point[spec.name];\n      const x = mapX(value);\n      const stemHeight = 44*point.probability/maxP;\n      const y = spec.baseline-stemHeight;\n      parts.push(`<line x1=\"${x}\" y1=\"${spec.baseline}\" x2=\"${x}\" y2=\"${y}\" stroke=\"${spec.color}\" stroke-width=\"1.5\"/><circle cx=\"${x}\" cy=\"${y}\" r=\"2\" fill=\"${spec.color}\"/>`);\n      marks.push({value,probability:point.probability,x,y,stemHeight});\n    }\n    parts.push('</g>');\n    for(const tick of [-limit,-limit/2,0,limit/2,limit]) {\n      const x = mapX(tick);\n      parts.push(`<line x1=\"${x}\" y1=\"${spec.baseline}\" x2=\"${x}\" y2=\"${spec.baseline+4}\" stroke=\"${colors.quiet}\"/>`);\n      parts.push(text(x,spec.baseline+19,String(tick),colors.ink,'middle'));\n    }\n    const spanY = spec.baseline+30;\n    const x1 = mapX(-spec.sigma);\n    const x2 = mapX(spec.sigma);\n    parts.push(`<path d=\"M ${x1} ${spanY-3} V ${spanY+3} M ${x1} ${spanY} H ${x2} M ${x2} ${spanY-3} V ${spanY+3}\" fill=\"none\" stroke=\"${spec.color}\" stroke-width=\"1.5\"/>`);\n    parts.push(text(mapX(0),spanY+16,'σ = '+(spec.sigma===1 ? '1' : spec.sigma.toFixed(2)),spec.color,'middle'));\n    plots.push({name:spec.name,baseline:spec.baseline,color:spec.color,opacity,marks,standardDeviationSpan:{from:-spec.sigma,to:spec.sigma,x1,x2,y:spanY}});\n  }\n  parts.push('</g></svg>');\n  return {svg:parts.join(''),facts:{state:mode,d,componentDistribution:[{value:-1,probability:0.5},{value:1,probability:0.5}],independence:'所有查询分量和键分量互相独立',productDistribution:[{value:-1,probability:0.5},{value:1,probability:0.5}],distribution,probabilitySum:total,rawMean,scaledMean,rawVariance,scaledVariance,theoreticalVariances:{raw:d,scaled:1},standardDeviations:{raw:root,scaled:1},steps:['以二项分布精确计算负乘积的个数j的概率','点积为d-2j','各支持点除以sqrt(d)，概率保持不变'],geometry:{width:w,height:h,xDomain:[-limit,limit],left,right,sharedProbabilityHeight:44,sharedMaximumProbability:maxP,plots}}};\n}",
+      "assumptions": "这是独立等概率取±1的特例，满足原文零均值、单位方差和独立性条件。用二项分布完整枚举概率，不使用随机数、不假设正态分布。横轴在两图间共享；竖线高度在两图间使用同一个概率尺度。蓝色固定表示原始点积，橙色固定表示缩放点积。此有限例子不代表真实模型的查询与键分布，也不证明注意力效果或性能。窄屏重新安排绘图区边距，标签保持14px以上。",
+      "checks": "对每个整数d=1至16独立复核二项概率、概率和为1、两个均值为0、原始方差为d、缩放方差为1；使用数值容差。确认缩放只改变支持点坐标，不改变概率。d=1时两个分布应完全一致。复核两图横轴和概率高度尺度相同，所有支持点落在横轴范围内；检查两个状态及宽度320、460、760的标签和标准差标记布局。"
+    }
+  ]
+}

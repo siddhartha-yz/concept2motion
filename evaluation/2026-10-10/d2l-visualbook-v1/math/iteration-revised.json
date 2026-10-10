@@ -1,0 +1,747 @@
+{
+  "section": "iteration",
+  "attempt": "revised",
+  "scope": "Independent numeric recomputation for reviewed frozen examples; not trained weights, runtime measurements or artistic acceptance",
+  "checks": [
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "sample",
+      "params": {
+        "sample": 1
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "sample",
+      "params": {
+        "sample": 1
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "sample",
+      "params": {
+        "sample": 2
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "sample",
+      "params": {
+        "sample": 3
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "sample",
+      "params": {
+        "sample": 4
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "mean",
+      "params": {
+        "sample": 1
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "mean",
+      "params": {
+        "sample": 1
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "mean",
+      "params": {
+        "sample": 2
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "mean",
+      "params": {
+        "sample": 3
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-gradient-mean",
+      "state": "mean",
+      "params": {
+        "sample": 4
+      },
+      "pass": true,
+      "assertions": 4
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 12
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 2
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 3
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 4
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 5
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 6
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 7
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 8
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 9
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 10
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 11
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 12
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 13
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 14
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 15
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 16
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 17
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 18
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 19
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 20
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 21
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 22
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 23
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "coverage",
+      "params": {
+        "n": 24
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 12
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 2
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 3
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 4
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 5
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 6
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 7
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 8
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 9
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 10
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 11
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 12
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 13
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 14
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 15
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 16
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 17
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 18
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 19
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 20
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 21
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 22
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 23
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "once",
+      "params": {
+        "n": 24
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 12
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 2
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 3
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 4
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 5
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 6
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 7
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 8
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 9
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 10
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 11
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 12
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 13
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 14
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 15
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 16
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 17
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 18
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 19
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 20
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 21
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 22
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 23
+      },
+      "pass": true,
+      "assertions": 7
+    },
+    {
+      "figure": "sgd-sampling-coverage",
+      "state": "shuffle",
+      "params": {
+        "n": 24
+      },
+      "pass": true,
+      "assertions": 7
+    }
+  ],
+  "passed": 82,
+  "total": 82
+}
