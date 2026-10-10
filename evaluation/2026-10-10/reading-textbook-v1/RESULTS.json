@@ -1,0 +1,472 @@
+{
+  "schema": 1,
+  "task": "Reading-driven HTML textbook feasibility, with fixed upstream reproduction",
+  "work_time": {
+    "started_at_utc": "2026-10-10T08:43:51Z",
+    "minimum_seconds": 7200,
+    "completed_at_utc": "2026-10-10T10:44:09Z",
+    "elapsed_seconds": 7218
+  },
+  "scope": {
+    "current_session_authored_units": 3,
+    "bound_paragraphs": 12,
+    "extra_independent_model_calls": 0,
+    "new_transcript": false,
+    "new_video_to_article_pipeline_complete": false,
+    "existing_text_recompile": true,
+    "human_learning_study": false,
+    "human_artistic_acceptance": "pending_user_review",
+    "public_deployment": false,
+    "push": false
+  },
+  "upstreams": {
+    "video2book": {
+      "commit": "0127fd1fa3b343d293a2543d4a79aa7a706fa410",
+      "tracked_status": ""
+    },
+    "video2book-courses": {
+      "commit": "0febad63d1bbeef886217effef59f3b2b0c86caf",
+      "tracked_status": ""
+    },
+    "zanim": {
+      "commit": "b17a62f979a44ce0f20ddfcb8533c07fca51f1d7",
+      "tracked_status": ""
+    },
+    "video2book-reader": {
+      "commit": "f5a15e0c8346003b688722afa7100597de258d4e",
+      "tracked_status": ""
+    }
+  },
+  "original_reproduction": {
+    "video2book_selfcheck": "pass",
+    "video2book_tests_sandbox": {
+      "passed": 706,
+      "failed": 1,
+      "reason": "signing code unmocked nav request, sandbox DNS"
+    },
+    "video2book_tests_host": {
+      "passed": 707,
+      "failed": 0
+    },
+    "video2book_real_pipeline": {
+      "selected_episode": "P02",
+      "minutes": 55.6,
+      "audio_bytes": 13854741,
+      "transcript": false,
+      "new_article": false,
+      "full_pipeline_complete": false,
+      "reason": "no SESSDATA configured, no native audio tool mounted"
+    },
+    "zanim_web_test_files": 12,
+    "zanim_wasm_build": "pass",
+    "zanim_native_build": "pass",
+    "zanim_zig_tests": "pass",
+    "zanim_python_tests": {
+      "passed": 307,
+      "subtests": 25,
+      "failed": 0
+    },
+    "reader_web_build": "pass",
+    "reader_derive": "pass",
+    "reader_bookshelf": "pass",
+    "reader_zip": "not runnable: Windows PowerShell not available",
+    "reader_cs336_split": {
+      "documents": 21,
+      "textbooks": 9,
+      "notes": 12,
+      "textbook_chapters": 37,
+      "notes_chapters": 91,
+      "warnings": 0,
+      "math_guards": 5
+    }
+  },
+  "final_checks": {
+    "browser": {
+      "passed": 20,
+      "total": 20,
+      "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/browser-v7/checks.json",
+      "sha256": "9f50f79aee7c3eac81b5b16f3c22d2279cae74011372bf7385183a84312b8222"
+    },
+    "books": {
+      "passed": 25,
+      "total": 25,
+      "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/books-v5/checks.json",
+      "sha256": "caee44ff0d74021881f4200797722b942773755be94b23bfee7b953f4846a7d5"
+    },
+    "portable": {
+      "passed": 5,
+      "total": 5,
+      "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/portable-v4/checks.json",
+      "sha256": "e6307737c84548f5f1724b59fd359c6b84fa76421a7ec8ecfbf1f93d6389710a"
+    },
+    "controller": {
+      "passed": 9,
+      "total": 9,
+      "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/controller-v2/checks.json",
+      "sha256": "a3064990a19b8d5c6d78226f94190b20ee7ee1a2bb97c1df9fe6a0b7e351b75b"
+    },
+    "focus_scroll": {
+      "passed": 3,
+      "total": 3,
+      "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/focus-scroll-v2/checks.json",
+      "sha256": "23f0b8ebbde09f0dbe617648cea00536fa82c907fc14e904469c1dbd20559f7f"
+    },
+    "source": {
+      "passed": 25,
+      "total": 25,
+      "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/source-audit/checks.json",
+      "sha256": "b1bfbe50de2945198230d59dd7d744e7a5f5af3729d04ff47825da05c0a68e1e"
+    },
+    "build_inputs": {
+      "passed": 4,
+      "total": 4,
+      "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/build-controls/checks.json",
+      "sha256": "107e1927f4774ecd598d5b0c710f4184d9bc8af241a3a800c94222cdb5d71067"
+    }
+  },
+  "earlier_negative_outcomes": [
+    {
+      "version": "browser-v1",
+      "passed": 15,
+      "total": 20,
+      "note": "Earlier outcomes preserved; inspect individual controls, including correction of bookshelf heading test assumptions",
+      "sha256": "4dd568edb28c282cc46106690567e75fbc89635b0e7528ec942b2e172d7cf1cf"
+    },
+    {
+      "version": "browser-v2",
+      "passed": 19,
+      "total": 20,
+      "note": "Earlier outcomes preserved; inspect individual controls, including correction of bookshelf heading test assumptions",
+      "sha256": "39f5b37f348e2180f451cca406e8cd242845ea85025b68d8814257931a1d9c63"
+    },
+    {
+      "version": "books-v1",
+      "passed": 22,
+      "total": 25,
+      "note": "Earlier outcomes preserved; inspect individual controls, including correction of bookshelf heading test assumptions",
+      "sha256": "8315f8db7d4ec5d24b87e968d4422dd9690891a2e8c74ab035795e153d41a5f9"
+    },
+    {
+      "version": "portable-v1",
+      "passed": 1,
+      "total": 5,
+      "note": "Earlier outcomes preserved; inspect individual controls, including correction of bookshelf heading test assumptions",
+      "sha256": "89f69ca59eae59d2f98bb95c80fc8a38eb45fabc1c8dba53116c4ffb5e29c763"
+    },
+    {
+      "version": "controller-v1",
+      "passed": 7,
+      "total": 9,
+      "note": "Earlier outcomes preserved; inspect individual controls, including correction of bookshelf heading test assumptions",
+      "sha256": "63e8f873e89f5f12e07cf7656dfe9e218f43d83d9226f00301637ca5e351af1f"
+    },
+    {
+      "version": "focus-scroll-v1",
+      "passed": 1,
+      "total": 3,
+      "note": "Earlier outcomes preserved; inspect individual controls, including correction of bookshelf heading test assumptions",
+      "sha256": "84944139efc2a7fe2e5fdbeb21d2b01cd8b0a28fb72a741fa12cde313ae465a9"
+    }
+  ],
+  "source_integrity": {
+    "files": 21,
+    "chapters": 128,
+    "source_bytes": 2333445,
+    "round_trip_successes": 21,
+    "new_empty_chapters": 0,
+    "original_empty_chapters": 4,
+    "original_wrong_start_chapters": 6,
+    "guarded_regions": 6,
+    "katex_render_errors": 2,
+    "limitation": "Preserved source and parse errors; not a fact audit of every chapter"
+  },
+  "math": {
+    "method": "Actual CPU PyTorch 2.7.1/einops 0.8.1 plus JS mathematical controls",
+    "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/torch-math.json",
+    "sha256": "846cf3d44cfd22159edba47520272158a0e090c1519e62d5346ed781de55f247",
+    "gpu_measurement": false
+  },
+  "frames_and_timing": {
+    "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/samples.json",
+    "frames": 12,
+    "sha256": "348854128d75079c8650bedb7484b633a2bbfe53a639fbe64459c3ce8be8917d",
+    "benchmarks": [
+      {
+        "unit": "tensor",
+        "samples": 600,
+        "medianMs": 0.19999998807907104,
+        "p95Ms": 0.30000001192092896,
+        "maximumMs": 10.200000017881393
+      },
+      {
+        "unit": "softmax",
+        "samples": 600,
+        "medianMs": 0.09999999403953552,
+        "p95Ms": 0.10000002384185791,
+        "maximumMs": 15.199999988079071
+      },
+      {
+        "unit": "intensity",
+        "samples": 600,
+        "medianMs": 0,
+        "p95Ms": 0.10000002384185791,
+        "maximumMs": 0.6000000238418579
+      }
+    ],
+    "limitation": "Actual deterministic browser frame sampling and synchronous seek timing on this host; not human learning, GPU throughput or end-to-end display latency"
+  },
+  "continuous_checks": {
+    "earlier_focus_traversal": {
+      "seconds": 1801.84,
+      "iterations": 599,
+      "passed": true,
+      "version_note": "Earlier app-v5 source archived; not a final-version UI claim",
+      "source_copy_sha256": "75b3e33a72a71c8206bc8a2e89e44eb7ac78091de2e9d77a3d10b8f03a549e44",
+      "raw_sha256": "391f67acbe3a1292bcd1badb9325c2e24e9e7e6ebe836b79fe3b522622d0afde"
+    },
+    "interrupted_input_run": {
+      "status": "interrupted",
+      "exit_code": 143,
+      "final_summary_written": false,
+      "last_observed": {
+        "mouse": {
+          "phase": "mouse",
+          "seconds": 570,
+          "iterations": 287,
+          "active": "softmax-exp",
+          "rendered": 3,
+          "activations": 288,
+          "errors": 0
+        },
+        "touch-scroll": {
+          "phase": "touch-scroll",
+          "seconds": 571,
+          "iterations": 287,
+          "active": "softmax-exp",
+          "rendered": 3,
+          "activations": 288,
+          "errors": 0
+        }
+      },
+      "scope": "Partial synthetic actual-input trace; not counted as a passed completed run",
+      "reason": "termination observed; exact originating cause not established"
+    },
+    "final_actual_input": {
+      "passed": true,
+      "source_hashes": {
+        "app.mjs": "6878d45fb90687354976c83e2da6d89f3625ee41885ca5385033006d3c7586da",
+        "controls.mjs": "15ff3724bce6e0adba0ddc4fe3b0353ce99f0fdbdbe7af8f5031337a100560e1",
+        "scenes.mjs": "9e87230145e79c50097c710015421a6888b6b153e95efe577362a7b9a8587ef3",
+        "style.css": "d0fde3275fcc54e630f3e53267977cdcc4085720f7b999dac5b2d08dd7fd3c4c",
+        "content.json": "2be523dd4004e06c31fc15f3d9ff42929cefc521d8e3c41ac7e426a3a55d962c"
+      },
+      "phases": [
+        {
+          "phase": "mouse",
+          "iterations": 152,
+          "actualSeconds": 301.699,
+          "errors": []
+        },
+        {
+          "phase": "touch-scroll",
+          "iterations": 151,
+          "actualSeconds": 300.399,
+          "errors": []
+        }
+      ],
+      "raw_sha256": "3e45ba98c388b86d3d7c24dede08133c84c120bae849558601352623c7fe2b20",
+      "scope": "Timed synthetic trace through actual browser mouse and scroll input. Not a human reading, gaze, retention, transfer or learning-efficiency experiment.",
+      "input_methods": {
+        "mouse": "Browser mouse move/hover with synthetic ordered trace",
+        "touch-scroll": "Mobile-emulated viewport and scripted window.scrollBy; not physical touch gestures"
+      }
+    }
+  },
+  "clean_rebuild": {
+    "scope": "Actual npm ci and isolated complete rebuild; compare generated behavior sources, with variable import timing records identified separately",
+    "npm_lock_sha256": "e411f40954523b42da38dee9bcabc65f18452319408067dc1964f238b748e59e",
+    "documents": [
+      {
+        "file": "book-01.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-02.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-03.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-04.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-05.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-06.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-07.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-08.html",
+        "byte_identical": true
+      },
+      {
+        "file": "book-09.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-01.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-02.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-03.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-04.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-05.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-06.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-07.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-08.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-09.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-10.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-11.html",
+        "byte_identical": true
+      },
+      {
+        "file": "note-12.html",
+        "byte_identical": true
+      }
+    ],
+    "portable": [
+      {
+        "file": "index-portable.html",
+        "byte_identical": true,
+        "identical_excluding_variable_import_timing_record": true
+      },
+      {
+        "file": "book-01-portable.html",
+        "byte_identical": false,
+        "identical_excluding_variable_import_timing_record": true
+      },
+      {
+        "file": "book-04-portable.html",
+        "byte_identical": false,
+        "identical_excluding_variable_import_timing_record": true
+      }
+    ],
+    "passed": true,
+    "fresh_wasm": {
+      "scope": "Actual pinned Zanim WASM rebuilt with fresh isolated Zig cache",
+      "binary_bytes": 53294,
+      "new_sha256": "3aeb5186f107a3745630153aaacf593171197e9c0089bb41594ae765854810d8",
+      "previous_output_sha256": "3aeb5186f107a3745630153aaacf593171197e9c0089bb41594ae765854810d8",
+      "byte_identical": true
+    }
+  },
+  "source_hashes": {
+    "style.css": "d0fde3275fcc54e630f3e53267977cdcc4085720f7b999dac5b2d08dd7fd3c4c",
+    "check-focus-scroll.mjs": "d1358b1c981cf9e4ef47ed81d04278214e306628716345a81645870ef83b2334",
+    "content.json": "2be523dd4004e06c31fc15f3d9ff42929cefc521d8e3c41ac7e426a3a55d962c",
+    "bindings.lock.json": "3ec8a3c6a88c82351eca3e083ed2d5c4f5999645a4be7a0cb0ab040a75351420",
+    "check-document.mjs": "e7946214b7905b93ffa5056a4b23a99fe03435226b359229dfbe942dd59267cf",
+    "portable.mjs": "2e6b1b40c343ece5cbb23e569db42d56fae98e7cbf88586739a64afb4a0af2a1",
+    "scenes.mjs": "9e87230145e79c50097c710015421a6888b6b153e95efe577362a7b9a8587ef3",
+    "README.md": "491fc73a144ab8a4d6bc9769e861a7b67c4eb5e867235c0d92d137731819e397",
+    "package.json": "71f1641e137c1a2e7adb60bec6dc073076e4c95f36037fdd798ae43b25b4ba5d",
+    "controls.mjs": "15ff3724bce6e0adba0ddc4fe3b0353ce99f0fdbdbe7af8f5031337a100560e1",
+    "import-books.mjs": "18c8e273f099c811a099a1a4d5b506726dce0f2496a76d893965859cedf8e16b",
+    "check-books.mjs": "97ea77d580b52d24a7ecd283278b657db70ccbcb4e7fd8d93c174093efb20e12",
+    "check-controller.mjs": "d9a2182f6389b6ec33936679e2c7122e742d43d40361deb5b0f79c0f169241f9",
+    "check.mjs": "fa7cb7c61df9e7d74cef193a9e0ec99755db557c75bc7674c98d58e7569ba87c",
+    "html-policy.mjs": "4533f5c5bece0b142b1bcd26a1282d01e0eb5b1250efbf0de9e806e613db834d",
+    "soak-input.mjs": "6c40458521500711cf51578b557fb79746d47ae6055ebec21dd0196419af6e08",
+    "package-lock.json": "e411f40954523b42da38dee9bcabc65f18452319408067dc1964f238b748e59e",
+    "sample-and-bench.mjs": "5ca634c9f96cbdef7a3a5d4e468224c7675bb1b94f3903ed24aa963d01f7932b",
+    "soak.mjs": "cedfbd486abc7de134e21802d4e77b5ad13acf987e9a761bf8e4672d4fbcef51",
+    "document.mjs": "e4811647c1f7769e7f9e61bd374e2650fa8eb1ff88d290ea7e53d065978cb99b",
+    "check-build.py": "e374df250e3d266e9aee870d406c34ac31042a74c85d615ad0dade607ba608cd",
+    "math.mjs": "666b4456f72a20eddcab87ad5089b85da882ba191fd811a2caa685846e92ba4c",
+    "check-portable.mjs": "80ef6bf20c0a5642258743dc147f2a2aa01668b2676e59b304b6db1bb32dc7f1",
+    "app.mjs": "6878d45fb90687354976c83e2da6d89f3625ee41885ca5385033006d3c7586da",
+    "build.py": "c42890ce768e488949c1e87c83696cdbe2f4315b106dd86100649871f762ba8d"
+  },
+  "outputs": [
+    {
+      "file": "index-portable.html",
+      "bytes": 1178700,
+      "sha256": "6603f4f0088780b40bbc3618ae302131b98980852797961efc05453ebbc6da96",
+      "javascriptBytes": 547538
+    },
+    {
+      "file": "book-01-portable.html",
+      "bytes": 1635283,
+      "sha256": "4265b49917afba98704b988009651cd9fb40143c5b78b327215322cf98504d38",
+      "javascriptBytes": 547538
+    },
+    {
+      "file": "book-04-portable.html",
+      "bytes": 1470004,
+      "sha256": "144ce76530aaeebfecedc71cad654195ef9807e3467f34690a6e2f0d08d5be11",
+      "javascriptBytes": 547538
+    }
+  ],
+  "implementation_commit": "294e5dd528f8f2c8314fdae7fb3c75305a46af6e",
+  "evidence_audit": {
+    "scope": "Intended new/updated local source, report, result and index files; no publication, no whole-history or GitHub surfaces audit",
+    "secrets_scan": {
+      "files": 36,
+      "matches": 0,
+      "limitation": "Known string patterns only; not an assurance of all possible secret formats",
+      "credential_literal_matches": 0
+    },
+    "raw": "evaluation/2026-10-10/reading-textbook-v1/raw/local-audit/scan.json"
+  },
+  "limitations": [
+    "Native audio tool missing, no fresh ASR/longform generation",
+    "No human retention/transfer comparison",
+    "Only Chromium tested, no actual screen-reader test",
+    "Only 3 authored graphics; 128 chapters are not automatically visualized",
+    "Static SVG and Canvas layouts differ; formal comparison requires equivalent layout",
+    "Current three-scene cache does not demonstrate arbitrary-course scaling",
+    "Mobile viewport emulation, no Android/iPhone device or energy measurement"
+  ],
+  "resource_cleanup": {
+    "owned_preview_server": "Stopped with keyboard interrupt, exit 0",
+    "temporary_browser_tabs": "Closed",
+    "portable_files": "Remain usable without preview server"
+  }
+}

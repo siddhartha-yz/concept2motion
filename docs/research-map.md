@@ -4,7 +4,7 @@
 
 **当前结论：局部预览更快，部分工程检查更可靠；尚未证明完整工具循环能稳定提高概念表达质量。**
 
-2026-10-10 新方向：[可随阅读变化的 HTML 教材设计](../evaluation/2026-10-10/reading-textbook-v1/DESIGN.md)，设计提交 `f41f4c0`。已复现 Video2Book/Zanim 关键工具并构建单栏段落跟随图解，实际导入21个CS336文档；[实现里程碑](../evaluation/2026-10-10/reading-textbook-v1/IMPLEMENTATION.md)区分原测试、既有文本重编、真实图形和仍缺失的新转录/学习效果。旧 VideoScore 负结果和旧研究账目继续保留。
+2026-10-10 新方向：[可随阅读变化的 HTML 教材设计](../evaluation/2026-10-10/reading-textbook-v1/DESIGN.md)，设计提交 `f41f4c0`，首个实现 `3d2b46c`。[最终通俗报告](../evaluation/2026-10-10/reading-textbook-v1/REPORT.md)与[候选记录](../evaluation/2026-10-10/reading-textbook-v1/candidates.json)保存三个实际图解、21 个 CS336 文档的独立导入与离线单文件。原 Video2Book/Zanim 的工具复现、既有文本重编、真实渲染、新转录缺口和未验证的学习效果分别报告；[实现里程碑](../evaluation/2026-10-10/reading-textbook-v1/IMPLEMENTATION.md)保留当时进度。新方向的工程可行性有直接证据，学习收益仍未建立。旧 VideoScore 负结果和旧研究账目继续保留。
 
 | 研究问题 | 目前得到什么 | 证据与提交 |
 |---|---|---|

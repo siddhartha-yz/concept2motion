@@ -1,0 +1,435 @@
+{
+  "schema": 1,
+  "author": "Current signed-in Codex conversation",
+  "scope": "Three intentionally authored teaching candidates; sampled actual browser images reviewed by the maintaining agent; no independent artistic score or human-learning acceptance",
+  "candidates": [
+    {
+      "id": "tensor",
+      "input_brief": {
+        "title": "换一个看法，数据并没有变多",
+        "explanation": "先别记维度编号。想象你有三张卡，每张卡记着八个数。把每张卡分成两组，每组四个数，就是把一个长度为 8 的轴拆成 2 × 4。",
+        "question": "交换 batch 和 head 两个轴后，元素总数会改变吗？用哪三个坐标找到原来的元素 9？",
+        "states": [
+          {
+            "name": "三张卡，每张八个数",
+            "time": 0,
+            "caption": "输入是 3 × 8，一共 24 个数。数字是元素身份，颜色区分两个头。"
+          },
+          {
+            "name": "每张卡分成两个头",
+            "time": 1,
+            "caption": "现在按 batch → head → feature 分组：3 × 2 × 4，仍然是原来的 24 个数。"
+          },
+          {
+            "name": "把相同的头放在一起看",
+            "time": 2,
+            "caption": "交换前两根轴，按 head → batch → feature 看：2 × 3 × 4。图上的分组变了。"
+          },
+          {
+            "name": "图的排列不等于内存搬家",
+            "time": 3,
+            "caption": "下方地址条不动：逻辑换轴可以只改 shape 和 stride。是否复制，取决于输入布局和具体操作。"
+          }
+        ]
+      },
+      "authored_source": {
+        "path": "experiments/reading-textbook/content.json",
+        "sha256": "2be523dd4004e06c31fc15f3d9ff42929cefc521d8e3c41ac7e426a3a55d962c",
+        "bound_paragraphs": [
+          {
+            "id": "tensor-input",
+            "text_sha256": "561d7a8855f15e97aa63444f0b19da435708be21b798d21af79d0a51172a5d86",
+            "unit": "tensor",
+            "state": 0,
+            "time": 0
+          },
+          {
+            "id": "tensor-split",
+            "text_sha256": "a0b979c81823f96333f4fc6be5f0eec045cd4be75b81a845fc40b83787a584a2",
+            "unit": "tensor",
+            "state": 1,
+            "time": 1
+          },
+          {
+            "id": "tensor-swap",
+            "text_sha256": "5c7122491e06a3bd93937fc93a838902242628b1330384ac03866fc1b6fb9e19",
+            "unit": "tensor",
+            "state": 2,
+            "time": 2
+          },
+          {
+            "id": "tensor-memory",
+            "text_sha256": "880e17aa7920d4f602abeea7b5c4d2618fe5e271cc4ba808ddf21d957ec12a0c",
+            "unit": "tensor",
+            "state": 3,
+            "time": 3
+          }
+        ]
+      },
+      "course_source": {
+        "unit": "tensor",
+        "path": "计算机/人工智能/大模型/Stanford-CS336-从头构建大语言模型/textbooks/模块01_卷一：语言模型基础与分词架构工程_精读全书.md",
+        "commit": "0febad63d1bbeef886217effef59f3b2b0c86caf",
+        "file_sha256": "0879266d3651ff23d8af85e3219def1728dc3d5be3628ab4a488b8e12254f0a1",
+        "lines": [
+          814,
+          834
+        ],
+        "excerpt_sha256": "32becfaec3da49817b43e66f554f9c9e76dbe8e0dcb854ca146bd3f289e3f4a9",
+        "url": "https://github.com/LINJIANG12/video2book-courses/blob/0febad63d1bbeef886217effef59f3b2b0c86caf/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E6%A8%A1%E5%9E%8B/Stanford-CS336-%E4%BB%8E%E5%A4%B4%E6%9E%84%E5%BB%BA%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/textbooks/%E6%A8%A1%E5%9D%9701_%E5%8D%B7%E4%B8%80%EF%BC%9A%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%88%86%E8%AF%8D%E6%9E%B6%E6%9E%84%E5%B7%A5%E7%A8%8B_%E7%B2%BE%E8%AF%BB%E5%85%A8%E4%B9%A6.md#L814"
+      },
+      "math_checks": {
+        "method": "Actual CPU PyTorch/einops plus JavaScript identity/index controls",
+        "result": "24 identities preserved; swap shares input storage and is noncontiguous; contiguous copies",
+        "evidence": "raw/torch-math.json"
+      },
+      "render_result": {
+        "engine": "Real pinned Zanim Web/WASM",
+        "scope": "Four deterministic endpoints, plus random-seek pixel controls",
+        "interactive_checks": "raw/browser-v7/checks.json"
+      },
+      "sampled_frames": [
+        {
+          "unit": "tensor",
+          "state": 0,
+          "time": 0,
+          "paragraph": "tensor-input",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/tensor-0.png",
+          "sha256": "c05a746724358236354b891f9e9468cca102be67c67adb5c0eda78195a124e1d",
+          "bytes": 54579
+        },
+        {
+          "unit": "tensor",
+          "state": 1,
+          "time": 1,
+          "paragraph": "tensor-split",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/tensor-1.png",
+          "sha256": "9d5187b7dd2216a308f904611b3bb9d6a711b7fb2b42cf000f5cd12943d3cbbb",
+          "bytes": 59720
+        },
+        {
+          "unit": "tensor",
+          "state": 2,
+          "time": 2,
+          "paragraph": "tensor-swap",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/tensor-2.png",
+          "sha256": "4b58df46a8322d17bbd820303846d3090059e40dd978227c64ea5b3c2a7bd81c",
+          "bytes": 60054
+        },
+        {
+          "unit": "tensor",
+          "state": 3,
+          "time": 3,
+          "paragraph": "tensor-memory",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/tensor-3.png",
+          "sha256": "272659da4edc1653f1233ad63f752ff8bcf6b92b2bc21622878cf0cc62f82223",
+          "bytes": 62626
+        }
+      ],
+      "review": {
+        "method": "Maintainer agent inspection of all four actual sampled frames and mobile/context views",
+        "observations": [
+          "States 0-3 show the same 24 element labels",
+          "Blue/green groups remain associated with the same identities",
+          "Lower storage-order rows stay fixed and repeat the same data; element 9 highlighted in state 3",
+          "Mobile main labels legible in sampled 390px layout; lower storage row labels remain small"
+        ],
+        "artistic_acceptance": "pending_user_review",
+        "human_learning_result": "not_measured"
+      },
+      "revision_history": [
+        "Separate logical grouping from fixed storage ordering",
+        "Replace 24-cell single row with two 12-cell rows for narrow screens",
+        "Reduce memory-row label size to fit cell height and clarify that these are the same data"
+      ]
+    },
+    {
+      "id": "softmax",
+      "input_brief": {
+        "title": "一个数变大，为什么其他概率也会变",
+        "explanation": "Softmax 不是给每个数独立换个名字。它先把一组分数转为正数，再除以同一个总和。正因为大家共用分母，一个分数的变化会牵动整组概率。",
+        "question": "如果给三个原始分数都加 100，概率会改变吗？如果只给第一个加 100 呢？",
+        "states": [
+          {
+            "name": "原始分数",
+            "time": 0,
+            "caption": "分数 z = [1, 2, 3]。三根柱子展示同一组里的三个候选。"
+          },
+          {
+            "name": "减去最大值，再取指数",
+            "time": 1,
+            "caption": "exp(z − max(z)) = [0.1353, 0.3679, 1]。这样算更稳定，比例不变。"
+          },
+          {
+            "name": "大家除以同一个总和",
+            "time": 2,
+            "caption": "总和为 1.5032。概率约为 [0.0900, 0.2447, 0.6652]，总和为 1。"
+          },
+          {
+            "name": "只增加第一个分数",
+            "time": 3,
+            "caption": "把分数改为 [3, 2, 3]，概率变为 [0.4223, 0.1554, 0.4223]。另外两项也会改变。"
+          }
+        ]
+      },
+      "authored_source": {
+        "path": "experiments/reading-textbook/content.json",
+        "sha256": "2be523dd4004e06c31fc15f3d9ff42929cefc521d8e3c41ac7e426a3a55d962c",
+        "bound_paragraphs": [
+          {
+            "id": "softmax-logits",
+            "text_sha256": "56f9ce1d0195f4121ed2ffb0fa07d43bda451a11cafa12dfcad8ca49af167bdb",
+            "unit": "softmax",
+            "state": 0,
+            "time": 0
+          },
+          {
+            "id": "softmax-exp",
+            "text_sha256": "e57ace2e2e6e7bb5282b908b673949347757d45fae73091f6c8eccec726cfc08",
+            "unit": "softmax",
+            "state": 1,
+            "time": 1
+          },
+          {
+            "id": "softmax-normalize",
+            "text_sha256": "f5831c4f1b810ffad3d029c06fc2958aa9e5b91effced919efdc667b0108442b",
+            "unit": "softmax",
+            "state": 2,
+            "time": 2
+          },
+          {
+            "id": "softmax-change",
+            "text_sha256": "a5f695f7a280a5c073690a85496f814b7f78de3b549cf92caa7219bd1249c433",
+            "unit": "softmax",
+            "state": 3,
+            "time": 3
+          }
+        ]
+      },
+      "course_source": {
+        "unit": "softmax",
+        "path": "计算机/人工智能/大模型/Stanford-CS336-从头构建大语言模型/textbooks/模块04_卷三：硬件加速、自定义内核与并行训练体系（下）_精读全书.md",
+        "commit": "0febad63d1bbeef886217effef59f3b2b0c86caf",
+        "file_sha256": "61e05f3e35c6ed26a592d6494a7a2734c18ef50c28d489397defdd39e54ca20a",
+        "lines": [
+          453,
+          463
+        ],
+        "excerpt_sha256": "0e1739f38c764ee968e689536ddcf2bb68993b6d920569ec9771b04b86d00f0d",
+        "url": "https://github.com/LINJIANG12/video2book-courses/blob/0febad63d1bbeef886217effef59f3b2b0c86caf/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E6%A8%A1%E5%9E%8B/Stanford-CS336-%E4%BB%8E%E5%A4%B4%E6%9E%84%E5%BB%BA%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/textbooks/%E6%A8%A1%E5%9D%9704_%E5%8D%B7%E4%B8%89%EF%BC%9A%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8%E4%B8%8E%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E4%BD%93%E7%B3%BB%EF%BC%88%E4%B8%8B%EF%BC%89_%E7%B2%BE%E8%AF%BB%E5%85%A8%E4%B9%A6.md#L453"
+      },
+      "math_checks": {
+        "method": "Actual CPU PyTorch and JavaScript numerical controls",
+        "result": "Initial/changed distributions, shared denominator, sum-to-one, and shift invariance checked",
+        "evidence": "raw/torch-math.json"
+      },
+      "render_result": {
+        "engine": "Real pinned Zanim Web/WASM",
+        "scope": "Four deterministic endpoints, plus random-seek pixel controls",
+        "interactive_checks": "raw/browser-v7/checks.json"
+      },
+      "sampled_frames": [
+        {
+          "unit": "softmax",
+          "state": 0,
+          "time": 0,
+          "paragraph": "softmax-logits",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/softmax-0.png",
+          "sha256": "9034143a700de3ccb460bf9026242fcef87e6275dbad366924d5c38a863cb02f",
+          "bytes": 23700
+        },
+        {
+          "unit": "softmax",
+          "state": 1,
+          "time": 1,
+          "paragraph": "softmax-exp",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/softmax-1.png",
+          "sha256": "c5ed1e683a6cf7e38995b12fb5ab012944c02ed3e957cc9a14dac93b3394e3b5",
+          "bytes": 32731
+        },
+        {
+          "unit": "softmax",
+          "state": 2,
+          "time": 2,
+          "paragraph": "softmax-normalize",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/softmax-2.png",
+          "sha256": "2fb4aa06b86f1bbed84a95724ee03dc9b41a2a4f68658c54d8724c5abd960433",
+          "bytes": 32826
+        },
+        {
+          "unit": "softmax",
+          "state": 3,
+          "time": 3,
+          "paragraph": "softmax-change",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/softmax-3.png",
+          "sha256": "017d65e6142f5e061e556a9cc6a5fb990e030f63d05f5b81720b964094514ce4",
+          "bytes": 36542
+        }
+      ],
+      "review": {
+        "method": "Maintainer agent inspection of all four actual sampled frames and mobile/context views",
+        "observations": [
+          "All three candidate labels present in every final state",
+          "Stage 2 sum is 1.5032 before normalization",
+          "Stage 3 changes all probabilities when only one input score changes",
+          "Stage headings and captions distinguish logits, exponentials and probabilities"
+        ],
+        "artistic_acceptance": "pending_user_review",
+        "human_learning_result": "not_measured"
+      },
+      "revision_history": [
+        "Reset label birth time to 0; initially candidate labels only appeared in state 3",
+        "Increase important numerical labels for narrow displays"
+      ]
+    },
+    {
+      "id": "intensity",
+      "input_brief": {
+        "title": "是算得慢，还是搬得慢",
+        "explanation": "想象一间厨房：一边搬食材，一边做菜。厨师再快，如果一直等食材，也快不起来。算术强度问的就是：每搬进一个字节，能做多少次浮点运算？",
+        "question": "如果搬运量不变，只把计算量翻倍，算术强度会提高。这就说明任务一定更快了吗？",
+        "states": [
+          {
+            "name": "先把单位写清",
+            "time": 0,
+            "caption": "假设任务需要 1000 FLOPs，搬 1000 Bytes；I = 1 FLOP/Byte。示意机器：100 FLOP/ms、10 Byte/ms。"
+          },
+          {
+            "name": "分别估计两种时间",
+            "time": 1,
+            "caption": "计算时间 10 ms，搬运时间 100 ms。在两者可充分重叠的简化模型里，总时间取较大者 100 ms。"
+          },
+          {
+            "name": "复用数据，少搬十倍",
+            "time": 2,
+            "caption": "保持 1000 FLOPs，但只搬 100 Bytes；I = 10 FLOP/Byte。两种时间都约 10 ms。"
+          },
+          {
+            "name": "再减少搬运，收益有上限",
+            "time": 3,
+            "caption": "只搬 50 Bytes，搬运约 5 ms；计算仍约 10 ms。总时间约 10 ms，开始由计算限制。"
+          }
+        ]
+      },
+      "authored_source": {
+        "path": "experiments/reading-textbook/content.json",
+        "sha256": "2be523dd4004e06c31fc15f3d9ff42929cefc521d8e3c41ac7e426a3a55d962c",
+        "bound_paragraphs": [
+          {
+            "id": "intensity-units",
+            "text_sha256": "b2b5fdbc3a2e44361263eeb199ff3f15b15e9f09383a076f25f2b878722e390c",
+            "unit": "intensity",
+            "state": 0,
+            "time": 0
+          },
+          {
+            "id": "intensity-bound",
+            "text_sha256": "73639e4e7f0152cbaa9ff85f3677a44ceb69c1c0c50ba6dc97e39416d3431257",
+            "unit": "intensity",
+            "state": 1,
+            "time": 1
+          },
+          {
+            "id": "intensity-reuse",
+            "text_sha256": "ccca16307d47f293e567ed1275622d1c30ee68715d185a997630664990661102",
+            "unit": "intensity",
+            "state": 2,
+            "time": 2
+          },
+          {
+            "id": "intensity-limit",
+            "text_sha256": "6c73742182f629860f5e77c5eb77b901757dfa275b968f42ac300e4fcc715f03",
+            "unit": "intensity",
+            "state": 3,
+            "time": 3
+          }
+        ]
+      },
+      "course_source": {
+        "unit": "intensity",
+        "path": "计算机/人工智能/大模型/Stanford-CS336-从头构建大语言模型/textbooks/模块04_卷三：硬件加速、自定义内核与并行训练体系（下）_精读全书.md",
+        "commit": "0febad63d1bbeef886217effef59f3b2b0c86caf",
+        "file_sha256": "61e05f3e35c6ed26a592d6494a7a2734c18ef50c28d489397defdd39e54ca20a",
+        "lines": [
+          578,
+          582
+        ],
+        "excerpt_sha256": "e06bf5cb165a5933f07cfbdbde2805ae52a8f84be3cdc69f90a4c605b5965526",
+        "url": "https://github.com/LINJIANG12/video2book-courses/blob/0febad63d1bbeef886217effef59f3b2b0c86caf/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%A4%A7%E6%A8%A1%E5%9E%8B/Stanford-CS336-%E4%BB%8E%E5%A4%B4%E6%9E%84%E5%BB%BA%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/textbooks/%E6%A8%A1%E5%9D%9704_%E5%8D%B7%E4%B8%89%EF%BC%9A%E7%A1%AC%E4%BB%B6%E5%8A%A0%E9%80%9F%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%86%85%E6%A0%B8%E4%B8%8E%E5%B9%B6%E8%A1%8C%E8%AE%AD%E7%BB%83%E4%BD%93%E7%B3%BB%EF%BC%88%E4%B8%8B%EF%BC%89_%E7%B2%BE%E8%AF%BB%E5%85%A8%E4%B9%A6.md#L578"
+      },
+      "math_checks": {
+        "method": "Independently explicit arithmetic plus JavaScript boundary checks",
+        "result": "1000 FLOPs, 100 FLOP/ms => 10ms; 1000/100/50 Bytes => 100/10/5ms; simplified max => 100/10/10ms",
+        "evidence": "raw/browser-v7/checks.json",
+        "limitation": "Hand-selected teaching parameters, not GPU measurement"
+      },
+      "render_result": {
+        "engine": "Real pinned Zanim Web/WASM",
+        "scope": "Four deterministic endpoints, plus random-seek pixel controls",
+        "interactive_checks": "raw/browser-v7/checks.json"
+      },
+      "sampled_frames": [
+        {
+          "unit": "intensity",
+          "state": 0,
+          "time": 0,
+          "paragraph": "intensity-units",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/intensity-0.png",
+          "sha256": "973697c6151d852906243eed55110fb166a056440b85ec211bd4f8330780341b",
+          "bytes": 43070
+        },
+        {
+          "unit": "intensity",
+          "state": 1,
+          "time": 1,
+          "paragraph": "intensity-bound",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/intensity-1.png",
+          "sha256": "0379ed02e81e2e13e3ff93644c9720fae1903a9c1091218753fcfd0d05482697",
+          "bytes": 38539
+        },
+        {
+          "unit": "intensity",
+          "state": 2,
+          "time": 2,
+          "paragraph": "intensity-reuse",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/intensity-2.png",
+          "sha256": "26904ab6ee59ef2d2ef8ed996acbc370d1bbda01cc3077cdbcf3a2fe8d0bd2c0",
+          "bytes": 37159
+        },
+        {
+          "unit": "intensity",
+          "state": 3,
+          "time": 3,
+          "paragraph": "intensity-limit",
+          "file": "evaluation/2026-10-10/reading-textbook-v1/raw/frames-v3/intensity-3.png",
+          "sha256": "6bdd88f75ed564d21aad8e962fd3280d545697bd725d4b45ad50808ddefa31d7",
+          "bytes": 38534
+        }
+      ],
+      "review": {
+        "method": "Maintainer agent inspection of all four actual sampled frames and mobile/context views",
+        "observations": [
+          "Work units displayed before timing stage; later bars represent time",
+          "Memory drops from 100ms to 10ms to 5ms while compute stays 10ms",
+          "Titles keep total time at 10ms after the bottleneck changes",
+          "Hypothetical-machine and overlap assumptions visible in every state"
+        ],
+        "artistic_acceptance": "pending_user_review",
+        "human_learning_result": "not_measured"
+      },
+      "revision_history": [
+        "Add explicit FLOPs/Bytes work-unit labels so initial and timing stages do not look identical",
+        "Keep real-GPU disclaimer in the actual graph, not only in the report"
+      ]
+    }
+  ],
+  "implementation_sources": {
+    "app.mjs": "6878d45fb90687354976c83e2da6d89f3625ee41885ca5385033006d3c7586da",
+    "controls.mjs": "15ff3724bce6e0adba0ddc4fe3b0353ce99f0fdbdbe7af8f5031337a100560e1",
+    "scenes.mjs": "9e87230145e79c50097c710015421a6888b6b153e95efe577362a7b9a8587ef3",
+    "math.mjs": "666b4456f72a20eddcab87ad5089b85da882ba191fd811a2caa685846e92ba4c",
+    "style.css": "d0fde3275fcc54e630f3e53267977cdcc4085720f7b999dac5b2d08dd7fd3c4c",
+    "content.json": "2be523dd4004e06c31fc15f3d9ff42929cefc521d8e3c41ac7e426a3a55d962c",
+    "bindings.lock.json": "3ec8a3c6a88c82351eca3e083ed2d5c4f5999645a4be7a0cb0ab040a75351420"
+  }
+}

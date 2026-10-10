@@ -4,6 +4,8 @@
 
 目标是减少每次重新提示和人工盯画面的成本。当前是实验基础设施的起点，尚未宣称解决自动艺术审美。
 
+2026-10-10 新增[随阅读变化的 HTML 教材实验](evaluation/2026-10-10/reading-textbook-v1/REPORT.md)：固定复现 Video2Book/Zanim 的关键流程，实际导入 CS336 的 21 份文档，做出三个段落跟随图解和离线单文件。[源码与重建说明](experiments/reading-textbook/README.md)独立于旧视频作者／裁判流程；工程可运行，学习收益尚未验证，新音频转写仍有工具缺口。旧研究与负结果继续保留。
+
 [仓库定位、约束、假设与验证方式](docs/positioning.md)说明目标和现有能力的边界。当前已有渲染、部分数学检查、局部补丁与快速预览；可信评分和评价驱动的完整改进循环尚未完成，尚未证明稳定的表达质量提升。
 
 已记录三个待解决问题：[评价分数](docs/issues/evaluation-score.md)、[评价后怎样改进](docs/issues/evaluation-to-revision.md)、[定位落实与效果验证](docs/issues/repository-positioning.md)。
