@@ -7,7 +7,7 @@ PUBLIC=ROOT/'evaluation/2026-10-10/harness-v2'
 def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,value):p.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
 def main():
- p=argparse.ArgumentParser();p.add_argument('section');p.add_argument('arm',choices=['direct','harness']);p.add_argument('--attempt',default='');args=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('section');p.add_argument('arm',choices=['direct','harness']);p.add_argument('--attempt',default='');p.add_argument('--mcp',action='store_true');args=p.parse_args()
  if args.section not in ['geometry','optimization','programming']:raise SystemExit('Unknown frozen section')
  if args.attempt and not re.fullmatch(r'[a-z][a-z0-9-]*',args.attempt):raise SystemExit('Bad attempt')
  BASE.mkdir(parents=True,exist_ok=True);job=BASE/(args.section+'-'+args.arm+('-'+args.attempt if args.attempt else ''))
@@ -21,7 +21,7 @@ def main():
  version=subprocess.check_output(['codex','--version'],env=env,text=True).strip()
  with (ROOT/'work/visualbook/codex-serial.lock').open('w') as lock:
   fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
-  if len(list(BASE.glob('*/invocation.json')))>=6:raise SystemExit('Six session scope reached')
+  if len(list(BASE.glob('*/invocation.json')))>=8:raise SystemExit('Eight attempt scope reached, including launch failures and pilot')
   previous=sorted(BASE.glob('*/result.json'),key=lambda f:f.stat().st_mtime)
   if len(previous)>=3 and all(json.loads(f.read_text())['exit_code']!=0 for f in previous[-3:]):raise SystemExit('Three service/process failures; diagnose first')
   job.mkdir();(job/'source.json').write_bytes(source.read_bytes());(job/'source.md').write_text('\n\n'.join(f'[{b["id"]}]\n{b["raw"]}' for b in book['blocks']))
@@ -37,11 +37,15 @@ def main():
   interface=api.read_text()
   if args.arm=='direct':interface=interface.split('## Board')[0]+interface[interface.index('## 命令行工作流程'):]
   prompt+='\n'+interface
+  if args.mcp:prompt+='\n本轮有本地 visualbook MCP 工具。必须用 build_book 构建，再用 preview_book 预览；它直接返回真实桌面/手机PNG图片内容，不能仅凭文件路径或数值报告声称看过画面。观察图片后自行修订。CLI命令只用于读取原文和写book.json，不用shell替代图片预览。最多3次预览，不要更改工具源码。\n'
   (job/'prompt.md').write_text(prompt)
   before={str(f.relative_to(ROOT)):sha(f) for f in libfiles};write(job/'invocation.json',{'section':args.section,'arm':args.arm,'source_sha256':book['sourceSha256'],'prompt_sha256':sha(job/'prompt.md'),'tool_hashes':before,'cliVersion':version,'timeout_s':1200,'auth':'official existing ChatGPT login'})
   # This CLI release treats --approve-for-me as workspace-write already;
   # combining it with --sandbox fails before any model request.
   cmd=['codex','exec','--ephemeral','--skip-git-repo-check','--approve-for-me','--json','--cd',str(job),'--output-last-message',str(job/'last-message.md'),'-']
+  if args.mcp:
+   server_args=[str(ROOT/'tools/visualbook_mcp.py'),'--workspace',str(job)]+(['--direct'] if args.arm=='direct' else [])
+   cmd=cmd[:-1]+['-c','mcp_servers.visualbook.command="python3"','-c','mcp_servers.visualbook.args='+json.dumps(server_args),'-c','mcp_servers.visualbook.tool_timeout_sec=180','-']
   started=time.monotonic();timed_out=False
   with (job/'events.jsonl').open('w') as stdout,(job/'stderr.log').open('w') as stderr:
    proc=subprocess.Popen(cmd,stdin=subprocess.PIPE,stdout=stdout,stderr=stderr,env=env,start_new_session=True)
@@ -54,7 +58,8 @@ def main():
    except ValueError:pass
   items=[e.get('item',{}) for e in events if e.get('type')=='item.completed'];usage=[e['usage'] for e in events if e.get('type')=='turn.completed' and 'usage' in e]
   counts={kind:sum(i.get('type')==kind for i in items) for kind in sorted({i.get('type','unknown') for i in items})}
-  result={'section':args.section,'arm':args.arm,'exit_code':proc.returncode,'timed_out':timed_out,'wall_s':round(time.monotonic()-started,3),'tool_item_counts':counts,'usage':usage,'tool_sources_unchanged':all(sha(f)==before[str(f.relative_to(ROOT))] for f in libfiles),'plan_sha256':sha(job/'book.json'),'html_exists':(job/'book.html').exists(),'preview_count':len(list(job.glob('preview-*/report.json'))),'auth':'official existing ChatGPT login'}
+  image_calls=[json.loads(line) for line in (job/'mcp-evidence.jsonl').read_text().splitlines()] if (job/'mcp-evidence.jsonl').exists() else []
+  result={'section':args.section,'arm':args.arm,'exit_code':proc.returncode,'timed_out':timed_out,'wall_s':round(time.monotonic()-started,3),'tool_item_counts':counts,'usage':usage,'tool_sources_unchanged':all(sha(f)==before[str(f.relative_to(ROOT))] for f in libfiles),'source_unchanged':sha(job/'source.json')==sha(source),'plan_sha256':sha(job/'book.json'),'html_exists':(job/'book.html').exists(),'preview_count':len(list(job.glob('preview-*/report.json'))),'returned_png_count':sum(len(c['images']) for c in image_calls),'mcp_enabled':args.mcp,'auth':'official existing ChatGPT login'}
   write(job/'result.json',result);(PUBLIC/'calls').mkdir(exist_ok=True);write(PUBLIC/'calls'/(job.name+'.json'),result);print(json.dumps(result,ensure_ascii=False))
   if proc.returncode or timed_out or not result['tool_sources_unchanged']:raise SystemExit('Session incomplete; retained raw evidence')
 if __name__=='__main__':main()

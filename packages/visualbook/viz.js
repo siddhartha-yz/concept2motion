@@ -69,7 +69,7 @@
       for(let r=0;r<rows;r++)for(let c=0;c<cols;c++) {
         const v=finite(values[r][c]),active=r===activeRow||c===activeCol||(activeCell&&r===activeCell[0]&&c===activeCell[1]);
         this.rect(`${id}-${r}-${c}`,x+c*cell,y+r*cell,cell-3,cell-3,active?global.d3.interpolateRgb('#eef4f5',color)(.25):'#eff0eb',{stroke:active?color:'none','stroke-width':1.2});
-        this.text(`${id}-v-${r}-${c}`,Number(v.toFixed(precision)),x+(c+.5)*cell-1.5,y+(r+.5)*cell+4,{size:Math.min(16,cell*.4),anchor:'middle',color:active?palette.ink:palette.muted});
+        this.text(`${id}-v-${r}-${c}`,Number(v.toFixed(precision)),x+(c+.5)*cell-1.5,y+(r+.5)*cell+4,{size:Math.max(12,Math.min(16,cell*.4)),anchor:'middle',color:active?palette.ink:palette.muted});
       }
       if(label)this.label(id+'-label',label,x,y-10,{maxWidth:cols*cell,color,avoid:false});
       return {x,y,width:cols*cell,height:rows*cell,rows,cols,max};
@@ -80,7 +80,7 @@
       const boxes=nodes.map((node,i)=>({id:node.id,x:vertical?x+(width-w)/2:x+i*(w+gap),y:vertical?y+i*(h+gap):y+(height-h)/2,w,h}));
       for(let i=0;i<n;i++) { const b=boxes[i],node=nodes[i],focus=clamp(active-i,0,1);this.rect(`${id}-${node.id}`,b.x,b.y,b.w,b.h,global.d3.interpolateRgb('#eff0eb','#e0edf0')(focus),{stroke:focus?palette.blue:palette.faint});
         this.label(`${id}-${node.id}-label`,node.label,b.x+b.w/2,b.y+(b.h/2)+5,{anchor:'middle',maxWidth:b.w-20,color:focus?palette.ink:palette.muted,avoid:false});
-        if(i<n-1) { const next=boxes[i+1],x1=vertical?b.x+b.w/2:b.x+b.w,y1=vertical?b.y+b.h:b.y+b.h/2,x2=vertical?next.x+next.w/2:next.x,y2=vertical?next.y:next.y+next.h/2;this.line(`${id}-link-${i}`,x1,y1,x2,y2,palette.faint,2);this.circle(`${id}-flow-${i}`,mix(x1,x2,clamp(active-i-1,0,1)),mix(y1,y2,clamp(active-i-1,0,1)),3.5,palette.orange); }
+        if(i<n-1) { const next=boxes[i+1],x1=vertical?b.x+b.w/2:b.x+b.w,y1=vertical?b.y+b.h:b.y+b.h/2,x2=vertical?next.x+next.w/2:next.x,y2=vertical?next.y:next.y+next.h/2;this.line(`${id}-link-${i}`,x1,y1,x2,y2,palette.faint,2);if(active>=i+1&&active<=i+2)this.circle(`${id}-flow-${i}`,mix(x1,x2,clamp(active-i-1,0,1)),mix(y1,y2,clamp(active-i-1,0,1)),3.5,palette.orange); }
       }
       return boxes;
     }
