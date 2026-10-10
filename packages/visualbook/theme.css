@@ -7,5 +7,6 @@
 @media print{header,.vh-toolbar,.vh-bar,.vh-params{display:none}.vh-static~.vh-canvas{display:none}.vh-scope .vh-figure{position:static}.vh-static{display:block}body{background:white}.vh-figure{break-inside:avoid}main{padding:0;max-width:none}}
 
 /* Controls stay with their diagram. No scroll-driven or sticky animation. */
+.vh-handle:focus-visible,.vh-selectable:focus-visible{outline:none;stroke:var(--orange);stroke-width:3}.vh-selectable{cursor:pointer}.vh-canvas text{pointer-events:none}.vh-handle:active{cursor:grabbing}
 .vh-toolbar{display:flex;gap:16px;align-items:center;margin:10px 0 14px}.vh-toolbar .vh-bar{flex:1;min-width:100px;margin:0}.vh-transport{display:flex;gap:3px;align-items:center}.vh-transport button{font:12px/1.4 system-ui,sans-serif;color:var(--ink);background:transparent;border:1px solid transparent;border-radius:4px;min-width:30px;min-height:30px;padding:5px 8px;cursor:pointer}.vh-transport button:hover{background:#efeee8;border-color:#dce5e6}.vh-transport button:disabled{opacity:.35;cursor:default}.vh-play[aria-pressed=true]{color:var(--blue);border-color:var(--blue)}.vh-toolbar .vh-status{font-size:12px;min-width:50px}.vh-scope .vh-figure{position:static}
 @media(max-width:600px){.vh-toolbar{flex-wrap:wrap;gap:6px}.vh-toolbar .vh-bar{flex-basis:100%;width:100%}.vh-transport{margin-left:-8px}}

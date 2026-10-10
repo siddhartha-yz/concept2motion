@@ -34,14 +34,35 @@ export function validatePlan(book, plan) {
     if (!/^[a-z][a-z0-9-]*$/.test(f.id) || ids.has(f.id))
       throw Error("Bad/duplicate figure id");
     ids.add(f.id);
-    if (f.initialProgress !== undefined && (!Number.isFinite(f.initialProgress) || f.initialProgress < 0 || f.initialProgress > 1))
+    if (
+      f.initialProgress !== undefined &&
+      (!Number.isFinite(f.initialProgress) ||
+        f.initialProgress < 0 ||
+        f.initialProgress > 1)
+    )
       throw Error("Bad initial progress " + f.id);
-    if (f.durationMs !== undefined && (!Number.isFinite(f.durationMs) || f.durationMs < 1000 || f.durationMs > 60000))
+    if (
+      f.durationMs !== undefined &&
+      (!Number.isFinite(f.durationMs) ||
+        f.durationMs < 1000 ||
+        f.durationMs > 60000)
+    )
       throw Error("Bad playback duration " + f.id);
     if (f.checkpoints !== undefined) {
-      if (!Array.isArray(f.checkpoints)) throw Error("Checkpoints must be an array " + f.id);
-      const points = f.checkpoints.map((c) => typeof c === "number" ? c : c.progress);
-      if (points.length < 2 || points[0] !== 0 || points.at(-1) !== 1 || points.some((p, i) => !Number.isFinite(p) || p < 0 || p > 1 || (i && p <= points[i - 1])))
+      if (!Array.isArray(f.checkpoints))
+        throw Error("Checkpoints must be an array " + f.id);
+      const points = f.checkpoints.map((c) =>
+        typeof c === "number" ? c : c.progress,
+      );
+      if (
+        points.length < 2 ||
+        points[0] !== 0 ||
+        points.at(-1) !== 1 ||
+        points.some(
+          (p, i) =>
+            !Number.isFinite(p) || p < 0 || p > 1 || (i && p <= points[i - 1]),
+        )
+      )
         throw Error("Bad checkpoints " + f.id);
     }
     const start = book.blocks.findIndex((b) => b.id === f.afterAnchor),
@@ -51,9 +72,17 @@ export function validatePlan(book, plan) {
     if (start < 0 || end < start || end - start > 8)
       throw Error("Invalid/too long scope " + f.id);
     if (
-      typeof f.code !== "string" ||
-      !/^\s*function\s+draw\s*\(/.test(f.code) ||
-      /<\/script/i.test(f.code)
+      f.scene !== undefined &&
+      (!f.scene || typeof f.scene !== "object" || Array.isArray(f.scene))
+    )
+      throw Error("Scene must be an object " + f.id);
+    if (f.scene !== undefined && f.code !== undefined)
+      throw Error("Use scene or code, not both " + f.id);
+    if (
+      f.scene === undefined &&
+      (typeof f.code !== "string" ||
+        !/^\s*function\s+draw\s*\(/.test(f.code) ||
+        /<\/script/i.test(f.code))
     )
       throw Error("Expected function draw(input) " + f.id);
     if (
@@ -79,6 +108,8 @@ export function validatePlan(book, plan) {
   return scopes;
 }
 export function build(book, plan, { direct = false } = {}) {
+  if (direct && plan.figures.some((f) => f.scene))
+    throw Error("Direct arm does not use scene components");
   const sourceName =
     book.sourceName ?? (book.sourceCommit ? "D2L" : "输入教材");
   const first = book.blocks[0],
@@ -103,13 +134,31 @@ export function build(book, plan, { direct = false } = {}) {
     ? ""
     : fs.readFileSync(path.join(runtime, "d3/dist/d3.min.js"), "utf8") +
       "\n" +
+      fs.readFileSync(
+        path.join(runtime, "@dagrejs/dagre/dist/dagre.min.js.LEGAL.txt"),
+        "utf8",
+      ) +
+      "\n" +
+      fs.readFileSync(
+        path.join(runtime, "@dagrejs/dagre/dist/dagre.min.js"),
+        "utf8",
+      ) +
+      "\n" +
       fs.readFileSync(path.join(lib, "viz.js"), "utf8") +
       "\n" +
-      fs.readFileSync(path.join(lib, "designs.js"), "utf8");
+      fs.readFileSync(path.join(lib, "compose.js"), "utf8") +
+      "\n" +
+      fs.readFileSync(path.join(lib, "designs.js"), "utf8") +
+      "\n" +
+      fs.readFileSync(path.join(lib, "components.js"), "utf8") +
+      "\n" +
+      fs.readFileSync(path.join(lib, "components.math.js"), "utf8") +
+      "\n" +
+      fs.readFileSync(path.join(lib, "components.graph.js"), "utf8");
   const startup = plan.figures
     .map(
       (f) =>
-        `VisualBookRuntime.mount(document.getElementById('figure-${f.id}'),${JSON.stringify({ ...f, code: undefined }).replaceAll("<", "\\u003c")},(${f.code}),${!direct});`,
+        `VisualBookRuntime.mount(document.getElementById('figure-${f.id}'),${JSON.stringify({ ...f, code: undefined, scene: undefined }).replaceAll("<", "\\u003c")},(${f.scene ? "function draw(input){return VisualBook.renderScene(input.board," + JSON.stringify(f.scene).replaceAll("<", "\\u003c") + ",input);}" : f.code}),${!direct});`,
     )
     .join("\n");
   return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; font-src data:; connect-src 'none'; base-uri 'none'"><title>${esc(book.title)}</title><style>${fs.readFileSync(path.join(lib, "theme.css"), "utf8")}\n${katexCss()}</style></head><body data-source-name="${esc(sourceName)}" data-math-expected="${mathExpected}" data-source-sha="${book.sourceSha256}"><header><a href="index.html">VisualBook</a>${book.sourceUrl ? `<a href="${esc(book.sourceUrl)}">原版教材 ↗</a>` : ""}</header><main><div class="eyebrow">读 · 看 · 自己试一下</div>${cover}<p class="source-note">正文来自 ${esc(sourceName)}。图解可拖动、单步查看，也可以主动播放或暂停。</p>${body}</main><script>${library}\n${fs.readFileSync(path.join(lib, "runtime.js"), "utf8")}\n${startup}</script></body></html>`;
@@ -357,8 +406,13 @@ export function staticExport(file, previewDir, out) {
         // Earlier snapshots used HTML serialization without an SVG namespace.
         let svg = bytes.toString("utf8");
         if (!/<svg\b[^>]*\bxmlns=/.test(svg))
-          svg = svg.replace(/<svg\b/, '<svg xmlns="http://www.w3.org/2000/svg"');
-        return "data:image/svg+xml;base64," + Buffer.from(svg).toString("base64");
+          svg = svg.replace(
+            /<svg\b/,
+            '<svg xmlns="http://www.w3.org/2000/svg"',
+          );
+        return (
+          "data:image/svg+xml;base64," + Buffer.from(svg).toString("base64")
+        );
       });
     const fallback = `<div class="vh-static"><picture><source media="(max-width:600px)" srcset="${picture[1]}"><img src="${picture[0]}" alt="图解初始状态：${esc(shape.id)}"></picture></div>`;
     html = html.replace(
@@ -370,12 +424,14 @@ export function staticExport(file, previewDir, out) {
     .replace('<html lang="zh-CN">', '<html lang="zh-CN" class="no-js">')
     .replace(
       "</head>",
-      '<style>.no-js .vh-static{display:block}.no-js .vh-canvas,.no-js .vh-bar,.no-js .vh-params{display:none}</style><script>document.documentElement.classList.remove("no-js")</script></head>',
+      '<style>.no-js .vh-static{display:block}.no-js .vh-canvas,.no-js .vh-toolbar,.no-js .vh-bar,.no-js .vh-params{display:none}</style><script>document.documentElement.classList.remove("no-js")</script></head>',
     );
   fs.writeFileSync(out, html);
   const licenses = [
     ["D3-LICENSE.txt", path.join(runtime, "d3/LICENSE")],
     ["KaTeX-LICENSE.txt", path.join(runtime, "katex/LICENSE")],
+    ["Dagre-LICENSE.txt", path.join(runtime, "@dagrejs/dagre/LICENSE")],
+    ["Graphlib-LICENSE.txt", path.join(runtime, "@dagrejs/graphlib/LICENSE")],
     [
       "D2L-LICENSE.txt",
       path.join(root, "work/visualbook/upstreams/d2l-zh/LICENSE"),

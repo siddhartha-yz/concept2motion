@@ -1,0 +1,112 @@
+{
+  "seed": "12135787932265482912",
+  "algorithm": "random.Random(seed).sample(pool,2) in fixed domain order; shared exclusions prevent duplicates",
+  "upstream_commit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "previously_generated_or_reserved_used": [
+    "chapter_attention-mechanisms/attention-scoring-functions.md",
+    "chapter_computational-performance/multiple-gpus.md",
+    "chapter_convolutional-neural-networks/channels.md",
+    "chapter_convolutional-neural-networks/padding-and-strides.md",
+    "chapter_convolutional-neural-networks/pooling.md",
+    "chapter_deep-learning-computation/model-construction.md",
+    "chapter_optimization/gd.md",
+    "chapter_optimization/rmsprop.md",
+    "chapter_optimization/sgd.md",
+    "chapter_preliminaries/linear-algebra.md"
+  ],
+  "sections": [
+    {
+      "domain": "mathematics",
+      "role": "paired-or-primary",
+      "pool": [
+        "chapter_preliminaries/calculus.md",
+        "chapter_preliminaries/probability.md",
+        "chapter_preliminaries/autograd.md"
+      ],
+      "selected": "chapter_preliminaries/autograd.md",
+      "source_sha256": "76cf9deb47500edb7b3c97af09a1e41dface5e5671658b2e68909fdbf60c53ec"
+    },
+    {
+      "domain": "mathematics",
+      "role": "additional-transfer",
+      "pool": [
+        "chapter_preliminaries/calculus.md",
+        "chapter_preliminaries/probability.md",
+        "chapter_preliminaries/autograd.md"
+      ],
+      "selected": "chapter_preliminaries/probability.md",
+      "source_sha256": "4be0c0ea1e801bc346480d373dae628259b650b640f46d6cea610a83a3f0c5cd"
+    },
+    {
+      "domain": "machine-learning",
+      "role": "paired-or-primary",
+      "pool": [
+        "chapter_linear-networks/linear-regression.md",
+        "chapter_linear-networks/softmax-regression.md",
+        "chapter_multilayer-perceptrons/weight-decay.md"
+      ],
+      "selected": "chapter_linear-networks/linear-regression.md",
+      "source_sha256": "47a51fcd59cb40ace26726f87ed73aa91abe1d895d9d8738f191a42df6de7f75"
+    },
+    {
+      "domain": "machine-learning",
+      "role": "additional-transfer",
+      "pool": [
+        "chapter_linear-networks/linear-regression.md",
+        "chapter_linear-networks/softmax-regression.md",
+        "chapter_multilayer-perceptrons/weight-decay.md"
+      ],
+      "selected": "chapter_multilayer-perceptrons/weight-decay.md",
+      "source_sha256": "799474bb070da33742f6f4564a78e466ebee6e0ea8230f705cc79faa0c8934c8"
+    },
+    {
+      "domain": "deep-learning",
+      "role": "paired-or-primary",
+      "pool": [
+        "chapter_multilayer-perceptrons/backprop.md",
+        "chapter_multilayer-perceptrons/dropout.md",
+        "chapter_convolutional-modern/batch-norm.md",
+        "chapter_attention-mechanisms/nadaraya-waston.md"
+      ],
+      "selected": "chapter_multilayer-perceptrons/backprop.md",
+      "source_sha256": "e6b31815c5106ba82553a7656e1cc73aa0a82650aba527714cd2cc490981faa4"
+    },
+    {
+      "domain": "deep-learning",
+      "role": "additional-transfer",
+      "pool": [
+        "chapter_multilayer-perceptrons/backprop.md",
+        "chapter_multilayer-perceptrons/dropout.md",
+        "chapter_convolutional-modern/batch-norm.md",
+        "chapter_attention-mechanisms/nadaraya-waston.md"
+      ],
+      "selected": "chapter_convolutional-modern/batch-norm.md",
+      "source_sha256": "71216a267206d9add6491555102ea5f28db7985154ad88e0b3c1d09f04d66611"
+    },
+    {
+      "domain": "programming",
+      "role": "paired-or-primary",
+      "pool": [
+        "chapter_deep-learning-computation/custom-layer.md",
+        "chapter_deep-learning-computation/parameters.md",
+        "chapter_computational-performance/async-computation.md",
+        "chapter_preliminaries/ndarray.md"
+      ],
+      "selected": "chapter_computational-performance/async-computation.md",
+      "source_sha256": "7a101cde7abf67af8dd4c58262156ce64ce1b9c0b5cd53765ae48a7d3b95f3e7"
+    },
+    {
+      "domain": "programming",
+      "role": "additional-transfer",
+      "pool": [
+        "chapter_deep-learning-computation/custom-layer.md",
+        "chapter_deep-learning-computation/parameters.md",
+        "chapter_computational-performance/async-computation.md",
+        "chapter_preliminaries/ndarray.md"
+      ],
+      "selected": "chapter_preliminaries/ndarray.md",
+      "source_sha256": "3755c96ce9a2c625398460d1025e335bc957cc87a7b8e8a85b550c458e9c7351"
+    }
+  ],
+  "limits": "Small stratified exploratory sample; neither blind nor a population success-rate estimate. No reselection after results."
+}

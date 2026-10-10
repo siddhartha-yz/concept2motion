@@ -28,6 +28,8 @@ jobs:
           node --test tests/visualbook-math.test.mjs tests/visualbook-import.test.mjs
           node tools/check_visualbook.mjs work/visualbook/ci-tools
           node tools/check_visualbook_controls.mjs work/visualbook/ci-reader-controls
+          node tools/check_visualbook_composition.mjs work/visualbook/ci-composition
+          node tools/check_visualbook_domain.mjs work/visualbook/ci-domain
           node tools/build_visualbook_catalog.mjs work/visualbook/ci-designs
       - uses: actions/upload-artifact@v4
         if: always()
@@ -39,6 +41,8 @@ jobs:
             work/visualbook/frozen-checks/*/reading
             work/visualbook/ci-tools
             work/visualbook/ci-reader-controls
+            work/visualbook/ci-composition
+            work/visualbook/ci-domain
             work/visualbook/ci-designs
   check:
     runs-on: ubuntu-latest

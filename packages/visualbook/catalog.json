@@ -53,6 +53,681 @@
       "height": 330,
       "mobileHeight": 430,
       "code": "function draw({board,progress}) {return board.convolution('conv',[[0,1,2],[3,4,5],[6,7,8]],[[0,1],[2,3]],{progress});}"
+    },
+    {
+      "id": "projection",
+      "title": "拖动一个向量，同时看图与数值",
+      "topic": "数学 / 交互组合",
+      "limits": "二维非零投影轴；插值是投影构造，不是训练",
+      "height": 360,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "geometry",
+            "type": "projection",
+            "props": {
+              "vector": {
+                "$state": "v",
+                "fallback": [
+                  1.5,
+                  1
+                ]
+              },
+              "onto": [
+                1,
+                0
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "draggable": true,
+              "stateKey": "v",
+              "title": "投到水平轴"
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "投影",
+                  "value": {
+                    "$result": "geometry.projection"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "垂直分量",
+                  "value": {
+                    "$result": "geometry.residual"
+                  },
+                  "color": "blue"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "state": {
+        "v": [
+          1.5,
+          1
+        ]
+      }
+    },
+    {
+      "id": "linear-transform",
+      "title": "格子随基向量一起变形",
+      "topic": "数学 / 深度学习",
+      "limits": "2×2线性变换；I到A的插值不是矩阵指数",
+      "height": 360,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "transform",
+            "type": "linear-transform",
+            "props": {
+              "matrix": [
+                [
+                  1,
+                  0.5
+                ],
+                [
+                  0,
+                  1
+                ]
+              ],
+              "vector": [
+                1,
+                1
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "title": "同一个变换作用于所有点"
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "变换后的向量",
+                  "value": {
+                    "$result": "transform.transformed"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "有向面积倍数",
+                  "value": {
+                    "$result": "transform.determinant"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "derivative",
+      "title": "割线靠近切线",
+      "topic": "数学 / 机器学习",
+      "limits": "解析导数与差商分别计算；h=0不执行0/0",
+      "height": 360,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "slope",
+            "type": "derivative",
+            "props": {
+              "function": {
+                "kind": "polynomial",
+                "coefficients": [
+                  0,
+                  0,
+                  0.5
+                ]
+              },
+              "x": 1,
+              "h": {
+                "$progress": [
+                  1,
+                  0.01
+                ]
+              },
+              "xDomain": [
+                -2,
+                3
+              ],
+              "yDomain": [
+                -1,
+                5
+              ]
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "两点间距 h",
+                  "value": {
+                    "$result": "slope.h"
+                  },
+                  "color": "ink"
+                },
+                {
+                  "label": "割线斜率",
+                  "value": {
+                    "$result": "slope.secantSlope"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "切线斜率",
+                  "value": {
+                    "$result": "slope.derivative"
+                  },
+                  "color": "blue"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "integral",
+      "title": "小块的面积怎样加起来",
+      "topic": "数学 / 概率",
+      "limits": "最多48个矩形；Riemann近似和解析积分分开",
+      "height": 360,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "area",
+            "type": "integral",
+            "props": {
+              "function": {
+                "kind": "polynomial",
+                "coefficients": [
+                  0,
+                  0,
+                  1
+                ]
+              },
+              "a": 0,
+              "b": 2,
+              "count": {
+                "$param": "count"
+              },
+              "progress": {
+                "$progress": true
+              }
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "已显示的小块面积",
+                  "value": {
+                    "$result": "area.visibleArea"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "完整近似面积",
+                  "value": {
+                    "$result": "area.sum"
+                  },
+                  "color": "ink"
+                },
+                {
+                  "label": "精确积分",
+                  "value": {
+                    "$result": "area.exact"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "params": [
+        {
+          "key": "count",
+          "label": "小块数量",
+          "min": 4,
+          "max": 24,
+          "step": 1,
+          "value": 12
+        }
+      ]
+    },
+    {
+      "id": "unit-circle",
+      "title": "一个点连接正弦和余弦",
+      "topic": "数学 / 深度学习",
+      "limits": "角度用弧度；保持两个坐标轴的单位长度一致",
+      "height": 360,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "circle",
+            "type": "unit-circle",
+            "props": {
+              "angle": {
+                "$progress": [
+                  0,
+                  6.283185307179586
+                ]
+              }
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "cos θ",
+                  "value": {
+                    "$result": "circle.cos"
+                  },
+                  "color": "orange"
+                },
+                {
+                  "label": "sin θ",
+                  "value": {
+                    "$result": "circle.sin"
+                  },
+                  "color": "green"
+                },
+                {
+                  "label": "cos² θ + sin² θ",
+                  "value": {
+                    "$result": "circle.norm"
+                  },
+                  "color": "blue"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "activation",
+      "title": "激活值与导数共用同一个输入",
+      "topic": "深度学习 / 数学",
+      "limits": "只使用已实现的解析函数；不是学习出的权重",
+      "height": 360,
+      "mobileHeight": 560,
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "function",
+            "type": "function-plot",
+            "props": {
+              "function": {
+                "kind": "sigmoid"
+              },
+              "derivative": true,
+              "x": {
+                "$progress": [
+                  -4,
+                  4
+                ]
+              },
+              "xDomain": [
+                -5,
+                5
+              ],
+              "yDomain": [
+                -0.1,
+                1.2
+              ],
+              "title": "蓝：sigmoid · 橙：导数"
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "输入 x",
+                  "value": {
+                    "$result": "function.x"
+                  },
+                  "color": "ink"
+                },
+                {
+                  "label": "激活值",
+                  "value": {
+                    "$result": "function.value"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "导数",
+                  "value": {
+                    "$result": "function.derivative"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "linked-plot",
+      "title": "图层可以共享坐标而保留对象",
+      "topic": "数学 / 编程",
+      "limits": "给定数据的连续插值示意，不代表拟合或迭代",
+      "height": 330,
+      "mobileHeight": 330,
+      "scene": {
+        "type": "plot",
+        "props": {
+          "xDomain": [
+            -3,
+            3
+          ],
+          "yDomain": [
+            -2,
+            3
+          ],
+          "title": "曲线、点和向量在同一坐标中",
+          "layers": [
+            {
+              "id": "curve",
+              "type": "curve",
+              "points": {
+                "$lerp": [
+                  [
+                    [
+                      -2,
+                      0
+                    ],
+                    [
+                      -1,
+                      1
+                    ],
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      1,
+                      1
+                    ],
+                    [
+                      2,
+                      0
+                    ]
+                  ],
+                  [
+                    [
+                      -2,
+                      1
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      2,
+                      1
+                    ]
+                  ]
+                ]
+              },
+              "color": "blue"
+            },
+            {
+              "id": "v",
+              "type": "vector",
+              "to": {
+                "$lerp": [
+                  [
+                    1,
+                    1
+                  ],
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              },
+              "color": "orange",
+              "label": "v"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "autograd",
+      "title": "同一个计算图，先算数值再传梯度",
+      "topic": "数学 / 深度学习 / 编程",
+      "limits": "标量反向自动微分；重复输入各自贡献；不是训练出的权重",
+      "height": 400,
+      "mobileHeight": 560,
+      "params": [
+        {
+          "key": "x",
+          "label": "输入 x",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "scene": {
+        "type": "columns",
+        "layout": {
+          "gap": 18,
+          "weights": [
+            2,
+            1
+          ]
+        },
+        "children": [
+          {
+            "id": "calculation",
+            "type": "autograd",
+            "props": {
+              "nodes": [
+                {
+                  "id": "x",
+                  "label": "x",
+                  "op": "input",
+                  "value": {
+                    "$param": "x"
+                  }
+                },
+                {
+                  "id": "two",
+                  "label": "2",
+                  "op": "constant",
+                  "value": 2
+                },
+                {
+                  "id": "square",
+                  "label": "x²",
+                  "op": "mul",
+                  "inputs": [
+                    "x",
+                    "x"
+                  ]
+                },
+                {
+                  "id": "output",
+                  "label": "2x²",
+                  "op": "mul",
+                  "inputs": [
+                    "two",
+                    "square"
+                  ]
+                }
+              ],
+              "progress": {
+                "$progress": true
+              },
+              "title": "同一个输入沿两条边影响输出"
+            }
+          },
+          {
+            "id": "values",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "输出 y",
+                  "value": {
+                    "$result": "calculation.trace.value"
+                  },
+                  "color": "blue"
+                },
+                {
+                  "label": "dy/dx",
+                  "value": {
+                    "$result": "calculation.trace.gradients.x"
+                  },
+                  "color": "orange"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "dependency-graph",
+      "title": "分支与汇合可以自动排布",
+      "topic": "编程 / 深度学习",
+      "limits": "最多16节点；移动标记仅解释连接，不表示硬件执行时序",
+      "height": 330,
+      "mobileHeight": 450,
+      "scene": {
+        "type": "graph",
+        "props": {
+          "title": "一份数据可以进入两条分支",
+          "nodes": [
+            {
+              "id": "input",
+              "label": "输入"
+            },
+            {
+              "id": "left",
+              "label": "分支 A"
+            },
+            {
+              "id": "right",
+              "label": "分支 B"
+            },
+            {
+              "id": "merge",
+              "label": "合并"
+            }
+          ],
+          "edges": [
+            {
+              "from": "input",
+              "to": "left"
+            },
+            {
+              "from": "input",
+              "to": "right"
+            },
+            {
+              "from": "left",
+              "to": "merge"
+            },
+            {
+              "from": "right",
+              "to": "merge"
+            }
+          ],
+          "progress": {
+            "$progress": true
+          }
+        }
+      }
     }
   ]
 }

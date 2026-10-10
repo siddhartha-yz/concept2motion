@@ -32,6 +32,26 @@ draw每次收到同一个board；工具负责begin/end、尺寸和键值复用�
 
 设计模板也允许组合或扩展；不是每个章节都应该套模板。模板返回facts仍须核对表达是否贴合教材。不能把不适合问题的模板强行使用。
 
+## 可以像积木一样组合
+
+一幅图可以用 `scene` 替代 `code`，二者只选一个。scene 负责排布和连接输入；所有实际计算与绘图由组件执行。组件数值输出可传给后面的组件，不能拿未生成的结果。任意新想法仍可写 draw 源码，不必局限于目录。
+
+```json
+{"type":"columns","layout":{"weights":[2,1],"gap":18},"children":[{"id":"geom","type":"projection","props":{"vector":{"$state":"v","fallback":[1.5,1]},"onto":[1,0],"progress":{"$progress":true},"stateKey":"v","draggable":true}},{"id":"values","type":"readout","props":{"items":[{"label":"投影","value":{"$result":"geom.projection"},"color":"orange"}]}}]}
+```
+
+figure 中可设 `state:{"v":[1.5,1]}`。拖动向量会更新同一份状态，图与读数一起重画；手机上下排布保留状态与对象。`columns`、`stack`、`grid`、`overlay` 可以嵌套，每个子项必须有不同 id。columns 默认每列至少260px，窄屏改为上下排布；`layout` 支持 gap、padding、weights、minColumnWidth 和 grid 的 columns。先给足 mobileHeight，不要靠缩小字号塞下所有东西。
+
+绑定仅支持：`{"$param":"eta"}` 读取已声明参数；`{"$state":"v","fallback":[1,1]}` 读状态；`{"$progress":true}` 或 `{"$progress":[0,6.28]}` 映射演示进度；`{"$lerp":[起始数值或数组,终值]}` 连续插值；`{"$result":"组件id.输出字段"}` 引用前一组件的实际结果。插值是解释变化，不能称为真实迭代或训练。
+
+源码组合也支持 `board.region(id,{x,y,width,height},localBoard=>...)`，所有坐标变成该区域的局部坐标，原有矩阵、曲线等方法可直接复用。`board.layout(count,options)` 返回局部排布。`draw` 额外收到 `state` 和 `controls`：setState(key,value)、setParam(key,value)、setProgress(value)、pause()。不要改状态后忘记刷新，使用这些共享方法。
+
+`board.handle(id,frame,[x,y],{onChange,label,color,axis,step,bounds,constrain})` 提供稳定的鼠标/触摸把手、方向键与边界约束，默认双轴移动，axis 可为 x 或 y，bounds 为 `{x:[最小,最大],y:[最小,最大]}`。拖动时暂停演示。`board.selectable(node,{label,selected,onSelect})` 让已有图元能用点击、Enter、空格选择。
+
+当前基础组件：projection（vector、onto、progress，可拖动）、linear-transform（2×2 matrix、vector、progress）、plot（xDomain/yDomain 与 curve/points/vector/area/handle 图层）、readout（短 label/value 数值列表）。数学组件：function-plot（function、x、derivative）、derivative（function、x、h）、integral（function、a、b、count、rule、progress）、unit-circle（angle）。函数 function 是数据：polynomial + 低次到高次 coefficients，或 sin/cos/exp/log/sigmoid/tanh/relu/gaussian；gaussian 支持 mean/sigma。范围需要覆盖教材例子，工具不会把画外数据伪装成画内结果。用目录的真实图片选择合适设计，完整示例和限制随目录提供。
+
+独立核对：`VisualBook.project(v,onto)`、`scalarFunction(spec).f(x)/df(x)`、`riemannSum(spec,a,b,{count,rule})`。ReLU在0处不可导，显示0只是选择的次梯度；`h=0` 显示解析导数，不执行0/0；数值积分和精确积分分开返回。
+
 ## 张量与卷积设计
 
 - `board.reshape(id,values,rows,{progress})`：保持行优先顺序和元素数量，让同一批稳定对象移动到新形状；不是转置。最多36值、每维最多8，过密会拒绝。新行数必须整除元素总数。

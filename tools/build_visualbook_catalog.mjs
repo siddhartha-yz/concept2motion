@@ -35,15 +35,7 @@ export async function buildCatalog(out, { ids = null } = {}) {
         ],
       },
       file = path.join(out, design.id + ".html");
-    let html = build(source, plan);
-    if (!html.includes("Optional reusable tensor"))
-      html = html.replace(
-        "VisualBookRuntime.mount",
-        fs.readFileSync(
-          path.join(root, "packages/visualbook/designs.js"),
-          "utf8",
-        ) + "\nVisualBookRuntime.mount",
-      );
+    const html = build(source, plan);
     fs.writeFileSync(file, html);
     const evidence = path.join(out, "evidence", design.id),
       report = await preview(file, evidence);

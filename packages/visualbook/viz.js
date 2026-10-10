@@ -7,6 +7,11 @@
     orange: "#a8502f",
     faint: "#dce5e6",
     paper: "#faf9f5",
+    green: "#397564",
+    violet: "#796199",
+    gold: "#98712d",
+    positive: "#397564",
+    negative: "#a8502f",
   };
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
   const mix = (a, b, t) => a + (b - a) * t;
@@ -33,9 +38,14 @@
     return out;
   }
   class Board {
-    constructor(svg) {
+    static nextId = 0;
+    constructor(svg, { prefix = "", controls = null } = {}) {
       this.svg = svg;
+      this.prefix = prefix;
+      this.controls = controls;
+      this.uid = ++Board.nextId;
       this.nodes = new Map();
+      this.regions = new Map();
       this.seen = new Set();
       this.labels = [];
     }
@@ -44,7 +54,11 @@
       this.height = height;
       this.seen.clear();
       this.labels = [];
-      this.svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
+      if (
+        this.svg.tagName === "svg" &&
+        this.svg.getAttribute("viewBox") !== `0 0 ${width} ${height}`
+      )
+        this.svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
     }
     mark(id, tag, attrs = {}, text = null) {
       this.seen.add(id);
@@ -56,7 +70,7 @@
       }
       if (!node) {
         node = document.createElementNS("http://www.w3.org/2000/svg", tag);
-        node.dataset.vizKey = id;
+        node.dataset.vizKey = this.prefix + id;
         this.svg.append(node);
         this.nodes.set(id, node);
       }
@@ -65,9 +79,12 @@
           node.removeAttribute(name);
       for (const [name, value] of Object.entries(attrs)) {
         if (typeof value === "number") finite(value);
-        node.setAttribute(name, String(value));
+        const textValue = String(value);
+        if (node.getAttribute(name) !== textValue)
+          node.setAttribute(name, textValue);
       }
-      if (text !== null) node.textContent = String(text);
+      if (text !== null && node.textContent !== String(text))
+        node.textContent = String(text);
       return node;
     }
     end() {
@@ -75,10 +92,72 @@
         if (!this.seen.has(id)) {
           node.remove();
           this.nodes.delete(id);
+          this.regions.delete(id);
         }
       // Keep readable labels above moving geometry, without replacing nodes.
-      for (const node of this.nodes.values())
-        if (node.tagName === "text") this.svg.append(node);
+      let seenText = false,
+        needsReorder = false;
+      for (const node of this.svg.children) {
+        if (node.tagName === "text") seenText = true;
+        else if (seenText) needsReorder = true;
+      }
+      if (needsReorder)
+        for (const node of this.nodes.values())
+          if (node.tagName === "text") this.svg.append(node);
+    }
+    region(id, box, draw) {
+      const { x = 0, y = 0, width, height } = box;
+      if (
+        ![x, y, width, height].every(Number.isFinite) ||
+        width <= 0 ||
+        height <= 0
+      )
+        throw Error("Region needs finite positive dimensions");
+      const group = this.mark(id, "g", {
+        transform: `translate(${x} ${y})`,
+        "data-viz-region": this.prefix + id,
+      });
+      let child = this.regions.get(id);
+      if (!child || child.svg !== group) {
+        child = new Board(group, {
+          prefix: this.prefix + id + "/",
+          controls: this.controls,
+        });
+        this.regions.set(id, child);
+      }
+      child.controls = this.controls;
+      child.begin(width, height);
+      const facts = draw(child, { x, y, width, height });
+      child.end();
+      return facts;
+    }
+    clip(id, box) {
+      const { left, top, right, bottom } = box;
+      if (
+        ![left, top, right, bottom].every(Number.isFinite) ||
+        right <= left ||
+        bottom <= top
+      )
+        throw Error("Positive clip box required");
+      const name = `vh-clip-${this.uid}-${String(id).replace(/[^a-z0-9-]/gi, "-")}`;
+      const node = this.mark(id + "-clip", "clipPath", {
+        id: name,
+        clipPathUnits: "userSpaceOnUse",
+      });
+      let rect = node.firstElementChild;
+      if (!rect) {
+        rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        node.append(rect);
+      }
+      for (const [key, value] of Object.entries({
+        x: left,
+        y: top,
+        width: right - left,
+        height: bottom - top,
+      }))
+        if (rect.getAttribute(key) !== String(value))
+          rect.setAttribute(key, value);
+      return `url(#${name})`;
     }
     line(id, x1, y1, x2, y2, color = palette.ink, width = 2, opacity = 1) {
       return this.mark(id, "line", {
@@ -334,11 +413,13 @@
       return { from, to, x1, y1, x2, y2 };
     }
     curve(id, frame, points, options = {}) {
-      return this.path(
+      const node = this.path(
         id,
         points.map(([x, y]) => [frame.x(x), frame.y(y)]),
         options,
       );
+      if (frame.clip) node.setAttribute("clip-path", frame.clip);
+      return node;
     }
     matrix(
       id,

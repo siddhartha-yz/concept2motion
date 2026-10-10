@@ -63,6 +63,10 @@ def main():
         ROOT / "packages/visualbook" / n
         for n in [
             "viz.js",
+            "compose.js",
+            "components.js",
+            "components.math.js",
+            "components.graph.js",
             "designs.js",
             "runtime.js",
             "theme.css",
@@ -118,7 +122,7 @@ def main():
         schema = {"figures": []}
         write(job / "book.json", schema)
         prompt = f"""你要把当前目录的完整教材变成优秀的段落内可视化教材。中文，保留原文与公式，不改source文件。阅读source.md的完整内容与锚点，source-map.json提供结构。source.json包含编译后的大段HTML和图片编码，仅给编译器使用，不要读取它来重复占用上下文；完整原文已经在source.md中。选择1–3个原书没有解释清楚的关系，允许有依据地零图；不要把原文段落再次塞进图。
-本次工具路径 TOOL={tool}。把绘图计划写到book.json，调用构建和预览工具，查看实际桌面与手机PNG，自行修订。需要连续的0–1进度、真实因果参数、清楚的轴与短标签、安静但有设计感的画面。不要只把进度取整后切换静态图片。连续变化由读者拖动或阅读控制，无自动播放。避免装饰卡片、说明墙和超过480px的桌面图。
+本次工具路径 TOOL={tool}。把绘图计划写到book.json，调用构建和预览工具，查看实际桌面与手机PNG，自行修订。需要连续的0–1进度、真实因果参数、清楚的轴与短标签、安静但有设计感的画面。不要只把进度取整后切换静态图片。图解默认静止，由读者拖动、单步或主动播放；页面滚动只暂停。避免装饰卡片、说明墙和超过480px的桌面图。
 两臂共享同一原文、基本任务、编译器、阅读运行时和预览检查。你的arm={args.arm}。
 运行 node TOOL build source.json book.json book.html {'--direct' if args.arm=='direct' else ''}（TOOL换成上面绝对路径）。运行 node TOOL preview book.html preview-01 会得到真实PNG与report.json。至少预览一次并查看桌面和手机的图片。每次修改重新build，预览目录另起名。最多3次预览，{args.timeout}秒会话上限；内部检查不能代替审美判断。失败保留，不自打分。
 {('你使用普通SVG/DOM自行绘图，不调用VisualBook/Board库。draw收到svg,width,height,progress,params，可自己管理稳定SVG对象。' if args.arm=='direct' else '你可以使用可复用Board和VisualBook数学工具，使用稳定图元id，充分利用库减少布局与绘图负担。')}
