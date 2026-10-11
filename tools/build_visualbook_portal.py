@@ -39,7 +39,10 @@ def main():
  (out/'index.html').write_text(page)
  with zipfile.ZipFile(out/'visualbook-offline.zip','w',zipfile.ZIP_DEFLATED,compresslevel=6) as z:
   for file in sorted((out/'book').rglob('*')):
-   if file.is_file():z.write(file,file.relative_to(out/'book'))
+   if file.is_file():
+    entry=zipfile.ZipInfo(file.relative_to(out/'book').as_posix(),date_time=(1980,1,1,0,0,0))
+    entry.create_system=3;entry.external_attr=0o100644<<16
+    z.writestr(entry,file.read_bytes(),compress_type=zipfile.ZIP_DEFLATED,compresslevel=6)
  record={'kind':__doc__,'modelCalls':0,'chapters':len(chapters),'designs':len(designs),'files':[{'path':str((Path(group)/source.name)),'sha256':expected} for group,source,expected in selected],'offlineZipScope':'Exported textbook chapters, index and licenses only; design gallery stays separate','offlineZipSha256':sha(out/'visualbook-offline.zip')}
  (out/'portal-record.json').write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n');print(json.dumps({'output':str(out),'chapters':len(chapters),'designs':len(designs),'zipBytes':(out/'visualbook-offline.zip').stat().st_size}))
 if __name__=='__main__':main()

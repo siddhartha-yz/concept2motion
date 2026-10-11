@@ -5239,7 +5239,7 @@
       "title": "梯度归零以后，历史还留下多少",
       "topic": "机器学习 / 深度学习",
       "keywords": "Yogi Adam sparse gradient memory 稀疏 梯度 历史 二次矩",
-      "limits": "同一手设序列：先g=1，再30次g=0。比较未校正二次矩，圆点是当前整数步。线只连接离散状态；纵轴随共同β₂缩放，请读刻度。这不是训练或收敛实验。",
+      "limits": "同一手设序列：先g=1，再30次g=0。曲线展示完整预设序列，圆点指示当前整数步；比较未校正二次矩。线只连接离散状态；纵轴随共同β₂缩放，请读刻度。这不是训练或收敛实验。",
       "interaction": "parameters",
       "height": 360,
       "mobileHeight": 440,
@@ -5524,7 +5524,7 @@
                       "$result": "adam.squareMomentCurves.0"
                     },
                     "color": "blue",
-                    "label": "Adam 历史"
+                    "label": "Adam 序列"
                   },
                   {
                     "id": "yogi",
@@ -5533,7 +5533,7 @@
                       "$result": "yogi.squareMomentCurves.0"
                     },
                     "color": "orange",
-                    "label": "Yogi 历史"
+                    "label": "Yogi 序列"
                   },
                   {
                     "id": "adam-selected",
