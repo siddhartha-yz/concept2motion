@@ -1,0 +1,15 @@
+{
+  "runId": 38098360091,
+  "commit": "2faf0563a5cdf24d80924dc1340b2b2310a743d7",
+  "failedJob": "check",
+  "failedStep": "npm test",
+  "knownErrors": [
+    "Missing pinned katex runtime module",
+    "Missing pinned unified runtime module"
+  ],
+  "sceneSmokeJob": "success",
+  "visualbookJobAtObservation": "in_progress",
+  "cause": "Independent check job had not installed ignored VisualBook runtime dependencies; local work/ hid this requirement.",
+  "fix": "Pure pinned dependency installer in check job; no source checkout or old sample output generation.",
+  "rawJobLogPublic": false
+}

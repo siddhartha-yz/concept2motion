@@ -13,11 +13,13 @@
 
 ## 最短运行方式
 
-需要 Node 22+、Python 3、已登录的官方 Codex CLI，以及 Chromium。首次安装固定依赖与 D2L 源码：
+需要 Node 22+、Python 3、已登录的官方 Codex CLI，以及 Chromium。首次只安装固定运行依赖：
 
 ```bash
-python3 experiments/visualbook/bootstrap.py --fetch
+python3 tools/setup_visualbook.py --install
 ```
+
+安装入口会核对固定版本并实际导入依赖；后续直接运行 `python3 tools/setup_visualbook.py` 可以复查。它不会重建已有教材或下载示例源码。Chromium另用包内说明的官方Playwright入口安装。
 
 普通 Markdown 章节可以直接输入；本地图片与它放在同一目录范围。原始服务日志、会话文件和结果放在被 Git 忽略的 `work/`：
 

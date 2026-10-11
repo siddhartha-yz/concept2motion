@@ -89,6 +89,8 @@ jobs:
       - run: python tools/bench.py check
       - run: python tools/bench.py prepare softmax --out /tmp/softmax-brief
       - run: python -m compileall -q tools
+      - name: Install pinned import and rendering dependencies without generating books
+        run: python3 tools/setup_visualbook.py --install
       - run: npm test
       - run: python -m unittest discover -s tests -p 'test_*.py'
   scene-smoke:

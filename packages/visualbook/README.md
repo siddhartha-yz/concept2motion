@@ -7,9 +7,11 @@
 要求 Node 22+、Python 3、官方 Codex CLI、Chromium。依赖和第三方固定源码放在忽略的 work/。
 
 ```bash
-python3 experiments/visualbook/bootstrap.py --fetch
+python3 tools/setup_visualbook.py --install
 codex login status
 ```
+
+setup会核对lockfile、13个直接依赖的实际版本及真实导入，后续不加--install即可复查。它不写outputs/、不下载D2L、不运行模型，也不安装浏览器。
 
 如果 Chromium 未安装，使用 Playwright 官方安装入口。可用环境变量 CHROMIUM_PATH 指定实际可执行文件，不用绕过浏览器安全检查。
 
@@ -23,7 +25,7 @@ npm exec --prefix work/visualbook/runtime -- playwright-core install chromium
 python3 tools/run_visualbook.py my-chapter.md work/my-book --source-url https://example.com/original
 ```
 
-D2L固定章节列表包含 upstream_commit、原文件哈希和 selected 路径；现成的随机样本可以这样导入：
+D2L固定章节列表包含 upstream_commit、原文件哈希和 selected 路径。复现旧D2L样本需要先运行 experiments/visualbook/bootstrap.py --fetch；这个旧实验入口会重建outputs/visualbook示例页，应先保留正在审查的书。固定源码准备后可这样导入：
 
 ```bash
 node tools/visualbook.mjs import evaluation/2026-10-10/harness-v2/sampling.json work/new-sources
