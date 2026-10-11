@@ -1098,9 +1098,12 @@ async function main() {
       direct: args.includes("--direct"),
     });
     fs.writeFileSync(out, html);
+    const outputName = path.parse(out).name;
     const resolvedFile = path.join(
       path.dirname(path.resolve(out)),
-      "resolved-plan.json",
+      outputName === "book"
+        ? "resolved-plan.json"
+        : outputName + ".resolved-plan.json",
     );
     fs.writeFileSync(resolvedFile, JSON.stringify(resolved, null, 2) + "\n");
     console.log(

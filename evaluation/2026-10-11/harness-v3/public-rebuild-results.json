@@ -1,0 +1,23 @@
+{
+  "modelCalls": 0,
+  "toolRevision": "cec6a009223b28d7f30033221851ac6cfdf0e22b",
+  "sourceRevision": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "scope": "Public source metadata and drawing plans plus pinned upstream source and lockfile recreated two source JSONs and raw candidate HTMLs byte-for-byte. No provider transcript or original raw HTML read as build input. Original gates/reviews unchanged. Not new model generation or art acceptance.",
+  "records": [
+    {
+      "candidate": "adam-harness-phase9",
+      "sourceJsonSha256": "1c2d736d9c8b2ca33ea2903469e7db138a4f285c0a496f67a653005c52d6f3af",
+      "rawHtmlSha256": "38e066a38a70b67aabdc6de07a1c0eb9ee8d9c49abc31ca265f41a5b951f9c51",
+      "sourceMatchesOriginalBytes": true,
+      "htmlMatchesOriginalBytes": true
+    },
+    {
+      "candidate": "softmax-regression-harness-phase9",
+      "sourceJsonSha256": "b93ce5227628d0dbe504889557ba67c700b7b315d9a56cea1fc6bcb1c0aa30f7",
+      "rawHtmlSha256": "acfea718cb8891ae8b54379af706afeaef4030299e857a5b178ca2bb7d3755aa",
+      "sourceMatchesOriginalBytes": true,
+      "htmlMatchesOriginalBytes": true
+    }
+  ],
+  "observedCliSidecarCollision": "Frozen CLI writes resolved-plan.json in the output directory; second different HTML output overwrote first sidecar. Raw HTML and original public plans were not overwritten."
+}

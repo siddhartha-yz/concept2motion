@@ -178,3 +178,5 @@ Firefox按官方Playwright 1.62.1入口安装，Firefox153.0/build1538。compati
 00:25–00:33 UTC：2faf056已push并由ls-remote核验。第一轮CI的check job在npm test失败，实际job日志明确缺少ignored运行时的KaTeX/unified；不同job不共享visualbook job的安装，本地work掩盖缺口。新增setup_visualbook纯固定依赖安装/检查入口，13版本及实际import、300秒上限、失败记录；不会克隆D2L或重建outputs。无依赖的新归档目录安装后19文件/105 Node、91 Python检查全部通过，已有入口哈希不变，无upstream创建；真正缺依赖的单独入口明确失败。首轮安装报告2m已成功，随后误尝试终止已结束的PID，没有影响任何进程；no-audit/no-fund重复安装676ms但缓存/策略不同，不称通用性能收益。普通安装文档改用新入口，旧D2L复现仍单列。
 
 00:35 UTC：实际看稀疏梯度图发现完整预设序列误叫历史；共享目录改成序列并注明完整曲线/当前圆点，内核与原模型候选不变。61设计新目录09全量有限Chromium检查零发现，旧3ea目录与Firefox范围继续保留。新portal04使用未改五章13图和新目录，原03记录另存。离线归档固定时间/权限；实际重复打包两个ZIP逐字节一致、11条目CRC和解包内容与已审查输入完全一致。只在本地相同压缩库验证。首CI最终visualbook/scene-smoke通过，check因缺依赖失败；准备push安装修复。
+
+00:44–00:45 UTC：只用公开source-data元数据/计划、固定D2L e6源码和cec6工具归档，重新导入/构建Adam与Softmax；两份source JSON和raw HTML逐字节复现原始SHA，未读取provider事件或原HTML作为输入，未运行模型，不改原review/gate。冻结CLI两个不同HTML同目录共享resolved-plan.json，后写覆盖前附属文件；修当前CLI对不同文件名使用对应sidecar，book.html保留MCP路径，3实际构建/两种计划核对通过。原碰撞记录保存。

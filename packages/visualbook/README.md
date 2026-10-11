@@ -68,6 +68,8 @@ node tools/visualbook.mjs export book.html preview-01 offline.html
 node tools/build_visualbook_catalog.mjs work/design-gallery
 ```
 
+CLI构建book.html继续使用resolved-plan.json；其它输出如chapter-one.html对应chapter-one.resolved-plan.json，方便在同一目录保留多章计划。返回结果包含真实路径和哈希。
+
 [接口和设计限制](API.md)给出完整方法。[本轮报告](../../evaluation/2026-10-11/harness-v3/REPORT.md)区分编译、实际渲染、模型生成、维护者复核和未做的用户审评。
 
 迁移说明：v03–v05旧会话没有新的review.json。保留它们作证据或用单独组装工具复查，不会在--resume中默默赋予新的最终检查资格。当前最终检查已在真实会话中使用，已知问题确实阻止两次候选导出；这仍不能保证未知审美或教学问题会自动发现。
