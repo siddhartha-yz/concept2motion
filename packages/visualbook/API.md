@@ -179,7 +179,7 @@ MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","m
 
 检索设计会说明是否scene、有多少参数、哪些canonical计算。同关键字分数优先scene数据接口，不是品质排名。新增optimizer-landscape、adam-bias、softmax-competition、softmax-gradient-step、head-reindex均可替换数据并接现有组件。
 
-张量cellAspect:auto默认使单行/单列向量可以是矩形格，矩阵保持方格；square/free显式选择。aligned-points的compact:true允许50px行间隔，comfortable默认68px，字号仍12..13px。列/堆叠权重与总高度仍需安排，任意复杂场景不保证自动适配。
+张量cellAspect:auto默认使单行/单列向量可以是矩形格，矩阵保持方格；square/free显式选择。aligned-points的compact:auto按可用空间选择50px或68px行间隔；compact:true/false可显式选择，字号仍12..13px。列/堆叠权重与总高度仍需安排，任意复杂场景不保证自动适配。
 
 长公式不缩小到难读的字号：行内及展示公式在自己的区域横向查看，保持整页宽度；只有实际超宽公式获得焦点和长公式标签，左右/Home/End在该区域操作。禁用脚本仍保留局部滚动的CSS和完整公式。
 
