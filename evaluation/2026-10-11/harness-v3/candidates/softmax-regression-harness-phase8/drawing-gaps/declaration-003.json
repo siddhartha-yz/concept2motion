@@ -1,0 +1,11 @@
+{
+  "arguments": {
+    "figureId": "softmax-competition",
+    "attemptedDesigns": [
+      "probabilities"
+    ],
+    "reason": "概率设计使用均匀到目标的非因果插值、没有可改数据，默认轴写注意力权重。需要分数和共同平移直接驱动真实 softmax，显示固定分数差对应固定概率比；本次修订将头部短标签改成分数 o、概率 p，减少手机拥挤。"
+  },
+  "status": "declared",
+  "code_sha256": "1d66afccb7639e4fa61abdc8f005e63d900732bacaf6936481cef9b6b21b3c72"
+}

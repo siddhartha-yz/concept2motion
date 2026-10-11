@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "gradient-step",
+    "attemptedDesigns": [
+      "probabilities",
+      "gradient-contributions"
+    ],
+    "reason": "贡献设计无法从当前 softmax 与真实标签求梯度，再以真实步长更新示例分数。此图需要联动 g=p-y、o'=o-ηg、前后概率与损失；修订明确概率轴，并澄清降低单类分数并不保证降低概率，无权重训练声明。"
+  },
+  "status": "declared",
+  "code_sha256": "958f9ef92894c19c4ae9519781c8804e1c8df13a60cf403db8c98a5eadf0ebe1"
+}

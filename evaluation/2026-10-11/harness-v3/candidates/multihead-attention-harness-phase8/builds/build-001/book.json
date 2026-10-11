@@ -1,0 +1,386 @@
+{
+  "figures": [
+    {
+      "id": "head-subspaces",
+      "afterAnchor": "multihead-attention-010",
+      "title": "同一输入，两个投影视角",
+      "height": 300,
+      "mobileHeight": 400,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "mix",
+          "label": "头2的 x 系数 a",
+          "min": -1,
+          "max": 1,
+          "step": 0.05,
+          "value": 0
+        }
+      ],
+      "summary": "手选示例：q=(1,1)，K=V=[(2,0),(0,2),(−1,−1)]。头1的 Q/K 取 x，头2取 ax+y；V 分别取 x、y。下方按 Wₒ=[1,−1] 混合。",
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "oneq",
+            "operation": "matmul",
+            "inputs": {
+              "a": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "b": [
+                [
+                  1
+                ],
+                [
+                  0
+                ]
+              ]
+            }
+          },
+          {
+            "id": "onek",
+            "operation": "matmul",
+            "inputs": {
+              "a": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "b": [
+                [
+                  1
+                ],
+                [
+                  0
+                ]
+              ]
+            }
+          },
+          {
+            "id": "onev",
+            "operation": "matmul",
+            "inputs": {
+              "a": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "b": [
+                [
+                  1
+                ],
+                [
+                  0
+                ]
+              ]
+            }
+          },
+          {
+            "id": "one",
+            "operation": "attention",
+            "inputs": {
+              "queries": {
+                "$result": "oneq.output"
+              },
+              "keys": {
+                "$result": "onek.output"
+              },
+              "values": {
+                "$result": "onev.output"
+              },
+              "scaled": true
+            }
+          },
+          {
+            "id": "twoq",
+            "operation": "matmul",
+            "inputs": {
+              "a": [
+                [
+                  1,
+                  1
+                ]
+              ],
+              "b": [
+                [
+                  {
+                    "$param": "mix"
+                  }
+                ],
+                [
+                  1
+                ]
+              ]
+            }
+          },
+          {
+            "id": "twok",
+            "operation": "matmul",
+            "inputs": {
+              "a": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "b": [
+                [
+                  {
+                    "$param": "mix"
+                  }
+                ],
+                [
+                  1
+                ]
+              ]
+            }
+          },
+          {
+            "id": "twov",
+            "operation": "matmul",
+            "inputs": {
+              "a": [
+                [
+                  2,
+                  0
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  -1,
+                  -1
+                ]
+              ],
+              "b": [
+                [
+                  0
+                ],
+                [
+                  1
+                ]
+              ]
+            }
+          },
+          {
+            "id": "two",
+            "operation": "attention",
+            "inputs": {
+              "queries": {
+                "$result": "twoq.output"
+              },
+              "keys": {
+                "$result": "twok.output"
+              },
+              "values": {
+                "$result": "twov.output"
+              },
+              "scaled": true
+            }
+          },
+          {
+            "id": "merged",
+            "operation": "matmul",
+            "inputs": {
+              "a": [
+                [
+                  {
+                    "$result": "one.output.0.0"
+                  },
+                  {
+                    "$result": "two.output.0.0"
+                  }
+                ]
+              ],
+              "b": [
+                [
+                  1
+                ],
+                [
+                  -1
+                ]
+              ]
+            }
+          }
+        ],
+        "visual": {
+          "type": "rows",
+          "layout": {
+            "weights": [
+              1,
+              1
+            ],
+            "gap": 12
+          },
+          "children": [
+            {
+              "type": "columns",
+              "id": "weight-row",
+              "layout": {
+                "minColumnWidth": 130,
+                "gap": 12
+              },
+              "children": [
+                {
+                  "id": "weights-one",
+                  "type": "tensor",
+                  "props": {
+                    "values": {
+                      "$result": "one.weights"
+                    },
+                    "title": "头1 · 权重",
+                    "columnLabels": [
+                      "k0",
+                      "k1",
+                      "k2"
+                    ],
+                    "rowLabels": [
+                      "q"
+                    ],
+                    "encoding": "sequential",
+                    "domain": [
+                      0,
+                      1
+                    ],
+                    "precision": 2
+                  }
+                },
+                {
+                  "id": "weights-two",
+                  "type": "tensor",
+                  "props": {
+                    "values": {
+                      "$result": "two.weights"
+                    },
+                    "title": "头2 · 权重",
+                    "columnLabels": [
+                      "k0",
+                      "k1",
+                      "k2"
+                    ],
+                    "rowLabels": [
+                      "q"
+                    ],
+                    "encoding": "sequential",
+                    "domain": [
+                      0,
+                      1
+                    ],
+                    "precision": 2
+                  }
+                }
+              ]
+            },
+            {
+              "type": "columns",
+              "id": "output-row",
+              "layout": {
+                "minColumnWidth": 130,
+                "gap": 12
+              },
+              "children": [
+                {
+                  "id": "concat",
+                  "type": "tensor",
+                  "props": {
+                    "values": [
+                      [
+                        {
+                          "$result": "one.output.0.0"
+                        },
+                        {
+                          "$result": "two.output.0.0"
+                        }
+                      ]
+                    ],
+                    "title": "拼接 · 两个坐标",
+                    "columnLabels": [
+                      "h₁",
+                      "h₂"
+                    ],
+                    "rowLabels": [
+                      "q"
+                    ],
+                    "encoding": "diverging",
+                    "domain": [
+                      -1,
+                      2
+                    ],
+                    "precision": 2
+                  }
+                },
+                {
+                  "id": "output",
+                  "type": "tensor",
+                  "props": {
+                    "values": {
+                      "$result": "merged.output"
+                    },
+                    "title": "混合 · h₁−h₂",
+                    "columnLabels": [
+                      "y"
+                    ],
+                    "rowLabels": [
+                      "q"
+                    ],
+                    "encoding": "diverging",
+                    "domain": [
+                      -3,
+                      3
+                    ],
+                    "precision": 2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "head-index",
+      "afterAnchor": "multihead-attention-016",
+      "title": "点一个编号，追踪拆头后的去向",
+      "height": 360,
+      "mobileHeight": 520,
+      "interaction": "parameters",
+      "state": {
+        "element": 6
+      },
+      "summary": "B=2，N=2，H=2，d=2；蓝色为头0，橙色为头1。编号只用于追踪数值。右侧每块是合并后的一个批次行，列为头内坐标 d。",
+      "code": "function draw(input) {\n const {board:b,width:w,state,controls}=input;\n const mobile=w<500, ink=VisualBook.palette.ink, muted=VisualBook.palette.muted;\n const colors=[VisualBook.palette.blue,VisualBook.palette.orange];\n const chosen=Number.isInteger(state.element)?state.element:6;\n const cell=mobile?30:36;\n const left=mobile?20:36, right=mobile?20:w/2+28;\n const yIn=42, yOut=mobile?242:42;\n b.text('in-title','投影后 X · (B,N,Hd)',left,18,{size:15,color:ink});\n b.text('out-title','拆头后 · (BH,N,d)',right,mobile?216:18,{size:15,color:ink});\n for(let batch=0;batch<2;batch++) {\n  const y=yIn+batch*(2*cell+24);\n  b.text('in-b-'+batch,'b'+batch,left,y-8,{size:13,color:muted});\n  for(let q=0;q<2;q++)for(let h=0;h<2;h++)for(let d=0;d<2;d++) {\n   const id=((batch*2+q)*2+h)*2+d, x=left+30+(h*2+d)*cell, yy=y+q*cell;\n   const node=b.rect('in-cell-'+id,x,yy,cell-3,cell-3,colors[h],{'fill-opacity':id===chosen?.7:.16,stroke:id===chosen?ink:'none','stroke-width':2});\n   b.text('in-value-'+id,String(id),x+(cell-3)/2,yy+cell/2+4,{size:14,anchor:'middle',color:ink});\n   b.selectable(node,{label:'追踪元素 '+id,selected:id===chosen,onSelect:()=>controls.setState('element',id)});\n  }\n  for(let q=0;q<2;q++)b.text('in-q-'+batch+'-'+q,'q'+q,left,y+q*cell+cell/2+4,{size:12,color:muted});\n }\n for(let batch=0;batch<2;batch++)for(let h=0;h<2;h++) {\n  const x=right+h*(2*cell+50)+30, y=yOut+batch*(2*cell+34);\n  b.text('out-group-'+batch+h,'r'+(batch*2+h)+' = b'+batch+'·头'+h,x,y-8,{size:12,color:muted});\n  for(let q=0;q<2;q++)for(let d=0;d<2;d++) {\n   const id=((batch*2+q)*2+h)*2+d, xx=x+d*cell, yy=y+q*cell;\n   const node=b.rect('out-cell-'+id,xx,yy,cell-3,cell-3,colors[h],{'fill-opacity':id===chosen?.7:.16,stroke:id===chosen?ink:'none','stroke-width':2});\n   b.text('out-value-'+id,String(id),xx+(cell-3)/2,yy+cell/2+4,{size:14,anchor:'middle',color:ink});\n   b.selectable(node,{label:'拆头后的元素 '+id,selected:id===chosen,onSelect:()=>controls.setState('element',id)});\n  }\n  for(let q=0;q<2;q++)b.text('out-q-'+batch+h+q,'q'+q,x-25,y+q*cell+cell/2+4,{size:12,color:muted});\n }\n const batch=Math.floor(chosen/8),q=Math.floor(chosen/4)%2,h=Math.floor(chosen/2)%2,d=chosen%2;\n const base=mobile?454:290;\n b.text('map-title','元素 '+chosen+' 的索引',left,base,{size:14,color:ink});\n b.text('mapping','['+batch+','+q+','+(h*2+d)+']  →  ['+(batch*2+h)+','+q+','+d+']',left,base+26,{size:17,color:ink});\n b.text('inverse','逆操作：r ÷ H 还原批次，r mod H 还原头',left,base+52,{size:mobile?12:14,color:muted});\n return {inputShape:[2,2,4],splitShape:[2,2,2,2],permutedShape:[2,2,2,2],outputShape:[4,2,2],selected:chosen,inputIndex:[batch,q,h*2+d],outputIndex:[batch*2+h,q,d],mapping:'X[b,q,2h+d] = Y[2b+h,q,d]',values:Array.from({length:16},(_,i)=>i)};\n}"
+    }
+  ],
+  "annotations": []
+}

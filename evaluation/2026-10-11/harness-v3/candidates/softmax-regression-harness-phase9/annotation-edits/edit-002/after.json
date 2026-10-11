@@ -1,0 +1,94 @@
+{
+  "figures": [
+    {
+      "id": "class-competition",
+      "design": "softmax-competition",
+      "afterAnchor": "softmax-regression-029",
+      "title": "一类分数改变，三类概率联动",
+      "summary": "先调鸡的分数，再试共同平移。三类分数手设；颜色始终对应猫、鸡、狗。",
+      "overrides": [
+        {
+          "path": "/scene/visual/children/0/props/itemLabels",
+          "value": [
+            "猫",
+            "鸡",
+            "狗"
+          ]
+        },
+        {
+          "path": "/scene/visual/children/1/props/itemLabels",
+          "value": [
+            "猫",
+            "鸡",
+            "狗"
+          ]
+        },
+        {
+          "path": "/scene/visual/children/0/props/title",
+          "value": "分数 o（无单位）"
+        },
+        {
+          "path": "/scene/visual/children/1/props/title",
+          "value": "概率 p（总和为 1）"
+        }
+      ]
+    },
+    {
+      "id": "loss-step",
+      "design": "softmax-gradient-step",
+      "afterAnchor": "softmax-regression-050",
+      "title": "减去梯度，正确类别的概率怎样变化？",
+      "summary": "固定初始分数 (−1, 0, 1)，每次独立做一步 logit 更新；不是网络权重训练。步长为 0 可对照起点。",
+      "overrides": [
+        {
+          "path": "/scene/visual/children/0/props/itemLabels",
+          "value": [
+            "猫",
+            "鸡",
+            "狗"
+          ]
+        },
+        {
+          "path": "/scene/visual/children/1/props/items",
+          "value": [
+            {
+              "label": "梯度（猫 / 鸡 / 狗）",
+              "value": {
+                "$result": "before.gradient.0"
+              },
+              "color": "ink"
+            },
+            {
+              "label": "更新前损失 · nat",
+              "value": {
+                "$result": "before.loss"
+              },
+              "color": "blue"
+            },
+            {
+              "label": "更新后损失 · nat",
+              "value": {
+                "$result": "after.loss"
+              },
+              "color": "orange"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "id": "label-order",
+      "afterAnchor": "softmax-regression-012",
+      "kind": "clarification",
+      "text": "整数标签与独热向量采用了不同的示例顺序；编码时须固定映射。本页图解统一按“猫、鸡、狗”排列。"
+    },
+    {
+      "id": "calibration",
+      "afterAnchor": "softmax-regression-025",
+      "kind": "clarification",
+      "text": "softmax保证输出构成概率分布，但不保证校准。校准需要在一批有真实标签的样本上比较预测概率与发生频率。"
+    }
+  ]
+}

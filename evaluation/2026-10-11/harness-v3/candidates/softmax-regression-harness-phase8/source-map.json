@@ -1,0 +1,432 @@
+{
+  "title": "softmax回归",
+  "sourceSha256": "f4cb4e6a80f2de4e76e9ec65d5fd18874f497b6087e07ccf124125a1f952f89d",
+  "blocks": [
+    {
+      "id": "softmax-regression-001",
+      "type": "heading",
+      "depth": 1,
+      "line": 1
+    },
+    {
+      "id": "softmax-regression-002",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3
+    },
+    {
+      "id": "softmax-regression-003",
+      "type": "paragraph",
+      "depth": null,
+      "line": 7
+    },
+    {
+      "id": "softmax-regression-004",
+      "type": "paragraph",
+      "depth": null,
+      "line": 10
+    },
+    {
+      "id": "softmax-regression-005",
+      "type": "list",
+      "depth": null,
+      "line": 12
+    },
+    {
+      "id": "softmax-regression-006",
+      "type": "paragraph",
+      "depth": null,
+      "line": 17
+    },
+    {
+      "id": "softmax-regression-007",
+      "type": "list",
+      "depth": null,
+      "line": 18
+    },
+    {
+      "id": "softmax-regression-008",
+      "type": "heading",
+      "depth": 2,
+      "line": 22
+    },
+    {
+      "id": "softmax-regression-009",
+      "type": "paragraph",
+      "depth": null,
+      "line": 24
+    },
+    {
+      "id": "softmax-regression-010",
+      "type": "paragraph",
+      "depth": null,
+      "line": 29
+    },
+    {
+      "id": "softmax-regression-011",
+      "type": "paragraph",
+      "depth": null,
+      "line": 37
+    },
+    {
+      "id": "softmax-regression-012",
+      "type": "paragraph",
+      "depth": null,
+      "line": 44
+    },
+    {
+      "id": "softmax-regression-013",
+      "type": "heading",
+      "depth": 2,
+      "line": 46
+    },
+    {
+      "id": "softmax-regression-014",
+      "type": "paragraph",
+      "depth": null,
+      "line": 48
+    },
+    {
+      "id": "softmax-regression-015",
+      "type": "math",
+      "depth": null,
+      "line": 56
+    },
+    {
+      "id": "softmax-regression-016",
+      "type": "paragraph",
+      "depth": null,
+      "line": 64
+    },
+    {
+      "id": "softmax-regression-017",
+      "type": "paragraph",
+      "depth": null,
+      "line": 70
+    },
+    {
+      "id": "softmax-regression-018",
+      "type": "paragraph",
+      "depth": null,
+      "line": 72
+    },
+    {
+      "id": "softmax-regression-019",
+      "type": "heading",
+      "depth": 2,
+      "line": 79
+    },
+    {
+      "id": "softmax-regression-020",
+      "type": "paragraph",
+      "depth": null,
+      "line": 81
+    },
+    {
+      "id": "softmax-regression-021",
+      "type": "heading",
+      "depth": 2,
+      "line": 89
+    },
+    {
+      "id": "softmax-regression-022",
+      "type": "paragraph",
+      "depth": null,
+      "line": 91
+    },
+    {
+      "id": "softmax-regression-023",
+      "type": "paragraph",
+      "depth": null,
+      "line": 94
+    },
+    {
+      "id": "softmax-regression-024",
+      "type": "paragraph",
+      "depth": null,
+      "line": 99
+    },
+    {
+      "id": "softmax-regression-025",
+      "type": "paragraph",
+      "depth": null,
+      "line": 106
+    },
+    {
+      "id": "softmax-regression-026",
+      "type": "paragraph",
+      "depth": null,
+      "line": 112
+    },
+    {
+      "id": "softmax-regression-027",
+      "type": "paragraph",
+      "depth": null,
+      "line": 119
+    },
+    {
+      "id": "softmax-regression-028",
+      "type": "paragraph",
+      "depth": null,
+      "line": 121
+    },
+    {
+      "id": "softmax-regression-029",
+      "type": "math",
+      "depth": null,
+      "line": 126
+    },
+    {
+      "id": "softmax-regression-030",
+      "type": "paragraph",
+      "depth": null,
+      "line": 130
+    },
+    {
+      "id": "softmax-regression-031",
+      "type": "heading",
+      "depth": 2,
+      "line": 133
+    },
+    {
+      "id": "softmax-regression-032",
+      "type": "paragraph",
+      "depth": null,
+      "line": 135
+    },
+    {
+      "id": "softmax-regression-033",
+      "type": "paragraph",
+      "depth": null,
+      "line": 144
+    },
+    {
+      "id": "softmax-regression-034",
+      "type": "paragraph",
+      "depth": null,
+      "line": 146
+    },
+    {
+      "id": "softmax-regression-035",
+      "type": "heading",
+      "depth": 2,
+      "line": 156
+    },
+    {
+      "id": "softmax-regression-036",
+      "type": "paragraph",
+      "depth": null,
+      "line": 158
+    },
+    {
+      "id": "softmax-regression-037",
+      "type": "heading",
+      "depth": 3,
+      "line": 163
+    },
+    {
+      "id": "softmax-regression-038",
+      "type": "paragraph",
+      "depth": null,
+      "line": 165
+    },
+    {
+      "id": "softmax-regression-039",
+      "type": "math",
+      "depth": null,
+      "line": 172
+    },
+    {
+      "id": "softmax-regression-040",
+      "type": "paragraph",
+      "depth": null,
+      "line": 176
+    },
+    {
+      "id": "softmax-regression-041",
+      "type": "math",
+      "depth": null,
+      "line": 178
+    },
+    {
+      "id": "softmax-regression-042",
+      "type": "paragraph",
+      "depth": null,
+      "line": 183
+    },
+    {
+      "id": "softmax-regression-043",
+      "type": "paragraph",
+      "depth": null,
+      "line": 185
+    },
+    {
+      "id": "softmax-regression-044",
+      "type": "paragraph",
+      "depth": null,
+      "line": 187
+    },
+    {
+      "id": "softmax-regression-045",
+      "type": "heading",
+      "depth": 3,
+      "line": 198
+    },
+    {
+      "id": "softmax-regression-046",
+      "type": "paragraph",
+      "depth": null,
+      "line": 200
+    },
+    {
+      "id": "softmax-regression-047",
+      "type": "math",
+      "depth": null,
+      "line": 205
+    },
+    {
+      "id": "softmax-regression-048",
+      "type": "paragraph",
+      "depth": null,
+      "line": 213
+    },
+    {
+      "id": "softmax-regression-049",
+      "type": "math",
+      "depth": null,
+      "line": 215
+    },
+    {
+      "id": "softmax-regression-050",
+      "type": "paragraph",
+      "depth": null,
+      "line": 219
+    },
+    {
+      "id": "softmax-regression-051",
+      "type": "heading",
+      "depth": 3,
+      "line": 227
+    },
+    {
+      "id": "softmax-regression-052",
+      "type": "paragraph",
+      "depth": null,
+      "line": 229
+    },
+    {
+      "id": "softmax-regression-053",
+      "type": "heading",
+      "depth": 2,
+      "line": 240
+    },
+    {
+      "id": "softmax-regression-054",
+      "type": "paragraph",
+      "depth": null,
+      "line": 242
+    },
+    {
+      "id": "softmax-regression-055",
+      "type": "heading",
+      "depth": 3,
+      "line": 244
+    },
+    {
+      "id": "softmax-regression-056",
+      "type": "paragraph",
+      "depth": null,
+      "line": 246
+    },
+    {
+      "id": "softmax-regression-057",
+      "type": "paragraph",
+      "depth": null,
+      "line": 249
+    },
+    {
+      "id": "softmax-regression-058",
+      "type": "paragraph",
+      "depth": null,
+      "line": 251
+    },
+    {
+      "id": "softmax-regression-059",
+      "type": "heading",
+      "depth": 3,
+      "line": 255
+    },
+    {
+      "id": "softmax-regression-060",
+      "type": "paragraph",
+      "depth": null,
+      "line": 257
+    },
+    {
+      "id": "softmax-regression-061",
+      "type": "paragraph",
+      "depth": null,
+      "line": 265
+    },
+    {
+      "id": "softmax-regression-062",
+      "type": "heading",
+      "depth": 3,
+      "line": 272
+    },
+    {
+      "id": "softmax-regression-063",
+      "type": "paragraph",
+      "depth": null,
+      "line": 274
+    },
+    {
+      "id": "softmax-regression-064",
+      "type": "paragraph",
+      "depth": null,
+      "line": 280
+    },
+    {
+      "id": "softmax-regression-065",
+      "type": "heading",
+      "depth": 2,
+      "line": 283
+    },
+    {
+      "id": "softmax-regression-066",
+      "type": "paragraph",
+      "depth": null,
+      "line": 285
+    },
+    {
+      "id": "softmax-regression-067",
+      "type": "heading",
+      "depth": 2,
+      "line": 291
+    },
+    {
+      "id": "softmax-regression-068",
+      "type": "list",
+      "depth": null,
+      "line": 293
+    },
+    {
+      "id": "softmax-regression-069",
+      "type": "heading",
+      "depth": 2,
+      "line": 297
+    },
+    {
+      "id": "softmax-regression-070",
+      "type": "list",
+      "depth": null,
+      "line": 299
+    },
+    {
+      "id": "softmax-regression-071",
+      "type": "paragraph",
+      "depth": null,
+      "line": 312
+    }
+  ]
+}

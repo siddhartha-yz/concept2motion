@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "gradient-step",
+    "attemptedDesigns": [
+      "probabilities",
+      "gradient-contributions"
+    ],
+    "reason": "现成贡献图累加手给的向量，不能从当前 softmax 与真实标签计算梯度并展示一次分数更新的概率和损失变化。需要类别选择和真实步长共同驱动 g=p-y、o'=o-ηg；这是示例 logit 的一步更新，不是网络权重训练。"
+  },
+  "status": "declared",
+  "code_sha256": "530f24cf6a907cabb16b6e7c917e5bf593a968361761e44fb49f5904d3299733"
+}

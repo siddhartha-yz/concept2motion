@@ -1,0 +1,85 @@
+{
+  "operation": "dense",
+  "inputs": {
+    "input": [
+      [
+        1,
+        2,
+        -1
+      ]
+    ],
+    "weights": [
+      [
+        1,
+        -2
+      ],
+      [
+        0.5,
+        1
+      ],
+      [
+        2,
+        -1
+      ]
+    ],
+    "bias": [
+      0.2,
+      0
+    ],
+    "activation": "relu"
+  },
+  "result": {
+    "input": [
+      [
+        1,
+        2,
+        -1
+      ]
+    ],
+    "weights": [
+      [
+        1,
+        -2
+      ],
+      [
+        0.5,
+        1
+      ],
+      [
+        2,
+        -1
+      ]
+    ],
+    "bias": [
+      0.2,
+      0
+    ],
+    "activation": "relu",
+    "preactivation": [
+      [
+        0.2,
+        1
+      ]
+    ],
+    "output": [
+      [
+        0.2,
+        1
+      ]
+    ],
+    "inputShape": [
+      1,
+      3
+    ],
+    "weightShape": [
+      3,
+      2
+    ],
+    "outputShape": [
+      1,
+      2
+    ],
+    "convention": "One supplied dense layer; no training or optimizer state"
+  },
+  "scope": "Canonical calculation only; not independent math review, rendering or a model result"
+}

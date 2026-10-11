@@ -1,0 +1,5734 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/gap-replay/run/sessions/adam/book.html",
+  "sha256": "298b44828ba6f1845eec16590da622f36695afe5e1221f1a536ccd6bc17caf11",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "default",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9445b7c52ed2e2d32381489c07c20d74ec845c14245b20ecd7d39d36c5332368"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "default",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9445b7c52ed2e2d32381489c07c20d74ec845c14245b20ecd7d39d36c5332368"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "step-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9445b7c52ed2e2d32381489c07c20d74ec845c14245b20ecd7d39d36c5332368"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "step-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9445b7c52ed2e2d32381489c07c20d74ec845c14245b20ecd7d39d36c5332368"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "step-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                1.3026431197999997,
+                -1.9539646796999999
+              ],
+              "mean": -0.3256607799500001,
+              "variance": 2.651373589941057,
+              "selectedValue": 1.3026431197999997
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                1.9999999999999996,
+                -3
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 1.9999999999999996
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            1.3026431197999997,
+            1.9999999999999996
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d5dff397a010bbed6d3407a29a585d6b3c16390c242193b9e7cfd13120fdebf9"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "step-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                1.3026431197999997,
+                -1.9539646796999999
+              ],
+              "mean": -0.3256607799500001,
+              "variance": 2.651373589941057,
+              "selectedValue": 1.3026431197999997
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                1.9999999999999996,
+                -3
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 1.9999999999999996
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            1.3026431197999997,
+            1.9999999999999996
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "d5dff397a010bbed6d3407a29a585d6b3c16390c242193b9e7cfd13120fdebf9"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta1-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "43d6baf081d96c7ffe27e0c186c1a41f497b86668ccad6f35d3fa4ed327861c2"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta1-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "43d6baf081d96c7ffe27e0c186c1a41f497b86668ccad6f35d3fa4ed327861c2"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta1-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.10000000000000009,
+                -0.15000000000000013
+              ],
+              "mean": -0.025000000000000022,
+              "variance": 0.015625000000000028,
+              "selectedValue": 0.10000000000000009
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.10000000000000009,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f7816dc9b10f9f838b274604c0eef3f9c6651a8424ce490f01894942a7683efe"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta1-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.10000000000000009,
+                -0.15000000000000013
+              ],
+              "mean": -0.025000000000000022,
+              "variance": 0.015625000000000028,
+              "selectedValue": 0.10000000000000009
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.10000000000000009,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f7816dc9b10f9f838b274604c0eef3f9c6651a8424ce490f01894942a7683efe"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta2-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5cca130740e71e4bd881f1508a2815daaf90e12acb9b53833c276e1b62bc370d"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta2-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5cca130740e71e4bd881f1508a2815daaf90e12acb9b53833c276e1b62bc370d"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta2-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9445b7c52ed2e2d32381489c07c20d74ec845c14245b20ecd7d39d36c5332368"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "beta2-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9445b7c52ed2e2d32381489c07c20d74ec845c14245b20ecd7d39d36c5332368"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "all-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "399416b68eea673c2a61ece170cee1a93d8a7b7bbbb01f485cfd380486f7d056"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "all-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "399416b68eea673c2a61ece170cee1a93d8a7b7bbbb01f485cfd380486f7d056"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "all-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.8025261215232427,
+                -1.203789182284864
+              ],
+              "mean": -0.20063153038081072,
+              "variance": 1.0063252745736537,
+              "selectedValue": 0.8025261215232427
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3.0000000000000004
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.8025261215232427,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "78f54e59c989d7247014918f931aded2fa39ffd542baec0f6f6dc9df115d5852"
+    },
+    {
+      "width": 1280,
+      "id": "zero-bias",
+      "control": "all-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.8025261215232427,
+                -1.203789182284864
+              ],
+              "mean": -0.20063153038081072,
+              "variance": 1.0063252745736537,
+              "selectedValue": 0.8025261215232427
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3.0000000000000004
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.8025261215232427,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "78f54e59c989d7247014918f931aded2fa39ffd542baec0f6f6dc9df115d5852"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "default",
+      "params": {
+        "beta": 0.9,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 20,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.012157665459056933,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.12157665459056935,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cdc9c9bff7f911d6fe7f61826dcdb8225471c0db445a7b6174a09c6c3083c5a2"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "default",
+      "params": {
+        "beta": 0.9,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 20,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.012157665459056933,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.12157665459056935,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cdc9c9bff7f911d6fe7f61826dcdb8225471c0db445a7b6174a09c6c3083c5a2"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "beta-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 20,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 4.76837158203125e-7,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 9.5367431640625e-7,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee4963f6e7e7bf08f5642eec1aa51f530f0f2a0ead539cddf639eeccbf9ad3a3"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "beta-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 20,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 4.76837158203125e-7,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 9.5367431640625e-7,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ee4963f6e7e7bf08f5642eec1aa51f530f0f2a0ead539cddf639eeccbf9ad3a3"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "beta-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 20,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009801888648295356,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9801888648295347,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b5541d38bffe5c169ff2a50185ec83120cd235f116fb4c0f972ae3b6b7454496"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "beta-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 20,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009801888648295356,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9801888648295347,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "b5541d38bffe5c169ff2a50185ec83120cd235f116fb4c0f972ae3b6b7454496"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "zeros-min",
+      "params": {
+        "beta": 0.9,
+        "zeros": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 0,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.09999999999999998,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9b957837fe42cbfe97d05e1c6ff5abe5fe83fe5640e2dcc3ba3930d09de7bf1e"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "zeros-min",
+      "params": {
+        "beta": 0.9,
+        "zeros": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 0,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.09999999999999998,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "9b957837fe42cbfe97d05e1c6ff5abe5fe83fe5640e2dcc3ba3930d09de7bf1e"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "zeros-max",
+      "params": {
+        "beta": 0.9,
+        "zeros": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 30,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.004239115827521623,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.04239115827521624,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5400230ef20d8351ca6bb50648f494a0aae4fc790d4ba46bac4fe107dacbfac7"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "zeros-max",
+      "params": {
+        "beta": 0.9,
+        "zeros": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 30,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.004239115827521623,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.04239115827521624,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5400230ef20d8351ca6bb50648f494a0aae4fc790d4ba46bac4fe107dacbfac7"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "all-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 0,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 0.5,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "03697d5264902db038fa9977d74d5ec4f7b8efd2cd078c89a0dc8dcec401f7e9"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "all-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 0,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 0.5,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "03697d5264902db038fa9977d74d5ec4f7b8efd2cd078c89a0dc8dcec401f7e9"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "all-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 30,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009704309672630866,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9704309672630858,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "411669b50cdef52d7ad2928e3f08b43f7f7a52f72531a225ce5eb327ad039cac"
+    },
+    {
+      "width": 1280,
+      "id": "sparse-memory",
+      "control": "all-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 30,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009704309672630866,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9704309672630858,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "411669b50cdef52d7ad2928e3f08b43f7f7a52f72531a225ce5eb327ad039cac"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "default",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ef4b1db19014e2fc8e88f11211f56d83c7e882a25f50be4be9b166483a3acbd1"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "default",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ef4b1db19014e2fc8e88f11211f56d83c7e882a25f50be4be9b166483a3acbd1"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "step-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ef4b1db19014e2fc8e88f11211f56d83c7e882a25f50be4be9b166483a3acbd1"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "step-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ef4b1db19014e2fc8e88f11211f56d83c7e882a25f50be4be9b166483a3acbd1"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "step-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                1.3026431197999997,
+                -1.9539646796999999
+              ],
+              "mean": -0.3256607799500001,
+              "variance": 2.651373589941057,
+              "selectedValue": 1.3026431197999997
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                1.9999999999999996,
+                -3
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 1.9999999999999996
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            1.3026431197999997,
+            1.9999999999999996
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e8dd42a2ffd77536c1bde5081934b47dd614648895906a6a83797009f61fcec8"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "step-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                1.3026431197999997,
+                -1.9539646796999999
+              ],
+              "mean": -0.3256607799500001,
+              "variance": 2.651373589941057,
+              "selectedValue": 1.3026431197999997
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                1.9999999999999996,
+                -3
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 1.9999999999999996
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            1.3026431197999997,
+            1.9999999999999996
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "e8dd42a2ffd77536c1bde5081934b47dd614648895906a6a83797009f61fcec8"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta1-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "98a947fb3db5c7a4212cb4b17adb0b59226dbccaef9e8696a52350c28be355aa"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta1-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "98a947fb3db5c7a4212cb4b17adb0b59226dbccaef9e8696a52350c28be355aa"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta1-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.10000000000000009,
+                -0.15000000000000013
+              ],
+              "mean": -0.025000000000000022,
+              "variance": 0.015625000000000028,
+              "selectedValue": 0.10000000000000009
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.10000000000000009,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8c8a5e4c2c016b1185c4c70f6a8060c809d05839f9d20145dbfc7b789242479f"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta1-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.10000000000000009,
+                -0.15000000000000013
+              ],
+              "mean": -0.025000000000000022,
+              "variance": 0.015625000000000028,
+              "selectedValue": 0.10000000000000009
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.10000000000000009,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8c8a5e4c2c016b1185c4c70f6a8060c809d05839f9d20145dbfc7b789242479f"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta2-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "57f5fe7e0371abcb415611b3912cfebc932dfac359cc7672e7dfb5653eec34c4"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta2-min",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "57f5fe7e0371abcb415611b3912cfebc932dfac359cc7672e7dfb5653eec34c4"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta2-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ef4b1db19014e2fc8e88f11211f56d83c7e882a25f50be4be9b166483a3acbd1"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "beta2-max",
+      "params": {
+        "step": 1,
+        "beta1": 0.9,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.19999999999999996,
+                -0.29999999999999993
+              ],
+              "mean": -0.04999999999999999,
+              "variance": 0.06249999999999997,
+              "selectedValue": 0.19999999999999996
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.19999999999999996,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.0040000000000000036,
+                0.009000000000000008
+              ],
+              "mean": 0.006500000000000006,
+              "variance": 0.000006250000000000011,
+              "selectedValue": 0.0040000000000000036
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.0040000000000000036,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "ef4b1db19014e2fc8e88f11211f56d83c7e882a25f50be4be9b166483a3acbd1"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "all-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a3628a341ab375d822c84d30b8227785d670e295926aba09520c0225c33cea53"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "all-min",
+      "params": {
+        "step": 1,
+        "beta1": 0,
+        "beta2": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            2,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            4,
+            4
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "a3628a341ab375d822c84d30b8227785d670e295926aba09520c0225c33cea53"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "all-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.8025261215232427,
+                -1.203789182284864
+              ],
+              "mean": -0.20063153038081072,
+              "variance": 1.0063252745736537,
+              "selectedValue": 0.8025261215232427
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3.0000000000000004
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.8025261215232427,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f1e8f63221db3eaf69bcdb7e524dca71ff79f5a927d9d9136b826f2cb05f0825"
+    },
+    {
+      "width": 375,
+      "id": "zero-bias",
+      "control": "all-max",
+      "params": {
+        "step": 10,
+        "beta1": 0.95,
+        "beta2": 0.999
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "mean": {
+          "rows": [
+            {
+              "label": "梯度 g",
+              "values": [
+                2,
+                -3
+              ],
+              "mean": -0.5,
+              "variance": 6.25,
+              "selectedValue": 2
+            },
+            {
+              "label": "原始 v",
+              "values": [
+                0.8025261215232427,
+                -1.203789182284864
+              ],
+              "mean": -0.20063153038081072,
+              "variance": 1.0063252745736537,
+              "selectedValue": 0.8025261215232427
+            },
+            {
+              "label": "校正 v̂",
+              "values": [
+                2,
+                -3.0000000000000004
+              ],
+              "mean": -0.5000000000000002,
+              "variance": 6.25,
+              "selectedValue": 2
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -4,
+            4
+          ],
+          "selected": 0,
+          "selectedValues": [
+            2,
+            0.8025261215232427,
+            2
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        },
+        "square": {
+          "rows": [
+            {
+              "label": "梯度平方",
+              "values": [
+                4,
+                9
+              ],
+              "mean": 6.5,
+              "variance": 6.25,
+              "selectedValue": 4
+            },
+            {
+              "label": "原始 s",
+              "values": [
+                0.03982047916100719,
+                0.08959607811226619
+              ],
+              "mean": 0.0647082786366367,
+              "variance": 0.0006194025627391439,
+              "selectedValue": 0.03982047916100719
+            },
+            {
+              "label": "校正 ŝ",
+              "values": [
+                4.000000000000013,
+                9.00000000000003
+              ],
+              "mean": 6.500000000000021,
+              "variance": 6.250000000000043,
+              "selectedValue": 4.000000000000013
+            }
+          ],
+          "compact": true,
+          "itemLabels": null,
+          "domain": [
+            -1,
+            10
+          ],
+          "selected": 0,
+          "selectedValues": [
+            4,
+            0.03982047916100719,
+            4.000000000000013
+          ],
+          "convention": "Rows share a numeric x scale and item identity, not necessarily physical units. v uses population denominator N. Connector lines match item index, not causation, time or a training path. Small vertical offsets distinguish duplicate values; y is not quantitative."
+        }
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f1e8f63221db3eaf69bcdb7e524dca71ff79f5a927d9d9136b826f2cb05f0825"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "default",
+      "params": {
+        "beta": 0.9,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 20,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.012157665459056933,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.12157665459056935,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 12.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "fa9b922100b3ec8248298b5b01127e9510d609bf928c73262758db70e5e018db"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "default",
+      "params": {
+        "beta": 0.9,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 20,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.012157665459056933,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.12157665459056935,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 12.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "fa9b922100b3ec8248298b5b01127e9510d609bf928c73262758db70e5e018db"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 20,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 4.76837158203125e-7,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 9.5367431640625e-7,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 0.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a9adf608dd1f196ec2e14093e384fb53df6b03213d72ad0cb23f5a1ec69c8ebb"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 20,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 4.76837158203125e-7,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 9.5367431640625e-7,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 0.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a9adf608dd1f196ec2e14093e384fb53df6b03213d72ad0cb23f5a1ec69c8ebb"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 20,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009801888648295356,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9801888648295347,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 98.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "25f3b220af5c4d3190ee13f7d7c5d535e62eb9be0468f1064b632a36d415c493"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 20,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009801888648295356,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9801888648295347,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 98.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "25f3b220af5c4d3190ee13f7d7c5d535e62eb9be0468f1064b632a36d415c493"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-min",
+      "params": {
+        "beta": 0.9,
+        "zeros": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 0,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.09999999999999998,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3b784e1c5e7c727c88a406f4055f1795f4a4d130dae0027fd69ce430835ea836"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-min",
+      "params": {
+        "beta": 0.9,
+        "zeros": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 0,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.09999999999999998,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3b784e1c5e7c727c88a406f4055f1795f4a4d130dae0027fd69ce430835ea836"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-max",
+      "params": {
+        "beta": 0.9,
+        "zeros": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 30,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.004239115827521623,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.04239115827521624,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 4.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "61e55602f7a9faf0cac99a74c16dba99f7c1add9100930715c8836bdbbc7633c"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-max",
+      "params": {
+        "beta": 0.9,
+        "zeros": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.9,
+        "n": 30,
+        "initialSquareMoment": 0.09999999999999998,
+        "adamSquareMoment": 0.004239115827521623,
+        "yogiSquareMoment": 0.09999999999999998,
+        "adamRetention": 0.04239115827521624,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 4.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "61e55602f7a9faf0cac99a74c16dba99f7c1add9100930715c8836bdbbc7633c"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 0,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 0.5,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6ee336c5584e9200b28f69d7cc8b21b25f4c5cdce7eb96268a7bef3b05fe5849"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.5,
+        "n": 0,
+        "initialSquareMoment": 0.5,
+        "adamSquareMoment": 0.5,
+        "yogiSquareMoment": 0.5,
+        "adamRetention": 1,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6ee336c5584e9200b28f69d7cc8b21b25f4c5cdce7eb96268a7bef3b05fe5849"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 30,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009704309672630866,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9704309672630858,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 97.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "0352090ac48c905b3cbc2a97a13b639b7d17e730f35379c2bd631ba3893c1253"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 30
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "beta": 0.999,
+        "n": 30,
+        "initialSquareMoment": 0.0010000000000000009,
+        "adamSquareMoment": 0.0009704309672630866,
+        "yogiSquareMoment": 0.0010000000000000009,
+        "adamRetention": 0.9704309672630858,
+        "yogiRetention": 1,
+        "gradientSequence": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "convention": "两者从s0=0开始，先接受g=1，然后连续n次g=0；展示未校正s/s1。曲线连接整数更新，非连续时间优化。"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 97.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "0352090ac48c905b3cbc2a97a13b639b7d17e730f35379c2bd631ba3893c1253"
+    }
+  ],
+  "findings": [
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "default",
+      "params": {
+        "beta": 0.9,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 12.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "fa9b922100b3ec8248298b5b01127e9510d609bf928c73262758db70e5e018db"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "default",
+      "params": {
+        "beta": 0.9,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 12.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "fa9b922100b3ec8248298b5b01127e9510d609bf928c73262758db70e5e018db"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 0.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a9adf608dd1f196ec2e14093e384fb53df6b03213d72ad0cb23f5a1ec69c8ebb"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 0.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "a9adf608dd1f196ec2e14093e384fb53df6b03213d72ad0cb23f5a1ec69c8ebb"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 20
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 98.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "25f3b220af5c4d3190ee13f7d7c5d535e62eb9be0468f1064b632a36d415c493"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "beta-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 20
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=20：Adam 98.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "25f3b220af5c4d3190ee13f7d7c5d535e62eb9be0468f1064b632a36d415c493"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-min",
+      "params": {
+        "beta": 0.9,
+        "zeros": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3b784e1c5e7c727c88a406f4055f1795f4a4d130dae0027fd69ce430835ea836"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-min",
+      "params": {
+        "beta": 0.9,
+        "zeros": 0
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "3b784e1c5e7c727c88a406f4055f1795f4a4d130dae0027fd69ce430835ea836"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-max",
+      "params": {
+        "beta": 0.9,
+        "zeros": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 4.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "61e55602f7a9faf0cac99a74c16dba99f7c1add9100930715c8836bdbbc7633c"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "zeros-max",
+      "params": {
+        "beta": 0.9,
+        "zeros": 30
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 4.2% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "61e55602f7a9faf0cac99a74c16dba99f7c1add9100930715c8836bdbbc7633c"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6ee336c5584e9200b28f69d7cc8b21b25f4c5cdce7eb96268a7bef3b05fe5849"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-min",
+      "params": {
+        "beta": 0.5,
+        "zeros": 0
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=0：Adam 100.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "6ee336c5584e9200b28f69d7cc8b21b25f4c5cdce7eb96268a7bef3b05fe5849"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 30
+      },
+      "progress": 0.5,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 97.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "0352090ac48c905b3cbc2a97a13b639b7d17e730f35379c2bd631ba3893c1253"
+    },
+    {
+      "width": 375,
+      "id": "sparse-memory",
+      "control": "all-max",
+      "params": {
+        "beta": 0.999,
+        "zeros": 30
+      },
+      "progress": 1,
+      "error": null,
+      "outside": [],
+      "tiny": [],
+      "overlaps": [
+        [
+          "连续零梯度次数 n",
+          "n=30：Adam 97.0% · Yogi 100%"
+        ]
+      ],
+      "invalidGeometry": [],
+      "svgHash": "0352090ac48c905b3cbc2a97a13b639b7d17e730f35379c2bd631ba3893c1253"
+    }
+  ],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

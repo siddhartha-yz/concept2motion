@@ -1,0 +1,184 @@
+{
+  "figures": [
+    {
+      "title": "一类分数改变，三类概率联动",
+      "height": 300,
+      "mobileHeight": 430,
+      "params": [
+        {
+          "key": "score",
+          "label": "第2类分数",
+          "min": -3,
+          "max": 3,
+          "step": 0.1,
+          "value": 0
+        },
+        {
+          "key": "shift",
+          "label": "共同平移",
+          "min": -5,
+          "max": 5,
+          "step": 0.1,
+          "value": 0
+        }
+      ],
+      "state": {
+        "selected": 1
+      },
+      "interaction": "parameters",
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "scores",
+            "operation": "dense",
+            "inputs": {
+              "input": [
+                [
+                  {
+                    "$param": "shift"
+                  }
+                ]
+              ],
+              "weights": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ],
+              "bias": [
+                -1,
+                {
+                  "$param": "score"
+                },
+                1
+              ]
+            }
+          },
+          {
+            "id": "weights",
+            "operation": "softmax",
+            "inputs": {
+              "scores": {
+                "$result": "scores.output.0"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "score-view",
+              "type": "aligned-points",
+              "props": {
+                "title": "分数 o（无单位）",
+                "rows": [
+                  {
+                    "label": "三类分数",
+                    "values": {
+                      "$result": "scores.output.0"
+                    }
+                  }
+                ],
+                "domain": [
+                  -8,
+                  8
+                ],
+                "selected": {
+                  "$state": "selected"
+                },
+                "stateKey": "selected",
+                "connect": false,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "猫",
+                  "鸡",
+                  "狗"
+                ]
+              }
+            },
+            {
+              "id": "probabilities",
+              "type": "aligned-points",
+              "props": {
+                "title": "概率 p（总和为 1）",
+                "rows": [
+                  {
+                    "label": "三类概率",
+                    "values": {
+                      "$result": "weights.weights"
+                    }
+                  }
+                ],
+                "domain": [
+                  0,
+                  1
+                ],
+                "selected": {
+                  "$state": "selected"
+                },
+                "stateKey": "selected",
+                "connect": false,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "猫",
+                  "鸡",
+                  "狗"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "summary": "先调鸡的分数，再试共同平移。三类分数手设；颜色始终对应猫、鸡、狗。",
+      "id": "class-competition",
+      "afterAnchor": "softmax-regression-029",
+      "designRef": {
+        "id": "softmax-competition",
+        "catalogSha256": "5a26cd09176c731344bfaf93dc5bc8f7077f3d8fdb4a3243f398c6dd9aade6aa",
+        "overrides": [
+          {
+            "path": "/scene/visual/children/0/props/itemLabels",
+            "value": [
+              "猫",
+              "鸡",
+              "狗"
+            ]
+          },
+          {
+            "path": "/scene/visual/children/1/props/itemLabels",
+            "value": [
+              "猫",
+              "鸡",
+              "狗"
+            ]
+          },
+          {
+            "path": "/scene/visual/children/0/props/title",
+            "value": "分数 o（无单位）"
+          },
+          {
+            "path": "/scene/visual/children/1/props/title",
+            "value": "概率 p（总和为 1）"
+          }
+        ]
+      }
+    }
+  ]
+}

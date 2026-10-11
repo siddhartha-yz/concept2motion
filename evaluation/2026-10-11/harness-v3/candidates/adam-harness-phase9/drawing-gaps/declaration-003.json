@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "sparse-memory",
+    "attemptedDesigns": [
+      "adam-bias",
+      "optimizer-landscape"
+    ],
+    "reason": "现有 optimizer-trace 与两个已检查设计没有 Yogi 符号更新，无法比较同一稀疏梯度序列下的二次矩保留。沿用 Board 图元自绘，最终仅连接 0..30 次真实整数更新，以匹配图注、不把分数次指数采样冒充离散优化过程。横轴与读数保持手机预览确认的分行布局。"
+  },
+  "status": "declared",
+  "code_sha256": "6cfc5b9a42419175815dd2024ac909b2346ebc1ed8b66912f84997f2f184d37e"
+}

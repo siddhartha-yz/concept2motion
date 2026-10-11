@@ -1,0 +1,37 @@
+{
+  "figures": [
+    {
+      "id": "class-competition",
+      "design": "softmax-competition",
+      "afterAnchor": "softmax-regression-029",
+      "title": "一类分数改变，三类概率联动",
+      "summary": "先调鸡的分数，再试共同平移。三类分数手设；颜色始终对应猫、鸡、狗。",
+      "overrides": [
+        {
+          "path": "/scene/visual/children/0/props/itemLabels",
+          "value": [
+            "猫",
+            "鸡",
+            "狗"
+          ]
+        },
+        {
+          "path": "/scene/visual/children/1/props/itemLabels",
+          "value": [
+            "猫",
+            "鸡",
+            "狗"
+          ]
+        },
+        {
+          "path": "/scene/visual/children/0/props/title",
+          "value": "分数 o（无单位）"
+        },
+        {
+          "path": "/scene/visual/children/1/props/title",
+          "value": "概率 p（总和为 1）"
+        }
+      ]
+    }
+  ]
+}

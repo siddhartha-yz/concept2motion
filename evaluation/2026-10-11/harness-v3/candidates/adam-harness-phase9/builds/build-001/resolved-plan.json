@@ -1,0 +1,247 @@
+{
+  "figures": [
+    {
+      "title": "零初始化：校正补回缺少的权重",
+      "height": 330,
+      "mobileHeight": 560,
+      "params": [
+        {
+          "key": "step",
+          "label": "更新次数",
+          "kind": "stepper",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "value": 3
+        },
+        {
+          "key": "beta1",
+          "label": "β₁",
+          "min": 0,
+          "max": 0.95,
+          "step": 0.05,
+          "value": 0.9
+        },
+        {
+          "key": "beta2",
+          "label": "β₂",
+          "min": 0,
+          "max": 0.99,
+          "step": 0.01,
+          "value": 0.99
+        }
+      ],
+      "state": {},
+      "interaction": "parameters",
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "run",
+            "operation": "optimizer-trace",
+            "inputs": {
+              "kind": "adam",
+              "start": [
+                0,
+                0
+              ],
+              "gradients": [
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ],
+                [
+                  2,
+                  -3
+                ]
+              ],
+              "selectedStep": {
+                "$param": "step"
+              },
+              "beta1": {
+                "$param": "beta1"
+              },
+              "beta2": {
+                "$param": "beta2"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "mean",
+              "type": "aligned-points",
+              "props": {
+                "title": "一阶矩",
+                "rows": [
+                  {
+                    "label": "梯度 g",
+                    "values": {
+                      "$result": "run.selected.gradient"
+                    }
+                  },
+                  {
+                    "label": "原始 v",
+                    "values": {
+                      "$result": "run.selected.firstMoment"
+                    }
+                  },
+                  {
+                    "label": "校正 v̂",
+                    "values": {
+                      "$result": "run.selected.correctedFirst"
+                    }
+                  }
+                ],
+                "domain": [
+                  -4,
+                  4
+                ],
+                "selected": 0,
+                "connect": true,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange"
+                ],
+                "compact": true
+              }
+            },
+            {
+              "id": "square",
+              "type": "aligned-points",
+              "props": {
+                "title": "二阶矩",
+                "rows": [
+                  {
+                    "label": "梯度平方",
+                    "values": {
+                      "$result": "run.selected.squareGradient"
+                    }
+                  },
+                  {
+                    "label": "原始 s",
+                    "values": {
+                      "$result": "run.selected.squareMoment"
+                    }
+                  },
+                  {
+                    "label": "校正 ŝ",
+                    "values": {
+                      "$result": "run.selected.correctedSecond"
+                    }
+                  }
+                ],
+                "domain": [
+                  -1,
+                  10
+                ],
+                "selected": 0,
+                "connect": true,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange"
+                ],
+                "compact": true
+              }
+            }
+          ]
+        }
+      },
+      "summary": "手设恒定梯度：蓝色为第1维 g=2，橙色为第2维 g=−3。改变 t 或 β，观察原始估计靠近零，而校正值回到输入。只说明恒定梯度下的权重缺口。",
+      "id": "zero-bias",
+      "afterAnchor": "adam-009",
+      "designRef": {
+        "id": "adam-bias",
+        "catalogSha256": "5a26cd09176c731344bfaf93dc5bc8f7077f3d8fdb4a3243f398c6dd9aade6aa",
+        "overrides": [
+          {
+            "path": "/scene/visual/children/0/props/rows",
+            "value": [
+              {
+                "label": "梯度 g",
+                "values": {
+                  "$result": "run.selected.gradient"
+                }
+              },
+              {
+                "label": "原始 v",
+                "values": {
+                  "$result": "run.selected.firstMoment"
+                }
+              },
+              {
+                "label": "校正 v̂",
+                "values": {
+                  "$result": "run.selected.correctedFirst"
+                }
+              }
+            ]
+          },
+          {
+            "path": "/scene/visual/children/1/props/rows",
+            "value": [
+              {
+                "label": "梯度平方",
+                "values": {
+                  "$result": "run.selected.squareGradient"
+                }
+              },
+              {
+                "label": "原始 s",
+                "values": {
+                  "$result": "run.selected.squareMoment"
+                }
+              },
+              {
+                "label": "校正 ŝ",
+                "values": {
+                  "$result": "run.selected.correctedSecond"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "id": "custom-layer",
+  "title": "自定义层",
+  "source": "chapter_deep-learning-computation/custom-layer.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_deep-learning-computation/custom-layer.html",
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "294224907c991fd7b6dc7d0b9da7b19676071a226af5e7a14a32336f53239990",
+  "adaptedSha256": "241fedbe07c31db29f01b91e1e46ee15dcaef1b515770c7d1e09653d4fad2474",
+  "adaptation": {
+    "excludedTabBlocks": 5,
+    "excludedCodeBlocks": 22,
+    "keptCodeBlocks": 8,
+    "removedDirectives": 0,
+    "images": 0,
+    "mathErrors": 0,
+    "mathExpected": 1,
+    "mathRendered": 1
+  },
+  "blocks": [
+    {
+      "id": "custom-layer-001",
+      "sha256": "b76b46d9d9f4a09b75922553436a5d86c8d852e015da9a5c36e3a68f4a0933a2",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# 自定义层",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-002",
+      "sha256": "20248e4b51ce6c5ec19e90eda6618ed2af771ffa4bbb023931235aff3406ef0f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "深度学习成功背后的一个因素是神经网络的灵活性：\n我们可以用创造性的方式组合不同的层，从而设计出适用于各种任务的架构。\n例如，研究人员发明了专门用于处理图像、文本、序列数据和执行动态规划的层。\n有时我们会遇到或要自己发明一个现在在深度学习框架中还不存在的层。\n在这些情况下，必须构建自定义层。本节将展示如何构建自定义层。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-003",
+      "sha256": "da781196eb3fb7feec07b86a388a9c2faa05e804202adabbd561882c70c6d4bd",
+      "type": "heading",
+      "depth": 2,
+      "line": 9,
+      "raw": "## 不带参数的层",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-004",
+      "sha256": "bebfe33355e70f4ed41a50141c3d066e7190b25863059fcd26dbd8c86fb2ad46",
+      "type": "paragraph",
+      "depth": null,
+      "line": 11,
+      "raw": "首先，我们**构造一个没有任何参数的自定义层**。\n回忆一下在 [原文引用：sec_model_construction](https://zh.d2l.ai/chapter_deep-learning-computation/custom-layer.html)对块的介绍，\n这应该看起来很眼熟。\n下面的`CenteredLayer`类要从其输入中减去均值。\n要构建它，我们只需继承基础层类并实现前向传播功能。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-005",
+      "sha256": "45a9a60f2876d216add9102254f31c75ee35caf885c1a6591111dcfcbfc4f664",
+      "type": "code",
+      "depth": null,
+      "line": 30,
+      "raw": "```python\nimport torch\nfrom torch import nn\nimport torch.nn.functional as F\n\nclass CenteredLayer(nn.Module):\n    def __init__(self):\n        super().__init__()\n\n    def forward(self, X):\n        return X - X.mean()\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-006",
+      "sha256": "f2ac863f1e610adc3b62d3ce6410a9b75d64e4e6cb69e43574d61d5f506b9a23",
+      "type": "paragraph",
+      "depth": null,
+      "line": 71,
+      "raw": "让我们向该层提供一些数据，验证它是否能按预期工作。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-007",
+      "sha256": "ecf199cc70fd18913a6ab8623f38e9beb51a1507f813401f6c239c7aa5ee9e98",
+      "type": "code",
+      "depth": null,
+      "line": 78,
+      "raw": "```python\nlayer = CenteredLayer()\nlayer(torch.FloatTensor([1, 2, 3, 4, 5]))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-008",
+      "sha256": "d31665c2b582f908bcb52abfe31de492a3a0a98326b09bd8e3673f0e226dd1ec",
+      "type": "paragraph",
+      "depth": null,
+      "line": 95,
+      "raw": "现在，我们可以**将层作为组件合并到更复杂的模型中**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-009",
+      "sha256": "893975b739e3bc831cc8ee5138af104d1129d363e4aec03e866d46030a97d80b",
+      "type": "code",
+      "depth": null,
+      "line": 103,
+      "raw": "```python\nnet = nn.Sequential(nn.Linear(8, 128), CenteredLayer())\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-010",
+      "sha256": "e187396c24cf584b20b16f9083f1178ff8482d9723934bf339f8bd05c55521c8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 112,
+      "raw": "作为额外的健全性检查，我们可以在向该网络发送随机数据后，检查均值是否为0。\n由于我们处理的是浮点数，因为存储精度的原因，我们仍然可能会看到一个非常小的非零数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-011",
+      "sha256": "e388629eb0c5b07b772a21a6c1aeb1d7d845fed224be4bfb106c26e4ccdee303",
+      "type": "code",
+      "depth": null,
+      "line": 120,
+      "raw": "```python\nY = net(torch.rand(4, 8))\nY.mean()\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-012",
+      "sha256": "918feb6366dc9710720ad2b806bbdfe16b3c2fe6399005173bd976ea3ce10c0a",
+      "type": "heading",
+      "depth": 2,
+      "line": 137,
+      "raw": "## **带参数的层**",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-013",
+      "sha256": "c26fb9a5cf6fd84873e6864eb2f7317160f946f300c09e36c7f2eb5996d11da6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 139,
+      "raw": "以上我们知道了如何定义简单的层，下面我们继续定义具有参数的层，\n这些参数可以通过训练进行调整。\n我们可以使用内置函数来创建参数，这些函数提供一些基本的管理功能。\n比如管理访问、初始化、共享、保存和加载模型参数。\n这样做的好处之一是：我们不需要为每个自定义层编写自定义的序列化程序。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-014",
+      "sha256": "a4521b66dc670bca8e90f5614ac6ce230927a62f3a8bc24db16b28101f8da5a3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 145,
+      "raw": "现在，让我们实现自定义版本的全连接层。\n回想一下，该层需要两个参数，一个用于表示权重，另一个用于表示偏置项。\n在此实现中，我们使用修正线性单元作为激活函数。\n该层需要输入参数：`in_units`和`units`，分别表示输入数和输出数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-015",
+      "sha256": "3267ff852455297d01af86152aed19af06d55849371f94d175c1adb00f742bb3",
+      "type": "code",
+      "depth": null,
+      "line": 163,
+      "raw": "```python\nclass MyLinear(nn.Module):\n    def __init__(self, in_units, units):\n        super().__init__()\n        self.weight = nn.Parameter(torch.randn(in_units, units))\n        self.bias = nn.Parameter(torch.randn(units,))\n    def forward(self, X):\n        linear = torch.matmul(X, self.weight.data) + self.bias.data\n        return F.relu(linear)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-016",
+      "sha256": "4298921a157756918235a1f4ac6a1e5aec06bcdcb9a5871750caea644676ae0a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 211,
+      "raw": "接下来，我们实例化`MyLinear`类并访问其模型参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-017",
+      "sha256": "d50c0eb6891919b664376375f6182d2a053f67d917ae1892fa8054cbf5e2ced5",
+      "type": "code",
+      "depth": null,
+      "line": 223,
+      "raw": "```python\nlinear = MyLinear(5, 3)\nlinear.weight\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-018",
+      "sha256": "33578391e0901f07865c3cf25fffc0f3e72fdd61d39e3d106471f01610974c6a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 235,
+      "raw": "我们可以**使用自定义层直接执行前向传播计算**。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-019",
+      "sha256": "3673f718c53a40a72bc9b7c78f708694e4568d4e07ffbd4018e21dd83b4d5527",
+      "type": "code",
+      "depth": null,
+      "line": 242,
+      "raw": "```python\nlinear(torch.rand(2, 5))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-020",
+      "sha256": "1724cb379770e647642b822a8b412550cd3d1aebfe0856ba9ea95a4e8572aadc",
+      "type": "paragraph",
+      "depth": null,
+      "line": 256,
+      "raw": "我们还可以**使用自定义层构建模型**，就像使用内置的全连接层一样使用自定义层。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-021",
+      "sha256": "ba17d167daefdac55c2f79f2926ca984e7b907cb58fc39981a7920c59760b387",
+      "type": "code",
+      "depth": null,
+      "line": 266,
+      "raw": "```python\nnet = nn.Sequential(MyLinear(64, 8), MyLinear(8, 1))\nnet(torch.rand(2, 64))\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-022",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 283,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-023",
+      "sha256": "4a27e84273f9dc909c15342c51c2865d05a042c9c3238c5418d7cb0a5a54d015",
+      "type": "list",
+      "depth": null,
+      "line": 285,
+      "raw": "* 我们可以通过基本层类设计自定义层。这允许我们定义灵活的新层，其行为与深度学习框架中的任何现有层不同。\n* 在自定义层定义完成后，我们就可以在任意环境和网络架构中调用该自定义层。\n* 层可以有局部参数，这些参数可以通过内置函数创建。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-024",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 289,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-025",
+      "sha256": "932fa5ef2cafec0c7c1435846f0426eb8381789172739c17436e89ffa5e5a4d4",
+      "type": "list",
+      "depth": null,
+      "line": 291,
+      "raw": "1. 设计一个接受输入并计算张量降维的层，它返回$y_k = \\sum_{i, j} W_{ijk} x_i x_j$。\n1. 设计一个返回输入数据的傅立叶系数前半部分的层。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "custom-layer-026",
+      "sha256": "6562c8b2d39754f1cd564e6b573fefa233addfc533c27246f3e866dfa80382d7",
+      "type": "paragraph",
+      "depth": null,
+      "line": 298,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1835)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

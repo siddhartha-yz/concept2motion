@@ -1,0 +1,52 @@
+{
+  "kind": "Independent production checks from actual saved browser facts, not author reports.\nCustom-layer uses the latest completed earlier preview because final preview has\nno frames; this is explicit and does not validate its failed final candidate.\n",
+  "numpyVersion": "2.2.6",
+  "records": [
+    {
+      "id": "adam",
+      "preview": "preview-preview-02",
+      "latestPreview": "preview-preview-02",
+      "validatesFinalCandidate": true,
+      "previewCompleted": true,
+      "browserFactRecords": 76,
+      "assertions": 2242,
+      "reportSha256": "35c657c46cb48b06275f40d6a2b7102d1977d63d5631c0596dd9e33ff446cbf4",
+      "failures": []
+    },
+    {
+      "id": "softmax-regression",
+      "preview": "preview-final",
+      "latestPreview": "preview-final",
+      "validatesFinalCandidate": true,
+      "previewCompleted": true,
+      "browserFactRecords": 80,
+      "assertions": 816,
+      "reportSha256": "765c033198eb1c88b124ed0a36c59c5bf3f2f7e48e8f381971b1d993d232373b",
+      "failures": []
+    },
+    {
+      "id": "multihead-attention",
+      "preview": "preview-final",
+      "latestPreview": "preview-final",
+      "validatesFinalCandidate": true,
+      "previewCompleted": false,
+      "browserFactRecords": 10,
+      "assertions": 170,
+      "reportSha256": "c1dedef649da1079ed2c01e86db54b1b5f088ac99b7cebe25f08ac6af75ac2f7",
+      "failures": []
+    },
+    {
+      "id": "custom-layer",
+      "preview": "preview-preview-02",
+      "latestPreview": "preview-preview-03",
+      "validatesFinalCandidate": false,
+      "previewCompleted": true,
+      "browserFactRecords": 60,
+      "assertions": 838,
+      "reportSha256": "5117bdc60d83b605f29b8ab944111760e931a4a2e2e2fef9db41cb898bbdda8f",
+      "failures": []
+    }
+  ],
+  "assertions": 4066,
+  "failures": []
+}

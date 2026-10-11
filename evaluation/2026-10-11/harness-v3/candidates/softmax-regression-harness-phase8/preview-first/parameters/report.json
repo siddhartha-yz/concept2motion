@@ -1,0 +1,2441 @@
+{
+  "file": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/softmax-regression/book.html",
+  "sha256": "57ff1946cda5149c465f7458706fe2d6e3afe8a2c6145f08b4dba8c746be0448",
+  "cases": [
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "default",
+      "params": {
+        "cat": 1,
+        "shift": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cb621df366965862c3a13ae50d216e5af248624ff906289397e10930ab5a00b2"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "default",
+      "params": {
+        "cat": 1,
+        "shift": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "cb621df366965862c3a13ae50d216e5af248624ff906289397e10930ab5a00b2"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "cat-min",
+      "params": {
+        "cat": -3,
+        "shift": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          -3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5c4371125bfc7f7f43dbadcf1bf4963ee3186f414d71853b56e0e52145f7e942"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "cat-min",
+      "params": {
+        "cat": -3,
+        "shift": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          -3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5c4371125bfc7f7f43dbadcf1bf4963ee3186f414d71853b56e0e52145f7e942"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "cat-max",
+      "params": {
+        "cat": 3,
+        "shift": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4de2831339784261c4b143743f061eb90476e71ca4df67c3c741454b9f4b4911"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "cat-max",
+      "params": {
+        "cat": 3,
+        "shift": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4de2831339784261c4b143743f061eb90476e71ca4df67c3c741454b9f4b4911"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "shift-min",
+      "params": {
+        "cat": 1,
+        "shift": -3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          -2,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "29c1c4b56e89122e5f36be8b787628d591734e258840bb2b26f5b7ecde54d118"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "shift-min",
+      "params": {
+        "cat": 1,
+        "shift": -3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          -2,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "29c1c4b56e89122e5f36be8b787628d591734e258840bb2b26f5b7ecde54d118"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "shift-max",
+      "params": {
+        "cat": 1,
+        "shift": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          4,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4de9342526aa06069d0e259294c11f6a53aa7ce863c9b65ffa75f510a859ff4f"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "shift-max",
+      "params": {
+        "cat": 1,
+        "shift": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          4,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "4de9342526aa06069d0e259294c11f6a53aa7ce863c9b65ffa75f510a859ff4f"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "all-min",
+      "params": {
+        "cat": -3,
+        "shift": -3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          -6,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6159ecd2344368103848095ddd0bf6ee787330a7cfed54cb566c25d5487834a0"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "all-min",
+      "params": {
+        "cat": -3,
+        "shift": -3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          -6,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "6159ecd2344368103848095ddd0bf6ee787330a7cfed54cb566c25d5487834a0"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "all-max",
+      "params": {
+        "cat": 3,
+        "shift": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          6,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "98e4af0765bf06fec1d50eaf45478ce5bfe33a91dadaf1610b5285f3d6ec992d"
+    },
+    {
+      "width": 1280,
+      "id": "softmax-competition",
+      "control": "all-max",
+      "params": {
+        "cat": 3,
+        "shift": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          6,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "98e4af0765bf06fec1d50eaf45478ce5bfe33a91dadaf1610b5285f3d6ec992d"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "default",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8d364a118178bbcd13c51149cc9eb2415c1a8167c2ebb43058d448d46894077a"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "default",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8d364a118178bbcd13c51149cc9eb2415c1a8167c2ebb43058d448d46894077a"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "target-min",
+      "params": {
+        "target": 0,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1.167379522112589,
+          -0.12236423552739882,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.7221365878104187,
+          0.19883404720266273,
+          0.0790293649869185
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.3255409781887276,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "53b939cdb213c96b554b8a3f341820956a59d6dd11e75ecbc1f8d8c72715cd3b"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "target-min",
+      "params": {
+        "target": 0,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1.167379522112589,
+          -0.12236423552739882,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.7221365878104187,
+          0.19883404720266273,
+          0.0790293649869185
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.3255409781887276,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "53b939cdb213c96b554b8a3f341820956a59d6dd11e75ecbc1f8d8c72715cd3b"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "target-option-1",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8d364a118178bbcd13c51149cc9eb2415c1a8167c2ebb43058d448d46894077a"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "target-option-1",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "8d364a118178bbcd13c51149cc9eb2415c1a8167c2ebb43058d448d46894077a"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "target-max",
+      "params": {
+        "target": 2,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          -0.12236423552739882,
+          -0.5450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5709570871862567,
+          0.2591923098896642,
+          0.1698506029240792
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.7728360346374865,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5f0a8dc57e068bf0ccc87e8851d52ea40a4c9509a665c6b9abacdc03904cc36f"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "target-max",
+      "params": {
+        "target": 2,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          -0.12236423552739882,
+          -0.5450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5709570871862567,
+          0.2591923098896642,
+          0.1698506029240792
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.7728360346374865,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5f0a8dc57e068bf0ccc87e8851d52ea40a4c9509a665c6b9abacdc03904cc36f"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "eta-min",
+      "params": {
+        "target": 1,
+        "eta": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 1.4076059644443804,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0652eb74a51ddebccc2429a94f877a8e37aefea28e2f63593ed1b37081c272ca"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "eta-min",
+      "params": {
+        "target": 1,
+        "eta": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 1.4076059644443804,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "0652eb74a51ddebccc2429a94f877a8e37aefea28e2f63593ed1b37081c272ca"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "eta-max",
+      "params": {
+        "target": 1,
+        "eta": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          0.7552715289452023,
+          -1.0900305731703805
+        ],
+        "updatedProbabilities": [
+          0.3618860452077571,
+          0.5510589852779926,
+          0.08705496951425029
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.5959134242375858,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "35c3efbcd5b89d963eb4e0d3ab2ab4da5b5080f7451fceddd972ca42d5f90c83"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "eta-max",
+      "params": {
+        "target": 1,
+        "eta": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          0.7552715289452023,
+          -1.0900305731703805
+        ],
+        "updatedProbabilities": [
+          0.3618860452077571,
+          0.5510589852779926,
+          0.08705496951425029
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.5959134242375858,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "35c3efbcd5b89d963eb4e0d3ab2ab4da5b5080f7451fceddd972ca42d5f90c83"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "all-min",
+      "params": {
+        "target": 0,
+        "eta": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.40760596444438046,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5a29262a9e15d413e3e25c45deef6c8933f660fbc9ff58ad055bfa9662fd0222"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "all-min",
+      "params": {
+        "target": 0,
+        "eta": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.40760596444438046,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5a29262a9e15d413e3e25c45deef6c8933f660fbc9ff58ad055bfa9662fd0222"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "all-max",
+      "params": {
+        "target": 2,
+        "eta": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          -0.24472847105479764,
+          -0.09003057317038043
+        ],
+        "updatedProbabilities": [
+          0.4516522684812157,
+          0.2530089974038483,
+          0.29533873411493605
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.2196323301414826,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "185aac23e0106725979c64f34e7e7c93ccb9be49a95f79bb277ffd75d6a86401"
+    },
+    {
+      "width": 1280,
+      "id": "gradient-step",
+      "control": "all-max",
+      "params": {
+        "target": 2,
+        "eta": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          -0.24472847105479764,
+          -0.09003057317038043
+        ],
+        "updatedProbabilities": [
+          0.4516522684812157,
+          0.2530089974038483,
+          0.29533873411493605
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.2196323301414826,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "185aac23e0106725979c64f34e7e7c93ccb9be49a95f79bb277ffd75d6a86401"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "default",
+      "params": {
+        "cat": 1,
+        "shift": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "59e074c4317ed47e2a6e0dd5e49e89594d52c1b08fa8142c8ffa043325b36506"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "default",
+      "params": {
+        "cat": 1,
+        "shift": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "59e074c4317ed47e2a6e0dd5e49e89594d52c1b08fa8142c8ffa043325b36506"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "cat-min",
+      "params": {
+        "cat": -3,
+        "shift": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          -3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "79da13d6b8a9d1664a7e8e4ff0620f1dd1156873f996b95b5cdfe175f5794e85"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "cat-min",
+      "params": {
+        "cat": -3,
+        "shift": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          -3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "79da13d6b8a9d1664a7e8e4ff0620f1dd1156873f996b95b5cdfe175f5794e85"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "cat-max",
+      "params": {
+        "cat": 3,
+        "shift": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "29966cc0212923eff28d1735f2761b333c0a06d88776658c9f15fb68e7bd8d11"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "cat-max",
+      "params": {
+        "cat": 3,
+        "shift": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          3,
+          0,
+          -1
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "29966cc0212923eff28d1735f2761b333c0a06d88776658c9f15fb68e7bd8d11"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "shift-min",
+      "params": {
+        "cat": 1,
+        "shift": -3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          -2,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7aaff4b11971fecbe7ffe5d37cb5e241cbb24eb28698f2e3adcc9f0de3c6ba2a"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "shift-min",
+      "params": {
+        "cat": 1,
+        "shift": -3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          -2,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7aaff4b11971fecbe7ffe5d37cb5e241cbb24eb28698f2e3adcc9f0de3c6ba2a"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "shift-max",
+      "params": {
+        "cat": 1,
+        "shift": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          4,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7905dde4b0edae380f80b732b6899ca72b891d95485bc10b16b709a944ffa55f"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "shift-max",
+      "params": {
+        "cat": 1,
+        "shift": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          4,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "sum": 0.9999999999999999,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 2.718281828459045,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "7905dde4b0edae380f80b732b6899ca72b891d95485bc10b16b709a944ffa55f"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "all-min",
+      "params": {
+        "cat": -3,
+        "shift": -3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          -6,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "55aabfc64d3af172ecce2668e24b2e138d1211cfa84099e1f97f64a755b6d184"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "all-min",
+      "params": {
+        "cat": -3,
+        "shift": -3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          -6,
+          -3,
+          -4
+        ],
+        "probabilities": [
+          0.03511902695933973,
+          0.7053845126982412,
+          0.25949646034241913
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.718281828459045,
+        "catChickenRatio": 0.04978706836786395,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "55aabfc64d3af172ecce2668e24b2e138d1211cfa84099e1f97f64a755b6d184"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "all-max",
+      "params": {
+        "cat": 3,
+        "shift": 3
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          6,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "44891e09be3f8c0087b49f71925be7eb96c01f8557c09f1527799a35fbc8cf64"
+    },
+    {
+      "width": 375,
+      "id": "softmax-competition",
+      "control": "all-max",
+      "params": {
+        "cat": 3,
+        "shift": 3
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          6,
+          3,
+          2
+        ],
+        "probabilities": [
+          0.9362395518765058,
+          0.0466126225779739,
+          0.01714782554552039
+        ],
+        "sum": 1,
+        "chickenDogRatio": 2.7182818284590455,
+        "catChickenRatio": 20.085536923187664,
+        "convention": "手选分数；稳定 softmax；无训练或校准声明"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "44891e09be3f8c0087b49f71925be7eb96c01f8557c09f1527799a35fbc8cf64"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "default",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f0ea16fb5aa4462c5be03b0e3dcba28af404dbd7e0219deb8c297b5c017ab5a4"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "default",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f0ea16fb5aa4462c5be03b0e3dcba28af404dbd7e0219deb8c297b5c017ab5a4"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "target-min",
+      "params": {
+        "target": 0,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1.167379522112589,
+          -0.12236423552739882,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.7221365878104187,
+          0.19883404720266273,
+          0.0790293649869185
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.3255409781887276,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "662b6cc5ef9e88a2a536cfe8179b9a0063e2760b7eed66aaf606b39bde026356"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "target-min",
+      "params": {
+        "target": 0,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1.167379522112589,
+          -0.12236423552739882,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.7221365878104187,
+          0.19883404720266273,
+          0.0790293649869185
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.3255409781887276,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "662b6cc5ef9e88a2a536cfe8179b9a0063e2760b7eed66aaf606b39bde026356"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "target-option-1",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f0ea16fb5aa4462c5be03b0e3dcba28af404dbd7e0219deb8c297b5c017ab5a4"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "target-option-1",
+      "params": {
+        "target": 1,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          0.37763576447260117,
+          -1.0450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5184332840202414,
+          0.3880241541396823,
+          0.09354256184007648
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.9466876883591718,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "f0ea16fb5aa4462c5be03b0e3dcba28af404dbd7e0219deb8c297b5c017ab5a4"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "target-max",
+      "params": {
+        "target": 2,
+        "eta": 0.5
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          -0.12236423552739882,
+          -0.5450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5709570871862567,
+          0.2591923098896642,
+          0.1698506029240792
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.7728360346374865,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "327ceff97879006abb950bd6a14e4591f71bdccd15ede5998d5a67c314c28699"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "target-max",
+      "params": {
+        "target": 2,
+        "eta": 0.5
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 0.5,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.6673795221125891,
+          -0.12236423552739882,
+          -0.5450152865851903
+        ],
+        "updatedProbabilities": [
+          0.5709570871862567,
+          0.2591923098896642,
+          0.1698506029240792
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.7728360346374865,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "327ceff97879006abb950bd6a14e4591f71bdccd15ede5998d5a67c314c28699"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "eta-min",
+      "params": {
+        "target": 1,
+        "eta": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 1.4076059644443804,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "417b5d4ab2ce3fba30300fb8bffc0033bee9ec200532f38a795f8df29366e0b0"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "eta-min",
+      "params": {
+        "target": 1,
+        "eta": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 1.4076059644443804,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "417b5d4ab2ce3fba30300fb8bffc0033bee9ec200532f38a795f8df29366e0b0"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "eta-max",
+      "params": {
+        "target": 1,
+        "eta": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          0.7552715289452023,
+          -1.0900305731703805
+        ],
+        "updatedProbabilities": [
+          0.3618860452077571,
+          0.5510589852779926,
+          0.08705496951425029
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.5959134242375858,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5beecf5ec5919e923391f3d8a18a0308ca233472997eed6a0559b0ad51b84be1"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "eta-max",
+      "params": {
+        "target": 1,
+        "eta": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 1,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          -0.7552715289452023,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          0.7552715289452023,
+          -1.0900305731703805
+        ],
+        "updatedProbabilities": [
+          0.3618860452077571,
+          0.5510589852779926,
+          0.08705496951425029
+        ],
+        "loss": 1.4076059644443804,
+        "nextLoss": 0.5959134242375858,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5beecf5ec5919e923391f3d8a18a0308ca233472997eed6a0559b0ad51b84be1"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "all-min",
+      "params": {
+        "target": 0,
+        "eta": 0
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.40760596444438046,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fee12f700ebf3705cee19ed093d16058d26be6794c5e9da80d78cb9f7378a5e2"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "all-min",
+      "params": {
+        "target": 0,
+        "eta": 0
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 0,
+        "eta": 0,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          -0.3347590442251782,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "updatedLogits": [
+          1,
+          0,
+          -1
+        ],
+        "updatedProbabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "loss": 0.40760596444438046,
+        "nextLoss": 0.40760596444438046,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "fee12f700ebf3705cee19ed093d16058d26be6794c5e9da80d78cb9f7378a5e2"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "all-max",
+      "params": {
+        "target": 2,
+        "eta": 1
+      },
+      "progress": 0.5,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          -0.24472847105479764,
+          -0.09003057317038043
+        ],
+        "updatedProbabilities": [
+          0.4516522684812157,
+          0.2530089974038483,
+          0.29533873411493605
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.2196323301414826,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5a189be7e63dcd2b59e129fd13eecdbe588a864f46a2ecbb842ed31e11ce9bc2"
+    },
+    {
+      "width": 375,
+      "id": "gradient-step",
+      "control": "all-max",
+      "params": {
+        "target": 2,
+        "eta": 1
+      },
+      "progress": 1,
+      "error": null,
+      "facts": {
+        "logits": [
+          1,
+          0,
+          -1
+        ],
+        "target": 2,
+        "eta": 1,
+        "probabilities": [
+          0.6652409557748218,
+          0.24472847105479764,
+          0.09003057317038046
+        ],
+        "gradient": [
+          0.6652409557748218,
+          0.24472847105479764,
+          -0.9099694268296196
+        ],
+        "updatedLogits": [
+          0.3347590442251782,
+          -0.24472847105479764,
+          -0.09003057317038043
+        ],
+        "updatedProbabilities": [
+          0.4516522684812157,
+          0.2530089974038483,
+          0.29533873411493605
+        ],
+        "loss": 2.40760596444438,
+        "nextLoss": 1.2196323301414826,
+        "convention": "直接更新示例 logits 一步；不是全连接权重训练；自然对数"
+      },
+      "outside": [],
+      "tiny": [],
+      "overlaps": [],
+      "invalidGeometry": [],
+      "svgHash": "5a189be7e63dcd2b59e129fd13eecdbe588a864f46a2ecbb842ed31e11ce9bc2"
+    }
+  ],
+  "findings": [],
+  "modelCalls": 0,
+  "scope": "Parameter extremes at progress 0.5 and 1, not exhaustive parameter combinations or artistic review."
+}

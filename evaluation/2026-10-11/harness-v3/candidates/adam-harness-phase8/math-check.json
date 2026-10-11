@@ -1,0 +1,129 @@
+{
+  "method": "Python递推及显式有限权重求和与实际渲染facts核对；Yogi采用等价符号形式核对。",
+  "renderChecks": [
+    {
+      "width": 1280,
+      "figure": "bias-mass",
+      "recurrence": 0.6513215598999998,
+      "explicitWeightSum": 0.6513215599,
+      "renderFactsMatched": true
+    },
+    {
+      "width": 1280,
+      "figure": "yogi-change",
+      "adamNext": 0.9,
+      "yogiNext": 1.0,
+      "renderFactsMatched": true
+    },
+    {
+      "width": 375,
+      "figure": "bias-mass",
+      "recurrence": 0.6513215598999998,
+      "explicitWeightSum": 0.6513215599,
+      "renderFactsMatched": true
+    },
+    {
+      "width": 375,
+      "figure": "yogi-change",
+      "adamNext": 0.9,
+      "yogiNext": 1.0,
+      "renderFactsMatched": true
+    }
+  ],
+  "biasRecurrenceCases": 200,
+  "maxAbsoluteError": 1.1102230246251565e-16,
+  "yogiCases": [
+    {
+      "s": 0.5,
+      "q": 0,
+      "adamDelta": -0.05,
+      "yogiDelta": -0.0
+    },
+    {
+      "s": 0.5,
+      "q": 0.49,
+      "adamDelta": -0.0010000000000000009,
+      "yogiDelta": -0.049
+    },
+    {
+      "s": 0.5,
+      "q": 0.5,
+      "adamDelta": 0.0,
+      "yogiDelta": 0.0
+    },
+    {
+      "s": 0.5,
+      "q": 0.51,
+      "adamDelta": 0.0010000000000000009,
+      "yogiDelta": 0.051000000000000004
+    },
+    {
+      "s": 0.5,
+      "q": 4,
+      "adamDelta": 0.35000000000000003,
+      "yogiDelta": 0.4
+    },
+    {
+      "s": 1,
+      "q": 0,
+      "adamDelta": -0.1,
+      "yogiDelta": -0.0
+    },
+    {
+      "s": 1,
+      "q": 0.99,
+      "adamDelta": -0.0010000000000000009,
+      "yogiDelta": -0.099
+    },
+    {
+      "s": 1,
+      "q": 1,
+      "adamDelta": 0.0,
+      "yogiDelta": 0.0
+    },
+    {
+      "s": 1,
+      "q": 1.01,
+      "adamDelta": 0.0010000000000000009,
+      "yogiDelta": 0.101
+    },
+    {
+      "s": 1,
+      "q": 4,
+      "adamDelta": 0.30000000000000004,
+      "yogiDelta": 0.4
+    },
+    {
+      "s": 2,
+      "q": 0,
+      "adamDelta": -0.2,
+      "yogiDelta": -0.0
+    },
+    {
+      "s": 2,
+      "q": 1.99,
+      "adamDelta": -0.0010000000000000009,
+      "yogiDelta": -0.199
+    },
+    {
+      "s": 2,
+      "q": 2,
+      "adamDelta": 0.0,
+      "yogiDelta": 0.0
+    },
+    {
+      "s": 2,
+      "q": 2.01,
+      "adamDelta": 0.0009999999999999788,
+      "yogiDelta": 0.20099999999999998
+    },
+    {
+      "s": 2,
+      "q": 4,
+      "adamDelta": 0.2,
+      "yogiDelta": 0.4
+    }
+  ],
+  "limitations": "离散手设例子与有限参数核对，不证明收敛，不穷举参数组合。",
+  "sourceMdSha256": "c6cf3bec6b65ffbbe8c995a6efab1765dfda1ff383376c04b519989dbffc614b"
+}

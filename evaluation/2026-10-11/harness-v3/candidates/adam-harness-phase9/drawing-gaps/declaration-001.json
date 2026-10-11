@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "sparse-memory",
+    "attemptedDesigns": [
+      "adam-bias",
+      "optimizer-landscape"
+    ],
+    "reason": "已检查的设计均用 optimizer-trace，而该计算只支持 Adam 等算法，不支持 Yogi 的符号更新。需要在同一零梯度序列下比较未校正二次矩的保留比例，并让 β₂ 真正控制遗忘速度；现成轨迹与偏差校正图均不能表达此关系。使用 Board 坐标轴与曲线绘制窄范围、解析可核对的例子。"
+  },
+  "status": "declared",
+  "code_sha256": "e26c43e39aca0a6626418bd6e069f7eb7143bea6eb6a89debb0015885d570760"
+}

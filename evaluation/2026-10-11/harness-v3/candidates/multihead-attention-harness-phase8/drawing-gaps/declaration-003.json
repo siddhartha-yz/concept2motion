@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "head-index",
+    "attemptedDesigns": [
+      "reshape",
+      "transpose-grid"
+    ],
+    "reason": "二维转置与行优先reshape不能解释四维拆头和BH合并顺序。定制图以批次、头分组显示同一编号，点选原始值联动拆头后的值，展示准确索引及取模逆映射；此次增加头内维度d的列标签。"
+  },
+  "status": "declared",
+  "code_sha256": "ee2e1339795e4944009c3ab886f648e9ff3c73b808fd959b6ab29ae8879492fc"
+}

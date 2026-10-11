@@ -1,0 +1,7 @@
+{
+  "id": "units",
+  "afterAnchor": "softmax-regression-068",
+  "kind": "clarification",
+  "text": "本节采用自然对数，损失与交叉熵的单位是 nat；换算为 bit 需除以 ln 2。交叉熵包含真实分布自身的熵，不是对称距离。",
+  "formula": "H(P,Q)=H(P)+D_{\\mathrm{KL}}(P\\|Q)"
+}

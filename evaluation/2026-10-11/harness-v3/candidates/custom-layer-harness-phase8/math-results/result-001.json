@@ -1,0 +1,88 @@
+{
+  "operation": "normalization",
+  "inputs": {
+    "data": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "axis": 1
+  },
+  "result": {
+    "input": [
+      [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "shape": [
+      1,
+      5
+    ],
+    "axis": 1,
+    "mode": "batch",
+    "mean": [
+      3
+    ],
+    "variance": [
+      2
+    ],
+    "batchMean": [
+      3
+    ],
+    "batchVariance": [
+      2
+    ],
+    "centered": [
+      [
+        -2,
+        -1,
+        0,
+        1,
+        2
+      ]
+    ],
+    "standardized": [
+      [
+        -1.4142100268524473,
+        -0.7071050134262237,
+        0,
+        0.7071050134262237,
+        1.4142100268524473
+      ]
+    ],
+    "output": [
+      [
+        -1.4142100268524473,
+        -0.7071050134262237,
+        0,
+        0.7071050134262237,
+        1.4142100268524473
+      ]
+    ],
+    "epsilon": 1e-05,
+    "gamma": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "beta": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "convention": "Population variance divides by group size; epsilon is inside sqrt; gamma/beta attach to features; running values are supplied, not learned or updated"
+  },
+  "scope": "Canonical calculation only; not independent math review, rendering or a model result"
+}

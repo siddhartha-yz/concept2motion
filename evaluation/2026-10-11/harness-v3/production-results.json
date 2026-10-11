@@ -1,0 +1,398 @@
+{
+  "kind": "New prefer-library method, four prospective selected chapters, not a paired comparison",
+  "modelCalls": 4,
+  "processesCompleted": 4,
+  "chaptersPassedExportGate": 1,
+  "wholeBookExported": false,
+  "candidateCodeEditedByMaintainer": false,
+  "records": [
+    {
+      "id": "adam",
+      "frozenToolCommit": "5ca03d7",
+      "figures": 2,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "codeCharacters": 3335,
+      "gapDeclarations": 5,
+      "annotations": [
+        {
+          "id": "note-series-index",
+          "afterAnchor": "adam-009",
+          "kind": "correction",
+          "text": "上段有限几何级数的求和上界应为 t−1（t≥1，0≤β<1）。零初始化后的梯度权重和为 1−βᵗ，校正就是将这些权重重新归一化。",
+          "formula": "\\sum_{i=0}^{t-1}\\beta^i=\\frac{1-\\beta^t}{1-\\beta}"
+        },
+        {
+          "id": "note-second-moment",
+          "afterAnchor": "adam-007",
+          "kind": "clarification",
+          "text": "s 估计的是梯度的二次矩 E[g²]，不是中心化方差 Var(g)=E[g²]−E[g]²。后文的“方差估计”按二次矩理解；移动平均参数需满足 0≤β₁,β₂<1。"
+        }
+      ],
+      "previews": [
+        {
+          "label": "preview-preview-01",
+          "status": "completed",
+          "findings": 76
+        },
+        {
+          "label": "preview-preview-02",
+          "status": "completed",
+          "findings": 0
+        }
+      ],
+      "result": {
+        "section": "adam",
+        "arm": "harness",
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 362.063,
+        "tool_item_counts": {
+          "agent_message": 5,
+          "command_execution": 18,
+          "mcp_tool_call": 30
+        },
+        "usage": [
+          {
+            "input_tokens": 948884,
+            "cached_input_tokens": 872832,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10105,
+            "reasoning_output_tokens": 2639
+          }
+        ],
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "plan_sha256": "fa01dba626bafff591d3eaf228be2b85eebbdf45feb33f2718091267bc4c2420",
+        "html_exists": true,
+        "preview_count": 2,
+        "returned_png_count": 24,
+        "returned_candidate_png_count": 20,
+        "mcp_enabled": true,
+        "requested_model": "gpt-6.1-sol",
+        "requested_reasoning_effort": "high",
+        "auth": "official existing ChatGPT login"
+      },
+      "review": {
+        "issues": [],
+        "mathCheckNote": "已用 inspect_frame 实际查看两图各自1280/375的0/1帧，共8帧。独立Python按递推v←βv+(1−β)及显式权重求和核对实际PNG对应facts；默认β=.9,t=10得到v及权重和.6513215599，校正1。另核对4个β×50步的200个递推值，最大绝对误差<1e-12。Yogi以s−(1−β)sgn(s−q)q等价形式核对渲染facts，检查q=0、q<s、q=s、q>s共15个案例，sgn(0)=0。math-check.json保存数据。原文有限几何级数下标以独立补充纠正，原文保留。",
+        "limits": "两幅为parameters，0/1帧相同是刻意的静止读者交互；t是离散更新整数。恒定g=1用于隔离零初始化的权重缺口，不声称非平稳梯度下估计总是无偏；s图固定β₂=.9以放大可见差异，比较一次未校正状态更新，不证明Yogi收敛或优于Adam。查看了真实桌面/手机图、图1邻接上下文及手机全页PNG；两轮预览，第一轮标题遮挡已修正，保留失败构建和第一轮证据。参数边界由编译器检查，未穷举所有组合或真实触摸设备；未运行原文训练代码、未测试性能。当前未发现未解决的图形/数学问题，审美与教学有效性未经过读者研究。",
+        "html_sha256": "8cdb888d1c95813173a4993681690f3eeb0d49ee8bbfb6435dbb07294e1135c1",
+        "plan_sha256": "fa01dba626bafff591d3eaf228be2b85eebbdf45feb33f2718091267bc4c2420",
+        "ready_for_export": true,
+        "scope": "Known-issue review plus render gate; no independent artistic certification."
+      },
+      "exportGate": {
+        "ready_for_export": true,
+        "reasons": [],
+        "latest_preview": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/adam/preview-preview-02",
+        "render_findings": [],
+        "quality": "Engineering gate only; does not establish teaching or aesthetic quality."
+      }
+    },
+    {
+      "id": "custom-layer",
+      "frozenToolCommit": "5ca03d7",
+      "figures": 2,
+      "sceneFigures": 2,
+      "namedDesigns": [],
+      "codeCharacters": 0,
+      "gapDeclarations": 0,
+      "annotations": [
+        {
+          "id": "note-global-mean",
+          "afterAnchor": "custom-layer-011",
+          "kind": "clarification",
+          "text": "这里的 X.mean() 没有指定维度，减的是所有元素共同的均值。即使输入是“样本×特征”的矩阵，也只保证整个输出的均值接近 0，不保证每个样本或每个特征的均值为 0。例如两行 [1,2,3]、[7,8,9] 共减 5 后，两行均值分别是 −3 和 3。"
+        },
+        {
+          "id": "note-gradient-data",
+          "afterAnchor": "custom-layer-015",
+          "kind": "correction",
+          "text": "参数注册与梯度连通是两件事。这里的 self.weight.data 和 self.bias.data 脱离了自动求导图，反向传播不会为这两个参数积累梯度。若要训练，应直接用 torch.matmul(X, self.weight) + self.bias。对批量输入，本例的形状关系为下式；偏置沿样本维广播。",
+          "formula": "X\\in\\mathbb{R}^{B\\times d},\\quad W\\in\\mathbb{R}^{d\\times m},\\quad b\\in\\mathbb{R}^{m},\\quad Y=\\operatorname{ReLU}(XW+b)\\in\\mathbb{R}^{B\\times m}"
+        }
+      ],
+      "previews": [
+        {
+          "label": "preview-preview-01",
+          "status": "failed",
+          "findings": 2
+        },
+        {
+          "label": "preview-preview-02",
+          "status": "completed",
+          "findings": 0
+        },
+        {
+          "label": "preview-preview-03",
+          "status": "failed",
+          "findings": 2
+        }
+      ],
+      "result": {
+        "section": "custom-layer",
+        "arm": "harness",
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 322.409,
+        "tool_item_counts": {
+          "agent_message": 5,
+          "command_execution": 15,
+          "mcp_tool_call": 38
+        },
+        "usage": [
+          {
+            "input_tokens": 905037,
+            "cached_input_tokens": 846208,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 8818,
+            "reasoning_output_tokens": 2884
+          }
+        ],
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "plan_sha256": "8b9328f5e8e63549e10c98d94ec6f216863b48db41ca28ac1c44057db0ea950d",
+        "html_exists": true,
+        "preview_count": 3,
+        "returned_png_count": 16,
+        "returned_candidate_png_count": 8,
+        "mcp_enabled": true,
+        "requested_model": "gpt-6.1-sol",
+        "requested_reasoning_effort": "high",
+        "auth": "official existing ChatGPT login"
+      },
+      "review": null,
+      "exportGate": {
+        "ready_for_export": false,
+        "reasons": [
+          "preview-incomplete",
+          "preview-is-stale",
+          "unresolved-render-findings",
+          "no-final-issue-review"
+        ],
+        "latest_preview": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/preview-preview-03",
+        "render_findings": [
+          {
+            "width": 1280,
+            "kind": "javascript",
+            "errors": [
+              "Error: Aligned points need 260px width and 68px per numeric row"
+            ]
+          },
+          {
+            "width": 1280,
+            "id": "center-coupling",
+            "progress": 0,
+            "kind": "render-runtime-error",
+            "error": "Error: page.evaluate: Error: Aligned points need 260px width and 68px per numeric row\n    at alignedPoints (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:8035:13)\n    at visit (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:3764:21)\n    at file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:3757:15\n    at Board.region (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:2541:21)\n    at file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:3756:15\n    at Array.map (<anonymous>)\n    at visit (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:3754:25)\n    at visit (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:3741:16)\n    at Object.renderScene (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:3772:12)\n    at draw (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/custom-layer/book.html:8735:413)"
+          }
+        ],
+        "quality": "Engineering gate only; does not establish teaching or aesthetic quality."
+      }
+    },
+    {
+      "id": "multihead-attention",
+      "frozenToolCommit": "5ca03d7",
+      "figures": 2,
+      "sceneFigures": 1,
+      "namedDesigns": [],
+      "codeCharacters": 2779,
+      "gapDeclarations": 3,
+      "annotations": [
+        {
+          "id": "note-head-divisibility",
+          "afterAnchor": "multihead-attention-013",
+          "kind": "condition",
+          "text": "这份实现要求 num_hiddens 能被 num_heads 整除；每个头的维数为 d=num_hiddens/num_heads。拆头是在学到的线性投影之后进行，不能把它等同于直接切分原始输入特征。",
+          "formula": "p_o \\bmod h=0"
+        },
+        {
+          "id": "note-ones-uniform",
+          "afterAnchor": "multihead-attention-019",
+          "kind": "clarification",
+          "text": "这个全 1 输入只检查输出形状。在 eval 模式下，同一头中的有效键完全相同，分数也相同：两个样本分别在 3 个、2 个有效键上均匀分配权重，屏蔽位置为 0。因此本例不能展示不同头关注不同位置，也不能据此判断头的重要性。",
+          "formula": "\\alpha_{bj}=\\begin{cases}1/L_b,&j<L_b\\\\0,&j\\ge L_b\\end{cases},\\quad L_b\\in\\{3,2\\}"
+        }
+      ],
+      "previews": [
+        {
+          "label": "preview-first-valid",
+          "status": "failed",
+          "findings": 2
+        },
+        {
+          "label": "preview-revised",
+          "status": "failed",
+          "findings": 2
+        },
+        {
+          "label": "preview-final",
+          "status": "failed",
+          "findings": 2
+        }
+      ],
+      "result": {
+        "section": "multihead-attention",
+        "arm": "harness",
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 395.348,
+        "tool_item_counts": {
+          "agent_message": 6,
+          "command_execution": 19,
+          "mcp_tool_call": 38
+        },
+        "usage": [
+          {
+            "input_tokens": 1099415,
+            "cached_input_tokens": 1024768,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 11849,
+            "reasoning_output_tokens": 4095
+          }
+        ],
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "plan_sha256": "04c5285eb23622a5ddd3688bce2d0b937d777c77fd065e17fd23de0160896417",
+        "html_exists": true,
+        "preview_count": 3,
+        "returned_png_count": 21,
+        "returned_candidate_png_count": 13,
+        "mcp_enabled": true,
+        "requested_model": "gpt-6.1-sol",
+        "requested_reasoning_effort": "high",
+        "auth": "official existing ChatGPT login"
+      },
+      "review": null,
+      "exportGate": {
+        "ready_for_export": false,
+        "reasons": [
+          "preview-incomplete",
+          "unresolved-render-findings",
+          "no-final-issue-review"
+        ],
+        "latest_preview": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/preview-final",
+        "render_findings": [
+          {
+            "width": 375,
+            "kind": "javascript",
+            "errors": [
+              "Error: Numeric label cannot fit at 12px; allocate more space or hide values"
+            ]
+          },
+          {
+            "width": 375,
+            "id": "head-subspaces",
+            "progress": 0,
+            "kind": "render-runtime-error",
+            "error": "Error: page.evaluate: Error: Numeric label cannot fit at 12px; allocate more space or hide values\n    at Object.fitNumber (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:2497:11)\n    at file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:6150:29\n    at Array.forEach (<anonymous>)\n    at file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:6116:11\n    at Array.forEach (<anonymous>)\n    at tensor (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:6115:12)\n    at visit (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:3832:21)\n    at file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:3825:15\n    at Board.region (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:2609:21)\n    at file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/multihead-attention/book.html:3824:15"
+          }
+        ],
+        "quality": "Engineering gate only; does not establish teaching or aesthetic quality."
+      }
+    },
+    {
+      "id": "softmax-regression",
+      "frozenToolCommit": "5ca03d7",
+      "figures": 2,
+      "sceneFigures": 0,
+      "namedDesigns": [],
+      "codeCharacters": 2967,
+      "gapDeclarations": 5,
+      "annotations": [
+        {
+          "id": "note-calibration",
+          "afterAnchor": "softmax-regression-025",
+          "kind": "clarification",
+          "text": "softmax 只保证输出是概率分布，不自动保证校准；校准还需要在独立数据上检查预测概率与实际频率是否一致。"
+        },
+        {
+          "id": "note-entropy-units",
+          "afterAnchor": "softmax-regression-068",
+          "kind": "clarification",
+          "text": "本节使用自然对数，交叉熵的单位是 nat；换成以 2 为底的对数才是 bit。交叉熵也不是距离：两分布相同时通常仍等于非零的熵。"
+        }
+      ],
+      "previews": [
+        {
+          "label": "preview-first",
+          "status": "completed",
+          "findings": 1
+        },
+        {
+          "label": "preview-revised",
+          "status": "completed",
+          "findings": 1
+        },
+        {
+          "label": "preview-final",
+          "status": "completed",
+          "findings": 1
+        }
+      ],
+      "result": {
+        "section": "softmax-regression",
+        "arm": "harness",
+        "exit_code": 0,
+        "timed_out": false,
+        "wall_s": 459.246,
+        "tool_item_counts": {
+          "agent_message": 6,
+          "command_execution": 16,
+          "mcp_tool_call": 47
+        },
+        "usage": [
+          {
+            "input_tokens": 1679257,
+            "cached_input_tokens": 1581824,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 10363,
+            "reasoning_output_tokens": 3039
+          }
+        ],
+        "tool_sources_unchanged": true,
+        "source_unchanged": true,
+        "plan_sha256": "0e7d9eb699058607fe2ae1a4af40c7aa5329b3c79941eb951bf98c6ce0e7cdd5",
+        "html_exists": true,
+        "preview_count": 3,
+        "returned_png_count": 38,
+        "returned_candidate_png_count": 34,
+        "mcp_enabled": true,
+        "requested_model": "gpt-6.1-sol",
+        "requested_reasoning_effort": "high",
+        "auth": "official existing ChatGPT login"
+      },
+      "review": {
+        "issues": [
+          {
+            "figureId": "softmax-competition",
+            "condition": "375px 整页，图前原文公式 softmax-regression-027 附近",
+            "description": "三轮预览均发现 page-overflow；实际长页 PNG 宽415px（视口375px）。原文 softmax 展示公式在手机正文列右侧超出可读范围，新增两图本身未见越界。本轮不改 source 或公共编译器，问题尚未解决，停止最终导出。"
+          }
+        ],
+        "mathCheckNote": "共享 softmax-loss 内核核对默认概率、梯度和损失；另用独立 Python 中心有限差分核对3种真实类别的9个导数，最大误差1.2e-10；12组共同平移/概率比核对及12组步长/标签损失检查。事实为手选 logits，不是训练或实测。",
+        "limits": "实际查看了3轮1280/375 PNG及最终每幅图0/1端点；parameters 图端点相同属预期，因果变化来自参数。检查并非所有参数组合、触摸设备或学习效果实验；整页溢出导致交互把手审计跳过。保留构建及数学调用失败。无导出、无质量评分。",
+        "html_sha256": "783da56b99484ad386f7d90675327410f227c9e858d5b636a7185845e42bb01e",
+        "plan_sha256": "0e7d9eb699058607fe2ae1a4af40c7aa5329b3c79941eb951bf98c6ce0e7cdd5",
+        "ready_for_export": false,
+        "scope": "Known-issue review plus render gate; no independent artistic certification."
+      },
+      "exportGate": {
+        "ready_for_export": false,
+        "reasons": [
+          "unresolved-render-findings",
+          "known-unresolved-issues"
+        ],
+        "latest_preview": "/home/yang-zhi/文档/ChatGPT/concept2motion/work/harness-v3/production/run/sessions/softmax-regression/preview-final",
+        "render_findings": [
+          {
+            "width": 375,
+            "kind": "page-overflow"
+          }
+        ],
+        "quality": "Engineering gate only; does not establish teaching or aesthetic quality."
+      }
+    }
+  ]
+}

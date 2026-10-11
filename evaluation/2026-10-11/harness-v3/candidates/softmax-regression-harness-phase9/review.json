@@ -1,0 +1,15 @@
+{
+  "issues": [
+    {
+      "figureId": "softmax-regression-017",
+      "condition": "原文内嵌网络架构图的实际整页桌面预览",
+      "description": "1280-page.png中该处只有留白及原图注；1280-original-network-crop.png保留了实际像素证据。未修改source或公共编译器，未重建原书插图，此遗留缺图使整本书不能视为完整通过。"
+    }
+  ],
+  "mathCheckNote": "同一内核核对softmax-loss之外，使用Python标准库独立计算softmax、−ln p_y、o−η(p−y)及中心差分。初始(-1,0,1)，目标鸡，η=1：概率(0.090030573,0.244728471,0.665240956)，梯度(0.090030573,−0.755271529,0.665240956)，更新后概率(0.087054970,0.551058985,0.361886045)，损失1.407605964→0.595913424 nat。差分最大偏差1.20e−10；共同平移+2的概率误差0；完整数值见math-checks.json。已查看两图在1280/375下0与1共8张端点PNG，parameters模式中进度不改变输入，端点相同是预期行为。",
+  "limits": "两图均为真实参数驱动的解析教学示例，默认静止。不是训练结果、模型生成或实测性能；单次直接更新logits不同于训练网络权重。已完成两轮候选预览，第一轮手机图因过度压缩失败并保留；第二轮看过实际桌面与手机图、整页PNG和五条注释的像素裁剪。自动参数边界60例、交互审计24例不等于穷尽交互或审美评分；未测试真实触屏、辅助技术或学习效果。原文较长公式在手机上需横向阅读，未重排公式。原书图空白问题仍未解决，不进行动图或最终导出。",
+  "html_sha256": "acfea718cb8891ae8b54379af706afeaef4030299e857a5b178ca2bb7d3755aa",
+  "plan_sha256": "e69ffc242b1d03698af8e833e23faad4eb50d717395efc099e29fd48668994a3",
+  "ready_for_export": false,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

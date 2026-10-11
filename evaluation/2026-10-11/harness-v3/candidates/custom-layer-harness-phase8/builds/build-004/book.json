@@ -1,0 +1,235 @@
+{
+  "figures": [
+    {
+      "id": "center-coupling",
+      "title": "改一个输入，所有输出一起移",
+      "afterAnchor": "custom-layer-007",
+      "height": 320,
+      "mobileHeight": 360,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "last",
+          "label": "第五个输入 x₅",
+          "min": 1,
+          "max": 9,
+          "step": 0.1,
+          "value": 5
+        }
+      ],
+      "state": {
+        "selected": 4
+      },
+      "summary": "横轴为数值，连线对应同一元素。只减同一个均值，不除标准差；点选可追踪一个元素。",
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "center",
+            "operation": "normalization",
+            "inputs": {
+              "data": [
+                [
+                  1,
+                  2,
+                  3,
+                  4,
+                  {
+                    "$param": "last"
+                  }
+                ]
+              ],
+              "axis": 1,
+              "epsilon": 0.01
+            }
+          }
+        ],
+        "visual": {
+          "type": "stack",
+          "layout": {
+            "weights": [
+              4,
+              1
+            ],
+            "gap": 8
+          },
+          "children": [
+            {
+              "id": "paired",
+              "type": "aligned-points",
+              "props": {
+                "rows": [
+                  {
+                    "label": "输入 x",
+                    "values": {
+                      "$result": "center.input.0"
+                    }
+                  },
+                  {
+                    "label": "x − μ",
+                    "values": {
+                      "$result": "center.centered.0"
+                    }
+                  }
+                ],
+                "domain": [
+                  -5,
+                  9
+                ],
+                "selected": {
+                  "$state": "selected"
+                },
+                "stateKey": "selected",
+                "connect": true,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "violet",
+                  "gold",
+                  "orange",
+                  "green"
+                ]
+              }
+            },
+            {
+              "id": "mean",
+              "type": "readout",
+              "props": {
+                "items": [
+                  {
+                    "label": "共减 μ",
+                    "value": {
+                      "$result": "center.mean.0"
+                    }
+                  },
+                  {
+                    "label": "输出均值",
+                    "value": 0
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "linear-relu",
+      "title": "同一输入，两个输出各算一遍",
+      "afterAnchor": "custom-layer-019",
+      "height": 360,
+      "mobileHeight": 430,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "first",
+          "label": "输入 x₁",
+          "min": -2,
+          "max": 3,
+          "step": 0.1,
+          "value": 1
+        },
+        {
+          "key": "bias",
+          "label": "偏置 b₁",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 0.2
+        }
+      ],
+      "state": {
+        "output": 0
+      },
+      "summary": "用固定权重的 3→2 小例子：点选输出看求和，调输入或偏置看 ReLU 何时截成 0。权重未经训练。",
+      "scene": {
+        "type": "stack",
+        "layout": {
+          "weights": [
+            4,
+            1
+          ],
+          "gap": 8
+        },
+        "children": [
+          {
+            "id": "layer",
+            "type": "dense-layer",
+            "props": {
+              "input": [
+                [
+                  {
+                    "$param": "first"
+                  },
+                  2,
+                  -1
+                ]
+              ],
+              "weights": [
+                [
+                  1,
+                  -2
+                ],
+                [
+                  0.5,
+                  1
+                ],
+                [
+                  2,
+                  -1
+                ]
+              ],
+              "bias": [
+                {
+                  "$param": "bias"
+                },
+                0
+              ],
+              "activation": "relu",
+              "selected": {
+                "$state": "output"
+              },
+              "stateKey": "output",
+              "progress": 1
+            }
+          },
+          {
+            "id": "relu-readout",
+            "type": "readout",
+            "props": {
+              "items": [
+                {
+                  "label": "线性值 z",
+                  "value": {
+                    "$result": "layer.preactivationSelected"
+                  }
+                },
+                {
+                  "label": "ReLU(z)",
+                  "value": {
+                    "$result": "layer.outputSelected"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "id": "global-mean",
+      "afterAnchor": "custom-layer-011",
+      "kind": "clarification",
+      "text": "这里的 X.mean() 没有指定维度，减的是所有元素共同的均值。即使输入是“样本×特征”的矩阵，也只保证整个输出的均值接近 0，不保证每个样本或每个特征的均值为 0。例如两行 [1,2,3]、[7,8,9] 共减 5 后，两行均值分别是 −3 和 3。"
+    },
+    {
+      "id": "gradient-data",
+      "afterAnchor": "custom-layer-015",
+      "kind": "correction",
+      "text": "参数注册与梯度连通是两件事。这里的 self.weight.data 和 self.bias.data 脱离了自动求导图，反向传播不会为这两个参数积累梯度。若要训练，应直接用 torch.matmul(X, self.weight) + self.bias。对批量输入，本例的形状关系为下式；偏置沿样本维广播。",
+      "formula": "X\\in\\mathbb{R}^{B\\times d},\\quad W\\in\\mathbb{R}^{d\\times m},\\quad b\\in\\mathbb{R}^{m},\\quad Y=\\operatorname{ReLU}(XW+b)\\in\\mathbb{R}^{B\\times m}"
+    }
+  ]
+}

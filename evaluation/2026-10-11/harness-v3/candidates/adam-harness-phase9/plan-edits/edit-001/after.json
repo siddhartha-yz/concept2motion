@@ -1,0 +1,59 @@
+{
+  "figures": [
+    {
+      "id": "zero-bias",
+      "design": "adam-bias",
+      "afterAnchor": "adam-009",
+      "title": "零初始化：校正补回缺少的权重",
+      "summary": "手设恒定梯度：蓝色为第1维 g=2，橙色为第2维 g=−3。改变 t 或 β，观察原始估计靠近零，而校正值回到输入。只说明恒定梯度下的权重缺口。",
+      "overrides": [
+        {
+          "path": "/scene/visual/children/0/props/rows",
+          "value": [
+            {
+              "label": "梯度 g",
+              "values": {
+                "$result": "run.selected.gradient"
+              }
+            },
+            {
+              "label": "原始 v",
+              "values": {
+                "$result": "run.selected.firstMoment"
+              }
+            },
+            {
+              "label": "校正 v̂",
+              "values": {
+                "$result": "run.selected.correctedFirst"
+              }
+            }
+          ]
+        },
+        {
+          "path": "/scene/visual/children/1/props/rows",
+          "value": [
+            {
+              "label": "梯度平方",
+              "values": {
+                "$result": "run.selected.squareGradient"
+              }
+            },
+            {
+              "label": "原始 s",
+              "values": {
+                "$result": "run.selected.squareMoment"
+              }
+            },
+            {
+              "label": "校正 ŝ",
+              "values": {
+                "$result": "run.selected.correctedSecond"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

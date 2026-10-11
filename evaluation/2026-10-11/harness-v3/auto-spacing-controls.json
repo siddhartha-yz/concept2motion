@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "modelCalls": 0,
+  "scope": "Actual 250px auto spacing with unchanged values/fonts, explicit comfortable layout rejected when insufficient, too-small auto layout rejected. Not arbitrary layout solving or art quality.",
+  "records": [
+    {
+      "id": "auto",
+      "height": 250,
+      "compact": "auto",
+      "expectedPass": true,
+      "status": "completed",
+      "findings": []
+    },
+    {
+      "id": "explicit",
+      "height": 250,
+      "compact": false,
+      "expectedPass": false,
+      "status": "failed",
+      "findings": [
+        {
+          "width": 1280,
+          "kind": "javascript",
+          "errors": [
+            "Error: Aligned points need260px width and50px compact/68px comfortable per numeric row"
+          ]
+        },
+        {
+          "width": 1280,
+          "id": "explicit",
+          "progress": 0,
+          "kind": "render-runtime-error",
+          "error": "Error: page.evaluate: Error: Aligned points need260px width and50px compact/68px comfortable per numeric row\n    at alignedPoints (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/explicit.html:8995:13)\n    at visit (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/explicit.html:4598:21)\n    at Object.renderScene (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/explicit.html:4606:12)\n    at draw (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/explicit.html:9742:228)\n    at paint (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/explicit.html:9553:11)\n    at Object.setProgress (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/explicit.html:9590:7)\n    at eval (eval at evaluate (:311:30), <anonymous>:3:17)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        }
+      ]
+    },
+    {
+      "id": "impossible",
+      "height": 180,
+      "compact": "auto",
+      "expectedPass": false,
+      "status": "failed",
+      "findings": [
+        {
+          "width": 1280,
+          "kind": "javascript",
+          "errors": [
+            "Error: Aligned points need260px width and50px compact/68px comfortable per numeric row"
+          ]
+        },
+        {
+          "width": 1280,
+          "id": "impossible",
+          "progress": 0,
+          "kind": "render-runtime-error",
+          "error": "Error: page.evaluate: Error: Aligned points need260px width and50px compact/68px comfortable per numeric row\n    at alignedPoints (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/impossible.html:8995:13)\n    at visit (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/impossible.html:4598:21)\n    at Object.renderScene (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/impossible.html:4606:12)\n    at draw (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/impossible.html:9742:232)\n    at paint (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/impossible.html:9553:11)\n    at Object.setProgress (file:///home/yang-zhi/%E6%96%87%E6%A1%A3/ChatGPT/concept2motion/work/harness-v3/auto-spacing-03/impossible.html:9590:7)\n    at eval (eval at evaluate (:311:30), <anonymous>:3:17)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)"
+        }
+      ]
+    }
+  ]
+}

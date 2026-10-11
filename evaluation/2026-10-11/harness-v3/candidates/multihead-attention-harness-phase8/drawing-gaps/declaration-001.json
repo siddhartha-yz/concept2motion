@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "head-index",
+    "attemptedDesigns": [
+      "reshape",
+      "transpose-grid"
+    ],
+    "reason": "reshape仅保持行优先顺序，transpose-grid只交换二维矩阵轴；都不能显示原文的四维拆头、批次×头的合并顺序及逆操作。此图需按批次和头分组，点选同一元素联动高亮两种布局，并返回具体索引映射；用Board定制布局，数值不插值。"
+  },
+  "status": "declared",
+  "code_sha256": "7613cf9a2df501e542c0c3b09f5637cd3673bd9fea01e3947c2ab62d7b025d39"
+}

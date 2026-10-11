@@ -1,0 +1,11 @@
+{
+  "arguments": {
+    "figureId": "bias-mass",
+    "attemptedDesigns": [
+      "optimizer"
+    ],
+    "reason": "optimizer 没有 Adam 的指数加权和及偏差校正接口，plot 也无 EWMA 计算。因此用 Board 自绘，beta 与整数 t 联动真实原始值、权重和及校正值；本次把曲线改为只连接整数步结果，避免把分数时间指数值冒充实际迭代。"
+  },
+  "status": "declared",
+  "code_sha256": "4348d313dd6cd35f5bf7e15875977b7e37f2ba49326e1587dd0fe7225ba8862e"
+}

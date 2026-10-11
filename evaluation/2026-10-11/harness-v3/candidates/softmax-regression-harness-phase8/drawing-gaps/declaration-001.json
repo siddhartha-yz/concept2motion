@@ -1,0 +1,11 @@
+{
+  "arguments": {
+    "figureId": "softmax-competition",
+    "attemptedDesigns": [
+      "probabilities"
+    ],
+    "reason": "概率设计没有可替换输入，其均匀到目标的进度插值无法说明改变一个 logit 或共同平移的真实因果关系，且默认纵轴标为注意力权重。此图需直接计算三类 softmax，并显示鸡狗概率比保持不变；用 Board 稳定图元和共同概率刻度。"
+  },
+  "status": "declared",
+  "code_sha256": "ba23ad63ceee23265154d61493bf74572bdd6ddb6b9f848df1b956a58f3509b3"
+}

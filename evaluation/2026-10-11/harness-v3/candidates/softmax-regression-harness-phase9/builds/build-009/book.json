@@ -1,0 +1,363 @@
+{
+  "figures": [
+    {
+      "title": "一类分数改变，三类概率联动",
+      "height": 240,
+      "mobileHeight": 340,
+      "params": [
+        {
+          "key": "score",
+          "label": "鸡的分数",
+          "min": -3,
+          "max": 3,
+          "step": 0.1,
+          "value": 0
+        },
+        {
+          "key": "shift",
+          "label": "共同平移",
+          "min": -2,
+          "max": 2,
+          "step": 0.1,
+          "value": 0
+        }
+      ],
+      "state": {
+        "selected": 1
+      },
+      "interaction": "parameters",
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "scores",
+            "operation": "dense",
+            "inputs": {
+              "input": [
+                [
+                  {
+                    "$param": "shift"
+                  }
+                ]
+              ],
+              "weights": [
+                [
+                  1,
+                  1,
+                  1
+                ]
+              ],
+              "bias": [
+                -1,
+                {
+                  "$param": "score"
+                },
+                1
+              ]
+            }
+          },
+          {
+            "id": "weights",
+            "operation": "softmax",
+            "inputs": {
+              "scores": {
+                "$result": "scores.output.0"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "score-view",
+              "type": "aligned-points",
+              "props": {
+                "title": "分数 o（无单位）",
+                "rows": [
+                  {
+                    "label": "三类分数",
+                    "values": {
+                      "$result": "scores.output.0"
+                    }
+                  }
+                ],
+                "domain": [
+                  -5,
+                  5
+                ],
+                "selected": {
+                  "$state": "selected"
+                },
+                "stateKey": "selected",
+                "connect": false,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "猫",
+                  "鸡",
+                  "狗"
+                ],
+                "compact": true
+              }
+            },
+            {
+              "id": "probabilities",
+              "type": "aligned-points",
+              "props": {
+                "title": "概率 p（总和为 1）",
+                "rows": [
+                  {
+                    "label": "三类概率",
+                    "values": {
+                      "$result": "weights.weights"
+                    }
+                  }
+                ],
+                "domain": [
+                  0,
+                  1
+                ],
+                "selected": {
+                  "$state": "selected"
+                },
+                "stateKey": "selected",
+                "connect": false,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "猫",
+                  "鸡",
+                  "狗"
+                ],
+                "compact": true
+              }
+            }
+          ]
+        }
+      },
+      "summary": "先调鸡的分数，再试共同平移。三类分数手设；颜色始终对应猫、鸡、狗。",
+      "id": "class-competition",
+      "afterAnchor": "softmax-regression-029"
+    },
+    {
+      "title": "减去梯度，正确类别的概率怎样变化？",
+      "height": 280,
+      "mobileHeight": 460,
+      "params": [
+        {
+          "key": "target",
+          "label": "正确类别",
+          "kind": "select",
+          "options": [
+            {
+              "label": "猫",
+              "value": 0
+            },
+            {
+              "label": "鸡",
+              "value": 1
+            },
+            {
+              "label": "狗",
+              "value": 2
+            }
+          ],
+          "value": 1
+        },
+        {
+          "key": "eta",
+          "label": "步长",
+          "min": 0,
+          "max": 3,
+          "step": 0.1,
+          "value": 1
+        }
+      ],
+      "state": {},
+      "interaction": "parameters",
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "before",
+            "operation": "softmax-loss",
+            "inputs": {
+              "logits": [
+                [
+                  -1,
+                  0,
+                  1
+                ]
+              ],
+              "labels": [
+                {
+                  "$param": "target"
+                }
+              ]
+            }
+          },
+          {
+            "id": "step",
+            "operation": "gradient-step",
+            "inputs": {
+              "values": {
+                "$result": "before.logits"
+              },
+              "gradient": {
+                "$result": "before.gradient"
+              },
+              "eta": {
+                "$param": "eta"
+              }
+            }
+          },
+          {
+            "id": "after",
+            "operation": "softmax-loss",
+            "inputs": {
+              "logits": {
+                "$result": "step.after"
+              },
+              "labels": {
+                "$result": "before.labels"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "minColumnWidth": 290,
+            "weights": [
+              1,
+              1
+            ],
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "probabilities",
+              "type": "aligned-points",
+              "props": {
+                "rows": [
+                  {
+                    "label": "更新前概率",
+                    "values": {
+                      "$result": "before.probabilities.0"
+                    }
+                  },
+                  {
+                    "label": "更新后概率",
+                    "values": {
+                      "$result": "after.probabilities.0"
+                    }
+                  }
+                ],
+                "domain": [
+                  0,
+                  1
+                ],
+                "selected": {
+                  "$param": "target"
+                },
+                "connect": true,
+                "statistics": false,
+                "pointColors": [
+                  "blue",
+                  "orange",
+                  "green"
+                ],
+                "itemLabels": [
+                  "猫",
+                  "鸡",
+                  "狗"
+                ],
+                "compact": true,
+                "title": "概率 p"
+              }
+            },
+            {
+              "id": "readout",
+              "type": "readout",
+              "props": {
+                "items": [
+                  {
+                    "label": "梯度（猫 / 鸡 / 狗）",
+                    "value": {
+                      "$result": "before.gradient.0"
+                    },
+                    "color": "ink"
+                  },
+                  {
+                    "label": "更新前损失 · nat",
+                    "value": {
+                      "$result": "before.loss"
+                    },
+                    "color": "blue"
+                  },
+                  {
+                    "label": "更新后损失 · nat",
+                    "value": {
+                      "$result": "after.loss"
+                    },
+                    "color": "orange"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "summary": "固定初始分数 (−1, 0, 1)，每次独立做一步 logit 更新；不是网络权重训练。步长为 0 可对照起点。",
+      "id": "loss-step",
+      "afterAnchor": "softmax-regression-050"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-label-order",
+      "afterAnchor": "softmax-regression-012",
+      "kind": "clarification",
+      "text": "整数标签与独热向量采用了不同的示例顺序；编码时须固定映射。本页图解统一按“猫、鸡、狗”排列。"
+    },
+    {
+      "id": "note-calibration",
+      "afterAnchor": "softmax-regression-025",
+      "kind": "clarification",
+      "text": "softmax保证输出构成概率分布，但不保证校准。校准需要在一批有真实标签的样本上比较预测概率与发生频率。"
+    },
+    {
+      "id": "note-weight-orientation",
+      "afterAnchor": "softmax-regression-034",
+      "kind": "clarification",
+      "text": "单样本以列向量表示时，权重为 q×d；这里把样本堆成行，权重对应转置为 d×q。两处是同一个模型的不同记法。",
+      "formula": "W_{\\mathrm{batch}}=W_{\\mathrm{single}}^\\top"
+    },
+    {
+      "id": "note-independence",
+      "afterAnchor": "softmax-regression-039",
+      "kind": "condition",
+      "text": "此乘积分解假设：给定输入与模型参数后，各样本的标签条件独立。若标签仍相互依赖，联合似然不能直接这样分解。"
+    },
+    {
+      "id": "note-units",
+      "afterAnchor": "softmax-regression-068",
+      "kind": "clarification",
+      "text": "本节采用自然对数，损失与交叉熵的单位是 nat；换算为 bit 需除以 ln 2。交叉熵包含真实分布自身的熵，不是对称距离。",
+      "formula": "H(P,Q)=H(P)+D_{\\mathrm{KL}}(P\\|Q)"
+    }
+  ]
+}

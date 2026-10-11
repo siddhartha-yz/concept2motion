@@ -1,0 +1,499 @@
+{
+  "id": "adam",
+  "title": "Adam算法",
+  "source": "chapter_optimization/adam.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_optimization/adam.html",
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "03c6a4284da9fc8a513c795dbbfd4d9641dea277ece95d2bc977352da63489f5",
+  "adaptedSha256": "3eab71b65484d0cdd75d2eae078ebde8f07834ec72cd6322e156b9affa552b07",
+  "adaptation": {
+    "excludedTabBlocks": 3,
+    "excludedCodeBlocks": 9,
+    "keptCodeBlocks": 4,
+    "removedDirectives": 1,
+    "mathDelimitersAdapted": 1,
+    "oneLineDisplayMath": 5,
+    "images": 0,
+    "mathErrors": 0,
+    "mathExpected": 27,
+    "mathRendered": 27
+  },
+  "blocks": [
+    {
+      "id": "adam-001",
+      "sha256": "20751858e8d5fe14eef8c878b9c51682a8666175a1e3413b2030ea37d682bf0c",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# Adam算法",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-002",
+      "sha256": "1c42f0617a6cc5a8711c456ea60db964bb5a6217eac86ceb63da08da924de91a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "本章我们已经学习了许多有效优化的技术。\n在本节讨论之前，我们先详细回顾一下这些技术：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-003",
+      "sha256": "508b467b714f783ac2434c42501964abbd289bef4e9eacfdcd85ed966834b5c4",
+      "type": "list",
+      "depth": null,
+      "line": 6,
+      "raw": "* 在 [原文引用：sec_sgd](https://zh.d2l.ai/chapter_optimization/adam.html)中，我们学习了：随机梯度下降在解决优化问题时比梯度下降更有效。\n* 在 [原文引用：sec_minibatch_sgd](https://zh.d2l.ai/chapter_optimization/adam.html)中，我们学习了：在一个小批量中使用更大的观测值集，可以通过向量化提供额外效率。这是高效的多机、多GPU和整体并行处理的关键。\n* 在 [原文引用：sec_momentum](https://zh.d2l.ai/chapter_optimization/adam.html)中我们添加了一种机制，用于汇总过去梯度的历史以加速收敛。\n* 在 [原文引用：sec_adagrad](https://zh.d2l.ai/chapter_optimization/adam.html)中，我们通过对每个坐标缩放来实现高效计算的预处理器。\n* 在 [原文引用：sec_rmsprop](https://zh.d2l.ai/chapter_optimization/adam.html)中，我们通过学习率的调整来分离每个坐标的缩放。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-004",
+      "sha256": "e5dd6022fd994d4af57a952e8390d88e0e2fcc8ac913ae30e2d89b7a11026c04",
+      "type": "paragraph",
+      "depth": null,
+      "line": 12,
+      "raw": "Adam算法 [原文引用：Kingma.Ba.2014](https://zh.d2l.ai/chapter_optimization/adam.html)将所有这些技术汇总到一个高效的学习算法中。\n不出预料，作为深度学习中使用的更强大和有效的优化算法之一，它非常受欢迎。\n但是它并非没有问题，尤其是 [原文引用：Reddi.Kale.Kumar.2019](https://zh.d2l.ai/chapter_optimization/adam.html)表明，有时Adam算法可能由于方差控制不良而发散。\n在完善工作中， [原文引用：Zaheer.Reddi.Sachan.ea.2018](https://zh.d2l.ai/chapter_optimization/adam.html)给Adam算法提供了一个称为Yogi的热补丁来解决这些问题。\n下面我们了解一下Adam算法。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-005",
+      "sha256": "19e9c587cc26a666363eccad2c617825821787d474461ff98a76a3cdc11736f0",
+      "type": "heading",
+      "depth": 2,
+      "line": 18,
+      "raw": "## 算法",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-006",
+      "sha256": "c46791db09453bd202cc2ab2dfdb1302ce52e0a809e4dcd869d03151e4c866c9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 20,
+      "raw": "Adam算法的关键组成部分之一是：它使用指数加权移动平均值来估算梯度的动量和二次矩，即它使用状态变量",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-007",
+      "sha256": "1747964e879cdf7c8539acd2b48292f349597fb69869693071eb832c40452001",
+      "type": "math",
+      "depth": null,
+      "line": 22,
+      "raw": "$$\n\\begin{aligned}\n    \\mathbf{v}_t & \\leftarrow \\beta_1 \\mathbf{v}_{t-1} + (1 - \\beta_1) \\mathbf{g}_t, \\\\\n    \\mathbf{s}_t & \\leftarrow \\beta_2 \\mathbf{s}_{t-1} + (1 - \\beta_2) \\mathbf{g}_t^2.\n\\end{aligned}\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-008",
+      "sha256": "923256e45f9292e2dfd7ce0b131ef4329398e55093ff4f5fcf44c008da772a03",
+      "type": "paragraph",
+      "depth": null,
+      "line": 29,
+      "raw": "这里$\\beta_1$和$\\beta_2$是非负加权参数。\n常将它们设置为$\\beta_1 = 0.9$和$\\beta_2 = 0.999$。\n也就是说，方差估计的移动远远慢于动量估计的移动。\n注意，如果我们初始化$\\mathbf{v}_0 = \\mathbf{s}_0 = 0$，就会获得一个相当大的初始偏差。\n我们可以通过使用$\\sum_{i=0}^t \\beta^i = \\frac{1 - \\beta^t}{1 - \\beta}$来解决这个问题。\n相应地，标准化状态变量由下式获得",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-009",
+      "sha256": "162d16475a5edbb18a9e89f88acd5710130cb91355054180c5521454117a32c3",
+      "type": "paragraph",
+      "depth": null,
+      "line": 36,
+      "raw": "$$\\hat{\\mathbf{v}}_t = \\frac{\\mathbf{v}_t}{1 - \\beta_1^t} \\text{ and } \\hat{\\mathbf{s}}_t = \\frac{\\mathbf{s}_t}{1 - \\beta_2^t}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-010",
+      "sha256": "f3135ac2537c30cd31d40bf09c8b13e6201b8224b8f30ddd1d65675aaf25b1c6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 38,
+      "raw": "有了正确的估计，我们现在可以写出更新方程。\n首先，我们以非常类似于RMSProp算法的方式重新缩放梯度以获得",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-011",
+      "sha256": "111c31f0495126787572de14a31cfe5d7d830c9a277ee1e4fd9990115dc01ada",
+      "type": "paragraph",
+      "depth": null,
+      "line": 41,
+      "raw": "$$\\mathbf{g}_t' = \\frac{\\eta \\hat{\\mathbf{v}}_t}{\\sqrt{\\hat{\\mathbf{s}}_t} + \\epsilon}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-012",
+      "sha256": "edc579e002b33072419708d0a5a56894d7eb46b95ad7db7fdfe3abfb18d00274",
+      "type": "paragraph",
+      "depth": null,
+      "line": 43,
+      "raw": "与RMSProp不同，我们的更新使用动量$\\hat{\\mathbf{v}}_t$而不是梯度本身。\n此外，由于使用$\\frac{1}{\\sqrt{\\hat{\\mathbf{s}}_t} + \\epsilon}$而不是$\\frac{1}{\\sqrt{\\hat{\\mathbf{s}}_t + \\epsilon}}$进行缩放，两者会略有差异。\n前者在实践中效果略好一些，因此与RMSProp算法有所区分。\n通常，我们选择$\\epsilon = 10^{-6}$，这是为了在数值稳定性和逼真度之间取得良好的平衡。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-013",
+      "sha256": "81dbc39594f9d2972f310a891e499cad47bb2e4fabe34df67fb121024aca706d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 48,
+      "raw": "最后，我们简单更新：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-014",
+      "sha256": "921971fd4ea6a02d16a231b2e97c08b21521418f2d082d1078c8b1732bea72ad",
+      "type": "paragraph",
+      "depth": null,
+      "line": 50,
+      "raw": "$$\\mathbf{x}_t \\leftarrow \\mathbf{x}_{t-1} - \\mathbf{g}_t'.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-015",
+      "sha256": "e41b44848b106ccd39ac78eb3952fb57c191e7a2d210b28af5472ff5827be18b",
+      "type": "paragraph",
+      "depth": null,
+      "line": 52,
+      "raw": "回顾Adam算法，它的设计灵感很清楚：\n首先，动量和规模在状态变量中清晰可见，\n它们相当独特的定义使我们移除偏项（这可以通过稍微不同的初始化和更新条件来修正）。\n其次，RMSProp算法中两项的组合都非常简单。\n最后，明确的学习率$\\eta$使我们能够控制步长来解决收敛问题。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-016",
+      "sha256": "40842e0d9bac2109c912bcf55a4ab11c1c5f3f6235042f9d10ffd6bf3fe7c080",
+      "type": "heading",
+      "depth": 2,
+      "line": 58,
+      "raw": "## 实现",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-017",
+      "sha256": "f2b1bcd278512009e0af8b7b32c04a16814d97618165013d1f4867e93c4b2077",
+      "type": "paragraph",
+      "depth": null,
+      "line": 60,
+      "raw": "从头开始实现Adam算法并不难。\n为方便起见，我们将时间步$t$存储在`hyperparams`字典中。\n除此之外，一切都很简单。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-018",
+      "sha256": "5550997b50b195077b271935fc2b5eddb2bb01291beee4b343400a3e5578948a",
+      "type": "code",
+      "depth": null,
+      "line": 86,
+      "raw": "```python\n%matplotlib inline\nfrom d2l import torch as d2l\nimport torch\n\ndef init_adam_states(feature_dim):\n    v_w, v_b = d2l.zeros((feature_dim, 1)), d2l.zeros(1)\n    s_w, s_b = d2l.zeros((feature_dim, 1)), d2l.zeros(1)\n    return ((v_w, s_w), (v_b, s_b))\n\ndef adam(params, states, hyperparams):\n    beta1, beta2, eps = 0.9, 0.999, 1e-6\n    for p, (v, s) in zip(params, states):\n        with torch.no_grad():\n            v[:] = beta1 * v + (1 - beta1) * p.grad\n            s[:] = beta2 * s + (1 - beta2) * torch.square(p.grad)\n            v_bias_corr = v / (1 - beta1 ** hyperparams['t'])\n            s_bias_corr = s / (1 - beta2 ** hyperparams['t'])\n            p[:] -= hyperparams['lr'] * v_bias_corr / (torch.sqrt(s_bias_corr)\n                                                       + eps)\n        p.grad.data.zero_()\n    hyperparams['t'] += 1\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-019",
+      "sha256": "39ae4f4a50f9d8e9909cf81d130a7726dc90962f8d612ccfb0311ef9ca3828a2",
+      "type": "paragraph",
+      "depth": null,
+      "line": 164,
+      "raw": "现在，我们用以上Adam算法来训练模型，这里我们使用$\\eta = 0.01$的学习率。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-020",
+      "sha256": "0672fd3c0b31ff486cbde898e0f048976b33f0ad33e93ff42429bfeb53f80a71",
+      "type": "code",
+      "depth": null,
+      "line": 166,
+      "raw": "```python\ndata_iter, feature_dim = d2l.get_data_ch11(batch_size=10)\nd2l.train_ch11(adam, init_adam_states(feature_dim),\n               {'lr': 0.01, 't': 1}, data_iter, feature_dim);\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-021",
+      "sha256": "a5c31ea16a3e15c4bc6b5d04c40f72e6be796355279e9e7dc68af2802ffe05f1",
+      "type": "paragraph",
+      "depth": null,
+      "line": 172,
+      "raw": "此外，我们可以用深度学习框架自带算法应用Adam算法，这里我们只需要传递配置参数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-022",
+      "sha256": "90e2914a14cec8f7e5b9ca467b1dd207e021f9f21133dbac01377977dfb7c80f",
+      "type": "code",
+      "depth": null,
+      "line": 178,
+      "raw": "```python\ntrainer = torch.optim.Adam\nd2l.train_concise_ch11(trainer, {'lr': 0.01}, data_iter)\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-023",
+      "sha256": "5bbc429de72ad7f50644ee8db560b5f3326992449913a848a4514533fdb499b8",
+      "type": "heading",
+      "depth": 2,
+      "line": 195,
+      "raw": "## Yogi",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-024",
+      "sha256": "448ef4df9926e12466991a7df095f8f9a92a92281af0d280971a272fe91a7226",
+      "type": "paragraph",
+      "depth": null,
+      "line": 197,
+      "raw": "Adam算法也存在一些问题：\n即使在凸环境下，当$\\mathbf{s}_t$的二次矩估计值爆炸时，它可能无法收敛。\n [原文引用：Zaheer.Reddi.Sachan.ea.2018](https://zh.d2l.ai/chapter_optimization/adam.html)为$\\mathbf{s}_t$提出了的改进更新和参数初始化。\n论文中建议我们重写Adam算法更新如下：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-025",
+      "sha256": "646789df65750a879f5322f5c2c1adcd1364fd7afb2fc1325174dd57b2c62a2d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 202,
+      "raw": "$$\\mathbf{s}_t \\leftarrow \\mathbf{s}_{t-1} + (1 - \\beta_2) \\left(\\mathbf{g}_t^2 - \\mathbf{s}_{t-1}\\right).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-026",
+      "sha256": "d5cc055c13e80356e73a1e2baa5f4c0dde6e92fa67048414c380d6e48dc5d904",
+      "type": "paragraph",
+      "depth": null,
+      "line": 204,
+      "raw": "每当$\\mathbf{g}_t^2$具有值很大的变量或更新很稀疏时，$\\mathbf{s}_t$可能会太快地“忘记”过去的值。\n一个有效的解决方法是将$\\mathbf{g}_t^2 - \\mathbf{s}_{t-1}$替换为$\\mathbf{g}_t^2 \\odot \\mathop{\\mathrm{sgn}}(\\mathbf{g}_t^2 - \\mathbf{s}_{t-1})$。\n这就是Yogi更新，现在更新的规模不再取决于偏差的量。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-027",
+      "sha256": "637673f58dd65b0620e89bbabc9e09406dc5e625b7910deaa3310bd0ae653308",
+      "type": "paragraph",
+      "depth": null,
+      "line": 208,
+      "raw": "$$\\mathbf{s}_t \\leftarrow \\mathbf{s}_{t-1} + (1 - \\beta_2) \\mathbf{g}_t^2 \\odot \\mathop{\\mathrm{sgn}}(\\mathbf{g}_t^2 - \\mathbf{s}_{t-1}).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-028",
+      "sha256": "efadbd4b95cbfe85a275eee88a19374c71bc47402ff9ab418a607f4b8e1caa56",
+      "type": "paragraph",
+      "depth": null,
+      "line": 210,
+      "raw": "论文中，作者还进一步建议用更大的初始批量来初始化动量，而不仅仅是初始的逐点估计。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-029",
+      "sha256": "f0daf0777474bb351c2d9fe2e2f363d47aa16a7ed1a44196c50d3c2973b64f25",
+      "type": "code",
+      "depth": null,
+      "line": 229,
+      "raw": "```python\ndef yogi(params, states, hyperparams):\n    beta1, beta2, eps = 0.9, 0.999, 1e-3\n    for p, (v, s) in zip(params, states):\n        with torch.no_grad():\n            v[:] = beta1 * v + (1 - beta1) * p.grad\n            s[:] = s + (1 - beta2) * torch.sign(\n                torch.square(p.grad) - s) * torch.square(p.grad)\n            v_bias_corr = v / (1 - beta1 ** hyperparams['t'])\n            s_bias_corr = s / (1 - beta2 ** hyperparams['t'])\n            p[:] -= hyperparams['lr'] * v_bias_corr / (torch.sqrt(s_bias_corr)\n                                                       + eps)\n        p.grad.data.zero_()\n    hyperparams['t'] += 1\n\ndata_iter, feature_dim = d2l.get_data_ch11(batch_size=10)\nd2l.train_ch11(yogi, init_adam_states(feature_dim),\n               {'lr': 0.01, 't': 1}, data_iter, feature_dim);\n```",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-030",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 292,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-031",
+      "sha256": "cd03732e84016a49a6e7f661d480ea855fd3f6f2b8619e5a1db75f711eb0a7b4",
+      "type": "list",
+      "depth": null,
+      "line": 294,
+      "raw": "* Adam算法将许多优化算法的功能结合到了相当强大的更新规则中。\n* Adam算法在RMSProp算法基础上创建的，还在小批量的随机梯度上使用EWMA。\n* 在估计动量和二次矩时，Adam算法使用偏差校正来调整缓慢的启动速度。\n* 对于具有显著差异的梯度，我们可能会遇到收敛性问题。我们可以通过使用更大的小批量或者切换到改进的估计值$\\mathbf{s}_t$来修正它们。Yogi提供了这样的替代方案。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-032",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 299,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-033",
+      "sha256": "afa12d4f5bf8903735bbeaacc062181d2cbc77568303b4c4547c5c97ac269d89",
+      "type": "list",
+      "depth": null,
+      "line": 301,
+      "raw": "1. 调节学习率，观察并分析实验结果。\n1. 试着重写动量和二次矩更新，从而使其不需要偏差校正。\n1. 收敛时为什么需要降低学习率$\\eta$？\n1. 尝试构造一个使用Adam算法会发散而Yogi会收敛的例子。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "adam-034",
+      "sha256": "6801e868e199b3aa639b49dc9106642833187fe22ac68d0068d55ef47c9fdadc",
+      "type": "paragraph",
+      "depth": null,
+      "line": 310,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/4331)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "gradient-step",
+    "attemptedDesigns": [
+      "probabilities",
+      "gradient-contributions"
+    ],
+    "reason": "现成设计无法连接真实类别、softmax 梯度和一步 logit 更新。本图直接计算并对照前后概率、损失；这次增加各类分数更新前后的短数值，避免用概率柱变化替代分数变化的解释，g、η均参与实际计算，仍不声称权重训练。"
+  },
+  "status": "declared",
+  "code_sha256": "ed8eeeec4493f914dfba85d0e6c2b73b3a4c23b533dc3b3d164ea2eeaad11412"
+}

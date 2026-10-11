@@ -1,0 +1,11 @@
+{
+  "arguments": {
+    "figureId": "bias-mass",
+    "attemptedDesigns": [
+      "optimizer"
+    ],
+    "reason": "检查了 optimizer 的实际桌面/手机图和输入；它只有 SGD/RMSProp 的二维轨迹，不能表现零初始化的指数权重和以及偏差校正。plot 组件也没有 EWMA 计算接口。本图需要用同一 beta 和整数 t 同时驱动权重和、原始值与校正值，故复用 Board 坐标和曲线自绘。"
+  },
+  "status": "declared",
+  "code_sha256": "d9c77c805805720fe4968d5078dbea940bce9054d4bcfd53e33d55cafd0953f8"
+}

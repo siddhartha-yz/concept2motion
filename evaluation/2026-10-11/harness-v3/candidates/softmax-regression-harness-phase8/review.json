@@ -1,0 +1,15 @@
+{
+  "issues": [
+    {
+      "figureId": "softmax-competition",
+      "condition": "375px 整页，图前原文公式 softmax-regression-027 附近",
+      "description": "三轮预览均发现 page-overflow；实际长页 PNG 宽415px（视口375px）。原文 softmax 展示公式在手机正文列右侧超出可读范围，新增两图本身未见越界。本轮不改 source 或公共编译器，问题尚未解决，停止最终导出。"
+    }
+  ],
+  "mathCheckNote": "共享 softmax-loss 内核核对默认概率、梯度和损失；另用独立 Python 中心有限差分核对3种真实类别的9个导数，最大误差1.2e-10；12组共同平移/概率比核对及12组步长/标签损失检查。事实为手选 logits，不是训练或实测。",
+  "limits": "实际查看了3轮1280/375 PNG及最终每幅图0/1端点；parameters 图端点相同属预期，因果变化来自参数。检查并非所有参数组合、触摸设备或学习效果实验；整页溢出导致交互把手审计跳过。保留构建及数学调用失败。无导出、无质量评分。",
+  "html_sha256": "783da56b99484ad386f7d90675327410f227c9e858d5b636a7185845e42bb01e",
+  "plan_sha256": "0e7d9eb699058607fe2ae1a4af40c7aa5329b3c79941eb951bf98c6ce0e7cdd5",
+  "ready_for_export": false,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

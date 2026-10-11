@@ -1,0 +1,9 @@
+{
+  "issues": [],
+  "mathCheckNote": "已用 inspect_frame 实际查看两图各自1280/375的0/1帧，共8帧。独立Python按递推v←βv+(1−β)及显式权重求和核对实际PNG对应facts；默认β=.9,t=10得到v及权重和.6513215599，校正1。另核对4个β×50步的200个递推值，最大绝对误差<1e-12。Yogi以s−(1−β)sgn(s−q)q等价形式核对渲染facts，检查q=0、q<s、q=s、q>s共15个案例，sgn(0)=0。math-check.json保存数据。原文有限几何级数下标以独立补充纠正，原文保留。",
+  "limits": "两幅为parameters，0/1帧相同是刻意的静止读者交互；t是离散更新整数。恒定g=1用于隔离零初始化的权重缺口，不声称非平稳梯度下估计总是无偏；s图固定β₂=.9以放大可见差异，比较一次未校正状态更新，不证明Yogi收敛或优于Adam。查看了真实桌面/手机图、图1邻接上下文及手机全页PNG；两轮预览，第一轮标题遮挡已修正，保留失败构建和第一轮证据。参数边界由编译器检查，未穷举所有组合或真实触摸设备；未运行原文训练代码、未测试性能。当前未发现未解决的图形/数学问题，审美与教学有效性未经过读者研究。",
+  "html_sha256": "8cdb888d1c95813173a4993681690f3eeb0d49ee8bbfb6435dbb07294e1135c1",
+  "plan_sha256": "fa01dba626bafff591d3eaf228be2b85eebbdf45feb33f2718091267bc4c2420",
+  "ready_for_export": true,
+  "scope": "Known-issue review plus render gate; no independent artistic certification."
+}

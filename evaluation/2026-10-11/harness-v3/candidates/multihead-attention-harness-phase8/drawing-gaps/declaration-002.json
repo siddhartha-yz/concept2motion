@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "head-index",
+    "attemptedDesigns": [
+      "reshape",
+      "transpose-grid"
+    ],
+    "reason": "现成设计没有四维拆头及批次×头合并索引的成组视图。此图把原文的 [B,N,Hd] 与 [BH,N,d] 按批次和头排布，左侧点选16个编号联动右侧高亮，并给出整数除法和取模的逆映射，使用稳定Board图元。"
+  },
+  "status": "declared",
+  "code_sha256": "46645343ed058d1aee375c3f11a75740afc5454f75d22313fe668783bc342c91"
+}

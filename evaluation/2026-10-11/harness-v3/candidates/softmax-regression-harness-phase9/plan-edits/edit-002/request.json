@@ -1,0 +1,43 @@
+{
+  "id": "loss-step",
+  "design": "softmax-gradient-step",
+  "afterAnchor": "softmax-regression-050",
+  "title": "减去梯度，正确类别的概率怎样变化？",
+  "summary": "固定初始分数 (−1, 0, 1)，每次独立做一步 logit 更新；不是网络权重训练。步长为 0 可对照起点。",
+  "overrides": [
+    {
+      "path": "/scene/visual/children/0/props/itemLabels",
+      "value": [
+        "猫",
+        "鸡",
+        "狗"
+      ]
+    },
+    {
+      "path": "/scene/visual/children/1/props/items",
+      "value": [
+        {
+          "label": "梯度（猫 / 鸡 / 狗）",
+          "value": {
+            "$result": "before.gradient.0"
+          },
+          "color": "ink"
+        },
+        {
+          "label": "更新前损失 · nat",
+          "value": {
+            "$result": "before.loss"
+          },
+          "color": "blue"
+        },
+        {
+          "label": "更新后损失 · nat",
+          "value": {
+            "$result": "after.loss"
+          },
+          "color": "orange"
+        }
+      ]
+    }
+  ]
+}

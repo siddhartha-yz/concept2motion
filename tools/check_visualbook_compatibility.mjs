@@ -32,7 +32,7 @@ const report = {
   status: "running",
   engine,
   scope:
-    "Alternate browser: twenty-six frozen maintainer designs at two widths/four poses, registered input actions, live playback/wheel pause, four frozen model chapters with scripts disabled and images decoded. No exhaustive browser/device or art guarantee.",
+    "Alternate browser: twenty-seven frozen maintainer designs at two widths/four poses, registered input actions, live playback/wheel pause, five reviewed model chapters from multiple stages with scripts disabled and images decoded. No exhaustive browser/device or art guarantee.",
   modelCalls: 0,
   cases: [],
   offline: [],
@@ -96,6 +96,7 @@ try {
     "softmax-competition",
     "softmax-gradient-step",
     "head-reindex",
+    "sparse-gradient-memory",
   ];
   for (const id of ids) {
     const file = path.resolve(catalogDir, "sources", id, "book.html"),
@@ -301,6 +302,12 @@ try {
       await page.locator("body").waitFor();
       const data = await page.evaluate(() => ({
         math: document.querySelectorAll(".katex").length,
+        sourceMath: document.querySelectorAll(".source-block .katex").length,
+        annotationMath: document.querySelectorAll(".vh-annotation .katex")
+          .length,
+        expectedAnnotationMath: [
+          ...document.querySelectorAll(".vh-annotation"),
+        ].reduce((s, n) => s + Number(n.dataset.mathExpected), 0),
         errors: document.querySelectorAll(".katex-error,code.language-math")
           .length,
         images: [...document.images].map((i) => ({
@@ -327,9 +334,10 @@ try {
         ),
       );
       assert.equal(
-        data.math,
+        data.sourceMath,
         originalSource.blocks.reduce((n, b) => n + (b.math?.expected ?? 0), 0),
       );
+      assert.equal(data.annotationMath, data.expectedAnnotationMath);
       assert(data.fallback === chapter.figures);
       report.offline.push({
         id: chapter.id,

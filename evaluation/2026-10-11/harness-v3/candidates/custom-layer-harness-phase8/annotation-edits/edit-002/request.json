@@ -1,0 +1,7 @@
+{
+  "id": "gradient-data",
+  "afterAnchor": "custom-layer-015",
+  "kind": "correction",
+  "text": "参数注册与梯度连通是两件事。这里的 self.weight.data 和 self.bias.data 脱离了自动求导图，反向传播不会为这两个参数积累梯度。若要训练，应直接用 torch.matmul(X, self.weight) + self.bias。对批量输入，本例的形状关系为下式；偏置沿样本维广播。",
+  "formula": "X\\in\\mathbb{R}^{B\\times d},\\quad W\\in\\mathbb{R}^{d\\times m},\\quad b\\in\\mathbb{R}^{m},\\quad Y=\\operatorname{ReLU}(XW+b)\\in\\mathbb{R}^{B\\times m}"
+}

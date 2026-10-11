@@ -1,0 +1,37 @@
+{
+  "passed": true,
+  "modelCalls": 0,
+  "cases": [
+    {
+      "label": "good",
+      "exit": 0,
+      "generationInvocations": 0
+    },
+    {
+      "label": "resume-unchanged",
+      "exit": 0,
+      "generationInvocations": 0
+    },
+    {
+      "label": "changed-local-image",
+      "exit": 1,
+      "generationInvocations": 0
+    },
+    {
+      "label": "bad-late-chapter",
+      "exit": 1,
+      "generationInvocations": 0
+    },
+    {
+      "label": "corrupt-snapshot",
+      "exit": 1,
+      "generationInvocations": 0
+    },
+    {
+      "label": "bad-imported-math",
+      "exit": 1,
+      "generationInvocations": 0
+    }
+  ],
+  "scope": "Actual two-chapter Markdown/imported JSON formula coverage, formula/image identity and resume rejection. Not full generation or browser/teaching validation."
+}

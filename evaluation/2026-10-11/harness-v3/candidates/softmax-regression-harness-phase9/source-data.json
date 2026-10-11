@@ -1,0 +1,1017 @@
+{
+  "id": "softmax-regression",
+  "title": "softmax回归",
+  "source": "chapter_linear-networks/softmax-regression.md",
+  "sourceUrl": "https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html",
+  "sourceCommit": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
+  "sourceSha256": "f4cb4e6a80f2de4e76e9ec65d5fd18874f497b6087e07ccf124125a1f952f89d",
+  "adaptedSha256": "0b8f9a22c97b2bf51f244b1a2cd880d962120112acb14652d33fda083bfd6889",
+  "adaptation": {
+    "excludedTabBlocks": 0,
+    "excludedCodeBlocks": 0,
+    "keptCodeBlocks": 0,
+    "removedDirectives": 12,
+    "oneLineDisplayMath": 5,
+    "figureCaptions": 1,
+    "images": 1,
+    "mathErrors": 0,
+    "mathExpected": 121,
+    "mathRendered": 121
+  },
+  "blocks": [
+    {
+      "id": "softmax-regression-001",
+      "sha256": "c966641dc1bcd04bfef2f7555661ffcbb6282b7eba982bf9516e1d3659ca8364",
+      "type": "heading",
+      "depth": 1,
+      "line": 1,
+      "raw": "# softmax回归",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-002",
+      "sha256": "6ea3af447589d691c756bb12f53cb4ac1531d86ff2d478c97e5ee45d37326225",
+      "type": "paragraph",
+      "depth": null,
+      "line": 3,
+      "raw": "在 [原文引用：sec_linear_regression](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中我们介绍了线性回归。\n随后，在 [原文引用：sec_linear_scratch](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中我们从头实现线性回归。\n然后，在 [原文引用：sec_linear_concise](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中我们使用深度学习框架的高级API简洁实现线性回归。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-003",
+      "sha256": "a9474ea28272849a7dbcf51983f9da4aef039cab99d42dfb2e97812344375fa6",
+      "type": "paragraph",
+      "depth": null,
+      "line": 7,
+      "raw": "回归可以用于预测*多少*的问题。\n比如预测房屋被售出价格，或者棒球队可能获得的胜场数，又或者患者住院的天数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-004",
+      "sha256": "950388aa5fb6c76ac89b99f6109e112788c4b92719eac91e46f14ccef4b96fb4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 10,
+      "raw": "事实上，我们也对*分类*问题感兴趣：不是问“多少”，而是问“哪一个”：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-005",
+      "sha256": "1ece8bc4bbccb659b3f2dac958a48643c77d732c5b91bbe4f04c2bb7f7c7beca",
+      "type": "list",
+      "depth": null,
+      "line": 12,
+      "raw": "* 某个电子邮件是否属于垃圾邮件文件夹？\n* 某个用户可能*注册*或*不注册*订阅服务？\n* 某个图像描绘的是驴、狗、猫、还是鸡？\n* 某人接下来最有可能看哪部电影？",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-006",
+      "sha256": "b2ad7355bc3b6eeb94f97d9d9a847ea177044c32b6087a2549c7554640f124f4",
+      "type": "paragraph",
+      "depth": null,
+      "line": 17,
+      "raw": "通常，机器学习实践者用*分类*这个词来描述两个有微妙差别的问题：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-007",
+      "sha256": "094f0225ef11be3b2c9095ff6322d8f17d8637c1f669f7c1dd0a62aa80325cdf",
+      "type": "list",
+      "depth": null,
+      "line": 18,
+      "raw": "1. 我们只对样本的“硬性”类别感兴趣，即属于哪个类别；\n2. 我们希望得到“软性”类别，即得到属于每个类别的概率。\n这两者的界限往往很模糊。其中的一个原因是：即使我们只关心硬类别，我们仍然使用软类别的模型。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-008",
+      "sha256": "30592427428deee8fc83d32cf2a6806fc718ce483f0a8b1470db7f1502604662",
+      "type": "heading",
+      "depth": 2,
+      "line": 22,
+      "raw": "## 分类问题",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-009",
+      "sha256": "092bff62e30c7e7d7c0161e6d45ed28b8b8c778da4429a407fe2ce0198b2879d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 24,
+      "raw": "我们从一个图像分类问题开始。\n假设每次输入是一个$2\\times2$的灰度图像。\n我们可以用一个标量表示每个像素值，每个图像对应四个特征$x_1, x_2, x_3, x_4$。\n此外，假设每个图像属于类别“猫”“鸡”和“狗”中的一个。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-010",
+      "sha256": "9d21a7b75b21072db9a8097379e8129c8a75645cc4f554a8611b29a2048dd15c",
+      "type": "paragraph",
+      "depth": null,
+      "line": 29,
+      "raw": "接下来，我们要选择如何表示标签。\n我们有两个明显的选择：最直接的想法是选择$y \\in \\{1, 2, 3\\}$，\n其中整数分别代表$\\{\\text{狗}, \\text{猫}, \\text{鸡}\\}$。\n这是在计算机上存储此类信息的有效方法。\n如果类别间有一些自然顺序，\n比如说我们试图预测$\\{\\text{婴儿}, \\text{儿童}, \\text{青少年}, \\text{青年人}, \\text{中年人}, \\text{老年人}\\}$，\n那么将这个问题转变为回归问题，并且保留这种格式是有意义的。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-011",
+      "sha256": "a44eb26810b99a1059cd9302df9c1057faa66bf13bb6691d4acc58601d41ef2a",
+      "type": "paragraph",
+      "depth": null,
+      "line": 37,
+      "raw": "但是一般的分类问题并不与类别之间的自然顺序有关。\n幸运的是，统计学家很早以前就发明了一种表示分类数据的简单方法：*独热编码*（one-hot encoding）。\n独热编码是一个向量，它的分量和类别一样多。\n类别对应的分量设置为1，其他所有分量设置为0。\n在我们的例子中，标签$y$将是一个三维向量，\n其中$(1, 0, 0)$对应于“猫”、$(0, 1, 0)$对应于“鸡”、$(0, 0, 1)$对应于“狗”：",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-012",
+      "sha256": "7f6e89aa2a3bb77eceeb3b3d67ddd02e4ec935a4aff7a899c08a5aa1e888d084",
+      "type": "paragraph",
+      "depth": null,
+      "line": 44,
+      "raw": "$$y \\in \\{(1, 0, 0), (0, 1, 0), (0, 0, 1)\\}.$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-013",
+      "sha256": "e28836f48a7ec4f62916d49354aafc966b170908911c946563103c395c3baabf",
+      "type": "heading",
+      "depth": 2,
+      "line": 46,
+      "raw": "## 网络架构",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-014",
+      "sha256": "49bbd487a1a4fc177e3b74238ed80700e75ccd8fc05bd65e621fb5c2852fe30d",
+      "type": "paragraph",
+      "depth": null,
+      "line": 48,
+      "raw": "为了估计所有可能类别的条件概率，我们需要一个有多个输出的模型，每个类别对应一个输出。\n为了解决线性模型的分类问题，我们需要和输出一样多的*仿射函数*（affine function）。\n每个输出对应于它自己的仿射函数。\n在我们的例子中，由于我们有4个特征和3个可能的输出类别，\n我们将需要12个标量来表示权重（带下标的$w$），\n3个标量来表示偏置（带下标的$b$）。\n下面我们为每个输入计算三个*未规范化的预测*（logit）：$o_1$、$o_2$和$o_3$。",
+      "math": {
+        "expected": 5,
+        "rendered": 5,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-015",
+      "sha256": "2d9cd5505ab10e4709477dabb249c6eb9b15782635dc5eac7b7f74c76496593e",
+      "type": "math",
+      "depth": null,
+      "line": 56,
+      "raw": "$$\n\\begin{aligned}\no_1 &= x_1 w_{11} + x_2 w_{12} + x_3 w_{13} + x_4 w_{14} + b_1,\\\\\no_2 &= x_1 w_{21} + x_2 w_{22} + x_3 w_{23} + x_4 w_{24} + b_2,\\\\\no_3 &= x_1 w_{31} + x_2 w_{32} + x_3 w_{33} + x_4 w_{34} + b_3.\n\\end{aligned}\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-016",
+      "sha256": "a417ddb28322f2ec5f96489e4e73ba4b950923e83d156634be2fbc6ce86ccaea",
+      "type": "paragraph",
+      "depth": null,
+      "line": 64,
+      "raw": "我们可以用神经网络图 [原文引用：fig_softmaxreg](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)来描述这个计算过程。\n与线性回归一样，softmax回归也是一个单层神经网络。\n由于计算每个输出$o_1$、$o_2$和$o_3$取决于\n所有输入$x_1$、$x_2$、$x_3$和$x_4$，\n所以softmax回归的输出层也是全连接层。",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-017",
+      "sha256": "d54cc462f6c882188f74cfd6c686f714f043620201be82add9afc13066dec5c9",
+      "type": "paragraph",
+      "depth": null,
+      "line": 70,
+      "raw": "![softmax回归是一种单层神经网络](../img/softmaxreg.svg)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-018",
+      "sha256": "bc09bf7cc6bcf177d3b3a100b29393d675921cf97a30c479ac299d76c5d9a95e",
+      "type": "paragraph",
+      "depth": null,
+      "line": 72,
+      "raw": "为了更简洁地表达模型，我们仍然使用线性代数符号。\n通过向量形式表达为$\\mathbf{o} = \\mathbf{W} \\mathbf{x} + \\mathbf{b}$，\n这是一种更适合数学和编写代码的形式。\n由此，我们已经将所有权重放到一个$3 \\times 4$矩阵中。\n对于给定数据样本的特征$\\mathbf{x}$，\n我们的输出是由权重与输入特征进行矩阵-向量乘法再加上偏置$\\mathbf{b}$得到的。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-019",
+      "sha256": "daa8ac75b86380d817238e63d3d0f0f10147afa0d39d41d4ab9b5b0b4ffee5cb",
+      "type": "heading",
+      "depth": 2,
+      "line": 79,
+      "raw": "## 全连接层的参数开销",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-020",
+      "sha256": "bf22ac6c132c53a509bdba99810a59c9b0e3693fb696f150a21c2c52393e9859",
+      "type": "paragraph",
+      "depth": null,
+      "line": 81,
+      "raw": "正如我们将在后续章节中看到的，在深度学习中，全连接层无处不在。\n然而，顾名思义，全连接层是“完全”连接的，可能有很多可学习的参数。\n具体来说，对于任何具有$d$个输入和$q$个输出的全连接层，\n参数开销为$\\mathcal{O}(dq)$，这个数字在实践中可能高得令人望而却步。\n幸运的是，将$d$个输入转换为$q$个输出的成本可以减少到$\\mathcal{O}(\\frac{dq}{n})$，\n其中超参数$n$可以由我们灵活指定，以在实际应用中平衡参数节约和模型有效性\n [原文引用：Zhang.Tay.Zhang.ea.2021](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)。",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-021",
+      "sha256": "6968bab0c48deb9b9212c34f9f8c0694bca82d022389c11c014767003415440f",
+      "type": "heading",
+      "depth": 2,
+      "line": 89,
+      "raw": "## softmax运算",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-022",
+      "sha256": "52fcfd499929f2ab7095b8616be6ec8e9c460cdd50572dfab8ef0442afff3145",
+      "type": "paragraph",
+      "depth": null,
+      "line": 91,
+      "raw": "现在我们将优化参数以最大化观测数据的概率。\n为了得到预测结果，我们将设置一个阈值，如选择具有最大概率的标签。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-023",
+      "sha256": "d4fec6a7fd803473e9babc4adebeb4288a8d192d3f64ea4b3c11243e47780476",
+      "type": "paragraph",
+      "depth": null,
+      "line": 94,
+      "raw": "我们希望模型的输出$\\hat{y}_j$可以视为属于类$j$的概率，\n然后选择具有最大输出值的类别$\\operatorname*{argmax}_j y_j$作为我们的预测。\n例如，如果$\\hat{y}_1$、$\\hat{y}_2$和$\\hat{y}_3$分别为0.1、0.8和0.1，\n那么我们预测的类别是2，在我们的例子中代表“鸡”。",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-024",
+      "sha256": "40bf4f6e2233b9fa7fab7b0bb73e8d6778b02e08b90805e21103269109d63544",
+      "type": "paragraph",
+      "depth": null,
+      "line": 99,
+      "raw": "然而我们能否将未规范化的预测$o$直接视作我们感兴趣的输出呢？\n答案是否定的。\n因为将线性层的输出直接视为概率时存在一些问题：\n一方面，我们没有限制这些输出数字的总和为1。\n另一方面，根据输入的不同，它们可以为负值。\n这些违反了 [原文引用：sec_prob](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中所说的概率基本公理。",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-025",
+      "sha256": "776109c292bf128438d5a3c986c3987bce33a949982923f39efb58aa2bd92a49",
+      "type": "paragraph",
+      "depth": null,
+      "line": 106,
+      "raw": "要将输出视为概率，我们必须保证在任何数据上的输出都是非负的且总和为1。\n此外，我们需要一个训练的目标函数，来激励模型精准地估计概率。\n例如，\n在分类器输出0.5的所有样本中，我们希望这些样本是刚好有一半实际上属于预测的类别。\n这个属性叫做*校准*（calibration）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-026",
+      "sha256": "3e19ce48de48bbea51937bee02b771f2d36c722289804fb8f6174fa02ad84546",
+      "type": "paragraph",
+      "depth": null,
+      "line": 112,
+      "raw": "社会科学家邓肯·卢斯于1959年在*选择模型*（choice model）的理论基础上\n发明的*softmax函数*正是这样做的：\nsoftmax函数能够将未规范化的预测变换为非负数并且总和为1，同时让模型保持\n可导的性质。\n为了完成这一目标，我们首先对每个未规范化的预测求幂，这样可以确保输出非负。\n为了确保最终输出的概率值总和为1，我们再让每个求幂后的结果除以它们的总和。如下式：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-027",
+      "sha256": "0041f090163406554c1bbdf39f6ccd1fd9f44dfc72200fd96ba6a8d8ee6d0a52",
+      "type": "paragraph",
+      "depth": null,
+      "line": 119,
+      "raw": "$$\\hat{\\mathbf{y}} = \\mathrm{softmax}(\\mathbf{o})\\quad \\text{其中}\\quad \\hat{y}_j = \\frac{\\exp(o_j)}{\\sum_k \\exp(o_k)}$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-028",
+      "sha256": "62be382aa2446a3427ca92fe23117f981ef4e4f2cc2f52e740da142170265ada",
+      "type": "paragraph",
+      "depth": null,
+      "line": 121,
+      "raw": "这里，对于所有的$j$总有$0 \\leq \\hat{y}_j \\leq 1$。\n因此，$\\hat{\\mathbf{y}}$可以视为一个正确的概率分布。\nsoftmax运算不会改变未规范化的预测$\\mathbf{o}$之间的大小次序，只会确定分配给每个类别的概率。\n因此，在预测过程中，我们仍然可以用下式来选择最有可能的类别。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-029",
+      "sha256": "5f768f00fa43da09dff46ffbf018b2c164af2fbcff3c83e3277214bc88b80361",
+      "type": "math",
+      "depth": null,
+      "line": 126,
+      "raw": "$$\n\\operatorname*{argmax}_j \\hat y_j = \\operatorname*{argmax}_j o_j.\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-030",
+      "sha256": "3681b826592221cdc4fa05a1757ba9cc7839bb76e8c61ee9f6b42612033a91cc",
+      "type": "paragraph",
+      "depth": null,
+      "line": 130,
+      "raw": "尽管softmax是一个非线性函数，但softmax回归的输出仍然由输入特征的仿射变换决定。\n因此，softmax回归是一个*线性模型*（linear model）。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-031",
+      "sha256": "27d3bf2682f86619f8c3fc24e25ec8d887d3697a7ff65b7c8925df63fd7984ac",
+      "type": "heading",
+      "depth": 2,
+      "line": 133,
+      "raw": "## 小批量样本的矢量化",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-032",
+      "sha256": "e17b4d9b1d8e8be0c0b475b6f90ed0ac3fb8688e9a3da51592bcd29950e0ebba",
+      "type": "paragraph",
+      "depth": null,
+      "line": 135,
+      "raw": "为了提高计算效率并且充分利用GPU，我们通常会对小批量样本的数据执行矢量计算。\n假设我们读取了一个批量的样本$\\mathbf{X}$，\n其中特征维度（输入数量）为$d$，批量大小为$n$。\n此外，假设我们在输出中有$q$个类别。\n那么小批量样本的特征为$\\mathbf{X} \\in \\mathbb{R}^{n \\times d}$，\n权重为$\\mathbf{W} \\in \\mathbb{R}^{d \\times q}$，\n偏置为$\\mathbf{b} \\in \\mathbb{R}^{1\\times q}$。\nsoftmax回归的矢量计算表达式为：",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-033",
+      "sha256": "6be4e58d36be667911c9ffdc955ff03720cb60254d9f645fdf72a2595886bf51",
+      "type": "paragraph",
+      "depth": null,
+      "line": 144,
+      "raw": "$$ \\begin{aligned} \\mathbf{O} &= \\mathbf{X} \\mathbf{W} + \\mathbf{b}, \\\\ \\hat{\\mathbf{Y}} & = \\mathrm{softmax}(\\mathbf{O}). \\end{aligned} $$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-034",
+      "sha256": "ba0443070ba356e03469d1a5b48f6733af0837e4382b6deda6445116043d9059",
+      "type": "paragraph",
+      "depth": null,
+      "line": 146,
+      "raw": "相对于一次处理一个样本，\n小批量样本的矢量化加快了$\\mathbf{X}和\\mathbf{W}$的矩阵-向量乘法。\n由于$\\mathbf{X}$中的每一行代表一个数据样本，\n那么softmax运算可以*按行*（rowwise）执行：\n对于$\\mathbf{O}$的每一行，我们先对所有项进行幂运算，然后通过求和对它们进行标准化。\n在 [原文引用：eq_minibatch_softmax_reg](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中，\n$\\mathbf{X} \\mathbf{W} + \\mathbf{b}$的求和会使用广播机制，\n小批量的未规范化预测$\\mathbf{O}$和输出概率$\\hat{\\mathbf{Y}}$\n都是形状为$n \\times q$的矩阵。",
+      "math": {
+        "expected": 7,
+        "rendered": 7,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-035",
+      "sha256": "87f676c9cb266c4ae1c34d21c9328c821c7eacd5f06496ac93a600086d12c2fc",
+      "type": "heading",
+      "depth": 2,
+      "line": 156,
+      "raw": "## 损失函数",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-036",
+      "sha256": "9f47d1b2eccbdc54b05e85a824b2de8f4598f9984d25fdd73576eefd86b284da",
+      "type": "paragraph",
+      "depth": null,
+      "line": 158,
+      "raw": "接下来，我们需要一个损失函数来度量预测的效果。\n我们将使用最大似然估计，这与在线性回归\n（ [原文引用：subsec_normal_distribution_and_squared_loss](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)）\n中的方法相同。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-037",
+      "sha256": "0ddbc6eafcca0c3eeb3d147fa671f63d125581c03197fb1176ff42489b799336",
+      "type": "heading",
+      "depth": 3,
+      "line": 163,
+      "raw": "### 对数似然",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-038",
+      "sha256": "1887c420b47a36bc8a8ce810a9edeb0611159514acafc93d3b18f91c308090d2",
+      "type": "paragraph",
+      "depth": null,
+      "line": 165,
+      "raw": "softmax函数给出了一个向量$\\hat{\\mathbf{y}}$，\n我们可以将其视为“对给定任意输入$\\mathbf{x}$的每个类的条件概率”。\n例如，$\\hat{y}_1$=$P(y=\\text{猫} \\mid \\mathbf{x})$。\n假设整个数据集$\\{\\mathbf{X}, \\mathbf{Y}\\}$具有$n$个样本，\n其中索引$i$的样本由特征向量$\\mathbf{x}^{(i)}$和独热标签向量$\\mathbf{y}^{(i)}$组成。\n我们可以将估计值与实际值进行比较：",
+      "math": {
+        "expected": 9,
+        "rendered": 9,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-039",
+      "sha256": "0dea953fc26ee19923d7e20ea533c47d2408eea274d4424113136720af5d360d",
+      "type": "math",
+      "depth": null,
+      "line": 172,
+      "raw": "$$\nP(\\mathbf{Y} \\mid \\mathbf{X}) = \\prod_{i=1}^n P(\\mathbf{y}^{(i)} \\mid \\mathbf{x}^{(i)}).\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-040",
+      "sha256": "b74bc6fab59d0101c5f53a740fcb4966319f19d19a4d23abd733bc2c9a4866d8",
+      "type": "paragraph",
+      "depth": null,
+      "line": 176,
+      "raw": "根据最大似然估计，我们最大化$P(\\mathbf{Y} \\mid \\mathbf{X})$，相当于最小化负对数似然：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-041",
+      "sha256": "fae7c069aa9fe7bb383f8454ad70beadfc9ecf71c84ad9ebe7a13e5a690c0f4e",
+      "type": "math",
+      "depth": null,
+      "line": 178,
+      "raw": "$$\n-\\log P(\\mathbf{Y} \\mid \\mathbf{X}) = \\sum_{i=1}^n -\\log P(\\mathbf{y}^{(i)} \\mid \\mathbf{x}^{(i)})\n= \\sum_{i=1}^n l(\\mathbf{y}^{(i)}, \\hat{\\mathbf{y}}^{(i)}),\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-042",
+      "sha256": "0b1a9e49d630f76fd397c0d9934bd14a6e37da206e03c82cdfbe077b123bf008",
+      "type": "paragraph",
+      "depth": null,
+      "line": 183,
+      "raw": "其中，对于任何标签$\\mathbf{y}$和模型预测$\\hat{\\mathbf{y}}$，损失函数为：",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-043",
+      "sha256": "a4d50019ebb263a5229d951de0d0ae3b09a5f0f6e0a712371039e49246ca2f47",
+      "type": "paragraph",
+      "depth": null,
+      "line": 185,
+      "raw": "$$ l(\\mathbf{y}, \\hat{\\mathbf{y}}) = - \\sum_{j=1}^q y_j \\log \\hat{y}_j. $$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-044",
+      "sha256": "835252808bfb78d57ee2e16e092a5d840bc321eee03e5ce0b4d6a2bef7b01600",
+      "type": "paragraph",
+      "depth": null,
+      "line": 187,
+      "raw": "在本节稍后的内容会讲到， [原文引用：eq_l_cross_entropy](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中的损失函数\n通常被称为*交叉熵损失*（cross-entropy loss）。\n由于$\\mathbf{y}$是一个长度为$q$的独热编码向量，\n所以除了一个项以外的所有项$j$都消失了。\n由于所有$\\hat{y}_j$都是预测的概率，所以它们的对数永远不会大于$0$。\n因此，如果正确地预测实际标签，即如果实际标签$P(\\mathbf{y} \\mid \\mathbf{x})=1$，\n则损失函数不能进一步最小化。\n注意，这往往是不可能的。\n例如，数据集中可能存在标签噪声（比如某些样本可能被误标），\n或输入特征没有足够的信息来完美地对每一个样本分类。",
+      "math": {
+        "expected": 6,
+        "rendered": 6,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-045",
+      "sha256": "a98d797fa33fe4889d1c9209c588e7eb2152d4e22ad56296d9634c006f1b3e84",
+      "type": "heading",
+      "depth": 3,
+      "line": 198,
+      "raw": "### softmax及其导数",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-046",
+      "sha256": "e888e7294c3259a145bf1b7e6674fc5db8879ddf1bf554db416b6256655b6b56",
+      "type": "paragraph",
+      "depth": null,
+      "line": 200,
+      "raw": "由于softmax和相关的损失函数很常见，\n因此我们需要更好地理解它的计算方式。\n将 [原文引用：eq_softmax_y_and_o](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)代入损失 [原文引用：eq_l_cross_entropy](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中。\n利用softmax的定义，我们得到：",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-047",
+      "sha256": "f096696820ed5a0d485756357ba1f50459bdbcde994368463dd67148af2eb2a6",
+      "type": "math",
+      "depth": null,
+      "line": 205,
+      "raw": "$$\n\\begin{aligned}\nl(\\mathbf{y}, \\hat{\\mathbf{y}}) &=  - \\sum_{j=1}^q y_j \\log \\frac{\\exp(o_j)}{\\sum_{k=1}^q \\exp(o_k)} \\\\\n&= \\sum_{j=1}^q y_j \\log \\sum_{k=1}^q \\exp(o_k) - \\sum_{j=1}^q y_j o_j\\\\\n&= \\log \\sum_{k=1}^q \\exp(o_k) - \\sum_{j=1}^q y_j o_j.\n\\end{aligned}\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-048",
+      "sha256": "f0efd526aa8e2c33da685fc30bf642f44264aafa26487c3011d77f39f88c6245",
+      "type": "paragraph",
+      "depth": null,
+      "line": 213,
+      "raw": "考虑相对于任何未规范化的预测$o_j$的导数，我们得到：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-049",
+      "sha256": "7925aa4147e4a18952cb71fde39cea4ab2c0a92fc59c2e0e141030c8b1563ccf",
+      "type": "math",
+      "depth": null,
+      "line": 215,
+      "raw": "$$\n\\partial_{o_j} l(\\mathbf{y}, \\hat{\\mathbf{y}}) = \\frac{\\exp(o_j)}{\\sum_{k=1}^q \\exp(o_k)} - y_j = \\mathrm{softmax}(\\mathbf{o})_j - y_j.\n$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-050",
+      "sha256": "70d73093dd99cf360aab5bbc4b11417100af4460e3af6b60a541cfc3e8c8fe48",
+      "type": "paragraph",
+      "depth": null,
+      "line": 219,
+      "raw": "换句话说，导数是我们softmax模型分配的概率与实际发生的情况（由独热标签向量表示）之间的差异。\n从这个意义上讲，这与我们在回归中看到的非常相似，\n其中梯度是观测值$y$和估计值$\\hat{y}$之间的差异。\n这不是巧合，在任何指数族分布模型中\n（参见[本书附录中关于数学分布的一节](https://d2l.ai/chapter_appendix-mathematics-for-deep-learning/distributions.html)），\n对数似然的梯度正是由此得出的。\n这使梯度计算在实践中变得容易很多。",
+      "math": {
+        "expected": 2,
+        "rendered": 2,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-051",
+      "sha256": "d90ba4d74b08768dd3d8da95aee0cef315fc16dfa7ea141edeab8e7cba247dc9",
+      "type": "heading",
+      "depth": 3,
+      "line": 227,
+      "raw": "### 交叉熵损失",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-052",
+      "sha256": "270be41437b935f7a0eebad5f469b4fca6b21c4514256c8d3f780cc61fe32764",
+      "type": "paragraph",
+      "depth": null,
+      "line": 229,
+      "raw": "现在让我们考虑整个结果分布的情况，即观察到的不仅仅是一个结果。\n对于标签$\\mathbf{y}$，我们可以使用与以前相同的表示形式。\n唯一的区别是，我们现在用一个概率向量表示，如$(0.1, 0.2, 0.7)$，\n而不是仅包含二元项的向量$(0, 0, 1)$。\n我们使用 [原文引用：eq_l_cross_entropy](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)来定义损失$l$，\n它是所有标签分布的预期损失值。\n此损失称为*交叉熵损失*（cross-entropy loss），它是分类问题最常用的损失之一。\n本节我们将通过介绍信息论基础来理解交叉熵损失。\n如果想了解更多信息论的细节，请进一步参考\n[本书附录中关于信息论的一节](https://d2l.ai/chapter_appendix-mathematics-for-deep-learning/information-theory.html)。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-053",
+      "sha256": "8b31380f1c590755295412eabe7fbabc27e12670918ba3876169b7e69a15f690",
+      "type": "heading",
+      "depth": 2,
+      "line": 240,
+      "raw": "## 信息论基础",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-054",
+      "sha256": "b33c280f4c2bb283578e973ce65475a78b328a0c6333b67edcfd0a5c7bb11a77",
+      "type": "paragraph",
+      "depth": null,
+      "line": 242,
+      "raw": "*信息论*（information theory）涉及编码、解码、发送以及尽可能简洁地处理信息或数据。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-055",
+      "sha256": "3fe2d6948c35627a6b0e1ccb85b6646ac9a4ed392d1b6a38df02330a9728a8f6",
+      "type": "heading",
+      "depth": 3,
+      "line": 244,
+      "raw": "### 熵",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-056",
+      "sha256": "1ce9c337b18abb61cd661527d7e76e714f2ede6687ae0005d5f4716d9bdfd6cd",
+      "type": "paragraph",
+      "depth": null,
+      "line": 246,
+      "raw": "信息论的核心思想是量化数据中的信息内容。\n在信息论中，该数值被称为分布$P$的*熵*（entropy）。可以通过以下方程得到：",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-057",
+      "sha256": "b99a4bb927e73593385571e0d4eadccfc279742d8d60a29b580853404919b11f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 249,
+      "raw": "$$H[P] = \\sum_j - P(j) \\log P(j).$$",
+      "math": {
+        "expected": 1,
+        "rendered": 1,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-058",
+      "sha256": "2d4413fc8bddc46d54a586ae2d8fcf0d0f41ed96d49447633d735d3e3b5d6ffb",
+      "type": "paragraph",
+      "depth": null,
+      "line": 251,
+      "raw": "信息论的基本定理之一指出，为了对从分布$p$中随机抽取的数据进行编码，\n我们至少需要$H[P]$“纳特（nat）”对其进行编码。\n“纳特”相当于*比特*（bit），但是对数底为$e$而不是2。因此，一个纳特是$\\frac{1}{\\log(2)} \\approx 1.44$比特。",
+      "math": {
+        "expected": 4,
+        "rendered": 4,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-059",
+      "sha256": "381956e07b17d05597ee5fa359e5d26cb3a21b562b6efa6eae5f7e74251fbfdf",
+      "type": "heading",
+      "depth": 3,
+      "line": 255,
+      "raw": "### 信息量",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-060",
+      "sha256": "f5ec654ff719164b6cd8cfdeebf93f65b5528d9ebeb1f048f011b5350bedb204",
+      "type": "paragraph",
+      "depth": null,
+      "line": 257,
+      "raw": "压缩与预测有什么关系呢？\n想象一下，我们有一个要压缩的数据流。\n如果我们很容易预测下一个数据，那么这个数据就很容易压缩。\n为什么呢？\n举一个极端的例子，假如数据流中的每个数据完全相同，这会是一个非常无聊的数据流。\n由于它们总是相同的，我们总是知道下一个数据是什么。\n所以，为了传递数据流的内容，我们不必传输任何信息。也就是说，“下一个数据是xx”这个事件毫无信息量。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-061",
+      "sha256": "d72c08ab0f47dd5623694c7ee8cde8812004bdca91641b3a9489732b8e401243",
+      "type": "paragraph",
+      "depth": null,
+      "line": 265,
+      "raw": "但是，如果我们不能完全预测每一个事件，那么我们有时可能会感到\"惊异\"。\n克劳德·香农决定用信息量$\\log \\frac{1}{P(j)} = -\\log P(j)$来量化这种惊异程度。\n在观察一个事件$j$时，并赋予它（主观）概率$P(j)$。\n当我们赋予一个事件较低的概率时，我们的惊异会更大，该事件的信息量也就更大。\n在 [原文引用：eq_softmax_reg_entropy](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)中定义的熵，\n是当分配的概率真正匹配数据生成过程时的*信息量的期望*。",
+      "math": {
+        "expected": 3,
+        "rendered": 3,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-062",
+      "sha256": "7359d02448d738a24a191bd29dcba4e24a033bef8ee146ae0090458b50ebd967",
+      "type": "heading",
+      "depth": 3,
+      "line": 272,
+      "raw": "### 重新审视交叉熵",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-063",
+      "sha256": "91d94e0f5e3d8c2ba9f1ced57852756f1c93a5208facf9f152595714a410c654",
+      "type": "paragraph",
+      "depth": null,
+      "line": 274,
+      "raw": "如果把熵$H(P)$想象为“知道真实概率的人所经历的惊异程度”，那么什么是交叉熵？\n交叉熵*从*$P$*到*$Q$，记为$H(P, Q)$。\n我们可以把交叉熵想象为“主观概率为$Q$的观察者在看到根据概率$P$生成的数据时的预期惊异”。\n当$P=Q$时，交叉熵达到最低。\n在这种情况下，从$P$到$Q$的交叉熵是$H(P, P)= H(P)$。",
+      "math": {
+        "expected": 10,
+        "rendered": 10,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-064",
+      "sha256": "c41dcb06690a95d57a6490cf178d7c1db62301e9e97b8aba6492064cd629e322",
+      "type": "paragraph",
+      "depth": null,
+      "line": 280,
+      "raw": "简而言之，我们可以从两方面来考虑交叉熵分类目标：\n（i）最大化观测数据的似然；（ii）最小化传达标签所需的惊异。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-065",
+      "sha256": "34df76e421cd2f5c5a880e73c9f1c65ce5c10b8cbd2f74a0b331cdd662623052",
+      "type": "heading",
+      "depth": 2,
+      "line": 283,
+      "raw": "## 模型预测和评估",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-066",
+      "sha256": "f2126df264d6a99fce2d21958f690564ec2fc5ef41ad0a002c419fd4f82bf89f",
+      "type": "paragraph",
+      "depth": null,
+      "line": 285,
+      "raw": "在训练softmax回归模型后，给出任何样本特征，我们可以预测每个输出类别的概率。\n通常我们使用预测概率最高的类别作为输出类别。\n如果预测与实际类别（标签）一致，则预测是正确的。\n在接下来的实验中，我们将使用*精度*（accuracy）来评估模型的性能。\n精度等于正确预测数与预测总数之间的比率。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-067",
+      "sha256": "0d0ae10d8cf40a58de26a5598ab4d0bc53203d32df72f6c3052084ea54d5efbf",
+      "type": "heading",
+      "depth": 2,
+      "line": 291,
+      "raw": "## 小结",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-068",
+      "sha256": "5da7dfd011f1ba54cea4036957a8bb05de431c7d960a06d4485d8a0de4eeef1c",
+      "type": "list",
+      "depth": null,
+      "line": 293,
+      "raw": "* softmax运算获取一个向量并将其映射为概率。\n* softmax回归适用于分类问题，它使用了softmax运算中输出类别的概率分布。\n* 交叉熵是一个衡量两个概率分布之间差异的很好的度量，它测量给定模型编码数据所需的比特数。",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-069",
+      "sha256": "4d5e5702931bce7ebd0fc09f53515ef33fab432be4af55edf56b4523d013650a",
+      "type": "heading",
+      "depth": 2,
+      "line": 297,
+      "raw": "## 练习",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-070",
+      "sha256": "ea16bf5fba9ef656dd1ab893541755c32ec29bed7d474196154009909ae10649",
+      "type": "list",
+      "depth": null,
+      "line": 299,
+      "raw": "1. 我们可以更深入地探讨指数族与softmax之间的联系。\n    1. 计算softmax交叉熵损失$l(\\mathbf{y},\\hat{\\mathbf{y}})$的二阶导数。\n    1. 计算$\\mathrm{softmax}(\\mathbf{o})$给出的分布方差，并与上面计算的二阶导数匹配。\n1. 假设我们有三个类发生的概率相等，即概率向量是$(\\frac{1}{3}, \\frac{1}{3}, \\frac{1}{3})$。\n    1. 如果我们尝试为它设计二进制代码，有什么问题？\n    1. 请设计一个更好的代码。提示：如果我们尝试编码两个独立的观察结果会发生什么？如果我们联合编码$n$个观测值怎么办？\n1. softmax是对上面介绍的映射的误称（虽然深度学习领域中很多人都使用这个名字）。真正的softmax被定义为$\\mathrm{RealSoftMax}(a, b) = \\log (\\exp(a) + \\exp(b))$。\n    1. 证明$\\mathrm{RealSoftMax}(a, b) > \\mathrm{max}(a, b)$。\n    1. 证明$\\lambda^{-1} \\mathrm{RealSoftMax}(\\lambda a, \\lambda b) > \\mathrm{max}(a, b)$成立，前提是$\\lambda > 0$。\n    1. 证明对于$\\lambda \\to \\infty$，有$\\lambda^{-1} \\mathrm{RealSoftMax}(\\lambda a, \\lambda b) \\to \\mathrm{max}(a, b)$。\n    1. soft-min会是什么样子？\n    1. 将其扩展到两个以上的数字。",
+      "math": {
+        "expected": 10,
+        "rendered": 10,
+        "errors": 0,
+        "pending": 0
+      }
+    },
+    {
+      "id": "softmax-regression-071",
+      "sha256": "971590d0b80d3ed09b1d23a094f477a7d7b018a8696260690ed6aa63b50f3a85",
+      "type": "paragraph",
+      "depth": null,
+      "line": 312,
+      "raw": "[Discussions](https://discuss.d2l.ai/t/1785)",
+      "math": {
+        "expected": 0,
+        "rendered": 0,
+        "errors": 0,
+        "pending": 0
+      }
+    }
+  ]
+}

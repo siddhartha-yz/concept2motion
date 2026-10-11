@@ -1,0 +1,7 @@
+{
+  "id": "ones-uniform",
+  "afterAnchor": "multihead-attention-019",
+  "kind": "clarification",
+  "text": "这个全 1 输入只检查输出形状。在 eval 模式下，同一头中的有效键完全相同，分数也相同：两个样本分别在 3 个、2 个有效键上均匀分配权重，屏蔽位置为 0。因此本例不能展示不同头关注不同位置，也不能据此判断头的重要性。",
+  "formula": "\\alpha_{bj}=\\begin{cases}1/L_b,&j<L_b\\\\0,&j\\ge L_b\\end{cases},\\quad L_b\\in\\{3,2\\}"
+}

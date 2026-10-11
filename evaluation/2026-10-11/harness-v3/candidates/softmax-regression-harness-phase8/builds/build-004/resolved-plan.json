@@ -1,0 +1,86 @@
+{
+  "figures": [
+    {
+      "id": "softmax-competition",
+      "afterAnchor": "softmax-regression-029",
+      "title": "只改猫的分数，三类概率一起变",
+      "summary": "鸡、狗的基础分数固定为 0、−1。共同平移只改分数，不改概率。",
+      "height": 355,
+      "mobileHeight": 355,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "cat",
+          "label": "猫的基础分数",
+          "min": -3,
+          "max": 3,
+          "step": 0.1,
+          "value": 1
+        },
+        {
+          "key": "shift",
+          "label": "三类共同平移",
+          "min": -3,
+          "max": 3,
+          "step": 0.1,
+          "value": 0
+        }
+      ],
+      "code": "function draw({board,width,params}) {\n const names=['猫','鸡','狗'],colors=['#327f96','#b86838','#6c7780'];\n const o=[params.cat+params.shift,params.shift,-1+params.shift];\n const m=Math.max(...o),e=o.map(v=>Math.exp(v-m)),s=e.reduce((a,b)=>a+b,0),p=e.map(v=>v/s);\n const L=90,R=width-58,W=R-L;\n board.text('head-left','分数 o',12,25,{size:14,color:'#637782'});\n board.text('head-right','概率 p',L,25,{size:14,color:'#637782'});\n [0,.5,1].forEach((v,i)=>{const x=L+v*W;board.line('grid-'+i,x,43,x,259,'#dce4e5',1);board.text('tick-'+i,String(v),x,279,{size:13,anchor:'middle',color:'#637782'});});\n names.forEach((n,j)=>{const y=69+j*72;board.text('name-'+j,n,12,y+13,{size:17,color:colors[j]});board.text('score-'+j,o[j].toFixed(1),12,y+36,{size:14,color:'#637782'});board.rect('bar-'+j,L,y,W*p[j],23,colors[j],{rx:2});board.text('prob-'+j,p[j].toFixed(3),width-12,y+17,{size:14,anchor:'end'});});\n board.text('axis','0—1，共用概率刻度',L,302,{size:13,color:'#637782'});\n board.text('ratio','鸡 / 狗 = '+(p[1]/p[2]).toFixed(3)+'  始终不变',12,332,{size:15});\n return {logits:o,probabilities:p,sum:p.reduce((a,b)=>a+b,0),chickenDogRatio:p[1]/p[2],catChickenRatio:p[0]/p[1],convention:'手选分数；稳定 softmax；无训练或校准声明'};\n}"
+    },
+    {
+      "id": "gradient-step",
+      "afterAnchor": "softmax-regression-050",
+      "title": "梯度的正负，决定分数往哪边走",
+      "summary": "✓ 标记真实类别。g<0 上调分数，g>0 下调分数。概率取决于所有分数，下调某类分数不一定降低其概率。这是示例分数更新，不是权重训练。",
+      "height": 365,
+      "mobileHeight": 365,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "target",
+          "label": "真实类别",
+          "kind": "select",
+          "options": [
+            {
+              "label": "猫",
+              "value": 0
+            },
+            {
+              "label": "鸡",
+              "value": 1
+            },
+            {
+              "label": "狗",
+              "value": 2
+            }
+          ],
+          "value": 1
+        },
+        {
+          "key": "eta",
+          "label": "一步的步长 η",
+          "min": 0,
+          "max": 1,
+          "step": 0.05,
+          "value": 0.5
+        }
+      ],
+      "code": "function draw({board,width,params}) {\n const names=['猫','鸡','狗'],o=[1,0,-1],target=Number(params.target),eta=params.eta;\n const soft=v=>{const m=Math.max(...v),e=v.map(x=>Math.exp(x-m)),s=e.reduce((a,b)=>a+b,0);return e.map(x=>x/s);};\n const p=soft(o),g=p.map((x,j)=>x-(j===target?1:0)),next=o.map((x,j)=>x-eta*g[j]),q=soft(next);\n const L=100,R=width-58,W=R-L;\n board.text('axis-name','预测概率',width-12,23,{size:13,anchor:'end',color:'#637782'});\n board.line('legend-before',12,18,31,18,'#7896a3',5);board.text('legend-before-t','更新前',38,23,{size:14});\n board.line('legend-after',115,18,134,18,'#ba6b3c',5);board.text('legend-after-t','更新后',141,23,{size:14});\n [0,.5,1].forEach((v,i)=>{const x=L+v*W;board.line('grid-'+i,x,42,x,283,'#dce4e5',1);board.text('tick-'+i,String(v),x,303,{size:13,anchor:'middle',color:'#637782'});});\n names.forEach((n,j)=>{const y=58+80*j;board.text('name-'+j,n+(j===target?' ✓':''),12,y+13,{size:17,color:j===target?'#ba6b3c':'#243c46'});board.text('g-'+j,'g='+ (g[j]>0?'+':'')+g[j].toFixed(2),12,y+37,{size:13,color:'#637782'});board.rect('before-'+j,L,y,W*p[j],15,'#7896a3',{rx:2});board.rect('after-'+j,L,y+23,W*q[j],15,'#ba6b3c',{rx:2});board.text('p-'+j,p[j].toFixed(3),width-12,y+12,{size:13,anchor:'end',color:'#637782'});board.text('q-'+j,q[j].toFixed(3),width-12,y+35,{size:13,anchor:'end',color:'#ba6b3c'});});\n const loss=-Math.log(p[target]),nextLoss=-Math.log(q[target]);\n board.text('loss','损失（nat） '+loss.toFixed(3)+' → '+nextLoss.toFixed(3),12,340,{size:16});\n return {logits:o,target,eta,probabilities:p,gradient:g,updatedLogits:next,updatedProbabilities:q,loss,nextLoss,convention:'直接更新示例 logits 一步；不是全连接权重训练；自然对数'};\n}"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-calibration",
+      "afterAnchor": "softmax-regression-025",
+      "kind": "clarification",
+      "text": "softmax 只保证输出是概率分布，不自动保证校准；校准还需要在独立数据上检查预测概率与实际频率是否一致。"
+    },
+    {
+      "id": "note-entropy-units",
+      "afterAnchor": "softmax-regression-068",
+      "kind": "clarification",
+      "text": "本节使用自然对数，交叉熵的单位是 nat；换成以 2 为底的对数才是 bit。交叉熵也不是距离：两分布相同时通常仍等于非零的熵。"
+    }
+  ]
+}

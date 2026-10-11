@@ -1,0 +1,11 @@
+{
+  "arguments": {
+    "figureId": "yogi-change",
+    "attemptedDesigns": [
+      "optimizer"
+    ],
+    "reason": "现成 optimizer 只支持 SGD/RMSProp 等轨迹，不能表达 Adam 偏差校正权重和或 Yogi 一次二次矩增量；继续用 Board 坐标与曲线。实际预览发现纵轴标题碰撞顶部条件，本次移除默认标题并在绘图区上方单独定位，数学与有效参数保持不变。"
+  },
+  "status": "declared",
+  "code_sha256": "bfcf86e4ce46894f0060e980389ae8d8c6ffa311eac6b962a4bacae29c54ed28"
+}

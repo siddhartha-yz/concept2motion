@@ -1,0 +1,50 @@
+{
+  "operation": "softmax-loss",
+  "inputs": {
+    "logits": [
+      [
+        1,
+        0,
+        -1
+      ]
+    ],
+    "labels": [
+      1
+    ],
+    "reduction": "sum"
+  },
+  "result": {
+    "logits": [
+      [
+        1,
+        0,
+        -1
+      ]
+    ],
+    "labels": [
+      1
+    ],
+    "probabilities": [
+      [
+        0.6652409557748218,
+        0.24472847105479764,
+        0.09003057317038046
+      ]
+    ],
+    "losses": [
+      1.4076059644443804
+    ],
+    "loss": 1.4076059644443804,
+    "gradient": [
+      [
+        0.6652409557748218,
+        -0.7552715289452023,
+        0.09003057317038046
+      ]
+    ],
+    "denominator": 1,
+    "reduction": "sum",
+    "convention": "Cross entropy from unnormalized logits; mean divides by sample count; stable logsumexp, not log of an underflowed probability"
+  },
+  "scope": "Canonical calculation only; not independent math review, rendering or a model result"
+}

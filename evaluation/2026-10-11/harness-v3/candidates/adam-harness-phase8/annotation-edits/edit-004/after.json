@@ -1,0 +1,76 @@
+{
+  "figures": [
+    {
+      "id": "bias-mass",
+      "title": "零初始化少了多少权重？",
+      "afterAnchor": "adam-009",
+      "height": 350,
+      "mobileHeight": 370,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "beta",
+          "label": "历史保留 β",
+          "min": 0,
+          "max": 0.999,
+          "step": 0.001,
+          "value": 0.9
+        },
+        {
+          "key": "t",
+          "label": "观察步数 t",
+          "kind": "stepper",
+          "min": 1,
+          "max": 50,
+          "step": 1,
+          "value": 10
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const beta=params.beta, t=params.t, blue='#287d99', orange='#b65a31', ink='#253941', muted='#677b84';\n const raw=1-Math.pow(beta,t), mass=raw, corrected=raw/mass;\n board.text('condition','恒定梯度 g=1 · v₀=0',18,20,{size:14,color:muted});\n board.line('legend-raw',18,45,36,45,blue,2.5);\n board.text('legend-raw-text','原始 v',43,49,{size:14,color:blue});\n board.line('legend-corrected',150,45,168,45,orange,2.5);\n board.text('legend-corrected-text','校正后 v̂',175,49,{size:14,color:orange});\n const f=board.axes('mean-axes',{xDomain:[0,50],yDomain:[0,1.15],xLabel:'步数 t',yLabel:'估计值',box:[48,84,width-22,height-80],grid:true});\n const curve=Array.from({length:51},(_,i)=>{const x=i;return [x,1-Math.pow(beta,x)];});\n board.curve('raw-curve',f,curve,{color:blue,width:2.5});\n board.curve('corrected-curve',f,[[1,1],[50,1]],{color:orange,width:2.5});\n board.line('selected-gap',f.x(t),f.y(raw),f.x(t),f.y(1),muted,1.5,.6);\n board.circle('selected-raw',f.x(t),f.y(raw),4.5,blue);\n board.circle('selected-corrected',f.x(t),f.y(1),4.5,orange);\n board.text('raw-number','t='+t+'：v='+raw.toFixed(4),18,height-30,{size:14,color:blue});\n board.text('mass-number','权重和='+mass.toFixed(4)+' → 校正后=1',18,height-8,{size:14,color:ink});\n return {beta,t,gradient:1,initial:0,raw,mass,corrected,missingMass:Math.pow(beta,t),curve,convention:'整数步执行EWMA；曲线在整数步之间仅作连线显示，t=0的校正未定义'};\n}",
+      "summary": "手设恒定梯度例子；在整数步计算，曲线只连接各步。灰线显示距 1 的缺口。"
+    },
+    {
+      "id": "yogi-change",
+      "title": "同一个二次矩，怎样增减？",
+      "afterAnchor": "adam-027",
+      "height": 370,
+      "mobileHeight": 390,
+      "interaction": "parameters",
+      "params": [
+        {
+          "key": "q",
+          "label": "当前梯度平方 q",
+          "min": 0,
+          "max": 4,
+          "step": 0.01,
+          "value": 0
+        },
+        {
+          "key": "s",
+          "label": "上一二次矩 s",
+          "min": 0.5,
+          "max": 2,
+          "step": 0.01,
+          "value": 1
+        }
+      ],
+      "code": "function draw({board,width,height,params}) {\n const q=params.q, s=params.s, beta=.9, a=1-beta, blue='#287d99', orange='#b65a31', muted='#677b84', ink='#253941';\n const da=a*(q-s), dy=a*q*Math.sign(q-s);\n board.text('condition','单坐标 · q=g² · β₂=0.9',18,20,{size:14,color:muted});\n board.line('adam-legend',18,45,36,45,blue,2.5);\n board.text('adam-label','Adam',43,49,{size:14,color:blue});\n board.line('yogi-legend',150,45,168,45,orange,2.5);\n board.text('yogi-label','Yogi',175,49,{size:14,color:orange});\n const f=board.axes('delta-axes',{xDomain:[0,4],yDomain:[-.25,.45],xLabel:'当前 q=g²',yLabel:'变化 Δs',box:[52,84,width-22,height-90],grid:true});\n board.line('zero-guide',f.x(0),f.y(0),f.x(4),f.y(0),muted,1,.4);\n board.curve('adam-line',f,[[0,-a*s],[4,a*(4-s)]],{color:blue,width:2.5});\n board.curve('yogi-left',f,[[0,0],[s,-a*s]],{color:orange,width:2.5});\n board.curve('yogi-right',f,[[s,a*s],[4,4*a]],{color:orange,width:2.5});\n for(const sign of [-1,1]) board.mark('open-'+sign,'circle',{cx:f.x(s),cy:f.y(sign*a*s),r:4,fill:'#faf9f6',stroke:orange,'stroke-width':2});\n board.circle('yogi-equal',f.x(s),f.y(0),3,orange);\n board.line('selection',f.x(q),f.y(-.25),f.x(q),f.y(.45),muted,1,.25);\n board.circle('selected-adam',f.x(q),f.y(da),5,blue);\n board.mark('selected-yogi','circle',{cx:f.x(q),cy:f.y(dy),r:6,fill:'none',stroke:orange,'stroke-width':2});\n board.text('adam-value','Adam：s′='+(s+da).toFixed(3)+'  (Δ '+da.toFixed(3)+')',18,height-50,{size:14,color:blue});\n board.text('yogi-value','Yogi：s′='+(s+dy).toFixed(3)+'  (Δ '+dy.toFixed(3)+')',18,height-28,{size:14,color:orange});\n board.text('equal-note','空心端点不取；q=s 时 Δs=0',18,height-6,{size:13,color:muted});\n return {q,previousSquare:s,beta,adamDelta:da,yogiDelta:dy,adamNext:s+da,yogiNext:s+dy,convention:'比较一次未校正的二次矩更新；不是收敛实验，sgn(0)=0'};\n}",
+      "summary": "先保持 q=0 改变 s，再让 q 跨过 s。比较一次状态更新；不代表优化器收敛性。"
+    }
+  ],
+  "annotations": [
+    {
+      "id": "note-series-index",
+      "afterAnchor": "adam-009",
+      "kind": "correction",
+      "text": "上段有限几何级数的求和上界应为 t−1（t≥1，0≤β<1）。零初始化后的梯度权重和为 1−βᵗ，校正就是将这些权重重新归一化。",
+      "formula": "\\sum_{i=0}^{t-1}\\beta^i=\\frac{1-\\beta^t}{1-\\beta}"
+    },
+    {
+      "id": "note-second-moment",
+      "afterAnchor": "adam-007",
+      "kind": "clarification",
+      "text": "s 估计的是梯度的二次矩 E[g²]，不是中心化方差 Var(g)=E[g²]−E[g]²。后文的“方差估计”按二次矩理解；移动平均参数需满足 0≤β₁,β₂<1。"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "arguments": {
+    "figureId": "sparse-memory",
+    "attemptedDesigns": [
+      "adam-bias",
+      "optimizer-landscape"
+    ],
+    "reason": "optimizer-trace 不支持 Yogi，现成设计不能在相同稀疏梯度序列上比较两者未校正二次矩。保留 Board 曲线和轴的窄范围解析图；本次按真实手机预览把横轴标题与数值读数分成两行，并将很小的非零比例改用科学计数，避免误读为严格零。"
+  },
+  "status": "declared",
+  "code_sha256": "3c7c6ce7877b253ef447d3b353d4676d227b69db8fecc00d5a5be2328e5241f8"
+}

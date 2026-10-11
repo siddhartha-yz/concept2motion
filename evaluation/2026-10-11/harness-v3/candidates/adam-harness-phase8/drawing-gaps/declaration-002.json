@@ -1,0 +1,11 @@
+{
+  "arguments": {
+    "figureId": "yogi-change",
+    "attemptedDesigns": [
+      "optimizer"
+    ],
+    "reason": "optimizer 的实际示例与 trace 支持 SGD/RMSProp 等轨迹，没有 Adam/Yogi 二次矩更新。本图要比较给定 s 和梯度平方 q 下的一次真实增量，并明确 sgn(0)=0 的不连续关系；现有轨迹不能表达这个机制，故用 Board 自绘同坐标曲线与实取点。"
+  },
+  "status": "declared",
+  "code_sha256": "ab3452ac7ca49e250e2dc6828c108770c3d7465d604e69a348c53d7b83ff2a6e"
+}

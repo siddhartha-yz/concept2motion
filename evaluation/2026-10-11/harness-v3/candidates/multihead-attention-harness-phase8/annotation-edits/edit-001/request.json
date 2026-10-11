@@ -1,0 +1,7 @@
+{
+  "id": "head-divisibility",
+  "afterAnchor": "multihead-attention-013",
+  "kind": "condition",
+  "text": "这份实现要求 num_hiddens 能被 num_heads 整除；每个头的维数为 d=num_hiddens/num_heads。拆头是在学到的线性投影之后进行，不能把它等同于直接切分原始输入特征。",
+  "formula": "p_o \\bmod h=0"
+}

@@ -60,3 +60,5 @@ Python Tutor已实际运行维护者输入的四行allocate/alias/copy/write示�
 - [D2L Softmax](https://zh.d2l.ai/chapter_linear-networks/softmax-regression.html)：原文解释分类分数、交叉熵与梯度。新gradient-step可接softmax-loss；96个配置另用真实PyTorch autograd和SGD核对，并保留手设分数/一步更新边界。
 - [D2L Multihead Attention](https://zh.d2l.ai/chapter_attention-mechanisms/multihead-attention.html)：依据原文拆头和转置顺序，新增通用逻辑tensor-reindex，另用NumPy的transpose/reshape核对124配置1984元素映射。没有复制上游实现，也不声称零拷贝或GPU测量。
 - [MDN overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/overflow)、[KaTeX Common Issues](https://katex.org/docs/issues.html)：核对局部滚动、焦点与完整公式显示。长公式保持内容与字号，开脚本时显式实现方向键/Home/End；禁用脚本保留局部CSS滚动。没有复制教程界面资产。
+
+- 固定D2L Adam源码的PyTorch Yogi递推：新增Yogi采用该分支的sign(g²−s)、整数校正和平方根外ε约定，独立实现；未调用/复制原训练代码，默认ε明确不冒充原示例。额外24配置744更新用独立CPU float64张量递推核对；这不是torch.optim自带Yogi，也不证明二次状态无偏或收敛。

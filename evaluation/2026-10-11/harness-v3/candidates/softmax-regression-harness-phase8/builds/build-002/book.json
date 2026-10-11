@@ -1,0 +1,17 @@
+{
+  "figures": [],
+  "annotations": [
+    {
+      "id": "calibration",
+      "afterAnchor": "softmax-regression-025",
+      "kind": "clarification",
+      "text": "softmax 只保证输出是概率分布，不自动保证校准；校准还需要在独立数据上检查预测概率与实际频率是否一致。"
+    },
+    {
+      "id": "entropy-units",
+      "afterAnchor": "softmax-regression-068",
+      "kind": "clarification",
+      "text": "本节使用自然对数，交叉熵的单位是 nat；换成以 2 为底的对数才是 bit。交叉熵也不是距离：两分布相同时通常仍等于非零的熵。"
+    }
+  ]
+}
