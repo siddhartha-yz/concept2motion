@@ -40,6 +40,7 @@ jobs:
           python3 tools/check_visualbook_preparation.py work/visualbook/ci-preparation
           node tools/check_visualbook_source_capture.mjs work/visualbook/ci-source-capture
           node tools/check_visualbook_auto_spacing.mjs work/visualbook/ci-auto-spacing
+          node tools/check_visualbook_aligned_inputs.mjs work/visualbook/ci-aligned-inputs
           node tools/check_visualbook_failures.mjs work/visualbook/ci-failures
           node tools/check_visualbook_program_controls.mjs work/visualbook/ci-program-controls
           node tools/check_visualbook_spatial_controls.mjs work/visualbook/ci-spatial-controls
@@ -68,6 +69,7 @@ jobs:
             work/visualbook/ci-preparation
             work/visualbook/ci-source-capture
             work/visualbook/ci-auto-spacing
+            work/visualbook/ci-aligned-inputs
             work/visualbook/ci-failures
             work/visualbook/ci-program-controls
             work/visualbook/ci-spatial-controls

@@ -166,7 +166,7 @@
           1,
         );
       }
-      row.values.forEach((value, i) => {
+      const positions = row.values.map((value, i) => {
         // Repeated values share x; a small non-quantitative vertical offset preserves visibility.
         const equalBefore = row.values
           .slice(0, i)
@@ -175,19 +175,34 @@
         const py =
           cy +
           (equalCount > 1 ? (equalBefore / (equalCount - 1) - 0.5) * 10 : 0);
+        return [x(value), py];
+      });
+      // Partition the row into disjoint nearest-item regions. Overlapping padded
+      // circles make earlier duplicate values unreachable by pointer input.
+      const picking = stateKey
+        ? global.d3.Delaunay.from(positions).voronoi([
+            left - 14,
+            cy - 14,
+            right + 14,
+            cy + 14,
+          ])
+        : null;
+      row.values.forEach((value, i) => {
+        const [px, py] = positions[i];
         const c = pointColors ? P[pointColors[i]] : colors[i % colors.length];
         const node = board.circle(
           "point-" + r + "-" + i,
-          x(value),
+          px,
           py,
           i === selected ? 6 : 4,
           c,
         );
         if (stateKey) {
-          const hit = board.mark("hit-" + r + "-" + i, "circle", {
-            cx: x(value),
-            cy: py,
-            r: 14,
+          const region = picking.renderCell(i);
+          if (!region)
+            throw Error("Aligned item has no distinct picking region");
+          const hit = board.mark("hit-" + r + "-" + i, "path", {
+            d: region,
             fill: "transparent",
           });
           board.selectable(hit, {
