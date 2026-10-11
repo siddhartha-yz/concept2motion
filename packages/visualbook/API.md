@@ -182,3 +182,9 @@ MCP可选 `export_motion({label,id,width:375,fps:20,duration:6,formats:["gif","m
 张量cellAspect:auto默认使单行/单列向量可以是矩形格，矩阵保持方格；square/free显式选择。aligned-points的compact:true允许50px行间隔，comfortable默认68px，字号仍12..13px。列/堆叠权重与总高度仍需安排，任意复杂场景不保证自动适配。
 
 长公式不缩小到难读的字号：行内及展示公式在自己的区域横向查看，保持整页宽度；只有实际超宽公式获得焦点和长公式标签，左右/Home/End在该区域操作。禁用脚本仍保留局部滚动的CSS和完整公式。
+
+## 原文与预览图片
+
+run默认在第一场模型前用真实Chromium检查整本原文在375/1280宽、禁用脚本时的公式覆盖、整页宽度和本地图解码；失败保留reader-preflight记录并停止。preview会在截图DOM中主动加载、解码所有原图并等待绘制，候选HTML字节和原文不改。解码通过不证明图片内容/语义正确，模型仍需看实际图片。
+
+optimizer-trace新增Yogi的D2L PyTorch递推约定及每维firstMomentCurves/squareMomentCurves；算法的二次状态不是EWMA，不声称校正后无偏。epsilon仍显式可选，默认1e−8，不冒充D2L演示的1e−3。新稀疏梯度设计使用eta=0仅比较状态。aligned-points compact默认auto，有限空间使用50px行距，宽松空间68px；显式布尔选择可覆盖，字号保持，空间不足仍拒绝。

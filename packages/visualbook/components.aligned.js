@@ -14,7 +14,7 @@
       statistics = true,
       title = null,
       pointColors = null,
-      compact = false,
+      compact = "auto",
       itemLabels = null,
     } = {},
     context = {},
@@ -59,8 +59,8 @@
         pointColors.some((c) => typeof c !== "string" || !P[c]))
     )
       throw Error("Use one known palette color per item");
-    if (typeof compact !== "boolean")
-      throw Error("Aligned compact must be boolean");
+    if (typeof compact !== "boolean" && compact !== "auto")
+      throw Error("Aligned compact must be boolean or auto");
     if (
       itemLabels !== null &&
       (!Array.isArray(itemLabels) ||
@@ -88,7 +88,8 @@
       top = (title ? 54 : 36) + legendHeight,
       bottom = board.height - 50,
       rowHeight = (bottom - top) / rows.length;
-    if (board.width < 260 || rowHeight < (compact ? 50 : 68))
+    const fittedCompact = compact === "auto" ? rowHeight < 68 : compact;
+    if (board.width < 260 || rowHeight < (fittedCompact ? 50 : 68))
       throw Error(
         "Aligned points need260px width and50px compact/68px comfortable per numeric row",
       );
@@ -205,7 +206,7 @@
       });
     return {
       rows: summary,
-      compact,
+      compact: fittedCompact,
       itemLabels,
       domain,
       selected,

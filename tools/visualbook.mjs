@@ -589,6 +589,40 @@ export async function preview(file, out) {
       });
       await page.goto(pathToFileURL(path.resolve(file)).href);
       await page.waitForFunction(() => document.fonts.status === "loaded");
+      // Full-page captures do not scroll lazy original images into view. Load
+      // them explicitly in the preview DOM before any model-facing screenshot.
+      // This does not rewrite the candidate HTML or its source identity.
+      const sourceImages = await page.evaluate(async () => {
+        const records = [];
+        for (const img of document.querySelectorAll(".source-block img")) {
+          const initialLoading = img.loading;
+          img.loading = "eager";
+          let decoded = true;
+          try {
+            await img.decode();
+          } catch {
+            decoded = false;
+          }
+          records.push({
+            anchor: img.closest(".source-block")?.id,
+            alt: img.alt,
+            initialLoading,
+            decoded: decoded && img.naturalWidth > 0,
+            naturalWidth: img.naturalWidth,
+            naturalHeight: img.naturalHeight,
+          });
+        }
+        await new Promise((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(resolve)),
+        );
+        return records;
+      });
+      if (sourceImages.some((img) => !img.decoded))
+        report.findings.push({
+          width,
+          kind: "source-image-decode",
+          images: sourceImages.filter((img) => !img.decoded),
+        });
       const math = await page.evaluate(() => ({
         expected: +document.body.dataset.mathExpected,
         rendered: document.querySelectorAll(".source-block .katex").length,
@@ -807,7 +841,7 @@ export async function preview(file, out) {
       const filename = path.join(out, `${width}-page.png`);
       await page.screenshot({ path: filename, fullPage: true });
       report.screenshots.push(path.resolve(filename));
-      report.viewports.push({ width, math, shapes });
+      report.viewports.push({ width, math, sourceImages, shapes });
       if (consoleErrors.length)
         report.findings.push({
           width,

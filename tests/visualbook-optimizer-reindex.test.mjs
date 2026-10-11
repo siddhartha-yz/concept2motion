@@ -187,3 +187,39 @@ test("logical permutation, count-preserving reshape and selected identity have a
     }),
   );
 });
+
+test("Yogi keeps raw memory after a zero gradient while Adam decays; projected curves retain actual state identity", () => {
+  const gradients = [
+      [1, -2],
+      [0, 0],
+      [0, 0],
+    ],
+    options = { start: [0, 0], gradients, beta2: 0.9, eta: 0 };
+  const adam = O.optimizerTrace({ ...options, kind: "adam" }),
+    yogi = O.optimizerTrace({ ...options, kind: "yogi" });
+  near(adam.records[3].squareMoment[0], 0.1 * 0.9 ** 2);
+  near(yogi.records[3].squareMoment[0], 0.1);
+  near(yogi.records[3].squareMoment[1], 0.4);
+  for (const trace of [adam, yogi])
+    for (const record of trace.records)
+      for (let i = 0; i < 2; i++) {
+        assert.deepEqual(trace.firstMomentCurves[i][record.step], [
+          record.step,
+          record.firstMoment[i],
+        ]);
+        assert.deepEqual(trace.squareMomentCurves[i][record.step], [
+          record.step,
+          record.squareMoment[i],
+        ]);
+        assert.deepEqual(
+          record.squareMomentPoints[i],
+          trace.squareMomentCurves[i][record.step],
+        );
+      }
+  assert.deepEqual(yogi.points, [
+    [0, 0],
+    [0, 0],
+    [0, 0],
+    [0, 0],
+  ]);
+});

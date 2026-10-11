@@ -114,6 +114,8 @@
         "points",
         "visiblePoints",
         "lossCurve",
+        "firstMomentCurves",
+        "squareMomentCurves",
         "records",
         "selected",
         "convention",

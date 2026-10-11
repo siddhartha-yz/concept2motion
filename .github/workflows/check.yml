@@ -38,6 +38,8 @@ jobs:
           python3 tools/check_visualbook_design_protocol.py work/visualbook/ci-design-protocol
           python3 tools/check_visualbook_source_policy.py work/visualbook/ci-source-policy
           python3 tools/check_visualbook_preparation.py work/visualbook/ci-preparation
+          node tools/check_visualbook_source_capture.mjs work/visualbook/ci-source-capture
+          node tools/check_visualbook_auto_spacing.mjs work/visualbook/ci-auto-spacing
           node tools/check_visualbook_failures.mjs work/visualbook/ci-failures
           node tools/check_visualbook_program_controls.mjs work/visualbook/ci-program-controls
           node tools/check_visualbook_spatial_controls.mjs work/visualbook/ci-spatial-controls
@@ -64,6 +66,8 @@ jobs:
             work/visualbook/ci-build-state
             work/visualbook/ci-design-protocol
             work/visualbook/ci-preparation
+            work/visualbook/ci-source-capture
+            work/visualbook/ci-auto-spacing
             work/visualbook/ci-failures
             work/visualbook/ci-program-controls
             work/visualbook/ci-spatial-controls

@@ -32,7 +32,7 @@ const report = {
   status: "running",
   engine,
   scope:
-    "Alternate browser: twenty-one frozen maintainer designs at two widths/four poses, registered input actions, live playback/wheel pause, four frozen model chapters with scripts disabled and images decoded. No exhaustive browser/device or art guarantee.",
+    "Alternate browser: twenty-six frozen maintainer designs at two widths/four poses, registered input actions, live playback/wheel pause, four frozen model chapters with scripts disabled and images decoded. No exhaustive browser/device or art guarantee.",
   modelCalls: 0,
   cases: [],
   offline: [],
@@ -91,6 +91,11 @@ try {
     "sigmoid-response",
     "sampled-field",
     "polynomial-fit",
+    "optimizer-landscape",
+    "adam-bias",
+    "softmax-competition",
+    "softmax-gradient-step",
+    "head-reindex",
   ];
   for (const id of ids) {
     const file = path.resolve(catalogDir, "sources", id, "book.html"),

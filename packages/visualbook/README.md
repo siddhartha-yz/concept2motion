@@ -53,7 +53,7 @@ python3 tools/run_visualbook.py chapters.json work/prepared-book --resume
 
 成功后 book/index.html、各章HTML和许可证可以离线阅读。禁用脚本时显示真实渲染的初始图，控制检查要求图片实际解码；它不能替代全部交互状态。完整正文保留，图解可以拖动、单步或主动播放一次，滚动页面会暂停演示。默认最多3章，显式调整 --max-chapters 才扩大调用范围；目前不支持直接输入PDF/EPUB。
 
-所有章节先完成导入并封存输入，再启动第一场模型会话。后面章节的坏公式或缺图会在消耗模型额度前停止。封存也包含本地图片内容；只改图片不改Markdown，--resume同样会拒绝旧输入。每次准备的成功与失败留在preparation/，不覆盖旧快照。
+所有章节先完成导入并封存输入，在真实Chromium检查375/1280宽度、禁用脚本的公式覆盖和本地图解码，再启动第一场模型会话。reader-preflight每次另存；原文宽度或解码失败不会消耗模型额度。--prepare-only也会检查原文阅读版。后面章节的坏公式或缺图会在消耗模型额度前停止。封存也包含本地图片内容；只改图片不改Markdown，--resume同样会拒绝旧输入。每次准备的成功与失败留在preparation/，不覆盖旧快照。
 
 --resume只复用已有会话，不覆盖、不因为不满意而偷偷重复调用；原文改变必须另起目录。输入身份、调用用量、真实图片反馈、预览发现、失败和修订都留在会话目录。
 
@@ -66,6 +66,14 @@ node tools/visualbook.mjs export book.html preview-01 offline.html
 node tools/build_visualbook_catalog.mjs work/design-gallery
 ```
 
-[接口和设计限制](API.md)给出完整方法。[本轮报告](../../evaluation/2026-10-10/harness-v2/REPORT.md)区分编译、实际渲染、模型生成、维护者复核和未做的用户审评。
+[接口和设计限制](API.md)给出完整方法。[本轮报告](../../evaluation/2026-10-11/harness-v3/REPORT.md)区分编译、实际渲染、模型生成、维护者复核和未做的用户审评。
 
 迁移说明：v03–v05旧会话没有新的review.json。保留它们作证据或用单独组装工具复查，不会在--resume中默默赋予新的最终检查资格。当前最终检查已在真实会话中使用，已知问题确实阻止两次候选导出；这仍不能保证未知审美或教学问题会自动发现。
+
+## 让模型使用已有设计
+
+默认--composition-policy prefer-library：先检索并调用设计/组件，使用原生组合或put_design；缺少必要关系时仍允许自写，必须留下缺口说明和对应代码哈希，方便后续补工具。--composition-policy open保留开放绘图模式供对照；两个政策不能混作同一试验。这个记录不是质量评分或安全沙箱。
+
+当前41组件、61设计、31数值操作。相同state/param可以连接多幅视图，$result可以连接之前计算的输出。包括Adam/Yogi真实递推、softmax→梯度→一步更新、最多四轴重排、QR拟合、采样色场、卷积依赖与有限程序状态。所有示例都有具体边界，手选参数不冒充训练。
+
+原图使用懒加载，但preview会在截图DOM中主动加载并等待解码/绘制再采图，原文和候选HTML字节不改。这解决整页截图把未加载原图拍成空白的问题；解码通过仍不能判定图片的语义或艺术品质。

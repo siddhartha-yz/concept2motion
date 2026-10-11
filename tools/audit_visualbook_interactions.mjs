@@ -131,6 +131,34 @@ export async function auditInteractions(
           };
         }, id);
       for (const figure of figures) {
+        // Static figures intentionally have no reset toolbar or live inputs.
+        if (figure.mode === "static") {
+          const count = await page
+            .locator(
+              "#figure-" +
+                figure.id +
+                " svg .vh-handle,#figure-" +
+                figure.id +
+                " svg .vh-selectable",
+            )
+            .count();
+          report.coverage.push({
+            width,
+            id: figure.id,
+            mode: "static",
+            registered: count,
+            sampled: 0,
+            limit: 16,
+          });
+          if (count)
+            report.findings.push({
+              width,
+              id: figure.id,
+              kind: "static-has-live-controls",
+              count,
+            });
+          continue;
+        }
         const scope = page.locator("#figure-" + figure.id),
           tested = new Set(),
           registered = new Set();

@@ -4393,7 +4393,7 @@
       "title": "同一个目标，更新路线为什么不同",
       "topic": "数学 / 机器学习",
       "keywords": "optimizer Adam momentum SGD RMSprop Adagrad 优化 等高线 轨迹",
-      "limits": "二维解析二次函数上的真实离散更新；没有神经网络训练。灰色SGD参照使用相同起点与步长。线只连接实际迭代位置，不是连续时间解；自适应分母为sqrt(v)+ε，momentum采用ρv+g。",
+      "limits": "二维解析二次函数上的真实离散更新；没有神经网络训练。灰色SGD参照使用相同起点与步长。线只连接实际迭代位置，不是连续时间解；自适应分母为sqrt(v)+ε，momentum采用ρv+g。 Yogi采用D2L PyTorch的校正约定，不声明二次矩无偏。",
       "interaction": "parameters",
       "height": 390,
       "mobileHeight": 560,
@@ -4439,6 +4439,10 @@
             {
               "value": "adam",
               "label": "adam"
+            },
+            {
+              "value": "yogi",
+              "label": "yogi"
             }
           ],
           "value": "adam"
@@ -5223,6 +5227,360 @@
                   "n0d1",
                   "n1d0",
                   "n1d1"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "sparse-gradient-memory",
+      "title": "梯度归零以后，历史还留下多少",
+      "topic": "机器学习 / 深度学习",
+      "keywords": "Yogi Adam sparse gradient memory 稀疏 梯度 历史 二次矩",
+      "limits": "同一手设序列：先g=1，再30次g=0。比较未校正二次矩，圆点是当前整数步。线只连接离散状态；纵轴随共同β₂缩放，请读刻度。这不是训练或收敛实验。",
+      "interaction": "parameters",
+      "height": 360,
+      "mobileHeight": 440,
+      "params": [
+        {
+          "key": "step",
+          "label": "已完成更新",
+          "kind": "stepper",
+          "min": 1,
+          "max": 31,
+          "step": 1,
+          "value": 21
+        },
+        {
+          "key": "beta",
+          "label": "共同 β₂",
+          "min": 0.5,
+          "max": 0.95,
+          "step": 0.05,
+          "value": 0.9
+        }
+      ],
+      "scene": {
+        "type": "compose",
+        "calculations": [
+          {
+            "id": "adam",
+            "operation": "optimizer-trace",
+            "inputs": {
+              "kind": "adam",
+              "start": [
+                0
+              ],
+              "gradients": [
+                [
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "eta": 0,
+              "beta2": {
+                "$param": "beta"
+              },
+              "selectedStep": {
+                "$param": "step"
+              }
+            }
+          },
+          {
+            "id": "yogi",
+            "operation": "optimizer-trace",
+            "inputs": {
+              "kind": "yogi",
+              "start": [
+                0
+              ],
+              "gradients": [
+                [
+                  1
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ],
+                [
+                  0
+                ]
+              ],
+              "eta": 0,
+              "beta2": {
+                "$param": "beta"
+              },
+              "selectedStep": {
+                "$param": "step"
+              }
+            }
+          }
+        ],
+        "visual": {
+          "type": "columns",
+          "layout": {
+            "weights": [
+              2,
+              1
+            ],
+            "minColumnWidth": 290,
+            "gap": 18
+          },
+          "children": [
+            {
+              "id": "memory",
+              "type": "plot",
+              "props": {
+                "xDomain": [
+                  0,
+                  31
+                ],
+                "yDomain": [
+                  0,
+                  {
+                    "$result": "adam.records.1.squareMoment.0"
+                  }
+                ],
+                "legend": true,
+                "layers": [
+                  {
+                    "id": "adam",
+                    "type": "curve",
+                    "points": {
+                      "$result": "adam.squareMomentCurves.0"
+                    },
+                    "color": "blue",
+                    "label": "Adam 历史"
+                  },
+                  {
+                    "id": "yogi",
+                    "type": "curve",
+                    "points": {
+                      "$result": "yogi.squareMomentCurves.0"
+                    },
+                    "color": "orange",
+                    "label": "Yogi 历史"
+                  },
+                  {
+                    "id": "adam-selected",
+                    "type": "points",
+                    "points": [
+                      {
+                        "$result": "adam.selected.squareMomentPoints.0"
+                      }
+                    ],
+                    "color": "blue",
+                    "radius": 5,
+                    "label": "Adam 当前"
+                  },
+                  {
+                    "id": "yogi-selected",
+                    "type": "points",
+                    "points": [
+                      {
+                        "$result": "yogi.selected.squareMomentPoints.0"
+                      }
+                    ],
+                    "color": "orange",
+                    "radius": 5,
+                    "label": "Yogi 当前"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "current",
+              "type": "readout",
+              "props": {
+                "items": [
+                  {
+                    "label": "Adam 原始 s",
+                    "value": {
+                      "$result": "adam.selected.squareMoment.0"
+                    },
+                    "color": "blue"
+                  },
+                  {
+                    "label": "Yogi 原始 s",
+                    "value": {
+                      "$result": "yogi.selected.squareMoment.0"
+                    },
+                    "color": "orange"
+                  }
                 ]
               }
             }

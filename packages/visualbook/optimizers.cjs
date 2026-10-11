@@ -27,7 +27,9 @@
     beta2 = 0.999,
     epsilon = 1e-8,
   } = {}) {
-    if (!["sgd", "momentum", "adagrad", "rmsprop", "adam"].includes(kind))
+    if (
+      !["sgd", "momentum", "adagrad", "rmsprop", "adam", "yogi"].includes(kind)
+    )
       throw Error("Unknown optimizer");
     if (
       !vector(start) ||
@@ -84,6 +86,7 @@
         value: initialValue,
       },
     ];
+    const usesCorrection = kind === "adam" || kind === "yogi";
     for (let t = 1; t <= steps; t++) {
       const before = [...point],
         g =
@@ -100,10 +103,14 @@
         second = second.map((v, i) =>
           finite(rho * v + (1 - rho) * g[i] * g[i]),
         );
-      if (kind === "adam") {
+      if (usesCorrection) {
         first = first.map((m, i) => finite(beta1 * m + (1 - beta1) * g[i]));
         second = second.map((v, i) =>
-          finite(beta2 * v + (1 - beta2) * g[i] * g[i]),
+          finite(
+            kind === "yogi"
+              ? v + (1 - beta2) * Math.sign(g[i] * g[i] - v) * g[i] * g[i]
+              : beta2 * v + (1 - beta2) * g[i] * g[i],
+          ),
         );
         correctedFirst = first.map((v) => finite(v / (1 - beta1 ** t)));
         correctedSecond = second.map((v) => finite(v / (1 - beta2 ** t)));
@@ -115,7 +122,7 @@
               ? v
               : kind === "momentum"
                 ? first[i]
-                : kind === "adam"
+                : usesCorrection
                   ? correctedFirst[i] /
                     (Math.sqrt(correctedSecond[i]) + epsilon)
                   : v / (Math.sqrt(second[i]) + epsilon)),
@@ -129,8 +136,8 @@
         point: [...point],
         gradient: g,
         squareGradient: g.map((v) => finite(v * v)),
-        correctionFirst: kind === "adam" ? 1 - beta1 ** t : null,
-        correctionSecond: kind === "adam" ? 1 - beta2 ** t : null,
+        correctionFirst: usesCorrection ? 1 - beta1 ** t : null,
+        correctionSecond: usesCorrection ? 1 - beta2 ** t : null,
         firstMoment: [...first],
         squareMoment: [...second],
         correctedFirst,
@@ -139,6 +146,22 @@
         value,
       });
     }
+    for (const record of records) {
+      record.firstMomentPoints = record.firstMoment.map((v) => [
+        record.step,
+        v,
+      ]);
+      record.squareMomentPoints = record.squareMoment.map((v) => [
+        record.step,
+        v,
+      ]);
+    }
+    const firstMomentCurves = start.map((_, i) =>
+      records.map((r) => r.firstMomentPoints[i]),
+    );
+    const squareMomentCurves = start.map((_, i) =>
+      records.map((r) => r.squareMomentPoints[i]),
+    );
     const selected = records[pick],
       points = records.map((r) => r.point),
       lossCurve = field === null ? null : records.map((r) => [r.step, r.value]);
@@ -156,10 +179,12 @@
       points,
       visiblePoints: points.slice(0, pick + 1),
       lossCurve,
+      firstMomentCurves,
+      squareMomentCurves,
       records,
       selected,
       convention:
-        "Actual discrete updates of supplied gradients or the analytic field. Adaptive denominators use sqrt(second moment)+epsilon. Momentum uses rho*v+g without (1-rho) scaling. Adam applies bias correction at integer t>=1; step zero has no applied gradient. Gradient belongs to before, objective to point after the update. Hand-specified conditions, not neural-network training or a guarantee of convergence.",
+        "Actual discrete updates of supplied gradients or the analytic field. Adaptive denominators use sqrt(second moment)+epsilon. Momentum uses rho*v+g without (1-rho) scaling. Adam applies bias correction at integer t>=1; Yogi uses s+(1-beta2)*sign(g²-s)*g² with the D2L PyTorch correction/denominator convention; dividing its non-EWMA state by 1-beta2^t is an algorithmic convention, not an unbiased second-moment claim; step zero has no applied gradient. Gradient belongs to before, objective to point after the update. Hand-specified conditions, not neural-network training or a guarantee of convergence.",
     };
   }
   const api = { optimizerTrace };

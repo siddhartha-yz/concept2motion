@@ -139,8 +139,24 @@ def main():
         manifest = _preparation.prepare(args.manifest, output, max_chapters=args.max_chapters, source_url=args.source_url, source_name=args.source_name)
     except Exception as error:
         raise SystemExit(str(error))
+    # Check the complete source reader before the first author, including prepare-only.
+    reader = output / "reader-preflight"
+    reader.mkdir(exist_ok=True)
+    reader_attempt = reader / f"attempt-{len(list(reader.glob('attempt-*'))) + 1:03d}"
+    try:
+        reader_process = subprocess.run(
+            ["node", str(ROOT / "tools/check_visualbook_source.mjs"), str(output / "prepared-manifest.json"), str(reader_attempt)],
+            cwd=ROOT, capture_output=True, text=True, timeout=300,
+        )
+    except subprocess.TimeoutExpired:
+        save(reader / (reader_attempt.name + ".timeout.json"), {"status": "failed", "kind": "reader-preflight-timeout", "modelCalls": 0, "timeoutSeconds": 300})
+        raise SystemExit("Source reader preflight timed out before model calls; diagnostics retained in " + str(reader))
+    (reader / (reader_attempt.name + ".stdout")).write_text(reader_process.stdout)
+    (reader / (reader_attempt.name + ".stderr")).write_text(reader_process.stderr)
+    if reader_process.returncode:
+        raise SystemExit("Source reader preflight failed before model calls; see " + str(reader_attempt / "report.json"))
     if args.prepare_only:
-        print("Prepared without model calls: " + str(output / "prepared-manifest.json"))
+        print("Prepared and source reader checked without model calls: " + str(output / "prepared-manifest.json"))
         return
     chapters = manifest.get("chapters", [])
     if not 1 <= len(chapters) <= args.max_chapters:
